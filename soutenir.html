@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soutenir — Cœur Errant</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .soutenir-hero {
+    padding: 10rem 5rem 5rem;
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+  .soutenir-hero .section-tag { color: var(--accent); }
+  .soutenir-hero .section-tag::before { background: var(--accent); }
+  .soutenir-hero h1 { color: var(--cream); font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
+  .soutenir-hero h1 em { color: var(--accent); }
+  .soutenir-hero p { font-size: 1rem; font-weight: 300; color: rgba(250,248,245,0.6); max-width: 50ch; line-height: 1.8; }
+
+  .don-section {
+    padding: 7rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .don-text p {
+    font-size: 1rem; font-weight: 300; line-height: 1.95;
+    color: var(--muted); margin-bottom: 1.5rem;
+  }
+
+  .don-text .origin-quote { margin: 2rem 0; }
+
+  .qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem;
+    border: 0.5px solid var(--border);
+    background: var(--warm);
+    border-radius: 4px;
+  }
+
+  .qr-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 300;
+    text-align: center;
+  }
+  .qr-title em { font-style: italic; color: var(--accent); }
+
+  .qr-codes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .qr-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    border: 2px solid var(--charcoal);
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+  }
+
+  .qr-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    padding: 1rem;
+    background: white;
+  }
+
+  .qr-card-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #f5f5f5;
+    padding: 1rem;
+  }
+
+  .qr-card-placeholder span { font-size: 2rem; }
+
+  .qr-card-placeholder p {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted) !important;
+    text-align: center;
+    margin-bottom: 0 !important;
+  }
+
+  .qr-card-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    padding: 0.5rem;
+    background: white;
+    width: 100%;
+  }
+
+  .scan-me {
+    width: 100%;
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .impact-section {
+    background: var(--warm);
+    padding: 7rem 5rem;
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .impact-item {
+    background: var(--cream);
+    border: 0.5px solid var(--border);
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .impact-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 300;
+    color: var(--pink); display: block; margin-bottom: 0.5rem;
+  }
+
+  .impact-desc {
+    font-size: 0.85rem; font-weight: 300;
+    line-height: 1.8; color: var(--muted);
+  }
+
+  .partager-section { padding: 7rem 5rem; }
+
+  .reseaux-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; margin-top: 4rem;
+  }
+
+  .reseau-card {
+    border: 0.5px solid var(--border);
+    padding: 2.5rem; text-align: center;
+    text-decoration: none; color: var(--charcoal);
+    transition: transform 0.2s, border-color 0.3s;
+    display: block; border-radius: 4px;
+  }
+
+  .reseau-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--pink);
+  }
+
+  .reseau-logo {
+    width: 48px; height: 48px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+
+  .reseau-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 300; margin-bottom: 0.5rem;
+  }
+
+  .reseau-handle {
+    font-size: 0.72rem; letter-spacing: 0.12em;
+    color: var(--pink); text-transform: uppercase;
+  }
+
+  .reseau-desc {
+    font-size: 0.85rem; font-weight: 300;
+    line-height: 1.8; color: var(--muted); margin-top: 1rem;
+  }
+
+  .final-cta {
+    background: var(--charcoal);
+    padding: 7rem 5rem; text-align: center; color: var(--cream);
+  }
+
+  .final-cta h2 { color: var(--cream); max-width: 22ch; margin: 0 auto 1.5rem; text-align: center; }
+  .final-cta h2 em { color: var(--accent); }
+  .final-cta p { font-size: 1rem; font-weight: 300; line-height: 1.8; color: rgba(250,248,245,0.6); max-width: 50ch; margin: 0 auto 3rem; }
+
+  @media (max-width: 768px) {
+    .soutenir-hero { padding: 7rem 2rem 3rem; }
+    .don-section { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    .impact-section { padding: 4rem 2rem; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .partager-section { padding: 4rem 2rem; }
+    .reseaux-grid { grid-template-columns: 1fr; }
+    .final-cta { padding: 4rem 2rem; }
+    .qr-codes-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
+    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; letter-spacing:0.15em;">CŒUR ERRANT</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#histoire">Mon histoire</a></li>
+    <li><a href="mission.html">La mission</a></li>
+    <li><a href="voyages.html">Voyages</a></li>
+    <li><a href="soutenir.html">Soutenir</a></li>
+  </ul>
+</nav>
+
+<div class="soutenir-hero">
+  <p class="section-tag">Ensemble</p>
+  <h1>Soutenir <em>Cœur Errant</em></h1>
+  <p>Je fais ça seule, avec mes propres moyens. Chaque euro donné va directement à la nourriture, aux soins vétérinaires, et aux sauvetages. Pas d'intermédiaire, pas de frais cachés.</p>
+</div>
+
+<section class="don-section">
+  <div class="don-text">
+    <p class="section-tag">Faire un don</p>
+    <h2>Chaque euro <em>nourrit</em></h2>
+    <p>Voyager pour nourrir des animaux errants, ce n'est pas gratuit. La nourriture, les consultations vétérinaires, les vaccins, les transports pour emmener un animal blessé se faire soigner. Tout ça a un coût.</p>
+    <p>Je ne me verse aucun salaire. Je ne prends aucune commission. Chaque euro que tu donnes part directement sur le terrain, dans l'écuelle d'un chien affamé ou sur la table d'examen d'un vétérinaire.</p>
+    <div class="origin-quote">
+      <p>"Avec 5€, j'achète de quoi nourrir une dizaine d'animaux pendant une journée. Avec 20€, je peux emmener un animal blessé chez le vétérinaire."</p>
+    </div>
+    <p>Scanne l'un des QR codes pour faire un don, quel que soit le montant. Tout compte. Vraiment.</p>
+  </div>
+  <div class="qr-container">
+    <p class="qr-title">Soutenir <em>la mission</em></p>
+    <div class="qr-codes-grid">
+      <div class="qr-card">
+        <img src="logo paypall.jpeg" alt="QR PayPal" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
+        <div class="qr-card-placeholder" style="display:none;">
+          <span>💙</span>
+          <p>qr-paypal.png</p>
+        </div>
+        <p class="qr-card-label">PayPal</p>
+        <div class="scan-me">SCAN ME</div>
+      </div>
+      <div class="qr-card">
+        <img src="logo leetchi.jpeg" alt="QR Code 2" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
+        <div class="qr-card-placeholder" style="display:none;">
+          <span>💚</span>
+          <p>qr-2.png</p>
+        </div>
+        <p class="qr-card-label">Virement</p>
+        <div class="scan-me">SCAN ME</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="impact-section">
+  <p class="section-tag">L'impact concret</p>
+  <h2>Ce que ton don <em>change</em></h2>
+  <div class="impact-grid">
+    <div class="impact-item">
+      <span class="impact-amount">5€</span>
+      <p class="impact-desc">De quoi nourrir une dizaine d'animaux errants pendant une journée complète</p>
+    </div>
+    <div class="impact-item">
+      <span class="impact-amount">20€</span>
+      <p class="impact-desc">Une consultation vétérinaire d'urgence pour un animal blessé trouvé dans la rue</p>
+    </div>
+    <div class="impact-item">
+      <span class="impact-amount">50€</span>
+      <p class="impact-desc">Une semaine de nourriture et de soins de base pour les animaux rencontrés lors d'un voyage</p>
+    </div>
+  </div>
+</section>
+
+<section class="partager-section">
+  <p class="section-tag">Partager</p>
+  <h2>La force du <em>partage</em></h2>
+  <p style="font-size:1rem; font-weight:300; line-height:1.8; color:var(--muted); max-width:55ch; margin-top:1rem;">Tu ne peux pas faire un don ? Pas de souci. Un partage peut tout changer. Plus Cœur Errant est visible, plus on peut sensibiliser, plus on peut aider.</p>
+  <div class="reseaux-grid">
+    <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="reseau-card">
+      <img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok" class="reseau-logo">
+      <p class="reseau-name">TikTok</p>
+      <p class="reseau-handle">@coeur_errant</p>
+      <p class="reseau-desc">Les histoires en vidéo, les sauvetages en direct, les moments qui touchent le cœur.</p>
+    </a>
+    <a href="https://www.snapchat.com/add/coeur_errant" target="_blank" class="reseau-card">
+      <img src="https://cdn.simpleicons.org/snapchat/FFCC00" alt="Snapchat" class="reseau-logo">
+      <p class="reseau-name">Snapchat</p>
+      <p class="reseau-handle">coeur_errant</p>
+      <p class="reseau-desc">Les coulisses du voyage, les moments spontanés, les rencontres du quotidien.</p>
+    </a>
+    <a href="https://www.facebook.com/coeurerrant" target="_blank" class="reseau-card">
+      <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook" class="reseau-logo">
+      <p class="reseau-name">Facebook</p>
+      <p class="reseau-handle">Cœur Errant</p>
+      <p class="reseau-desc">Les actualités, les appels à l'aide, les mises à jour des voyages en cours.</p>
+    </a>
+  </div>
+</section>
+
+<section class="final-cta">
+  <p class="section-tag" style="justify-content:center;">Merci</p>
+  <h2>Chaque geste <em>compte</em></h2>
+  <p>Un don, un partage, un like, un commentaire. Tout ça, c'est du carburant pour continuer. Pour Nala. Pour le chiot aux yeux bleus de Tanger. Pour tous ceux qui attendent encore.</p>
+  <div class="cta-actions">
+    <a href="voyages.html" class="btn-primary">Voir les voyages</a>
+    <a href="mission.html" class="btn-outline" style="border-color:rgba(250,248,245,0.3); color:var(--cream);">La mission</a>
+  </div>
+</section>
+
+<footer>
+ 
+  <div class="footer-divider"></div>
+  <div class="footer-socials">
+    <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/tiktok/white" alt="TikTok">
+      </div>
+      <span class="footer-social-name">TikTok</span>
+    </a>
+    <a href="https://www.youtube.com/@CoeurErrant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/youtube/white" alt="YouTube">
+      </div>
+      <span class="footer-social-name">YouTube</span>
+    </a>
+    <a href="https://www.facebook.com/coeurerrant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook">
+      </div>
+      <span class="footer-social-name">Facebook</span>
+    </a>
+    <a href="https://www.snapchat.com/add/coeur_errant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/snapchat/white" alt="Snapchat">
+      </div>
+      <span class="footer-social-name">Snapchat</span>
+    </a>
+    <a href="mailto:coeur.errant@outlook.be" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/gmail/white" alt="Mail">
+      </div>
+      <span class="footer-social-name">Mail</span>
+    </a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-copy">© 2025 Cœur Errant — Nourrir les âmes errantes</p>
+</footer>
+
+</body>
+</html>

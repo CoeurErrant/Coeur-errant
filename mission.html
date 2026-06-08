@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission — Cœur Errant</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .mission-hero {
+    padding: 10rem 5rem 5rem;
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+  .mission-hero .section-tag { color: var(--accent); }
+  .mission-hero .section-tag::before { background: var(--accent); }
+  .mission-hero h1 { color: var(--cream); font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
+  .mission-hero h1 em { color: var(--accent); }
+  .mission-hero p { font-size: 1rem; font-weight: 300; color: rgba(250,248,245,0.6); max-width: 50ch; line-height: 1.8; }
+
+  .mission-intro {
+    padding: 7rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .mission-intro-text p {
+    font-size: 1rem; font-weight: 300; line-height: 1.95;
+    color: var(--muted); margin-bottom: 1.5rem;
+  }
+
+  .mission-intro-image {
+    aspect-ratio: 4/5;
+    background: var(--warm);
+    border: 0.5px solid var(--border);
+    overflow: hidden;
+  }
+
+  .mission-intro-image img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: block;
+    background: var(--warm);
+  }
+
+  .valeurs {
+    background: var(--warm);
+    padding: 7rem 5rem;
+  }
+
+  .valeurs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .valeur-item {
+    background: var(--cream);
+    border: 0.5px solid var(--border);
+    padding: 2.5rem;
+    transition: transform 0.2s;
+  }
+
+  .valeur-item:hover { transform: translateY(-4px); }
+
+  .valeur-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .valeur-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 300;
+    margin-bottom: 1rem; line-height: 1.2;
+  }
+
+  .valeur-title em { font-style: italic; color: var(--accent); }
+
+  .valeur-desc {
+    font-size: 0.9rem; font-weight: 300; line-height: 1.85;
+    color: var(--muted);
+  }
+
+  .journee {
+    padding: 7rem 5rem;
+  }
+
+  .journee-steps {
+    margin-top: 4rem;
+    position: relative;
+  }
+
+  .journee-steps::before {
+    content: '';
+    position: absolute;
+    left: 8.5rem;
+    top: 0; bottom: 0;
+    width: 0.5px;
+    background: var(--border);
+  }
+
+  .journee-step {
+    display: grid;
+    grid-template-columns: 6rem 2rem 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    align-items: start;
+  }
+
+  .step-time {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 0.2rem;
+    text-align: right;
+  }
+
+  .step-dot {
+    width: 1rem; height: 1rem;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 2px solid var(--pink);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-content h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 300;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-content h4 em { font-style: italic; color: var(--accent); }
+
+  .step-content p {
+    font-size: 0.9rem; font-weight: 300; line-height: 1.85;
+    color: var(--muted);
+    max-width: 60ch;
+  }
+
+  .histoire-profonde {
+    background: var(--charcoal);
+    padding: 7rem 5rem;
+    color: var(--cream);
+  }
+
+  .histoire-profonde .section-tag { color: var(--accent); }
+  .histoire-profonde .section-tag::before { background: var(--accent); }
+  .histoire-profonde h2 { color: var(--cream); }
+  .histoire-profonde h2 em { color: var(--accent); }
+
+  .histoire-profonde-text p {
+    font-size: 1rem; font-weight: 300; line-height: 1.95;
+    color: rgba(250,248,245,0.65); margin-bottom: 1.5rem;
+    max-width: 65ch;
+  }
+
+  .histoire-profonde .origin-quote {
+    border-left: 2px solid var(--accent);
+    background: rgba(196,168,130,0.08);
+    max-width: 55ch;
+    margin: 2.5rem 0;
+  }
+
+  .histoire-profonde .origin-quote p {
+    color: var(--cream) !important;
+    margin-bottom: 0 !important;
+  }
+
+  @media (max-width: 768px) {
+    .mission-hero { padding: 7rem 2rem 3rem; }
+    .mission-intro { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    .mission-intro-image { display: none; }
+    .valeurs { padding: 4rem 2rem; }
+    .valeurs-grid { grid-template-columns: 1fr; }
+    .journee { padding: 4rem 2rem; }
+    .journee-steps::before { left: 5.5rem; }
+    .histoire-profonde { padding: 4rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
+    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; letter-spacing:0.15em;">CŒUR ERRANT</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#histoire">Mon histoire</a></li>
+    <li><a href="mission.html">La mission</a></li>
+    <li><a href="voyages.html">Voyages</a></li>
+    <li><a href="soutenir.html">Soutenir</a></li>
+  </ul>
+</nav>
+
+<div class="mission-hero">
+  <p class="section-tag">La mission</p>
+  <h1>Pourquoi je <em>fais ça</em></h1>
+  <p>Ce n'est pas une ONG, ce n'est pas une organisation. C'est une personne, un cœur, et une conviction : aucun animal ne devrait mourir de faim dans l'indifférence générale.</p>
+</div>
+
+<section class="mission-intro">
+  <div class="mission-intro-text">
+    <p class="section-tag">Mon histoire</p>
+    <h2>D'une <em>évidence</em> à une mission</h2>
+    <p>Tout a commencé à Tanger, en juin 2024. Ce qui devait être des vacances est devenu le point de départ d'une aventure humaine et animale que je n'avais pas anticipée. Face à des dizaines d'animaux errants, affamés, souffrants, je n'ai pas pu détourner le regard.</p>
+    <p>Depuis, je voyage différemment. Je ne cherche plus les monuments ou les plages. Je cherche les ruelles, les marchés, les parkings d'hôtel, les bords de route. Là où les animaux errants vivent, invisibles aux yeux du monde.</p>
+    <p>Mes finances de voyage vont en priorité à eux. Pas à des restaurants, pas à des souvenirs. À de la nourriture, à des visites vétérinaires, à des sauvetages. Ce n'est pas un sacrifice, c'est simplement qui je suis devenue.</p>
+  </div>
+  <div class="mission-intro-image">
+    <img src="hero.jpeg" alt="Cœur Errant" onerror="this.style.display='none'">
+  </div>
+</section>
+
+<section class="valeurs">
+  <p class="section-tag">Mes valeurs</p>
+  <h2>Ce en quoi je <em>crois</em></h2>
+  <div class="valeurs-grid">
+    <div class="valeur-item">
+      <span class="valeur-icon">🤍</span>
+      <h3 class="valeur-title">La <em>dignité</em> pour tous</h3>
+      <p class="valeur-desc">Chaque animal errant mérite d'être vu, nourri, et traité avec respect. Peu importe le pays, peu importe la rue. La dignité n'a pas de frontières.</p>
+    </div>
+    <div class="valeur-item">
+      <span class="valeur-icon">🌍</span>
+      <h3 class="valeur-title">L'action <em>concrète</em></h3>
+      <p class="valeur-desc">Pas de grands discours. Des actes. Nourrir matin et soir, emmener chez le vétérinaire, contacter des associations, rester présente. L'action, toujours l'action.</p>
+    </div>
+    <div class="valeur-item">
+      <span class="valeur-icon">👁️</span>
+      <h3 class="valeur-title">Rendre <em>visibles</em> les invisibles</h3>
+      <p class="valeur-desc">Sur TikTok, sur ce site, dans mes conversations. Ces animaux existent. Ils souffrent. Les montrer, c'est déjà les aider. La sensibilisation est une forme d'action.</p>
+    </div>
+    <div class="valeur-item">
+      <span class="valeur-icon">💸</span>
+      <h3 class="valeur-title">Eux <em>avant</em> tout</h3>
+      <p class="valeur-desc">Mes finances de voyage passent en priorité à eux. Restaurants, activités, souvenirs peuvent attendre. Un animal affamé, lui, ne peut pas attendre.</p>
+    </div>
+    <div class="valeur-item">
+      <span class="valeur-icon">🐾</span>
+      <h3 class="valeur-title">La <em>continuité</em></h3>
+      <p class="valeur-desc">Cœur Errant n'est pas un projet ponctuel. C'est un engagement à long terme, voyage après voyage, pays après pays, animal après animal.</p>
+    </div>
+    <div class="valeur-item">
+      <span class="valeur-icon">🤝</span>
+      <h3 class="valeur-title">La <em>solidarité</em></h3>
+      <p class="valeur-desc">Contacter des associations locales, trouver des familles d'accueil, sensibiliser les passants. Chaque sauvetage est un effort collectif.</p>
+    </div>
+  </div>
+</section>
+
+<section class="journee">
+  <p class="section-tag">Une journée type</p>
+  <h2>Comment se passe <em>un voyage</em></h2>
+  <div class="journee-steps">
+    <div class="journee-step">
+      <span class="step-time">Matin</span>
+      <div class="step-dot"></div>
+      <div class="step-content">
+        <h4>La <em>tournée du matin</em></h4>
+        <p>Avant même le petit-déjeuner, je sors avec de la nourriture. Je retrouve les animaux que j'ai croisés la veille, j'en découvre de nouveaux. Chaque matin est une nouvelle rencontre.</p>
+      </div>
+    </div>
+    <div class="journee-step">
+      <span class="step-time">Journée</span>
+      <div class="step-dot"></div>
+      <div class="step-content">
+        <h4>Observer, <em>chercher, agir</em></h4>
+        <p>En explorant la ville, je garde toujours un œil ouvert. Un animal blessé, un chiot seul, un chat affamé devant un commerce. Je m'arrête, j'évalue, j'agis. Vétérinaire si nécessaire, associations contactées, nourriture achetée.</p>
+      </div>
+    </div>
+    <div class="journee-step">
+      <span class="step-time">Soir</span>
+      <div class="step-dot"></div>
+      <div class="step-content">
+        <h4>La <em>tournée du soir</em></h4>
+        <p>Retour vers les mêmes endroits, les mêmes visages à fourrure. Parfois ils m'attendent déjà. Comme le soir en Corse, où tous les chats du parking de l'hôtel savaient déjà que j'allais venir.</p>
+      </div>
+    </div>
+    <div class="journee-step">
+      <span class="step-time">Nuit</span>
+      <div class="step-dot"></div>
+      <div class="step-content">
+        <h4>Témoigner, <em>partager</em></h4>
+        <p>Le soir, je filme, je photographie, je raconte sur TikTok. Parce que ces histoires méritent d'être entendues. Parce que chaque partage peut sensibiliser quelqu'un, peut-être même déclencher une vocation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="histoire-profonde">
+  <p class="section-tag">Au fond</p>
+  <h2>Ce que cette mission <em>m'a appris</em></h2>
+  <div class="histoire-profonde-text">
+    <p>On croit souvent que c'est nous qui aidons les animaux. Mais en vérité, ce sont eux qui nous apprennent quelque chose. Le chien du Kosovo qui remuait la queue au milieu des décombres m'a appris la résilience. Le chien noir de Skopje qui s'est allongé sur le dos m'a appris la confiance. Le chat roux de Sicile qui marchait à mes côtés m'a appris que la compagnie suffit parfois.</p>
+    <div class="origin-quote">
+      <p>"Je ne savais pas que nourrir des animaux dans la rue allait me nourrir, moi, plus profondément que n'importe quel voyage."</p>
+    </div>
+    <p>Nala m'a appris la douleur de perdre quelqu'un qu'on a essayé de sauver. Et que cette douleur, au lieu d'arrêter, doit pousser à continuer. Pour elle. Pour eux. Pour tous ceux qui attendent encore dans une rue que quelqu'un les voie.</p>
+    <p>Cœur Errant, c'est ça. Un cœur qui erre, qui cherche, qui nourrit, qui témoigne. Et qui ne s'arrêtera pas.</p>
+  </div>
+</section>
+
+<footer>
+
+  <div class="footer-divider"></div>
+  <div class="footer-socials">
+    <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/tiktok/white" alt="TikTok">
+      </div>
+      <span class="footer-social-name">TikTok</span>
+    </a>
+    <a href="https://www.youtube.com/@CoeurErrant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/youtube/white" alt="YouTube">
+      </div>
+      <span class="footer-social-name">YouTube</span>
+    </a>
+    <a href="https://www.facebook.com/coeurerrant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook">
+      </div>
+      <span class="footer-social-name">Facebook</span>
+    </a>
+    <a href="https://www.snapchat.com/add/coeur_errant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/snapchat/white" alt="Snapchat">
+      </div>
+      <span class="footer-social-name">Snapchat</span>
+    </a>
+    <a href="mailto:coeur.errant@outlook.be" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/gmail/white" alt="Mail">
+      </div>
+      <span class="footer-social-name">Mail</span>
+    </a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-copy">© 2025 Cœur Errant — Nourrir les âmes errantes</p>
+</footer>
+
+</body>
+</html>

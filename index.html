@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cœur Errant — Nourrir les âmes errantes</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
+    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; letter-spacing:0.15em;">CŒUR ERRANT</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#histoire">Mon histoire</a></li>
+    <li><a href="mission.html">La mission</a></li>
+    <li><a href="voyages.html">Voyages</a></li>
+    <li><a href="soutenir.html">Soutenir</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Un projet de cœur</p>
+    <h1>Nourrir les <em>oubliés</em> du monde</h1>
+    <p class="hero-story">À travers les pays, je pars à la rencontre des animaux errants, chiens et chats que personne ne voit plus. Je leur apporte de la nourriture, de la douceur, et un peu de dignité.</p>
+    <p class="hero-origin">Né à Tanger, Maroc, Juin 2024</p>
+    <div class="hero-actions">
+      <a href="voyages.html" class="btn-primary">Voir les voyages</a>
+      <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="btn-tiktok">TikTok ↗</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="hero.jpeg" alt="Animal errant" class="hero-img" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
+    <div class="hero-photo-placeholder" style="display:none;">
+      <div class="photo-icon">📷</div>
+      <p class="photo-hint">hero.jpeg</p>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <span class="stat-num" id="compteur">0</span>
+    <span class="stat-label">Jours de mission</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">10</span>
+    <span class="stat-label">Destinations</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">∞</span>
+    <span class="stat-label">Animaux nourris</span>
+  </div>
+</div>
+
+<section class="origin" id="histoire">
+  <div class="origin-text">
+    <p class="section-tag">Mon histoire</p>
+    <h2>Tanger, l'été qui a <em>tout changé</em></h2>
+    <p>Juin 2024. Je pose mes valises à Tanger, au Maroc, pour ce qui devait être des vacances. Mais dès les premiers jours, quelque chose me saisit : des dizaines de chiens et de chats errants partout, affamés, souffrants, invisibles aux yeux de la plupart des gens.</p>
+    <div class="origin-quote">
+      <p>"Pour la première fois de ma vie, j'étais face à autant d'animaux qui luttaient pour survivre. Je ne pouvais pas faire semblant de ne pas les voir."</p>
+    </div>
+    <p>Matin et soir, je suis sortie les nourrir. Chaque animal croisé dans la rue recevait à manger. Mes finances de vacances sont allées en priorité vers eux, plutôt que vers mes propres plaisirs. Ce n'était pas un sacrifice, c'était une évidence.</p>
+    <p>Ce voyage a tout changé. Cœur Errant était né.</p>
+  </div>
+  <div class="origin-image">
+    <img src="tanger.jpeg" alt="Tanger" class="origin-img" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
+    <div class="origin-placeholder" style="display:none;">
+      <div class="photo-icon">🐾</div>
+      <p class="photo-hint">tanger.jpeg</p>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="mission">
+  <p class="section-tag">La mission</p>
+  <h2>Comment ça <em>fonctionne</em></h2>
+  <div class="how-grid">
+    <div class="how-item">
+      <div class="how-num">01</div>
+      <p class="how-title">Je voyage</p>
+      <p class="how-desc">De pays en pays, je pars à la rencontre des communautés animales errantes, là où les besoins sont les plus grands et les plus ignorés.</p>
+    </div>
+    <div class="how-item">
+      <div class="how-num">02</div>
+      <p class="how-title">Je nourris</p>
+      <p class="how-desc">Chaque animal croisé reçoit de la nourriture. Matin et soir, sans exception. Mes finances passent en priorité à eux.</p>
+    </div>
+    <div class="how-item">
+      <div class="how-num">03</div>
+      <p class="how-title">Je témoigne</p>
+      <p class="how-desc">Sur TikTok (@coeur_errant), je partage chaque rencontre, chaque histoire, pour que ces animaux ne soient plus invisibles.</p>
+    </div>
+  </div>
+</section>
+
+<section class="destinations" id="destinations">
+  <p class="section-tag">Les destinations</p>
+  <h2>Les pays du <em>périple</em></h2>
+  <div class="destinations-grid">
+    <div class="dest-item">
+      <img class="dest-flag-img" src="https://flagcdn.com/w80/ma.png" alt="Maroc">
+      <span class="dest-name">Maroc</span>
+      <span class="dest-times">× 2</span>
+    </div>
+    <div class="dest-item">
+      <img class="dest-flag-img" src="https://flagcdn.com/w80/al.png" alt="Albanie">
+      <span class="dest-name">Albanie</span>
+    </div>
+    <div class="dest-item">
+      <img class="dest-flag-img" src="https://flagcdn.com/w80/xk.png" alt="Kosovo">
+      <span class="dest-name">Kosovo</span>
+    </div>
+    <div class="dest-item">
+      <img class="dest-flag-img" src="https://flagcdn.com/w80/mk.png" alt="Macédoine du Nord">
+      <span class="dest-name">Macédoine du Nord</span>
+    </div>
+    <div class="dest-item">
+      <img class="dest-flag-img" src="flag-sicille.png" alt="Sicile">
+      <span class="dest-name">Sicile</span>
+    </div>
+    <div class="dest-item">
+      <img class="dest-flag-img" src="https://flagcdn.com/w80/pl.png" alt="Pologne">
+      <span class="dest-name">Pologne</span>
+    </div>
+    <div class="dest-item">
+      <img class="dest-flag-img" src="https://flagcdn.com/w80/de.png" alt="Allemagne">
+      <span class="dest-name">Allemagne</span>
+    </div>
+    <div class="dest-item">
+      <img class="dest-flag-img" src="https://flagcdn.com/w80/fr.png" alt="France">
+      <span class="dest-name">France</span>
+    </div>
+    <div class="dest-item">
+      <img class="dest-flag-img" src="flag-corse.png" alt="Corse">
+      <span class="dest-name">Corse</span>
+    </div>
+    <div class="dest-item">
+      <img class="dest-flag-img" src="https://flagcdn.com/w80/tr.png" alt="Istanbul">
+      <span class="dest-name">Istanbul</span>
+    </div>
+  </div>
+</section>
+
+<section class="nala">
+  <div class="nala-image">
+    <img src="nala.jpeg" alt="Nala" class="nala-img" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
+    <div class="nala-placeholder" style="display:none;">
+      <p class="photo-hint">nala.jpeg</p>
+    </div>
+  </div>
+  <div class="nala-text">
+    <p class="section-tag">En mémoire</p>
+    <h2>Nala, pour <em>toujours</em></h2>
+    <p>On l'a trouvée dans la rue, le museau fouillant des ordures pour survivre. Un petit chiot, seul, affamé. On l'a prise avec nous, emmenée chez le vétérinaire, vaccinée. Elle avait désormais un carnet de santé à mon nom. Elle avait un nom : Nala.</p>
+    <div class="origin-quote">
+      <p>"Elle cherchait juste à manger. On lui a donné bien plus que ça, on lui a donné une chance."</p>
+    </div>
+    <p>On a trouvé quelqu'un pour la garder. Mais un matin, on l'a retrouvée sous un arbre, sans vie. Elle nous a laissé un vide immense dans le cœur.</p>
+    <p>Nala est la raison pour laquelle Cœur Errant continue. Pour elle, et pour tous ceux qui méritent une chance.</p>
+  </div>
+</section>
+
+<section class="cta" id="soutenir">
+  <p class="section-tag" style="justify-content:center;">Rejoindre l'aventure</p>
+  <h2>Ensemble, on peut <em>nourrir davantage</em></h2>
+  <p class="cta-desc">Chaque repas compte. Chaque partage compte. Suis le voyage sur TikTok et soutiens la mission pour que Cœur Errant puisse aller encore plus loin.</p>
+  <div class="cta-actions">
+    <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="btn-primary">Suivre sur TikTok</a>
+    <a href="soutenir.html" class="btn-outline">Soutenir</a>
+  </div>
+</section>
+
+<footer>
+
+  <div class="footer-divider"></div>
+  <div class="footer-socials">
+    <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/tiktok/white" alt="TikTok">
+      </div>
+      <span class="footer-social-name">TikTok</span>
+    </a>
+    <a href="https://www.youtube.com/@CoeurErrant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/youtube/white" alt="YouTube">
+      </div>
+      <span class="footer-social-name">YouTube</span>
+    </a>
+    <a href="https://www.facebook.com/coeurerrant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook">
+      </div>
+      <span class="footer-social-name">Facebook</span>
+    </a>
+    <a href="https://www.snapchat.com/add/coeur_errant" target="_blank" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/snapchat/white" alt="Snapchat">
+      </div>
+      <span class="footer-social-name">Snapchat</span>
+    </a>
+    <a href="mailto:coeur.errant@outlook.be" class="footer-social-link">
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/gmail/white" alt="Mail">
+      </div>
+      <span class="footer-social-name">Mail</span>
+    </a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-copy">© 2025 Cœur Errant — Nourrir les âmes errantes</p>
+</footer>
+
+<script>
+  const debut = new Date('2024-06-01');
+  const aujourdhui = new Date();
+  const jours = Math.floor((aujourdhui - debut) / (1000 * 60 * 60 * 24));
+  document.getElementById('compteur').textContent = jours;
+</script>
+
+</body>
+</html>
