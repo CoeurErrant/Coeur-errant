@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -197,12 +196,17 @@
     <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
     <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; letter-spacing:0.15em;">CŒUR ERRANT</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html#histoire">Mon histoire</a></li>
-    <li><a href="mission.html">La mission</a></li>
-    <li><a href="voyages.html">Voyages</a></li>
-    <li><a href="soutenir.html">Soutenir</a></li>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#histoire" onclick="closeMenu()">Mon histoire</a></li>
+    <li><a href="mission.html" onclick="closeMenu()">La mission</a></li>
+    <li><a href="voyages.html" onclick="closeMenu()">Voyages</a></li>
+    <li><a href="soutenir.html" onclick="closeMenu()">Soutenir</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <div class="voyages-hero">
@@ -220,7 +224,7 @@
   <div class="voyage-img">
     <img src="Tanger.jpeg" alt="Tanger" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
     <div class="voyage-img-placeholder" style="display:none;">
-      <p class="photo-hint">tanger.jpeg</p>
+      <p class="photo-hint">Tanger.jpeg</p>
     </div>
     <div class="voyage-country">
       <img src="https://flagcdn.com/w80/ma.png" alt="Maroc"> Tanger, Maroc
@@ -280,7 +284,7 @@
   <div class="voyage-img">
     <img src="kossovo.jpeg" alt="Kosovo" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
     <div class="voyage-img-placeholder" style="display:none;">
-      <p class="photo-hint">kosovo.jpeg</p>
+      <p class="photo-hint">kossovo.jpeg</p>
     </div>
     <div class="voyage-country">
       <img src="https://flagcdn.com/w80/xk.png" alt="Kosovo"> Kosovo
@@ -297,7 +301,7 @@
 </div>
 
 <div class="voyage-card">
-<div class="voyage-img">
+  <div class="voyage-img">
     <img src="Macedoine.jpeg" alt="Skopje" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
     <div class="voyage-img-placeholder" style="display:none;">
       <p class="photo-hint">Macedoine.jpeg</p>
@@ -320,10 +324,10 @@
   <div class="voyage-img">
     <img src="sicillle.jpeg" alt="Sicile" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
     <div class="voyage-img-placeholder" style="display:none;">
-      <p class="photo-hint">sicile.jpeg</p>
+      <p class="photo-hint">sicillle.jpeg</p>
     </div>
     <div class="voyage-country">
-      <img src="flag-sicile.png" alt="Sicile"> Sicile, Italie
+      <img src="flag-sicille.png" alt="Sicile"> Sicile, Italie
     </div>
   </div>
   <div class="voyage-content">
@@ -340,7 +344,7 @@
   <div class="voyage-img">
     <img src="corsee.jpeg" alt="Corse" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
     <div class="voyage-img-placeholder" style="display:none;">
-      <p class="photo-hint">corse.jpeg</p>
+      <p class="photo-hint">corsee.jpeg</p>
     </div>
     <div class="voyage-country">
       <img src="flag-corse.png" alt="Corse"> Corse, France
@@ -384,7 +388,10 @@
 </div>
 
 <footer>
-
+  <div class="footer-logo">
+    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
+    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1rem; letter-spacing:0.15em; color:var(--cream);">CŒUR ERRANT</span>
+  </div>
   <div class="footer-divider"></div>
   <div class="footer-socials">
     <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="footer-social-link">
@@ -399,7 +406,7 @@
       </div>
       <span class="footer-social-name">YouTube</span>
     </a>
-   <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr" target="_blank" class="footer-social-link">
+    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr" target="_blank" class="footer-social-link">
       <div class="footer-social-icon">
         <img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook">
       </div>
@@ -469,9 +476,16 @@ function countdown(targetDate, elementId) {
 
 countdown('2025-06-19T00:00:00', 'timer-marrakech');
 countdown('2025-06-24T00:00:00', 'timer-agadir');
+
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('nav-links').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
 </script>
 
 </body>
 </html>
-```
-

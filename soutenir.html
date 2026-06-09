@@ -225,12 +225,17 @@
     <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
     <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; letter-spacing:0.15em;">CŒUR ERRANT</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html#histoire">Mon histoire</a></li>
-    <li><a href="mission.html">La mission</a></li>
-    <li><a href="voyages.html">Voyages</a></li>
-    <li><a href="soutenir.html">Soutenir</a></li>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#histoire" onclick="closeMenu()">Mon histoire</a></li>
+    <li><a href="mission.html" onclick="closeMenu()">La mission</a></li>
+    <li><a href="voyages.html" onclick="closeMenu()">Voyages</a></li>
+    <li><a href="soutenir.html" onclick="closeMenu()">Soutenir</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <div class="soutenir-hero">
@@ -257,18 +262,18 @@
         <img src="logo paypall.jpeg" alt="QR PayPal" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
         <div class="qr-card-placeholder" style="display:none;">
           <span>💙</span>
-          <p>qr-paypal.png</p>
+          <p>logo paypall.jpeg</p>
         </div>
         <p class="qr-card-label">PayPal</p>
         <div class="scan-me">SCAN ME</div>
       </div>
       <div class="qr-card">
-        <img src="logo leetchi.jpeg" alt="QR Code 2" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
+        <img src="logo leetchi.jpeg" alt="QR Leetchi" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
         <div class="qr-card-placeholder" style="display:none;">
           <span>💚</span>
-          <p>qr-2.png</p>
+          <p>logo leetchi.jpeg</p>
         </div>
-        <p class="qr-card-label">Virement</p>
+        <p class="qr-card-label">Leetchi</p>
         <div class="scan-me">SCAN ME</div>
       </div>
     </div>
@@ -311,7 +316,7 @@
       <p class="reseau-handle">coeur_errant</p>
       <p class="reseau-desc">Les coulisses du voyage, les moments spontanés, les rencontres du quotidien.</p>
     </a>
-    <a href="https://www.facebook.com/coeurerrant" target="_blank" class="reseau-card">
+    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr" target="_blank" class="reseau-card">
       <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook" class="reseau-logo">
       <p class="reseau-name">Facebook</p>
       <p class="reseau-handle">Cœur Errant</p>
@@ -331,7 +336,10 @@
 </section>
 
 <footer>
- 
+  <div class="footer-logo">
+    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
+    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1rem; letter-spacing:0.15em; color:var(--cream);">CŒUR ERRANT</span>
+  </div>
   <div class="footer-divider"></div>
   <div class="footer-socials">
     <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="footer-social-link">
@@ -368,6 +376,17 @@
   <div class="footer-divider"></div>
   <p class="footer-copy">© 2025 Cœur Errant — Nourrir les âmes errantes</p>
 </footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+</script>
 
 </body>
 </html>

@@ -85,9 +85,7 @@
     color: var(--muted);
   }
 
-  .journee {
-    padding: 7rem 5rem;
-  }
+  .journee { padding: 7rem 5rem; }
 
   .journee-steps {
     margin-top: 4rem;
@@ -191,15 +189,20 @@
 
 <nav>
   <a class="nav-logo" href="index.html">
-    <img src="logo.png" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
+    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
     <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; letter-spacing:0.15em;">CŒUR ERRANT</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html#histoire">Mon histoire</a></li>
-    <li><a href="mission.html">La mission</a></li>
-    <li><a href="voyages.html">Voyages</a></li>
-    <li><a href="soutenir.html">Soutenir</a></li>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#histoire" onclick="closeMenu()">Mon histoire</a></li>
+    <li><a href="mission.html" onclick="closeMenu()">La mission</a></li>
+    <li><a href="voyages.html" onclick="closeMenu()">Voyages</a></li>
+    <li><a href="soutenir.html" onclick="closeMenu()">Soutenir</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <div class="mission-hero">
@@ -311,7 +314,10 @@
 </section>
 
 <footer>
-
+  <div class="footer-logo">
+    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
+    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1rem; letter-spacing:0.15em; color:var(--cream);">CŒUR ERRANT</span>
+  </div>
   <div class="footer-divider"></div>
   <div class="footer-socials">
     <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="footer-social-link">
@@ -348,6 +354,17 @@
   <div class="footer-divider"></div>
   <p class="footer-copy">© 2025 Cœur Errant — Nourrir les âmes errantes</p>
 </footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+</script>
 
 </body>
 </html>
