@@ -14,12 +14,17 @@
     <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
     <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; letter-spacing:0.15em;">CŒUR ERRANT</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html#histoire">Mon histoire</a></li>
-    <li><a href="mission.html">La mission</a></li>
-    <li><a href="voyages.html">Voyages</a></li>
-    <li><a href="soutenir.html">Soutenir</a></li>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#histoire" onclick="closeMenu()">Mon histoire</a></li>
+    <li><a href="mission.html" onclick="closeMenu()">La mission</a></li>
+    <li><a href="voyages.html" onclick="closeMenu()">Voyages</a></li>
+    <li><a href="soutenir.html" onclick="closeMenu()">Soutenir</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <section class="hero">
@@ -177,7 +182,10 @@
 </section>
 
 <footer>
-
+  <div class="footer-logo">
+    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
+    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1rem; letter-spacing:0.15em; color:var(--cream);">CŒUR ERRANT</span>
+  </div>
   <div class="footer-divider"></div>
   <div class="footer-socials">
     <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="footer-social-link">
@@ -220,6 +228,15 @@
   const aujourdhui = new Date();
   const jours = Math.floor((aujourdhui - debut) / (1000 * 60 * 60 * 24));
   document.getElementById('compteur').textContent = jours;
+
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
 </script>
 
 </body>

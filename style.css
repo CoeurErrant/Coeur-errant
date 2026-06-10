@@ -29,17 +29,7 @@ nav {
 }
 
 .nav-logo img { height: 80px; width: auto; }
-.nav-links {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #faf8f5;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-    z-index: 99;
-  }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
   font-size: 0.72rem; font-weight: 400; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--muted); text-decoration: none;
@@ -457,27 +447,50 @@ footer {
 }
 
 @media (max-width: 768px) {
-  nav { padding: 0.8rem 1.5rem; }
+  nav {
+    padding: 0.8rem 1.5rem;
+    z-index: 100;
+  }
   .nav-logo img { height: 60px; }
 
   .nav-links {
     display: none;
     flex-direction: column;
     position: fixed;
-    top: 96px; left: 0; right: 0;
+    top: 76px;
+    left: 0; right: 0;
     background: #faf8f5;
-    padding: 2rem;
-    gap: 1.5rem;
-    z-index: 99;
-    border-bottom: 0.5px solid var(--border);
+    padding: 0;
+    z-index: 200;
+    box-shadow: 0 4px 12px rgba(26,26,24,0.12);
     list-style: none;
   }
+
   .nav-links.open { display: flex; }
-  .nav-links li { list-style: none; }
+
+  .nav-links li {
+    list-style: none;
+    border-bottom: 0.5px solid var(--border);
+    width: 100%;
+  }
+
+  .nav-links li:last-child { border-bottom: none; }
+
   .nav-links a {
-    font-size: 1rem;
+    display: block;
+    padding: 1.2rem 2rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     color: var(--charcoal);
-    letter-spacing: 0.12em;
+    background: #faf8f5;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover {
+    background: var(--warm);
+    color: var(--pink);
   }
 
   .hamburger {
@@ -485,18 +498,21 @@ footer {
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-    z-index: 101;
+    z-index: 201;
     background: none;
     border: none;
     padding: 0.5rem;
   }
+
   .hamburger span {
     display: block;
     width: 24px;
-    height: 1.5px;
+    height: 2px;
     background: var(--charcoal);
+    border-radius: 2px;
     transition: all 0.3s;
   }
+
   .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
