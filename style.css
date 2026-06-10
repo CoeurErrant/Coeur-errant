@@ -29,7 +29,17 @@ nav {
 }
 
 .nav-logo img { height: 80px; width: auto; }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #faf8f5;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    z-index: 99;
+  }
 .nav-links a {
   font-size: 0.72rem; font-weight: 400; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--muted); text-decoration: none;

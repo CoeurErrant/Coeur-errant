@@ -67,7 +67,11 @@
     border-radius: 8px;
     overflow: hidden;
     background: white;
+    text-decoration: none;
+    transition: transform 0.2s;
   }
+
+  .qr-card:hover { transform: translateY(-3px); }
 
   .qr-card img {
     width: 100%;
@@ -117,9 +121,9 @@
     color: var(--cream);
     text-align: center;
     padding: 0.6rem;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 500;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
@@ -253,29 +257,29 @@
     <div class="origin-quote">
       <p>"Avec 5€, j'achète de quoi nourrir une dizaine d'animaux pendant une journée. Avec 20€, je peux emmener un animal blessé chez le vétérinaire."</p>
     </div>
-    <p>Scanne l'un des QR codes pour faire un don, quel que soit le montant. Tout compte. Vraiment.</p>
+    <p>Scanne ou clique sur l'un des QR codes pour faire un don. Tout compte. Vraiment.</p>
   </div>
   <div class="qr-container">
     <p class="qr-title">Soutenir <em>la mission</em></p>
     <div class="qr-codes-grid">
-      <div class="qr-card">
+      <a href="https://www.paypal.com/paypalme/CoeurErrant" target="_blank" class="qr-card">
         <img src="logo paypall.jpeg" alt="QR PayPal" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
         <div class="qr-card-placeholder" style="display:none;">
           <span>💙</span>
-          <p>logo paypall.jpeg</p>
+          <p>PayPal</p>
         </div>
         <p class="qr-card-label">PayPal</p>
-        <div class="scan-me">SCAN ME</div>
-      </div>
-      <div class="qr-card">
+        <div class="scan-me">📱 Scanne ou clique pour soutenir</div>
+      </a>
+      <a href="https://www.leetchi.com/fr/c/coeurs-errant-1977225?utm_source=copylink&utm_medium=social_sharing" target="_blank" class="qr-card">
         <img src="logo leetchi.jpeg" alt="QR Leetchi" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
         <div class="qr-card-placeholder" style="display:none;">
           <span>💚</span>
-          <p>logo leetchi.jpeg</p>
+          <p>Leetchi</p>
         </div>
         <p class="qr-card-label">Leetchi</p>
-        <div class="scan-me">SCAN ME</div>
-      </div>
+        <div class="scan-me">📱 Scanne ou clique pour soutenir</div>
+      </a>
     </div>
   </div>
 </section>
