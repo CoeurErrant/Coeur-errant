@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="nl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mission — Cœur Errant</title>
+<title>De Missie — Cœur Errant</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
@@ -45,10 +45,7 @@
     background: var(--warm);
   }
 
-  .valeurs {
-    background: var(--warm);
-    padding: 7rem 5rem;
-  }
+  .valeurs { background: var(--warm); padding: 7rem 5rem; }
 
   .valeurs-grid {
     display: grid;
@@ -66,11 +63,7 @@
 
   .valeur-item:hover { transform: translateY(-4px); }
 
-  .valeur-icon {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    display: block;
-  }
+  .valeur-icon { font-size: 2rem; margin-bottom: 1.5rem; display: block; }
 
   .valeur-title {
     font-family: 'Cormorant Garamond', serif;
@@ -80,17 +73,11 @@
 
   .valeur-title em { font-style: italic; color: var(--accent); }
 
-  .valeur-desc {
-    font-size: 0.9rem; font-weight: 300; line-height: 1.85;
-    color: var(--muted);
-  }
+  .valeur-desc { font-size: 0.9rem; font-weight: 300; line-height: 1.85; color: var(--muted); }
 
   .journee { padding: 7rem 5rem; }
 
-  .journee-steps {
-    margin-top: 4rem;
-    position: relative;
-  }
+  .journee-steps { margin-top: 4rem; position: relative; }
 
   .journee-steps::before {
     content: '';
@@ -140,8 +127,7 @@
 
   .step-content p {
     font-size: 0.9rem; font-weight: 300; line-height: 1.85;
-    color: var(--muted);
-    max-width: 60ch;
+    color: var(--muted); max-width: 60ch;
   }
 
   .histoire-profonde {
@@ -188,38 +174,39 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">
+  <a class="nav-logo" href="index-nl.html">
     <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
     <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; letter-spacing:0.15em;">CŒUR ERRANT</span>
   </a>
   <ul class="nav-links" id="nav-links">
-    <li><a href="index.html#histoire" onclick="closeMenu()">Mon histoire</a></li>
-    <li><a href="mission.html" onclick="closeMenu()">La mission</a></li>
-    <li><a href="voyages.html" onclick="closeMenu()">Voyages</a></li>
-    <li><a href="soutenir.html" onclick="closeMenu()">Soutenir</a></li>
+    <li><a href="index-nl.html#verhaal" onclick="closeMenu()">Mijn verhaal</a></li>
+    <li><a href="mission-nl.html" onclick="closeMenu()">De missie</a></li>
+    <li><a href="voyages-nl.html" onclick="closeMenu()">Reizen</a></li>
+    <li><a href="soutenir-nl.html" onclick="closeMenu()">Steunen</a></li>
   </ul>
   <div class="lang-switcher">
-    <a href="mission.html" class="lang-btn active">FR</a>
+    <a href="mission.html" class="lang-btn">FR</a>
     <span class="lang-sep">|</span>
-    <a href="mission-nl.html" class="lang-btn">NL</a>
+    <a href="mission-nl.html" class="lang-btn active">NL</a>
   </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
+
 <div class="mission-hero">
-  <p class="section-tag">La mission</p>
-  <h1>Pourquoi je <em>fais ça</em></h1>
-  <p>Ce n'est pas une ONG, ce n'est pas une organisation. C'est une personne, un cœur, et une conviction : aucun animal ne devrait mourir de faim dans l'indifférence générale.</p>
+  <p class="section-tag">De missie</p>
+  <h1>Waarom ik <em>dit doe</em></h1>
+  <p>Dit is geen ngo, dit is geen organisatie. Het is één persoon, één hart en één overtuiging: geen enkel dier zou van honger mogen sterven in algemene onverschilligheid.</p>
 </div>
 
 <section class="mission-intro">
   <div class="mission-intro-text">
-    <p class="section-tag">Mon histoire</p>
-    <h2>D'une <em>évidence</em> à une mission</h2>
-    <p>Tout a commencé à Tanger, en juin 2024. Ce qui devait être des vacances est devenu le point de départ d'une aventure humaine et animale que je n'avais pas anticipée. Face à des dizaines d'animaux errants, affamés, souffrants, je n'ai pas pu détourner le regard.</p>
-    <p>Depuis, je voyage différemment. Je ne cherche plus les monuments ou les plages. Je cherche les ruelles, les marchés, les parkings d'hôtel, les bords de route. Là où les animaux errants vivent, invisibles aux yeux du monde.</p>
-    <p>Mes finances de voyage vont en priorité à eux. Pas à des restaurants, pas à des souvenirs. À de la nourriture, à des visites vétérinaires, à des sauvetages. Ce n'est pas un sacrifice, c'est simplement qui je suis devenue.</p>
+    <p class="section-tag">Mijn verhaal</p>
+    <h2>Van een <em>evidentie</em> naar een missie</h2>
+    <p>Alles begon in Tanger, in juni 2024. Wat een vakantie had moeten zijn, werd het startpunt van een menselijk en dierlijk avontuur dat ik niet had verwacht. Tegenover tientallen zwervende, uitgehongerde, lijdende dieren kon ik mijn blik niet afwenden.</p>
+    <p>Sindsdien reis ik anders. Ik zoek niet langer monumenten of stranden. Ik zoek de steegjes, de markten, de hotelparking, de wegkanten. Daar waar zwervende dieren leven, onzichtbaar voor de wereld.</p>
+    <p>Mijn reisbudget gaat in de eerste plaats naar hen. Niet naar restaurants, niet naar souvenirs. Naar voedsel, dierenartsconsultaties en reddingen. Het is geen offer, het is gewoon wie ik ben geworden.</p>
   </div>
   <div class="mission-intro-image">
     <img src="hero2.jpeg" alt="Cœur Errant" onerror="this.style.display='none'">
@@ -227,91 +214,91 @@
 </section>
 
 <section class="valeurs">
-  <p class="section-tag">Mes valeurs</p>
-  <h2>Ce en quoi je <em>crois</em></h2>
+  <p class="section-tag">Mijn waarden</p>
+  <h2>Waar ik <em>in geloof</em></h2>
   <div class="valeurs-grid">
     <div class="valeur-item">
       <span class="valeur-icon">🤍</span>
-      <h3 class="valeur-title">La <em>dignité</em> pour tous</h3>
-      <p class="valeur-desc">Chaque animal errant mérite d'être vu, nourri, et traité avec respect. Peu importe le pays, peu importe la rue. La dignité n'a pas de frontières.</p>
+      <h3 class="valeur-title"><em>Waardigheid</em> voor iedereen</h3>
+      <p class="valeur-desc">Elk zwervend dier verdient het om gezien, gevoed en met respect behandeld te worden. Ongeacht het land, ongeacht de straat. Waardigheid kent geen grenzen.</p>
     </div>
     <div class="valeur-item">
       <span class="valeur-icon">🌍</span>
-      <h3 class="valeur-title">L'action <em>concrète</em></h3>
-      <p class="valeur-desc">Pas de grands discours. Des actes. Nourrir matin et soir, emmener chez le vétérinaire, contacter des associations, rester présente. L'action, toujours l'action.</p>
+      <h3 class="valeur-title"><em>Concrete</em> actie</h3>
+      <p class="valeur-desc">Geen grote speeches. Daden. 's Ochtends en 's avonds voederen, naar de dierenarts brengen, verenigingen contacteren, aanwezig blijven. Actie, altijd actie.</p>
     </div>
     <div class="valeur-item">
       <span class="valeur-icon">👁️</span>
-      <h3 class="valeur-title">Rendre <em>visibles</em> les invisibles</h3>
-      <p class="valeur-desc">Sur TikTok, sur ce site, dans mes conversations. Ces animaux existent. Ils souffrent. Les montrer, c'est déjà les aider. La sensibilisation est une forme d'action.</p>
+      <h3 class="valeur-title">De <em>onzichtbaren</em> zichtbaar maken</h3>
+      <p class="valeur-desc">Op TikTok, op deze site, in mijn gesprekken. Deze dieren bestaan. Ze lijden. Ze tonen is al helpen. Bewustmaking is een vorm van actie.</p>
     </div>
     <div class="valeur-item">
       <span class="valeur-icon">💸</span>
-      <h3 class="valeur-title">Eux <em>avant</em> tout</h3>
-      <p class="valeur-desc">Mes finances de voyage passent en priorité à eux. Restaurants, activités, souvenirs peuvent attendre. Un animal affamé, lui, ne peut pas attendre.</p>
+      <h3 class="valeur-title">Zij <em>eerst</em></h3>
+      <p class="valeur-desc">Mijn reisbudget gaat in de eerste plaats naar hen. Restaurants, activiteiten, souvenirs kunnen wachten. Een uitgehongerd dier kan dat niet.</p>
     </div>
     <div class="valeur-item">
       <span class="valeur-icon">🐾</span>
-      <h3 class="valeur-title">La <em>continuité</em></h3>
-      <p class="valeur-desc">Cœur Errant n'est pas un projet ponctuel. C'est un engagement à long terme, voyage après voyage, pays après pays, animal après animal.</p>
+      <h3 class="valeur-title"><em>Continuïteit</em></h3>
+      <p class="valeur-desc">Cœur Errant is geen eenmalig project. Het is een langetermijnverbintenis, reis na reis, land na land, dier na dier.</p>
     </div>
     <div class="valeur-item">
       <span class="valeur-icon">🤝</span>
-      <h3 class="valeur-title">La <em>solidarité</em></h3>
-      <p class="valeur-desc">Contacter des associations locales, trouver des familles d'accueil, sensibiliser les passants. Chaque sauvetage est un effort collectif.</p>
+      <h3 class="valeur-title"><em>Solidariteit</em></h3>
+      <p class="valeur-desc">Lokale verenigingen contacteren, pleeggezinnen vinden, voorbijgangers sensibiliseren. Elke redding is een collectieve inspanning.</p>
     </div>
   </div>
 </section>
 
 <section class="journee">
-  <p class="section-tag">Une journée type</p>
-  <h2>Comment se passe <em>un voyage</em></h2>
+  <p class="section-tag">Een typische dag</p>
+  <h2>Hoe een <em>reis verloopt</em></h2>
   <div class="journee-steps">
     <div class="journee-step">
-      <span class="step-time">Matin</span>
+      <span class="step-time">Ochtend</span>
       <div class="step-dot"></div>
       <div class="step-content">
-        <h4>La <em>tournée du matin</em></h4>
-        <p>Avant même le petit-déjeuner, je sors avec de la nourriture. Je retrouve les animaux que j'ai croisés la veille, j'en découvre de nouveaux. Chaque matin est une nouvelle rencontre.</p>
+        <h4>De <em>ochtendronde</em></h4>
+        <p>Nog voor het ontbijt ga ik naar buiten met voedsel. Ik vind de dieren die ik de dag ervoor tegenkwam, en ontdek nieuwe. Elke ochtend is een nieuwe ontmoeting.</p>
       </div>
     </div>
     <div class="journee-step">
-      <span class="step-time">Journée</span>
+      <span class="step-time">Dag</span>
       <div class="step-dot"></div>
       <div class="step-content">
-        <h4>Observer, <em>chercher, agir</em></h4>
-        <p>En explorant la ville, je garde toujours un œil ouvert. Un animal blessé, un chiot seul, un chat affamé devant un commerce. Je m'arrête, j'évalue, j'agis. Vétérinaire si nécessaire, associations contactées, nourriture achetée.</p>
+        <h4>Observeren, <em>zoeken, handelen</em></h4>
+        <p>Terwijl ik de stad verken, houd ik altijd een oog open. Een gewond dier, een eenzame pup, een uitgehongerde kat voor een winkel. Ik stop, beoordeel, handel. Dierenarts indien nodig, verenigingen gecontacteerd, voedsel gekocht.</p>
       </div>
     </div>
     <div class="journee-step">
-      <span class="step-time">Soir</span>
+      <span class="step-time">Avond</span>
       <div class="step-dot"></div>
       <div class="step-content">
-        <h4>La <em>tournée du soir</em></h4>
-        <p>Retour vers les mêmes endroits, les mêmes visages à fourrure. Parfois ils m'attendent déjà. Comme le soir en Corse, où tous les chats du parking de l'hôtel savaient déjà que j'allais venir.</p>
+        <h4>De <em>avendronde</em></h4>
+        <p>Terug naar dezelfde plekken, dezelfde behaarde gezichtjes. Soms wachten ze al op me. Zoals 's avonds op Corsica, waar alle katten van de hotelparking al wisten dat ik zou komen.</p>
       </div>
     </div>
     <div class="journee-step">
-      <span class="step-time">Nuit</span>
+      <span class="step-time">Nacht</span>
       <div class="step-dot"></div>
       <div class="step-content">
-        <h4>Témoigner, <em>partager</em></h4>
-        <p>Le soir, je filme, je photographie, je raconte sur TikTok. Parce que ces histoires méritent d'être entendues. Parce que chaque partage peut sensibiliser quelqu'un, peut-être même déclencher une vocation.</p>
+        <h4>Getuigen, <em>delen</em></h4>
+        <p>'s Avonds film ik, fotografeer ik, vertel ik op TikTok. Omdat deze verhalen gehoord moeten worden. Omdat elk gedeeld bericht iemand kan sensibiliseren, misschien zelfs een roeping kan aanwakkeren.</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="histoire-profonde">
-  <p class="section-tag">Au fond</p>
-  <h2>Ce que cette mission <em>m'a appris</em></h2>
+  <p class="section-tag">In de kern</p>
+  <h2>Wat deze missie me <em>heeft geleerd</em></h2>
   <div class="histoire-profonde-text">
-    <p>On croit souvent que c'est nous qui aidons les animaux. Mais en vérité, ce sont eux qui nous apprennent quelque chose. Le chien du Kosovo qui remuait la queue au milieu des décombres m'a appris la résilience. Le chien noir de Skopje qui s'est allongé sur le dos m'a appris la confiance. Le chat roux de Sicile qui marchait à mes côtés m'a appris que la compagnie suffit parfois.</p>
+    <p>We denken vaak dat wij de dieren helpen. Maar in werkelijkheid leren zij ons iets. De hond uit Kosovo die met zijn staart kwispelde te midden van puin leerde me veerkracht. De zwarte hond uit Skopje die op zijn rug ging liggen leerde me vertrouwen. De roodharige kat uit Sicilië die naast me liep leerde me dat gezelschap soms genoeg is.</p>
     <div class="origin-quote">
-      <p>"Je ne savais pas que nourrir des animaux dans la rue allait me nourrir, moi, plus profondément que n'importe quel voyage."</p>
+      <p>"Ik wist niet dat dieren voederen op straat mij zou voeden, dieper dan welke reis ook."</p>
     </div>
-    <p>Nala m'a appris la douleur de perdre quelqu'un qu'on a essayé de sauver. Et que cette douleur, au lieu d'arrêter, doit pousser à continuer. Pour elle. Pour eux. Pour tous ceux qui attendent encore dans une rue que quelqu'un les voie.</p>
-    <p>Cœur Errant, c'est ça. Un cœur qui erre, qui cherche, qui nourrit, qui témoigne. Et qui ne s'arrêtera pas.</p>
+    <p>Nala leerde me de pijn van het verliezen van iemand die je probeerde te redden. En dat die pijn, in plaats van te stoppen, moet aanzetten tot doorgaan. Voor haar. Voor hen. Voor al diegenen die nog in een straat wachten tot iemand hen ziet.</p>
+    <p>Cœur Errant, dat is het. Een hart dat zwerft, zoekt, voedt, getuigt. En dat niet zal stoppen.</p>
   </div>
 </section>
 
@@ -323,38 +310,28 @@
   <div class="footer-divider"></div>
   <div class="footer-socials">
     <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/tiktok/white" alt="TikTok">
-      </div>
+      <div class="footer-social-icon"><img src="https://cdn.simpleicons.org/tiktok/white" alt="TikTok"></div>
       <span class="footer-social-name">TikTok</span>
     </a>
     <a href="https://www.youtube.com/@CoeurErrant" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/youtube/white" alt="YouTube">
-      </div>
+      <div class="footer-social-icon"><img src="https://cdn.simpleicons.org/youtube/white" alt="YouTube"></div>
       <span class="footer-social-name">YouTube</span>
     </a>
     <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook">
-      </div>
+      <div class="footer-social-icon"><img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook"></div>
       <span class="footer-social-name">Facebook</span>
     </a>
     <a href="https://www.snapchat.com/add/coeur_errant" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/snapchat/white" alt="Snapchat">
-      </div>
+      <div class="footer-social-icon"><img src="https://cdn.simpleicons.org/snapchat/white" alt="Snapchat"></div>
       <span class="footer-social-name">Snapchat</span>
     </a>
     <a href="mailto:coeur.errant@outlook.be" class="footer-social-link">
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/gmail/white" alt="Mail">
-      </div>
+      <div class="footer-social-icon"><img src="https://cdn.simpleicons.org/gmail/white" alt="Mail"></div>
       <span class="footer-social-name">Mail</span>
     </a>
   </div>
   <div class="footer-divider"></div>
-  <p class="footer-copy">© 2025 Cœur Errant — Nourrir les âmes errantes</p>
+  <p class="footer-copy">© 2025 Cœur Errant — De zwervende harten voeden</p>
 </footer>
 
 <script>
@@ -367,6 +344,5 @@
     document.getElementById('hamburger').classList.remove('open');
   }
 </script>
-
 </body>
 </html>
