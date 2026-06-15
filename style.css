@@ -566,12 +566,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .lang-switcher {
-    display: flex;
-    gap: 0.4rem;
-  }
-  .lang-btn {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.4rem;
-  }
+  .lang-switcher { display: none; }
+  .lang-mobile { display: block !important; border-top: 2px solid var(--pink) !important; }
+  .lang-mobile a { color: var(--pink) !important; }
 }
