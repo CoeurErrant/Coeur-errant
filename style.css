@@ -535,3 +535,36 @@ footer {
   footer { padding: 2.5rem 2rem; gap: 1.5rem; }
   .footer-socials { gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
 }
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang-btn {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border: 0.5px solid transparent;
+  transition: all 0.3s;
+}
+
+.lang-btn:hover { color: var(--charcoal); }
+
+.lang-btn.active {
+  color: var(--charcoal);
+  border-color: var(--border);
+}
+
+.lang-sep {
+  color: var(--border);
+  font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .lang-switcher { display: none; }
+}
