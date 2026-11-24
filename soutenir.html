@@ -1,400 +1,3681 @@
+
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soutenir — Cœur Errant</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-  .soutenir-hero {
-    padding: 10rem 5rem 5rem;
-    background: var(--charcoal);
-    color: var(--cream);
-  }
-  .soutenir-hero .section-tag { color: var(--accent); }
-  .soutenir-hero .section-tag::before { background: var(--accent); }
-  .soutenir-hero h1 { color: var(--cream); font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
-  .soutenir-hero h1 em { color: var(--accent); }
-  .soutenir-hero p { font-size: 1rem; font-weight: 300; color: rgba(250,248,245,0.6); max-width: 50ch; line-height: 1.8; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  .don-section {
-    padding: 7rem 5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
+  <title>Soutenir — Cœur Errant</title>
 
-  .don-text p {
-    font-size: 1rem; font-weight: 300; line-height: 1.95;
-    color: var(--muted); margin-bottom: 1.5rem;
-  }
+  <meta name="description"
+        content="Chaque petit geste compte. Découvrez comment soutenir Cœur Errant et venir en aide aux animaux des rues, avec ou sans argent.">
 
-  .don-text .origin-quote { margin: 2rem 0; }
+  <meta name="theme-color" content="#faf8f5">
 
-  .qr-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding: 3rem;
-    border: 0.5px solid var(--border);
-    background: var(--warm);
-    border-radius: 4px;
-  }
+  <link rel="icon" href="logo.jpeg">
 
-  .qr-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; font-weight: 300;
-    text-align: center;
-  }
-  .qr-title em { font-style: italic; color: var(--accent); }
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
 
-  .qr-codes-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    width: 100%;
-  }
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="accueil-v2.css">
+  <link rel="stylesheet" href="soutenir.css">
 
-  .qr-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    border: 2px solid var(--charcoal);
-    border-radius: 8px;
-    overflow: hidden;
-    background: white;
-    text-decoration: none;
-    transition: transform 0.2s;
-  }
-
-  .qr-card:hover { transform: translateY(-3px); }
-
-  .qr-card img {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: contain;
-    padding: 1rem;
-    background: white;
-  }
-
-  .qr-card-placeholder {
-    width: 100%;
-    aspect-ratio: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: #f5f5f5;
-    padding: 1rem;
-  }
-
-  .qr-card-placeholder span { font-size: 2rem; }
-
-  .qr-card-placeholder p {
-    font-size: 0.65rem !important;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted) !important;
-    text-align: center;
-    margin-bottom: 0 !important;
-  }
-
-  .qr-card-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: center;
-    padding: 0.5rem;
-    background: white;
-    width: 100%;
-  }
-
-  .scan-me {
-    width: 100%;
-    background: var(--charcoal);
-    color: var(--cream);
-    text-align: center;
-    padding: 0.6rem;
-    font-size: 0.6rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .impact-section {
-    background: var(--warm);
-    padding: 7rem 5rem;
-  }
-
-  .impact-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 4rem;
-  }
-
-  .impact-item {
-    background: var(--cream);
-    border: 0.5px solid var(--border);
-    padding: 2.5rem;
-    text-align: center;
-    border-radius: 4px;
-  }
-
-  .impact-amount {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300;
-    color: var(--pink); display: block; margin-bottom: 0.5rem;
-  }
-
-  .impact-desc {
-    font-size: 0.85rem; font-weight: 300;
-    line-height: 1.8; color: var(--muted);
-  }
-
-  .partager-section { padding: 7rem 5rem; }
-
-  .reseaux-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem; margin-top: 4rem;
-  }
-
-  .reseau-card {
-    border: 0.5px solid var(--border);
-    padding: 2.5rem; text-align: center;
-    text-decoration: none; color: var(--charcoal);
-    transition: transform 0.2s, border-color 0.3s;
-    display: block; border-radius: 4px;
-  }
-
-  .reseau-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--pink);
-  }
-
-  .reseau-logo {
-    width: 48px; height: 48px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 1rem;
-  }
-
-  .reseau-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; font-weight: 300; margin-bottom: 0.5rem;
-  }
-
-  .reseau-handle {
-    font-size: 0.72rem; letter-spacing: 0.12em;
-    color: var(--pink); text-transform: uppercase;
-  }
-
-  .reseau-desc {
-    font-size: 0.85rem; font-weight: 300;
-    line-height: 1.8; color: var(--muted); margin-top: 1rem;
-  }
-
-  .final-cta {
-    background: var(--charcoal);
-    padding: 7rem 5rem; text-align: center; color: var(--cream);
-  }
-
-  .final-cta h2 { color: var(--cream); max-width: 22ch; margin: 0 auto 1.5rem; text-align: center; }
-  .final-cta h2 em { color: var(--accent); }
-  .final-cta p { font-size: 1rem; font-weight: 300; line-height: 1.8; color: rgba(250,248,245,0.6); max-width: 50ch; margin: 0 auto 3rem; }
-
-  @media (max-width: 768px) {
-    .soutenir-hero { padding: 7rem 2rem 3rem; }
-    .don-section { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
-    .impact-section { padding: 4rem 2rem; }
-    .impact-grid { grid-template-columns: 1fr; }
-    .partager-section { padding: 4rem 2rem; }
-    .reseaux-grid { grid-template-columns: 1fr; }
-    .final-cta { padding: 4rem 2rem; }
-    .qr-codes-grid { grid-template-columns: 1fr; }
-  }
-</style>
 </head>
+
 <body>
 
+<!-- ======================================
+     NAVIGATION
+     ====================================== -->
+
 <nav>
+
   <a class="nav-logo" href="index.html">
-    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
-    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; letter-spacing:0.15em;">CŒUR ERRANT</span>
+    <img src="logo.jpeg" alt="Cœur Errant">
   </a>
+
   <ul class="nav-links" id="nav-links">
-    <li><a href="index.html#histoire" onclick="closeMenu()">Mon histoire</a></li>
-    <li><a href="mission.html" onclick="closeMenu()">La mission</a></li>
-    <li><a href="voyages.html" onclick="closeMenu()">Voyages</a></li>
-    <li><a href="soutenir.html" onclick="closeMenu()">Soutenir</a></li>
-    <li class="lang-mobile"><a href="soutenir-nl.html" onclick="closeMenu()">🇧🇪 Nederlands</a></li>
+
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="index.html#histoire">Mon histoire</a></li>
+    <li><a href="mission.html">La mission</a></li>
+    <li><a href="voyages.html">Voyages</a></li>
+    <li><a href="livres.html">Mes livres</a></li>
+    <li><a href="etoiles.html">Nos étoiles</a></li>
+
+    <li>
+      <a href="soutenir.html" aria-current="page">
+        Soutenir
+      </a>
+    </li>
+
+    <li class="lang-mobile">
+      <a href="soutenir-nl.html">Nederlands</a>
+    </li>
+
   </ul>
+
   <div class="lang-switcher">
+
     <a href="soutenir.html" class="lang-btn active">FR</a>
     <span class="lang-sep">|</span>
     <a href="soutenir-nl.html" class="lang-btn">NL</a>
+
   </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+
+  <button class="hamburger"
+          id="hamburger"
+          onclick="toggleMenu()"
+          aria-label="Ouvrir le menu"
+          aria-controls="nav-links"
+          aria-expanded="false">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
   </button>
+
 </nav>
 
-<div class="soutenir-hero">
-  <p class="section-tag">Ensemble</p>
-  <h1>Soutenir <em>Cœur Errant</em></h1>
-  <p>Je fais ça seule, avec mes propres moyens. Chaque euro donné va directement à la nourriture, aux soins vétérinaires, et aux sauvetages. Pas d'intermédiaire, pas de frais cachés.</p>
-</div>
 
-<section class="don-section">
-  <div class="don-text">
-    <p class="section-tag">Faire un don</p>
-    <h2>Chaque euro <em>nourrit</em></h2>
-    <p>Voyager pour nourrir des animaux errants, ce n'est pas gratuit. La nourriture, les consultations vétérinaires, les vaccins, les transports pour emmener un animal blessé se faire soigner. Tout ça a un coût.</p>
-    <p>Je ne me verse aucun salaire. Je ne prends aucune commission. Chaque euro que tu donnes part directement sur le terrain, dans l'écuelle d'un chien affamé ou sur la table d'examen d'un vétérinaire.</p>
-    <div class="origin-quote">
-      <p>"Avec 5€, j'achète de quoi nourrir une dizaine d'animaux pendant une journée. Avec 20€, je peux emmener un animal blessé chez le vétérinaire."</p>
+<main class="support-page">
+
+  <!-- ======================================
+       INTRODUCTION
+       ====================================== -->
+
+  <section class="support-opening">
+
+    <div class="support-floating-decoration" aria-hidden="true">
+
+      <span>♡</span>
+      <span>✧</span>
+      <span>❀</span>
+      <span>♡</span>
+      <span>✧</span>
+      <span>❀</span>
+
     </div>
-    <p>Scanne ou clique sur l'un des QR codes pour faire un don. Tout compte. Vraiment.</p>
-  </div>
-  <div class="qr-container">
-    <p class="qr-title">Soutenir <em>la mission</em></p>
-    <div class="qr-codes-grid">
-      <a href="https://www.paypal.com/paypalme/CoeurErrant" target="_blank" class="qr-card">
-        <img src="logo paypall.jpeg" alt="QR PayPal" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
-        <div class="qr-card-placeholder" style="display:none;">
-          <span>💙</span>
-          <p>PayPal</p>
+
+    <div class="support-opening-inner">
+
+      <div class="support-opening-content">
+
+        <p class="support-label support-enter">
+          Le jardin de la solidarité
+        </p>
+
+        <h1 class="support-enter support-delay-one">
+
+          Il suffit parfois<br>
+          d'un petit geste<br>
+
+          <em>pour tout changer.</em>
+
+        </h1>
+
+        <p class="support-opening-description support-enter support-delay-two">
+
+          On ne peut pas sauver tous les animaux du monde.
+
+          Mais on peut changer le monde
+          d'un animal.
+
+          Et parfois, cela commence par presque rien.
+
+        </p>
+
+        <p class="support-opening-quote support-enter support-delay-three">
+
+          Un peu d'eau. Un repas. Un partage.
+          Un cœur qui décide de ne plus détourner le regard.
+
+        </p>
+
+        <div class="support-opening-actions support-enter support-delay-four">
+
+          <a href="#jardin" class="support-button">
+            Faire grandir l'espoir ♡
+          </a>
+
+          <a href="#faire-un-don" class="support-text-link">
+            Soutenir financièrement
+          </a>
+
         </div>
-        <p class="qr-card-label">PayPal</p>
-        <div class="scan-me">📱 Scanne ou clique pour soutenir</div>
-      </a>
-      <a href="https://www.leetchi.com/fr/c/coeurs-errant-1977225?utm_source=copylink&utm_medium=social_sharing" target="_blank" class="qr-card">
-        <img src="logo leetchi.jpeg" alt="QR Leetchi" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
-        <div class="qr-card-placeholder" style="display:none;">
-          <span>💚</span>
-          <p>Leetchi</p>
+
+      </div>
+
+      <!-- ILLUSTRATION DU JARDIN -->
+
+      <div class="support-opening-art support-enter support-delay-two"
+           aria-hidden="true">
+
+        <div class="support-art-halo"></div>
+
+        <svg class="support-garden-illustration"
+             viewBox="0 0 500 500"
+             xmlns="http://www.w3.org/2000/svg">
+
+          <defs>
+
+            <radialGradient id="garden-light">
+
+              <stop offset="0%" stop-color="#fffaf1"/>
+              <stop offset="100%" stop-color="#eedbd8"/>
+
+            </radialGradient>
+
+            <linearGradient id="garden-ground"
+                            x1="0" y1="0" x2="0" y2="1">
+
+              <stop offset="0%" stop-color="#c8d0b9"/>
+              <stop offset="100%" stop-color="#aab79d"/>
+
+            </linearGradient>
+
+          </defs>
+
+          <circle cx="250" cy="240" r="205"
+                  fill="url(#garden-light)"/>
+
+          <circle cx="365" cy="120" r="45"
+                  fill="#fff6dc"/>
+
+          <!-- SOL -->
+
+          <ellipse cx="250" cy="405"
+                   rx="195" ry="42"
+                   fill="url(#garden-ground)"/>
+
+          <!-- ARBRE -->
+
+          <g class="opening-garden-tree"
+             stroke-linecap="round"
+             fill="none">
+
+            <path d="M250 390 Q230 285 250 165"
+                  stroke="#9b7966"
+                  stroke-width="18"/>
+
+            <path d="M247 285 Q180 240 150 170"
+                  stroke="#9b7966"
+                  stroke-width="10"/>
+
+            <path d="M245 250 Q315 220 340 155"
+                  stroke="#9b7966"
+                  stroke-width="10"/>
+
+            <path d="M250 205 Q210 170 205 110"
+                  stroke="#9b7966"
+                  stroke-width="8"/>
+
+          </g>
+
+          <!-- FEUILLAGE -->
+
+          <g class="opening-garden-leaves">
+
+            <circle cx="145" cy="155" r="58" fill="#b8c4a8"/>
+            <circle cx="205" cy="110" r="62" fill="#c7d0b8"/>
+            <circle cx="270" cy="125" r="68" fill="#d0d7bf"/>
+            <circle cx="340" cy="160" r="60" fill="#b8c4a8"/>
+            <circle cx="230" cy="190" r="72" fill="#c2cdb2"/>
+            <circle cx="300" cy="200" r="48" fill="#b5c1a4"/>
+
+          </g>
+
+          <!-- FLEURS -->
+
+          <g fill="#e3a9b4">
+
+            <circle cx="145" cy="130" r="12"/>
+            <circle cx="220" cy="85" r="10"/>
+            <circle cx="280" cy="150" r="13"/>
+            <circle cx="350" cy="145" r="11"/>
+            <circle cx="200" cy="205" r="10"/>
+            <circle cx="310" cy="205" r="9"/>
+
+          </g>
+
+          <!-- CHIEN -->
+
+          <g class="garden-dog">
+
+            <path class="garden-dog-tail"
+                  d="M115 370 Q65 345 85 325"
+                  stroke="#ba9578"
+                  stroke-width="13"
+                  stroke-linecap="round"
+                  fill="none"/>
+
+            <ellipse cx="140" cy="360"
+                     rx="42" ry="47"
+                     fill="#c8a587"/>
+
+            <ellipse cx="145" cy="302"
+                     rx="39" ry="36"
+                     fill="#d9b99a"/>
+
+            <ellipse cx="109" cy="307"
+                     rx="13" ry="29"
+                     fill="#a98267"
+                     transform="rotate(15 109 307)"/>
+
+            <ellipse cx="181" cy="307"
+                     rx="13" ry="29"
+                     fill="#a98267"
+                     transform="rotate(-15 181 307)"/>
+
+            <ellipse cx="145" cy="321"
+                     rx="22" ry="16"
+                     fill="#f3dfc8"/>
+
+            <circle cx="132" cy="298" r="4" fill="#57453b"/>
+            <circle cx="158" cy="298" r="4" fill="#57453b"/>
+
+            <ellipse cx="145" cy="313"
+                     rx="8" ry="5"
+                     fill="#57453b"/>
+
+            <ellipse cx="120" cy="398"
+                     rx="16" ry="9"
+                     fill="#d9b99a"/>
+
+            <ellipse cx="160" cy="398"
+                     rx="16" ry="9"
+                     fill="#d9b99a"/>
+
+          </g>
+
+          <!-- CHAT -->
+
+          <g class="garden-cat">
+
+            <path class="garden-cat-tail"
+                  d="M355 385 Q410 395 400 350"
+                  stroke="#9d8c80"
+                  stroke-width="12"
+                  stroke-linecap="round"
+                  fill="none"/>
+
+            <ellipse cx="335" cy="365"
+                     rx="29" ry="37"
+                     fill="#b9a99b"/>
+
+            <path d="M310 318 L308 280 L332 301Z"
+                  fill="#b9a99b"/>
+
+            <path d="M340 301 L365 280 L362 318Z"
+                  fill="#b9a99b"/>
+
+            <ellipse cx="336" cy="322"
+                     rx="32" ry="28"
+                     fill="#c9b9aa"/>
+
+            <path d="M318 316 Q323 311 328 316"
+                  stroke="#65574d"
+                  stroke-width="2.5"
+                  fill="none"/>
+
+            <path d="M344 316 Q349 311 354 316"
+                  stroke="#65574d"
+                  stroke-width="2.5"
+                  fill="none"/>
+
+            <path d="M331 327 L341 327 L336 332Z"
+                  fill="#b77983"/>
+
+            <ellipse cx="324" cy="397"
+                     rx="13" ry="7"
+                     fill="#c9b9aa"/>
+
+            <ellipse cx="348" cy="397"
+                     rx="13" ry="7"
+                     fill="#c9b9aa"/>
+
+          </g>
+
+          <!-- GAMELLE -->
+
+          <path d="M220 380 L280 380 L290 405 L210 405Z"
+                fill="#c78c99"/>
+
+          <ellipse cx="250" cy="380"
+                   rx="30" ry="7"
+                   fill="#b3cbd0"/>
+
+          <!-- PETITES FLEURS -->
+
+          <g stroke="#899a7e" stroke-width="3">
+
+            <path d="M70 405 L70 375"/>
+            <path d="M425 410 L425 380"/>
+            <path d="M195 420 L195 390"/>
+
+          </g>
+
+          <g fill="#e3a9b4">
+
+            <circle cx="70" cy="375" r="9"/>
+            <circle cx="425" cy="380" r="9"/>
+            <circle cx="195" cy="390" r="8"/>
+
+          </g>
+
+          <!-- CŒUR -->
+
+          <path class="garden-floating-heart"
+                d="M250 315
+                   C225 287 200 325 250 350
+                   C300 325 275 287 250 315Z"
+                fill="#c98b98"/>
+
+        </svg>
+
+        <span class="garden-art-star art-star-one">✧</span>
+        <span class="garden-art-star art-star-two">♡</span>
+        <span class="garden-art-star art-star-three">✦</span>
+
+        <p class="support-art-caption">
+          Les plus belles choses commencent par une petite graine.
+        </p>
+
+      </div>
+
+    </div>
+
+    <a href="#jardin"
+       class="support-scroll"
+       aria-label="Découvrir le jardin solidaire">
+
+      ↓
+
+    </a>
+
+  </section>
+
+
+  <!-- ======================================
+       JARDIN INTERACTIF
+       ====================================== -->
+
+  <section class="solidarity-garden" id="jardin">
+
+    <div class="support-heading support-reveal">
+
+      <p class="support-label">
+        Une graine à la fois
+      </p>
+
+      <h2>
+
+        Faisons grandir<br>
+
+        <em>un peu d'espoir.</em>
+
+      </h2>
+
+      <p>
+
+        Choisissez les petits gestes que vous aimeriez
+        accomplir pour les animaux.
+
+        À chaque geste, notre arbre prendra un peu plus vie.
+
+      </p>
+
+    </div>
+
+    <div class="garden-experience support-reveal">
+
+      <div class="interactive-tree-panel">
+
+        <div class="interactive-tree-halo"></div>
+
+        <div class="interactive-tree-scene" id="interactive-tree">
+
+          <svg class="solidarity-tree-svg"
+               viewBox="0 0 500 460"
+               xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true">
+
+            <ellipse cx="250" cy="415"
+                     rx="170" ry="28"
+                     fill="#e2dfce"/>
+
+            <g fill="none"
+               stroke="#a2826d"
+               stroke-linecap="round">
+
+              <path d="M250 415 Q230 310 250 160"
+                    stroke-width="22"/>
+
+              <path d="M245 310 Q150 270 105 185"
+                    stroke-width="12"/>
+
+              <path d="M245 280 Q340 250 395 165"
+                    stroke-width="12"/>
+
+              <path d="M248 235 Q175 175 180 95"
+                    stroke-width="10"/>
+
+              <path d="M250 210 Q310 145 310 75"
+                    stroke-width="10"/>
+
+              <path d="M247 185 L250 60"
+                    stroke-width="8"/>
+
+              <path d="M245 340 Q325 330 365 285"
+                    stroke-width="9"/>
+
+            </g>
+
+            <!-- FEUILLAGE INITIAL -->
+
+            <g fill="#e1e5d8" opacity="0.55">
+
+              <circle cx="110" cy="175" r="43"/>
+              <circle cx="180" cy="100" r="45"/>
+              <circle cx="250" cy="65" r="42"/>
+              <circle cx="310" cy="85" r="44"/>
+              <circle cx="390" cy="165" r="46"/>
+              <circle cx="365" cy="280" r="40"/>
+
+            </g>
+
+            <!-- GESTE 1 -->
+
+            <g class="tree-growth" data-growth="water">
+
+              <circle cx="105" cy="175" r="48" fill="#b8c9b0"/>
+              <circle cx="75" cy="155" r="23" fill="#cbd7bd"/>
+              <circle cx="135" cy="150" r="25" fill="#a9bfa0"/>
+
+              <path d="M105 150 Q80 180 105 190 Q130 180 105 150Z"
+                    fill="#e5f0ed"/>
+
+            </g>
+
+            <!-- GESTE 2 -->
+
+            <g class="tree-growth" data-growth="food">
+
+              <circle cx="180" cy="100" r="48" fill="#c2cfb1"/>
+              <circle cx="155" cy="70" r="25" fill="#d0dbc1"/>
+              <circle cx="205" cy="80" r="25" fill="#aebfa1"/>
+
+              <circle cx="180" cy="100" r="12" fill="#e8b4bd"/>
+              <circle cx="165" cy="85" r="10" fill="#f1cbd1"/>
+
+            </g>
+
+            <!-- GESTE 3 -->
+
+            <g class="tree-growth" data-growth="share">
+
+              <circle cx="250" cy="65" r="47" fill="#b3c5a7"/>
+              <circle cx="225" cy="45" r="24" fill="#d0dbc1"/>
+              <circle cx="280" cy="55" r="24" fill="#c3d0b2"/>
+
+              <path d="M250 60
+                       C230 40 215 65 250 85
+                       C285 65 270 40 250 60Z"
+                    fill="#e6aeb9"/>
+
+            </g>
+
+            <!-- GESTE 4 -->
+
+            <g class="tree-growth" data-growth="respect">
+
+              <circle cx="310" cy="85" r="48" fill="#c3d1b4"/>
+              <circle cx="340" cy="65" r="25" fill="#aebfa1"/>
+              <circle cx="295" cy="55" r="25" fill="#d2dcc4"/>
+
+              <circle cx="315" cy="85" r="12" fill="#e9b8c1"/>
+              <circle cx="340" cy="100" r="8" fill="#f1cbd1"/>
+
+            </g>
+
+            <!-- GESTE 5 -->
+
+            <g class="tree-growth" data-growth="help">
+
+              <circle cx="390" cy="165" r="49" fill="#b4c5a7"/>
+              <circle cx="420" cy="140" r="24" fill="#cbd7bd"/>
+              <circle cx="360" cy="145" r="24" fill="#c4d0b3"/>
+
+              <circle cx="390" cy="160" r="12" fill="#e8b4bd"/>
+              <circle cx="410" cy="185" r="9" fill="#f2cbd1"/>
+
+            </g>
+
+            <!-- GESTE 6 -->
+
+            <g class="tree-growth" data-growth="learn">
+
+              <circle cx="365" cy="280" r="44" fill="#c4d0b4"/>
+              <circle cx="395" cy="260" r="23" fill="#aebfa1"/>
+              <circle cx="340" cy="255" r="23" fill="#d0dbc1"/>
+
+              <path d="M365 270
+                       C345 250 330 275 365 295
+                       C400 275 385 250 365 270Z"
+                    fill="#e5aeb8"/>
+
+            </g>
+
+            <!-- FLORAISON FINALE -->
+
+            <g class="tree-final-bloom" id="tree-final-bloom">
+
+              <circle cx="250" cy="160" r="58" fill="#bdcbaa"/>
+              <circle cx="190" cy="200" r="43" fill="#cbd7bd"/>
+              <circle cx="310" cy="180" r="48" fill="#c4d0b3"/>
+
+              <g fill="#e4aab6">
+
+                <circle cx="230" cy="145" r="12"/>
+                <circle cx="275" cy="165" r="10"/>
+                <circle cx="190" cy="200" r="11"/>
+                <circle cx="315" cy="180" r="12"/>
+                <circle cx="250" cy="210" r="9"/>
+
+              </g>
+
+              <g fill="#f4d7dc">
+
+                <circle cx="205" cy="160" r="7"/>
+                <circle cx="290" cy="205" r="8"/>
+                <circle cx="260" cy="120" r="8"/>
+
+              </g>
+
+            </g>
+
+            <g fill="#a9b99b">
+
+              <ellipse cx="110" cy="410" rx="12" ry="5"
+                       transform="rotate(-35 110 410)"/>
+
+              <ellipse cx="390" cy="410" rx="12" ry="5"
+                       transform="rotate(35 390 410)"/>
+
+            </g>
+
+          </svg>
+
+          <div class="tree-sparkles" aria-hidden="true">
+
+            <span>✧</span>
+            <span>♡</span>
+            <span>✦</span>
+            <span>❀</span>
+            <span>✧</span>
+
+          </div>
+
         </div>
-        <p class="qr-card-label">Leetchi</p>
-        <div class="scan-me">📱 Scanne ou clique pour soutenir</div>
+
+        <div class="garden-progress">
+
+          <p id="garden-count" aria-live="polite">
+            0 geste sur 6
+          </p>
+
+          <div class="garden-progress-track"
+               id="garden-progress-track"
+               role="progressbar"
+               aria-label="Progression du jardin"
+               aria-valuemin="0"
+               aria-valuemax="6"
+               aria-valuenow="0">
+
+            <div id="garden-progress-fill"></div>
+
+          </div>
+
+          <p id="garden-message" aria-live="polite">
+
+            Une petite graine attend de grandir...
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- GESTES À SÉLECTIONNER -->
+
+      <div class="garden-actions">
+
+        <button class="garden-action"
+                type="button"
+                data-garden-action="water"
+                aria-pressed="false">
+
+          <span class="garden-action-icon">💧</span>
+
+          <span class="garden-action-content">
+
+            <strong>Offrir de l'eau</strong>
+
+            <span>
+              Mettre de l'eau propre à disposition
+              dans un endroit adapté.
+            </span>
+
+          </span>
+
+          <span class="garden-action-check">+</span>
+
+        </button>
+
+        <button class="garden-action"
+                type="button"
+                data-garden-action="food"
+                aria-pressed="false">
+
+          <span class="garden-action-icon">🐾</span>
+
+          <span class="garden-action-content">
+
+            <strong>Offrir un repas</strong>
+
+            <span>
+              Donner une nourriture adaptée
+              lorsque les conditions le permettent.
+            </span>
+
+          </span>
+
+          <span class="garden-action-check">+</span>
+
+        </button>
+
+        <button class="garden-action"
+                type="button"
+                data-garden-action="share"
+                aria-pressed="false">
+
+          <span class="garden-action-icon">♡</span>
+
+          <span class="garden-action-content">
+
+            <strong>Partager une histoire</strong>
+
+            <span>
+              Faire connaître la réalité
+              des animaux des rues.
+            </span>
+
+          </span>
+
+          <span class="garden-action-check">+</span>
+
+        </button>
+
+        <button class="garden-action"
+                type="button"
+                data-garden-action="respect"
+                aria-pressed="false">
+
+          <span class="garden-action-icon">🌷</span>
+
+          <span class="garden-action-content">
+
+            <strong>Respecter chaque animal</strong>
+
+            <span>
+              Respecter son espace, sa peur
+              et son besoin de tranquillité.
+            </span>
+
+          </span>
+
+          <span class="garden-action-check">+</span>
+
+        </button>
+
+        <button class="garden-action"
+                type="button"
+                data-garden-action="help"
+                aria-pressed="false">
+
+          <span class="garden-action-icon">🩹</span>
+
+          <span class="garden-action-content">
+
+            <strong>Ne pas détourner le regard</strong>
+
+            <span>
+              Prévenir un refuge ou un professionnel
+              lorsqu'un animal a besoin d'aide.
+            </span>
+
+          </span>
+
+          <span class="garden-action-check">+</span>
+
+        </button>
+
+        <button class="garden-action"
+                type="button"
+                data-garden-action="learn"
+                aria-pressed="false">
+
+          <span class="garden-action-icon">🌱</span>
+
+          <span class="garden-action-content">
+
+            <strong>Transmettre la bienveillance</strong>
+
+            <span>
+              Sensibiliser son entourage
+              au respect des animaux.
+            </span>
+
+          </span>
+
+          <span class="garden-action-check">+</span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="garden-completion"
+         id="garden-completion"
+         hidden>
+
+      <span class="garden-completion-symbol">❀</span>
+
+      <h3>
+
+        Regardez ce que vous avez<br>
+
+        <em>fait grandir.</em>
+
+      </h3>
+
+      <p>
+
+        Six petites intentions.
+        Six façons de rendre le monde un peu plus doux.
+
+        Maintenant, à nous de les faire vivre
+        en dehors de cet écran.
+
+      </p>
+
+      <button type="button"
+              class="support-text-link"
+              id="garden-reset">
+
+        Replanter une petite graine ↻
+
+      </button>
+
+    </div>
+
+    <p class="support-disclaimer">
+
+      Ce jardin est une expérience symbolique.
+      Les gestes sélectionnés ne représentent pas des dons
+      ni des actions réellement effectuées.
+
+    </p>
+
+  </section>
+
+
+  <!-- ======================================
+       AIDER SANS ARGENT
+       ====================================== -->
+
+  <section class="free-support-section">
+
+    <div class="free-support-inner">
+
+      <div class="free-support-intro support-reveal">
+
+        <p class="support-label">
+          Le cœur avant le portefeuille
+        </p>
+
+        <h2>
+
+          La générosité<br>
+
+          <em>n'a pas de prix.</em>
+
+        </h2>
+
+        <p>
+
+          Vous n'avez pas besoin de faire un don
+          pour avoir votre place dans cette aventure.
+
+          Je crois profondément que chacun peut aider,
+          à sa manière et selon ses possibilités.
+
+        </p>
+
+        <p>
+
+          Un peu de votre temps, quelques mots,
+          une publication partagée ou une attention
+          peuvent déjà faire une différence.
+
+        </p>
+
+        <blockquote class="support-quote">
+
+          Ce qui compte, ce n'est pas la taille du geste.
+          C'est l'amour avec lequel il est fait.
+
+        </blockquote>
+
+      </div>
+
+      <div class="free-support-cards support-reveal">
+
+        <article class="free-support-card">
+
+          <span class="free-support-number">01</span>
+          <span class="free-support-icon">♡</span>
+
+          <h3>Partager</h3>
+
+          <p>
+
+            Faire découvrir Cœur Errant
+            à une personne de votre entourage.
+
+          </p>
+
+          <button type="button"
+                  class="support-text-link"
+                  id="share-project">
+
+            Partager le projet ↗
+
+          </button>
+
+        </article>
+
+        <article class="free-support-card">
+
+          <span class="free-support-number">02</span>
+          <span class="free-support-icon">✧</span>
+
+          <h3>Sensibiliser</h3>
+
+          <p>
+
+            Parler des animaux errants,
+            de leurs besoins et de leurs histoires.
+
+          </p>
+
+          <a href="mission.html" class="support-text-link">
+
+            Découvrir la mission →
+
+          </a>
+
+        </article>
+
+        <article class="free-support-card">
+
+          <span class="free-support-number">03</span>
+          <span class="free-support-icon">❀</span>
+
+          <h3>Encourager</h3>
+
+          <p>
+
+            Un commentaire, un message
+            ou un mot gentil pour continuer.
+
+          </p>
+
+          <a href="mailto:coeur.errant@outlook.be"
+             class="support-text-link">
+
+            Envoyer un petit mot →
+
+          </a>
+
+        </article>
+
+      </div>
+
+    </div>
+
+    <p id="share-status"
+       class="share-status"
+       aria-live="polite"></p>
+
+    <div id="share-fallback" class="share-fallback" hidden>
+
+      <label for="share-url">
+        Voici le lien à partager.
+      </label>
+
+      <input type="url"
+             id="share-url"
+             readonly
+             value="https://coeurerrant.github.io/Coeur-errant/">
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       FAIRE UN DON
+       ====================================== -->
+
+  <section class="support-donation" id="faire-un-don">
+
+    <div class="support-heading support-reveal">
+
+      <p class="support-label">
+        Soutenir la mission
+      </p>
+
+      <h2>
+
+        Un petit don.<br>
+
+        <em>Une grande attention.</em>
+
+      </h2>
+
+      <p>
+
+        Cœur Errant est un projet personnel
+        que je porte avec mes propres moyens.
+
+        Si vous souhaitez contribuer financièrement,
+        votre soutien m'aide à poursuivre mes actions
+        auprès des animaux des rues.
+
+      </p>
+
+    </div>
+
+    <div class="donation-layout">
+
+      <div class="donation-story support-reveal">
+
+        <div class="donation-photo">
+
+          <img src="Tanger.jpeg"
+               alt="Un chiot rencontré dans les rues de Tanger"
+               loading="lazy">
+
+          <div class="donation-photo-caption">
+
+            <span>♡</span>
+
+            <p>
+              Tanger, Maroc
+            </p>
+
+            <small>
+              Une rencontre qui a changé beaucoup de choses.
+            </small>
+
+          </div>
+
+        </div>
+
+        <div class="donation-story-text">
+
+          <h3>Pourquoi votre aide compte</h3>
+
+          <p>
+
+            La nourriture, les consultations vétérinaires,
+            les vaccins et les déplacements nécessaires
+            pour faire soigner un animal représentent
+            des dépenses bien réelles.
+
+          </p>
+
+          <p>
+
+            Je ne me verse aucun salaire
+            pour les actions de Cœur Errant.
+
+            Mon intention est d'utiliser les contributions
+            reçues pour les besoins des animaux.
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="donation-methods support-reveal">
+
+        <p class="support-label">
+          À votre manière
+        </p>
+
+        <h3>Choisissez comment soutenir</h3>
+
+        <p class="donation-methods-intro">
+
+          Deux possibilités pour contribuer,
+          directement sur les plateformes de paiement.
+
+        </p>
+
+        <article class="donation-method paypal-method">
+
+          <div class="donation-method-top">
+
+            <div class="donation-platform-icon">
+
+              <img src="https://cdn.simpleicons.org/paypal/003087"
+                   alt=""
+                   loading="lazy">
+
+            </div>
+
+            <div>
+
+              <h4>PayPal</h4>
+
+              <p>
+                Un soutien ponctuel, selon vos possibilités.
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="donation-method-actions">
+
+            <a href="https://www.paypal.com/paypalme/CoeurErrant"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="support-button">
+
+              Soutenir via PayPal ↗
+
+            </a>
+
+            <button type="button"
+                    class="support-text-link"
+                    data-donation-qr="paypal">
+
+              Afficher le QR code
+
+            </button>
+
+          </div>
+
+        </article>
+
+        <article class="donation-method leetchi-method">
+
+          <div class="donation-method-top">
+
+            <div class="donation-platform-icon leetchi-symbol">
+
+              ♡
+
+            </div>
+
+            <div>
+
+              <h4>Leetchi</h4>
+
+              <p>
+                Participer à la cagnotte Cœur Errant.
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="donation-method-actions">
+
+            <a href="https://www.leetchi.com/fr/c/coeurs-errant-1977225?utm_source=copylink&amp;utm_medium=social_sharing"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="support-button">
+
+              Découvrir la cagnotte ↗
+
+            </a>
+
+            <button type="button"
+                    class="support-text-link"
+                    data-donation-qr="leetchi">
+
+              Afficher le QR code
+
+            </button>
+
+          </div>
+
+        </article>
+
+        <div class="donation-security">
+
+          <span>♡</span>
+
+          <p>
+
+            Aucun paiement n'est effectué sur ce site.
+            Vous êtes redirigé vers PayPal ou Leetchi,
+            qui appliquent leurs propres conditions
+            et éventuels frais.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       IMPACT INDICATIF
+       ====================================== -->
+
+  <section class="support-impact">
+
+    <div class="support-heading support-reveal">
+
+      <p class="support-label">
+        Derrière chaque euro
+      </p>
+
+      <h2>
+
+        Ce que votre soutien<br>
+
+        <em>peut rendre possible.</em>
+
+      </h2>
+
+      <p>
+
+        Choisissez un montant pour découvrir
+        un exemple de ce qu'il pourrait financer.
+
+      </p>
+
+    </div>
+
+    <div class="impact-experience support-reveal">
+
+      <div class="impact-options"
+           role="group"
+           aria-label="Choisir un montant indicatif">
+
+        <button type="button"
+                class="impact-option impact-active"
+                data-impact="5"
+                aria-pressed="true">
+
+          <span>5 €</span>
+          <small>Une petite attention</small>
+
+        </button>
+
+        <button type="button"
+                class="impact-option"
+                data-impact="20"
+                aria-pressed="false">
+
+          <span>20 €</span>
+          <small>Un peu de réconfort</small>
+
+        </button>
+
+        <button type="button"
+                class="impact-option"
+                data-impact="50"
+                aria-pressed="false">
+
+          <span>50 €</span>
+          <small>Un soutien précieux</small>
+
+        </button>
+
+      </div>
+
+      <div class="impact-display"
+           id="impact-display"
+           aria-live="polite">
+
+        <div class="impact-illustration">
+
+          <span class="impact-decoration">✧</span>
+
+          <span id="impact-symbol"
+                class="impact-symbol">
+
+            🐾
+
+          </span>
+
+          <span class="impact-decoration">♡</span>
+
+        </div>
+
+        <div class="impact-content">
+
+          <p class="support-label" id="impact-label">
+            Avec 5 €
+          </p>
+
+          <h3 id="impact-title">
+            Un ventre un peu moins vide.
+          </h3>
+
+          <p id="impact-description">
+
+            Une contribution à l'achat de croquettes
+            ou de pâtée pour les animaux rencontrés
+            pendant mes voyages.
+
+          </p>
+
+          <p class="impact-quote" id="impact-quote">
+
+            Parce qu'aucun animal ne devrait
+            passer sa journée à chercher de quoi manger.
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <p class="support-disclaimer">
+
+        Ces montants sont des exemples indicatifs,
+        et non des tarifs garantis.
+
+        Les besoins et les coûts varient selon
+        le pays, l'animal et la situation.
+
+        Sélectionner un montant ne déclenche aucun paiement.
+
+      </p>
+
+      <a href="#faire-un-don" class="support-button">
+
+        Je souhaite contribuer ♡
+
       </a>
-    </div>
-  </div>
-</section>
 
-<section class="impact-section">
-  <p class="section-tag">L'impact concret</p>
-  <h2>Ce que ton don <em>change</em></h2>
-  <div class="impact-grid">
-    <div class="impact-item">
-      <span class="impact-amount">5€</span>
-      <p class="impact-desc">De quoi nourrir une dizaine d'animaux errants pendant une journée complète</p>
     </div>
-    <div class="impact-item">
-      <span class="impact-amount">20€</span>
-      <p class="impact-desc">Une consultation vétérinaire d'urgence pour un animal blessé trouvé dans la rue</p>
-    </div>
-    <div class="impact-item">
-      <span class="impact-amount">50€</span>
-      <p class="impact-desc">Une semaine de nourriture et de soins de base pour les animaux rencontrés lors d'un voyage</p>
-    </div>
-  </div>
-</section>
 
-<section class="partager-section">
-  <p class="section-tag">Partager</p>
-  <h2>La force du <em>partage</em></h2>
-  <p style="font-size:1rem; font-weight:300; line-height:1.8; color:var(--muted); max-width:55ch; margin-top:1rem;">Tu ne peux pas faire un don ? Pas de souci. Un partage peut tout changer. Plus Cœur Errant est visible, plus on peut sensibiliser, plus on peut aider.</p>
-  <div class="reseaux-grid">
-    <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="reseau-card">
-      <img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok" class="reseau-logo">
-      <p class="reseau-name">TikTok</p>
-      <p class="reseau-handle">@coeur_errant</p>
-      <p class="reseau-desc">Les histoires en vidéo, les sauvetages en direct, les moments qui touchent le cœur.</p>
-    </a>
-    <a href="https://www.snapchat.com/add/coeur_errant" target="_blank" class="reseau-card">
-      <img src="https://cdn.simpleicons.org/snapchat/FFCC00" alt="Snapchat" class="reseau-logo">
-      <p class="reseau-name">Snapchat</p>
-      <p class="reseau-handle">coeur_errant</p>
-      <p class="reseau-desc">Les coulisses du voyage, les moments spontanés, les rencontres du quotidien.</p>
-    </a>
-    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr" target="_blank" class="reseau-card">
-      <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook" class="reseau-logo">
-      <p class="reseau-name">Facebook</p>
-      <p class="reseau-handle">Cœur Errant</p>
-      <p class="reseau-desc">Les actualités, les appels à l'aide, les mises à jour des voyages en cours.</p>
-    </a>
-  </div>
-</section>
+  </section>
 
-<section class="final-cta">
-  <p class="section-tag" style="justify-content:center;">Merci</p>
-  <h2>Chaque geste <em>compte</em></h2>
-  <p>Un don, un partage, un like, un commentaire. Tout ça, c'est du carburant pour continuer. Pour Nala. Pour le chiot aux yeux bleus de Tanger. Pour tous ceux qui attendent encore.</p>
-  <div class="cta-actions">
-    <a href="voyages.html" class="btn-primary">Voir les voyages</a>
-    <a href="mission.html" class="btn-outline" style="border-color:rgba(250,248,245,0.3); color:var(--cream);">La mission</a>
+
+  <!-- ======================================
+       LES LIVRES
+       ====================================== -->
+
+  <section class="support-books-section">
+
+    <div class="support-books-inner">
+
+      <div class="support-books-visual support-reveal">
+
+        <div class="support-books-halo"></div>
+
+        <a href="livres.html"
+           class="support-book support-book-one">
+
+          <img src="livre-lanterne.jpg"
+               alt="La petite lanterne"
+               loading="lazy">
+
+        </a>
+
+        <a href="livres.html"
+           class="support-book support-book-two">
+
+          <img src="livre-ames-errantes.jpg"
+               alt="Nos âmes errantes"
+               loading="lazy">
+
+        </a>
+
+        <a href="livres.html"
+           class="support-book support-book-three">
+
+          <img src="livre-coloriage.jpg"
+               alt="Cœur Errant — Chaque animal a une histoire"
+               loading="lazy">
+
+        </a>
+
+        <span class="support-books-star books-star-one">✧</span>
+        <span class="support-books-star books-star-two">♡</span>
+        <span class="support-books-star books-star-three">✦</span>
+
+      </div>
+
+      <div class="support-books-content support-reveal">
+
+        <p class="support-label">
+          Des histoires qui voyagent
+        </p>
+
+        <h2>
+
+          Offrir un livre.<br>
+
+          <em>Transmettre une émotion.</em>
+
+        </h2>
+
+        <p>
+
+          Les livres de Cœur Errant sont nés
+          de mes rencontres avec les animaux des rues
+          et de mon envie de partager leurs histoires.
+
+        </p>
+
+        <p>
+
+          En découvrant mes livres, en les offrant
+          ou en parlant d'eux autour de vous,
+          vous soutenez aussi mon travail de sensibilisation.
+
+        </p>
+
+        <p class="support-books-quote">
+
+          Une histoire peut rester dans un cœur
+          bien après la dernière page.
+
+        </p>
+
+        <a href="livres.html" class="support-button">
+
+          Entrer dans ma bibliothèque ♡
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       DÉFI SOLIDAIRE DE 7 JOURS
+       ====================================== -->
+
+  <section class="kindness-challenge" id="defi-solidaire">
+
+    <div class="support-heading support-reveal">
+
+      <p class="support-label">
+        Sept jours de bienveillance
+      </p>
+
+      <h2>
+
+        Et si cette semaine<br>
+
+        <em>on changeait quelque chose ?</em>
+
+      </h2>
+
+      <p>
+
+        Sept petites missions.
+        Aucun montant imposé.
+        Aucune obligation.
+
+        Juste une invitation à faire un peu de bien,
+        à votre rythme.
+
+      </p>
+
+    </div>
+
+    <div class="challenge-container support-reveal">
+
+      <div class="challenge-header">
+
+        <div>
+
+          <p class="support-label">
+            Mon carnet de bienveillance
+          </p>
+
+          <h3>Ma semaine solidaire</h3>
+
+        </div>
+
+        <div class="challenge-counter">
+
+          <strong id="challenge-count">0/7</strong>
+
+          <span>gestes accomplis</span>
+
+        </div>
+
+      </div>
+
+      <div class="challenge-progress-track"
+           id="challenge-progress-track"
+           role="progressbar"
+           aria-label="Progression du défi solidaire"
+           aria-valuemin="0"
+           aria-valuemax="7"
+           aria-valuenow="0">
+
+        <div id="challenge-progress-fill"></div>
+
+      </div>
+
+      <div class="challenge-days">
+
+        <!-- JOUR 1 -->
+
+        <button type="button"
+                class="challenge-day"
+                data-day="1"
+                aria-pressed="false">
+
+          <span class="challenge-day-number">01</span>
+
+          <span class="challenge-day-icon">💧</span>
+
+          <span class="challenge-day-content">
+
+            <small>Jour 1</small>
+
+            <strong>Une goutte de douceur</strong>
+
+            <span>
+
+              Mettre une gamelle d'eau propre
+              dans un endroit autorisé et adapté.
+
+            </span>
+
+          </span>
+
+          <span class="challenge-day-check">✓</span>
+
+        </button>
+
+        <!-- JOUR 2 -->
+
+        <button type="button"
+                class="challenge-day"
+                data-day="2"
+                aria-pressed="false">
+
+          <span class="challenge-day-number">02</span>
+
+          <span class="challenge-day-icon">♡</span>
+
+          <span class="challenge-day-content">
+
+            <small>Jour 2</small>
+
+            <strong>Une histoire à transmettre</strong>
+
+            <span>
+
+              Partager une publication
+              sur la protection animale.
+
+            </span>
+
+          </span>
+
+          <span class="challenge-day-check">✓</span>
+
+        </button>
+
+        <!-- JOUR 3 -->
+
+        <button type="button"
+                class="challenge-day"
+                data-day="3"
+                aria-pressed="false">
+
+          <span class="challenge-day-number">03</span>
+
+          <span class="challenge-day-icon">🐾</span>
+
+          <span class="challenge-day-content">
+
+            <small>Jour 3</small>
+
+            <strong>Apprendre à regarder</strong>
+
+            <span>
+
+              Prendre le temps d'observer les animaux
+              autour de soi sans les déranger.
+
+            </span>
+
+          </span>
+
+          <span class="challenge-day-check">✓</span>
+
+        </button>
+
+        <!-- JOUR 4 -->
+
+        <button type="button"
+                class="challenge-day"
+                data-day="4"
+                aria-pressed="false">
+
+          <span class="challenge-day-number">04</span>
+
+          <span class="challenge-day-icon">🌱</span>
+
+          <span class="challenge-day-content">
+
+            <small>Jour 4</small>
+
+            <strong>Découvrir pour mieux aider</strong>
+
+            <span>
+
+              Se renseigner sur un refuge local
+              ou une association de protection animale.
+
+            </span>
+
+          </span>
+
+          <span class="challenge-day-check">✓</span>
+
+        </button>
+
+        <!-- JOUR 5 -->
+
+        <button type="button"
+                class="challenge-day"
+                data-day="5"
+                aria-pressed="false">
+
+          <span class="challenge-day-number">05</span>
+
+          <span class="challenge-day-icon">💌</span>
+
+          <span class="challenge-day-content">
+
+            <small>Jour 5</small>
+
+            <strong>Quelques mots qui comptent</strong>
+
+            <span>
+
+              Envoyer un message d'encouragement
+              à une personne qui aide les animaux.
+
+            </span>
+
+          </span>
+
+          <span class="challenge-day-check">✓</span>
+
+        </button>
+
+        <!-- JOUR 6 -->
+
+        <button type="button"
+                class="challenge-day"
+                data-day="6"
+                aria-pressed="false">
+
+          <span class="challenge-day-number">06</span>
+
+          <span class="challenge-day-icon">📖</span>
+
+          <span class="challenge-day-content">
+
+            <small>Jour 6</small>
+
+            <strong>Semer une petite graine</strong>
+
+            <span>
+
+              Parler à un proche de l'adoption responsable
+              et de l'importance de la stérilisation.
+
+            </span>
+
+          </span>
+
+          <span class="challenge-day-check">✓</span>
+
+        </button>
+
+        <!-- JOUR 7 -->
+
+        <button type="button"
+                class="challenge-day"
+                data-day="7"
+                aria-pressed="false">
+
+          <span class="challenge-day-number">07</span>
+
+          <span class="challenge-day-icon">✨</span>
+
+          <span class="challenge-day-content">
+
+            <small>Jour 7</small>
+
+            <strong>Une promesse pour demain</strong>
+
+            <span>
+
+              Choisir une habitude bienveillante
+              à conserver après cette semaine.
+
+            </span>
+
+          </span>
+
+          <span class="challenge-day-check">✓</span>
+
+        </button>
+
+      </div>
+
+      <p class="challenge-message"
+         id="challenge-message"
+         aria-live="polite">
+
+        Votre première petite mission vous attend.
+
+      </p>
+
+      <div class="challenge-reward"
+           id="challenge-reward"
+           hidden>
+
+        <span class="challenge-reward-symbol">❀</span>
+
+        <p class="support-label">
+          Sept graines de bienveillance
+        </p>
+
+        <h3>
+
+          Un cœur qui<br>
+
+          <em>fait la différence.</em>
+
+        </h3>
+
+        <p>
+
+          Vous avez terminé votre carnet de bienveillance.
+
+          Gardez cette petite attention aux autres,
+          même lorsque cette semaine sera terminée.
+
+        </p>
+
+        <button type="button"
+                class="support-button"
+                id="download-challenge-card">
+
+          Garder ma carte souvenir ♡
+
+        </button>
+
+      </div>
+
+      <button type="button"
+              class="support-text-link challenge-reset"
+              id="challenge-reset">
+
+        Recommencer le défi ↻
+
+      </button>
+
+      <p class="support-disclaimer"
+         id="challenge-storage-note">
+
+        Votre progression est enregistrée uniquement
+        dans ce navigateur.
+
+        Les missions sont déclarées par vous-même
+        et ne sont pas vérifiées.
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       RÉSEAUX SOCIAUX
+       ====================================== -->
+
+  <section class="support-social-section">
+
+    <div class="support-heading support-reveal">
+
+      <p class="support-label">
+        Au-delà des kilomètres
+      </p>
+
+      <h2>
+
+        Faisons voyager<br>
+
+        <em>la bienveillance.</em>
+
+      </h2>
+
+      <p>
+
+        Retrouvez les rencontres, les histoires,
+        les voyages et les petits moments
+        qui font grandir Cœur Errant.
+
+      </p>
+
+    </div>
+
+    <div class="support-social-grid support-reveal">
+
+      <!-- TIKTOK -->
+
+      <a href="https://www.tiktok.com/@coeur_errant"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="support-social-card social-tiktok">
+
+        <span class="social-card-decoration">✧</span>
+
+        <div class="support-social-icon">
+
+          <img src="https://cdn.simpleicons.org/tiktok/252525"
+               alt=""
+               loading="lazy">
+
+        </div>
+
+        <h3>TikTok</h3>
+
+        <span class="support-social-handle">
+          @coeur_errant
+        </span>
+
+        <p>
+          Des rencontres et des histoires en vidéo.
+        </p>
+
+        <span class="support-social-visit">
+          Découvrir ↗
+        </span>
+
+      </a>
+
+      <!-- INSTAGRAM -->
+
+      <a href="https://www.instagram.com/coeur.errant/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="support-social-card social-instagram">
+
+        <span class="social-card-decoration">♡</span>
+
+        <div class="support-social-icon">
+
+          <img src="https://cdn.simpleicons.org/instagram/A85E68"
+               alt=""
+               loading="lazy">
+
+        </div>
+
+        <h3>Instagram</h3>
+
+        <span class="support-social-handle">
+          @coeur.errant
+        </span>
+
+        <p>
+          Des souvenirs, des regards et des émotions.
+        </p>
+
+        <span class="support-social-visit">
+          Découvrir ↗
+        </span>
+
+      </a>
+
+      <!-- YOUTUBE -->
+
+      <a href="https://www.youtube.com/@CoeurErrant"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="support-social-card social-youtube">
+
+        <span class="social-card-decoration">✦</span>
+
+        <div class="support-social-icon">
+
+          <img src="https://cdn.simpleicons.org/youtube/C75B68"
+               alt=""
+               loading="lazy">
+
+        </div>
+
+        <h3>YouTube</h3>
+
+        <span class="support-social-handle">
+          @CoeurErrant
+        </span>
+
+        <p>
+          Des histoires pour les petits et les grands.
+        </p>
+
+        <span class="support-social-visit">
+          Découvrir ↗
+        </span>
+
+      </a>
+
+      <!-- FACEBOOK -->
+
+      <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="support-social-card social-facebook">
+
+        <span class="social-card-decoration">❀</span>
+
+        <div class="support-social-icon">
+
+          <img src="https://cdn.simpleicons.org/facebook/6D87AC"
+               alt=""
+               loading="lazy">
+
+        </div>
+
+        <h3>Facebook</h3>
+
+        <span class="support-social-handle">
+          Cœur Errant
+        </span>
+
+        <p>
+          Les nouvelles et les aventures du projet.
+        </p>
+
+        <span class="support-social-visit">
+          Découvrir ↗
+        </span>
+
+      </a>
+
+      <!-- SNAPCHAT -->
+
+      <a href="https://www.snapchat.com/add/coeur_errant"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="support-social-card social-snapchat">
+
+        <span class="social-card-decoration">✧</span>
+
+        <div class="support-social-icon">
+
+          <img src="https://cdn.simpleicons.org/snapchat/B69A45"
+               alt=""
+               loading="lazy">
+
+        </div>
+
+        <h3>Snapchat</h3>
+
+        <span class="support-social-handle">
+          coeur_errant
+        </span>
+
+        <p>
+          Les petits moments spontanés du quotidien.
+        </p>
+
+        <span class="support-social-visit">
+          Découvrir ↗
+        </span>
+
+      </a>
+
+      <!-- CONTACT -->
+
+      <a href="mailto:coeur.errant@outlook.be"
+         class="support-social-card social-contact">
+
+        <span class="social-card-decoration">♡</span>
+
+        <div class="support-social-icon social-mail-icon">
+
+          <svg viewBox="0 0 48 48"
+               fill="none"
+               aria-hidden="true">
+
+            <rect x="5" y="10"
+                  width="38" height="28"
+                  rx="4"
+                  stroke="currentColor"
+                  stroke-width="2"/>
+
+            <path d="M6 12 L24 27 L42 12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"/>
+
+          </svg>
+
+        </div>
+
+        <h3>Un petit mot</h3>
+
+        <span class="support-social-handle">
+          Contact
+        </span>
+
+        <p>
+          Une question, une idée ou simplement un bonjour.
+        </p>
+
+        <span class="support-social-visit">
+          M'écrire ↗
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       TRANSPARENCE ET QUESTIONS
+       ====================================== -->
+
+  <section class="support-faq-section">
+
+    <div class="support-faq-inner">
+
+      <div class="support-faq-intro support-reveal">
+
+        <p class="support-label">
+          En toute simplicité
+        </p>
+
+        <h2>
+
+          Quelques mots<br>
+
+          <em>en toute transparence.</em>
+
+        </h2>
+
+        <p>
+
+          La confiance est importante pour moi.
+
+          Voici quelques réponses aux questions
+          que vous pourriez vous poser
+          avant de soutenir Cœur Errant.
+
+        </p>
+
+        <span class="faq-heart" aria-hidden="true">♡</span>
+
+      </div>
+
+      <div class="support-faq-list support-reveal">
+
+        <details class="support-faq-item">
+
+          <summary>
+
+            <span>Cœur Errant est-il une association ?</span>
+
+            <span class="faq-expand">+</span>
+
+          </summary>
+
+          <div class="faq-answer">
+
+            <p>
+
+              Cœur Errant est actuellement un projet personnel
+              né de mes voyages et de mes rencontres
+              avec les animaux errants.
+
+              Ce n'est pas une association enregistrée.
+
+            </p>
+
+          </div>
+
+        </details>
+
+        <details class="support-faq-item">
+
+          <summary>
+
+            <span>À quoi servent les contributions ?</span>
+
+            <span class="faq-expand">+</span>
+
+          </summary>
+
+          <div class="faq-answer">
+
+            <p>
+
+              Elles sont destinées à soutenir les actions
+              auprès des animaux, notamment la nourriture,
+              les soins vétérinaires et les déplacements
+              nécessaires à leur prise en charge.
+
+            </p>
+
+          </div>
+
+        </details>
+
+        <details class="support-faq-item">
+
+          <summary>
+
+            <span>Dois-je donner un montant minimum ?</span>
+
+            <span class="faq-expand">+</span>
+
+          </summary>
+
+          <div class="faq-answer">
+
+            <p>
+
+              Aucun montant n'est imposé par Cœur Errant.
+
+              Vous choisissez librement selon vos possibilités,
+              sous réserve des conditions de la plateforme
+              de paiement utilisée.
+
+            </p>
+
+          </div>
+
+        </details>
+
+        <details class="support-faq-item">
+
+          <summary>
+
+            <span>Puis-je aider sans faire de don ?</span>
+
+            <span class="faq-expand">+</span>
+
+          </summary>
+
+          <div class="faq-answer">
+
+            <p>
+
+              Bien sûr.
+
+              Partager une histoire, sensibiliser votre entourage,
+              soutenir un refuge ou adopter des gestes bienveillants
+              sont autant de façons de participer.
+
+            </p>
+
+          </div>
+
+        </details>
+
+        <details class="support-faq-item">
+
+          <summary>
+
+            <span>Comment suivre les prochaines actions ?</span>
+
+            <span class="faq-expand">+</span>
+
+          </summary>
+
+          <div class="faq-answer">
+
+            <p>
+
+              Vous pouvez retrouver les rencontres et les aventures
+              de Cœur Errant sur les réseaux sociaux
+              et dans le carnet de voyages du site.
+
+            </p>
+
+            <a href="voyages.html" class="support-text-link">
+
+              Découvrir les voyages →
+
+            </a>
+
+          </div>
+
+        </details>
+
+        <details class="support-faq-item">
+
+          <summary>
+
+            <span>Les contributions sont-elles déductibles fiscalement ?</span>
+
+            <span class="faq-expand">+</span>
+
+          </summary>
+
+          <div class="faq-answer">
+
+            <p>
+
+              Cœur Errant étant un projet personnel,
+              aucune attestation fiscale pour les dons
+              n'est délivrée.
+
+            </p>
+
+          </div>
+
+        </details>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       LETTRE SECRÈTE
+       ====================================== -->
+
+  <section class="support-letter-section">
+
+    <div class="support-heading support-reveal">
+
+      <p class="support-label">
+        Avant de partir
+      </p>
+
+      <h2>
+
+        J'ai quelque chose<br>
+
+        <em>pour vous.</em>
+
+      </h2>
+
+      <p>
+
+        Une petite lettre.
+        Quelques mots que j'aimerais vous laisser.
+
+      </p>
+
+    </div>
+
+    <div class="secret-letter-experience support-reveal">
+
+      <button type="button"
+              class="secret-envelope"
+              id="secret-envelope"
+              aria-expanded="false"
+              aria-controls="secret-letter"
+              aria-label="Ouvrir la lettre de remerciement">
+
+        <span class="envelope-shadow"></span>
+
+        <span class="envelope-back"></span>
+
+        <span class="envelope-paper">
+
+          <span>♡</span>
+
+          <span>Pour vous...</span>
+
+        </span>
+
+        <span class="envelope-front"></span>
+
+        <span class="envelope-flap"></span>
+
+        <span class="envelope-seal">
+
+          ♡
+
+        </span>
+
+        <span class="envelope-decoration envelope-decoration-one">
+          ✧
+        </span>
+
+        <span class="envelope-decoration envelope-decoration-two">
+          ❀
+        </span>
+
+        <span class="envelope-decoration envelope-decoration-three">
+          ♡
+        </span>
+
+      </button>
+
+      <p class="envelope-instruction"
+         id="envelope-instruction">
+
+        Cliquez sur le petit cœur pour ouvrir la lettre.
+
+      </p>
+
+      <article class="secret-letter"
+               id="secret-letter"
+               hidden>
+
+        <div class="secret-letter-top">
+
+          <span>♡</span>
+
+          <p>
+            Quelques mots du cœur
+          </p>
+
+        </div>
+
+        <h3>
+
+          À vous qui êtes ici,
+
+        </h3>
+
+        <p>
+
+          Peut-être que vous êtes arrivé sur ce site
+          par hasard.
+
+          Peut-être qu'une histoire, une photo
+          ou le regard d'un animal vous a amené jusqu'ici.
+
+        </p>
+
+        <p>
+
+          Peu importe la raison.
+
+          Merci d'avoir pris quelques minutes
+          pour entrer dans mon univers.
+
+        </p>
+
+        <p>
+
+          Cœur Errant est né de rencontres
+          que je n'ai jamais réussi à oublier.
+
+          Des animaux qui n'avaient parfois rien,
+          mais qui avaient encore tellement
+          d'amour à donner.
+
+        </p>
+
+        <p>
+
+          Je ne pourrai jamais tous les sauver.
+
+          Mais je refuse de croire que cela signifie
+          que je ne peux rien faire.
+
+        </p>
+
+        <p>
+
+          Et aujourd'hui, si vous repartez d'ici
+          avec un regard un peu différent
+          sur les animaux des rues,
+          alors cette aventure a déjà du sens.
+
+        </p>
+
+        <p>
+
+          Merci pour votre présence.
+          Merci pour votre bienveillance.
+
+          Et merci, surtout, de ne pas les oublier.
+
+        </p>
+
+        <div class="secret-letter-signature">
+
+          Avec tout mon cœur,
+
+          <strong>Cœur Errant</strong>
+
+          <span>♡</span>
+
+        </div>
+
+        <button type="button"
+                class="support-text-link"
+                id="close-secret-letter">
+
+          Refermer la lettre
+
+        </button>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       CONCLUSION
+       ====================================== -->
+
+  <section class="support-ending">
+
+    <div class="support-ending-decoration" aria-hidden="true">
+
+      <span>♡</span>
+      <span>✧</span>
+      <span>❀</span>
+      <span>♡</span>
+
+    </div>
+
+    <div class="support-ending-content support-reveal">
+
+      <span class="support-ending-heart">♡</span>
+
+      <p class="support-label">
+        Ensemble, autrement
+      </p>
+
+      <h2>
+
+        Le monde ne change pas<br>
+        en un seul jour.
+
+        <em>Mais il change à chaque geste.</em>
+
+      </h2>
+
+      <p>
+
+        Pour Nala. Pour Hiro.
+
+        Pour tous ceux dont je connais le nom,
+        et tous ceux que je n'ai pas encore rencontrés.
+
+      </p>
+
+      <p>
+
+        Continuons à semer un peu de douceur
+        partout où nos chemins nous emmènent.
+
+      </p>
+
+      <div class="support-ending-actions">
+
+        <a href="voyages.html" class="support-button">
+
+          Continuer le voyage →
+
+        </a>
+
+        <a href="etoiles.html" class="support-text-link">
+
+          Une pensée pour nos étoiles ♡
+
+        </a>
+
+      </div>
+
+      <span class="support-ending-signature">
+
+        Chaque animal a une histoire.
+
+      </span>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- ======================================
+     FENÊTRE QR CODE
+     ====================================== -->
+
+<dialog class="support-qr-dialog"
+        id="support-qr-dialog"
+        aria-labelledby="support-qr-title">
+
+  <div class="support-qr-inner">
+
+    <button type="button"
+            class="support-dialog-close"
+            id="close-support-qr"
+            aria-label="Fermer la fenêtre">
+
+      ×
+
+    </button>
+
+    <span class="support-qr-heart">♡</span>
+
+    <p class="support-label">
+      Un petit geste
+    </p>
+
+    <h2 id="support-qr-title"></h2>
+
+    <div class="support-qr-image-frame">
+
+      <img id="support-qr-image"
+           alt="QR code de soutien">
+
+      <p id="support-qr-error" hidden>
+
+        Le QR code est indisponible.
+        Vous pouvez utiliser le lien ci-dessous.
+
+      </p>
+
+    </div>
+
+    <p>
+
+      Scannez ce QR code avec votre téléphone
+      pour accéder à la plateforme de soutien.
+
+    </p>
+
+    <a id="support-qr-link"
+       class="support-button"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      Accéder à la plateforme ↗
+
+    </a>
+
   </div>
-</section>
+
+</dialog>
+
+
+<!-- ======================================
+     FOOTER
+     ====================================== -->
 
 <footer>
+
   <div class="footer-logo">
-    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
-    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1rem; letter-spacing:0.15em; color:var(--cream);">CŒUR ERRANT</span>
+
+    <img src="logo.jpeg" alt="Cœur Errant">
+
   </div>
+
   <div class="footer-divider"></div>
+
   <div class="footer-socials">
-    <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="footer-social-link">
+
+    <a href="https://www.tiktok.com/@coeur_errant"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-social-link">
+
       <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/tiktok/white" alt="TikTok">
+
+        <img src="https://cdn.simpleicons.org/tiktok/white"
+             alt="">
+
       </div>
+
       <span class="footer-social-name">TikTok</span>
+
     </a>
-    <a href="https://www.youtube.com/@CoeurErrant" target="_blank" class="footer-social-link">
+
+    <a href="https://www.instagram.com/coeur.errant/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-social-link">
+
       <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/youtube/white" alt="YouTube">
+
+        <img src="https://cdn.simpleicons.org/instagram/white"
+             alt="">
+
       </div>
+
+      <span class="footer-social-name">Instagram</span>
+
+    </a>
+
+    <a href="https://www.youtube.com/@CoeurErrant"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-social-link">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/youtube/white"
+             alt="">
+
+      </div>
+
       <span class="footer-social-name">YouTube</span>
+
     </a>
-    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr" target="_blank" class="footer-social-link">
+
+    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-social-link">
+
       <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook">
+
+        <img src="https://cdn.simpleicons.org/facebook/white"
+             alt="">
+
       </div>
+
       <span class="footer-social-name">Facebook</span>
+
     </a>
-    <a href="https://www.snapchat.com/add/coeur_errant" target="_blank" class="footer-social-link">
+
+    <a href="https://www.snapchat.com/add/coeur_errant"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-social-link">
+
       <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/snapchat/white" alt="Snapchat">
+
+        <img src="https://cdn.simpleicons.org/snapchat/white"
+             alt="">
+
       </div>
+
       <span class="footer-social-name">Snapchat</span>
+
     </a>
-    <a href="mailto:coeur.errant@outlook.be" class="footer-social-link">
+
+    <a href="mailto:coeur.errant@outlook.be"
+       class="footer-social-link">
+
       <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/gmail/white" alt="Mail">
+
+        <img src="https://cdn.simpleicons.org/gmail/white"
+             alt="">
+
       </div>
-      <span class="footer-social-name">Mail</span>
+
+      <span class="footer-social-name">Contact</span>
+
     </a>
+
   </div>
+
   <div class="footer-divider"></div>
-  <p class="footer-copy">© 2025 Cœur Errant — Nourrir les âmes errantes</p>
+
+  <p class="footer-copy">
+
+    © <span id="annee">2026</span> Cœur Errant —
+    Chaque animal a une histoire.
+
+  </p>
+
 </footer>
 
+
+<!-- ======================================
+     JAVASCRIPT
+     ====================================== -->
+
 <script>
+
+  /* ======================================
+     NAVIGATION
+     ====================================== */
+
   function toggleMenu() {
-    document.getElementById('nav-links').classList.toggle('open');
-    document.getElementById('hamburger').classList.toggle('open');
+
+    const menu = document.getElementById("nav-links");
+    const hamburger = document.getElementById("hamburger");
+
+    const isOpen = menu.classList.toggle("open");
+
+    hamburger.classList.toggle("open", isOpen);
+
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+
   }
+
   function closeMenu() {
-    document.getElementById('nav-links').classList.remove('open');
-    document.getElementById('hamburger').classList.remove('open');
+
+    document.getElementById("nav-links").classList.remove("open");
+
+    const hamburger = document.getElementById("hamburger");
+
+    hamburger.classList.remove("open");
+    hamburger.setAttribute("aria-expanded", "false");
+
   }
+
+  document.querySelectorAll("#nav-links a").forEach(link => {
+
+    link.addEventListener("click", closeMenu);
+
+  });
+
+  document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+      closeMenu();
+
+    }
+
+  });
+
+  document.getElementById("annee").textContent =
+    new Date().getFullYear();
+
+
+  /* ======================================
+     ANIMATIONS AU DÉFILEMENT
+     ====================================== */
+
+  const supportPage = document.querySelector(".support-page");
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if ("IntersectionObserver" in window && !reducedMotion) {
+
+    const supportObserver = new IntersectionObserver(entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("support-visible");
+
+          supportObserver.unobserve(entry.target);
+
+        }
+
+      });
+
+    }, {
+
+      threshold: 0.08
+
+    });
+
+    document.querySelectorAll(".support-reveal").forEach(element => {
+
+      supportObserver.observe(element);
+
+    });
+
+    supportPage.classList.add("support-animations");
+
+  }
+
+
+  /* ======================================
+     JARDIN DE LA SOLIDARITÉ
+     ====================================== */
+
+  const gardenButtons = document.querySelectorAll(
+    "[data-garden-action]"
+  );
+
+  const selectedGestures = new Set();
+
+  const gardenMessages = [
+
+    "Une petite graine attend de grandir...",
+
+    "Tout commence par une première attention.",
+
+    "Deux petits gestes, et déjà un peu plus de douceur.",
+
+    "Regardez, les premières fleurs apparaissent.",
+
+    "La bienveillance continue de grandir.",
+
+    "Encore une petite graine pour notre jardin.",
+
+    "Votre jardin est en fleurs. À nous de faire vivre ces gestes !"
+
+  ];
+
+  function updateGarden() {
+
+    const count = selectedGestures.size;
+
+    gardenButtons.forEach(button => {
+
+      const gesture = button.dataset.gardenAction;
+
+      const selected = selectedGestures.has(gesture);
+
+      button.classList.toggle("garden-action-selected", selected);
+
+      button.setAttribute("aria-pressed", String(selected));
+
+      button.querySelector(".garden-action-check").textContent =
+        selected ? "✓" : "+";
+
+    });
+
+    document.querySelectorAll("[data-growth]").forEach(growth => {
+
+      growth.classList.toggle(
+        "growth-visible",
+        selectedGestures.has(growth.dataset.growth)
+      );
+
+    });
+
+    document.getElementById("garden-count").textContent =
+      count + (count > 1 ? " gestes" : " geste") + " sur 6";
+
+    document.getElementById("garden-progress-fill").style.width =
+      (count / 6 * 100) + "%";
+
+    document.getElementById("garden-progress-track")
+      .setAttribute("aria-valuenow", String(count));
+
+    document.getElementById("garden-message").textContent =
+      gardenMessages[count];
+
+    document.getElementById("garden-completion").hidden =
+      count !== 6;
+
+    document.getElementById("tree-final-bloom")
+      .classList.toggle("bloom-visible", count === 6);
+
+    document.getElementById("interactive-tree")
+      .classList.toggle("tree-complete", count === 6);
+
+  }
+
+  gardenButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const gesture = button.dataset.gardenAction;
+
+      if (selectedGestures.has(gesture)) {
+
+        selectedGestures.delete(gesture);
+
+      } else {
+
+        selectedGestures.add(gesture);
+
+      }
+
+      updateGarden();
+
+    });
+
+  });
+
+  document.getElementById("garden-reset")
+    .addEventListener("click", () => {
+
+      selectedGestures.clear();
+
+      updateGarden();
+
+      gardenButtons[0].focus();
+
+    });
+
+  updateGarden();
+
+
+  /* ======================================
+     PARTAGER LE PROJET
+     ====================================== */
+
+  const projectUrl =
+    "https://coeurerrant.github.io/Coeur-errant/";
+
+  const shareStatus = document.getElementById("share-status");
+
+  document.getElementById("share-project")
+    .addEventListener("click", async () => {
+
+      shareStatus.textContent = "";
+
+      document.getElementById("share-fallback").hidden = true;
+
+      if (navigator.share) {
+
+        try {
+
+          await navigator.share({
+
+            title: "Cœur Errant",
+
+            text: "Découvrez Cœur Errant, un projet consacré aux animaux des rues. Chaque animal a une histoire.",
+
+            url: projectUrl
+
+          });
+
+          shareStatus.textContent =
+            "Merci de faire voyager la bienveillance ♡";
+
+          return;
+
+        } catch (error) {
+
+          if (error.name === "AbortError") {
+
+            return;
+
+          }
+
+        }
+
+      }
+
+      if (navigator.clipboard && window.isSecureContext) {
+
+        try {
+
+          await navigator.clipboard.writeText(projectUrl);
+
+          shareStatus.textContent =
+            "Le lien a été copié. Merci pour votre soutien ♡";
+
+          return;
+
+        } catch (error) {
+
+          // Affichage du lien si la copie automatique échoue.
+
+        }
+
+      }
+
+      document.getElementById("share-fallback").hidden = false;
+
+      const shareInput = document.getElementById("share-url");
+
+      shareInput.focus();
+      shareInput.select();
+
+      shareStatus.textContent =
+        "Vous pouvez copier le lien et le partager autour de vous.";
+
+    });
+
+
+  /* ======================================
+     IMPACT INTERACTIF
+     ====================================== */
+
+  const impactData = {
+
+    "5": {
+
+      symbol: "🐾",
+
+      title: "Un ventre un peu moins vide.",
+
+      description: "Une contribution à l'achat de croquettes ou de pâtée pour les animaux rencontrés pendant mes voyages.",
+
+      quote: "Parce qu'aucun animal ne devrait passer sa journée à chercher de quoi manger."
+
+    },
+
+    "20": {
+
+      symbol: "🩹",
+
+      title: "Un peu de réconfort.",
+
+      description: "Une participation aux frais d'une consultation vétérinaire, de médicaments ou de soins adaptés à un animal qui en a besoin.",
+
+      quote: "Parce que leur douleur mérite aussi d'être entendue."
+
+    },
+
+    "50": {
+
+      symbol: "♡",
+
+      title: "Un soutien pour aller plus loin.",
+
+      description: "Une contribution plus importante aux dépenses de nourriture, de soins ou de transport nécessaire à la prise en charge des animaux.",
+
+      quote: "Parce que chaque vie mérite une chance supplémentaire."
+
+    }
+
+  };
+
+  const impactButtons = document.querySelectorAll("[data-impact]");
+
+  const impactDisplay = document.getElementById("impact-display");
+
+  let impactAnimationTimer;
+
+  impactButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const amount = button.dataset.impact;
+
+      const data = impactData[amount];
+
+      if (!data) return;
+
+      impactButtons.forEach(item => {
+
+        const active = item === button;
+
+        item.classList.toggle("impact-active", active);
+
+        item.setAttribute("aria-pressed", String(active));
+
+      });
+
+      document.getElementById("impact-symbol").textContent =
+        data.symbol;
+
+      document.getElementById("impact-label").textContent =
+        "Avec " + amount + " €";
+
+      document.getElementById("impact-title").textContent =
+        data.title;
+
+      document.getElementById("impact-description").textContent =
+        data.description;
+
+      document.getElementById("impact-quote").textContent =
+        data.quote;
+
+      clearTimeout(impactAnimationTimer);
+
+      impactDisplay.classList.remove("impact-changing");
+
+      if (!reducedMotion) {
+
+        void impactDisplay.offsetWidth;
+
+        impactDisplay.classList.add("impact-changing");
+
+        impactAnimationTimer = setTimeout(() => {
+
+          impactDisplay.classList.remove("impact-changing");
+
+        }, 500);
+
+      }
+
+    });
+
+  });
+
+
+  /* ======================================
+     QR CODES PAYPAL ET LEETCHI
+     ====================================== */
+
+  const donationPlatforms = {
+
+    paypal: {
+
+      name: "Soutenir via PayPal",
+
+      image: "logo paypall.jpeg",
+
+      url: "https://www.paypal.com/paypalme/CoeurErrant"
+
+    },
+
+    leetchi: {
+
+      name: "Soutenir via Leetchi",
+
+      image: "logo leetchi.jpeg",
+
+      url: "https://www.leetchi.com/fr/c/coeurs-errant-1977225?utm_source=copylink&utm_medium=social_sharing"
+
+    }
+
+  };
+
+  const qrDialog = document.getElementById("support-qr-dialog");
+
+  const qrImage = document.getElementById("support-qr-image");
+
+  const qrError = document.getElementById("support-qr-error");
+
+  let previousQrFocus = null;
+
+  qrImage.addEventListener("error", () => {
+
+    qrImage.hidden = true;
+
+    qrError.hidden = false;
+
+  });
+
+  qrImage.addEventListener("load", () => {
+
+    qrImage.hidden = false;
+
+    qrError.hidden = true;
+
+  });
+
+  document.querySelectorAll("[data-donation-qr]").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const platform = donationPlatforms[button.dataset.donationQr];
+
+      if (!platform) return;
+
+      previousQrFocus = button;
+
+      document.getElementById("support-qr-title").textContent =
+        platform.name;
+
+      qrError.hidden = true;
+
+      qrImage.hidden = false;
+
+      qrImage.alt = "QR code — " + platform.name;
+
+      qrImage.src = platform.image;
+
+      document.getElementById("support-qr-link").href =
+        platform.url;
+
+      if (typeof qrDialog.showModal === "function") {
+
+        qrDialog.showModal();
+
+        document.body.classList.add("support-dialog-open");
+
+      } else {
+
+        window.open(platform.url, "_blank", "noopener,noreferrer");
+
+      }
+
+    });
+
+  });
+
+  document.getElementById("close-support-qr")
+    .addEventListener("click", () => {
+
+      qrDialog.close();
+
+    });
+
+  qrDialog.addEventListener("click", event => {
+
+    if (event.target === qrDialog) {
+
+      qrDialog.close();
+
+    }
+
+  });
+
+  qrDialog.addEventListener("close", () => {
+
+    document.body.classList.remove("support-dialog-open");
+
+    if (previousQrFocus) {
+
+      previousQrFocus.focus();
+
+    }
+
+  });
+
+
+  /* ======================================
+     DÉFI SOLIDAIRE
+     ====================================== */
+
+  const challengeStorageKey =
+    "coeur-errant-kindness-challenge-v1";
+
+  const challengeButtons = document.querySelectorAll("[data-day]");
+
+  const completedDays = new Set();
+
+  const storageNote = document.getElementById(
+    "challenge-storage-note"
+  );
+
+  const challengeMessages = [
+
+    "Votre première petite mission vous attend.",
+
+    "Un premier geste. Une première petite victoire.",
+
+    "Deux graines de bienveillance sont semées.",
+
+    "Trois gestes qui donnent du sens à cette semaine.",
+
+    "Vous avez déjà parcouru plus de la moitié du chemin.",
+
+    "Cinq petites attentions. Continuez à votre rythme.",
+
+    "Encore une petite mission pour terminer votre carnet.",
+
+    "Sept gestes accomplis. Merci de faire grandir la bienveillance ♡"
+
+  ];
+
+  function showStorageWarning() {
+
+    storageNote.textContent =
+      "Le stockage local est indisponible. Votre progression sera conservée uniquement pendant cette visite.";
+
+  }
+
+  try {
+
+    const savedDays = JSON.parse(
+      localStorage.getItem(challengeStorageKey) || "[]"
+    );
+
+    if (Array.isArray(savedDays)) {
+
+      savedDays.forEach(day => {
+
+        const number = Number(day);
+
+        if (Number.isInteger(number) && number >= 1 && number <= 7) {
+
+          completedDays.add(number);
+
+        }
+
+      });
+
+    }
+
+  } catch (error) {
+
+    showStorageWarning();
+
+  }
+
+  function saveChallenge() {
+
+    try {
+
+      localStorage.setItem(
+        challengeStorageKey,
+        JSON.stringify([...completedDays])
+      );
+
+    } catch (error) {
+
+      showStorageWarning();
+
+    }
+
+  }
+
+  function updateChallenge() {
+
+    const count = completedDays.size;
+
+    challengeButtons.forEach(button => {
+
+      const day = Number(button.dataset.day);
+
+      const completed = completedDays.has(day);
+
+      button.classList.toggle("challenge-completed", completed);
+
+      button.setAttribute("aria-pressed", String(completed));
+
+    });
+
+    document.getElementById("challenge-count").textContent =
+      count + "/7";
+
+    document.getElementById("challenge-progress-fill").style.width =
+      (count / 7 * 100) + "%";
+
+    document.getElementById("challenge-progress-track")
+      .setAttribute("aria-valuenow", String(count));
+
+    document.getElementById("challenge-message").textContent =
+      challengeMessages[count];
+
+    document.getElementById("challenge-reward").hidden =
+      count !== 7;
+
+    document.querySelector(".challenge-container")
+      .classList.toggle("challenge-finished", count === 7);
+
+  }
+
+  challengeButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const day = Number(button.dataset.day);
+
+      if (completedDays.has(day)) {
+
+        completedDays.delete(day);
+
+      } else {
+
+        completedDays.add(day);
+
+      }
+
+      saveChallenge();
+
+      updateChallenge();
+
+    });
+
+  });
+
+  document.getElementById("challenge-reset")
+    .addEventListener("click", () => {
+
+      if (completedDays.size === 0) return;
+
+      const confirmed = window.confirm(
+        "Souhaitez-vous recommencer votre défi solidaire ?"
+      );
+
+      if (!confirmed) return;
+
+      completedDays.clear();
+
+      saveChallenge();
+
+      updateChallenge();
+
+      challengeButtons[0].focus();
+
+    });
+
+  updateChallenge();
+
+
+  /* ======================================
+     CARTE SOUVENIR TÉLÉCHARGEABLE
+     ====================================== */
+
+  document.getElementById("download-challenge-card")
+    .addEventListener("click", () => {
+
+      if (completedDays.size !== 7) return;
+
+      const canvas = document.createElement("canvas");
+
+      canvas.width = 1200;
+      canvas.height = 1500;
+
+      const context = canvas.getContext("2d");
+
+      if (!context) return;
+
+      const background = context.createLinearGradient(
+        0, 0, 1200, 1500
+      );
+
+      background.addColorStop(0, "#faf4ed");
+      background.addColorStop(1, "#efdce1");
+
+      context.fillStyle = background;
+
+      context.fillRect(0, 0, 1200, 1500);
+
+      // Cadre
+
+      context.strokeStyle = "#c69b9e";
+      context.lineWidth = 3;
+
+      context.strokeRect(55, 55, 1090, 1390);
+
+      context.strokeStyle = "#dbc1ba";
+      context.lineWidth = 1;
+
+      context.strokeRect(75, 75, 1050, 1350);
+
+      // Texte
+
+      context.textAlign = "center";
+
+      context.fillStyle = "#a85e68";
+
+      context.font = "30px Georgia";
+
+      context.fillText("C Œ U R   E R R A N T", 600, 190);
+
+      context.font = "110px Georgia";
+
+      context.fillText("♡", 600, 360);
+
+      context.fillStyle = "#685048";
+
+      context.font = "italic 70px Georgia";
+
+      context.fillText("Un cœur qui", 600, 510);
+
+      context.fillText("fait la différence.", 600, 600);
+
+      context.fillStyle = "#a85e68";
+
+      context.font = "32px Georgia";
+
+      context.fillText(
+        "Sept jours de bienveillance",
+        600,
+        715
+      );
+
+      // Sept fleurs symboliques
+
+      for (let index = 0; index < 7; index++) {
+
+        const x = 270 + index * 110;
+
+        const y = 850;
+
+        context.strokeStyle = "#93a489";
+        context.lineWidth = 5;
+
+        context.beginPath();
+
+        context.moveTo(x, y + 75);
+        context.lineTo(x, y);
+
+        context.stroke();
+
+        for (let petal = 0; petal < 5; petal++) {
+
+          const angle = petal * Math.PI * 2 / 5;
+
+          context.fillStyle = "#d9a5b1";
+
+          context.beginPath();
+
+          context.arc(
+            x + Math.cos(angle) * 19,
+            y + Math.sin(angle) * 19,
+            15,
+            0,
+            Math.PI * 2
+          );
+
+          context.fill();
+
+        }
+
+        context.fillStyle = "#e7cf9f";
+
+        context.beginPath();
+
+        context.arc(x, y, 10, 0, Math.PI * 2);
+
+        context.fill();
+
+      }
+
+      context.fillStyle = "#78695e";
+
+      context.font = "30px Georgia";
+
+      context.fillText(
+        "Sept gestes, sept petites graines.",
+        600,
+        1030
+      );
+
+      context.fillText(
+        "Un peu plus de douceur dans le monde.",
+        600,
+        1080
+      );
+
+      context.fillStyle = "#a85e68";
+
+      context.font = "italic 34px Georgia";
+
+      context.fillText(
+        "Chaque animal a une histoire.",
+        600,
+        1230
+      );
+
+      context.font = "20px Arial";
+
+      context.fillText(
+        "Souvenir personnel du défi solidaire",
+        600,
+        1320
+      );
+
+      canvas.toBlob(blob => {
+
+        if (!blob) return;
+
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+
+        link.href = url;
+
+        link.download = "coeur-errant-carte-bienveillance.png";
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        link.remove();
+
+        setTimeout(() => {
+
+          URL.revokeObjectURL(url);
+
+        }, 1000);
+
+      }, "image/png");
+
+    });
+
+
+  /* ======================================
+     QUESTIONS FRÉQUENTES
+     ====================================== */
+
+  const faqItems = document.querySelectorAll(".support-faq-item");
+
+  faqItems.forEach(item => {
+
+    item.addEventListener("toggle", () => {
+
+      const symbol = item.querySelector(".faq-expand");
+
+      symbol.textContent = item.open ? "−" : "+";
+
+      if (item.open) {
+
+        faqItems.forEach(otherItem => {
+
+          if (otherItem !== item) {
+
+            otherItem.open = false;
+
+          }
+
+        });
+
+      }
+
+    });
+
+  });
+
+
+  /* ======================================
+     LETTRE SECRÈTE
+     ====================================== */
+
+  const envelope = document.getElementById("secret-envelope");
+
+  const secretLetter = document.getElementById("secret-letter");
+
+  const envelopeInstruction = document.getElementById(
+    "envelope-instruction"
+  );
+
+  let letterTimer;
+
+  let letterOpen = false;
+
+  function openLetter() {
+
+    if (letterOpen) return;
+
+    letterOpen = true;
+
+    clearTimeout(letterTimer);
+
+    envelope.classList.add("envelope-open");
+
+    envelope.setAttribute("aria-expanded", "true");
+
+    envelope.setAttribute(
+      "aria-label",
+      "Refermer la lettre de remerciement"
+    );
+
+    envelopeInstruction.textContent =
+      "Quelques mots, juste pour vous ♡";
+
+    letterTimer = setTimeout(() => {
+
+      secretLetter.hidden = false;
+
+      secretLetter.classList.add("letter-visible");
+
+    }, reducedMotion ? 0 : 650);
+
+  }
+
+  function closeLetter() {
+
+    letterOpen = false;
+
+    clearTimeout(letterTimer);
+
+    envelope.classList.remove("envelope-open");
+
+    envelope.setAttribute("aria-expanded", "false");
+
+    envelope.setAttribute(
+      "aria-label",
+      "Ouvrir la lettre de remerciement"
+    );
+
+    secretLetter.hidden = true;
+
+    secretLetter.classList.remove("letter-visible");
+
+    envelopeInstruction.textContent =
+      "Cliquez sur le petit cœur pour ouvrir la lettre.";
+
+  }
+
+  envelope.addEventListener("click", () => {
+
+    if (letterOpen) {
+
+      closeLetter();
+
+    } else {
+
+      openLetter();
+
+    }
+
+  });
+
+  document.getElementById("close-secret-letter")
+    .addEventListener("click", () => {
+
+      closeLetter();
+
+      envelope.focus();
+
+    });
+
 </script>
 
 </body>
+
 </html>
