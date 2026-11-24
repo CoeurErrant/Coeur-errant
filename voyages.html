@@ -59,33 +59,61 @@
       margin-top: 2.5rem;
     }
 
-    /* TITRES DES SECTIONS */
+    /* SÉPARATION DES ANNÉES */
 
-    .travel-heading {
+    .year-heading {
       text-align: center;
       padding: 5rem 5% 3rem;
     }
 
-    .travel-heading .section-tag {
+    .year-number {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 9vw, 7rem);
+      font-weight: 300;
+      color: #c4a882;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .year-heading .section-tag {
       justify-content: center;
     }
 
-    .travel-heading h2 {
+    .year-heading h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 400;
       margin: 1rem 0;
     }
 
-    .travel-heading h2 em {
+    .year-heading h2 em {
       color: var(--pink);
     }
 
-    .travel-heading p:not(.section-tag) {
+    .year-heading p:not(.section-tag) {
       max-width: 650px;
       margin: auto;
       line-height: 1.8;
       color: var(--muted);
+    }
+
+    .year-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: #c4a882;
+      margin: 2rem auto 0;
+      max-width: 250px;
+    }
+
+    .year-divider::before,
+    .year-divider::after {
+      content: '';
+      height: 1px;
+      background: #d6c6b2;
+      flex: 1;
     }
 
     /* CARTES DES VOYAGES */
@@ -572,7 +600,7 @@
         flex-direction: column;
       }
 
-      .travel-heading {
+      .year-heading {
         padding: 3rem 1.5rem 1rem;
       }
 
@@ -727,22 +755,36 @@
   </h1>
 
   <p>
-    Je voyage pour découvrir le monde, mais aussi
-    pour rencontrer ceux que l'on oublie trop souvent.
-    Ces petites âmes qui vivent dans nos rues,
-    sur nos plages et au détour de nos chemins.
+    Tout a commencé en juin 2024, à Tanger.
+    Un voyage qui devait être de simples vacances
+    et qui a profondément changé ma manière
+    de regarder le monde.
   </p>
 
   <p>
-    Chaque destination laisse une empreinte.
-    Chaque rencontre raconte une histoire.
-    Voici celles qui ont marqué mon cœur.
+    Depuis, chaque destination est devenue une occasion
+    de rencontrer, de nourrir et de raconter l'histoire
+    de ces petites âmes que l'on oublie trop souvent.
+  </p>
+
+  <p>
+    Au fil des années, des rencontres, des sauvetages,
+    des moments de bonheur et parfois des adieux
+    ont écrit l'histoire de Cœur Errant.
   </p>
 
   <div class="voyages-navigation">
 
-    <a href="#voyages-recents" class="btn-primary">
-      Dernières rencontres
+    <a href="#annee-2024" class="btn-primary">
+      2024 — Les débuts
+    </a>
+
+    <a href="#annee-2025" class="btn-outline">
+      2025
+    </a>
+
+    <a href="#annee-2026" class="btn-outline">
+      2026
     </a>
 
     <a href="#djibou" class="btn-outline">
@@ -757,44 +799,50 @@
 
 </section>
 
-<!-- VOYAGES RÉCENTS -->
+<!-- ANNÉE 2024 -->
 
-<section id="voyages-recents">
+<section id="annee-2024">
 
-  <div class="travel-heading">
+  <div class="year-heading">
 
-    <p class="section-tag">Les rencontres de 2026</p>
+    <span class="year-number">2024</span>
+
+    <p class="section-tag">
+      Le premier chapitre
+    </p>
 
     <h2>
-      De nouvelles <em>empreintes</em>
+      Là où tout <em>a commencé</em>
     </h2>
 
     <p>
-      Des regards, des moments de tendresse
-      et des histoires qui continuent de vivre
-      bien après mon retour.
+      L'année où un simple voyage a donné naissance
+      à une conviction profonde.
+      Chaque animal mérite d'être vu, aimé et respecté.
     </p>
+
+    <div class="year-divider">♡</div>
 
   </div>
 
   <div class="travel-list">
 
-    <!-- DJERBA -->
+    <!-- TANGER -->
 
     <article class="voyage-card">
 
       <div class="voyage-img">
 
-        <img src="djerba-chien.webp"
-             alt="Chien errant sur une plage de Djerba"
+        <img src="Tanger.jpeg"
+             alt="Le chiot aux yeux bleus de Tanger"
              loading="lazy">
 
         <div class="voyage-country">
 
-          <img src="https://flagcdn.com/w80/tn.png"
-               alt="Tunisie">
+          <img src="https://flagcdn.com/w80/ma.png"
+               alt="Maroc">
 
-          Djerba, Tunisie
+          Tanger, Maroc
 
         </div>
 
@@ -802,54 +850,35 @@
 
       <div class="voyage-content">
 
-        <p class="voyage-date">Août 2026</p>
+        <p class="voyage-date">
+          Juin 2024 — La naissance de Cœur Errant
+        </p>
 
         <h3>
-          Le courage de <em>faire confiance</em>
+          Le chiot aux yeux <em>couleur ciel</em>
         </h3>
 
         <p class="voyage-story">
-          Sur une plage de Djerba, j'ai rencontré
-          un chien particulièrement craintif.
-          Il gardait ses distances, hésitant
-          à s'approcher de moi.
+          C'est lui que je vois encore.
+          Un petit chiot aux yeux d'un bleu presque
+          irréel, assis seul dans la poussière de Tanger.
+          Sa maman était morte. Ses frères et sœurs aussi.
+          Lui seul avait tenu.
         </p>
 
         <p class="voyage-story">
-          Je ne connaissais rien de son passé,
-          ni des raisons de sa méfiance.
-          Je savais simplement que je ne voulais
-          pas lui imposer ma présence.
-          Alors, je lui ai laissé le temps.
-        </p>
-
-        <p class="voyage-story">
-          Petit à petit, il a commencé à s'approcher.
-          Malgré sa peur, malgré cette inconnue
-          que j'étais pour lui, il a trouvé le courage
-          de réduire la distance qui nous séparait.
-        </p>
-
-        <p class="voyage-story">
-          J'ai pu lui offrir de la nourriture,
-          mais c'est surtout son courage qui m'a marquée.
-          Je l'admirais. Chaque petit pas vers moi
-          représentait quelque chose de grand.
-        </p>
-
-        <p class="voyage-story">
-          Cette rencontre m'a rappelé que l'amour
-          des animaux, c'est aussi savoir respecter
-          leurs limites, leur laisser le choix
-          et avancer à leur rythme.
+          Il me regardait sans aboyer, sans fuir,
+          comme s'il savait que j'étais là pour lui.
+          Ce regard a tout déclenché.
+          Ce voyage devait être des vacances.
+          Il est devenu une mission.
         </p>
 
         <div class="voyage-quote">
 
           <p>
-            La confiance ne se réclame pas.
-            Elle se mérite, parfois simplement
-            avec un peu de patience et de douceur.
+            Ses yeux bleus comme le ciel de Tanger.
+            Seul au monde, mais encore debout.
           </p>
 
         </div>
@@ -858,22 +887,22 @@
 
     </article>
 
-    <!-- AGADIR -->
+    <!-- ALBANIE -->
 
     <article class="voyage-card">
 
       <div class="voyage-img">
 
-        <img src="agadir-chat.png"
-             alt="Chat roux près d'une bouteille d'eau vide à Agadir"
+        <img src="albanie.jpeg"
+             alt="Chat errant rencontré en Albanie"
              loading="lazy">
 
         <div class="voyage-country">
 
-          <img src="https://flagcdn.com/w80/ma.png"
-               alt="Maroc">
+          <img src="https://flagcdn.com/w80/al.png"
+               alt="Albanie">
 
-          Agadir, Maroc
+          Albanie
 
         </div>
 
@@ -881,57 +910,153 @@
 
       <div class="voyage-content">
 
-        <p class="voyage-date">Juin 2026</p>
+        <p class="voyage-date">2024</p>
 
         <h3>
-          Une bouteille vide, <em>un besoin vital</em>
+          Le chat devant <em>le supermarché</em>
         </h3>
 
         <p class="voyage-story">
-          Je me promenais dans les rues d'Agadir
-          lorsqu'un chat roux a attiré mon attention.
-          Il faisait chaud ce jour-là.
+          Il était là, devant les portes automatiques
+          du supermarché, blessé, affamé.
+          Les gens passaient sans le voir.
+          Moi je ne pouvais pas passer.
         </p>
 
         <p class="voyage-story">
-          Debout sur ses pattes arrière,
-          les pattes avant agrippées au rebord
-          d'un pot de fleurs, il se tenait juste
-          à côté d'une bouteille d'eau vide.
-        </p>
-
-        <p class="voyage-story">
-          Son pelage était sale, son regard
-          semblait fatigué. En le voyant ainsi,
-          je n'ai pas pu m'empêcher de penser
-          qu'il cherchait simplement à boire.
-        </p>
-
-        <p class="voyage-story">
-          Cette scène m'a profondément touchée.
-          Une bouteille d'eau, un objet si banal
-          pour nous, pouvait représenter pour lui
-          quelque chose de tellement précieux.
-        </p>
-
-        <p class="voyage-story">
-          Je me suis arrêtée pour le photographier,
-          mais surtout pour lui offrir de la nourriture
-          et de l'eau. Je ne l'ai malheureusement
-          jamais recroisé.
-        </p>
-
-        <p class="voyage-story">
-          Nous avons la chance de pouvoir boire
-          lorsque nous avons soif.
-          Eux n'ont pas toujours cette chance.
+          Je lui ai acheté de la nourriture,
+          contacté des associations, cherché de l'aide.
+          Personne n'a répondu.
+          Le lendemain, je suis retournée le chercher
+          pour l'emmener chez le vétérinaire.
+          Il n'était plus là.
+          Parti. Où, on ne saura jamais.
         </p>
 
         <div class="voyage-quote">
 
           <p>
-            Parfois, une simple gamelle d'eau
-            peut faire toute la différence.
+            Tout le monde le voyait.
+            Personne ne le regardait.
+            Moi je ne pouvais pas faire autrement.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- KOSOVO -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="kossovo.jpeg"
+             alt="Chien errant rencontré au Kosovo"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="https://flagcdn.com/w80/xk.png"
+               alt="Kosovo">
+
+          Kosovo
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">2024</p>
+
+        <h3>
+          La queue qui <em>remuait encore</em>
+        </h3>
+
+        <p class="voyage-story">
+          Au milieu des décombres, dans une rue
+          que le temps semblait avoir oubliée,
+          un chien errant.
+          Entouré de gravats, de poussière, de silence.
+        </p>
+
+        <p class="voyage-story">
+          Et pourtant, dès qu'il m'a aperçue,
+          sa queue s'est mise à remuer.
+          Doucement d'abord, puis de plus en plus vite.
+          Malgré tout. Malgré la faim, malgré la solitude.
+          Sa joie était intacte.
+          C'est lui qui m'a redonné de la force ce jour-là.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Entouré de rien, il remuait la queue
+            comme si j'étais tout ce dont il avait besoin.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- SICILE -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="sicillle.jpeg"
+             alt="Chat roux rencontré en Sicile"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="flag-sicille.png"
+               alt="Sicile">
+
+          Sicile, Italie
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">Août 2024</p>
+
+        <h3>
+          Le chat roux qui <em>ne voulait pas me quitter</em>
+        </h3>
+
+        <p class="voyage-story">
+          Il est apparu comme ça, de nulle part,
+          roux comme le soleil sicilien.
+          Et il a commencé à me suivre.
+          Dans les ruelles, sur les pavés chauds,
+          entre les étals du marché.
+        </p>
+
+        <p class="voyage-story">
+          Pas pour la nourriture,
+          il n'en voulait pas vraiment.
+          Juste pour marcher à côté de quelqu'un.
+          Pour ne pas être seul.
+          On a marché longtemps ensemble ce jour-là,
+          sans se parler, sans se demander pourquoi.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Il ne voulait pas de nourriture.
+            Il voulait juste de la compagnie.
+            Moi aussi, finalement.
           </p>
 
         </div>
@@ -944,7 +1069,290 @@
 
 </section>
 
-<!-- DJIBOU — SAUVETAGE EN COURS -->
+<!-- SOUVENIR DE CORSE -->
+
+<section id="souvenir-corse">
+
+  <div class="year-heading">
+
+    <p class="section-tag">
+      Avant la naissance de Cœur Errant
+    </p>
+
+    <h2>
+      Des souvenirs <em>déjà précieux</em>
+    </h2>
+
+    <p>
+      Bien avant que Cœur Errant porte un nom,
+      certaines rencontres avec les animaux
+      avaient déjà marqué mon cœur.
+    </p>
+
+    <div class="year-divider">♡</div>
+
+  </div>
+
+  <div class="travel-list">
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="corsee.jpeg"
+             alt="Chats errants rencontrés en Corse"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="flag-corse.png"
+               alt="Corse">
+
+          Corse, France
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">Avril 2022</p>
+
+        <h3>
+          Le parking de <em>tous les soirs</em>
+        </h3>
+
+        <p class="voyage-story">
+          Chaque soir, en rentrant à l'hôtel,
+          ils m'attendaient.
+          Des chats, de toutes les couleurs,
+          de tous les âges.
+          Le parking de l'hôtel était devenu
+          notre rendez-vous.
+        </p>
+
+        <p class="voyage-story">
+          Certains étaient timides,
+          d'autres fonçaient directement vers moi.
+          Ces soirées corses, sous les étoiles,
+          entourée de ces petites vies,
+          comptent parmi mes plus beaux souvenirs
+          de voyage.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Chaque soir, ils m'attendaient.
+            Ce parking est devenu le plus bel endroit
+            de Corse pour moi.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- ANNÉE 2025 -->
+
+<section id="annee-2025">
+
+  <div class="year-heading">
+
+    <span class="year-number">2025</span>
+
+    <p class="section-tag">
+      Le deuxième chapitre
+    </p>
+
+    <h2>
+      Une mission qui <em>grandit</em>
+    </h2>
+
+    <p>
+      De nouvelles rencontres, des liens plus forts,
+      des espoirs et des épreuves.
+      Une année qui m'a rappelé pourquoi
+      je ne voulais jamais cesser de les aider.
+    </p>
+
+    <div class="year-divider">♡</div>
+
+  </div>
+
+  <div class="travel-list">
+
+    <!-- NALA -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="nala.jpeg"
+             alt="Nala"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="https://flagcdn.com/w80/ma.png"
+               alt="Maroc">
+
+          Tanger, Maroc
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">
+          Septembre 2025
+        </p>
+
+        <h3>
+          Nala, et le refuge <em>du cœur</em>
+        </h3>
+
+        <p class="voyage-story">
+          Ce deuxième retour à Tanger n'était pas
+          un hasard. J'y suis revenue pour rejoindre
+          quelqu'un qui ouvrait un refuge,
+          pour distribuer de la nourriture la nuit
+          avec une amie rencontrée sur place.
+        </p>
+
+        <p class="voyage-story">
+          Et puis il y a eu Nala.
+          Un chiot trouvé le museau dans des ordures,
+          cherchant désespérément à manger.
+          On l'a prise avec nous. Vaccinée.
+          Un carnet de santé à mon nom.
+        </p>
+
+        <p class="voyage-story">
+          Elle avait un avenir.
+          Jusqu'à ce matin où on l'a retrouvée
+          sous un arbre, sans vie.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Elle avait un carnet de santé,
+            un nom, un avenir.
+            Nala reste gravée dans chaque geste que je pose.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- ANNÉE 2026 -->
+
+<section id="annee-2026">
+
+  <div class="year-heading">
+
+    <span class="year-number">2026</span>
+
+    <p class="section-tag">
+      Le troisième chapitre
+    </p>
+
+    <h2>
+      De nouvelles <em>empreintes</em>
+    </h2>
+
+    <p>
+      De nouveaux horizons, des rencontres inoubliables
+      et une petite âme qui s'apprête à rejoindre
+      ma famille.
+      L'histoire de Cœur Errant continue de s'écrire.
+    </p>
+
+    <div class="year-divider">♡</div>
+
+  </div>
+
+  <div class="travel-list">
+
+    <!-- MACÉDOINE DU NORD -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="Macedoine.jpeg"
+             alt="Chien noir rencontré à Skopje"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="https://flagcdn.com/w80/mk.png"
+               alt="Macédoine du Nord">
+
+          Skopje, Macédoine du Nord
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">
+          Janvier 2026
+        </p>
+
+        <h3>
+          Le chien noir et <em>sa confiance absolue</em>
+        </h3>
+
+        <p class="voyage-story">
+          Je ne l'avais jamais vu.
+          Il ne me connaissait pas.
+          Et pourtant, en quelques secondes à peine,
+          il s'est allongé sur le dos,
+          ventre offert, pattes en l'air,
+          les yeux fermés.
+        </p>
+
+        <p class="voyage-story">
+          Une confiance totale, immédiate,
+          désarmante. Ce chien noir à Skopje
+          m'a offert un moment de tendresse
+          que je n'oublierai jamais.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Il s'est allongé sur le dos,
+            ventre au ciel, sans même me connaître.
+            Une leçon de confiance.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- MARRAKECH — DJIBOU -->
 
 <section class="rescue-section" id="djibou">
 
@@ -1006,7 +1414,7 @@
         <div class="rescue-photo-caption">
 
           <p class="photo-date">
-            Novembre 2026
+            Quelques mois plus tard
           </p>
 
           <h3>Une nouvelle chance</h3>
@@ -1219,36 +1627,20 @@
 
 </section>
 
-<!-- ANCIENS VOYAGES -->
+<!-- SUITE DES VOYAGES 2026 -->
 
-<section id="anciens-voyages">
-
-  <div class="travel-heading">
-
-    <p class="section-tag">Les souvenirs du cœur</p>
-
-    <h2>
-      Là où tout <em>a commencé</em>
-    </h2>
-
-    <p>
-      Des rencontres qui ont laissé une empreinte
-      indélébile et qui continuent de donner
-      du sens à Cœur Errant.
-    </p>
-
-  </div>
+<section id="voyages-recents">
 
   <div class="travel-list">
 
-    <!-- TANGER -->
+    <!-- AGADIR -->
 
     <article class="voyage-card">
 
       <div class="voyage-img">
 
-        <img src="Tanger.jpeg"
-             alt="Le chiot aux yeux bleus de Tanger"
+        <img src="agadir-chat.png"
+             alt="Chat roux près d'une bouteille d'eau vide à Agadir"
              loading="lazy">
 
         <div class="voyage-country">
@@ -1256,7 +1648,7 @@
           <img src="https://flagcdn.com/w80/ma.png"
                alt="Maroc">
 
-          Tanger, Maroc
+          Agadir, Maroc
 
         </div>
 
@@ -1264,35 +1656,57 @@
 
       <div class="voyage-content">
 
-        <p class="voyage-date">
-          Juin 2024 — Premier voyage
-        </p>
+        <p class="voyage-date">Juin 2026</p>
 
         <h3>
-          Le chiot aux yeux <em>couleur ciel</em>
+          Une bouteille vide, <em>un besoin vital</em>
         </h3>
 
         <p class="voyage-story">
-          C'est lui que je vois encore.
-          Un petit chiot aux yeux d'un bleu presque
-          irréel, assis seul dans la poussière de Tanger.
-          Sa maman était morte. Ses frères et sœurs aussi.
-          Lui seul avait tenu.
+          Je me promenais dans les rues d'Agadir
+          lorsqu'un chat roux a attiré mon attention.
+          Il faisait chaud ce jour-là.
         </p>
 
         <p class="voyage-story">
-          Il me regardait sans aboyer, sans fuir,
-          comme s'il savait que j'étais là pour lui.
-          Ce regard a tout déclenché.
-          Ce voyage devait être des vacances.
-          Il est devenu une mission.
+          Debout sur ses pattes arrière,
+          les pattes avant agrippées au rebord
+          d'un pot de fleurs, il se tenait juste
+          à côté d'une bouteille d'eau vide.
+        </p>
+
+        <p class="voyage-story">
+          Son pelage était sale, son regard
+          semblait fatigué. En le voyant ainsi,
+          je n'ai pas pu m'empêcher de penser
+          qu'il cherchait simplement à boire.
+        </p>
+
+        <p class="voyage-story">
+          Cette scène m'a profondément touchée.
+          Une bouteille d'eau, un objet si banal
+          pour nous, pouvait représenter pour lui
+          quelque chose de tellement précieux.
+        </p>
+
+        <p class="voyage-story">
+          Je me suis arrêtée pour le photographier,
+          mais surtout pour lui offrir de la nourriture
+          et de l'eau. Je ne l'ai malheureusement
+          jamais recroisé.
+        </p>
+
+        <p class="voyage-story">
+          Nous avons la chance de pouvoir boire
+          lorsque nous avons soif.
+          Eux n'ont pas toujours cette chance.
         </p>
 
         <div class="voyage-quote">
 
           <p>
-            Ses yeux bleus comme le ciel de Tanger.
-            Seul au monde, mais encore debout.
+            Parfois, une simple gamelle d'eau
+            peut faire toute la différence.
           </p>
 
         </div>
@@ -1301,22 +1715,22 @@
 
     </article>
 
-    <!-- NALA -->
+    <!-- DJERBA -->
 
     <article class="voyage-card">
 
       <div class="voyage-img">
 
-        <img src="nala.jpeg"
-             alt="Nala"
+        <img src="djerba-chien.webp"
+             alt="Chien errant sur une plage de Djerba"
              loading="lazy">
 
         <div class="voyage-country">
 
-          <img src="https://flagcdn.com/w80/ma.png"
-               alt="Maroc">
+          <img src="https://flagcdn.com/w80/tn.png"
+               alt="Tunisie">
 
-          Tanger, Maroc
+          Djerba, Tunisie
 
         </div>
 
@@ -1324,342 +1738,54 @@
 
       <div class="voyage-content">
 
-        <p class="voyage-date">
-          Septembre 2025
-        </p>
+        <p class="voyage-date">Août 2026</p>
 
         <h3>
-          Nala, et le refuge <em>du cœur</em>
+          Le courage de <em>faire confiance</em>
         </h3>
 
         <p class="voyage-story">
-          Ce deuxième retour à Tanger n'était pas
-          un hasard. J'y suis revenue pour rejoindre
-          quelqu'un qui ouvrait un refuge,
-          pour distribuer de la nourriture la nuit
-          avec une amie rencontrée sur place.
+          Sur une plage de Djerba, j'ai rencontré
+          un chien particulièrement craintif.
+          Il gardait ses distances, hésitant
+          à s'approcher de moi.
         </p>
 
         <p class="voyage-story">
-          Et puis il y a eu Nala.
-          Un chiot trouvé le museau dans des ordures,
-          cherchant désespérément à manger.
-          On l'a prise avec nous. Vaccinée.
-          Un carnet de santé à mon nom.
+          Je ne connaissais rien de son passé,
+          ni des raisons de sa méfiance.
+          Je savais simplement que je ne voulais
+          pas lui imposer ma présence.
+          Alors, je lui ai laissé le temps.
         </p>
 
         <p class="voyage-story">
-          Elle avait un avenir.
-          Jusqu'à ce matin où on l'a retrouvée
-          sous un arbre, sans vie.
+          Petit à petit, il a commencé à s'approcher.
+          Malgré sa peur, malgré cette inconnue
+          que j'étais pour lui, il a trouvé le courage
+          de réduire la distance qui nous séparait.
+        </p>
+
+        <p class="voyage-story">
+          J'ai pu lui offrir de la nourriture,
+          mais c'est surtout son courage qui m'a marquée.
+          Je l'admirais. Chaque petit pas vers moi
+          représentait quelque chose de grand.
+        </p>
+
+        <p class="voyage-story">
+          Cette rencontre m'a rappelé que l'amour
+          des animaux, c'est aussi savoir respecter
+          leurs limites, leur laisser le choix
+          et avancer à leur rythme.
         </p>
 
         <div class="voyage-quote">
 
           <p>
-            Elle avait un carnet de santé,
-            un nom, un avenir.
-            Nala reste gravée dans chaque geste que je pose.
-          </p>
-
-        </div>
-
-      </div>
-
-    </article>
-
-    <!-- ALBANIE -->
-
-    <article class="voyage-card">
-
-      <div class="voyage-img">
-
-        <img src="albanie.jpeg"
-             alt="Chat errant rencontré en Albanie"
-             loading="lazy">
-
-        <div class="voyage-country">
-
-          <img src="https://flagcdn.com/w80/al.png"
-               alt="Albanie">
-
-          Albanie
-
-        </div>
-
-      </div>
-
-      <div class="voyage-content">
-
-        <p class="voyage-date">2024</p>
-
-        <h3>
-          Le chat devant <em>le supermarché</em>
-        </h3>
-
-        <p class="voyage-story">
-          Il était là, devant les portes automatiques
-          du supermarché, blessé, affamé.
-          Les gens passaient sans le voir.
-          Moi je ne pouvais pas passer.
-        </p>
-
-        <p class="voyage-story">
-          Je lui ai acheté de la nourriture,
-          contacté des associations, cherché de l'aide.
-          Personne n'a répondu.
-          Le lendemain, je suis retournée le chercher
-          pour l'emmener chez le vétérinaire.
-          Il n'était plus là.
-          Parti. Où, on ne saura jamais.
-        </p>
-
-        <div class="voyage-quote">
-
-          <p>
-            Tout le monde le voyait.
-            Personne ne le regardait.
-            Moi je ne pouvais pas faire autrement.
-          </p>
-
-        </div>
-
-      </div>
-
-    </article>
-
-    <!-- KOSOVO -->
-
-    <article class="voyage-card">
-
-      <div class="voyage-img">
-
-        <img src="kossovo.jpeg"
-             alt="Chien errant rencontré au Kosovo"
-             loading="lazy">
-
-        <div class="voyage-country">
-
-          <img src="https://flagcdn.com/w80/xk.png"
-               alt="Kosovo">
-
-          Kosovo
-
-        </div>
-
-      </div>
-
-      <div class="voyage-content">
-
-        <p class="voyage-date">2024</p>
-
-        <h3>
-          La queue qui <em>remuait encore</em>
-        </h3>
-
-        <p class="voyage-story">
-          Au milieu des décombres, dans une rue
-          que le temps semblait avoir oubliée,
-          un chien errant.
-          Entouré de gravats, de poussière, de silence.
-        </p>
-
-        <p class="voyage-story">
-          Et pourtant, dès qu'il m'a aperçue,
-          sa queue s'est mise à remuer.
-          Doucement d'abord, puis de plus en plus vite.
-          Malgré tout. Malgré la faim, malgré la solitude.
-          Sa joie était intacte.
-          C'est lui qui m'a redonné de la force ce jour-là.
-        </p>
-
-        <div class="voyage-quote">
-
-          <p>
-            Entouré de rien, il remuait la queue
-            comme si j'étais tout ce dont il avait besoin.
-          </p>
-
-        </div>
-
-      </div>
-
-    </article>
-
-    <!-- MACÉDOINE DU NORD -->
-
-    <article class="voyage-card">
-
-      <div class="voyage-img">
-
-        <img src="Macedoine.jpeg"
-             alt="Chien noir rencontré à Skopje"
-             loading="lazy">
-
-        <div class="voyage-country">
-
-          <img src="https://flagcdn.com/w80/mk.png"
-               alt="Macédoine du Nord">
-
-          Skopje, Macédoine du Nord
-
-        </div>
-
-      </div>
-
-      <div class="voyage-content">
-
-        <p class="voyage-date">
-          Janvier 2026
-        </p>
-
-        <h3>
-          Le chien noir et <em>sa confiance absolue</em>
-        </h3>
-
-        <p class="voyage-story">
-          Je ne l'avais jamais vu.
-          Il ne me connaissait pas.
-          Et pourtant, en quelques secondes à peine,
-          il s'est allongé sur le dos,
-          ventre offert, pattes en l'air,
-          les yeux fermés.
-        </p>
-
-        <p class="voyage-story">
-          Une confiance totale, immédiate,
-          désarmante. Ce chien noir à Skopje
-          m'a offert un moment de tendresse
-          que je n'oublierai jamais.
-        </p>
-
-        <div class="voyage-quote">
-
-          <p>
-            Il s'est allongé sur le dos,
-            ventre au ciel, sans même me connaître.
-            Une leçon de confiance.
-          </p>
-
-        </div>
-
-      </div>
-
-    </article>
-
-    <!-- SICILE -->
-
-    <article class="voyage-card">
-
-      <div class="voyage-img">
-
-        <img src="sicillle.jpeg"
-             alt="Chat roux rencontré en Sicile"
-             loading="lazy">
-
-        <div class="voyage-country">
-
-          <img src="flag-sicille.png"
-               alt="Sicile">
-
-          Sicile, Italie
-
-        </div>
-
-      </div>
-
-      <div class="voyage-content">
-
-        <p class="voyage-date">2024</p>
-
-        <h3>
-          Le chat roux qui <em>ne voulait pas me quitter</em>
-        </h3>
-
-        <p class="voyage-story">
-          Il est apparu comme ça, de nulle part,
-          roux comme le soleil sicilien.
-          Et il a commencé à me suivre.
-          Dans les ruelles, sur les pavés chauds,
-          entre les étals du marché.
-        </p>
-
-        <p class="voyage-story">
-          Pas pour la nourriture,
-          il n'en voulait pas vraiment.
-          Juste pour marcher à côté de quelqu'un.
-          Pour ne pas être seul.
-          On a marché longtemps ensemble ce jour-là,
-          sans se parler, sans se demander pourquoi.
-        </p>
-
-        <div class="voyage-quote">
-
-          <p>
-            Il ne voulait pas de nourriture.
-            Il voulait juste de la compagnie.
-            Moi aussi, finalement.
-          </p>
-
-        </div>
-
-      </div>
-
-    </article>
-
-    <!-- CORSE -->
-
-    <article class="voyage-card">
-
-      <div class="voyage-img">
-
-        <img src="corsee.jpeg"
-             alt="Chats errants rencontrés en Corse"
-             loading="lazy">
-
-        <div class="voyage-country">
-
-          <img src="flag-corse.png"
-               alt="Corse">
-
-          Corse, France
-
-        </div>
-
-      </div>
-
-      <div class="voyage-content">
-
-        <p class="voyage-date">2024</p>
-
-        <h3>
-          Le parking de <em>tous les soirs</em>
-        </h3>
-
-        <p class="voyage-story">
-          Chaque soir, en rentrant à l'hôtel,
-          ils m'attendaient.
-          Des chats, de toutes les couleurs,
-          de tous les âges.
-          Le parking de l'hôtel était devenu
-          notre rendez-vous.
-        </p>
-
-        <p class="voyage-story">
-          Certains étaient timides,
-          d'autres fonçaient directement vers moi.
-          Ces soirées corses, sous les étoiles,
-          entourée de ces petites vies,
-          comptent parmi mes plus beaux souvenirs
-          de voyage.
-        </p>
-
-        <div class="voyage-quote">
-
-          <p>
-            Chaque soir, ils m'attendaient.
-            Ce parking est devenu le plus bel endroit
-            de Corse pour moi.
+            La confiance ne se réclame pas.
+            Elle se mérite, parfois simplement
+            avec un peu de patience et de douceur.
           </p>
 
         </div>
@@ -1671,6 +1797,28 @@
   </div>
 
 </section>
+
+<!-- PROCHAIN CHAPITRE -->
+
+<div class="year-heading">
+
+  <p class="section-tag">
+    Le prochain chapitre
+  </p>
+
+  <h2>
+    Et demain, <em>l'histoire continue...</em>
+  </h2>
+
+  <p>
+    Il reste tant de chemins à parcourir,
+    tant de regards à croiser
+    et tant de petites âmes à rencontrer.
+  </p>
+
+  <div class="year-divider">♡</div>
+
+</div>
 
 <!-- DESTINATION MYSTÈRE -->
 
