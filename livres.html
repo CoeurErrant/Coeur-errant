@@ -1,275 +1,35 @@
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Mes livres — Cœur Errant</title>
 
-  <meta name="description" content="Découvrez les livres Cœur Errant, des créations inspirées par les animaux errants, leurs histoires et leurs rencontres à travers le monde.">
+  <meta name="description"
+        content="Découvrez les livres de Cœur Errant, des histoires, des illustrations et des rencontres inspirées par les animaux des rues.">
 
   <meta name="theme-color" content="#faf8f5">
 
   <link rel="icon" href="logo.jpeg">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="accueil-v2.css">
-
-  <style>
-
-    /* EN-TÊTE DE LA PAGE */
-
-    .library-hero {
-      padding: 160px 7% 80px;
-      text-align: center;
-      background: var(--warm);
-    }
-
-    .library-hero .section-tag {
-      justify-content: center;
-    }
-
-    .library-hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 400;
-      line-height: 1.1;
-      margin: 1.5rem 0;
-    }
-
-    .library-hero h1 em {
-      color: var(--pink);
-    }
-
-    .library-hero p:not(.section-tag) {
-      max-width: 700px;
-      margin: 1rem auto;
-      color: var(--muted);
-      line-height: 1.9;
-    }
-
-    /* PRÉSENTATION DES LIVRES */
-
-    .library {
-      max-width: 1300px;
-      margin: auto;
-      padding: 5rem 5%;
-    }
-
-    .library-book {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
-      gap: 5rem;
-      align-items: center;
-      padding: 4rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .library-book:last-child {
-      border-bottom: none;
-    }
-
-    .library-book:nth-child(even) .library-cover {
-      order: 2;
-    }
-
-    .library-cover {
-      background: var(--warm);
-      border-radius: 12px;
-      padding: 2.5rem;
-      min-height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .library-cover img {
-      max-width: 100%;
-      max-height: 450px;
-      object-fit: contain;
-      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.18));
-      transition: transform 0.4s ease;
-    }
-
-    .library-cover:hover img {
-      transform: scale(1.03);
-    }
-
-    .library-content h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 4vw, 3.8rem);
-      font-weight: 500;
-      line-height: 1.1;
-      margin: 1rem 0;
-    }
-
-    .library-subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-style: italic;
-      color: var(--pink);
-      margin-bottom: 1.5rem;
-    }
-
-    .library-content p:not(.section-tag):not(.library-subtitle) {
-      line-height: 1.9;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    /* INFORMATIONS SUR LES LIVRES */
-
-    .library-info {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin: 1.5rem 0;
-    }
-
-    .library-info span {
-      background: var(--warm);
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      padding: 0.5rem 1rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    /* PRIX ET ACHAT */
-
-    .library-price {
-      display: block;
-      font-size: 1.8rem;
-      font-weight: 500;
-      margin: 1.5rem 0;
-      color: var(--charcoal);
-    }
-
-    .library-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .library-actions .btn-primary {
-      display: inline-block;
-      text-align: center;
-    }
-
-    .library-actions details {
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .library-actions summary {
-      cursor: pointer;
-    }
-
-    .library-actions summary:hover {
-      color: var(--pink);
-    }
-
-    /* MESSAGE DE L'AUTEURE */
-
-    .author-message {
-      background: var(--warm);
-      padding: 5rem 7%;
-      text-align: center;
-    }
-
-    .author-message .section-tag {
-      justify-content: center;
-    }
-
-    .author-message h2 {
-      margin: 1.5rem 0;
-    }
-
-    .author-message p:not(.section-tag) {
-      max-width: 750px;
-      margin: 1.5rem auto;
-      line-height: 1.9;
-      color: var(--muted);
-    }
-
-    .author-signature {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-style: italic;
-    }
-
-    .library-note {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.8;
-      padding: 2rem 7%;
-    }
-
-    /* VERSION MOBILE */
-
-    @media (max-width: 900px) {
-
-      .library-book {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 3rem 0;
-      }
-
-      .library-book:nth-child(even) .library-cover {
-        order: 0;
-      }
-
-      .library-cover {
-        min-height: 300px;
-      }
-
-      .library-cover img {
-        max-height: 350px;
-      }
-
-    }
-
-    @media (max-width: 600px) {
-
-      .library-hero {
-        padding: 125px 1.5rem 3rem;
-      }
-
-      .library {
-        padding: 1rem 1.5rem;
-      }
-
-      .library-cover {
-        padding: 1.5rem;
-      }
-
-      .library-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .library-actions details {
-        text-align: center;
-      }
-
-      .author-message {
-        padding: 3rem 1.5rem;
-      }
-
-    }
-
-  </style>
+  <link rel="stylesheet" href="livres.css">
 
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- ======================================
+     NAVIGATION
+     ====================================== -->
 
 <nav>
 
@@ -279,21 +39,13 @@
 
   <ul class="nav-links" id="nav-links">
 
-    <li>
-      <a href="index.html">Accueil</a>
-    </li>
+    <li><a href="index.html">Accueil</a></li>
 
-    <li>
-      <a href="index.html#histoire">Mon histoire</a>
-    </li>
+    <li><a href="index.html#histoire">Mon histoire</a></li>
 
-    <li>
-      <a href="mission.html">La mission</a>
-    </li>
+    <li><a href="mission.html">La mission</a></li>
 
-    <li>
-      <a href="voyages.html">Voyages</a>
-    </li>
+    <li><a href="voyages.html">Voyages</a></li>
 
     <li>
       <a href="livres.html" aria-current="page">
@@ -301,13 +53,9 @@
       </a>
     </li>
 
-    <li>
-      <a href="index.html#nos-etoiles">Nos étoiles</a>
-    </li>
+    <li><a href="etoiles.html">Nos étoiles</a></li>
 
-    <li>
-      <a href="soutenir.html">Soutenir</a>
-    </li>
+    <li><a href="soutenir.html">Soutenir</a></li>
 
     <li class="lang-mobile">
       <a href="livres-nl.html">Nederlands</a>
@@ -340,468 +88,2166 @@
 
 </nav>
 
-<main>
 
-<!-- INTRODUCTION -->
+<main class="library-page">
 
-<section class="library-hero">
+  <!-- ======================================
+       INTRODUCTION POÉTIQUE
+       ====================================== -->
 
-  <p class="section-tag">Les créations Cœur Errant</p>
+  <section class="library-opening">
 
-  <h1>
-    Des histoires qui <em>touchent le cœur.</em>
-  </h1>
+    <div class="library-opening-decoration"
+         aria-hidden="true">
 
-  <p>
-    Derrière chaque regard se cache une histoire.
-    Derrière chaque histoire, une vie qui mérite
-    d'être entendue.
-  </p>
-
-  <p>
-    À travers mes livres, je souhaite transmettre
-    mon amour pour les animaux, éveiller les consciences
-    et inviter petits et grands à regarder le monde
-    avec davantage de bienveillance.
-  </p>
-
-</section>
-
-<!-- LES TROIS LIVRES -->
-
-<section class="library" aria-label="Mes livres">
-
-  <!-- LIVRE 1 -->
-
-  <article class="library-book" id="petite-lanterne">
-
-    <div class="library-cover">
-
-      <img src="livre-lanterne.jpg"
-           alt="Couverture du livre La petite lanterne"
-           loading="lazy">
+      <span>✧</span>
+      <span>♡</span>
+      <span>✦</span>
+      <span>✧</span>
+      <span>♡</span>
+      <span>✦</span>
 
     </div>
 
-    <div class="library-content">
+    <div class="library-opening-inner">
 
-      <p class="section-tag">Pour les petits cœurs</p>
+      <div class="library-opening-text">
 
-      <h2>La petite lanterne</h2>
+        <p class="library-label library-enter">
 
-      <p class="library-subtitle">
-        Une histoire pour apprendre à regarder
-      </p>
+          La bibliothèque de Cœur Errant
 
-      <p>
-        Et si apprendre à regarder le monde autrement
-        pouvait commencer dès l'enfance ?
-      </p>
+        </p>
 
-      <p>
-        La petite lanterne est une histoire douce
-        et lumineuse qui invite les enfants à découvrir
-        l'importance de la compassion, de l'attention
-        et des petits gestes du quotidien.
-      </p>
+        <h1 class="library-enter delay-one">
 
-      <p>
-        Une invitation à ouvrir les yeux sur les animaux
-        que l'on oublie parfois et à comprendre que
-        chaque être vivant mérite de la douceur,
-        de l'amour et du respect.
-      </p>
+          Des histoires<br>
+          qui laissent<br>
 
-      <div class="library-info">
+          <em>des empreintes.</em>
 
-        <span>Livre jeunesse</span>
-        <span>Illustré</span>
-        <span>Français</span>
-        <span>Bienveillance</span>
+        </h1>
 
-      </div>
+        <p class="library-intro library-enter delay-two">
 
-      <strong class="library-price">16,95 €</strong>
+          Certaines rencontres ne s'arrêtent pas
+          lorsque le voyage se termine.
 
-      <div class="library-actions">
+          Elles deviennent des souvenirs,
+          des mots, des illustrations
+          et parfois même des livres.
 
-        <a href="https://amzn.eu/d/04uXHShr"
-           class="btn-primary"
-           target="_blank"
-           rel="noopener noreferrer">
+        </p>
 
-          Acheter sur Amazon ↗
+        <p class="library-opening-quote library-enter delay-three">
+
+          Trois livres. Trois univers.
+          Une même raison d'écrire.
+
+        </p>
+
+        <a href="#bibliotheque"
+           class="library-button library-enter delay-four">
+
+          Entrer dans ma bibliothèque ♡
 
         </a>
 
-        <details>
+      </div>
 
-          <summary>Afficher le QR code</summary>
 
-          <img src="qr-lanterne.png"
-               class="book-qr"
-               alt="QR code Amazon La petite lanterne"
-               loading="lazy">
+      <!-- LIVRE ANIMÉ -->
 
-        </details>
+      <div class="opening-book-scene library-enter delay-two"
+           aria-hidden="true">
+
+        <div class="opening-book-halo"></div>
+
+        <div class="opening-book">
+
+          <div class="opening-book-cover"></div>
+
+          <div class="opening-book-left">
+
+            <span class="opening-page-number">01</span>
+
+            <div class="opening-page-ornament">✧</div>
+
+            <p>
+
+              Il était une fois...
+
+            </p>
+
+            <div class="opening-page-lines">
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+            <div class="opening-page-paw">♡</div>
+
+          </div>
+
+          <div class="opening-book-right">
+
+            <span class="opening-page-number">02</span>
+
+            <svg class="opening-book-drawing"
+                 viewBox="0 0 180 180"
+                 xmlns="http://www.w3.org/2000/svg">
+
+              <g fill="#b58e78">
+
+                <ellipse cx="45" cy="58"
+                         rx="17" ry="25"
+                         transform="rotate(-25 45 58)"/>
+
+                <ellipse cx="78" cy="35"
+                         rx="17" ry="25"/>
+
+                <ellipse cx="113" cy="35"
+                         rx="17" ry="25"/>
+
+                <ellipse cx="145" cy="58"
+                         rx="17" ry="25"
+                         transform="rotate(25 145 58)"/>
+
+                <path d="M95 79
+                         C72 79 60 105 42 125
+                         C20 155 58 170 80 153
+                         Q95 145 110 153
+                         C132 170 170 155 148 125
+                         C130 105 118 79 95 79Z"/>
+
+              </g>
+
+              <path d="M95 116
+                       C75 94 56 126 95 145
+                       C134 126 115 94 95 116Z"
+                    fill="#f8eee1"/>
+
+            </svg>
+
+            <p>
+
+              Chaque animal<br>
+              a une histoire.
+
+            </p>
+
+          </div>
+
+          <div class="opening-turning-page page-turn-one">
+
+            <span>Des rencontres...</span>
+
+          </div>
+
+          <div class="opening-turning-page page-turn-two">
+
+            <span>Des émotions...</span>
+
+          </div>
+
+          <div class="opening-turning-page page-turn-three">
+
+            <span>Des empreintes...</span>
+
+          </div>
+
+          <div class="opening-book-ribbon"></div>
+
+        </div>
+
+        <div class="opening-book-shadow"></div>
+
+        <span class="book-floating-star star-one">✧</span>
+        <span class="book-floating-star star-two">✦</span>
+        <span class="book-floating-star star-three">♡</span>
+        <span class="book-floating-star star-four">✧</span>
+
+        <p class="opening-book-caption">
+
+          Des mots pour ceux qui n'ont pas de voix.
+
+        </p>
 
       </div>
 
     </div>
 
-  </article>
+    <a href="#bibliotheque"
+       class="library-scroll"
+       aria-label="Découvrir les livres">
 
-  <!-- LIVRE 2 -->
+      ↓
 
-  <article class="library-book" id="ames-errantes">
-
-    <div class="library-cover">
-
-      <img src="livre-ames-errantes.jpg"
-           alt="Couverture du livre Nos âmes errantes"
-           loading="lazy">
-
-    </div>
-
-    <div class="library-content">
-
-      <p class="section-tag">Des rencontres inoubliables</p>
-
-      <h2>Nos âmes errantes</h2>
-
-      <p class="library-subtitle">
-        Dans la peau des animaux des rues
-      </p>
-
-      <p>
-        Ils vivent dans nos rues, sur nos plages,
-        au détour d'une ruelle ou près d'une poubelle.
-        Nous les croisons parfois sans vraiment les voir.
-      </p>
-
-      <p>
-        Ce livre raconte mes véritables rencontres
-        avec des animaux errants à travers le monde.
-        Des moments de tendresse, des sauvetages,
-        des espoirs, mais aussi des adieux difficiles.
-      </p>
-
-      <p>
-        Chaque histoire vous invite ensuite à imaginer
-        le monde à travers leurs yeux, à ressentir
-        leur solitude, leurs espoirs et leur besoin
-        d'être aimés.
-      </p>
-
-      <p>
-        Un hommage à toutes ces petites âmes qui
-        ont croisé mon chemin et laissé une empreinte
-        indélébile dans mon cœur.
-      </p>
-
-      <div class="library-info">
-
-        <span>Histoires vécues</span>
-        <span>Récits et témoignages</span>
-        <span>Français</span>
-        <span>Cause animale</span>
-
-      </div>
-
-      <strong class="library-price">17,98 €</strong>
-
-      <div class="library-actions">
-
-        <a href="https://amzn.eu/d/0fyDrXjy"
-           class="btn-primary"
-           target="_blank"
-           rel="noopener noreferrer">
-
-          Acheter sur Amazon ↗
-
-        </a>
-
-        <details>
-
-          <summary>Afficher le QR code</summary>
-
-          <img src="qr-ames-errantes.png"
-               class="book-qr"
-               alt="QR code Amazon Nos âmes errantes"
-               loading="lazy">
-
-        </details>
-
-      </div>
-
-    </div>
-
-  </article>
-
-  <!-- LIVRE 3 -->
-
-  <article class="library-book" id="coloriage">
-
-    <div class="library-cover">
-
-      <img src="livre-coloriage.jpg"
-           alt="Couverture du livre de coloriage Cœur Errant"
-           loading="lazy">
-
-    </div>
-
-    <div class="library-content">
-
-      <p class="section-tag">Un instant de douceur</p>
-
-      <h2>Cœur Errant</h2>
-
-      <p class="library-subtitle">
-        Chaque animal a une histoire
-      </p>
-
-      <p>
-        Plus qu'un simple livre de coloriage,
-        une invitation à voyager, à ralentir
-        et à découvrir les animaux des rues
-        autrement.
-      </p>
-
-      <p>
-        Retrouvez 20 coloriages réalistes inspirés
-        de véritables rencontres avec des animaux
-        errants à travers le monde.
-      </p>
-
-      <p>
-        Des photographies, des histoires et des
-        illustrations à colorier vous permettent
-        de découvrir les animaux qui se cachent
-        derrière chaque dessin.
-      </p>
-
-      <p>
-        Un moment de créativité et de détente,
-        accompagné d'un message de compassion
-        envers ceux que l'on oublie trop souvent.
-      </p>
-
-      <div class="library-info">
-
-        <span>Coloriage pour adultes</span>
-        <span>20 coloriages</span>
-        <span>Photographies</span>
-        <span>Histoires réelles</span>
-        <span>Français</span>
-
-      </div>
-
-      <strong class="library-price">14,99 €</strong>
-
-      <div class="library-actions">
-
-        <a href="https://amzn.eu/d/0h3yOZae"
-           class="btn-primary"
-           target="_blank"
-           rel="noopener noreferrer">
-
-          Acheter sur Amazon ↗
-
-        </a>
-
-        <details>
-
-          <summary>Afficher le QR code</summary>
-
-          <img src="qr-coloriage.png"
-               class="book-qr"
-               alt="QR code Amazon Cœur Errant"
-               loading="lazy">
-
-        </details>
-
-      </div>
-
-    </div>
-
-  </article>
-
-</section>
-
-<!-- MESSAGE DE L'AUTEURE -->
-
-<section class="author-message">
-
-  <p class="section-tag">Quelques mots du cœur</p>
-
-  <h2>
-    Pourquoi <em>j'écris</em>
-  </h2>
-
-  <p>
-    Cœur Errant n'est pas simplement un projet.
-    C'est une partie de moi, née de rencontres
-    qui ont profondément changé ma manière
-    de regarder le monde.
-  </p>
-
-  <p>
-    J'écris pour les animaux que j'ai rencontrés,
-    pour ceux que j'ai pu aider, pour ceux que
-    je n'ai malheureusement pas pu sauver,
-    et pour tous ceux qui attendent encore
-    qu'on leur tende la main.
-  </p>
-
-  <p>
-    Si mes livres peuvent toucher ne serait-ce
-    qu'une personne et l'encourager à porter
-    un regard différent sur les animaux errants,
-    alors ils auront déjà accompli quelque chose
-    de précieux.
-  </p>
-
-  <p class="author-signature">
-    Avec tout mon cœur,<br>
-    Laurena Vaccaro ♡
-  </p>
-
-</section>
-
-<!-- INFORMATIONS AMAZON -->
-
-<div class="library-note">
-
-  Les livres sont disponibles sur Amazon.
-  Les prix affichés sont indicatifs et peuvent évoluer.
-  Les commandes, paiements, livraisons et retours
-  sont gérés directement par Amazon.
-
-</div>
-
-<!-- SOUTENIR -->
-
-<section class="cta">
-
-  <p class="section-tag" style="justify-content:center;">
-    Ensemble, faisons la différence
-  </p>
-
-  <h2>
-    Chaque geste <em>compte.</em>
-  </h2>
-
-  <p class="cta-desc">
-    Acheter un livre, partager une histoire,
-    parler de Cœur Errant autour de soi.
-    Il existe de nombreuses façons de contribuer
-    à faire connaître la cause des animaux errants.
-  </p>
-
-  <div class="cta-actions">
-
-    <a href="soutenir.html" class="btn-primary">
-      Soutenir Cœur Errant
     </a>
 
-    <a href="index.html" class="btn-outline">
-      Retour à l'accueil
-    </a>
+  </section>
 
-  </div>
 
-</section>
+  <!-- ======================================
+       BIBLIOTHÈQUE INTERACTIVE
+       ====================================== -->
+
+  <section class="library-shelf-section"
+           id="bibliotheque">
+
+    <div class="library-heading library-reveal">
+
+      <p class="library-label">
+
+        À chacun son histoire
+
+      </p>
+
+      <h2>
+
+        Quel livre vous<br>
+
+        <em>appelle aujourd'hui ?</em>
+
+      </h2>
+
+      <p>
+
+        Une histoire à partager avec un enfant,
+        un voyage au cœur des animaux des rues
+        ou un instant de créativité.
+
+        Choisissez le livre qui vous ressemble.
+
+      </p>
+
+    </div>
+
+
+    <div class="library-shelf library-reveal">
+
+      <!-- LA PETITE LANTERNE -->
+
+      <div class="shelf-item shelf-lantern">
+
+        <div class="shelf-book-glow"></div>
+
+        <button class="shelf-book"
+                type="button"
+                data-open-book="lanterne"
+                aria-label="Découvrir La petite lanterne">
+
+          <img src="livre-lanterne.jpg"
+               alt="Couverture de La petite lanterne">
+
+          <span class="shelf-book-spine"></span>
+
+          <span class="shelf-book-pages"></span>
+
+        </button>
+
+        <span class="shelf-category">
+
+          Littérature jeunesse
+
+        </span>
+
+        <h3>La petite lanterne</h3>
+
+        <p>Pour apprendre à regarder.</p>
+
+        <button type="button"
+                class="shelf-discover"
+                data-open-book="lanterne">
+
+          Ouvrir le livre ↗
+
+        </button>
+
+      </div>
+
+
+      <!-- NOS ÂMES ERRANTES -->
+
+      <div class="shelf-item shelf-souls">
+
+        <div class="shelf-book-glow"></div>
+
+        <button class="shelf-book"
+                type="button"
+                data-open-book="ames"
+                aria-label="Découvrir Nos âmes errantes">
+
+          <img src="livre-ames-errantes.jpg"
+               alt="Couverture de Nos âmes errantes">
+
+          <span class="shelf-book-spine"></span>
+
+          <span class="shelf-book-pages"></span>
+
+        </button>
+
+        <span class="shelf-category">
+
+          Récits et témoignages
+
+        </span>
+
+        <h3>Nos âmes errantes</h3>
+
+        <p>Pour ressentir autrement.</p>
+
+        <button type="button"
+                class="shelf-discover"
+                data-open-book="ames">
+
+          Ouvrir le livre ↗
+
+        </button>
+
+      </div>
+
+
+      <!-- LIVRE DE COLORIAGE -->
+
+      <div class="shelf-item shelf-coloring">
+
+        <div class="shelf-book-glow"></div>
+
+        <button class="shelf-book"
+                type="button"
+                data-open-book="coloriage"
+                aria-label="Découvrir le livre de coloriage Cœur Errant">
+
+          <img src="livre-coloriage.jpg"
+               alt="Couverture du livre de coloriage Cœur Errant">
+
+          <span class="shelf-book-spine"></span>
+
+          <span class="shelf-book-pages"></span>
+
+        </button>
+
+        <span class="shelf-category">
+
+          Coloriage pour adultes
+
+        </span>
+
+        <h3>Chaque animal a une histoire</h3>
+
+        <p>Pour créer avec le cœur.</p>
+
+        <button type="button"
+                class="shelf-discover"
+                data-open-book="coloriage">
+
+          Ouvrir le livre ↗
+
+        </button>
+
+      </div>
+
+      <div class="shelf-wood"
+           aria-hidden="true"></div>
+
+    </div>
+
+    <p class="shelf-instruction">
+
+      ✧ Cliquez sur une couverture pour entrer dans son univers.
+
+    </p>
+
+  </section>
+
+
+  <!-- ======================================
+       UNIVERS 01 — LA PETITE LANTERNE
+       ====================================== -->
+
+  <section class="book-universe universe-lantern"
+           id="la-petite-lanterne">
+
+    <div class="universe-decoration"
+         aria-hidden="true">
+
+      <span>✧</span>
+      <span>✦</span>
+      <span>✧</span>
+      <span>✦</span>
+
+    </div>
+
+    <div class="universe-inner">
+
+      <div class="universe-visual library-reveal">
+
+        <div class="universe-number">01</div>
+
+        <div class="lantern-halo"></div>
+
+        <button type="button"
+                class="universe-book"
+                data-open-book="lanterne"
+                aria-label="Ouvrir La petite lanterne">
+
+          <img src="livre-lanterne.jpg"
+               alt="La petite lanterne"
+               loading="lazy">
+
+        </button>
+
+        <div class="universe-visual-caption">
+
+          Une petite lumière dans un grand monde.
+
+        </div>
+
+      </div>
+
+      <div class="universe-content library-reveal">
+
+        <p class="library-label">
+
+          Grandir avec bienveillance
+
+        </p>
+
+        <h2>
+
+          La petite<br>
+
+          <em>lanterne.</em>
+
+        </h2>
+
+        <p class="universe-subtitle">
+
+          Une histoire pour apprendre à regarder
+
+        </p>
+
+        <div class="book-tags">
+
+          <span>Jeunesse</span>
+          <span>Bienveillance</span>
+          <span>Émotions</span>
+
+        </div>
+
+        <p>
+
+          Et si apprendre à regarder le monde
+          était l'une des plus belles choses
+          que nous pouvions transmettre aux enfants ?
+
+        </p>
+
+        <p>
+
+          La petite lanterne invite les jeunes lecteurs
+          à découvrir la douceur, l'empathie
+          et l'importance de faire attention
+          aux êtres vivants qui les entourent.
+
+        </p>
+
+        <p>
+
+          Un livre à partager,
+          pour prendre le temps de lire ensemble,
+          d'échanger et de grandir avec un regard
+          un peu plus bienveillant.
+
+        </p>
+
+        <blockquote class="universe-quote">
+
+          Les plus belles lumières sont parfois
+          celles que l'on porte dans son cœur.
+
+        </blockquote>
+
+        <div class="universe-purchase">
+
+          <div class="universe-price">
+
+            <span>Prix indicatif</span>
+
+            <strong>16,95 €</strong>
+
+          </div>
+
+          <a href="https://amzn.eu/d/04uXHShr"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="library-button">
+
+            Découvrir sur Amazon ↗
+
+          </a>
+
+        </div>
+
+        <div class="universe-secondary-actions">
+
+          <button type="button"
+                  class="library-text-button"
+                  data-open-book="lanterne">
+
+            Feuilleter son univers
+
+          </button>
+
+          <button type="button"
+                  class="library-text-button"
+                  data-qr="qr-lanterne.png"
+                  data-qr-title="La petite lanterne">
+
+            Afficher le QR code
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       UNIVERS 02 — NOS ÂMES ERRANTES
+       ====================================== -->
+
+  <section class="book-universe universe-souls"
+           id="nos-ames-errantes">
+
+    <div class="universe-inner">
+
+      <div class="universe-visual library-reveal">
+
+        <div class="universe-number">02</div>
+
+        <div class="souls-halo"></div>
+
+        <button type="button"
+                class="universe-book"
+                data-open-book="ames"
+                aria-label="Ouvrir Nos âmes errantes">
+
+          <img src="livre-ames-errantes.jpg"
+               alt="Nos âmes errantes"
+               loading="lazy">
+
+        </button>
+
+        <div class="universe-visual-caption">
+
+          Des vies qui méritent d'être racontées.
+
+        </div>
+
+      </div>
+
+      <div class="universe-content library-reveal">
+
+        <p class="library-label">
+
+          Ressentir au-delà des apparences
+
+        </p>
+
+        <h2>
+
+          Nos âmes<br>
+
+          <em>errantes.</em>
+
+        </h2>
+
+        <p class="universe-subtitle">
+
+          Dans la peau des animaux des rues
+
+        </p>
+
+        <div class="book-tags">
+
+          <span>Récits</span>
+          <span>Rencontres réelles</span>
+          <span>Émotions</span>
+
+        </div>
+
+        <p>
+
+          Derrière chaque regard croisé dans la rue,
+          il existe une histoire que nous ne connaissons pas.
+
+          Une vie, un passé, des peurs,
+          mais aussi une incroyable capacité à aimer.
+
+        </p>
+
+        <p>
+
+          À travers mes voyages,
+          j'ai rencontré des animaux qui ont profondément
+          marqué ma vie.
+
+          J'ai choisi de leur consacrer ces pages
+          pour que leurs histoires ne disparaissent pas.
+
+        </p>
+
+        <p>
+
+          Chaque récit associe une rencontre réelle
+          à une immersion imaginée dans la peau de l'animal.
+
+          Une invitation à ressentir le monde autrement,
+          le temps de quelques pages.
+
+        </p>
+
+        <blockquote class="universe-quote">
+
+          Ils n'ont pas toujours eu la chance
+          d'être aimés.
+
+          Mais ils méritent tous
+          celle d'être racontés.
+
+        </blockquote>
+
+        <div class="universe-purchase">
+
+          <div class="universe-price">
+
+            <span>Prix indicatif</span>
+
+            <strong>17,98 €</strong>
+
+          </div>
+
+          <a href="https://amzn.eu/d/0fyDrXjy"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="library-button">
+
+            Découvrir sur Amazon ↗
+
+          </a>
+
+        </div>
+
+        <div class="universe-secondary-actions">
+
+          <button type="button"
+                  class="library-text-button"
+                  data-open-book="ames">
+
+            Feuilleter son univers
+
+          </button>
+
+          <button type="button"
+                  class="library-text-button"
+                  data-qr="qr-ames-errantes.png"
+                  data-qr-title="Nos âmes errantes">
+
+            Afficher le QR code
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       UNIVERS 03 — LE COLORIAGE
+       ====================================== -->
+
+  <section class="book-universe universe-coloring"
+           id="livre-coloriage">
+
+    <div class="universe-inner">
+
+      <div class="universe-visual library-reveal">
+
+        <div class="universe-number">03</div>
+
+        <div class="coloring-halo"></div>
+
+        <button type="button"
+                class="universe-book"
+                data-open-book="coloriage"
+                aria-label="Ouvrir le livre de coloriage">
+
+          <img src="livre-coloriage.jpg"
+               alt="Cœur Errant, Chaque animal a une histoire"
+               loading="lazy">
+
+        </button>
+
+        <div class="universe-visual-caption">
+
+          Une rencontre, mille couleurs possibles.
+
+        </div>
+
+      </div>
+
+      <div class="universe-content library-reveal">
+
+        <p class="library-label">
+
+          Créer avec le cœur
+
+        </p>
+
+        <h2>
+
+          Chaque animal<br>
+
+          <em>a une histoire.</em>
+
+        </h2>
+
+        <p class="universe-subtitle">
+
+          Le livre de coloriage Cœur Errant
+
+        </p>
+
+        <div class="book-tags">
+
+          <span>Coloriage adulte</span>
+          <span>Photographies</span>
+          <span>Créativité</span>
+
+        </div>
+
+        <p>
+
+          Et si vous preniez un instant pour ralentir,
+          laisser parler votre imagination
+          et découvrir le monde à travers mes rencontres ?
+
+        </p>
+
+        <p>
+
+          Ce livre réunit des illustrations à colorier
+          inspirées de véritables animaux rencontrés
+          au fil de mes voyages,
+          accompagnées de photographies et de récits.
+
+        </p>
+
+        <p>
+
+          Bien plus qu'un moment de détente,
+          c'est une invitation à découvrir ces petites âmes
+          et à leur offrir, le temps d'un coloriage,
+          une place dans votre quotidien.
+
+        </p>
+
+        <blockquote class="universe-quote">
+
+          Chaque couleur est une manière
+          de redonner vie à un souvenir.
+
+        </blockquote>
+
+        <div class="universe-purchase">
+
+          <div class="universe-price">
+
+            <span>Prix indicatif</span>
+
+            <strong>14,99 €</strong>
+
+          </div>
+
+          <a href="https://amzn.eu/d/0h3yOZae"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="library-button">
+
+            Découvrir sur Amazon ↗
+
+          </a>
+
+        </div>
+
+        <div class="universe-secondary-actions">
+
+          <button type="button"
+                  class="library-text-button"
+                  data-open-book="coloriage">
+
+            Feuilleter son univers
+
+          </button>
+
+          <button type="button"
+                  class="library-text-button"
+                  data-qr="qr-coloriage.png"
+                  data-qr-title="Chaque animal a une histoire">
+
+            Afficher le QR code
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       MINI COLORIAGE INTERACTIF
+       ====================================== -->
+
+  <section class="coloring-experience">
+
+    <div class="library-heading library-reveal">
+
+      <p class="library-label">
+
+        Une petite parenthèse créative
+
+      </p>
+
+      <h2>
+
+        Et si vous mettiez<br>
+
+        <em>un peu de couleur ?</em>
+
+      </h2>
+
+      <p>
+
+        Choisissez une couleur,
+        puis cliquez sur une partie du dessin.
+
+        Prenez quelques instants rien que pour vous.
+
+      </p>
+
+    </div>
+
+    <div class="coloring-workspace library-reveal">
+
+      <div class="coloring-paper">
+
+        <div class="coloring-paper-heading">
+
+          <span>Cœur Errant</span>
+
+          <span>✧</span>
+
+        </div>
+
+        <svg id="coloring-drawing"
+             viewBox="0 0 400 400"
+             xmlns="http://www.w3.org/2000/svg"
+             aria-label="Illustration interactive à colorier">
+
+          <!-- FOND -->
+
+          <rect width="400"
+                height="400"
+                fill="#fffdf8"/>
+
+          <!-- SOLEIL -->
+
+          <circle class="paint-area"
+                  data-original="#fffdf8"
+                  cx="200"
+                  cy="75"
+                  r="32"
+                  fill="#fffdf8"
+                  stroke="#68584e"
+                  stroke-width="2"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Colorier le soleil"/>
+
+          <!-- COLLINES -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M20 300
+                   Q100 170 200 285
+                   Q300 175 380 300
+                   V360 H20Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2"
+                tabindex="0"
+                role="button"
+                aria-label="Colorier les collines"/>
+
+          <!-- QUEUE DU CHAT -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M267 300
+                   C340 320 365 255 333 240
+                   C310 228 303 252 321 264
+                   C330 278 300 292 267 278Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2.5"
+                tabindex="0"
+                role="button"
+                aria-label="Colorier la queue du chat"/>
+
+          <!-- CORPS DU CHAT -->
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="267"
+                   cy="268"
+                   rx="49"
+                   ry="65"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2.5"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Colorier le corps du chat"/>
+
+          <!-- TÊTE DU CHAT -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M220 188
+                   L218 140
+                   L250 162
+                   Q267 154 284 162
+                   L316 140
+                   L314 188
+                   Q326 237 267 240
+                   Q208 237 220 188Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2.5"
+                tabindex="0"
+                role="button"
+                aria-label="Colorier la tête du chat"/>
+
+          <!-- VISAGE DU CHAT -->
+
+          <g fill="none"
+             stroke="#68584e"
+             stroke-width="2.5"
+             stroke-linecap="round"
+             pointer-events="none">
+
+            <path d="M238 195 Q246 185 254 195"/>
+            <path d="M280 195 Q288 185 296 195"/>
+            <path d="M267 207 V215"/>
+            <path d="M267 215 Q257 225 252 217"/>
+            <path d="M267 215 Q277 225 282 217"/>
+
+            <path d="M235 207 L207 202"/>
+            <path d="M235 215 L207 219"/>
+            <path d="M299 207 L327 202"/>
+            <path d="M299 215 L327 219"/>
+
+          </g>
+
+          <path d="M260 204 H274 L267 211Z"
+                fill="#68584e"
+                pointer-events="none"/>
+
+          <!-- QUEUE DU CHIEN -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M100 275
+                   Q42 235 47 270
+                   Q50 305 105 300Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2.5"
+                tabindex="0"
+                role="button"
+                aria-label="Colorier la queue du chien"/>
+
+          <!-- CORPS DU CHIEN -->
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="145"
+                   cy="265"
+                   rx="58"
+                   ry="72"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2.5"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Colorier le corps du chien"/>
+
+          <!-- TÊTE DU CHIEN -->
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="145"
+                   cy="175"
+                   rx="57"
+                   ry="54"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2.5"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Colorier la tête du chien"/>
+
+          <!-- OREILLES -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M103 133
+                   Q55 112 66 190
+                   Q77 224 99 185Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2.5"
+                tabindex="0"
+                role="button"
+                aria-label="Colorier l'oreille gauche"/>
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M187 133
+                   Q235 112 224 190
+                   Q213 224 191 185Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2.5"
+                tabindex="0"
+                role="button"
+                aria-label="Colorier l'oreille droite"/>
+
+          <!-- MUSEAU -->
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="145"
+                   cy="199"
+                   rx="31"
+                   ry="25"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Colorier le museau"/>
+
+          <g fill="#68584e"
+             pointer-events="none">
+
+            <circle cx="124" cy="166" r="5"/>
+            <circle cx="166" cy="166" r="5"/>
+            <ellipse cx="145" cy="190" rx="12" ry="8"/>
+
+          </g>
+
+          <g fill="none"
+             stroke="#68584e"
+             stroke-width="2.5"
+             stroke-linecap="round"
+             pointer-events="none">
+
+            <path d="M145 198 V207"/>
+            <path d="M145 207 Q133 219 126 209"/>
+            <path d="M145 207 Q157 219 164 209"/>
+
+          </g>
+
+          <!-- PATTES -->
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="118"
+                   cy="324"
+                   rx="24"
+                   ry="15"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Colorier la patte gauche"/>
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="173"
+                   cy="324"
+                   rx="24"
+                   ry="15"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Colorier la patte droite"/>
+
+          <!-- CŒUR -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M200 112
+                   C173 82 150 117 200 148
+                   C250 117 227 82 200 112Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2"
+                tabindex="0"
+                role="button"
+                aria-label="Colorier le cœur"/>
+
+          <!-- FLEURS -->
+
+          <g stroke="#68584e"
+             stroke-width="2"
+             stroke-linecap="round">
+
+            <path d="M42 350 V320"
+                  fill="none"/>
+
+            <path d="M42 338 Q25 323 25 337Z"
+                  fill="#fffdf8"/>
+
+            <path d="M42 340 Q59 325 59 339Z"
+                  fill="#fffdf8"/>
+
+            <circle class="paint-area"
+                    data-original="#fffdf8"
+                    cx="42"
+                    cy="313"
+                    r="12"
+                    fill="#fffdf8"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Colorier la fleur gauche"/>
+
+            <path d="M355 350 V320"
+                  fill="none"/>
+
+            <path d="M355 338 Q338 323 338 337Z"
+                  fill="#fffdf8"/>
+
+            <path d="M355 340 Q372 325 372 339Z"
+                  fill="#fffdf8"/>
+
+            <circle class="paint-area"
+                    data-original="#fffdf8"
+                    cx="355"
+                    cy="313"
+                    r="12"
+                    fill="#fffdf8"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Colorier la fleur droite"/>
+
+          </g>
+
+          <text x="200"
+                y="385"
+                text-anchor="middle"
+                font-family="Cormorant Garamond, serif"
+                font-size="17"
+                font-style="italic"
+                fill="#68584e">
+
+            Chaque animal a une histoire.
+
+          </text>
+
+        </svg>
+
+        <p class="coloring-paper-caption">
+
+          Un petit dessin créé spécialement pour vous.
+
+        </p>
+
+      </div>
+
+
+      <div class="coloring-tools">
+
+        <p class="library-label">
+
+          Votre palette
+
+        </p>
+
+        <h3>
+
+          Les couleurs<br>
+
+          <em>du cœur.</em>
+
+        </h3>
+
+        <div class="color-palette">
+
+          <button type="button"
+                  class="color-swatch active"
+                  data-color="#c99b79"
+                  style="--swatch:#c99b79"
+                  aria-label="Caramel"
+                  aria-pressed="true"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#e4c5a5"
+                  style="--swatch:#e4c5a5"
+                  aria-label="Beige"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#d49ba7"
+                  style="--swatch:#d49ba7"
+                  aria-label="Rose poudré"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#b6c6a8"
+                  style="--swatch:#b6c6a8"
+                  aria-label="Vert sauge"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#a9c4d5"
+                  style="--swatch:#a9c4d5"
+                  aria-label="Bleu pastel"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#e9cf83"
+                  style="--swatch:#e9cf83"
+                  aria-label="Jaune doré"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#c3b1d4"
+                  style="--swatch:#c3b1d4"
+                  aria-label="Lavande"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#a49b93"
+                  style="--swatch:#a49b93"
+                  aria-label="Gris"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#fffdf8"
+                  style="--swatch:#fffdf8"
+                  aria-label="Gomme"
+                  aria-pressed="false">
+
+            ×
+
+          </button>
+
+        </div>
+
+        <label class="custom-color-label"
+               for="custom-color">
+
+          Votre propre couleur
+
+        </label>
+
+        <input type="color"
+               id="custom-color"
+               value="#c99b79">
+
+        <p id="coloring-message"
+           aria-live="polite">
+
+          Votre imagination n'a pas de frontières.
+
+        </p>
+
+        <div class="coloring-actions">
+
+          <button type="button"
+                  class="library-text-button"
+                  id="undo-coloring">
+
+            ↶ Annuler
+
+          </button>
+
+          <button type="button"
+                  class="library-text-button"
+                  id="reset-coloring">
+
+            Recommencer
+
+          </button>
+
+        </div>
+
+        <button type="button"
+                class="library-button"
+                id="save-coloring">
+
+          Garder mon coloriage ↓
+
+        </button>
+
+        <p class="coloring-note">
+
+          Ce dessin interactif est une création
+          pour le site, et non une page extraite du livre.
+
+          Vous pouvez le conserver gratuitement.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       POURQUOI J'ÉCRIS
+       ====================================== -->
+
+  <section class="author-section">
+
+    <div class="author-letter library-reveal">
+
+      <div class="author-letter-top">
+
+        <span>Une lettre de l'auteure</span>
+
+        <span>♡</span>
+
+      </div>
+
+      <p class="library-label">
+
+        Derrière les pages
+
+      </p>
+
+      <h2>
+
+        Pourquoi<br>
+
+        <em>j'écris.</em>
+
+      </h2>
+
+      <div class="author-letter-content">
+
+        <p>
+
+          Lorsque je rentre de voyage,
+          je rapporte bien plus que des photographies.
+
+        </p>
+
+        <p>
+
+          Je rapporte des regards,
+          des souvenirs, des moments de tendresse,
+          parfois des chagrins
+          et des histoires que je ne veux pas oublier.
+
+        </p>
+
+        <p>
+
+          Écrire est devenu une autre manière
+          de prolonger ces rencontres.
+
+          Une façon de donner une place
+          à ces animaux que l'on croise,
+          mais que l'on ne prend pas toujours
+          le temps de regarder.
+
+        </p>
+
+        <p>
+
+          À travers mes livres,
+          j'aimerais transmettre quelque chose
+          de profondément simple.
+
+          La vie de chaque animal compte.
+
+        </p>
+
+        <p>
+
+          Que vous soyez un enfant qui découvre le monde,
+          un adulte qui souhaite ressentir autrement
+          ou une personne qui aime simplement créer,
+          j'espère que vous trouverez
+          un petit morceau de Cœur Errant
+          entre ces pages.
+
+        </p>
+
+        <p>
+
+          Merci de prendre le temps
+          de découvrir leurs histoires.
+
+        </p>
+
+      </div>
+
+      <div class="author-signature">
+
+        Avec tout mon cœur,
+
+        <strong>Laurena Vaccaro</strong>
+
+        <span>Fondatrice de Cœur Errant</span>
+
+      </div>
+
+      <div class="author-letter-seal"
+           aria-hidden="true">
+
+        ♡
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       CHOISIR SON LIVRE
+       ====================================== -->
+
+  <section class="reading-choice-section">
+
+    <div class="library-heading library-reveal">
+
+      <p class="library-label">
+
+        Votre prochaine lecture
+
+      </p>
+
+      <h2>
+
+        De quoi votre cœur<br>
+
+        <em>a-t-il envie ?</em>
+
+      </h2>
+
+      <p>
+
+        Chaque lecture répond à une émotion différente.
+
+        Laissez votre envie du moment vous guider.
+
+      </p>
+
+    </div>
+
+    <div class="reading-choices library-reveal">
+
+      <button type="button"
+              class="reading-choice"
+              data-recommend="lanterne"
+              aria-pressed="false">
+
+        <span class="reading-choice-icon">✧</span>
+
+        <h3>Transmettre</h3>
+
+        <p>
+
+          Partager un moment de douceur
+          avec un enfant.
+
+        </p>
+
+      </button>
+
+      <button type="button"
+              class="reading-choice"
+              data-recommend="ames"
+              aria-pressed="false">
+
+        <span class="reading-choice-icon">♡</span>
+
+        <h3>Ressentir</h3>
+
+        <p>
+
+          Découvrir des histoires
+          qui touchent profondément.
+
+        </p>
+
+      </button>
+
+      <button type="button"
+              class="reading-choice"
+              data-recommend="coloriage"
+              aria-pressed="false">
+
+        <span class="reading-choice-icon">❋</span>
+
+        <h3>Créer</h3>
+
+        <p>
+
+          Ralentir, imaginer
+          et prendre du temps pour soi.
+
+        </p>
+
+      </button>
+
+    </div>
+
+    <div class="reading-result"
+         id="reading-result"
+         aria-live="polite"
+         hidden>
+
+      <img id="recommended-cover"
+           src="livre-lanterne.jpg"
+           alt="">
+
+      <div class="reading-result-content">
+
+        <p class="library-label">
+
+          Le livre qui vous correspond
+
+        </p>
+
+        <h3 id="recommended-title"></h3>
+
+        <p id="recommended-description"></p>
+
+        <button type="button"
+                class="library-button"
+                id="recommended-button">
+
+          Découvrir mon livre ♡
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       SURPRISE — MARQUE-PAGES
+       ====================================== -->
+
+  <section class="bookmark-section">
+
+    <div class="library-heading library-reveal">
+
+      <p class="library-label">
+
+        Un petit cadeau pour vous
+
+      </p>
+
+      <h2>
+
+        Une pensée à glisser<br>
+
+        <em>entre deux pages.</em>
+
+      </h2>
+
+      <p>
+
+        Choisissez un marque-page.
+
+        Derrière chacun se cache une petite pensée
+        inspirée de l'univers de Cœur Errant.
+
+      </p>
+
+    </div>
+
+    <div class="bookmark-grid library-reveal">
+
+      <!-- MARQUE-PAGE 1 -->
+
+      <button type="button"
+              class="bookmark bookmark-rose"
+              aria-pressed="false"
+              aria-label="Retourner le marque-page de la bienveillance">
+
+        <span class="bookmark-inner">
+
+          <span class="bookmark-front">
+
+            <span class="bookmark-hole"></span>
+
+            <span class="bookmark-ribbon"></span>
+
+            <span class="bookmark-symbol">♡</span>
+
+            <span class="bookmark-name">
+
+              La bienveillance
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+            <span class="bookmark-hint">
+
+              Retournez-moi ↻
+
+            </span>
+
+          </span>
+
+          <span class="bookmark-back">
+
+            <span class="bookmark-symbol">♡</span>
+
+            <span class="bookmark-quote">
+
+              On ne peut pas toujours
+              changer le destin d'un animal.
+
+              Mais on peut choisir
+              de ne pas l'ignorer.
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+          </span>
+
+        </span>
+
+      </button>
+
+
+      <!-- MARQUE-PAGE 2 -->
+
+      <button type="button"
+              class="bookmark bookmark-sage"
+              aria-pressed="false"
+              aria-label="Retourner le marque-page de l'espoir">
+
+        <span class="bookmark-inner">
+
+          <span class="bookmark-front">
+
+            <span class="bookmark-hole"></span>
+
+            <span class="bookmark-ribbon"></span>
+
+            <span class="bookmark-symbol">✧</span>
+
+            <span class="bookmark-name">
+
+              L'espoir
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+            <span class="bookmark-hint">
+
+              Retournez-moi ↻
+
+            </span>
+
+          </span>
+
+          <span class="bookmark-back">
+
+            <span class="bookmark-symbol">✧</span>
+
+            <span class="bookmark-quote">
+
+              Même dans les rues
+              les plus oubliées,
+
+              une petite lumière
+              peut encore s'allumer.
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+          </span>
+
+        </span>
+
+      </button>
+
+
+      <!-- MARQUE-PAGE 3 -->
+
+      <button type="button"
+              class="bookmark bookmark-gold"
+              aria-pressed="false"
+              aria-label="Retourner le marque-page de la douceur">
+
+        <span class="bookmark-inner">
+
+          <span class="bookmark-front">
+
+            <span class="bookmark-hole"></span>
+
+            <span class="bookmark-ribbon"></span>
+
+            <span class="bookmark-symbol">❋</span>
+
+            <span class="bookmark-name">
+
+              La douceur
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+            <span class="bookmark-hint">
+
+              Retournez-moi ↻
+
+            </span>
+
+          </span>
+
+          <span class="bookmark-back">
+
+            <span class="bookmark-symbol">❋</span>
+
+            <span class="bookmark-quote">
+
+              Parfois,
+              quelques instants de douceur
+
+              suffisent à rendre
+              le monde un peu plus beau.
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+          </span>
+
+        </span>
+
+      </button>
+
+    </div>
+
+    <p class="bookmark-ending">
+
+      Trois petites pensées à emporter avec vous.
+
+    </p>
+
+  </section>
+
+
+  <!-- ======================================
+       CONCLUSION
+       ====================================== -->
+
+  <section class="library-ending">
+
+    <div class="library-ending-content library-reveal">
+
+      <div class="library-ending-heart"
+           aria-hidden="true">
+
+        ♡
+
+      </div>
+
+      <p class="library-label">
+
+        Bien plus que des livres
+
+      </p>
+
+      <h2>
+
+        Les pages se referment.<br>
+
+        <em>Les histoires restent.</em>
+
+      </h2>
+
+      <p>
+
+        Merci de faire une petite place
+        à ces animaux dans votre bibliothèque,
+        dans votre quotidien
+        et peut-être aussi dans votre cœur.
+
+      </p>
+
+      <p>
+
+        Lire, partager et faire connaître ces histoires,
+        c'est aussi contribuer à rendre
+        les animaux des rues moins invisibles.
+
+      </p>
+
+      <a href="soutenir.html"
+         class="library-button">
+
+        Aller plus loin avec Cœur Errant ♡
+
+      </a>
+
+      <p class="library-ending-note">
+
+        Les livres sont disponibles sur Amazon.
+
+        Les prix affichés sur cette page sont indicatifs
+        et peuvent évoluer.
+
+      </p>
+
+    </div>
+
+  </section>
 
 </main>
 
-<!-- PIED DE PAGE -->
+
+<!-- ======================================
+     FENÊTRE — LIVRE INTERACTIF
+     ====================================== -->
+
+<dialog class="book-dialog"
+        id="book-dialog"
+        aria-labelledby="preview-title">
+
+  <div class="book-dialog-inner">
+
+    <button type="button"
+            class="dialog-close"
+            data-close-dialog="book-dialog"
+            aria-label="Fermer le livre">
+
+      ×
+
+    </button>
+
+    <p class="library-label">
+
+      Entrez dans son univers
+
+    </p>
+
+    <h2 id="preview-title"></h2>
+
+    <div class="preview-book">
+
+      <div class="preview-left">
+
+        <img id="preview-cover"
+             src="livre-lanterne.jpg"
+             alt="">
+
+        <span id="preview-category"></span>
+
+      </div>
+
+      <div class="preview-right"
+           id="preview-right">
+
+        <span class="preview-ornament">✧</span>
+
+        <p class="preview-chapter"
+           id="preview-chapter"></p>
+
+        <h3 id="preview-heading"></h3>
+
+        <p id="preview-text"></p>
+
+        <span class="preview-page-number"
+              id="preview-page-number"></span>
+
+      </div>
+
+    </div>
+
+    <div class="preview-controls">
+
+      <button type="button"
+              id="preview-prev"
+              aria-label="Page précédente">
+
+        ←
+
+      </button>
+
+      <span id="preview-pagination"
+            aria-live="polite"></span>
+
+      <button type="button"
+              id="preview-next"
+              aria-label="Page suivante">
+
+        →
+
+      </button>
+
+    </div>
+
+    <a id="preview-amazon"
+       href="https://amzn.eu/d/04uXHShr"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="library-button">
+
+      Retrouver ce livre sur Amazon ↗
+
+    </a>
+
+    <p class="preview-note">
+
+      Ces pages présentent l'univers du livre.
+      Elles ne reproduisent pas son contenu intégral.
+
+    </p>
+
+  </div>
+
+</dialog>
+
+
+<!-- ======================================
+     FENÊTRE — QR CODE
+     ====================================== -->
+
+<dialog class="qr-dialog"
+        id="qr-dialog"
+        aria-labelledby="qr-dialog-title">
+
+  <div class="qr-dialog-inner">
+
+    <button type="button"
+            class="dialog-close"
+            data-close-dialog="qr-dialog"
+            aria-label="Fermer le QR code">
+
+      ×
+
+    </button>
+
+    <p class="library-label">
+
+      Retrouvez votre livre
+
+    </p>
+
+    <h2 id="qr-dialog-title"></h2>
+
+    <div class="qr-image-frame">
+
+      <img id="qr-dialog-image"
+           src="qr-lanterne.png"
+           alt="QR code vers Amazon">
+
+    </div>
+
+    <p>
+
+      Scannez ce QR code
+      avec l'appareil photo de votre téléphone
+      pour retrouver le livre sur Amazon.
+
+    </p>
+
+    <span class="qr-dialog-heart">♡</span>
+
+  </div>
+
+</dialog>
+
+
+<!-- ======================================
+     FOOTER
+     ====================================== -->
 
 <footer>
 
   <div class="footer-logo">
+
     <img src="logo.jpeg" alt="Cœur Errant">
+
   </div>
 
   <div class="footer-divider"></div>
 
   <div class="footer-socials">
 
-    <a class="footer-social-link"
-       href="https://www.tiktok.com/@coeur_errant"
+    <a href="https://www.tiktok.com/@coeur_errant"
        target="_blank"
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
+
         <img src="https://cdn.simpleicons.org/tiktok/white"
-             alt="TikTok">
+             alt="">
+
       </div>
 
       <span class="footer-social-name">TikTok</span>
 
     </a>
 
-    <a class="footer-social-link"
-       href="https://www.instagram.com/coeur.errant/"
+    <a href="https://www.instagram.com/coeur.errant/"
        target="_blank"
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
+
         <img src="https://cdn.simpleicons.org/instagram/white"
-             alt="Instagram">
+             alt="">
+
       </div>
 
       <span class="footer-social-name">Instagram</span>
 
     </a>
 
-    <a class="footer-social-link"
-       href="https://www.youtube.com/@CoeurErrant"
+    <a href="https://www.youtube.com/@CoeurErrant"
        target="_blank"
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
+
         <img src="https://cdn.simpleicons.org/youtube/white"
-             alt="YouTube">
+             alt="">
+
       </div>
 
       <span class="footer-social-name">YouTube</span>
 
     </a>
 
-    <a class="footer-social-link"
-       href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
        target="_blank"
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
+
         <img src="https://cdn.simpleicons.org/facebook/white"
-             alt="Facebook">
+             alt="">
+
       </div>
 
       <span class="footer-social-name">Facebook</span>
 
     </a>
 
-    <a class="footer-social-link"
-       href="https://www.snapchat.com/add/coeur_errant"
+    <a href="https://www.snapchat.com/add/coeur_errant"
        target="_blank"
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
+
         <img src="https://cdn.simpleicons.org/snapchat/white"
-             alt="Snapchat">
+             alt="">
+
       </div>
 
       <span class="footer-social-name">Snapchat</span>
 
     </a>
 
-    <a class="footer-social-link"
-       href="mailto:coeur.errant@outlook.be">
+    <a href="mailto:coeur.errant@outlook.be"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
+
         <img src="https://cdn.simpleicons.org/gmail/white"
-             alt="E-mail">
+             alt="">
+
       </div>
 
       <span class="footer-social-name">Contact</span>
@@ -814,59 +2260,956 @@
 
   <p class="footer-copy">
 
-    © <span id="annee"></span> Cœur Errant —
-    Chaque animal a une histoire.
+    © <span id="annee"></span>
+
+    Cœur Errant — Chaque animal a une histoire.
 
   </p>
 
 </footer>
 
-<!-- JAVASCRIPT -->
+
+<!-- ======================================
+     JAVASCRIPT
+     ====================================== -->
 
 <script>
 
-  document.getElementById('annee').textContent =
-    new Date().getFullYear();
+/* ANNÉE AUTOMATIQUE */
 
-  function toggleMenu() {
+document.getElementById('annee').textContent =
+  new Date().getFullYear();
 
-    const menu = document.getElementById('nav-links');
-    const bouton = document.getElementById('hamburger');
 
-    const ouvert = menu.classList.toggle('open');
+/* ======================================
+   MENU MOBILE
+   ====================================== */
 
-    bouton.classList.toggle('open', ouvert);
-    bouton.setAttribute('aria-expanded', ouvert);
+const navLinks = document.getElementById('nav-links');
 
-    bouton.setAttribute(
-      'aria-label',
-      ouvert ? 'Fermer le menu' : 'Ouvrir le menu'
-    );
+const hamburger = document.getElementById('hamburger');
+
+function toggleMenu() {
+
+  const isOpen = navLinks.classList.toggle('open');
+
+  hamburger.classList.toggle('open', isOpen);
+
+  hamburger.setAttribute(
+    'aria-expanded',
+    String(isOpen)
+  );
+
+  hamburger.setAttribute(
+    'aria-label',
+    isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
+  );
+
+}
+
+function closeMenu() {
+
+  navLinks.classList.remove('open');
+
+  hamburger.classList.remove('open');
+
+  hamburger.setAttribute('aria-expanded', 'false');
+
+  hamburger.setAttribute(
+    'aria-label',
+    'Ouvrir le menu'
+  );
+
+}
+
+navLinks.querySelectorAll('a').forEach(link => {
+
+  link.addEventListener('click', closeMenu);
+
+});
+
+document.addEventListener('keydown', event => {
+
+  if (event.key === 'Escape') {
+
+    closeMenu();
 
   }
 
-  function closeMenu() {
+});
 
-    document.getElementById('nav-links')
-      .classList.remove('open');
 
-    const bouton = document.getElementById('hamburger');
+/* ======================================
+   INFORMATIONS DES LIVRES
+   ====================================== */
 
-    bouton.classList.remove('open');
-    bouton.setAttribute('aria-expanded', 'false');
-    bouton.setAttribute('aria-label', 'Ouvrir le menu');
+const libraryBooks = {
+
+  lanterne: {
+
+    title: 'La petite lanterne',
+
+    cover: 'livre-lanterne.jpg',
+
+    category: 'Littérature jeunesse',
+
+    amazon: 'https://amzn.eu/d/04uXHShr',
+
+    recommendation:
+      "Une histoire à partager avec un enfant " +
+      "pour découvrir la bienveillance et apprendre " +
+      "à regarder le monde autrement.",
+
+    pages: [
+
+      {
+
+        chapter: '01 — Découvrir',
+
+        heading: 'Une petite lumière.',
+
+        text:
+          "Le monde est rempli de petites choses " +
+          "que nous ne remarquons pas toujours. " +
+          "La petite lanterne invite les enfants " +
+          "à ouvrir leurs yeux, mais aussi leur cœur."
+
+      },
+
+      {
+
+        chapter: '02 — Ressentir',
+
+        heading: 'Apprendre la douceur.',
+
+        text:
+          "La bienveillance se découvre dès le plus jeune âge. " +
+          "À travers la lecture et les échanges, " +
+          "les enfants peuvent apprendre à faire attention " +
+          "aux êtres vivants qui les entourent."
+
+      },
+
+      {
+
+        chapter: '03 — Partager',
+
+        heading: 'Un moment ensemble.',
+
+        text:
+          "Une lecture avant de dormir, " +
+          "un moment calme en famille, " +
+          "une conversation qui commence après la dernière page. " +
+          "Les histoires peuvent devenir de précieux souvenirs."
+
+      }
+
+    ]
+
+  },
+
+  ames: {
+
+    title: 'Nos âmes errantes',
+
+    cover: 'livre-ames-errantes.jpg',
+
+    category: 'Récits et témoignages',
+
+    amazon: 'https://amzn.eu/d/0fyDrXjy',
+
+    recommendation:
+      "Des rencontres réelles et des récits imaginés " +
+      "pour découvrir le quotidien des animaux errants " +
+      "à travers un autre regard.",
+
+    pages: [
+
+      {
+
+        chapter: '01 — Ma rencontre',
+
+        heading: 'Au détour d'un voyage.',
+
+        text:
+          "De la Corse au Maroc, en passant par " +
+          "la Sicile, la Turquie et d'autres destinations, " +
+          "des animaux ont croisé mon chemin. " +
+          "Certains regards ne m'ont jamais quittée."
+
+      },
+
+      {
+
+        chapter: '02 — Dans leur peau',
+
+        heading: 'Et si nous étions eux ?',
+
+        text:
+          "Après chaque rencontre réelle, " +
+          "le récit invite le lecteur à imaginer " +
+          "le monde du point de vue de l'animal. " +
+          "Ses émotions, ses difficultés " +
+          "et ses instants de douceur."
+
+      },
+
+      {
+
+        chapter: '03 — Ne pas oublier',
+
+        heading: 'Une place entre les pages.',
+
+        text:
+          "Ce livre est une manière de préserver " +
+          "le souvenir de ces petites âmes. " +
+          "Leur existence mérite d'être reconnue, " +
+          "leurs histoires méritent d'être racontées."
+
+      }
+
+    ]
+
+  },
+
+  coloriage: {
+
+    title: 'Chaque animal a une histoire',
+
+    cover: 'livre-coloriage.jpg',
+
+    category: 'Coloriage pour adultes',
+
+    amazon: 'https://amzn.eu/d/0h3yOZae',
+
+    recommendation:
+      "Une parenthèse créative pour découvrir " +
+      "des animaux réellement rencontrés en voyage, " +
+      "tout en laissant parler votre imagination.",
+
+    pages: [
+
+      {
+
+        chapter: '01 — Observer',
+
+        heading: 'Derrière chaque illustration.',
+
+        text:
+          "Les dessins s'inspirent de véritables animaux " +
+          "rencontrés au fil de mes voyages. " +
+          "Chaque rencontre possède sa propre histoire, " +
+          "son propre souvenir."
+
+      },
+
+      {
+
+        chapter: '02 — Imaginer',
+
+        heading: 'Votre monde en couleurs.',
+
+        text:
+          "Des illustrations réalistes, " +
+          "des photographies et des récits " +
+          "vous accompagnent dans cette parenthèse créative. " +
+          "À vous de choisir les couleurs."
+
+      },
+
+      {
+
+        chapter: '03 — Ralentir',
+
+        heading: 'Un instant pour soi.',
+
+        text:
+          "Installez-vous confortablement, " +
+          "préparez vos crayons et prenez votre temps. " +
+          "Il n'existe pas de mauvaise couleur " +
+          "lorsque l'on crée avec le cœur."
+
+      }
+
+    ]
 
   }
 
-  document.addEventListener('keydown', function(event) {
+};
 
-    if (event.key === 'Escape') {
-      closeMenu();
+
+/* ======================================
+   LIVRES À FEUILLETER
+   ====================================== */
+
+const bookDialog =
+  document.getElementById('book-dialog');
+
+let activeBook = 'lanterne';
+
+let activePage = 0;
+
+
+function renderBookPage(animate = false) {
+
+  const book = libraryBooks[activeBook];
+
+  const page = book.pages[activePage];
+
+  document.getElementById('preview-title')
+    .textContent = book.title;
+
+  const cover = document.getElementById('preview-cover');
+
+  cover.src = book.cover;
+
+  cover.alt = 'Couverture de ' + book.title;
+
+  document.getElementById('preview-category')
+    .textContent = book.category;
+
+  document.getElementById('preview-chapter')
+    .textContent = page.chapter;
+
+  document.getElementById('preview-heading')
+    .textContent = page.heading;
+
+  document.getElementById('preview-text')
+    .textContent = page.text;
+
+  document.getElementById('preview-page-number')
+    .textContent = String(activePage + 1)
+    .padStart(2, '0');
+
+  document.getElementById('preview-pagination')
+    .textContent =
+      'Page ' + (activePage + 1) +
+      ' sur ' + book.pages.length;
+
+  document.getElementById('preview-amazon')
+    .href = book.amazon;
+
+  document.getElementById('preview-prev')
+    .disabled = activePage === 0;
+
+  document.getElementById('preview-next')
+    .disabled =
+      activePage === book.pages.length - 1;
+
+  const previewRight =
+    document.getElementById('preview-right');
+
+  previewRight.classList.remove('page-changing');
+
+  if (animate) {
+
+    void previewRight.offsetWidth;
+
+    previewRight.classList.add('page-changing');
+
+  }
+
+}
+
+
+function openBook(bookId) {
+
+  if (!libraryBooks[bookId]) return;
+
+  activeBook = bookId;
+
+  activePage = 0;
+
+  bookDialog.dataset.book = bookId;
+
+  renderBookPage();
+
+  if (!bookDialog.open) {
+
+    bookDialog.showModal();
+
+  }
+
+}
+
+
+document.querySelectorAll('[data-open-book]')
+  .forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      openBook(button.dataset.openBook);
+
+    });
+
+  });
+
+
+document.getElementById('preview-prev')
+  .addEventListener('click', () => {
+
+    if (activePage > 0) {
+
+      activePage--;
+
+      renderBookPage(true);
+
     }
 
   });
 
+
+document.getElementById('preview-next')
+  .addEventListener('click', () => {
+
+    const totalPages =
+      libraryBooks[activeBook].pages.length;
+
+    if (activePage < totalPages - 1) {
+
+      activePage++;
+
+      renderBookPage(true);
+
+    }
+
+  });
+
+
+bookDialog.addEventListener('keydown', event => {
+
+  if (event.key === 'ArrowRight') {
+
+    event.preventDefault();
+
+    document.getElementById('preview-next').click();
+
+  }
+
+  if (event.key === 'ArrowLeft') {
+
+    event.preventDefault();
+
+    document.getElementById('preview-prev').click();
+
+  }
+
+});
+
+
+/* ======================================
+   QR CODES
+   ====================================== */
+
+const qrDialog =
+  document.getElementById('qr-dialog');
+
+
+document.querySelectorAll('[data-qr]')
+  .forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      document.getElementById('qr-dialog-title')
+        .textContent = button.dataset.qrTitle;
+
+      const image =
+        document.getElementById('qr-dialog-image');
+
+      image.src = button.dataset.qr;
+
+      image.alt =
+        'QR code Amazon pour ' +
+        button.dataset.qrTitle;
+
+      qrDialog.showModal();
+
+    });
+
+  });
+
+
+/* ======================================
+   FERMETURE DES FENÊTRES
+   ====================================== */
+
+document.querySelectorAll('[data-close-dialog]')
+  .forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      const dialog = document.getElementById(
+        button.dataset.closeDialog
+      );
+
+      dialog.close();
+
+    });
+
+  });
+
+
+document.querySelectorAll('.book-dialog, .qr-dialog')
+  .forEach(dialog => {
+
+    dialog.addEventListener('click', event => {
+
+      if (event.target === dialog) {
+
+        const rect = dialog.getBoundingClientRect();
+
+        const outside =
+          event.clientX < rect.left ||
+          event.clientX > rect.right ||
+          event.clientY < rect.top ||
+          event.clientY > rect.bottom;
+
+        if (outside) {
+
+          dialog.close();
+
+        }
+
+      }
+
+    });
+
+  });
+
+
+/* ======================================
+   MINI COLORIAGE
+   ====================================== */
+
+let selectedColor = '#c99b79';
+
+const colorHistory = [];
+
+const paintAreas =
+  document.querySelectorAll('.paint-area');
+
+const swatches =
+  document.querySelectorAll('.color-swatch');
+
+const customColor =
+  document.getElementById('custom-color');
+
+const coloringMessage =
+  document.getElementById('coloring-message');
+
+const undoButton =
+  document.getElementById('undo-coloring');
+
+
+function updateColoringStatus() {
+
+  const coloredAreas = Array.from(paintAreas)
+    .filter(area => {
+
+      return area.getAttribute('fill') !==
+        area.dataset.original;
+
+    }).length;
+
+  undoButton.disabled = colorHistory.length === 0;
+
+  if (coloredAreas === paintAreas.length) {
+
+    coloringMessage.textContent =
+      "Votre petite œuvre est terminée. " +
+      "Chaque couleur raconte quelque chose de vous. ♡";
+
+  } else if (coloredAreas > 0) {
+
+    coloringMessage.textContent =
+      "Petit à petit, votre dessin prend vie. ♡";
+
+  } else {
+
+    coloringMessage.textContent =
+      "Votre imagination n'a pas de frontières.";
+
+  }
+
+}
+
+
+function selectColor(color, activeSwatch = null) {
+
+  selectedColor = color;
+
+  customColor.value = color;
+
+  swatches.forEach(swatch => {
+
+    const active = swatch === activeSwatch;
+
+    swatch.classList.toggle('active', active);
+
+    swatch.setAttribute(
+      'aria-pressed',
+      String(active)
+    );
+
+  });
+
+}
+
+
+swatches.forEach(swatch => {
+
+  swatch.addEventListener('click', () => {
+
+    selectColor(swatch.dataset.color, swatch);
+
+  });
+
+});
+
+
+customColor.addEventListener('input', event => {
+
+  selectColor(event.target.value);
+
+});
+
+
+function paintArea(area) {
+
+  const previousColor =
+    area.getAttribute('fill');
+
+  if (previousColor === selectedColor) return;
+
+  colorHistory.push({
+
+    area: area,
+
+    color: previousColor
+
+  });
+
+  area.setAttribute('fill', selectedColor);
+
+  updateColoringStatus();
+
+}
+
+
+paintAreas.forEach(area => {
+
+  area.addEventListener('click', () => {
+
+    paintArea(area);
+
+  });
+
+  area.addEventListener('keydown', event => {
+
+    if (event.key === 'Enter' || event.key === ' ') {
+
+      event.preventDefault();
+
+      paintArea(area);
+
+    }
+
+  });
+
+});
+
+
+undoButton.addEventListener('click', () => {
+
+  const lastAction = colorHistory.pop();
+
+  if (!lastAction) return;
+
+  lastAction.area.setAttribute(
+    'fill',
+    lastAction.color
+  );
+
+  updateColoringStatus();
+
+});
+
+
+document.getElementById('reset-coloring')
+  .addEventListener('click', () => {
+
+    paintAreas.forEach(area => {
+
+      area.setAttribute(
+        'fill',
+        area.dataset.original
+      );
+
+    });
+
+    colorHistory.length = 0;
+
+    updateColoringStatus();
+
+  });
+
+
+/* ENREGISTRER LE COLORIAGE EN PNG */
+
+document.getElementById('save-coloring')
+  .addEventListener('click', () => {
+
+    const svg =
+      document.getElementById('coloring-drawing');
+
+    const copy = svg.cloneNode(true);
+
+    copy.setAttribute('width', '1200');
+
+    copy.setAttribute('height', '1200');
+
+    copy.setAttribute(
+      'xmlns',
+      'http://www.w3.org/2000/svg'
+    );
+
+    const svgText =
+      new XMLSerializer().serializeToString(copy);
+
+    const blob = new Blob(
+
+      [svgText],
+
+      { type: 'image/svg+xml;charset=utf-8' }
+
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const image = new Image();
+
+    image.onload = () => {
+
+      const canvas =
+        document.createElement('canvas');
+
+      canvas.width = 1200;
+
+      canvas.height = 1200;
+
+      const context = canvas.getContext('2d');
+
+      context.fillStyle = '#fffdf8';
+
+      context.fillRect(0, 0, 1200, 1200);
+
+      context.drawImage(image, 0, 0, 1200, 1200);
+
+      URL.revokeObjectURL(url);
+
+      canvas.toBlob(png => {
+
+        if (!png) {
+
+          coloringMessage.textContent =
+            "Impossible d'enregistrer le dessin.";
+
+          return;
+
+        }
+
+        const pngUrl = URL.createObjectURL(png);
+
+        const link = document.createElement('a');
+
+        link.href = pngUrl;
+
+        link.download = 'Mon-coloriage-Coeur-Errant.png';
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        link.remove();
+
+        setTimeout(() => {
+
+          URL.revokeObjectURL(pngUrl);
+
+        }, 1000);
+
+        coloringMessage.textContent =
+          "Votre coloriage est prêt à être conservé. ♡";
+
+      }, 'image/png');
+
+    };
+
+    image.onerror = () => {
+
+      URL.revokeObjectURL(url);
+
+      coloringMessage.textContent =
+        "Impossible d'enregistrer le dessin. " +
+        "Vous pouvez réessayer.";
+
+    };
+
+    image.src = url;
+
+  });
+
+
+updateColoringStatus();
+
+
+/* ======================================
+   RECOMMANDATION DE LECTURE
+   ====================================== */
+
+let recommendedBook = null;
+
+const readingChoices =
+  document.querySelectorAll('.reading-choice');
+
+const readingResult =
+  document.getElementById('reading-result');
+
+
+readingChoices.forEach(choice => {
+
+  choice.addEventListener('click', () => {
+
+    recommendedBook = choice.dataset.recommend;
+
+    const book = libraryBooks[recommendedBook];
+
+    readingChoices.forEach(item => {
+
+      const active = item === choice;
+
+      item.classList.toggle('choice-selected', active);
+
+      item.setAttribute(
+        'aria-pressed',
+        String(active)
+      );
+
+    });
+
+    const cover =
+      document.getElementById('recommended-cover');
+
+    cover.src = book.cover;
+
+    cover.alt = 'Couverture de ' + book.title;
+
+    document.getElementById('recommended-title')
+      .textContent = book.title;
+
+    document.getElementById('recommended-description')
+      .textContent = book.recommendation;
+
+    readingResult.hidden = false;
+
+    readingResult.classList.remove('result-appear');
+
+    void readingResult.offsetWidth;
+
+    readingResult.classList.add('result-appear');
+
+  });
+
+});
+
+
+document.getElementById('recommended-button')
+  .addEventListener('click', () => {
+
+    if (recommendedBook) {
+
+      openBook(recommendedBook);
+
+    }
+
+  });
+
+
+/* ======================================
+   MARQUE-PAGES À RETOURNER
+   ====================================== */
+
+document.querySelectorAll('.bookmark')
+  .forEach(bookmark => {
+
+    bookmark.addEventListener('click', () => {
+
+      const flipped =
+        bookmark.classList.toggle('bookmark-flipped');
+
+      bookmark.setAttribute(
+        'aria-pressed',
+        String(flipped)
+      );
+
+    });
+
+  });
+
+
+/* ======================================
+   ANIMATIONS AU DÉFILEMENT
+   ====================================== */
+
+if (
+
+  'IntersectionObserver' in window &&
+
+  !window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches
+
+) {
+
+  const observer = new IntersectionObserver(
+
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add('library-visible');
+
+          observer.unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+
+    {
+
+      threshold: 0.08
+
+    }
+
+  );
+
+  document.body.classList.add('library-animations');
+
+  document.querySelectorAll('.library-reveal')
+    .forEach(element => {
+
+      observer.observe(element);
+
+    });
+
+}
+
 </script>
 
 </body>
+
 </html>
