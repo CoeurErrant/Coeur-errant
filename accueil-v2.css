@@ -1,0 +1,466 @@
+
+:root {
+  --muted: #625d55;
+  --pink: #a82d5b;
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+html {
+  scroll-padding-top: 115px;
+}
+
+.nav-links {
+  gap: clamp(0.8rem, 1.5vw, 2rem);
+}
+
+.lang-mobile {
+  display: none;
+}
+
+/* ========================================
+   ACCUEIL
+======================================== */
+
+.hero-left {
+  padding-top: clamp(2rem, 5vw, 5rem);
+}
+
+.hero-actions,
+.cta-actions {
+  flex-wrap: wrap;
+}
+
+.hero-right {
+  border-radius: 0 0 0 2rem;
+}
+
+.btn-primary,
+.btn-outline {
+  border-radius: 4px;
+  transition: background 0.3s,
+              color 0.3s,
+              transform 0.2s;
+}
+
+.btn-primary:hover,
+.btn-outline:hover {
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   SECTION LIVRES
+======================================== */
+
+.books {
+  padding: clamp(3rem, 7vw, 6rem)
+           clamp(1.5rem, 7vw, 6rem);
+  background: var(--cream);
+}
+
+.books > p:not(.section-tag) {
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 70ch;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 2.5rem 0;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(26, 26, 24, 0.04);
+  transition: transform 0.3s,
+              box-shadow 0.3s;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(26, 26, 24, 0.09);
+}
+
+/* ========================================
+   COUVERTURES DES LIVRES
+======================================== */
+
+.book-cover {
+  width: 100%;
+  height: 320px;
+  background: var(--warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.book-cover img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 6px rgba(0, 0, 0, 0.15));
+  transition: transform 0.4s ease;
+}
+
+.book-card:hover .book-cover img {
+  transform: scale(1.03);
+}
+
+/* ========================================
+   TITRES ET DESCRIPTIONS
+======================================== */
+
+.book-card .section-tag {
+  margin: 0.8rem 0 0.2rem;
+  color: var(--pink);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+}
+
+.book-card .section-tag::before {
+  width: 1rem;
+}
+
+.book-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--charcoal);
+}
+
+.book-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.book-card p em {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--charcoal);
+}
+
+.book-card p:last-of-type {
+  flex: 1;
+}
+
+/* ========================================
+   PRIX DES LIVRES
+======================================== */
+
+.book-card strong {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-top: 0.5rem;
+}
+
+/* ========================================
+   BOUTONS AMAZON
+======================================== */
+
+.book-card .btn-primary {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  background: var(--charcoal);
+  color: var(--cream);
+}
+
+.book-card .btn-primary:hover {
+  background: var(--pink);
+}
+
+/* ========================================
+   QR CODES
+======================================== */
+
+.book-card details {
+  width: 100%;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 0.5rem 0;
+}
+
+.book-card summary {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.book-card summary:hover {
+  color: var(--pink);
+}
+
+.book-qr {
+  width: 130px;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px;
+  background: white;
+}
+
+.books small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+/* ========================================
+   DERNIERS VOYAGES
+======================================== */
+
+#actualites {
+  background: var(--cream);
+}
+
+#actualites .book-card {
+  border-top: 3px solid var(--pink);
+  padding: 2rem;
+}
+
+#actualites .book-card h3 {
+  font-size: 1.8rem;
+}
+
+/* ========================================
+   DESTINATIONS
+======================================== */
+
+.dest-item {
+  border-radius: 8px;
+}
+
+.dest-item:hover {
+  border-color: var(--accent);
+}
+
+/* ========================================
+   ACCESSIBILITE
+======================================== */
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 4px;
+}
+
+/* ========================================
+   TABLETTES
+======================================== */
+
+@media (max-width: 1100px) {
+
+  nav {
+    padding: 0.8rem 2rem;
+  }
+
+  .nav-links {
+    gap: 0.8rem;
+  }
+
+  .nav-links a {
+    font-size: 0.65rem;
+  }
+
+  .book-grid {
+    gap: 1rem;
+  }
+
+  .book-card {
+    padding: 1rem;
+  }
+
+  .book-cover {
+    height: 260px;
+  }
+
+}
+
+/* ========================================
+   TELEPHONES ET PETITES TABLETTES
+======================================== */
+
+@media (max-width: 900px) {
+
+  nav {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .nav-logo img {
+    height: 60px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    gap: 0;
+    padding: 0;
+    background: var(--cream);
+    box-shadow: 0 4px 12px rgba(26, 26, 24, 0.12);
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 0.8rem;
+    color: var(--charcoal);
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--charcoal);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .lang-switcher {
+    display: none;
+  }
+
+  .lang-mobile {
+    display: block;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+/* ========================================
+   PETITS ECRANS
+======================================== */
+
+@media (max-width: 600px) {
+
+  html {
+    scroll-padding-top: 90px;
+  }
+
+  .hero {
+    padding-top: 86px;
+  }
+
+  .hero-right {
+    border-radius: 0;
+  }
+
+  .hero-actions,
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .hero-actions a,
+  .cta-actions a {
+    text-align: center;
+  }
+
+  .book-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .book-card {
+    padding: 1.5rem;
+  }
+
+  .book-cover {
+    height: 300px;
+  }
+
+  .books {
+    padding: 3rem 1.5rem;
+  }
+
+  .book-card h3 {
+    font-size: 1.9rem;
+  }
+
+  .footer-copy {
+    text-align: center;
+  }
+
+}
+
+/* ========================================
+   REDUCTION DES ANIMATIONS
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+}
