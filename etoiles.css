@@ -1,0 +1,1823 @@
+
+/* ==========================================
+   CŒUR ERRANT — NOS ÉTOILES
+   Au-delà des nuages
+   ========================================== */
+
+.stars-page {
+  --night: #171b2b;
+  --night-light: #24283d;
+  --night-purple: #302a40;
+  --star-gold: #f2d8ac;
+  --star-blue: #d5e2ff;
+  --star-rose: #d8b9ba;
+  --star-white: #fff8ef;
+  --star-muted: #c8c2d0;
+  --star-border: rgba(242, 216, 172, .2);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--night);
+  color: var(--star-white);
+}
+
+.stars-page *,
+.stars-page *::before,
+.stars-page *::after {
+  box-sizing: border-box;
+}
+
+.stars-page h1,
+.stars-page h2,
+.stars-page h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  color: var(--star-white);
+}
+
+.stars-page h2 {
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 1.12;
+  margin: 0 0 1.8rem;
+}
+
+.stars-page h2 em,
+.stars-page h3 em {
+  color: var(--star-gold);
+  font-weight: 400;
+}
+
+.stars-page p {
+  line-height: 1.9;
+}
+
+.stars-page section[id] {
+  scroll-margin-top: 110px;
+}
+
+.stars-page button {
+  font-family: 'Jost', sans-serif;
+}
+
+.stars-page [hidden] {
+  display: none !important;
+}
+
+
+/* ==========================================
+   CIEL NOCTURNE
+   ========================================== */
+
+.night-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 15%,
+      #343047 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 90% 45%,
+      #282e48 0%,
+      transparent 40%
+    ),
+    linear-gradient(
+      180deg,
+      #151927,
+      #20243a 35%,
+      #272437 65%,
+      #151927
+    );
+}
+
+.night-nebula {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: .16;
+  animation: nebulaMovement 20s ease-in-out infinite alternate;
+}
+
+.nebula-one {
+  top: 5%;
+  left: -300px;
+  background: #93718f;
+}
+
+.nebula-two {
+  top: 38%;
+  right: -300px;
+  background: #526f9f;
+  animation-delay: -8s;
+}
+
+@keyframes nebulaMovement {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(80px, 100px) scale(1.2);
+  }
+}
+
+
+/* PETITES ÉTOILES SCINTILLANTES */
+
+#night-stars {
+  position: absolute;
+  inset: 0;
+}
+
+.night-star {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: #fff0d4;
+  box-shadow: 0 0 7px rgba(255, 240, 212, .7);
+
+  animation: nightTwinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes nightTwinkle {
+  from {
+    opacity: .12;
+    transform: scale(.7);
+  }
+
+  to {
+    opacity: .95;
+    transform: scale(1.3);
+  }
+}
+
+
+/* ==========================================
+   ÉTOILES FILANTES
+   ========================================== */
+
+.shooting-star {
+  position: absolute;
+  width: 130px;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 245, 222, .9)
+  );
+
+  transform: rotate(35deg);
+  opacity: 0;
+
+  animation: shootingStar 12s linear infinite;
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -2px;
+
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+
+  background: #fff6de;
+  box-shadow: 0 0 15px #fff6de;
+}
+
+.shooting-one {
+  top: 180px;
+  left: 12%;
+  animation-delay: 3s;
+}
+
+.shooting-two {
+  top: 650px;
+  left: 55%;
+  animation-delay: 8s;
+}
+
+.shooting-three {
+  top: 1200px;
+  left: 30%;
+  animation-delay: 15s;
+}
+
+@keyframes shootingStar {
+  0%, 75% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(35deg);
+  }
+
+  78% {
+    opacity: 1;
+  }
+
+  90%, 100% {
+    opacity: 0;
+    transform: translate(450px, 315px) rotate(35deg);
+  }
+}
+
+
+/* ==========================================
+   ÉLÉMENTS COMMUNS
+   ========================================== */
+
+.stars-label {
+  color: var(--star-rose);
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  margin: 0 0 1.5rem;
+}
+
+.stars-heading {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.stars-heading > p:not(.stars-label) {
+  max-width: 620px;
+  margin: auto;
+  color: var(--star-muted);
+  font-size: .98rem;
+}
+
+.stars-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1.1rem 2.2rem;
+
+  border: 1px solid rgba(242, 216, 172, .65);
+  border-radius: 40px;
+
+  background: rgba(242, 216, 172, .035);
+  color: var(--star-gold);
+
+  text-decoration: none;
+  font-size: .85rem;
+  letter-spacing: .08em;
+
+  cursor: pointer;
+
+  transition:
+    background .4s ease,
+    box-shadow .4s ease,
+    transform .4s ease,
+    color .4s ease;
+}
+
+.stars-button:hover {
+  background: rgba(242, 216, 172, .12);
+  color: #fff8ef;
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px rgba(242, 216, 172, .15);
+}
+
+.stars-text-link {
+  color: var(--star-muted);
+  text-decoration: none;
+  font-size: .85rem;
+  border-bottom: 1px solid var(--star-border);
+  padding-bottom: .4rem;
+  transition: color .3s ease;
+}
+
+.stars-text-link:hover {
+  color: var(--star-gold);
+}
+
+
+/* ==========================================
+   INTRODUCTION IMMERSIVE
+   ========================================== */
+
+.stars-hero {
+  position: relative;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 150px 6% 100px;
+  text-align: center;
+}
+
+.stars-hero-content {
+  width: 100%;
+  max-width: 950px;
+}
+
+.moon-symbol {
+  display: block;
+  margin: 1rem auto 2rem;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(6rem, 12vw, 10rem);
+  line-height: 1;
+
+  color: var(--star-gold);
+
+  text-shadow:
+    0 0 25px rgba(242, 216, 172, .3),
+    0 0 70px rgba(242, 216, 172, .15);
+
+  animation: moonGlow 6s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+  0%, 100% {
+    text-shadow: 0 0 25px rgba(242, 216, 172, .3);
+    translate: 0 0;
+  }
+
+  50% {
+    text-shadow: 0 0 60px rgba(242, 216, 172, .5);
+    translate: 0 -7px;
+  }
+}
+
+.stars-hero h1 {
+  font-size: clamp(4rem, 9vw, 8.5rem);
+  font-weight: 300;
+  letter-spacing: -.035em;
+  line-height: 1;
+  margin: 0 0 2rem;
+}
+
+.stars-hero h1 em {
+  color: var(--star-gold);
+  font-weight: 300;
+}
+
+.stars-hero-quote {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-style: italic;
+
+  color: #e8d6cf;
+  line-height: 1.5 !important;
+}
+
+.stars-hero-description {
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+
+  color: var(--star-muted);
+  font-size: .95rem;
+}
+
+.stars-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+
+  color: var(--star-gold);
+  font-size: 1.6rem;
+  text-decoration: none;
+
+  animation: starsScroll 2.5s ease-in-out infinite;
+}
+
+@keyframes starsScroll {
+  0%, 100% {
+    transform: translate(-50%, 0);
+    opacity: .5;
+  }
+
+  50% {
+    transform: translate(-50%, 10px);
+    opacity: 1;
+  }
+}
+
+
+/* APPARITION DU TEXTE */
+
+.stars-enter {
+  animation: starsEnter 1.3s ease both;
+}
+
+.moon-symbol.stars-enter {
+  animation:
+    starsEnter 1.3s ease both,
+    moonGlow 6s ease-in-out infinite;
+}
+
+.stars-delay-one {
+  animation-delay: .25s;
+}
+
+.stars-delay-two {
+  animation-delay: .5s;
+}
+
+.stars-delay-three {
+  animation-delay: .8s;
+}
+
+@keyframes starsEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ==========================================
+   CONSTELLATION INTERACTIVE
+   ========================================== */
+
+.constellation-section {
+  padding: 6rem 6% 5rem;
+  border-top: 1px solid var(--star-border);
+}
+
+.constellation-sky {
+  position: relative;
+
+  width: 100%;
+  max-width: 1150px;
+  height: 520px;
+
+  margin: 2rem auto;
+
+  border: 1px solid rgba(242, 216, 172, .12);
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      ellipse at 27% 35%,
+      rgba(242, 216, 172, .06),
+      transparent 30%
+    ),
+    radial-gradient(
+      ellipse at 73% 63%,
+      rgba(165, 190, 245, .08),
+      transparent 30%
+    ),
+    rgba(15, 19, 32, .25);
+
+  box-shadow: inset 0 0 90px rgba(0, 0, 0, .15);
+}
+
+.constellation-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: .35;
+}
+
+.constellation-lines circle {
+  fill: var(--star-gold);
+}
+
+.constellation-lines path {
+  animation: constellationFlow 35s linear infinite;
+}
+
+@keyframes constellationFlow {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+
+/* ==========================================
+   ÉTOILES DE NALA ET HIRO
+   ========================================== */
+
+.memory-star {
+  --memory-color: #f8d5a0;
+  --memory-glow: rgba(248, 213, 160, .3);
+
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 240px;
+  padding: 0;
+
+  background: transparent;
+  border: none;
+
+  color: var(--memory-color);
+  cursor: pointer;
+
+  transform: translate(-50%, -45px);
+  z-index: 2;
+}
+
+.star-nala {
+  left: 27%;
+  top: 35%;
+}
+
+.star-hiro {
+  --memory-color: #d5e2ff;
+  --memory-glow: rgba(165, 190, 245, .35);
+
+  left: 73%;
+  top: 63%;
+}
+
+.star-halo {
+  position: absolute;
+  top: -45px;
+  left: 50%;
+
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    circle,
+    var(--memory-glow),
+    transparent 70%
+  );
+
+  pointer-events: none;
+
+  animation: haloBreathing 4s ease-in-out infinite;
+}
+
+.star-hiro .star-halo {
+  animation-delay: -2s;
+}
+
+@keyframes haloBreathing {
+  0%, 100% {
+    opacity: .5;
+    scale: .85;
+  }
+
+  50% {
+    opacity: 1;
+    scale: 1.15;
+  }
+}
+
+.star-shape {
+  position: relative;
+  display: block;
+
+  font-size: 5.5rem;
+  line-height: 90px;
+
+  color: var(--memory-color);
+
+  text-shadow:
+    0 0 15px var(--memory-color),
+    0 0 45px var(--memory-glow);
+
+  transition: transform .5s ease;
+}
+
+.memory-star:hover .star-shape {
+  transform: scale(1.25) rotate(12deg);
+}
+
+.memory-star:hover .star-halo {
+  opacity: 1;
+  animation-duration: 2s;
+}
+
+.star-name {
+  display: block;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 400;
+
+  line-height: 1.2;
+  margin: .5rem 0;
+}
+
+.star-location {
+  color: var(--star-muted);
+  font-size: .75rem;
+  letter-spacing: .08em;
+}
+
+.star-discover {
+  display: block;
+  margin-top: 1rem;
+
+  font-size: .7rem;
+  letter-spacing: .06em;
+
+  color: var(--memory-color);
+  opacity: .65;
+
+  transition:
+    opacity .3s ease,
+    transform .3s ease;
+}
+
+.memory-star:hover .star-discover,
+.memory-star:focus-visible .star-discover {
+  opacity: 1;
+  transform: translateY(3px);
+}
+
+
+/* ÉTOILES DÉCORATIVES */
+
+.constellation-decoration {
+  position: absolute;
+  color: var(--star-gold);
+  font-size: 1.5rem;
+  pointer-events: none;
+
+  animation: nightTwinkle 4s infinite alternate;
+}
+
+.decoration-one {
+  left: 8%;
+  top: 64%;
+  transform: translate(-50%, -50%);
+}
+
+.decoration-two {
+  left: 49%;
+  top: 18%;
+  transform: translate(-50%, -50%);
+  animation-delay: -2s;
+}
+
+.decoration-three {
+  left: 92%;
+  top: 24%;
+  transform: translate(-50%, -50%);
+  animation-delay: -1s;
+}
+
+.constellation-caption {
+  margin: 2.5rem auto 0;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.65rem;
+  font-style: italic;
+  color: var(--star-gold);
+
+  text-align: center;
+}
+
+
+/* ==========================================
+   LES ÉTOILES SANS PRÉNOM
+   ========================================== */
+
+.anonymous-section {
+  max-width: 850px;
+  margin: auto;
+  padding: 6rem 5%;
+  text-align: center;
+}
+
+.anonymous-symbol {
+  font-size: 5rem;
+  color: var(--star-gold);
+  margin-bottom: 2rem;
+
+  text-shadow: 0 0 30px rgba(242, 216, 172, .35);
+
+  animation: anonymousGlow 5s ease-in-out infinite;
+}
+
+@keyframes anonymousGlow {
+  0%, 100% {
+    opacity: .5;
+    transform: scale(.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.anonymous-section > p:not(.stars-label) {
+  color: var(--star-muted);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.anonymous-section .anonymous-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem !important;
+  font-style: italic;
+
+  color: var(--star-gold) !important;
+
+  margin-top: 2.5rem;
+  line-height: 1.5;
+}
+
+
+/* ==========================================
+   BOUGIE VIRTUELLE
+   ========================================== */
+
+.candle-section {
+  position: relative;
+  padding: 6rem 5%;
+  text-align: center;
+
+  border-top: 1px solid var(--star-border);
+  border-bottom: 1px solid var(--star-border);
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(100, 75, 73, .18),
+    transparent 65%
+  );
+}
+
+.candle-scene {
+  position: relative;
+
+  width: 320px;
+  max-width: 100%;
+  height: 330px;
+
+  margin: 0 auto 1.5rem;
+}
+
+
+/* LUEUR DE LA BOUGIE */
+
+.candle-light {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+
+  width: 320px;
+  height: 320px;
+
+  transform: translateX(-50%);
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 184, 92, .28),
+    rgba(255, 160, 65, .07) 40%,
+    transparent 70%
+  );
+
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+
+/* CORPS DE LA BOUGIE */
+
+.candle-body {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+
+  width: 90px;
+  height: 150px;
+
+  transform: translateX(-50%);
+
+  border-radius: 9px 9px 12px 12px;
+
+  background: linear-gradient(
+    90deg,
+    #9e8c7c,
+    #d8c6af 20%,
+    #f0e2cb 48%,
+    #d7c5ae 75%,
+    #ac9883
+  );
+
+  box-shadow:
+    inset 0 -10px 15px rgba(0, 0, 0, .1),
+    0 12px 25px rgba(0, 0, 0, .2);
+
+  z-index: 3;
+
+  transition: box-shadow 1s ease;
+}
+
+.candle-body::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+
+  width: 100%;
+  height: 15px;
+
+  border-radius: 50%;
+  background: #d8c6ae;
+
+  box-shadow: inset 0 3px 5px rgba(80, 60, 40, .12);
+}
+
+.candle-body > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+
+  color: #a85e68;
+}
+
+
+/* CIRE */
+
+.candle-wax {
+  position: absolute;
+  top: 2px;
+  left: 14px;
+
+  width: 12px;
+  height: 35px;
+
+  border-radius: 0 0 10px 10px;
+
+  background: rgba(255, 245, 225, .45);
+}
+
+.candle-wax::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 45px;
+
+  width: 9px;
+  height: 22px;
+
+  background: rgba(255, 245, 225, .35);
+  border-radius: 0 0 10px 10px;
+}
+
+
+/* MÈCHE */
+
+.candle-wick {
+  position: absolute;
+  left: 50%;
+  bottom: 177px;
+
+  width: 4px;
+  height: 17px;
+
+  transform: translateX(-50%) rotate(5deg);
+
+  border-radius: 4px;
+  background: #4a382e;
+
+  z-index: 4;
+}
+
+
+/* FLAMME */
+
+.candle-flame {
+  position: absolute;
+  left: 50%;
+  bottom: 192px;
+
+  width: 30px;
+  height: 62px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50% 50% 45% 45% / 75% 75% 25% 25%;
+
+  background: linear-gradient(
+    180deg,
+    #fff7dc,
+    #ffdc87 40%,
+    #ffb34f 75%,
+    #e17a35
+  );
+
+  box-shadow:
+    0 0 15px #ffca72,
+    0 0 35px rgba(255, 175, 75, .6),
+    0 0 70px rgba(255, 175, 75, .3);
+
+  transform-origin: bottom center;
+
+  opacity: 0;
+
+  z-index: 5;
+  transition: opacity .7s ease;
+}
+
+.flame-inner {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+
+  width: 15px;
+  height: 32px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50% 50% 40% 40% / 75% 75% 25% 25%;
+
+  background: linear-gradient(
+    #fffef3,
+    #fff2c4,
+    #c7c6f3
+  );
+}
+
+.candle-shadow {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+
+  width: 160px;
+  height: 25px;
+
+  transform: translateX(-50%);
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, .3);
+  filter: blur(8px);
+}
+
+
+/* BOUGIE ALLUMÉE */
+
+.candle-lit .candle-flame {
+  opacity: 1;
+  animation: candleFlicker 1.8s ease-in-out infinite;
+}
+
+.candle-lit .candle-light {
+  opacity: 1;
+  animation: candleLight 3s ease-in-out infinite;
+}
+
+.candle-lit .candle-body {
+  box-shadow:
+    inset 0 20px 30px rgba(255, 200, 100, .18),
+    0 0 45px rgba(255, 190, 90, .12);
+}
+
+@keyframes candleFlicker {
+  0%, 100% {
+    transform: translateX(-50%) rotate(-2deg) scale(1);
+  }
+
+  25% {
+    transform: translateX(-50%) rotate(3deg) scale(.96, 1.04);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(-4deg) scale(1.04, .95);
+  }
+
+  75% {
+    transform: translateX(-50%) rotate(2deg) scale(.98, 1.06);
+  }
+}
+
+@keyframes candleLight {
+  0%, 100% {
+    opacity: .8;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.candle-button {
+  min-width: 230px;
+}
+
+.candle-button[aria-pressed="true"] {
+  background: rgba(242, 216, 172, .1);
+  box-shadow: 0 0 30px rgba(242, 216, 172, .1);
+}
+
+.candle-message {
+  max-width: 550px;
+  margin: 2rem auto 0;
+
+  color: var(--star-gold);
+
+  animation: starsEnter .8s ease both;
+}
+
+.candle-message-star {
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.candle-message p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: .7rem;
+}
+
+.candle-note {
+  margin-top: 1.5rem;
+  color: var(--star-muted);
+  font-size: .75rem;
+  opacity: .8;
+}
+
+
+/* ==========================================
+   LETTRE AUX PETITES ÉTOILES
+   ========================================== */
+
+.stars-letter-section {
+  padding: 7rem 6%;
+}
+
+.stars-letter {
+  position: relative;
+  max-width: 850px;
+
+  margin: auto;
+  padding: 4.5rem;
+
+  border: 1px solid rgba(242, 216, 172, .25);
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(242, 216, 172, .06),
+      rgba(242, 216, 172, .015)
+    );
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, .15);
+}
+
+.stars-letter::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+
+  border: 1px solid rgba(242, 216, 172, .1);
+
+  pointer-events: none;
+}
+
+.letter-decoration {
+  margin-bottom: 2rem;
+
+  color: var(--star-gold);
+  font-size: 3rem;
+
+  letter-spacing: .15em;
+  text-align: center;
+}
+
+.stars-letter .stars-label,
+.stars-letter h2 {
+  text-align: center;
+}
+
+.stars-letter h2 {
+  margin-bottom: 3rem;
+}
+
+.stars-letter > p:not(.stars-label) {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  line-height: 1.8;
+
+  color: #ded5d7;
+  margin-bottom: 1.6rem;
+}
+
+.stars-letter .stars-letter-signature {
+  margin: 3rem 0 0;
+
+  text-align: right;
+  font-style: italic;
+
+  color: var(--star-gold) !important;
+  font-size: 1.7rem !important;
+}
+
+
+/* ==========================================
+   CONCLUSION
+   ========================================== */
+
+.stars-ending {
+  max-width: 1000px;
+  margin: auto;
+  padding: 3rem 6% 8rem;
+  text-align: center;
+}
+
+.ending-star {
+  display: block;
+
+  color: var(--star-gold);
+  font-size: 4rem;
+
+  margin-bottom: 2rem;
+
+  text-shadow: 0 0 30px rgba(242, 216, 172, .4);
+
+  animation: anonymousGlow 5s ease-in-out infinite;
+}
+
+.stars-ending h2 {
+  font-size: clamp(2.8rem, 5vw, 4.3rem);
+}
+
+.stars-ending > p {
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+
+  color: var(--star-muted);
+  font-size: .95rem;
+}
+
+.stars-ending-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+}
+
+
+/* ==========================================
+   FENÊTRES DES SOUVENIRS
+   ========================================== */
+
+body.memory-open {
+  overflow: hidden;
+}
+
+.memory-dialog {
+  position: fixed;
+  inset: 0;
+
+  width: min(850px, 92vw);
+  max-width: 850px;
+
+  max-height: 90vh;
+  max-height: 90dvh;
+
+  margin: auto;
+  padding: 0;
+
+  border: 1px solid rgba(242, 216, 172, .3);
+  border-radius: 15px;
+
+  background: #24283a;
+  color: var(--star-white);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  scrollbar-width: thin;
+  scrollbar-color: #88796f #24283a;
+
+  box-shadow: 0 30px 100px rgba(0, 0, 0, .5);
+}
+
+.memory-dialog:not([open]) {
+  display: none;
+}
+
+.memory-dialog[open] {
+  animation: memoryOpen .55s ease both;
+}
+
+.memory-dialog::backdrop {
+  background: rgba(8, 10, 19, .85);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes memoryOpen {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.memory-dialog-inner {
+  position: relative;
+}
+
+
+/* BOUTON FERMER */
+
+.memory-close {
+  position: sticky;
+  top: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  margin: 15px 15px -57px auto;
+
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 50%;
+
+  background: rgba(20, 23, 35, .8);
+  backdrop-filter: blur(6px);
+
+  color: white;
+  font-size: 1.8rem;
+  line-height: 1;
+
+  cursor: pointer;
+  z-index: 10;
+
+  transition:
+    background .3s ease,
+    transform .3s ease;
+}
+
+.memory-close:hover {
+  background: #74606e;
+  transform: rotate(90deg);
+}
+
+
+/* ==========================================
+   PHOTOGRAPHIES DE NALA ET HIRO
+   ========================================== */
+
+.memory-photo {
+  position: relative;
+
+  width: 100%;
+  height: 430px;
+
+  background: #141824;
+  overflow: hidden;
+}
+
+.memory-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+.memory-photo-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    transparent 45%,
+    rgba(20, 24, 36, .35) 65%,
+    #24283a 100%
+  );
+
+  pointer-events: none;
+}
+
+.memory-photo-name {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+  color: var(--star-gold);
+}
+
+.memory-photo-name > span {
+  display: block;
+  font-size: 1.8rem;
+
+  text-shadow: 0 0 20px currentColor;
+}
+
+.memory-photo-name h2 {
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  line-height: 1.1;
+  color: inherit;
+
+  margin: .3rem 0;
+}
+
+.memory-photo-name p {
+  color: #e4dce2;
+  font-size: .8rem;
+  letter-spacing: .1em;
+  margin: 0;
+}
+
+.memory-photo-hiro .memory-photo-name {
+  color: var(--star-blue);
+}
+
+
+/* ==========================================
+   TEXTES DES HOMMAGES
+   ========================================== */
+
+.memory-content {
+  padding: 2.5rem 4rem 4rem;
+  text-align: center;
+}
+
+.memory-content .stars-label {
+  font-size: .68rem;
+}
+
+.memory-content h3 {
+  font-size: clamp(2.5rem, 5vw, 3.7rem);
+  line-height: 1.12;
+  margin-bottom: 2.5rem;
+}
+
+.memory-content > p:not(.stars-label) {
+  max-width: 650px;
+  margin: 0 auto 1.5rem;
+
+  color: #ddd6df;
+  font-size: 1rem;
+  line-height: 1.95;
+}
+
+.memory-quote {
+  position: relative;
+
+  margin: 3rem 0 2rem;
+  padding: 2.5rem 1.5rem;
+
+  border-top: 1px solid var(--star-border);
+  border-bottom: 1px solid var(--star-border);
+
+  background: rgba(242, 216, 172, .035);
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-style: italic;
+
+  color: var(--star-gold);
+  line-height: 1.5;
+}
+
+#memory-hiro .memory-content h3 em,
+#memory-hiro .memory-quote,
+#memory-hiro .memory-end-symbol {
+  color: var(--star-blue);
+}
+
+.memory-end-symbol {
+  color: var(--star-gold);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+
+  text-shadow: 0 0 25px currentColor;
+}
+
+.memory-back {
+  margin: auto;
+}
+
+
+/* ==========================================
+   APPARITION AU DÉFILEMENT
+   ========================================== */
+
+.stars-animations .stars-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.stars-animations .stars-reveal.stars-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ==========================================
+   ACCESSIBILITÉ
+   ========================================== */
+
+.stars-page button:focus-visible,
+.stars-page a:focus-visible {
+  outline: 2px solid var(--star-gold);
+  outline-offset: 6px;
+}
+
+.memory-star:focus-visible {
+  border-radius: 15px;
+}
+
+
+/* ==========================================
+   RESPONSIVE — TABLETTES
+   ========================================== */
+
+@media (max-width: 900px) {
+
+  .stars-hero {
+    padding: 130px 6% 100px;
+  }
+
+  .stars-hero h1 {
+    font-size: clamp(3.8rem, 10vw, 6.5rem);
+  }
+
+  .constellation-section {
+    padding: 5rem 5%;
+  }
+
+  .constellation-sky {
+    height: 480px;
+  }
+
+  .memory-star {
+    width: 200px;
+  }
+
+  .star-shape {
+    font-size: 4.8rem;
+  }
+
+  .star-name {
+    font-size: 2.7rem;
+  }
+
+  .stars-letter {
+    padding: 3rem;
+  }
+
+  .memory-content {
+    padding: 2.5rem 3rem 3rem;
+  }
+
+  .memory-photo {
+    height: 380px;
+  }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE — TÉLÉPHONES
+   ========================================== */
+
+@media (max-width: 600px) {
+
+  .stars-page h2 {
+    font-size: clamp(2.5rem, 9vw, 3.5rem);
+  }
+
+  .stars-label {
+    font-size: .63rem;
+    letter-spacing: .17em;
+  }
+
+  .stars-hero {
+    padding: 115px 1.5rem 85px;
+  }
+
+  .moon-symbol {
+    font-size: 6.5rem;
+    margin: .5rem auto 1.5rem;
+  }
+
+  .stars-hero h1 {
+    font-size: clamp(3.3rem, 12vw, 4.8rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .stars-hero h1 em {
+    display: block;
+  }
+
+  .stars-hero-quote {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stars-hero-description {
+    font-size: .85rem;
+    margin-bottom: 2rem;
+  }
+
+  .stars-button {
+    padding: 1rem 1.5rem;
+    font-size: .8rem;
+  }
+
+  .stars-heading {
+    margin-bottom: 2rem;
+  }
+
+  .stars-heading > p:not(.stars-label) {
+    font-size: .9rem;
+  }
+
+  .constellation-section,
+  .anonymous-section,
+  .candle-section,
+  .stars-letter-section {
+    padding: 4rem 1.2rem;
+  }
+
+  .constellation-sky {
+    height: 490px;
+    border-radius: 12px;
+  }
+
+  .memory-star {
+    width: 150px;
+    transform: translate(-50%, -35px);
+  }
+
+  .star-nala {
+    left: 30%;
+    top: 26%;
+  }
+
+  .star-hiro {
+    left: 70%;
+    top: 65%;
+  }
+
+  .constellation-lines {
+    opacity: .2;
+  }
+
+  .star-halo {
+    top: -30px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .star-shape {
+    font-size: 4.3rem;
+    line-height: 70px;
+  }
+
+  .star-name {
+    font-size: 2.4rem;
+  }
+
+  .star-location {
+    font-size: .65rem;
+  }
+
+  .star-discover {
+    font-size: .62rem;
+    margin-top: .6rem;
+  }
+
+  .constellation-caption {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+  }
+
+  .anonymous-symbol {
+    font-size: 4rem;
+  }
+
+  .anonymous-section > p:not(.stars-label) {
+    font-size: .9rem;
+  }
+
+  .anonymous-section .anonymous-quote {
+    font-size: 1.7rem !important;
+  }
+
+  .candle-scene {
+    height: 300px;
+  }
+
+  .candle-light {
+    width: 280px;
+    height: 280px;
+  }
+
+  .candle-message p {
+    font-size: 1.4rem;
+  }
+
+  .stars-letter {
+    padding: 2.5rem 1.7rem;
+  }
+
+  .stars-letter::before {
+    inset: 7px;
+  }
+
+  .letter-decoration {
+    font-size: 2.5rem;
+  }
+
+  .stars-letter h2 {
+    margin-bottom: 2rem;
+  }
+
+  .stars-letter > p:not(.stars-label) {
+    font-size: 1.3rem;
+    line-height: 1.7;
+  }
+
+  .stars-letter .stars-letter-signature {
+    font-size: 1.5rem !important;
+  }
+
+  .stars-ending {
+    padding: 2rem 1.5rem 5rem;
+  }
+
+  .stars-ending-actions {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .memory-dialog {
+    width: 94vw;
+    max-height: 92vh;
+    max-height: 92dvh;
+    border-radius: 12px;
+  }
+
+  .memory-photo {
+    height: 330px;
+  }
+
+  .memory-photo-name {
+    bottom: 1rem;
+  }
+
+  .memory-photo-name h2 {
+    font-size: 3.7rem;
+  }
+
+  .memory-photo-name p {
+    font-size: .7rem;
+  }
+
+  .memory-content {
+    padding: 2rem 1.5rem 2.5rem;
+  }
+
+  .memory-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .memory-content > p:not(.stars-label) {
+    font-size: .9rem;
+    line-height: 1.85;
+  }
+
+  .memory-quote {
+    font-size: 1.6rem;
+    padding: 1.8rem 1rem;
+    margin-top: 2rem;
+  }
+
+  .memory-close {
+    top: 10px;
+    width: 36px;
+    height: 36px;
+    margin: 10px 10px -46px auto;
+  }
+
+}
+
+
+/* ==========================================
+   TRÈS PETITS TÉLÉPHONES
+   ========================================== */
+
+@media (max-width: 360px) {
+
+  .stars-hero h1 {
+    font-size: 3rem;
+  }
+
+  .constellation-sky {
+    height: 460px;
+  }
+
+  .memory-star {
+    width: 125px;
+  }
+
+  .star-name {
+    font-size: 2rem;
+  }
+
+  .star-discover {
+    font-size: .58rem;
+  }
+
+  .stars-letter {
+    padding: 2rem 1.3rem;
+  }
+
+  .memory-photo {
+    height: 280px;
+  }
+
+}
+
+
+/* ==========================================
+   ACCESSIBILITÉ — ANIMATIONS RÉDUITES
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .stars-page *,
+  .stars-page *::before,
+  .stars-page *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .stars-animations .stars-reveal,
+  .stars-enter {
+    opacity: 1;
+    transform: none;
+  }
+
+  .night-star {
+    opacity: .65;
+  }
+
+  .shooting-star {
+    display: none;
+  }
+
+  .star-halo {
+    opacity: .8;
+  }
+
+  .stars-scroll {
+    transform: translateX(-50%);
+  }
+
+}
