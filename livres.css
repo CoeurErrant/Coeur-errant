@@ -3,7 +3,6 @@
    CŒUR ERRANT
    LA BIBLIOTHÈQUE ENCHANTÉE
    ===================================================== */
-
 .library-page {
   --book-cream: #faf7f1;
   --book-paper: #fffdf8;
@@ -14,52 +13,42 @@
   --book-border: #dfd2c2;
   --book-serif: 'Cormorant Garamond', Georgia, serif;
   --book-sans: 'Jost', sans-serif;
-
   background: var(--book-cream);
   color: var(--book-dark);
   overflow: hidden;
 }
-
 .library-page *,
 .library-page *::before,
 .library-page *::after {
   box-sizing: border-box;
 }
-
 .library-page button,
 .book-dialog button,
 .qr-dialog button {
   font-family: 'Jost', sans-serif;
 }
-
 .library-page button {
   cursor: pointer;
 }
-
 .library-page [hidden] {
   display: none !important;
 }
-
 .library-page section {
   scroll-margin-top: 100px;
 }
-
 .library-page p {
   line-height: 1.85;
 }
-
 .library-page h1,
 .library-page h2,
 .library-page h3 {
   font-family: var(--book-serif);
   font-weight: 500;
 }
-
 .library-page em {
   color: var(--book-rose);
   font-weight: 400;
 }
-
 .library-label {
   font-family: 'Jost', sans-serif;
   font-size: 0.72rem;
@@ -69,7 +58,6 @@
   color: #a85e68;
   margin-bottom: 1.3rem;
 }
-
 .library-button {
   display: inline-flex;
   align-items: center;
@@ -92,7 +80,6 @@
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
-
 .library-button:hover {
   background: #8c4854;
   border-color: #8c4854;
@@ -100,7 +87,6 @@
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(168, 94, 104, 0.2);
 }
-
 .library-text-button {
   background: transparent;
   border: none;
@@ -112,21 +98,16 @@
   transition: color 0.3s ease;
   cursor: pointer;
 }
-
 .library-text-button:hover {
   color: #46392f;
 }
-
 .library-text-button:disabled {
   opacity: 0.35;
   cursor: not-allowed;
 }
-
-
 /* =====================================================
    INTRODUCTION
    ===================================================== */
-
 .library-opening {
   position: relative;
   min-height: 100svh;
@@ -148,7 +129,6 @@
     #f8f2e9;
   isolation: isolate;
 }
-
 .library-opening::before {
   content: '';
   position: absolute;
@@ -163,7 +143,6 @@
   pointer-events: none;
   z-index: -1;
 }
-
 .library-opening-inner {
   max-width: 1400px;
   width: 100%;
@@ -173,12 +152,10 @@
   align-items: center;
   gap: 5rem;
 }
-
 .library-opening-text {
   position: relative;
   z-index: 2;
 }
-
 .library-opening h1 {
   font-size: clamp(3.5rem, 6.5vw, 7rem);
   line-height: 0.98;
@@ -186,19 +163,16 @@
   margin: 0 0 2rem;
   color: #46392f;
 }
-
 .library-opening h1 em {
   display: inline-block;
   color: #a85e68;
 }
-
 .library-intro {
   max-width: 510px;
   font-size: 1.02rem;
   color: var(--book-muted);
   margin-bottom: 1.5rem;
 }
-
 .library-opening-quote {
   font-family: var(--book-serif);
   font-size: 1.65rem;
@@ -206,74 +180,63 @@
   color: #a85e68;
   margin: 1.5rem 0 2rem;
 }
-
 .library-opening-decoration {
   position: absolute;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
 }
-
 .library-opening-decoration span {
   position: absolute;
   color: #b99a73;
   opacity: 0.35;
   animation: libraryTwinkle 5s ease-in-out infinite;
 }
-
 .library-opening-decoration span:nth-child(1) {
   top: 18%;
   left: 6%;
   font-size: 1.6rem;
 }
-
 .library-opening-decoration span:nth-child(2) {
   top: 30%;
   right: 8%;
   font-size: 2rem;
   animation-delay: 1s;
 }
-
 .library-opening-decoration span:nth-child(3) {
   bottom: 18%;
   left: 45%;
   font-size: 1.2rem;
   animation-delay: 2s;
 }
-
 .library-opening-decoration span:nth-child(4) {
   top: 16%;
   right: 28%;
   font-size: 1rem;
   animation-delay: 0.5s;
 }
-
 .library-opening-decoration span:nth-child(5) {
   bottom: 12%;
   right: 9%;
   font-size: 1.5rem;
   animation-delay: 2.5s;
 }
-
 .library-opening-decoration span:nth-child(6) {
   bottom: 8%;
   left: 10%;
   font-size: 0.9rem;
   animation-delay: 3s;
 }
-
 @keyframes libraryTwinkle {
   0%, 100% {
     opacity: 0.2;
     transform: translateY(0) scale(0.9);
   }
-
   50% {
     opacity: 0.8;
     transform: translateY(-8px) scale(1.1);
   }
 }
-
 .library-scroll {
   position: absolute;
   bottom: 30px;
@@ -289,22 +252,17 @@
   text-decoration: none;
   animation: libraryScroll 2.5s ease-in-out infinite;
 }
-
 @keyframes libraryScroll {
   0%, 100% {
     transform: translate(-50%, 0);
   }
-
   50% {
     transform: translate(-50%, 8px);
   }
 }
-
-
 /* =====================================================
    LIVRE ANIMÉ
    ===================================================== */
-
 .opening-book-scene {
   position: relative;
   width: 100%;
@@ -316,7 +274,6 @@
   flex-direction: column;
   perspective: 1600px;
 }
-
 .opening-book-halo {
   position: absolute;
   width: 110%;
@@ -332,19 +289,16 @@
   animation: bookHalo 6s ease-in-out infinite;
   pointer-events: none;
 }
-
 @keyframes bookHalo {
   0%, 100% {
     opacity: 0.65;
     transform: scale(0.95);
   }
-
   50% {
     opacity: 1;
     transform: scale(1.05);
   }
 }
-
 .opening-book {
   position: relative;
   width: 95%;
@@ -355,7 +309,6 @@
   animation: floatingBook 7s ease-in-out infinite;
   z-index: 2;
 }
-
 @keyframes floatingBook {
   0%, 100% {
     transform:
@@ -363,7 +316,6 @@
       rotateX(12deg)
       rotateZ(-7deg);
   }
-
   50% {
     transform:
       translateY(-12px)
@@ -371,7 +323,6 @@
       rotateZ(-5deg);
   }
 }
-
 .opening-book-cover {
   position: absolute;
   inset: -8px -9px -10px;
@@ -382,7 +333,6 @@
     0 8px 0 #69423e,
     0 18px 35px rgba(70, 57, 47, 0.22);
 }
-
 .opening-book-left,
 .opening-book-right {
   position: absolute;
@@ -397,7 +347,6 @@
   overflow: hidden;
   border: 1px solid #d8c5a8;
 }
-
 .opening-book-left {
   left: 0;
   border-radius: 5px 0 0 5px;
@@ -410,7 +359,6 @@
     );
   box-shadow: -3px 3px 0 #d6c2a5;
 }
-
 .opening-book-right {
   right: 0;
   border-radius: 0 5px 5px 0;
@@ -423,27 +371,22 @@
     );
   box-shadow: 3px 3px 0 #d6c2a5;
 }
-
 .opening-page-number {
   position: absolute;
   top: 7%;
   font-size: 0.65rem;
   color: #a58b70;
 }
-
 .opening-book-left .opening-page-number {
   left: 10%;
 }
-
 .opening-book-right .opening-page-number {
   right: 10%;
 }
-
 .opening-page-ornament {
   font-size: 2rem;
   color: #b99a73;
 }
-
 .opening-book-left p,
 .opening-book-right p {
   font-family: var(--book-serif);
@@ -454,7 +397,6 @@
   line-height: 1.3;
   margin: 0.7rem 0;
 }
-
 .opening-page-lines {
   width: 90%;
   display: flex;
@@ -462,37 +404,30 @@
   gap: 9px;
   margin: 0.7rem 0;
 }
-
 .opening-page-lines span {
   height: 1px;
   background: #cbb89c;
   width: 100%;
 }
-
 .opening-page-lines span:nth-child(2) {
   width: 85%;
 }
-
 .opening-page-lines span:nth-child(4) {
   width: 90%;
 }
-
 .opening-page-lines span:last-child {
   width: 60%;
 }
-
 .opening-page-paw {
   color: #a85e68;
   font-size: 1.6rem;
   margin-top: 0.7rem;
 }
-
 .opening-book-drawing {
   width: 65%;
   max-width: 150px;
   height: auto;
 }
-
 .opening-turning-page {
   position: absolute;
   top: 0;
@@ -518,7 +453,6 @@
   pointer-events: none;
   box-shadow: 4px 0 10px rgba(70, 57, 47, 0.08);
 }
-
 .opening-turning-page span {
   font-family: var(--book-serif);
   font-style: italic;
@@ -527,44 +461,36 @@
   text-align: center;
   padding: 1rem;
 }
-
 .page-turn-one {
   z-index: 5;
   animation: libraryPageTurn 15s infinite;
 }
-
 .page-turn-two {
   z-index: 6;
   animation: libraryPageTurn 15s 5s infinite;
 }
-
 .page-turn-three {
   z-index: 7;
   animation: libraryPageTurn 15s 10s infinite;
 }
-
 @keyframes libraryPageTurn {
   0% {
     opacity: 0;
     transform: rotateY(0deg);
   }
-
   3% {
     opacity: 1;
     transform: rotateY(0deg);
   }
-
   20% {
     opacity: 1;
     transform: rotateY(-179deg);
   }
-
   21%, 100% {
     opacity: 0;
     transform: rotateY(-179deg);
   }
 }
-
 .opening-book-ribbon {
   position: absolute;
   top: -3px;
@@ -586,7 +512,6 @@
   );
   z-index: 9;
 }
-
 .opening-book-shadow {
   width: 75%;
   height: 35px;
@@ -596,50 +521,42 @@
   margin-top: 20px;
   animation: bookShadow 7s ease-in-out infinite;
 }
-
 @keyframes bookShadow {
   0%, 100% {
     transform: scale(1);
     opacity: 0.8;
   }
-
   50% {
     transform: scale(0.85);
     opacity: 0.5;
   }
 }
-
 .book-floating-star {
   position: absolute;
   color: #b99a73;
   font-size: 1.6rem;
   animation: libraryTwinkle 4s ease-in-out infinite;
 }
-
 .star-one {
   top: 8%;
   left: 5%;
 }
-
 .star-two {
   top: 12%;
   right: 3%;
   animation-delay: 1s;
 }
-
 .star-three {
   bottom: 25%;
   right: 0;
   color: #a85e68;
   animation-delay: 2s;
 }
-
 .star-four {
   bottom: 15%;
   left: 8%;
   animation-delay: 3s;
 }
-
 .opening-book-caption {
   position: relative;
   margin-top: 1.8rem;
@@ -649,42 +566,33 @@
   text-align: center;
   color: #8d7059;
 }
-
-
 /* =====================================================
    TITRES DES SECTIONS
    ===================================================== */
-
 .library-heading {
   max-width: 780px;
   margin: 0 auto 4rem;
   text-align: center;
 }
-
 .library-heading h2 {
   font-size: clamp(2.8rem, 5vw, 4.8rem);
   line-height: 1.05;
   margin: 0 0 1.5rem;
   color: #46392f;
 }
-
 .library-heading > p:last-child {
   max-width: 620px;
   margin: 0 auto;
   font-size: 0.98rem;
   color: #78695e;
 }
-
-
 /* =====================================================
    BIBLIOTHÈQUE
    ===================================================== */
-
 .library-shelf-section {
   padding: 100px 7%;
   background: #faf7f1;
 }
-
 .library-shelf {
   position: relative;
   max-width: 1150px;
@@ -695,7 +603,6 @@
   padding: 2rem 2rem 3rem;
   isolation: isolate;
 }
-
 .shelf-item {
   position: relative;
   min-width: 0;
@@ -704,7 +611,6 @@
   flex-direction: column;
   text-align: center;
 }
-
 .shelf-book-glow {
   position: absolute;
   top: -20px;
@@ -716,19 +622,15 @@
   pointer-events: none;
   z-index: -1;
 }
-
 .shelf-lantern .shelf-book-glow {
   background: #ead9ad;
 }
-
 .shelf-souls .shelf-book-glow {
   background: #c9d8d5;
 }
-
 .shelf-coloring .shelf-book-glow {
   background: #ead0d8;
 }
-
 .shelf-book {
   position: relative;
   display: flex;
@@ -742,7 +644,6 @@
   perspective: 1000px;
   margin-bottom: 2rem;
 }
-
 .shelf-book img {
   display: block;
   max-width: 90%;
@@ -761,7 +662,6 @@
     transform 0.55s cubic-bezier(.2,.7,.2,1),
     box-shadow 0.55s ease;
 }
-
 .shelf-book:hover img,
 .shelf-book:focus-visible img {
   transform:
@@ -773,12 +673,10 @@
     8px 6px 0 #b6a18a,
     20px 35px 35px rgba(70, 57, 47, 0.2);
 }
-
 .shelf-book-spine,
 .shelf-book-pages {
   pointer-events: none;
 }
-
 .shelf-category {
   font-size: 0.66rem;
   letter-spacing: 0.16em;
@@ -786,20 +684,17 @@
   color: #a85e68;
   margin-bottom: 0.7rem;
 }
-
 .shelf-item h3 {
   font-size: clamp(1.7rem, 2.7vw, 2.5rem);
   line-height: 1.1;
   color: #46392f;
   margin: 0 0 0.7rem;
 }
-
 .shelf-item > p {
   color: #78695e;
   font-size: 0.88rem;
   margin-bottom: 1rem;
 }
-
 .shelf-discover {
   background: transparent;
   color: #a85e68;
@@ -810,11 +705,9 @@
   margin-top: auto;
   transition: color 0.3s ease;
 }
-
 .shelf-discover:hover {
   color: #46392f;
 }
-
 .shelf-wood {
   position: absolute;
   left: 0;
@@ -836,7 +729,6 @@
   box-shadow: 0 10px 15px rgba(70, 57, 47, 0.12);
   z-index: -1;
 }
-
 .shelf-instruction {
   text-align: center;
   color: #8c7967;
@@ -844,39 +736,33 @@
   font-style: italic;
   margin: 1rem auto 0;
 }
-
-
 /* =====================================================
    LES TROIS UNIVERS
    ===================================================== */
-
 .book-universe {
   position: relative;
   padding: 110px 7%;
   overflow: hidden;
   isolation: isolate;
 }
-
 .universe-lantern {
   background:
     radial-gradient(
       ellipse at 20% 45%,
-      #f2e1b9,
+      #efdfd0,
       transparent 50%
     ),
-    #f9f2e4;
+    #faf4ed;
 }
-
 .universe-souls {
   background:
     radial-gradient(
       ellipse at 80% 50%,
-      #c8d7d5,
+      #e3d0ca,
       transparent 50%
     ),
-    #edf1ee;
+    #f5eeea;
 }
-
 .universe-coloring {
   background:
     radial-gradient(
@@ -886,7 +772,6 @@
     ),
     #faf0ed;
 }
-
 .universe-inner {
   max-width: 1200px;
   margin: auto;
@@ -895,15 +780,12 @@
   align-items: center;
   gap: 6rem;
 }
-
 .universe-souls .universe-visual {
   order: 2;
 }
-
 .universe-souls .universe-content {
   order: 1;
 }
-
 .universe-visual {
   position: relative;
   min-height: 500px;
@@ -913,20 +795,18 @@
   flex-direction: column;
   isolation: isolate;
 }
-
 .universe-number {
-  position: absolute;
-  top: -30px;
-  left: 0;
+  position: relative;
+  align-self: center;
   font-family: var(--book-serif);
-  font-size: clamp(7rem, 15vw, 13rem);
+  font-size: clamp(4rem, 7vw, 7rem);
   font-weight: 300;
   line-height: 1;
-  color: rgba(125, 95, 70, 0.11);
-  z-index: -1;
+  color: #b98d94;
+  margin-bottom: 1.2rem;
+  z-index: 1;
   pointer-events: none;
 }
-
 .lantern-halo,
 .souls-halo,
 .coloring-halo {
@@ -938,25 +818,22 @@
   pointer-events: none;
   animation: bookHalo 7s ease-in-out infinite;
 }
-
 .lantern-halo {
   background: radial-gradient(
     circle,
-    #fff8d9,
-    rgba(231, 199, 126, 0.25) 45%,
+    #fff8f3,
+    rgba(219, 184, 163, 0.30) 45%,
     transparent 70%
   );
 }
-
 .souls-halo {
   background: radial-gradient(
     circle,
-    #e0eeeb,
-    rgba(151, 181, 175, 0.3) 45%,
+    #f8eeea,
+    rgba(195, 151, 146, 0.25) 45%,
     transparent 70%
   );
 }
-
 .coloring-halo {
   background: radial-gradient(
     circle,
@@ -965,7 +842,6 @@
     transparent 70%
   );
 }
-
 .universe-book {
   position: relative;
   display: block;
@@ -976,7 +852,6 @@
   padding: 0;
   perspective: 1000px;
 }
-
 .universe-book img {
   display: block;
   width: 100%;
@@ -989,7 +864,6 @@
   );
   transition: transform 0.6s ease;
 }
-
 .universe-book:hover img,
 .universe-book:focus-visible img {
   transform:
@@ -997,18 +871,15 @@
     rotateY(8deg)
     rotateZ(0deg);
 }
-
 .universe-souls .universe-book img {
   transform: rotateY(10deg) rotateZ(3deg);
 }
-
 .universe-souls .universe-book:hover img {
   transform:
     translateY(-12px)
     rotateY(-8deg)
     rotateZ(0deg);
 }
-
 .universe-visual-caption {
   font-family: var(--book-serif);
   font-style: italic;
@@ -1017,18 +888,15 @@
   color: #8d7059;
   margin-top: 2.5rem;
 }
-
 .universe-content {
   min-width: 0;
 }
-
 .universe-content h2 {
   font-size: clamp(3rem, 5.5vw, 5.2rem);
   line-height: 0.98;
   margin: 0 0 1rem;
   color: #46392f;
 }
-
 .universe-subtitle {
   font-family: var(--book-serif);
   font-size: 1.65rem;
@@ -1036,20 +904,17 @@
   color: #8d7059;
   margin-bottom: 1.5rem;
 }
-
 .universe-content > p:not(.library-label):not(.universe-subtitle) {
   font-size: 0.96rem;
   color: #6d6056;
   margin-bottom: 1.2rem;
 }
-
 .book-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
   margin-bottom: 1.8rem;
 }
-
 .book-tags span {
   padding: 0.4rem 0.85rem;
   border: 1px solid rgba(125, 95, 70, 0.2);
@@ -1058,7 +923,6 @@
   color: #78695e;
   background: rgba(255, 255, 255, 0.35);
 }
-
 .universe-quote {
   position: relative;
   font-family: var(--book-serif);
@@ -1071,7 +935,6 @@
   border-left: 2px solid #b99a73;
   background: rgba(255, 255, 255, 0.35);
 }
-
 .universe-purchase {
   display: flex;
   align-items: center;
@@ -1079,18 +942,15 @@
   gap: 1.5rem;
   margin-top: 2rem;
 }
-
 .universe-price {
   display: flex;
   flex-direction: column;
 }
-
 .universe-price span {
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   color: #78695e;
 }
-
 .universe-price strong {
   font-family: var(--book-serif);
   font-size: 2.1rem;
@@ -1098,57 +958,47 @@
   color: #46392f;
   line-height: 1.2;
 }
-
 .universe-secondary-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   margin-top: 1rem;
 }
-
 .universe-decoration {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: -1;
 }
-
 .universe-decoration span {
   position: absolute;
   color: #b99a73;
   animation: libraryTwinkle 5s infinite;
 }
-
 .universe-decoration span:nth-child(1) {
   top: 20%;
   left: 8%;
   font-size: 2rem;
 }
-
 .universe-decoration span:nth-child(2) {
   top: 15%;
   left: 40%;
   animation-delay: 1s;
 }
-
 .universe-decoration span:nth-child(3) {
   bottom: 20%;
   left: 10%;
   font-size: 1.4rem;
   animation-delay: 2s;
 }
-
 .universe-decoration span:nth-child(4) {
   bottom: 15%;
   right: 10%;
   animation-delay: 3s;
 }
-
-
 /* =====================================================
    ATELIER DE COLORIAGE INTERACTIF
    ===================================================== */
-
 .coloring-experience {
   position: relative;
   padding: 100px 7%;
@@ -1165,7 +1015,6 @@
     ),
     #f7f2e9;
 }
-
 .coloring-workspace {
   max-width: 1000px;
   margin: auto;
@@ -1174,7 +1023,6 @@
   align-items: center;
   gap: 4rem;
 }
-
 .coloring-paper {
   position: relative;
   min-width: 0;
@@ -1189,12 +1037,10 @@
   transform: rotate(-1.5deg);
   transition: transform 0.4s ease;
 }
-
 .coloring-paper:hover,
 .coloring-paper:focus-within {
   transform: rotate(0deg);
 }
-
 .coloring-paper-heading {
   display: flex;
   align-items: center;
@@ -1205,32 +1051,27 @@
   padding: 0.5rem 0.7rem;
   border-bottom: 1px solid #e6dacc;
 }
-
 #coloring-drawing {
   display: block;
   width: 100%;
   height: auto;
   margin: 1rem auto 0;
 }
-
 .paint-area {
   cursor: crosshair;
   transition: fill 0.25s ease;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
-
 .paint-area:hover {
   stroke: #a85e68;
   stroke-width: 3px;
 }
-
 .paint-area:focus-visible {
   outline: none;
   stroke: #a85e68;
   stroke-width: 4px;
 }
-
 .coloring-paper-caption {
   text-align: center;
   color: #9b8875;
@@ -1238,13 +1079,11 @@
   font-style: italic;
   margin: 0.8rem 0 0;
 }
-
 .coloring-tools h3 {
   font-size: clamp(2.5rem, 4vw, 3.7rem);
   line-height: 1.05;
   margin: 0 0 2rem;
 }
-
 .color-palette {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -1252,7 +1091,6 @@
   max-width: 330px;
   margin-bottom: 2rem;
 }
-
 .color-swatch {
   display: grid;
   place-items: center;
@@ -1269,25 +1107,21 @@
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
-
 .color-swatch:hover {
   transform: translateY(-4px);
 }
-
 .color-swatch.active {
   outline: 2px solid #a85e68;
   outline-offset: 4px;
   box-shadow: 0 4px 10px rgba(70, 57, 47, 0.12);
   transform: scale(1.05);
 }
-
 .custom-color-label {
   display: block;
   color: #78695e;
   font-size: 0.8rem;
   margin-bottom: 0.8rem;
 }
-
 #custom-color {
   display: block;
   width: 65px;
@@ -1298,16 +1132,13 @@
   background: #fffdf8;
   cursor: pointer;
 }
-
 #custom-color::-webkit-color-swatch-wrapper {
   padding: 0;
 }
-
 #custom-color::-webkit-color-swatch {
   border: none;
   border-radius: 3px;
 }
-
 #coloring-message {
   min-height: 70px;
   margin: 1.8rem 0 1rem;
@@ -1317,26 +1148,21 @@
   color: #a85e68;
   line-height: 1.5;
 }
-
 .coloring-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
 }
-
 .coloring-note {
   color: #8c7967;
   font-size: 0.75rem;
   max-width: 350px;
   margin-top: 1rem;
 }
-
-
 /* =====================================================
    LETTRE DE L'AUTEURE
    ===================================================== */
-
 .author-section {
   position: relative;
   padding: 120px 7%;
@@ -1353,7 +1179,6 @@
     ),
     #e9ded0;
 }
-
 .author-letter {
   position: relative;
   max-width: 760px;
@@ -1374,7 +1199,6 @@
     15px 30px 50px rgba(70, 57, 47, 0.15);
   transform: rotate(-1deg);
 }
-
 .author-letter::before {
   content: '';
   position: absolute;
@@ -1382,7 +1206,6 @@
   border: 1px solid #dfcfb9;
   pointer-events: none;
 }
-
 .author-letter-top {
   display: flex;
   align-items: center;
@@ -1395,18 +1218,15 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-
 .author-letter-top span:last-child {
   font-size: 1.5rem;
   color: #a85e68;
 }
-
 .author-letter h2 {
   font-size: clamp(3rem, 6vw, 4.7rem);
   line-height: 1;
   margin: 0 0 2rem;
 }
-
 .author-letter-content p {
   font-family: var(--book-serif);
   font-size: 1.35rem;
@@ -1414,7 +1234,6 @@
   color: #665447;
   margin-bottom: 1.3rem;
 }
-
 .author-signature {
   display: flex;
   flex-direction: column;
@@ -1425,7 +1244,6 @@
   font-style: italic;
   color: #8d7059;
 }
-
 .author-signature strong {
   font-family: var(--book-serif);
   font-size: 2.5rem;
@@ -1434,14 +1252,12 @@
   color: #a85e68;
   margin: 0.5rem 0;
 }
-
 .author-signature span {
   font-family: var(--book-sans);
   font-size: 0.72rem;
   font-style: normal;
   letter-spacing: 0.08em;
 }
-
 .author-letter-seal {
   position: absolute;
   bottom: 35px;
@@ -1466,17 +1282,13 @@
   font-size: 2.5rem;
   transform: rotate(12deg);
 }
-
-
 /* =====================================================
    QUEL LIVRE VOUS CORRESPOND ?
    ===================================================== */
-
 .reading-choice-section {
   padding: 100px 7%;
   background: #faf7f1;
 }
-
 .reading-choices {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1484,7 +1296,6 @@
   max-width: 1000px;
   margin: auto;
 }
-
 .reading-choice {
   position: relative;
   display: flex;
@@ -1502,19 +1313,16 @@
     background 0.35s ease,
     box-shadow 0.35s ease;
 }
-
 .reading-choice:hover {
   transform: translateY(-7px);
   border-color: #b99a73;
   box-shadow: 0 15px 30px rgba(70, 57, 47, 0.08);
 }
-
 .reading-choice.choice-selected {
   background: #f3e4e4;
   border-color: #a85e68;
   box-shadow: 0 8px 20px rgba(168, 94, 104, 0.1);
 }
-
 .reading-choice-icon {
   display: grid;
   place-items: center;
@@ -1528,23 +1336,19 @@
   margin-bottom: 1.5rem;
   transition: transform 0.4s ease;
 }
-
 .reading-choice:hover .reading-choice-icon {
   transform: rotate(12deg) scale(1.08);
 }
-
 .reading-choice h3 {
   font-size: 2rem;
   color: #46392f;
   margin: 0 0 0.8rem;
 }
-
 .reading-choice p {
   color: #78695e;
   font-size: 0.9rem;
   margin: 0;
 }
-
 .reading-result {
   max-width: 750px;
   margin: 3rem auto 0;
@@ -1557,7 +1361,6 @@
   border: 1px solid #dfd2c2;
   border-radius: 8px;
 }
-
 .reading-result img {
   display: block;
   width: 100%;
@@ -1568,40 +1371,32 @@
     4px 7px 6px rgba(70, 57, 47, 0.15)
   );
 }
-
 .reading-result h3 {
   font-size: 2.2rem;
   line-height: 1.1;
   margin-bottom: 1rem;
 }
-
 .reading-result-content > p:not(.library-label) {
   font-size: 0.9rem;
   color: #78695e;
   margin-bottom: 1.5rem;
 }
-
 .result-appear {
   animation: resultAppear 0.6s ease both;
 }
-
 @keyframes resultAppear {
   from {
     opacity: 0;
     transform: translateY(15px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
-
 /* =====================================================
    MARQUE-PAGES SECRETS
    ===================================================== */
-
 .bookmark-section {
   position: relative;
   padding: 100px 7%;
@@ -1613,7 +1408,6 @@
     ),
     #eee4d7;
 }
-
 .bookmark-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1622,12 +1416,10 @@
   margin: 5rem auto 2rem;
   padding: 0 1rem;
 }
-
 .bookmark {
   --bookmark-color: #e5c2c6;
   --bookmark-border: #c49b9e;
   --bookmark-ink: #78515a;
-
   position: relative;
   display: block;
   width: 100%;
@@ -1640,32 +1432,27 @@
   perspective: 1200px;
   transition: transform 0.4s ease;
 }
-
 .bookmark-rose {
   --bookmark-color: #e5c2c6;
   --bookmark-border: #c49b9e;
   --bookmark-ink: #78515a;
   transform: rotate(-5deg);
 }
-
 .bookmark-sage {
   --bookmark-color: #d6dfcd;
   --bookmark-border: #a9b79d;
   --bookmark-ink: #56674f;
   transform: rotate(2deg);
 }
-
 .bookmark-gold {
   --bookmark-color: #e8d7b8;
   --bookmark-border: #c6af88;
   --bookmark-ink: #826846;
   transform: rotate(5deg);
 }
-
 .bookmark:hover {
   transform: translateY(-10px) rotate(0deg);
 }
-
 .bookmark-inner {
   position: relative;
   display: block;
@@ -1674,11 +1461,9 @@
   transform-style: preserve-3d;
   transition: transform 0.85s cubic-bezier(.2,.7,.2,1);
 }
-
 .bookmark.bookmark-flipped .bookmark-inner {
   transform: rotateY(180deg);
 }
-
 .bookmark-front,
 .bookmark-back {
   position: absolute;
@@ -1702,7 +1487,6 @@
   backface-visibility: hidden;
   box-shadow: 7px 12px 20px rgba(70, 57, 47, 0.15);
 }
-
 .bookmark-front::before,
 .bookmark-back::before {
   content: '';
@@ -1711,11 +1495,9 @@
   border: 1px solid var(--bookmark-border);
   pointer-events: none;
 }
-
 .bookmark-back {
   transform: rotateY(180deg);
 }
-
 .bookmark-hole {
   position: absolute;
   top: 14px;
@@ -1727,7 +1509,6 @@
   background: #eee4d7;
   box-shadow: inset 0 2px 3px rgba(70, 57, 47, 0.2);
 }
-
 .bookmark-ribbon {
   position: absolute;
   top: -37px;
@@ -1750,21 +1531,18 @@
     0 100%
   );
 }
-
 .bookmark-symbol {
   font-family: var(--book-serif);
   font-size: 3.5rem;
   line-height: 1;
   margin-bottom: 1.5rem;
 }
-
 .bookmark-name {
   font-family: var(--book-serif);
   font-size: 1.6rem;
   font-style: italic;
   line-height: 1.2;
 }
-
 .bookmark-brand {
   position: absolute;
   bottom: 45px;
@@ -1772,7 +1550,6 @@
   font-size: 0.95rem;
   font-style: italic;
 }
-
 .bookmark-hint {
   position: absolute;
   bottom: 18px;
@@ -1780,7 +1557,6 @@
   font-size: 0.62rem;
   letter-spacing: 0.08em;
 }
-
 .bookmark-quote {
   font-family: var(--book-serif);
   font-size: 1.35rem;
@@ -1788,16 +1564,13 @@
   line-height: 1.45;
   padding-bottom: 1.5rem;
 }
-
 .bookmark-back .bookmark-symbol {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-
 .bookmark-back .bookmark-brand {
   bottom: 20px;
 }
-
 .bookmark-ending {
   text-align: center;
   font-family: var(--book-serif);
@@ -1806,12 +1579,9 @@
   color: #8d7059;
   margin-top: 3rem;
 }
-
-
 /* =====================================================
    CONCLUSION
    ===================================================== */
-
 .library-ending {
   position: relative;
   padding: 110px 7%;
@@ -1825,12 +1595,10 @@
   color: #fff8ef;
   text-align: center;
 }
-
 .library-ending-content {
   max-width: 780px;
   margin: auto;
 }
-
 .library-ending-heart {
   font-family: var(--book-serif);
   font-size: 4rem;
@@ -1839,72 +1607,57 @@
   margin-bottom: 1.5rem;
   animation: libraryHeartbeat 4s ease-in-out infinite;
 }
-
 @keyframes libraryHeartbeat {
   0%, 100% {
     transform: scale(1);
   }
-
   15% {
     transform: scale(1.12);
   }
-
   30% {
     transform: scale(1);
   }
-
   45% {
     transform: scale(1.07);
   }
-
   60% {
     transform: scale(1);
   }
 }
-
 .library-ending .library-label {
   color: #d9bca0;
 }
-
 .library-ending h2 {
   font-size: clamp(2.8rem, 5.5vw, 5rem);
   line-height: 1.1;
   color: #fff8ef;
   margin: 0 0 2rem;
 }
-
 .library-ending h2 em {
   color: #e1b5bb;
 }
-
 .library-ending-content > p:not(.library-label) {
   color: #e4d6c8;
   font-size: 0.98rem;
   max-width: 620px;
   margin: 0 auto 1.5rem;
 }
-
 .library-ending .library-button {
   margin: 1.5rem 0;
   background: #b9747f;
   border-color: #b9747f;
 }
-
 .library-ending .library-button:hover {
   background: #a85e68;
 }
-
 .library-ending-content > .library-ending-note {
   font-size: 0.72rem !important;
   color: #c7b6a5 !important;
   margin-top: 2rem !important;
 }
-
-
 /* =====================================================
    FENÊTRES INTERACTIVES
    ===================================================== */
-
 .book-dialog,
 .qr-dialog {
   position: fixed;
@@ -1921,50 +1674,41 @@
   overflow: auto;
   overscroll-behavior: contain;
 }
-
 .book-dialog {
   width: min(850px, 94vw);
 }
-
 .qr-dialog {
   width: min(430px, 92vw);
 }
-
 .book-dialog::backdrop,
 .qr-dialog::backdrop {
   background: rgba(48, 37, 29, 0.65);
   backdrop-filter: blur(6px);
 }
-
 .book-dialog[open],
 .qr-dialog[open] {
   animation: dialogAppear 0.4s ease both;
 }
-
 @keyframes dialogAppear {
   from {
     opacity: 0;
     transform: translateY(20px) scale(0.97);
   }
-
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
-
 body:has(.book-dialog[open]),
 body:has(.qr-dialog[open]) {
   overflow: hidden;
 }
-
 .book-dialog-inner,
 .qr-dialog-inner {
   position: relative;
   padding: 2.5rem;
   text-align: center;
 }
-
 .dialog-close {
   position: absolute;
   top: 12px;
@@ -1984,11 +1728,9 @@ body:has(.qr-dialog[open]) {
   z-index: 5;
   transition: transform 0.3s ease;
 }
-
 .dialog-close:hover {
   transform: rotate(90deg);
 }
-
 .book-dialog h2,
 .qr-dialog h2 {
   font-family: 'Cormorant Garamond', Georgia, serif;
@@ -1998,12 +1740,9 @@ body:has(.qr-dialog[open]) {
   color: #46392f;
   margin: 0 0 2rem;
 }
-
-
 /* =====================================================
    LIVRE VIRTUEL À FEUILLETER
    ===================================================== */
-
 .preview-book {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2016,7 +1755,6 @@ body:has(.qr-dialog[open]) {
     0 15px 25px rgba(70, 57, 47, 0.15);
   perspective: 1000px;
 }
-
 .preview-left {
   display: flex;
   flex-direction: column;
@@ -2031,7 +1769,6 @@ body:has(.qr-dialog[open]) {
   );
   border-right: 1px solid #cdb89c;
 }
-
 .preview-left img {
   display: block;
   width: auto;
@@ -2041,7 +1778,6 @@ body:has(.qr-dialog[open]) {
   border-radius: 3px;
   box-shadow: 4px 6px 12px rgba(70, 57, 47, 0.12);
 }
-
 #preview-category {
   display: block;
   font-family: 'Jost', sans-serif;
@@ -2051,7 +1787,6 @@ body:has(.qr-dialog[open]) {
   color: #8d7059;
   margin-top: 1rem;
 }
-
 .preview-right {
   position: relative;
   display: flex;
@@ -2067,13 +1802,11 @@ body:has(.qr-dialog[open]) {
   );
   transform-origin: left center;
 }
-
 .preview-ornament {
   color: #b99a73;
   font-size: 1.6rem;
   margin-bottom: 1rem;
 }
-
 .preview-chapter {
   font-size: 0.65rem;
   letter-spacing: 0.14em;
@@ -2081,7 +1814,6 @@ body:has(.qr-dialog[open]) {
   color: #a85e68;
   margin-bottom: 0.8rem;
 }
-
 .preview-right h3 {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.8rem;
@@ -2091,7 +1823,6 @@ body:has(.qr-dialog[open]) {
   color: #78574b;
   margin: 0 0 1rem;
 }
-
 #preview-text {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.2rem;
@@ -2099,7 +1830,6 @@ body:has(.qr-dialog[open]) {
   color: #665447;
   margin: 0;
 }
-
 .preview-page-number {
   position: absolute;
   bottom: 12px;
@@ -2107,23 +1837,19 @@ body:has(.qr-dialog[open]) {
   color: #b99a73;
   font-size: 0.7rem;
 }
-
 .page-changing {
   animation: previewPageChange 0.5s ease both;
 }
-
 @keyframes previewPageChange {
   from {
     opacity: 0.3;
     transform: rotateY(-18deg);
   }
-
   to {
     opacity: 1;
     transform: rotateY(0deg);
   }
 }
-
 .preview-controls {
   display: flex;
   align-items: center;
@@ -2131,7 +1857,6 @@ body:has(.qr-dialog[open]) {
   gap: 1.5rem;
   margin: 1.8rem 0;
 }
-
 .preview-controls button {
   display: grid;
   place-items: center;
@@ -2148,46 +1873,36 @@ body:has(.qr-dialog[open]) {
     background 0.3s ease,
     color 0.3s ease;
 }
-
 .preview-controls button:hover:not(:disabled) {
   background: #a85e68;
   color: white;
 }
-
 .preview-controls button:disabled {
   opacity: 0.3;
   cursor: not-allowed;
 }
-
 #preview-pagination {
   font-size: 0.8rem;
   color: #78695e;
 }
-
 .preview-note {
   font-size: 0.72rem;
   line-height: 1.6;
   color: #8d7968;
   margin-top: 1.2rem;
 }
-
 .book-dialog[data-book="lanterne"] {
   background: #fbf4e5;
 }
-
 .book-dialog[data-book="ames"] {
   background: #edf2ee;
 }
-
 .book-dialog[data-book="coloriage"] {
   background: #faf0ed;
 }
-
-
 /* =====================================================
    QR CODES
    ===================================================== */
-
 .qr-image-frame {
   width: min(220px, 100%);
   margin: 0 auto 1.5rem;
@@ -2197,19 +1912,16 @@ body:has(.qr-dialog[open]) {
   border-radius: 5px;
   box-shadow: 0 6px 15px rgba(70, 57, 47, 0.08);
 }
-
 .qr-image-frame img {
   display: block;
   width: 100%;
   height: auto;
 }
-
 .qr-dialog-inner > p:not(.library-label) {
   font-size: 0.9rem;
   color: #78695e;
   line-height: 1.8;
 }
-
 .qr-dialog-heart {
   display: block;
   font-family: 'Cormorant Garamond', Georgia, serif;
@@ -2217,74 +1929,57 @@ body:has(.qr-dialog[open]) {
   color: #a85e68;
   margin-top: 1rem;
 }
-
-
 /* =====================================================
    ANIMATIONS D'ENTRÉE
    ===================================================== */
-
 .library-enter {
   animation: libraryEnter 0.9s ease both;
 }
-
 .delay-one {
   animation-delay: 0.15s;
 }
-
 .delay-two {
   animation-delay: 0.3s;
 }
-
 .delay-three {
   animation-delay: 0.45s;
 }
-
 .delay-four {
   animation-delay: 0.6s;
 }
-
 @keyframes libraryEnter {
   from {
     opacity: 0;
     transform: translateY(22px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 /*
    Les éléments restent visibles si JavaScript
    ne fonctionne pas.
 */
-
 .library-animations .library-reveal {
   animation: none;
 }
-
 .library-animations .library-reveal.library-visible {
   animation: libraryReveal 0.9s ease both;
 }
-
 @keyframes libraryReveal {
   from {
     opacity: 0.2;
     transform: translateY(25px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
-
 /* =====================================================
    ACCESSIBILITÉ
    ===================================================== */
-
 .library-page button:focus-visible,
 .library-page a:focus-visible,
 .library-page input:focus-visible,
@@ -2294,74 +1989,55 @@ body:has(.qr-dialog[open]) {
   outline: 2px solid #a85e68;
   outline-offset: 5px;
 }
-
-
 /* =====================================================
    TABLETTES
    ===================================================== */
-
 @media (max-width: 1100px) {
-
   .library-opening-inner {
     gap: 3rem;
   }
-
   .universe-inner {
     gap: 3rem;
   }
-
   .library-shelf {
     gap: 2rem;
     padding-left: 0;
     padding-right: 0;
   }
-
   .shelf-book {
     height: 280px;
   }
-
   .shelf-wood {
     top: 310px;
   }
-
   .coloring-workspace {
     gap: 2.5rem;
   }
-
 }
-
-
 @media (max-width: 900px) {
-
   .library-opening {
     min-height: auto;
     padding: 140px 6% 90px;
   }
-
   .library-opening-inner {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-
   .library-opening-text {
     text-align: center;
   }
-
   .library-opening h1 {
     font-size: clamp(3.5rem, 9vw, 5.8rem);
   }
-
   .library-intro {
     margin-left: auto;
     margin-right: auto;
   }
-
   .opening-book-scene {
     max-width: 550px;
     min-height: 380px;
     margin: auto;
   }
-
   .library-shelf-section,
   .book-universe,
   .coloring-experience,
@@ -2369,172 +2045,132 @@ body:has(.qr-dialog[open]) {
   .bookmark-section {
     padding: 75px 6%;
   }
-
   .shelf-book {
     height: 230px;
   }
-
   .shelf-wood {
     top: 260px;
   }
-
   .shelf-item h3 {
     font-size: 1.7rem;
   }
-
   .universe-inner {
     grid-template-columns: 1fr;
     gap: 2.5rem;
     max-width: 650px;
   }
-
   .universe-souls .universe-visual,
   .universe-souls .universe-content {
     order: initial;
   }
-
   .universe-visual {
     min-height: 400px;
   }
-
   .universe-book {
     max-width: 350px;
   }
-
   .universe-content {
     text-align: center;
   }
-
   .book-tags,
   .universe-purchase,
   .universe-secondary-actions {
     justify-content: center;
   }
-
   .universe-quote {
     text-align: left;
   }
-
   .coloring-workspace {
     grid-template-columns: 1fr;
     max-width: 600px;
     gap: 3rem;
   }
-
   .coloring-tools {
     text-align: center;
   }
-
   .color-palette {
     margin-left: auto;
     margin-right: auto;
   }
-
   #custom-color {
     margin-left: auto;
     margin-right: auto;
   }
-
   .coloring-actions {
     justify-content: center;
   }
-
   .coloring-note {
     margin-left: auto;
     margin-right: auto;
   }
-
   .author-section {
     padding: 90px 7%;
   }
-
   .author-letter {
     padding: 3rem 3rem 4rem;
   }
-
   .bookmark-grid {
     gap: 1.5rem;
   }
-
   .bookmark {
     height: 340px;
   }
-
 }
-
-
 /* =====================================================
    TÉLÉPHONES
    ===================================================== */
-
 @media (max-width: 600px) {
-
   .library-opening {
     padding: 115px 6% 80px;
   }
-
   .library-opening h1 {
     font-size: clamp(3.1rem, 12vw, 4.5rem);
     letter-spacing: -0.035em;
   }
-
   .library-label {
     font-size: 0.65rem;
     letter-spacing: 0.16em;
   }
-
   .library-intro {
     font-size: 0.92rem;
   }
-
   .library-opening-quote {
     font-size: 1.35rem;
   }
-
   .opening-book-scene {
     min-height: 280px;
     padding-top: 1rem;
   }
-
   .opening-book {
     width: 90%;
   }
-
   .opening-page-ornament {
     font-size: 1.3rem;
   }
-
   .opening-page-lines {
     gap: 6px;
     margin: 0.4rem 0;
   }
-
   .opening-page-paw {
     font-size: 1.1rem;
     margin-top: 0.3rem;
   }
-
   .opening-book-caption {
     font-size: 1.1rem;
     margin-top: 1rem;
   }
-
   .book-floating-star {
     font-size: 1.1rem;
   }
-
   .library-heading {
     margin-bottom: 2.5rem;
   }
-
   .library-heading h2 {
     font-size: clamp(2.6rem, 10vw, 3.5rem);
   }
-
   .library-heading > p:last-child {
     font-size: 0.9rem;
   }
-
   .library-shelf-section,
   .book-universe,
   .coloring-experience,
@@ -2542,150 +2178,114 @@ body:has(.qr-dialog[open]) {
   .bookmark-section {
     padding: 65px 6%;
   }
-
   .library-shelf {
     grid-template-columns: 1fr;
     max-width: 330px;
     gap: 3rem;
     padding: 1rem 0;
   }
-
   .shelf-item {
     padding: 1.5rem 1rem 2rem;
     border-bottom: 1px solid #dfd2c2;
   }
-
   .shelf-book {
     height: 260px;
     margin-bottom: 1.5rem;
   }
-
   .shelf-book-glow {
     height: 280px;
   }
-
   .shelf-wood {
     display: none;
   }
-
   .shelf-item h3 {
     font-size: 2rem;
   }
-
   .shelf-instruction {
     font-size: 0.75rem;
   }
-
   .universe-visual {
     min-height: 300px;
   }
-
-  .universe-number {
-    top: -20px;
-    font-size: 8rem;
-  }
-
+  .universe-number { font-size: 4.5rem; }
   .universe-book {
     max-width: 260px;
   }
-
   .universe-book img {
     max-height: 340px;
   }
-
   .universe-visual-caption {
     font-size: 1.15rem;
     margin-top: 1.8rem;
   }
-
   .universe-content h2 {
     font-size: clamp(2.8rem, 11vw, 4rem);
   }
-
   .universe-subtitle {
     font-size: 1.4rem;
   }
-
   .universe-content > p:not(.library-label):not(.universe-subtitle) {
     font-size: 0.9rem;
   }
-
   .universe-quote {
     font-size: 1.35rem;
     padding: 1rem 1.2rem;
   }
-
   .universe-purchase {
     flex-direction: column;
     gap: 1rem;
   }
-
   .universe-price {
     text-align: center;
   }
-
   .universe-secondary-actions {
     gap: 1rem;
   }
-
   .library-button {
     padding: 0.9rem 1.4rem;
     font-size: 0.82rem;
   }
-
   .coloring-paper {
     padding: 0.8rem;
     transform: none;
   }
-
   .coloring-workspace {
     gap: 2.5rem;
   }
-
   .color-palette {
     max-width: 280px;
     gap: 13px;
   }
-
   .color-swatch {
     max-width: 46px;
   }
-
   #coloring-message {
     min-height: 55px;
     font-size: 1.25rem;
   }
-
   .author-section {
     padding: 65px 5%;
   }
-
   .author-letter {
     padding: 2.5rem 1.8rem 6rem;
     transform: none;
   }
-
   .author-letter::before {
     inset: 8px;
   }
-
   .author-letter-top {
     font-size: 0.6rem;
     margin-bottom: 2rem;
   }
-
   .author-letter h2 {
     font-size: 3.3rem;
   }
-
   .author-letter-content p {
     font-size: 1.2rem;
   }
-
   .author-signature strong {
     font-size: 2.2rem;
   }
-
   .author-letter-seal {
     width: 52px;
     height: 52px;
@@ -2693,186 +2293,143 @@ body:has(.qr-dialog[open]) {
     bottom: 20px;
     right: 20px;
   }
-
   .reading-choices {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-
   .reading-choice {
     padding: 1.8rem 1.5rem;
   }
-
   .reading-choice-icon {
     width: 60px;
     height: 60px;
     font-size: 2rem;
     margin-bottom: 1rem;
   }
-
   .reading-result {
     grid-template-columns: 1fr;
     text-align: center;
     padding: 1.5rem;
     gap: 1.5rem;
   }
-
   .reading-result img {
     max-width: 150px;
     margin: auto;
   }
-
   .reading-result h3 {
     font-size: 2rem;
   }
-
   .bookmark-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 3rem 1.5rem;
     padding: 0 0.5rem;
     margin-top: 4rem;
   }
-
   .bookmark {
     height: 300px;
     max-width: 160px;
   }
-
   .bookmark:last-child {
     grid-column: 1 / -1;
   }
-
   .bookmark-name {
     font-size: 1.35rem;
   }
-
   .bookmark-symbol {
     font-size: 2.8rem;
   }
-
   .bookmark-quote {
     font-size: 1.15rem;
     line-height: 1.4;
   }
-
   .bookmark-front,
   .bookmark-back {
     padding: 1.5rem 0.8rem;
   }
-
   .bookmark-brand {
     font-size: 0.85rem;
   }
-
   .bookmark-ending {
     font-size: 1.2rem;
   }
-
   .library-ending {
     padding: 75px 6%;
   }
-
   .library-ending h2 {
     font-size: 3rem;
   }
-
   .library-ending-content > p:not(.library-label) {
     font-size: 0.9rem;
   }
-
   .book-dialog-inner,
   .qr-dialog-inner {
     padding: 2.8rem 1.2rem 1.5rem;
   }
-
   .book-dialog h2 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
   }
-
   .preview-book {
     grid-template-columns: 1fr;
     border-width: 3px;
   }
-
   .preview-left {
     padding: 1rem;
     background: #fffaf0;
     border-right: none;
     border-bottom: 1px solid #dfcdb4;
   }
-
   .preview-left img {
     max-height: 150px;
   }
-
   .preview-right {
     min-height: 240px;
     padding: 1.5rem 1.2rem 2rem;
     background: #fffaf0;
   }
-
   .preview-right h3 {
     font-size: 1.65rem;
   }
-
   #preview-text {
     font-size: 1.15rem;
   }
-
   .preview-controls {
     margin: 1.3rem 0;
   }
-
 }
-
-
 /* =====================================================
    TRÈS PETITS ÉCRANS
    ===================================================== */
-
 @media (max-width: 360px) {
-
   .library-opening h1 {
     font-size: 2.9rem;
   }
-
   .opening-book-scene {
     min-height: 240px;
   }
-
   .bookmark-grid {
     grid-template-columns: 1fr;
   }
-
   .bookmark:last-child {
     grid-column: auto;
   }
-
   .bookmark {
     width: 155px;
     height: 310px;
   }
-
   .universe-secondary-actions {
     flex-direction: column;
     align-items: center;
   }
-
   .author-letter {
     padding-left: 1.4rem;
     padding-right: 1.4rem;
   }
-
 }
-
-
 /* =====================================================
    RÉDUCTION DES ANIMATIONS
    ===================================================== */
-
 @media (prefers-reduced-motion: reduce) {
-
   .library-page *,
   .library-page *::before,
   .library-page *::after,
@@ -2884,19 +2441,14 @@ body:has(.qr-dialog[open]) {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
   .library-enter,
   .library-reveal {
     opacity: 1 !important;
   }
-
   .opening-turning-page {
     display: none;
   }
-
 }
-
-
 /* =====================================================
    FIN — LA BIBLIOTHÈQUE DE CŒUR ERRANT
    Chaque animal a une histoire.
