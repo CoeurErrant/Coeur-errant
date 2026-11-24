@@ -1,0 +1,901 @@
+
+/* =========================================
+   CŒUR ERRANT — VOYAGES
+   Styles communs FR et NL
+   ========================================= */
+
+/* EN-TÊTE */
+
+.voyages-hero {
+  padding: 160px 7% 80px;
+  background: var(--warm);
+  text-align: center;
+}
+
+.voyages-hero .section-tag,
+.year-heading .section-tag,
+.rescue-header .section-tag {
+  justify-content: center;
+}
+
+.voyages-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 1.5rem 0;
+}
+
+.voyages-hero h1 em,
+.year-heading h2 em,
+.voyage-content h3 em,
+.rescue-header h2 em {
+  color: var(--pink);
+}
+
+.voyages-hero p:not(.section-tag) {
+  max-width: 750px;
+  margin: 1rem auto;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.voyages-navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.voyages-navigation a {
+  text-decoration: none;
+  border: 1px solid #d6c6b2;
+  padding: .8rem 1.6rem;
+  border-radius: 30px;
+  color: var(--charcoal);
+  font-size: .85rem;
+  transition: .3s ease;
+}
+
+.voyages-navigation a:hover {
+  background: var(--pink);
+  color: white;
+  border-color: var(--pink);
+}
+
+
+/* =========================================
+   ANNÉES
+   ========================================= */
+
+.year-heading {
+  text-align: center;
+  padding: 5rem 5% 3rem;
+  scroll-margin-top: 100px;
+}
+
+.year-number {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 9vw, 7rem);
+  font-weight: 300;
+  color: #c4a882;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.year-heading h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.year-heading p:not(.section-tag) {
+  max-width: 650px;
+  margin: auto;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.year-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #c4a882;
+  margin: 2rem auto 0;
+  max-width: 250px;
+}
+
+.year-divider::before,
+.year-divider::after {
+  content: '';
+  height: 1px;
+  background: #d6c6b2;
+  flex: 1;
+}
+
+
+/* =========================================
+   CARTES DE VOYAGE
+   ========================================= */
+
+.travel-list {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 5% 4rem;
+}
+
+.voyage-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 3.5rem;
+  align-items: center;
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.voyage-card:nth-child(even) .voyage-visual {
+  order: 2;
+}
+
+.voyage-card:last-child {
+  border-bottom: none;
+}
+
+.voyage-img {
+  background: var(--warm);
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.voyage-img > img {
+  width: 100%;
+  height: 450px;
+  object-fit: contain;
+  display: block;
+  transition: transform .5s ease;
+}
+
+.voyage-img:hover > img {
+  transform: scale(1.025);
+}
+
+.voyage-country {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .65rem 1rem;
+  background: rgba(250, 248, 245, .95);
+  border-radius: 30px;
+  font-size: .7rem;
+  color: var(--charcoal);
+  letter-spacing: .06em;
+  z-index: 2;
+}
+
+.voyage-country img {
+  width: 22px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.voyage-caption {
+  text-align: center;
+  color: var(--muted);
+  font-size: .78rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-top: .8rem;
+}
+
+.voyage-content {
+  padding: 1rem 0;
+}
+
+.voyage-date {
+  color: var(--pink);
+  font-size: .75rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.voyage-content h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.voyage-story {
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.95;
+  margin-bottom: 1rem;
+}
+
+.voyage-quote {
+  background: #f5eee8;
+  border-left: 2px solid var(--pink);
+  border-radius: 0 8px 8px 0;
+  padding: 1.3rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.voyage-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--charcoal);
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* =========================================
+   RÉCITS DÉROULANTS
+   ========================================= */
+
+.travel-details {
+  margin-top: 1.5rem;
+}
+
+.travel-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  color: var(--pink);
+  font-size: .85rem;
+  font-weight: 500;
+  transition: .3s ease;
+}
+
+.travel-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.travel-details summary::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.travel-details[open] summary::after {
+  content: '−';
+}
+
+.travel-details summary:hover {
+  background: #f1e3dc;
+}
+
+.travel-details-content {
+  padding: 1.5rem .5rem .5rem;
+}
+
+.travel-details-content p {
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.95;
+  margin-bottom: 1.2rem;
+}
+
+
+/* =========================================
+   TÉMOIGNAGES DES ANIMAUX
+   ========================================= */
+
+.animal-testimony {
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+.animal-testimony h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin: .7rem 0 1rem;
+}
+
+.animal-testimony p {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.9;
+}
+
+.animal-testimony .testimony-label {
+  color: var(--pink);
+  font-size: .68rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.travel-link {
+  display: inline-block;
+  color: var(--pink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-size: .85rem;
+  margin-top: 1.2rem;
+}
+
+
+/* =========================================
+   DESTINATIONS SANS PHOTOGRAPHIE
+   ========================================= */
+
+.destination-note {
+  min-height: 350px;
+  background: #f1e9de;
+  border: 1px solid #dfd0bf;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.destination-note img {
+  width: 65px;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.destination-note h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #746557;
+  margin: .5rem 0;
+}
+
+.destination-note p {
+  color: #746557;
+  font-size: .85rem;
+  line-height: 1.8;
+}
+
+.destination-note .paw-symbol {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+/* =========================================
+   VOYAGES GROUPÉS
+   BALKANS ET MAROC
+   ========================================= */
+
+.journey-intro {
+  max-width: 850px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.journey-intro h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.journey-intro h3 em {
+  color: var(--pink);
+}
+
+.journey-intro p:not(.voyage-date) {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+
+.journey-route {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 1.5rem;
+  font-size: .85rem;
+  color: var(--pink);
+}
+
+
+/* =========================================
+   DJIBOU — SON HISTOIRE
+   ========================================= */
+
+.rescue-section {
+  background: var(--warm);
+  padding: 5rem 7%;
+}
+
+.rescue-inner {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.rescue-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.rescue-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.rescue-badge {
+  display: inline-block;
+  background: #f4dce4;
+  color: #943e59;
+  padding: .6rem 1.2rem;
+  border-radius: 30px;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  margin-top: 1rem;
+}
+
+
+/* PHOTOGRAPHIES AVANT / APRÈS */
+
+.rescue-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.rescue-photo {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.rescue-photo img {
+  width: 100%;
+  height: 380px;
+  object-fit: contain;
+  display: block;
+  background: #eae4da;
+}
+
+.rescue-photo-caption {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.rescue-photo-caption h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: .5rem;
+}
+
+.rescue-photo-caption p {
+  font-size: .85rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.rescue-photo-caption .photo-date {
+  color: var(--pink);
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: .7rem;
+}
+
+
+/* RÉCIT DE DJIBOU */
+
+.rescue-intro {
+  max-width: 800px;
+  margin: 2rem auto 3rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--muted);
+}
+
+.rescue-story {
+  max-width: 850px;
+  margin: auto;
+}
+
+.rescue-story p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.95;
+  margin-bottom: 1.4rem;
+}
+
+.rescue-story strong {
+  color: var(--charcoal);
+  font-weight: 500;
+}
+
+
+/* PROGRESSION DU SAUVETAGE */
+
+.rescue-progress {
+  max-width: 750px;
+  margin: 3rem auto 0;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem;
+}
+
+.rescue-progress h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.rescue-step {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.rescue-step:last-child {
+  padding-bottom: 0;
+}
+
+.rescue-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 36px;
+  bottom: 0;
+  left: 17px;
+  width: 1px;
+  background: #d9cec3;
+}
+
+.step-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1rem;
+  background: #e9e3db;
+  color: #8c8073;
+}
+
+.step-done .step-icon {
+  background: #e1eadd;
+  color: #52714b;
+}
+
+.step-current .step-icon {
+  background: #f4dce4;
+  color: #a85e68;
+}
+
+.step-content h4 {
+  font-size: .95rem;
+  font-weight: 500;
+  margin: .3rem 0 .4rem;
+}
+
+.step-content p {
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   DESTINATION MYSTÈRE
+   ========================================= */
+
+.mystery-section {
+  background: var(--warm);
+  padding: 5rem 5%;
+}
+
+.mystery-card {
+  max-width: 650px;
+  margin: auto;
+  padding: 3rem;
+  background: #f5eee4;
+  border: 1px solid #dfd0bf;
+  border-radius: 20px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(70, 57, 47, .06);
+}
+
+.mystery-date {
+  color: #746557;
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+
+/* ENVELOPPE ANIMÉE */
+
+.mystery-envelope {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.envelope-group {
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  animation: envelopeFloat 5s ease-in-out infinite;
+  transition: filter .4s ease;
+}
+
+.mystery-card:hover .envelope-group {
+  filter: drop-shadow(
+    0 8px 8px rgba(116, 101, 87, .18)
+  );
+}
+
+@keyframes envelopeFloat {
+
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+
+}
+
+
+/* EMPREINTES ANIMÉES */
+
+.mystery-paw {
+  animation: pawAppear 5s ease-in-out infinite;
+}
+
+.paw-two {
+  animation-delay: .6s;
+}
+
+.paw-three {
+  animation-delay: 1.2s;
+}
+
+@keyframes pawAppear {
+
+  0%, 100% {
+    opacity: .35;
+  }
+
+  50% {
+    opacity: .8;
+  }
+
+}
+
+
+/* TEXTE DE LA DESTINATION MYSTÈRE */
+
+.mystery-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: #46392f;
+  margin: 1rem 0;
+}
+
+.mystery-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.65rem;
+  font-style: italic;
+  color: #a85e68;
+  line-height: 1.5;
+  margin: 1.5rem 0;
+}
+
+.mystery-description {
+  font-size: .95rem;
+  color: #746557;
+  line-height: 1.9;
+  margin-bottom: 2rem;
+}
+
+.mystery-divider {
+  height: 1px;
+  background: #d6c6b2;
+  margin: 1.5rem 0;
+}
+
+.mystery-info {
+  color: #746557;
+  font-size: .9rem;
+  margin: .9rem 0;
+}
+
+.mystery-follow {
+  background: #a85e68;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: .95rem;
+  letter-spacing: .08em;
+  margin: 1.8rem 0 1rem;
+}
+
+.mystery-signature {
+  color: #746557;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLETTES
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  .voyage-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2.5rem 0;
+  }
+
+  .voyage-card:nth-child(even) .voyage-visual {
+    order: 0;
+  }
+
+  .voyage-img > img {
+    height: 380px;
+  }
+
+  .rescue-photo img {
+    height: 300px;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — TÉLÉPHONES
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .voyages-hero {
+    padding: 125px 1.5rem 3rem;
+  }
+
+  .voyages-navigation {
+    gap: .6rem;
+  }
+
+  .voyages-navigation a {
+    padding: .7rem 1rem;
+  }
+
+  .year-heading {
+    padding: 3rem 1.5rem 1rem;
+  }
+
+  .travel-list {
+    padding: 0 1.5rem 2rem;
+  }
+
+  .voyage-img {
+    min-height: 250px;
+  }
+
+  .voyage-img > img {
+    height: 340px;
+  }
+
+  .destination-note {
+    min-height: 260px;
+  }
+
+  .journey-intro {
+    padding: 1.5rem;
+  }
+
+  .rescue-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .rescue-photos {
+    gap: .8rem;
+  }
+
+  .rescue-photo img {
+    height: 200px;
+  }
+
+  .rescue-photo-caption {
+    padding: .8rem;
+  }
+
+  .rescue-photo-caption h3 {
+    font-size: 1.35rem;
+  }
+
+  .rescue-photo-caption p {
+    font-size: .75rem;
+  }
+
+  .rescue-progress {
+    padding: 1.5rem;
+  }
+
+  .mystery-section {
+    padding: 3rem 1.2rem;
+  }
+
+  .mystery-card {
+    padding: 2rem 1.3rem;
+  }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITÉ — ANIMATIONS RÉDUITES
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .envelope-group,
+  .mystery-paw {
+    animation: none;
+  }
+
+  .voyage-img > img {
+    transition: none;
+  }
+
+}
