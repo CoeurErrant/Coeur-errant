@@ -1,0 +1,860 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cœur Errant — Chaque animal a une histoire</title>
+
+  <meta name="description" content="Découvrez Cœur Errant, un projet consacré aux animaux errants, à travers des voyages, des rencontres, des livres et des actions solidaires.">
+
+  <meta name="theme-color" content="#faf8f5">
+
+  <link rel="icon" href="logo.jpeg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="accueil-v2.css">
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.jpeg" alt="Cœur Errant">
+  </a>
+
+  <ul class="nav-links" id="nav-links">
+
+    <li>
+      <a href="index.html" onclick="closeMenu()">Accueil</a>
+    </li>
+
+    <li>
+      <a href="#histoire" onclick="closeMenu()">Mon histoire</a>
+    </li>
+
+    <li>
+      <a href="mission.html" onclick="closeMenu()">La mission</a>
+    </li>
+
+    <li>
+      <a href="voyages.html" onclick="closeMenu()">Voyages</a>
+    </li>
+
+    <li>
+      <a href="#livres" onclick="closeMenu()">Mes livres</a>
+    </li>
+
+    <li>
+      <a href="#nos-etoiles" onclick="closeMenu()">Nos étoiles</a>
+    </li>
+
+    <li>
+      <a href="soutenir.html" onclick="closeMenu()">Soutenir</a>
+    </li>
+
+    <li class="lang-mobile">
+      <a href="index-nl.html">Nederlands</a>
+    </li>
+
+  </ul>
+
+  <div class="lang-switcher">
+    <a href="index.html" class="lang-btn active">FR</a>
+    <span class="lang-sep">|</span>
+    <a href="index-nl.html" class="lang-btn">NL</a>
+  </div>
+
+  <button class="hamburger"
+          id="hamburger"
+          onclick="toggleMenu()"
+          aria-label="Ouvrir le menu"
+          aria-controls="nav-links"
+          aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<main>
+
+<!-- ACCUEIL -->
+
+<section class="hero">
+
+  <div class="hero-left">
+
+    <p class="hero-eyebrow">
+      Un projet de cœur, sans frontières
+    </p>
+
+    <h1>
+      Chaque animal a <em>une histoire.</em>
+    </h1>
+
+    <p class="hero-story">
+      Quelque part dans le monde, un animal attend un regard,
+      un repas ou simplement un peu de douceur.
+      Cœur Errant est né pour ceux que l'on ne voit plus.
+    </p>
+
+    <p class="hero-story">
+      À travers mes voyages, mes rencontres et mes livres,
+      je souhaite leur donner une voix et rappeler que
+      chaque vie mérite d'être regardée avec bienveillance.
+    </p>
+
+    <p class="hero-origin">
+      Depuis juin 2024 · Tanger, Maroc
+    </p>
+
+    <div class="hero-actions">
+
+      <a href="mission.html" class="btn-primary">
+        Découvrir ma mission
+      </a>
+
+      <a href="#livres" class="btn-outline">
+        Mes livres
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="hero-right">
+
+    <img src="hero.jpeg"
+         alt="Un animal rencontré lors des voyages Cœur Errant"
+         class="hero-img">
+
+  </div>
+
+</section>
+
+<!-- STATISTIQUES -->
+
+<section class="stats" aria-label="Cœur Errant en quelques chiffres">
+
+  <div class="stat">
+    <span class="stat-num" id="compteur">0</span>
+    <span class="stat-label">Jours depuis le début</span>
+  </div>
+
+  <div class="stat">
+    <span class="stat-num">3</span>
+    <span class="stat-label">Livres publiés</span>
+  </div>
+
+  <div class="stat">
+    <span class="stat-num">♥</span>
+    <span class="stat-label">Un amour sans frontières</span>
+  </div>
+
+</section>
+
+<!-- MON HISTOIRE -->
+
+<section class="origin" id="histoire">
+
+  <div class="origin-text">
+
+    <p class="section-tag">Mon histoire</p>
+
+    <h2>
+      Tanger, l'été qui a <em>tout changé</em>
+    </h2>
+
+    <p>
+      Juin 2024. Je pose mes valises à Tanger, au Maroc,
+      pour ce qui devait être des vacances. Mais dès les
+      premiers jours, quelque chose me saisit. Des dizaines
+      de chiens et de chats errants partout, affamés,
+      souffrants, invisibles aux yeux de la plupart des gens.
+    </p>
+
+    <div class="origin-quote">
+      <p>
+        « Pour la première fois de ma vie, j'étais face
+        à autant d'animaux qui luttaient pour survivre.
+        Je ne pouvais pas faire semblant de ne pas les voir. »
+      </p>
+    </div>
+
+    <p>
+      Matin et soir, je suis sortie les nourrir.
+      Chaque animal croisé dans la rue recevait à manger.
+      Mes finances de vacances sont allées en priorité
+      vers eux, plutôt que vers mes propres plaisirs.
+      Ce n'était pas un sacrifice, c'était une évidence.
+    </p>
+
+    <p>
+      Ce voyage a tout changé. Cœur Errant était né.
+    </p>
+
+    <p>
+      Depuis, chaque nouvelle destination est devenue
+      une occasion de rencontrer, de nourrir et de raconter
+      l'histoire de ces animaux que le monde oublie.
+    </p>
+
+    <a href="mission.html" class="btn-outline">
+      Découvrir la mission
+    </a>
+
+  </div>
+
+  <div class="origin-image">
+    <img src="Tanger2.jpeg"
+         alt="Une rencontre à Tanger"
+         class="origin-img"
+         loading="lazy">
+  </div>
+
+</section>
+
+<!-- MES LIVRES -->
+
+<section class="books" id="livres">
+
+  <p class="section-tag">Mes créations</p>
+
+  <h2>
+    Des livres qui donnent <em>une voix aux oubliés</em>
+  </h2>
+
+  <p>
+    Trois livres, trois univers, une même conviction.
+    Chaque animal mérite une histoire, un regard et
+    une place dans nos cœurs.
+    Découvrez mes créations disponibles sur Amazon.
+  </p>
+
+  <div class="book-grid">
+
+    <!-- LIVRE 1 -->
+
+    <article class="book-card">
+
+      <div class="book-cover">
+        <img src="livre-lanterne.jpg"
+             alt="Couverture de La petite lanterne"
+             loading="lazy">
+      </div>
+
+      <p class="section-tag">Livre jeunesse</p>
+
+      <h3>La petite lanterne</h3>
+
+      <p>
+        <em>Une histoire pour apprendre à regarder</em>
+      </p>
+
+      <p>
+        Une histoire douce et lumineuse pour apprendre
+        aux enfants à regarder le monde autrement,
+        à reconnaître les animaux oubliés et à grandir
+        avec bienveillance et compassion.
+      </p>
+
+      <strong>16,95 €</strong>
+
+      <a href="https://amzn.eu/d/04uXHShr"
+         class="btn-primary"
+         target="_blank"
+         rel="noopener noreferrer">
+        Acheter sur Amazon ↗
+      </a>
+
+      <details>
+        <summary>Afficher le QR code</summary>
+
+        <img src="qr-lanterne.png"
+             alt="QR code Amazon La petite lanterne"
+             class="book-qr"
+             loading="lazy">
+      </details>
+
+    </article>
+
+    <!-- LIVRE 2 -->
+
+    <article class="book-card">
+
+      <div class="book-cover">
+        <img src="livre-ames-errantes.jpg"
+             alt="Couverture de Nos âmes errantes"
+             loading="lazy">
+      </div>
+
+      <p class="section-tag">Récits et témoignages</p>
+
+      <h3>Nos âmes errantes</h3>
+
+      <p>
+        <em>Dans la peau des animaux des rues</em>
+      </p>
+
+      <p>
+        Des rencontres véritables, des regards inoubliables,
+        des histoires de sauvetages et d'adieux.
+        Un voyage à travers le monde, dans la peau
+        de ceux que personne ne regarde.
+      </p>
+
+      <strong>17,98 €</strong>
+
+      <a href="https://amzn.eu/d/0fyDrXjy"
+         class="btn-primary"
+         target="_blank"
+         rel="noopener noreferrer">
+        Acheter sur Amazon ↗
+      </a>
+
+      <details>
+        <summary>Afficher le QR code</summary>
+
+        <img src="qr-ames-errantes.png"
+             alt="QR code Amazon Nos âmes errantes"
+             class="book-qr"
+             loading="lazy">
+      </details>
+
+    </article>
+
+    <!-- LIVRE 3 -->
+
+    <article class="book-card">
+
+      <div class="book-cover">
+        <img src="livre-coloriage.jpg"
+             alt="Couverture du livre de coloriage Cœur Errant"
+             loading="lazy">
+      </div>
+
+      <p class="section-tag">Coloriage pour adultes</p>
+
+      <h3>Cœur Errant</h3>
+
+      <p>
+        <em>Chaque animal a une histoire</em>
+      </p>
+
+      <p>
+        Un livre de coloriage inspiré de véritables
+        rencontres avec les animaux errants.
+        Entre créativité, douceur et sensibilisation,
+        prenez le temps de découvrir leurs histoires.
+      </p>
+
+      <strong>14,99 €</strong>
+
+      <a href="https://amzn.eu/d/0h3yOZae"
+         class="btn-primary"
+         target="_blank"
+         rel="noopener noreferrer">
+        Acheter sur Amazon ↗
+      </a>
+
+      <details>
+        <summary>Afficher le QR code</summary>
+
+        <img src="qr-coloriage.png"
+             alt="QR code Amazon Cœur Errant"
+             class="book-qr"
+             loading="lazy">
+      </details>
+
+    </article>
+
+  </div>
+
+  <small>
+    Les prix sont indicatifs et peuvent évoluer sur Amazon.
+    Les commandes, paiements et livraisons sont gérés
+    directement par Amazon.
+  </small>
+
+</section>
+
+<!-- LA MISSION -->
+
+<section class="how" id="mission">
+
+  <p class="section-tag">La mission</p>
+
+  <h2>
+    De petits gestes, <em>de grandes différences.</em>
+  </h2>
+
+  <div class="how-grid">
+
+    <div class="how-item">
+
+      <div class="how-num">01</div>
+
+      <p class="how-title">Voyager</p>
+
+      <p class="how-desc">
+        De pays en pays, je pars à la rencontre
+        des animaux errants et découvre leur quotidien.
+      </p>
+
+    </div>
+
+    <div class="how-item">
+
+      <div class="how-num">02</div>
+
+      <p class="how-title">Nourrir</p>
+
+      <p class="how-desc">
+        Leur offrir de la nourriture, de l'eau,
+        de la douceur et, lorsque cela est possible,
+        les aider à recevoir les soins dont ils ont besoin.
+      </p>
+
+    </div>
+
+    <div class="how-item">
+
+      <div class="how-num">03</div>
+
+      <p class="how-title">Sensibiliser</p>
+
+      <p class="how-desc">
+        Partager leurs histoires à travers mes livres,
+        mes photos et mes réseaux sociaux pour
+        qu'ils ne soient plus invisibles.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- DESTINATIONS -->
+
+<section class="destinations" id="destinations">
+
+  <p class="section-tag">Au-delà des frontières</p>
+
+  <h2>
+    Les destinations du <em>cœur</em>
+  </h2>
+
+  <div class="destinations-grid">
+
+    <div class="dest-item">
+      <img class="dest-flag-img"
+           src="https://flagcdn.com/w80/ma.png"
+           alt="Maroc">
+      <span class="dest-name">Maroc</span>
+    </div>
+
+    <div class="dest-item">
+      <img class="dest-flag-img"
+           src="https://flagcdn.com/w80/tn.png"
+           alt="Tunisie">
+      <span class="dest-name">Tunisie</span>
+    </div>
+
+    <div class="dest-item">
+      <img class="dest-flag-img"
+           src="https://flagcdn.com/w80/al.png"
+           alt="Albanie">
+      <span class="dest-name">Albanie</span>
+    </div>
+
+    <div class="dest-item">
+      <img class="dest-flag-img"
+           src="https://flagcdn.com/w80/xk.png"
+           alt="Kosovo">
+      <span class="dest-name">Kosovo</span>
+    </div>
+
+    <div class="dest-item">
+      <img class="dest-flag-img"
+           src="https://flagcdn.com/w80/mk.png"
+           alt="Macédoine du Nord">
+      <span class="dest-name">Macédoine du Nord</span>
+    </div>
+
+    <div class="dest-item">
+      <img class="dest-flag-img"
+           src="flag-sicille.png"
+           alt="Sicile">
+      <span class="dest-name">Sicile</span>
+    </div>
+
+    <div class="dest-item">
+      <img class="dest-flag-img"
+           src="https://flagcdn.com/w80/pl.png"
+           alt="Pologne">
+      <span class="dest-name">Pologne</span>
+    </div>
+
+    <div class="dest-item">
+      <img class="dest-flag-img"
+           src="https://flagcdn.com/w80/de.png"
+           alt="Allemagne">
+      <span class="dest-name">Allemagne</span>
+    </div>
+
+    <div class="dest-item">
+      <img class="dest-flag-img"
+           src="https://flagcdn.com/w80/fr.png"
+           alt="France">
+      <span class="dest-name">France</span>
+    </div>
+
+    <div class="dest-item">
+      <img class="dest-flag-img"
+           src="flag-corse.png"
+           alt="Corse">
+      <span class="dest-name">Corse</span>
+    </div>
+
+    <div class="dest-item">
+      <img class="dest-flag-img"
+           src="https://flagcdn.com/w80/tr.png"
+           alt="Turquie">
+      <span class="dest-name">Turquie</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- DERNIERS VOYAGES -->
+
+<section class="books" id="actualites">
+
+  <p class="section-tag">Carnet de voyage</p>
+
+  <h2>
+    Les dernières <em>aventures</em>
+  </h2>
+
+  <div class="book-grid">
+
+    <article class="book-card">
+
+      <p class="section-tag">Juin 2026</p>
+
+      <h3>Marrakech &amp; Agadir</h3>
+
+      <p>
+        Un retour au Maroc, là où tout a commencé.
+        De nouvelles rencontres et de nouveaux souvenirs.
+      </p>
+
+    </article>
+
+    <article class="book-card">
+
+      <p class="section-tag">Août 2026</p>
+
+      <h3>Djerba, Tunisie</h3>
+
+      <p>
+        Entre les ruelles et les plages tunisiennes,
+        de nouvelles histoires à raconter.
+      </p>
+
+    </article>
+
+    <article class="book-card">
+
+      <p class="section-tag">Décembre 2026</p>
+
+      <h3>Une nouvelle aventure</h3>
+
+      <p>
+        Une prochaine destination se prépare.
+        Encore de nouveaux regards à croiser
+        et de nouvelles histoires à partager.
+      </p>
+
+    </article>
+
+  </div>
+
+  <a href="voyages.html" class="btn-outline">
+    Découvrir tous mes voyages
+  </a>
+
+</section>
+
+<!-- NOS ÉTOILES -->
+
+<section class="nala" id="nos-etoiles">
+
+  <div class="nala-image">
+
+    <img src="nala.jpeg"
+         alt="En souvenir de Nala"
+         class="nala-img"
+         loading="lazy">
+
+  </div>
+
+  <div class="nala-text">
+
+    <p class="section-tag">Nos étoiles</p>
+
+    <h2>
+      Nala, pour <em>toujours</em>
+    </h2>
+
+    <p>
+      On l'a trouvée dans la rue, le museau fouillant
+      des ordures pour survivre. Un petit chiot,
+      seul, affamé.
+    </p>
+
+    <p>
+      On l'a prise avec nous, emmenée chez le vétérinaire,
+      vaccinée. Elle avait désormais un carnet de santé
+      à mon nom. Elle avait un nom, Nala.
+    </p>
+
+    <div class="origin-quote">
+
+      <p>
+        « Elle cherchait juste à manger.
+        On lui a donné bien plus que ça,
+        on lui a donné une chance. »
+      </p>
+
+    </div>
+
+    <p>
+      On a trouvé quelqu'un pour la garder.
+      Mais un matin, on l'a retrouvée sous un arbre,
+      sans vie. Elle nous a laissé un vide immense
+      dans le cœur.
+    </p>
+
+    <p>
+      Nala est la raison pour laquelle Cœur Errant continue.
+      Pour elle, et pour tous ceux qui méritent une chance.
+    </p>
+
+    <p>
+      À toutes ces petites âmes parties trop tôt,
+      vous ne serez jamais oubliées.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- SOUTENIR -->
+
+<section class="cta" id="soutenir">
+
+  <p class="section-tag" style="justify-content:center;">
+    Ensemble, faisons la différence
+  </p>
+
+  <h2>
+    Un petit geste peut <em>changer une vie.</em>
+  </h2>
+
+  <p class="cta-desc">
+    Un repas, un partage, un livre, un geste de solidarité.
+    Il existe mille façons de soutenir Cœur Errant
+    et de contribuer à rendre les animaux errants
+    un peu moins invisibles.
+  </p>
+
+  <div class="cta-actions">
+
+    <a href="soutenir.html" class="btn-primary">
+      Soutenir Cœur Errant
+    </a>
+
+    <a href="#livres" class="btn-outline">
+      Découvrir mes livres
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- PIED DE PAGE -->
+
+<footer>
+
+  <div class="footer-logo">
+    <img src="logo.jpeg" alt="Cœur Errant">
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-socials">
+
+    <a class="footer-social-link"
+       href="https://www.tiktok.com/@coeur_errant"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/tiktok/white"
+             alt="TikTok">
+      </div>
+
+      <span class="footer-social-name">TikTok</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.instagram.com/coeur.errant/"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/instagram/white"
+             alt="Instagram">
+      </div>
+
+      <span class="footer-social-name">Instagram</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.youtube.com/@CoeurErrant"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/youtube/white"
+             alt="YouTube">
+      </div>
+
+      <span class="footer-social-name">YouTube</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/facebook/white"
+             alt="Facebook">
+      </div>
+
+      <span class="footer-social-name">Facebook</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.snapchat.com/add/coeur_errant"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/snapchat/white"
+             alt="Snapchat">
+      </div>
+
+      <span class="footer-social-name">Snapchat</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="mailto:coeur.errant@outlook.be">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/gmail/white"
+             alt="E-mail">
+      </div>
+
+      <span class="footer-social-name">Contact</span>
+
+    </a>
+
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <p class="footer-copy">
+    © <span id="annee"></span> Cœur Errant —
+    Chaque animal a une histoire.
+  </p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+  // Compteur depuis juin 2024
+
+  const debut = new Date('2024-06-01T00:00:00');
+  const aujourdhui = new Date();
+
+  const jours = Math.floor(
+    (aujourdhui - debut) / (1000 * 60 * 60 * 24)
+  );
+
+  document.getElementById('compteur').textContent = jours;
+
+  // Année automatique
+
+  document.getElementById('annee').textContent =
+    new Date().getFullYear();
+
+  // Menu mobile
+
+  function toggleMenu() {
+
+    const menu = document.getElementById('nav-links');
+    const bouton = document.getElementById('hamburger');
+
+    const ouvert = menu.classList.toggle('open');
+
+    bouton.classList.toggle('open', ouvert);
+    bouton.setAttribute('aria-expanded', ouvert);
+
+  }
+
+  function closeMenu() {
+
+    document.getElementById('nav-links')
+      .classList.remove('open');
+
+    const bouton = document.getElementById('hamburger');
+
+    bouton.classList.remove('open');
+    bouton.setAttribute('aria-expanded', 'false');
+
+  }
+
+  // Fermer le menu avec la touche Échap
+
+  document.addEventListener('keydown', function(event) {
+
+    if (event.key === 'Escape') {
+      closeMenu();
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
