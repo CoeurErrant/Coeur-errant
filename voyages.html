@@ -1,493 +1,2062 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voyages — Cœur Errant</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-  .voyages-hero {
-    padding: 10rem 5rem 5rem;
-    background: var(--charcoal);
-    color: var(--cream);
-  }
-  .voyages-hero .section-tag { color: var(--accent); }
-  .voyages-hero .section-tag::before { background: var(--accent); }
-  .voyages-hero h1 { color: var(--cream); font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
-  .voyages-hero h1 em { color: var(--accent); }
-  .voyages-hero p { font-size: 1rem; font-weight: 300; color: rgba(250,248,245,0.6); max-width: 50ch; line-height: 1.8; }
 
-  .section-title {
-    padding: 4rem 5rem 3rem;
-    border-bottom: 0.5px solid var(--border);
-    display: flex; align-items: center; gap: 2rem;
-  }
-  .section-title h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; }
-  .section-title h2 em { font-style: italic; color: var(--accent); }
-  .section-title-line { flex: 1; height: 0.5px; background: var(--border); }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  .voyage-card {
-    display: grid; grid-template-columns: 1fr 1fr;
-    border-bottom: 0.5px solid var(--border);
-  }
-  .voyage-card:nth-child(even) { direction: rtl; }
-  .voyage-card:nth-child(even) > * { direction: ltr; }
+  <title>Voyages — Cœur Errant</title>
 
-  .voyage-img {
-    background: var(--warm);
-    overflow: hidden; position: relative;
-    height: 380px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .voyage-img img {
-    width: 100%; height: 100%;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-    background: var(--warm);
-    transition: transform 0.6s ease;
-  }
-  .voyage-img:hover img { transform: scale(1.03); }
+  <meta name="description" content="Découvrez les voyages, les rencontres et les sauvetages de Cœur Errant à travers le monde.">
 
-  .voyage-img-placeholder {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 1rem;
-    color: var(--muted);
-  }
+  <meta name="theme-color" content="#faf8f5">
 
-  .voyage-country {
-    position: absolute; top: 1.5rem; left: 1.5rem;
-    display: flex; align-items: center; gap: 0.75rem;
-    background: rgba(250,248,245,0.92);
-    padding: 0.4rem 0.9rem;
-    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--charcoal);
-    border-radius: 2px;
-  }
-  .voyage-country img { width: 20px; height: 14px; object-fit: cover; border-radius: 2px; }
+  <link rel="icon" href="logo.jpeg">
 
-  .voyage-content {
-    padding: 3rem 4rem;
-    display: flex; flex-direction: column; justify-content: center;
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  .voyage-date {
-    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 1.2rem;
-    display: flex; align-items: center; gap: 0.75rem;
-  }
-  .voyage-date::before { content: ''; display: block; width: 1.5rem; height: 0.5px; background: var(--accent); }
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="accueil-v2.css">
 
-  .voyage-content h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.4rem, 2vw, 1.9rem);
-    font-weight: 300; line-height: 1.2; margin-bottom: 1.2rem;
-  }
-  .voyage-content h3 em { font-style: italic; color: var(--accent); }
+  <style>
 
-  .voyage-story {
-    font-size: 0.92rem; font-weight: 300; line-height: 1.9;
-    color: var(--muted); margin-bottom: 1.5rem;
-    max-width: 52ch;
-  }
+    /* INTRODUCTION */
 
-  .voyage-quote {
-    border-left: 2px solid var(--pink);
-    padding: 1rem 1.5rem;
-    background: rgba(212,69,122,0.04);
-  }
-  .voyage-quote p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; font-style: italic; font-weight: 300;
-    line-height: 1.6; color: var(--charcoal);
-  }
-
-  .upcoming { background: var(--warm); padding: 0 0 5rem; }
-
-  .countdown-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 2rem; padding: 0 5rem;
-  }
-
-  .countdown-card {
-    background: var(--cream);
-    border: 0.5px solid var(--border);
-    padding: 3rem;
-    position: relative; overflow: hidden;
-    border-radius: 4px;
-  }
-
-  .countdown-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 3px; background: var(--pink);
-  }
-
-  .countdown-flag { margin-bottom: 1.5rem; }
-  .countdown-flag img { height: 28px; border-radius: 3px; border: 0.5px solid var(--border); }
-
-  .countdown-location {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem; font-weight: 300; margin-bottom: 0.5rem;
-  }
-  .countdown-location em { font-style: italic; color: var(--accent); }
-
-  .countdown-date-label {
-    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 2rem;
-  }
-
-  .countdown-timer {
-    display: flex; gap: 1.5rem; align-items: flex-end;
-  }
-
-  .countdown-unit { text-align: center; }
-
-  .countdown-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300; line-height: 1;
-    display: block; color: var(--charcoal);
-  }
-
-  .countdown-label {
-    font-size: 0.6rem; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--muted);
-    display: block; margin-top: 0.4rem;
-  }
-
-  .countdown-sep {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem; font-weight: 300;
-    color: var(--accent); padding-bottom: 0.5rem;
-  }
-
-  .countdown-desc {
-    font-size: 0.88rem; font-weight: 300; line-height: 1.8;
-    color: var(--muted); margin-top: 2rem;
-  }
-
-  .departed-badge {
-    display: inline-block;
-    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--cream); background: var(--pink);
-    padding: 0.4rem 1rem; margin-top: 1rem;
-    border-radius: 2px;
-  }
-
-  @media (max-width: 768px) {
-    .voyages-hero { padding: 7rem 2rem 3rem; }
-    .section-title { padding: 3rem 2rem 2rem; }
-    .voyage-card { grid-template-columns: 1fr; }
-    .voyage-card:nth-child(even) { direction: ltr; }
-    .voyage-img { height: 260px; }
-    .voyage-content { padding: 2rem; }
-    .countdown-grid { grid-template-columns: 1fr; padding: 0 2rem; }
-  }
-</style>
-</head>
-<body>
-
-<nav>
-  <a class="nav-logo" href="index.html">
-    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
-    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; letter-spacing:0.15em;">CŒUR ERRANT</span>
-  </a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="index.html#histoire" onclick="closeMenu()">Mon histoire</a></li>
-    <li><a href="mission.html" onclick="closeMenu()">La mission</a></li>
-    <li><a href="voyages.html" onclick="closeMenu()">Voyages</a></li>
-    <li><a href="soutenir.html" onclick="closeMenu()">Soutenir</a></li>
-    <li class="lang-mobile"><a href="voyages-nl.html" onclick="closeMenu()">🇧🇪 Nederlands</a></li>
-  </ul>
-  <div class="lang-switcher">
-    <a href="voyages.html" class="lang-btn active">FR</a>
-    <span class="lang-sep">|</span>
-    <a href="voyages-nl.html" class="lang-btn">NL</a>
-  </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="voyages-hero">
-  <p class="section-tag">Le périple</p>
-  <h1>Chaque voyage, <em>une histoire</em></h1>
-  <p>De Tanger à Istanbul, chaque destination a laissé une empreinte. Voici les rencontres qui ont changé quelque chose, en moi et peut-être en eux.</p>
-</div>
-
-<div class="section-title">
-  <h2>Voyages <em>réalisés</em></h2>
-  <div class="section-title-line"></div>
-</div>
-
-<div class="voyage-card">
-  <div class="voyage-img">
-    <img src="Tanger.jpeg" alt="Tanger" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
-    <div class="voyage-img-placeholder" style="display:none;">
-      <p class="photo-hint">Tanger.jpeg</p>
-    </div>
-    <div class="voyage-country">
-      <img src="https://flagcdn.com/w80/ma.png" alt="Maroc"> Tanger, Maroc
-    </div>
-  </div>
-  <div class="voyage-content">
-    <p class="voyage-date">Juin 2024 — Premier voyage</p>
-    <h3>Le chiot aux yeux <em>couleur ciel</em></h3>
-    <p class="voyage-story">C'est lui que je vois encore. Un petit chiot aux yeux d'un bleu presque irréel, assis seul dans la poussière de Tanger. Sa maman était morte. Ses frères et sœurs aussi. Lui seul avait tenu. Il me regardait sans aboyer, sans fuir, comme s'il savait que j'étais là pour lui. Ce regard a tout déclenché. Ce voyage devait être des vacances. Il est devenu une mission.</p>
-    <div class="voyage-quote">
-      <p>"Ses yeux bleus comme le ciel de Tanger. Seul au monde, mais encore debout."</p>
-    </div>
-  </div>
-</div>
-
-<div class="voyage-card">
-  <div class="voyage-img">
-    <img src="nala.jpeg" alt="Nala" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
-    <div class="voyage-img-placeholder" style="display:none;">
-      <p class="photo-hint">nala.jpeg</p>
-    </div>
-    <div class="voyage-country">
-      <img src="https://flagcdn.com/w80/ma.png" alt="Maroc"> Tanger, Maroc
-    </div>
-  </div>
-  <div class="voyage-content">
-    <p class="voyage-date">2024 — Deuxième voyage</p>
-    <h3>Nala, et le refuge <em>du cœur</em></h3>
-    <p class="voyage-story">Ce deuxième retour à Tanger n'était pas un hasard. J'y suis revenue pour rejoindre quelqu'un qui ouvrait un refuge, pour distribuer de la nourriture la nuit avec une amie rencontrée sur place. Et puis il y a eu Nala. Un chiot trouvé le museau dans des ordures, cherchant désespérément à manger. On l'a prise avec nous. Vaccinée. Un carnet de santé à mon nom. Elle avait un avenir. Jusqu'à ce matin où on l'a retrouvée sous un arbre, sans vie.</p>
-    <div class="voyage-quote">
-      <p>"Elle avait un carnet de santé, un nom, un avenir. Nala reste gravée dans chaque geste que je pose."</p>
-    </div>
-  </div>
-</div>
-
-<div class="voyage-card">
-  <div class="voyage-img">
-    <img src="albanie.jpeg" alt="Albanie" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
-    <div class="voyage-img-placeholder" style="display:none;">
-      <p class="photo-hint">albanie.jpeg</p>
-    </div>
-    <div class="voyage-country">
-      <img src="https://flagcdn.com/w80/al.png" alt="Albanie"> Albanie
-    </div>
-  </div>
-  <div class="voyage-content">
-    <p class="voyage-date">2024</p>
-    <h3>Le chat devant <em>le supermarché</em></h3>
-    <p class="voyage-story">Il était là, devant les portes automatiques du supermarché, blessé, affamé. Les gens passaient sans le voir. Moi je ne pouvais pas passer. Je lui ai acheté de la nourriture, contacté des associations, cherché de l'aide. Personne n'a répondu. Le lendemain, je suis retournée le chercher pour l'emmener chez le vétérinaire. Il n'était plus là. Parti. Où, on ne saura jamais.</p>
-    <div class="voyage-quote">
-      <p>"Tout le monde le voyait. Personne ne le regardait. Moi je ne pouvais pas faire autrement."</p>
-    </div>
-  </div>
-</div>
-
-<div class="voyage-card">
-  <div class="voyage-img">
-    <img src="kossovo.jpeg" alt="Kosovo" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
-    <div class="voyage-img-placeholder" style="display:none;">
-      <p class="photo-hint">kossovo.jpeg</p>
-    </div>
-    <div class="voyage-country">
-      <img src="https://flagcdn.com/w80/xk.png" alt="Kosovo"> Kosovo
-    </div>
-  </div>
-  <div class="voyage-content">
-    <p class="voyage-date">2024</p>
-    <h3>La queue qui <em>remuait encore</em></h3>
-    <p class="voyage-story">Au milieu des décombres, dans une rue que le temps semblait avoir oubliée, un chien errant. Entouré de gravats, de poussière, de silence. Et pourtant, dès qu'il m'a aperçue, sa queue s'est mise à remuer. Doucement d'abord, puis de plus en plus vite. Malgré tout. Malgré la faim, malgré la solitude. Sa joie était intacte. C'est lui qui m'a redonné de la force ce jour-là.</p>
-    <div class="voyage-quote">
-      <p>"Entouré de rien, il remuait la queue comme si j'étais tout ce dont il avait besoin."</p>
-    </div>
-  </div>
-</div>
-
-<div class="voyage-card">
-  <div class="voyage-img">
-    <img src="Macedoine.jpeg" alt="Skopje" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
-    <div class="voyage-img-placeholder" style="display:none;">
-      <p class="photo-hint">Macedoine.jpeg</p>
-    </div>
-    <div class="voyage-country">
-      <img src="https://flagcdn.com/w80/mk.png" alt="Macédoine du Nord"> Skopje, Macédoine du Nord
-    </div>
-  </div>
-  <div class="voyage-content">
-    <p class="voyage-date">2024</p>
-    <h3>Le chien noir et <em>sa confiance absolue</em></h3>
-    <p class="voyage-story">Je ne l'avais jamais vu. Il ne me connaissait pas. Et pourtant, en quelques secondes à peine, il s'est allongé sur le dos, ventre offert, pattes en l'air, les yeux fermés. Une confiance totale, immédiate, désarmante. Ce chien noir à Skopje m'a rappelé que les animaux, eux, ne gardent pas rancune.</p>
-    <div class="voyage-quote">
-      <p>"Il s'est allongé sur le dos, ventre au ciel, sans même me connaître. Une leçon de confiance."</p>
-    </div>
-  </div>
-</div>
-
-<div class="voyage-card">
-  <div class="voyage-img">
-    <img src="sicillle.jpeg" alt="Sicile" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
-    <div class="voyage-img-placeholder" style="display:none;">
-      <p class="photo-hint">sicillle.jpeg</p>
-    </div>
-    <div class="voyage-country">
-      <img src="flag-sicille.png" alt="Sicile"> Sicile, Italie
-    </div>
-  </div>
-  <div class="voyage-content">
-    <p class="voyage-date">2024</p>
-    <h3>Le chat roux qui <em>ne voulait pas me quitter</em></h3>
-    <p class="voyage-story">Il est apparu comme ça, de nulle part, roux comme le soleil sicilien. Et il a commencé à me suivre. Dans les ruelles, sur les pavés chauds, entre les étals du marché. Pas pour la nourriture, il n'en voulait pas vraiment. Juste pour marcher à côté de quelqu'un. Pour ne pas être seul. On a marché longtemps ensemble ce jour-là, sans se parler, sans se demander pourquoi.</p>
-    <div class="voyage-quote">
-      <p>"Il ne voulait pas de nourriture. Il voulait juste de la compagnie. Moi aussi, finalement."</p>
-    </div>
-  </div>
-</div>
-
-<div class="voyage-card">
-  <div class="voyage-img">
-    <img src="corsee.jpeg" alt="Corse" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">
-    <div class="voyage-img-placeholder" style="display:none;">
-      <p class="photo-hint">corsee.jpeg</p>
-    </div>
-    <div class="voyage-country">
-      <img src="flag-corse.png" alt="Corse"> Corse, France
-    </div>
-  </div>
-  <div class="voyage-content">
-    <p class="voyage-date">2024</p>
-    <h3>Le parking de <em>tous les soirs</em></h3>
-    <p class="voyage-story">Chaque soir, en rentrant à l'hôtel, ils m'attendaient. Des chats, de toutes les couleurs, de tous les âges. Le parking de l'hôtel était devenu notre rendez-vous. Certains étaient timides, d'autres fonçaient directement vers moi. Ces soirées corses, sous les étoiles, entourée de ces petites vies, comptent parmi mes plus beaux souvenirs de voyage.</p>
-    <div class="voyage-quote">
-      <p>"Chaque soir, ils m'attendaient. Ce parking est devenu le plus bel endroit de Corse pour moi."</p>
-    </div>
-  </div>
-</div>
-
-<div class="upcoming">
-  <div class="section-title" style="background: var(--warm);">
-    <h2>Voyages <em>à venir</em></h2>
-    <div class="section-title-line"></div>
-  </div>
-  <div class="countdown-grid">
-    <div class="countdown-card">
-      <div class="countdown-flag">
-        <img src="https://flagcdn.com/w80/ma.png" alt="Maroc">
-      </div>
-      <p class="countdown-location">Marrakech, <em>Maroc</em></p>
-      <p class="countdown-date-label">19 Juin 2025</p>
-      <div class="countdown-timer" id="timer-marrakech"></div>
-      <p class="countdown-desc">Retour au Maroc, cette fois dans la ville ocre. De nouvelles ruelles, de nouveaux regards, de nouvelles histoires à écrire.</p>
-    </div>
-    <div class="countdown-card">
-      <div class="countdown-flag">
-        <img src="https://flagcdn.com/w80/ma.png" alt="Maroc">
-      </div>
-      <p class="countdown-location">Agadir, <em>Maroc</em></p>
-      <p class="countdown-date-label">24 Juin 2025</p>
-      <div class="countdown-timer" id="timer-agadir"></div>
-      <p class="countdown-desc">Agadir et ses plages, mais surtout ses animaux errants qui attendent. Une nouvelle mission sous le soleil marocain.</p>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <div class="footer-logo">
-    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
-    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1rem; letter-spacing:0.15em; color:var(--cream);">CŒUR ERRANT</span>
-  </div>
-  <div class="footer-divider"></div>
-  <div class="footer-socials">
-    <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/tiktok/white" alt="TikTok">
-      </div>
-      <span class="footer-social-name">TikTok</span>
-    </a>
-    <a href="https://www.youtube.com/@CoeurErrant" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/youtube/white" alt="YouTube">
-      </div>
-      <span class="footer-social-name">YouTube</span>
-    </a>
-    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook">
-      </div>
-      <span class="footer-social-name">Facebook</span>
-    </a>
-    <a href="https://www.snapchat.com/add/coeur_errant" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/snapchat/white" alt="Snapchat">
-      </div>
-      <span class="footer-social-name">Snapchat</span>
-    </a>
-    <a href="mailto:coeur.errant@outlook.be" class="footer-social-link">
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/gmail/white" alt="Mail">
-      </div>
-      <span class="footer-social-name">Mail</span>
-    </a>
-  </div>
-  <div class="footer-divider"></div>
-  <p class="footer-copy">© 2025 Cœur Errant — Nourrir les âmes errantes</p>
-</footer>
-
-<script>
-function countdown(targetDate, elementId) {
-  function update() {
-    const now = new Date();
-    const target = new Date(targetDate);
-    const diff = target - now;
-    const el = document.getElementById(elementId);
-    if (!el) return;
-
-    if (diff <= 0) {
-      el.innerHTML = '<span class="departed-badge">Voyage en cours ✈</span>';
-      return;
+    .voyages-hero {
+      padding: 160px 7% 80px;
+      background: var(--warm);
+      text-align: center;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+    .voyages-hero .section-tag {
+      justify-content: center;
+    }
 
-    el.innerHTML = `
-      <div class="countdown-unit">
-        <span class="countdown-num">${String(days).padStart(2,'0')}</span>
-        <span class="countdown-label">Jours</span>
+    .voyages-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 1.5rem 0;
+    }
+
+    .voyages-hero h1 em {
+      color: var(--pink);
+    }
+
+    .voyages-hero p:not(.section-tag) {
+      max-width: 700px;
+      margin: 1rem auto;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .voyages-navigation {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    /* TITRES DES SECTIONS */
+
+    .travel-heading {
+      text-align: center;
+      padding: 5rem 5% 3rem;
+    }
+
+    .travel-heading .section-tag {
+      justify-content: center;
+    }
+
+    .travel-heading h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      margin: 1rem 0;
+    }
+
+    .travel-heading h2 em {
+      color: var(--pink);
+    }
+
+    .travel-heading p:not(.section-tag) {
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    /* CARTES DES VOYAGES */
+
+    .travel-list {
+      max-width: 1400px;
+      margin: auto;
+      padding: 0 5% 4rem;
+    }
+
+    .voyage-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 3.5rem;
+      align-items: center;
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .voyage-card:nth-child(even) .voyage-img {
+      order: 2;
+    }
+
+    .voyage-card:last-child {
+      border-bottom: none;
+    }
+
+    .voyage-img {
+      background: var(--warm);
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      min-height: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .voyage-img > img {
+      width: 100%;
+      height: 450px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .voyage-img:hover > img {
+      transform: scale(1.025);
+    }
+
+    .voyage-country {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 1rem;
+      background: rgba(250,248,245,0.95);
+      border-radius: 30px;
+      font-size: 0.7rem;
+      color: var(--charcoal);
+      letter-spacing: 0.06em;
+      z-index: 2;
+    }
+
+    .voyage-country img {
+      width: 22px;
+      height: 15px;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .voyage-content {
+      padding: 1rem 0;
+    }
+
+    .voyage-date {
+      color: var(--pink);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .voyage-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .voyage-content h3 em {
+      color: var(--pink);
+    }
+
+    .voyage-story {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.95;
+      margin-bottom: 1rem;
+    }
+
+    .voyage-quote {
+      background: #f5eee8;
+      border-left: 2px solid var(--pink);
+      border-radius: 0 8px 8px 0;
+      padding: 1.3rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .voyage-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* DJIBOU — SAUVETAGE */
+
+    .rescue-section {
+      background: var(--warm);
+      padding: 5rem 7%;
+    }
+
+    .rescue-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .rescue-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .rescue-header .section-tag {
+      justify-content: center;
+    }
+
+    .rescue-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 400;
+      margin: 1rem 0;
+    }
+
+    .rescue-header h2 em {
+      color: var(--pink);
+    }
+
+    .rescue-badge {
+      display: inline-block;
+      background: #f4dce4;
+      color: #943e59;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      margin-top: 1rem;
+    }
+
+    .rescue-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .rescue-photo {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .rescue-photo img {
+      width: 100%;
+      height: 380px;
+      object-fit: contain;
+      display: block;
+      background: #eae4da;
+    }
+
+    .rescue-photo-caption {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .rescue-photo-caption h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .rescue-photo-caption p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .rescue-photo-caption .photo-date {
+      color: var(--pink);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.7rem;
+    }
+
+    .rescue-intro {
+      max-width: 800px;
+      margin: 2rem auto 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      line-height: 1.6;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .rescue-story {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .rescue-story p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.95;
+      margin-bottom: 1.4rem;
+    }
+
+    .rescue-story strong {
+      color: var(--charcoal);
+      font-weight: 500;
+    }
+
+    /* SUIVI DU SAUVETAGE */
+
+    .rescue-progress {
+      max-width: 750px;
+      margin: 3rem auto 0;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+
+    .rescue-progress h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+
+    .rescue-step {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      position: relative;
+      padding-bottom: 2rem;
+    }
+
+    .rescue-step:last-child {
+      padding-bottom: 0;
+    }
+
+    .rescue-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 36px;
+      bottom: 0;
+      left: 17px;
+      width: 1px;
+      background: #d9cec3;
+    }
+
+    .step-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: 1rem;
+      background: #e9e3db;
+      color: #8c8073;
+    }
+
+    .step-done .step-icon {
+      background: #e1eadd;
+      color: #52714b;
+    }
+
+    .step-current .step-icon {
+      background: #f4dce4;
+      color: #a85e68;
+    }
+
+    .step-content h4 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0.3rem 0 0.4rem;
+    }
+
+    .step-content p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* DESTINATION MYSTÈRE */
+
+    .mystery-section {
+      background: var(--warm);
+      padding: 5rem 5%;
+    }
+
+    .mystery-card {
+      max-width: 650px;
+      margin: auto;
+      padding: 3rem;
+      background: #f5eee4;
+      border: 1px solid #dfd0bf;
+      border-radius: 20px;
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(70,57,47,0.06);
+    }
+
+    .mystery-date {
+      color: #746557;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .mystery-envelope {
+      display: block;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      overflow: visible;
+    }
+
+    .envelope-group {
+      transform-origin: 50% 50%;
+      transform-box: fill-box;
+      animation: envelopeFloat 5s ease-in-out infinite;
+      transition: filter 0.4s ease;
+    }
+
+    .mystery-card:hover .envelope-group {
+      filter: drop-shadow(0 8px 8px rgba(116,101,87,0.18));
+    }
+
+    @keyframes envelopeFloat {
+
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-7px);
+      }
+
+    }
+
+    .mystery-paw {
+      animation: pawAppear 5s ease-in-out infinite;
+    }
+
+    .paw-two {
+      animation-delay: 0.6s;
+    }
+
+    .paw-three {
+      animation-delay: 1.2s;
+    }
+
+    @keyframes pawAppear {
+
+      0%, 100% {
+        opacity: 0.35;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+
+    }
+
+    .mystery-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 500;
+      line-height: 1.1;
+      color: #46392f;
+      margin: 1rem 0;
+    }
+
+    .mystery-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-style: italic;
+      color: #a85e68;
+      line-height: 1.5;
+      margin: 1.5rem 0;
+    }
+
+    .mystery-description {
+      font-size: 0.95rem;
+      color: #746557;
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+
+    .mystery-divider {
+      height: 1px;
+      background: #d6c6b2;
+      margin: 1.5rem 0;
+    }
+
+    .mystery-info {
+      color: #746557;
+      font-size: 0.9rem;
+      margin: 0.9rem 0;
+    }
+
+    .mystery-follow {
+      background: #a85e68;
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      margin: 1.8rem 0 1rem;
+    }
+
+    .mystery-signature {
+      color: #746557;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* VERSION MOBILE */
+
+    @media (max-width: 900px) {
+
+      .voyage-card {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2.5rem 0;
+      }
+
+      .voyage-card:nth-child(even) .voyage-img {
+        order: 0;
+      }
+
+      .voyage-img > img {
+        height: 380px;
+      }
+
+      .rescue-photo img {
+        height: 300px;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .voyages-hero {
+        padding: 125px 1.5rem 3rem;
+      }
+
+      .voyages-navigation {
+        flex-direction: column;
+      }
+
+      .travel-heading {
+        padding: 3rem 1.5rem 1rem;
+      }
+
+      .travel-list {
+        padding: 0 1.5rem 2rem;
+      }
+
+      .voyage-img {
+        min-height: 250px;
+      }
+
+      .voyage-img > img {
+        height: 340px;
+      }
+
+      .rescue-section {
+        padding: 3rem 1.5rem;
+      }
+
+      .rescue-photos {
+        gap: 0.8rem;
+      }
+
+      .rescue-photo img {
+        height: 200px;
+      }
+
+      .rescue-photo-caption {
+        padding: 0.8rem;
+      }
+
+      .rescue-photo-caption h3 {
+        font-size: 1.35rem;
+      }
+
+      .rescue-photo-caption p {
+        font-size: 0.75rem;
+      }
+
+      .rescue-progress {
+        padding: 1.5rem;
+      }
+
+      .mystery-section {
+        padding: 3rem 1.2rem;
+      }
+
+      .mystery-card {
+        padding: 2rem 1.3rem;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .envelope-group,
+      .mystery-paw {
+        animation: none;
+      }
+
+      .voyage-img > img {
+        transition: none;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+  <a class="nav-logo" href="index.html">
+    <img src="logo.jpeg" alt="Cœur Errant">
+  </a>
+
+  <ul class="nav-links" id="nav-links">
+
+    <li>
+      <a href="index.html">Accueil</a>
+    </li>
+
+    <li>
+      <a href="index.html#histoire">Mon histoire</a>
+    </li>
+
+    <li>
+      <a href="mission.html">La mission</a>
+    </li>
+
+    <li>
+      <a href="voyages.html" aria-current="page">Voyages</a>
+    </li>
+
+    <li>
+      <a href="livres.html">Mes livres</a>
+    </li>
+
+    <li>
+      <a href="index.html#nos-etoiles">Nos étoiles</a>
+    </li>
+
+    <li>
+      <a href="soutenir.html">Soutenir</a>
+    </li>
+
+    <li class="lang-mobile">
+      <a href="voyages-nl.html">Nederlands</a>
+    </li>
+
+  </ul>
+
+  <div class="lang-switcher">
+
+    <a href="voyages.html" class="lang-btn active">FR</a>
+
+    <span class="lang-sep">|</span>
+
+    <a href="voyages-nl.html" class="lang-btn">NL</a>
+
+  </div>
+
+  <button class="hamburger"
+          id="hamburger"
+          onclick="toggleMenu()"
+          aria-label="Ouvrir le menu"
+          aria-controls="nav-links"
+          aria-expanded="false">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+</nav>
+
+<main>
+
+<!-- INTRODUCTION -->
+
+<section class="voyages-hero">
+
+  <p class="section-tag">Carnet de voyage</p>
+
+  <h1>
+    Chaque voyage, <em>une histoire.</em>
+  </h1>
+
+  <p>
+    Je voyage pour découvrir le monde, mais aussi
+    pour rencontrer ceux que l'on oublie trop souvent.
+    Ces petites âmes qui vivent dans nos rues,
+    sur nos plages et au détour de nos chemins.
+  </p>
+
+  <p>
+    Chaque destination laisse une empreinte.
+    Chaque rencontre raconte une histoire.
+    Voici celles qui ont marqué mon cœur.
+  </p>
+
+  <div class="voyages-navigation">
+
+    <a href="#voyages-recents" class="btn-primary">
+      Dernières rencontres
+    </a>
+
+    <a href="#djibou" class="btn-outline">
+      Le sauvetage de Djibou
+    </a>
+
+    <a href="#prochain-voyage" class="btn-outline">
+      Prochain voyage
+    </a>
+
+  </div>
+
+</section>
+
+<!-- VOYAGES RÉCENTS -->
+
+<section id="voyages-recents">
+
+  <div class="travel-heading">
+
+    <p class="section-tag">Les rencontres de 2026</p>
+
+    <h2>
+      De nouvelles <em>empreintes</em>
+    </h2>
+
+    <p>
+      Des regards, des moments de tendresse
+      et des histoires qui continuent de vivre
+      bien après mon retour.
+    </p>
+
+  </div>
+
+  <div class="travel-list">
+
+    <!-- DJERBA -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="djerba-chien.webp"
+             alt="Chien errant sur une plage de Djerba"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="https://flagcdn.com/w80/tn.png"
+               alt="Tunisie">
+
+          Djerba, Tunisie
+
+        </div>
+
       </div>
-      <span class="countdown-sep">:</span>
-      <div class="countdown-unit">
-        <span class="countdown-num">${String(hours).padStart(2,'0')}</span>
-        <span class="countdown-label">Heures</span>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">Août 2026</p>
+
+        <h3>
+          Le courage de <em>faire confiance</em>
+        </h3>
+
+        <p class="voyage-story">
+          Sur une plage de Djerba, j'ai rencontré
+          un chien particulièrement craintif.
+          Il gardait ses distances, hésitant
+          à s'approcher de moi.
+        </p>
+
+        <p class="voyage-story">
+          Je ne connaissais rien de son passé,
+          ni des raisons de sa méfiance.
+          Je savais simplement que je ne voulais
+          pas lui imposer ma présence.
+          Alors, je lui ai laissé le temps.
+        </p>
+
+        <p class="voyage-story">
+          Petit à petit, il a commencé à s'approcher.
+          Malgré sa peur, malgré cette inconnue
+          que j'étais pour lui, il a trouvé le courage
+          de réduire la distance qui nous séparait.
+        </p>
+
+        <p class="voyage-story">
+          J'ai pu lui offrir de la nourriture,
+          mais c'est surtout son courage qui m'a marquée.
+          Je l'admirais. Chaque petit pas vers moi
+          représentait quelque chose de grand.
+        </p>
+
+        <p class="voyage-story">
+          Cette rencontre m'a rappelé que l'amour
+          des animaux, c'est aussi savoir respecter
+          leurs limites, leur laisser le choix
+          et avancer à leur rythme.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            La confiance ne se réclame pas.
+            Elle se mérite, parfois simplement
+            avec un peu de patience et de douceur.
+          </p>
+
+        </div>
+
       </div>
-      <span class="countdown-sep">:</span>
-      <div class="countdown-unit">
-        <span class="countdown-num">${String(mins).padStart(2,'0')}</span>
-        <span class="countdown-label">Min</span>
+
+    </article>
+
+    <!-- AGADIR -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="agadir-chat.png"
+             alt="Chat roux près d'une bouteille d'eau vide à Agadir"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="https://flagcdn.com/w80/ma.png"
+               alt="Maroc">
+
+          Agadir, Maroc
+
+        </div>
+
       </div>
-      <span class="countdown-sep">:</span>
-      <div class="countdown-unit">
-        <span class="countdown-num">${String(secs).padStart(2,'0')}</span>
-        <span class="countdown-label">Sec</span>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">Juin 2026</p>
+
+        <h3>
+          Une bouteille vide, <em>un besoin vital</em>
+        </h3>
+
+        <p class="voyage-story">
+          Je me promenais dans les rues d'Agadir
+          lorsqu'un chat roux a attiré mon attention.
+          Il faisait chaud ce jour-là.
+        </p>
+
+        <p class="voyage-story">
+          Debout sur ses pattes arrière,
+          les pattes avant agrippées au rebord
+          d'un pot de fleurs, il se tenait juste
+          à côté d'une bouteille d'eau vide.
+        </p>
+
+        <p class="voyage-story">
+          Son pelage était sale, son regard
+          semblait fatigué. En le voyant ainsi,
+          je n'ai pas pu m'empêcher de penser
+          qu'il cherchait simplement à boire.
+        </p>
+
+        <p class="voyage-story">
+          Cette scène m'a profondément touchée.
+          Une bouteille d'eau, un objet si banal
+          pour nous, pouvait représenter pour lui
+          quelque chose de tellement précieux.
+        </p>
+
+        <p class="voyage-story">
+          Je me suis arrêtée pour le photographier,
+          mais surtout pour lui offrir de la nourriture
+          et de l'eau. Je ne l'ai malheureusement
+          jamais recroisé.
+        </p>
+
+        <p class="voyage-story">
+          Nous avons la chance de pouvoir boire
+          lorsque nous avons soif.
+          Eux n'ont pas toujours cette chance.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Parfois, une simple gamelle d'eau
+            peut faire toute la différence.
+          </p>
+
+        </div>
+
       </div>
-    `;
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- DJIBOU — SAUVETAGE EN COURS -->
+
+<section class="rescue-section" id="djibou">
+
+  <div class="rescue-inner">
+
+    <div class="rescue-header">
+
+      <p class="section-tag">
+        Une histoire particulière
+      </p>
+
+      <h2>
+        Djibou, <em>de la rue à mon cœur</em>
+      </h2>
+
+      <p class="voyage-date">
+        Marrakech, Maroc · Juin 2026
+      </p>
+
+      <span class="rescue-badge">
+        ♡ Sauvetage en cours — Direction la Belgique
+      </span>
+
+    </div>
+
+    <!-- AVANT / APRÈS -->
+
+    <div class="rescue-photos">
+
+      <article class="rescue-photo">
+
+        <img src="djibou-avant.png"
+             alt="Djibou lors de notre première rencontre à Marrakech"
+             loading="lazy">
+
+        <div class="rescue-photo-caption">
+
+          <p class="photo-date">
+            Juin 2026
+          </p>
+
+          <h3>Notre première rencontre</h3>
+
+          <p>
+            Un tout petit chaton fragile
+            qui avait besoin d'aide.
+          </p>
+
+        </div>
+
+      </article>
+
+      <article class="rescue-photo">
+
+        <img src="djibou-apres.png"
+             alt="Djibou après sa prise en charge au Maroc"
+             loading="lazy">
+
+        <div class="rescue-photo-caption">
+
+          <p class="photo-date">
+            Novembre 2026
+          </p>
+
+          <h3>Une nouvelle chance</h3>
+
+          <p>
+            À l'abri, entouré de bienveillance,
+            en attendant nos retrouvailles.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <p class="rescue-intro">
+      Quelques mois séparent ces deux photographies.
+      Entre elles, des soins, de la patience,
+      de la bienveillance et une nouvelle chance.
+      Voilà aussi ce que représente Cœur Errant.
+    </p>
+
+    <!-- TÉMOIGNAGE -->
+
+    <div class="rescue-story">
+
+      <p>
+        Certaines rencontres ne doivent rien au hasard.
+      </p>
+
+      <p>
+        C'est dans le riad où je séjournais à Marrakech
+        que j'ai entendu les miaulements d'un tout petit
+        chaton noir et blanc. Il était seul, très maigre,
+        couvert de puces et atteint du coryza.
+        Il était tellement jeune qu'il était encore
+        difficile de déterminer s'il s'agissait
+        d'un mâle ou d'une femelle.
+      </p>
+
+      <p>
+        Pourtant, dès le premier regard,
+        ce fut un véritable coup de cœur.
+      </p>
+
+      <p>
+        Je l'ai nourri, emmené chez le vétérinaire
+        et couvert de tendresse.
+        Très vite, il a commencé à dormir
+        blotti dans ma nuque.
+        Il ne quittait plus ma porte.
+      </p>
+
+      <p>
+        Lorsque je sortais, il m'attendait devant
+        ma chambre. Lorsque je rentrais,
+        il retrouvait sa nourriture, mais aussi
+        les câlins et la chaleur qu'il semblait
+        tant apprécier.
+      </p>
+
+      <p>
+        Comment ne pas s'attacher à cette petite
+        boule de poils qui avait pris une si grande
+        place dans mon quotidien ?
+      </p>
+
+      <p>
+        Mais les vacances touchent toujours à leur fin.
+        Et cette fois, je ne pouvais pas me résoudre
+        à le laisser derrière moi sans lui assurer
+        un avenir.
+      </p>
+
+      <p>
+        Aujourd'hui, Djibou est hébergé au Maroc
+        chez une femme bienveillante qui s'occupe
+        également d'autres chats errants.
+        Elle prend soin de lui en attendant
+        qu'il puisse me rejoindre en Belgique.
+      </p>
+
+      <p>
+        Il faudra encore quelques mois de patience
+        avant nos retrouvailles, mais une chose
+        est certaine, une place l'attend déjà chez moi.
+      </p>
+
+      <p>
+        Il ne sera plus un chat parmi tant d'autres
+        dans les rues de Marrakech.
+        Il aura sa maison, sa famille
+        et tout l'amour qu'il mérite.
+      </p>
+
+      <p>
+        <strong>
+          Je suis partie au Maroc avec une valise.
+          J'en suis revenue avec une petite âme
+          de plus dans mon cœur.
+        </strong>
+      </p>
+
+      <div class="voyage-quote">
+
+        <p>
+          Notre histoire ne s'arrête pas à Marrakech.
+          Elle ne fait que commencer.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- SUIVI DE DJIBOU -->
+
+    <div class="rescue-progress">
+
+      <h3>
+        Le chemin vers <em>sa nouvelle vie</em>
+      </h3>
+
+      <div class="rescue-step step-done">
+
+        <div class="step-icon">✓</div>
+
+        <div class="step-content">
+
+          <h4>Notre première rencontre</h4>
+
+          <p>
+            Juin 2026 — Un petit chaton
+            rencontré dans un riad à Marrakech.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="rescue-step step-done">
+
+        <div class="step-icon">✓</div>
+
+        <div class="step-content">
+
+          <h4>Les premiers soins</h4>
+
+          <p>
+            Une prise en charge vétérinaire
+            pour lui offrir un nouveau départ.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="rescue-step step-done">
+
+        <div class="step-icon">✓</div>
+
+        <div class="step-content">
+
+          <h4>Un foyer temporaire au Maroc</h4>
+
+          <p>
+            Djibou est désormais à l'abri
+            chez une personne de confiance.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="rescue-step step-current">
+
+        <div class="step-icon">♡</div>
+
+        <div class="step-content">
+
+          <h4>En attendant la Belgique</h4>
+
+          <p>
+            Les préparatifs continuent
+            avant son arrivée dans sa nouvelle famille.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="rescue-step">
+
+        <div class="step-icon">♥</div>
+
+        <div class="step-content">
+
+          <h4>Enfin réunis</h4>
+
+          <p>
+            Le plus beau chapitre reste encore à écrire.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ANCIENS VOYAGES -->
+
+<section id="anciens-voyages">
+
+  <div class="travel-heading">
+
+    <p class="section-tag">Les souvenirs du cœur</p>
+
+    <h2>
+      Là où tout <em>a commencé</em>
+    </h2>
+
+    <p>
+      Des rencontres qui ont laissé une empreinte
+      indélébile et qui continuent de donner
+      du sens à Cœur Errant.
+    </p>
+
+  </div>
+
+  <div class="travel-list">
+
+    <!-- TANGER -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="Tanger.jpeg"
+             alt="Le chiot aux yeux bleus de Tanger"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="https://flagcdn.com/w80/ma.png"
+               alt="Maroc">
+
+          Tanger, Maroc
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">
+          Juin 2024 — Premier voyage
+        </p>
+
+        <h3>
+          Le chiot aux yeux <em>couleur ciel</em>
+        </h3>
+
+        <p class="voyage-story">
+          C'est lui que je vois encore.
+          Un petit chiot aux yeux d'un bleu presque
+          irréel, assis seul dans la poussière de Tanger.
+          Sa maman était morte. Ses frères et sœurs aussi.
+          Lui seul avait tenu.
+        </p>
+
+        <p class="voyage-story">
+          Il me regardait sans aboyer, sans fuir,
+          comme s'il savait que j'étais là pour lui.
+          Ce regard a tout déclenché.
+          Ce voyage devait être des vacances.
+          Il est devenu une mission.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Ses yeux bleus comme le ciel de Tanger.
+            Seul au monde, mais encore debout.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- NALA -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="nala.jpeg"
+             alt="Nala"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="https://flagcdn.com/w80/ma.png"
+               alt="Maroc">
+
+          Tanger, Maroc
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">
+          Septembre 2025
+        </p>
+
+        <h3>
+          Nala, et le refuge <em>du cœur</em>
+        </h3>
+
+        <p class="voyage-story">
+          Ce deuxième retour à Tanger n'était pas
+          un hasard. J'y suis revenue pour rejoindre
+          quelqu'un qui ouvrait un refuge,
+          pour distribuer de la nourriture la nuit
+          avec une amie rencontrée sur place.
+        </p>
+
+        <p class="voyage-story">
+          Et puis il y a eu Nala.
+          Un chiot trouvé le museau dans des ordures,
+          cherchant désespérément à manger.
+          On l'a prise avec nous. Vaccinée.
+          Un carnet de santé à mon nom.
+        </p>
+
+        <p class="voyage-story">
+          Elle avait un avenir.
+          Jusqu'à ce matin où on l'a retrouvée
+          sous un arbre, sans vie.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Elle avait un carnet de santé,
+            un nom, un avenir.
+            Nala reste gravée dans chaque geste que je pose.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- ALBANIE -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="albanie.jpeg"
+             alt="Chat errant rencontré en Albanie"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="https://flagcdn.com/w80/al.png"
+               alt="Albanie">
+
+          Albanie
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">2024</p>
+
+        <h3>
+          Le chat devant <em>le supermarché</em>
+        </h3>
+
+        <p class="voyage-story">
+          Il était là, devant les portes automatiques
+          du supermarché, blessé, affamé.
+          Les gens passaient sans le voir.
+          Moi je ne pouvais pas passer.
+        </p>
+
+        <p class="voyage-story">
+          Je lui ai acheté de la nourriture,
+          contacté des associations, cherché de l'aide.
+          Personne n'a répondu.
+          Le lendemain, je suis retournée le chercher
+          pour l'emmener chez le vétérinaire.
+          Il n'était plus là.
+          Parti. Où, on ne saura jamais.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Tout le monde le voyait.
+            Personne ne le regardait.
+            Moi je ne pouvais pas faire autrement.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- KOSOVO -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="kossovo.jpeg"
+             alt="Chien errant rencontré au Kosovo"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="https://flagcdn.com/w80/xk.png"
+               alt="Kosovo">
+
+          Kosovo
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">2024</p>
+
+        <h3>
+          La queue qui <em>remuait encore</em>
+        </h3>
+
+        <p class="voyage-story">
+          Au milieu des décombres, dans une rue
+          que le temps semblait avoir oubliée,
+          un chien errant.
+          Entouré de gravats, de poussière, de silence.
+        </p>
+
+        <p class="voyage-story">
+          Et pourtant, dès qu'il m'a aperçue,
+          sa queue s'est mise à remuer.
+          Doucement d'abord, puis de plus en plus vite.
+          Malgré tout. Malgré la faim, malgré la solitude.
+          Sa joie était intacte.
+          C'est lui qui m'a redonné de la force ce jour-là.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Entouré de rien, il remuait la queue
+            comme si j'étais tout ce dont il avait besoin.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- MACÉDOINE DU NORD -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="Macedoine.jpeg"
+             alt="Chien noir rencontré à Skopje"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="https://flagcdn.com/w80/mk.png"
+               alt="Macédoine du Nord">
+
+          Skopje, Macédoine du Nord
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">
+          Janvier 2026
+        </p>
+
+        <h3>
+          Le chien noir et <em>sa confiance absolue</em>
+        </h3>
+
+        <p class="voyage-story">
+          Je ne l'avais jamais vu.
+          Il ne me connaissait pas.
+          Et pourtant, en quelques secondes à peine,
+          il s'est allongé sur le dos,
+          ventre offert, pattes en l'air,
+          les yeux fermés.
+        </p>
+
+        <p class="voyage-story">
+          Une confiance totale, immédiate,
+          désarmante. Ce chien noir à Skopje
+          m'a offert un moment de tendresse
+          que je n'oublierai jamais.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Il s'est allongé sur le dos,
+            ventre au ciel, sans même me connaître.
+            Une leçon de confiance.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- SICILE -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="sicillle.jpeg"
+             alt="Chat roux rencontré en Sicile"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="flag-sicille.png"
+               alt="Sicile">
+
+          Sicile, Italie
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">2024</p>
+
+        <h3>
+          Le chat roux qui <em>ne voulait pas me quitter</em>
+        </h3>
+
+        <p class="voyage-story">
+          Il est apparu comme ça, de nulle part,
+          roux comme le soleil sicilien.
+          Et il a commencé à me suivre.
+          Dans les ruelles, sur les pavés chauds,
+          entre les étals du marché.
+        </p>
+
+        <p class="voyage-story">
+          Pas pour la nourriture,
+          il n'en voulait pas vraiment.
+          Juste pour marcher à côté de quelqu'un.
+          Pour ne pas être seul.
+          On a marché longtemps ensemble ce jour-là,
+          sans se parler, sans se demander pourquoi.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Il ne voulait pas de nourriture.
+            Il voulait juste de la compagnie.
+            Moi aussi, finalement.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- CORSE -->
+
+    <article class="voyage-card">
+
+      <div class="voyage-img">
+
+        <img src="corsee.jpeg"
+             alt="Chats errants rencontrés en Corse"
+             loading="lazy">
+
+        <div class="voyage-country">
+
+          <img src="flag-corse.png"
+               alt="Corse">
+
+          Corse, France
+
+        </div>
+
+      </div>
+
+      <div class="voyage-content">
+
+        <p class="voyage-date">2024</p>
+
+        <h3>
+          Le parking de <em>tous les soirs</em>
+        </h3>
+
+        <p class="voyage-story">
+          Chaque soir, en rentrant à l'hôtel,
+          ils m'attendaient.
+          Des chats, de toutes les couleurs,
+          de tous les âges.
+          Le parking de l'hôtel était devenu
+          notre rendez-vous.
+        </p>
+
+        <p class="voyage-story">
+          Certains étaient timides,
+          d'autres fonçaient directement vers moi.
+          Ces soirées corses, sous les étoiles,
+          entourée de ces petites vies,
+          comptent parmi mes plus beaux souvenirs
+          de voyage.
+        </p>
+
+        <div class="voyage-quote">
+
+          <p>
+            Chaque soir, ils m'attendaient.
+            Ce parking est devenu le plus bel endroit
+            de Corse pour moi.
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- DESTINATION MYSTÈRE -->
+
+<section class="mystery-section" id="prochain-voyage">
+
+  <div class="mystery-card">
+
+    <p class="mystery-date">
+      Décembre 2026 · Prochain voyage
+    </p>
+
+    <!-- ENVELOPPE DESSINÉE EN SVG -->
+
+    <svg class="mystery-envelope"
+         viewBox="0 0 340 185"
+         xmlns="http://www.w3.org/2000/svg"
+         aria-hidden="true">
+
+      <defs>
+
+        <g id="empreinte">
+
+          <ellipse cx="0" cy="4" rx="7" ry="6"/>
+
+          <ellipse cx="-8" cy="-4" rx="3" ry="4"/>
+
+          <ellipse cx="-3" cy="-9" rx="3" ry="4"/>
+
+          <ellipse cx="4" cy="-9" rx="3" ry="4"/>
+
+          <ellipse cx="9" cy="-3" rx="3" ry="4"/>
+
+        </g>
+
+      </defs>
+
+      <!-- ENVELOPPE -->
+
+      <g class="envelope-group">
+
+        <g transform="translate(32 17) rotate(-12 140 70)">
+
+          <rect x="30"
+                y="15"
+                width="225"
+                height="137"
+                rx="3"
+                fill="#e6d6bd"
+                stroke="#bba58a"/>
+
+          <path d="M30 15 L142.5 100 L255 15
+                   M30 152 L115 79
+                   M255 152 L170 79"
+                stroke="#bba58a"
+                fill="none"
+                stroke-width="1.4"/>
+
+          <!-- CACHET DE CIRE -->
+
+          <circle cx="143"
+                  cy="91"
+                  r="23"
+                  fill="#a85e68"
+                  stroke="#914b55"
+                  stroke-width="2"/>
+
+          <!-- PATTE SUR LE CACHET -->
+
+          <g fill="#f0c5bb"
+             transform="translate(143 91)">
+
+            <ellipse cx="0"
+                     cy="5"
+                     rx="9"
+                     ry="7"/>
+
+            <ellipse cx="-10"
+                     cy="-5"
+                     rx="3.5"
+                     ry="5"
+                     transform="rotate(-25 -10 -5)"/>
+
+            <ellipse cx="-3.5"
+                     cy="-10"
+                     rx="3.5"
+                     ry="5"/>
+
+            <ellipse cx="4.5"
+                     cy="-10"
+                     rx="3.5"
+                     ry="5"/>
+
+            <ellipse cx="11"
+                     cy="-4"
+                     rx="3.5"
+                     ry="5"
+                     transform="rotate(25 11 -4)"/>
+
+          </g>
+
+        </g>
+
+      </g>
+
+      <!-- EMPREINTES AUTOUR DE L'ENVELOPPE -->
+
+      <g class="mystery-paw"
+         fill="#b7a18a"
+         transform="translate(30 145) rotate(-25)">
+
+        <use href="#empreinte"/>
+
+      </g>
+
+      <g class="mystery-paw paw-two"
+         fill="#b7a18a"
+         transform="translate(290 38) rotate(25)">
+
+        <use href="#empreinte"/>
+
+      </g>
+
+      <g class="mystery-paw paw-three"
+         fill="#b7a18a"
+         transform="translate(310 78) rotate(15)">
+
+        <use href="#empreinte"/>
+
+      </g>
+
+    </svg>
+
+    <h2>Destination mystère</h2>
+
+    <p class="mystery-subtitle">
+      Quelque part dans le monde,
+      une nouvelle histoire m'attend...
+    </p>
+
+    <p class="mystery-description">
+      De nouveaux horizons, de nouveaux regards,
+      de nouvelles petites âmes à rencontrer.
+      La prochaine destination reste encore
+      un mystère, même pour moi.
+    </p>
+
+    <div class="mystery-divider"></div>
+
+    <p class="mystery-info">
+      📍 Destination encore inconnue
+    </p>
+
+    <p class="mystery-info">
+      🐾 Mission inchangée
+    </p>
+
+    <div class="mystery-follow">
+      À suivre… ♡
+    </div>
+
+    <p class="mystery-signature">
+      Peu importe la destination,
+      le cœur connaît déjà le chemin.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- DÉCOUVRIR LES LIVRES -->
+
+<section class="cta">
+
+  <p class="section-tag" style="justify-content:center;">
+    Des rencontres aux mots
+  </p>
+
+  <h2>
+    Leurs histoires <em>continuent de vivre.</em>
+  </h2>
+
+  <p class="cta-desc">
+    Certaines rencontres sont devenues des pages,
+    des illustrations et des histoires à partager.
+    Découvrez mes livres inspirés par ces petites âmes
+    rencontrées à travers le monde.
+  </p>
+
+  <div class="cta-actions">
+
+    <a href="livres.html" class="btn-primary">
+      Découvrir mes livres
+    </a>
+
+    <a href="soutenir.html" class="btn-outline">
+      Soutenir Cœur Errant
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- PIED DE PAGE -->
+
+<footer>
+
+  <div class="footer-logo">
+
+    <img src="logo.jpeg" alt="Cœur Errant">
+
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-socials">
+
+    <a class="footer-social-link"
+       href="https://www.tiktok.com/@coeur_errant"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/tiktok/white"
+             alt="TikTok">
+
+      </div>
+
+      <span class="footer-social-name">TikTok</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.instagram.com/coeur.errant/"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/instagram/white"
+             alt="Instagram">
+
+      </div>
+
+      <span class="footer-social-name">Instagram</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.youtube.com/@CoeurErrant"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/youtube/white"
+             alt="YouTube">
+
+      </div>
+
+      <span class="footer-social-name">YouTube</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/facebook/white"
+             alt="Facebook">
+
+      </div>
+
+      <span class="footer-social-name">Facebook</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.snapchat.com/add/coeur_errant"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/snapchat/white"
+             alt="Snapchat">
+
+      </div>
+
+      <span class="footer-social-name">Snapchat</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="mailto:coeur.errant@outlook.be">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/gmail/white"
+             alt="E-mail">
+
+      </div>
+
+      <span class="footer-social-name">Contact</span>
+
+    </a>
+
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <p class="footer-copy">
+
+    © <span id="annee"></span> Cœur Errant —
+    Chaque animal a une histoire.
+
+  </p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+  // Année automatique
+
+  document.getElementById('annee').textContent =
+    new Date().getFullYear();
+
+  // Menu mobile
+
+  function toggleMenu() {
+
+    const menu = document.getElementById('nav-links');
+    const bouton = document.getElementById('hamburger');
+
+    const ouvert = menu.classList.toggle('open');
+
+    bouton.classList.toggle('open', ouvert);
+
+    bouton.setAttribute('aria-expanded', ouvert);
+
+    bouton.setAttribute(
+      'aria-label',
+      ouvert ? 'Fermer le menu' : 'Ouvrir le menu'
+    );
+
   }
-  update();
-  setInterval(update, 1000);
-}
 
-countdown('2025-06-19T00:00:00', 'timer-marrakech');
-countdown('2025-06-24T00:00:00', 'timer-agadir');
+  function closeMenu() {
 
-function toggleMenu() {
-  document.getElementById('nav-links').classList.toggle('open');
-  document.getElementById('hamburger').classList.toggle('open');
-}
-function closeMenu() {
-  document.getElementById('nav-links').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
-}
+    document.getElementById('nav-links')
+      .classList.remove('open');
+
+    const bouton = document.getElementById('hamburger');
+
+    bouton.classList.remove('open');
+
+    bouton.setAttribute('aria-expanded', 'false');
+
+    bouton.setAttribute('aria-label', 'Ouvrir le menu');
+
+  }
+
+  document.querySelectorAll('#nav-links a')
+    .forEach(function(lien) {
+
+      lien.addEventListener('click', closeMenu);
+
+    });
+
+  document.addEventListener('keydown', function(event) {
+
+    if (event.key === 'Escape') {
+
+      closeMenu();
+
+    }
+
+  });
+
 </script>
 
 </body>

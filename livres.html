@@ -1,0 +1,872 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mes livres — Cœur Errant</title>
+
+  <meta name="description" content="Découvrez les livres Cœur Errant, des créations inspirées par les animaux errants, leurs histoires et leurs rencontres à travers le monde.">
+
+  <meta name="theme-color" content="#faf8f5">
+
+  <link rel="icon" href="logo.jpeg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="accueil-v2.css">
+
+  <style>
+
+    /* EN-TÊTE DE LA PAGE */
+
+    .library-hero {
+      padding: 160px 7% 80px;
+      text-align: center;
+      background: var(--warm);
+    }
+
+    .library-hero .section-tag {
+      justify-content: center;
+    }
+
+    .library-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 1.5rem 0;
+    }
+
+    .library-hero h1 em {
+      color: var(--pink);
+    }
+
+    .library-hero p:not(.section-tag) {
+      max-width: 700px;
+      margin: 1rem auto;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* PRÉSENTATION DES LIVRES */
+
+    .library {
+      max-width: 1300px;
+      margin: auto;
+      padding: 5rem 5%;
+    }
+
+    .library-book {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+      gap: 5rem;
+      align-items: center;
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .library-book:last-child {
+      border-bottom: none;
+    }
+
+    .library-book:nth-child(even) .library-cover {
+      order: 2;
+    }
+
+    .library-cover {
+      background: var(--warm);
+      border-radius: 12px;
+      padding: 2.5rem;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .library-cover img {
+      max-width: 100%;
+      max-height: 450px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.18));
+      transition: transform 0.4s ease;
+    }
+
+    .library-cover:hover img {
+      transform: scale(1.03);
+    }
+
+    .library-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      font-weight: 500;
+      line-height: 1.1;
+      margin: 1rem 0;
+    }
+
+    .library-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      color: var(--pink);
+      margin-bottom: 1.5rem;
+    }
+
+    .library-content p:not(.section-tag):not(.library-subtitle) {
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    /* INFORMATIONS SUR LES LIVRES */
+
+    .library-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.5rem 0;
+    }
+
+    .library-info span {
+      background: var(--warm);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* PRIX ET ACHAT */
+
+    .library-price {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin: 1.5rem 0;
+      color: var(--charcoal);
+    }
+
+    .library-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .library-actions .btn-primary {
+      display: inline-block;
+      text-align: center;
+    }
+
+    .library-actions details {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .library-actions summary {
+      cursor: pointer;
+    }
+
+    .library-actions summary:hover {
+      color: var(--pink);
+    }
+
+    /* MESSAGE DE L'AUTEURE */
+
+    .author-message {
+      background: var(--warm);
+      padding: 5rem 7%;
+      text-align: center;
+    }
+
+    .author-message .section-tag {
+      justify-content: center;
+    }
+
+    .author-message h2 {
+      margin: 1.5rem 0;
+    }
+
+    .author-message p:not(.section-tag) {
+      max-width: 750px;
+      margin: 1.5rem auto;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .author-signature {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-style: italic;
+    }
+
+    .library-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.8;
+      padding: 2rem 7%;
+    }
+
+    /* VERSION MOBILE */
+
+    @media (max-width: 900px) {
+
+      .library-book {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 3rem 0;
+      }
+
+      .library-book:nth-child(even) .library-cover {
+        order: 0;
+      }
+
+      .library-cover {
+        min-height: 300px;
+      }
+
+      .library-cover img {
+        max-height: 350px;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .library-hero {
+        padding: 125px 1.5rem 3rem;
+      }
+
+      .library {
+        padding: 1rem 1.5rem;
+      }
+
+      .library-cover {
+        padding: 1.5rem;
+      }
+
+      .library-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .library-actions details {
+        text-align: center;
+      }
+
+      .author-message {
+        padding: 3rem 1.5rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+  <a class="nav-logo" href="index.html">
+    <img src="logo.jpeg" alt="Cœur Errant">
+  </a>
+
+  <ul class="nav-links" id="nav-links">
+
+    <li>
+      <a href="index.html">Accueil</a>
+    </li>
+
+    <li>
+      <a href="index.html#histoire">Mon histoire</a>
+    </li>
+
+    <li>
+      <a href="mission.html">La mission</a>
+    </li>
+
+    <li>
+      <a href="voyages.html">Voyages</a>
+    </li>
+
+    <li>
+      <a href="livres.html" aria-current="page">
+        Mes livres
+      </a>
+    </li>
+
+    <li>
+      <a href="index.html#nos-etoiles">Nos étoiles</a>
+    </li>
+
+    <li>
+      <a href="soutenir.html">Soutenir</a>
+    </li>
+
+    <li class="lang-mobile">
+      <a href="livres-nl.html">Nederlands</a>
+    </li>
+
+  </ul>
+
+  <div class="lang-switcher">
+
+    <a href="livres.html" class="lang-btn active">FR</a>
+
+    <span class="lang-sep">|</span>
+
+    <a href="livres-nl.html" class="lang-btn">NL</a>
+
+  </div>
+
+  <button class="hamburger"
+          id="hamburger"
+          onclick="toggleMenu()"
+          aria-label="Ouvrir le menu"
+          aria-controls="nav-links"
+          aria-expanded="false">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+</nav>
+
+<main>
+
+<!-- INTRODUCTION -->
+
+<section class="library-hero">
+
+  <p class="section-tag">Les créations Cœur Errant</p>
+
+  <h1>
+    Des histoires qui <em>touchent le cœur.</em>
+  </h1>
+
+  <p>
+    Derrière chaque regard se cache une histoire.
+    Derrière chaque histoire, une vie qui mérite
+    d'être entendue.
+  </p>
+
+  <p>
+    À travers mes livres, je souhaite transmettre
+    mon amour pour les animaux, éveiller les consciences
+    et inviter petits et grands à regarder le monde
+    avec davantage de bienveillance.
+  </p>
+
+</section>
+
+<!-- LES TROIS LIVRES -->
+
+<section class="library" aria-label="Mes livres">
+
+  <!-- LIVRE 1 -->
+
+  <article class="library-book" id="petite-lanterne">
+
+    <div class="library-cover">
+
+      <img src="livre-lanterne.jpg"
+           alt="Couverture du livre La petite lanterne"
+           loading="lazy">
+
+    </div>
+
+    <div class="library-content">
+
+      <p class="section-tag">Pour les petits cœurs</p>
+
+      <h2>La petite lanterne</h2>
+
+      <p class="library-subtitle">
+        Une histoire pour apprendre à regarder
+      </p>
+
+      <p>
+        Et si apprendre à regarder le monde autrement
+        pouvait commencer dès l'enfance ?
+      </p>
+
+      <p>
+        La petite lanterne est une histoire douce
+        et lumineuse qui invite les enfants à découvrir
+        l'importance de la compassion, de l'attention
+        et des petits gestes du quotidien.
+      </p>
+
+      <p>
+        Une invitation à ouvrir les yeux sur les animaux
+        que l'on oublie parfois et à comprendre que
+        chaque être vivant mérite de la douceur,
+        de l'amour et du respect.
+      </p>
+
+      <div class="library-info">
+
+        <span>Livre jeunesse</span>
+        <span>Illustré</span>
+        <span>Français</span>
+        <span>Bienveillance</span>
+
+      </div>
+
+      <strong class="library-price">16,95 €</strong>
+
+      <div class="library-actions">
+
+        <a href="https://amzn.eu/d/04uXHShr"
+           class="btn-primary"
+           target="_blank"
+           rel="noopener noreferrer">
+
+          Acheter sur Amazon ↗
+
+        </a>
+
+        <details>
+
+          <summary>Afficher le QR code</summary>
+
+          <img src="qr-lanterne.png"
+               class="book-qr"
+               alt="QR code Amazon La petite lanterne"
+               loading="lazy">
+
+        </details>
+
+      </div>
+
+    </div>
+
+  </article>
+
+  <!-- LIVRE 2 -->
+
+  <article class="library-book" id="ames-errantes">
+
+    <div class="library-cover">
+
+      <img src="livre-ames-errantes.jpg"
+           alt="Couverture du livre Nos âmes errantes"
+           loading="lazy">
+
+    </div>
+
+    <div class="library-content">
+
+      <p class="section-tag">Des rencontres inoubliables</p>
+
+      <h2>Nos âmes errantes</h2>
+
+      <p class="library-subtitle">
+        Dans la peau des animaux des rues
+      </p>
+
+      <p>
+        Ils vivent dans nos rues, sur nos plages,
+        au détour d'une ruelle ou près d'une poubelle.
+        Nous les croisons parfois sans vraiment les voir.
+      </p>
+
+      <p>
+        Ce livre raconte mes véritables rencontres
+        avec des animaux errants à travers le monde.
+        Des moments de tendresse, des sauvetages,
+        des espoirs, mais aussi des adieux difficiles.
+      </p>
+
+      <p>
+        Chaque histoire vous invite ensuite à imaginer
+        le monde à travers leurs yeux, à ressentir
+        leur solitude, leurs espoirs et leur besoin
+        d'être aimés.
+      </p>
+
+      <p>
+        Un hommage à toutes ces petites âmes qui
+        ont croisé mon chemin et laissé une empreinte
+        indélébile dans mon cœur.
+      </p>
+
+      <div class="library-info">
+
+        <span>Histoires vécues</span>
+        <span>Récits et témoignages</span>
+        <span>Français</span>
+        <span>Cause animale</span>
+
+      </div>
+
+      <strong class="library-price">17,98 €</strong>
+
+      <div class="library-actions">
+
+        <a href="https://amzn.eu/d/0fyDrXjy"
+           class="btn-primary"
+           target="_blank"
+           rel="noopener noreferrer">
+
+          Acheter sur Amazon ↗
+
+        </a>
+
+        <details>
+
+          <summary>Afficher le QR code</summary>
+
+          <img src="qr-ames-errantes.png"
+               class="book-qr"
+               alt="QR code Amazon Nos âmes errantes"
+               loading="lazy">
+
+        </details>
+
+      </div>
+
+    </div>
+
+  </article>
+
+  <!-- LIVRE 3 -->
+
+  <article class="library-book" id="coloriage">
+
+    <div class="library-cover">
+
+      <img src="livre-coloriage.jpg"
+           alt="Couverture du livre de coloriage Cœur Errant"
+           loading="lazy">
+
+    </div>
+
+    <div class="library-content">
+
+      <p class="section-tag">Un instant de douceur</p>
+
+      <h2>Cœur Errant</h2>
+
+      <p class="library-subtitle">
+        Chaque animal a une histoire
+      </p>
+
+      <p>
+        Plus qu'un simple livre de coloriage,
+        une invitation à voyager, à ralentir
+        et à découvrir les animaux des rues
+        autrement.
+      </p>
+
+      <p>
+        Retrouvez 20 coloriages réalistes inspirés
+        de véritables rencontres avec des animaux
+        errants à travers le monde.
+      </p>
+
+      <p>
+        Des photographies, des histoires et des
+        illustrations à colorier vous permettent
+        de découvrir les animaux qui se cachent
+        derrière chaque dessin.
+      </p>
+
+      <p>
+        Un moment de créativité et de détente,
+        accompagné d'un message de compassion
+        envers ceux que l'on oublie trop souvent.
+      </p>
+
+      <div class="library-info">
+
+        <span>Coloriage pour adultes</span>
+        <span>20 coloriages</span>
+        <span>Photographies</span>
+        <span>Histoires réelles</span>
+        <span>Français</span>
+
+      </div>
+
+      <strong class="library-price">14,99 €</strong>
+
+      <div class="library-actions">
+
+        <a href="https://amzn.eu/d/0h3yOZae"
+           class="btn-primary"
+           target="_blank"
+           rel="noopener noreferrer">
+
+          Acheter sur Amazon ↗
+
+        </a>
+
+        <details>
+
+          <summary>Afficher le QR code</summary>
+
+          <img src="qr-coloriage.png"
+               class="book-qr"
+               alt="QR code Amazon Cœur Errant"
+               loading="lazy">
+
+        </details>
+
+      </div>
+
+    </div>
+
+  </article>
+
+</section>
+
+<!-- MESSAGE DE L'AUTEURE -->
+
+<section class="author-message">
+
+  <p class="section-tag">Quelques mots du cœur</p>
+
+  <h2>
+    Pourquoi <em>j'écris</em>
+  </h2>
+
+  <p>
+    Cœur Errant n'est pas simplement un projet.
+    C'est une partie de moi, née de rencontres
+    qui ont profondément changé ma manière
+    de regarder le monde.
+  </p>
+
+  <p>
+    J'écris pour les animaux que j'ai rencontrés,
+    pour ceux que j'ai pu aider, pour ceux que
+    je n'ai malheureusement pas pu sauver,
+    et pour tous ceux qui attendent encore
+    qu'on leur tende la main.
+  </p>
+
+  <p>
+    Si mes livres peuvent toucher ne serait-ce
+    qu'une personne et l'encourager à porter
+    un regard différent sur les animaux errants,
+    alors ils auront déjà accompli quelque chose
+    de précieux.
+  </p>
+
+  <p class="author-signature">
+    Avec tout mon cœur,<br>
+    Laurena Vaccaro ♡
+  </p>
+
+</section>
+
+<!-- INFORMATIONS AMAZON -->
+
+<div class="library-note">
+
+  Les livres sont disponibles sur Amazon.
+  Les prix affichés sont indicatifs et peuvent évoluer.
+  Les commandes, paiements, livraisons et retours
+  sont gérés directement par Amazon.
+
+</div>
+
+<!-- SOUTENIR -->
+
+<section class="cta">
+
+  <p class="section-tag" style="justify-content:center;">
+    Ensemble, faisons la différence
+  </p>
+
+  <h2>
+    Chaque geste <em>compte.</em>
+  </h2>
+
+  <p class="cta-desc">
+    Acheter un livre, partager une histoire,
+    parler de Cœur Errant autour de soi.
+    Il existe de nombreuses façons de contribuer
+    à faire connaître la cause des animaux errants.
+  </p>
+
+  <div class="cta-actions">
+
+    <a href="soutenir.html" class="btn-primary">
+      Soutenir Cœur Errant
+    </a>
+
+    <a href="index.html" class="btn-outline">
+      Retour à l'accueil
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- PIED DE PAGE -->
+
+<footer>
+
+  <div class="footer-logo">
+    <img src="logo.jpeg" alt="Cœur Errant">
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-socials">
+
+    <a class="footer-social-link"
+       href="https://www.tiktok.com/@coeur_errant"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/tiktok/white"
+             alt="TikTok">
+      </div>
+
+      <span class="footer-social-name">TikTok</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.instagram.com/coeur.errant/"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/instagram/white"
+             alt="Instagram">
+      </div>
+
+      <span class="footer-social-name">Instagram</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.youtube.com/@CoeurErrant"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/youtube/white"
+             alt="YouTube">
+      </div>
+
+      <span class="footer-social-name">YouTube</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/facebook/white"
+             alt="Facebook">
+      </div>
+
+      <span class="footer-social-name">Facebook</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="https://www.snapchat.com/add/coeur_errant"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/snapchat/white"
+             alt="Snapchat">
+      </div>
+
+      <span class="footer-social-name">Snapchat</span>
+
+    </a>
+
+    <a class="footer-social-link"
+       href="mailto:coeur.errant@outlook.be">
+
+      <div class="footer-social-icon">
+        <img src="https://cdn.simpleicons.org/gmail/white"
+             alt="E-mail">
+      </div>
+
+      <span class="footer-social-name">Contact</span>
+
+    </a>
+
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <p class="footer-copy">
+
+    © <span id="annee"></span> Cœur Errant —
+    Chaque animal a une histoire.
+
+  </p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+  document.getElementById('annee').textContent =
+    new Date().getFullYear();
+
+  function toggleMenu() {
+
+    const menu = document.getElementById('nav-links');
+    const bouton = document.getElementById('hamburger');
+
+    const ouvert = menu.classList.toggle('open');
+
+    bouton.classList.toggle('open', ouvert);
+    bouton.setAttribute('aria-expanded', ouvert);
+
+    bouton.setAttribute(
+      'aria-label',
+      ouvert ? 'Fermer le menu' : 'Ouvrir le menu'
+    );
+
+  }
+
+  function closeMenu() {
+
+    document.getElementById('nav-links')
+      .classList.remove('open');
+
+    const bouton = document.getElementById('hamburger');
+
+    bouton.classList.remove('open');
+    bouton.setAttribute('aria-expanded', 'false');
+    bouton.setAttribute('aria-label', 'Ouvrir le menu');
+
+  }
+
+  document.addEventListener('keydown', function(event) {
+
+    if (event.key === 'Escape') {
+      closeMenu();
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
