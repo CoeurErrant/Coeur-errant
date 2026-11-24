@@ -1,0 +1,1311 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Nos étoiles — Cœur Errant</title>
+
+  <meta name="description"
+        content="À la mémoire des petites âmes rencontrées sur mon chemin. Leur lumière ne s'éteindra jamais.">
+
+  <meta name="theme-color" content="#171b2b">
+
+  <link rel="icon" href="logo.jpeg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="accueil-v2.css">
+  <link rel="stylesheet" href="etoiles.css">
+
+</head>
+
+<body>
+
+<!-- ======================================
+     NAVIGATION
+     ====================================== -->
+
+<nav>
+
+  <a class="nav-logo" href="index.html">
+    <img src="logo.jpeg" alt="Cœur Errant">
+  </a>
+
+  <ul class="nav-links" id="nav-links">
+
+    <li>
+      <a href="index.html">Accueil</a>
+    </li>
+
+    <li>
+      <a href="index.html#histoire">Mon histoire</a>
+    </li>
+
+    <li>
+      <a href="mission.html">La mission</a>
+    </li>
+
+    <li>
+      <a href="voyages.html">Voyages</a>
+    </li>
+
+    <li>
+      <a href="livres.html">Mes livres</a>
+    </li>
+
+    <li>
+      <a href="etoiles.html" aria-current="page">
+        Nos étoiles
+      </a>
+    </li>
+
+    <li>
+      <a href="soutenir.html">Soutenir</a>
+    </li>
+
+    <li class="lang-mobile">
+      <a href="etoiles-nl.html">Nederlands</a>
+    </li>
+
+  </ul>
+
+  <div class="lang-switcher">
+
+    <a href="etoiles.html" class="lang-btn active">
+      FR
+    </a>
+
+    <span class="lang-sep">|</span>
+
+    <a href="etoiles-nl.html" class="lang-btn">
+      NL
+    </a>
+
+  </div>
+
+  <button class="hamburger"
+          id="hamburger"
+          onclick="toggleMenu()"
+          aria-label="Ouvrir le menu"
+          aria-controls="nav-links"
+          aria-expanded="false">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+</nav>
+
+
+<main class="stars-page">
+
+  <!-- CIEL ANIMÉ -->
+
+  <div class="night-background" aria-hidden="true">
+
+    <div class="night-nebula nebula-one"></div>
+    <div class="night-nebula nebula-two"></div>
+
+    <div id="night-stars"></div>
+
+    <div class="shooting-star shooting-one"></div>
+    <div class="shooting-star shooting-two"></div>
+    <div class="shooting-star shooting-three"></div>
+
+  </div>
+
+
+  <!-- ======================================
+       INTRODUCTION
+       ====================================== -->
+
+  <section class="stars-hero">
+
+    <div class="stars-hero-content">
+
+      <p class="stars-label stars-enter">
+        À la mémoire de nos petites âmes
+      </p>
+
+      <div class="moon-symbol stars-enter"
+           aria-hidden="true">
+
+        ☾
+
+      </div>
+
+      <h1 class="stars-enter stars-delay-one">
+
+        Au-delà
+        <em>des nuages.</em>
+
+      </h1>
+
+      <p class="stars-hero-quote stars-enter stars-delay-two">
+
+        Certaines âmes ne font que traverser notre vie,
+        mais leur lumière ne s'éteint jamais.
+
+      </p>
+
+      <p class="stars-hero-description stars-enter stars-delay-two">
+
+        Il existe des rencontres que le temps n'efface pas.
+        Des regards qui restent gravés dans notre mémoire.
+        Des petites vies que l'on aurait tant aimé sauver.
+
+        Ce ciel leur appartient.
+
+      </p>
+
+      <a href="#constellation"
+         class="stars-button stars-enter stars-delay-three">
+
+        Découvrir leur lumière ✧
+
+      </a>
+
+    </div>
+
+    <a href="#constellation"
+       class="stars-scroll"
+       aria-label="Découvrir la constellation">
+
+      ↓
+
+    </a>
+
+  </section>
+
+
+  <!-- ======================================
+       CONSTELLATION INTERACTIVE
+       ====================================== -->
+
+  <section class="constellation-section"
+           id="constellation">
+
+    <div class="stars-heading stars-reveal">
+
+      <p class="stars-label">
+        Des lumières qui demeurent
+      </p>
+
+      <h2>
+
+        La constellation
+        <em>du cœur.</em>
+
+      </h2>
+
+      <p>
+
+        Derrière chaque étoile se cache un prénom,
+        une rencontre et une histoire.
+
+        Choisissez une lumière pour découvrir
+        la petite âme qu'elle représente.
+
+      </p>
+
+    </div>
+
+
+    <div class="constellation-sky stars-reveal">
+
+      <!-- LIGNES DE LA CONSTELLATION -->
+
+      <svg class="constellation-lines"
+           viewBox="0 0 1000 500"
+           preserveAspectRatio="none"
+           aria-hidden="true">
+
+        <path d="M 80 320
+                 L 270 175
+                 L 490 90
+                 L 730 315
+                 L 920 120"
+
+              fill="none"
+              stroke="#d6b98c"
+              stroke-width="1"
+              stroke-dasharray="4 9"/>
+
+        <circle cx="80" cy="320" r="3"/>
+        <circle cx="490" cy="90" r="3"/>
+        <circle cx="920" cy="120" r="3"/>
+
+      </svg>
+
+
+      <!-- ÉTOILE DE NALA -->
+
+      <button class="memory-star star-nala"
+              type="button"
+              data-memory="nala"
+              aria-label="Découvrir l'histoire de Nala"
+              aria-haspopup="dialog">
+
+        <span class="star-halo"></span>
+
+        <span class="star-shape">✦</span>
+
+        <span class="star-name">Nala</span>
+
+        <span class="star-location">
+          Tanger · 2025
+        </span>
+
+        <span class="star-discover">
+          Découvrir son histoire
+        </span>
+
+      </button>
+
+
+      <!-- ÉTOILE DE HIRO -->
+
+      <button class="memory-star star-hiro"
+              type="button"
+              data-memory="hiro"
+              aria-label="Découvrir l'histoire de Hiro"
+              aria-haspopup="dialog">
+
+        <span class="star-halo"></span>
+
+        <span class="star-shape">✦</span>
+
+        <span class="star-name">Hiro</span>
+
+        <span class="star-location">
+          Tanger · Maroc
+        </span>
+
+        <span class="star-discover">
+          Découvrir son histoire
+        </span>
+
+      </button>
+
+      <span class="constellation-decoration decoration-one"
+            aria-hidden="true">✧</span>
+
+      <span class="constellation-decoration decoration-two"
+            aria-hidden="true">✧</span>
+
+      <span class="constellation-decoration decoration-three"
+            aria-hidden="true">✧</span>
+
+    </div>
+
+    <p class="constellation-caption">
+
+      Deux petites âmes, deux lumières éternelles.
+
+    </p>
+
+  </section>
+
+
+  <!-- ======================================
+       LES ÉTOILES SANS PRÉNOM
+       ====================================== -->
+
+  <section class="anonymous-section stars-reveal">
+
+    <div class="anonymous-symbol" aria-hidden="true">
+
+      ✧
+
+    </div>
+
+    <p class="stars-label">
+      Pour toutes les autres
+    </p>
+
+    <h2>
+      Les étoiles
+      <em>sans prénom.</em>
+
+    </h2>
+
+    <p>
+
+      Ce ciel n'appartient pas seulement à Nala et Hiro.
+
+      Il appartient aussi à tous les animaux
+      qui ont quitté ce monde sans avoir connu
+      la chaleur d'un foyer.
+
+    </p>
+
+    <p>
+
+      À ceux dont personne ne connaît le prénom.
+      À ceux dont personne n'a raconté l'histoire.
+      À ceux qui sont partis dans l'indifférence.
+
+    </p>
+
+    <p class="anonymous-quote">
+
+      Vous aussi, vous avez existé.<br>
+
+      Vous aussi, vous méritez une lumière.
+
+    </p>
+
+  </section>
+
+
+  <!-- ======================================
+       BOUGIE VIRTUELLE
+       ====================================== -->
+
+  <section class="candle-section stars-reveal">
+
+    <div class="stars-heading">
+
+      <p class="stars-label">
+        Un instant pour se souvenir
+      </p>
+
+      <h2>
+
+        Une flamme
+        <em>pour eux.</em>
+
+      </h2>
+
+      <p>
+
+        Prenez quelques secondes pour allumer
+        une bougie en mémoire d'un animal disparu.
+
+        Qu'il ait partagé votre vie ou simplement
+        croisé votre chemin.
+
+      </p>
+
+    </div>
+
+
+    <div class="candle-scene"
+         id="candle-scene"
+         aria-hidden="true">
+
+      <div class="candle-light"></div>
+
+      <div class="candle-flame">
+
+        <div class="flame-inner"></div>
+
+      </div>
+
+      <div class="candle-wick"></div>
+
+      <div class="candle-body">
+
+        <div class="candle-wax"></div>
+
+        <span>♡</span>
+
+      </div>
+
+      <div class="candle-shadow"></div>
+
+    </div>
+
+
+    <button class="stars-button candle-button"
+            id="candle-button"
+            type="button"
+            aria-pressed="false">
+
+      Allumer une bougie ♡
+
+    </button>
+
+
+    <div class="candle-message"
+         id="candle-message"
+         role="status"
+         hidden>
+
+      <span class="candle-message-star">✧</span>
+
+      <p>
+
+        Une petite lumière brille désormais
+        en leur mémoire.
+
+      </p>
+
+      <p>
+
+        Merci de ne pas les oublier.
+
+      </p>
+
+    </div>
+
+    <p class="candle-note">
+
+      Un geste symbolique, un instant de douceur.
+
+    </p>
+
+  </section>
+
+
+  <!-- ======================================
+       LETTRE AUX ÉTOILES
+       ====================================== -->
+
+  <section class="stars-letter-section stars-reveal">
+
+    <div class="stars-letter">
+
+      <div class="letter-decoration"
+           aria-hidden="true">
+
+        ☾ ✧
+
+      </div>
+
+      <p class="stars-label">
+        Quelques mots que je leur adresse
+      </p>
+
+      <h2>
+
+        À vous,
+        <em>mes petites étoiles.</em>
+
+      </h2>
+
+      <p>
+
+        J'aurais aimé pouvoir choisir votre destin.
+
+        J'aurais aimé vous offrir des années de bonheur,
+        des nuits paisibles, un foyer et des bras
+        dans lesquels vous réfugier.
+
+      </p>
+
+      <p>
+
+        J'aurais aimé que nos rencontres soient
+        le début d'une nouvelle vie,
+        et non les dernières pages de votre histoire.
+
+      </p>
+
+      <p>
+
+        Mais malgré toute la volonté du monde,
+        il existe des choses que je ne peux pas changer.
+
+      </p>
+
+      <p>
+
+        Alors je continuerai à voyager,
+        à nourrir, à soigner lorsque cela est possible,
+        à tendre la main et à raconter vos histoires.
+
+      </p>
+
+      <p>
+
+        Parce que vous avez compté.
+
+        Parce que votre passage dans ce monde
+        mérite d'être rappelé.
+
+      </p>
+
+      <p class="stars-letter-signature">
+
+        Avec tout mon cœur,<br>
+
+        Cœur Errant ♡
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       CONCLUSION
+       ====================================== -->
+
+  <section class="stars-ending stars-reveal">
+
+    <div class="ending-star" aria-hidden="true">
+
+      ✦
+
+    </div>
+
+    <h2>
+
+      Leur histoire s'est arrêtée.<br>
+
+      <em>Leur lumière continue.</em>
+
+    </h2>
+
+    <p>
+
+      Chaque geste de bienveillance envers un animal
+      est une belle manière d'honorer leur mémoire.
+
+    </p>
+
+    <div class="stars-ending-actions">
+
+      <a href="mission.html" class="stars-button">
+
+        Découvrir ma mission
+
+      </a>
+
+      <a href="index.html" class="stars-text-link">
+
+        Retour à l'accueil ↗
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       FENÊTRE SOUVENIR — NALA
+       ====================================== -->
+
+  <dialog class="memory-dialog" id="memory-nala">
+
+    <div class="memory-dialog-inner">
+
+      <button class="memory-close"
+              type="button"
+              aria-label="Fermer le souvenir">
+
+        ×
+
+      </button>
+
+      <div class="memory-photo memory-photo-nala">
+
+        <img src="nala.jpeg"
+             alt="Nala, petite chienne rencontrée à Tanger">
+
+        <div class="memory-photo-overlay"></div>
+
+        <div class="memory-photo-name">
+
+          <span>✦</span>
+
+          <h2>Nala</h2>
+
+          <p>Tanger · Septembre 2025</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="memory-content">
+
+        <p class="stars-label">
+          Une étoile pour l'éternité
+        </p>
+
+        <h3>
+
+          La vie que je
+          <em>rêvais pour toi.</em>
+
+        </h3>
+
+        <p>
+
+          C'est au cours d'une balade nocturne,
+          alors que nous nourrissions les animaux
+          errants de Tanger, que j'ai rencontré Nala.
+
+        </p>
+
+        <p>
+
+          Elle était au milieu des poubelles,
+          toute petite, le pelage couvert d'huile.
+
+          Ni maman, ni frères, ni sœurs.
+
+          Elle était seule au milieu de ce monde
+          bien trop grand pour elle.
+
+        </p>
+
+        <p>
+
+          Quelque chose en moi me disait
+          qu'il était impossible de repartir
+          en la laissant derrière nous.
+
+          Nous lui avons donné un prénom, Nala.
+
+        </p>
+
+        <p>
+
+          Elle a été lavée pour retirer l'huile
+          qui recouvrait son petit corps.
+
+          Puis nous l'avons emmenée chez le vétérinaire.
+
+          Je l'ai fait vacciner et son carnet de santé
+          portait désormais mon nom.
+
+        </p>
+
+        <p>
+
+          Je commençais déjà à imaginer
+          la vie qu'elle pourrait avoir.
+
+          La voir grandir, jouer, s'épanouir
+          et découvrir ce que signifie vivre
+          sans avoir à lutter chaque jour.
+
+        </p>
+
+        <p>
+
+          Lorsque le moment est venu de rentrer
+          chez nous, Nala a été confiée à un fermier.
+
+          Je pensais qu'elle était enfin sauvée.
+
+        </p>
+
+        <p>
+
+          Malheureusement, elle s'est échappée.
+
+          Elle a été retrouvée sans vie sous un arbre.
+
+        </p>
+
+        <p>
+
+          Son départ m'a profondément bouleversée.
+
+          Il est difficile d'accepter que,
+          malgré tout l'amour, toute la volonté
+          et tous les efforts que l'on peut offrir
+          à un animal, son destin ne nous appartient
+          pas toujours.
+
+        </p>
+
+        <p>
+
+          J'aurais tellement aimé
+          que le sien soit différent.
+
+        </p>
+
+
+        <blockquote class="memory-quote">
+
+          Je t'avais imaginé toute une vie, Nala.
+
+          Aujourd'hui, c'est dans mon cœur
+          que tu continueras de grandir.
+
+        </blockquote>
+
+        <div class="memory-end-symbol">
+
+          ✦
+
+        </div>
+
+        <button class="stars-button memory-back"
+                type="button">
+
+          Retour au ciel
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </dialog>
+
+
+  <!-- ======================================
+       FENÊTRE SOUVENIR — HIRO
+       ====================================== -->
+
+  <dialog class="memory-dialog" id="memory-hiro">
+
+    <div class="memory-dialog-inner">
+
+      <button class="memory-close"
+              type="button"
+              aria-label="Fermer le souvenir">
+
+        ×
+
+      </button>
+
+      <div class="memory-photo memory-photo-hiro">
+
+        <img src="hiro.jpg"
+             alt="Hiro, petit chat noir et blanc rencontré à Tanger">
+
+        <div class="memory-photo-overlay"></div>
+
+        <div class="memory-photo-name">
+
+          <span>✦</span>
+
+          <h2>Hiro</h2>
+
+          <p>Tanger · Maroc</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="memory-content">
+
+        <p class="stars-label">
+          Une étoile pour l'éternité
+        </p>
+
+        <h3>
+
+          Un espoir qui s'est
+          <em>envolé trop tôt.</em>
+
+        </h3>
+
+        <p>
+
+          J'ai rencontré Hiro alors qu'il était
+          en train de mourir en pleine rue.
+
+          Son petit corps était couvert de pus
+          et il avait désespérément besoin de soins.
+
+        </p>
+
+        <p>
+
+          Je ne pouvais pas le laisser là.
+
+          Je l'ai emmené chez le vétérinaire,
+          où il a été soigné et placé sous perfusion.
+
+        </p>
+
+        <p>
+
+          J'espérais de tout mon cœur
+          qu'il pourrait s'en sortir.
+
+          Qu'une nouvelle vie l'attendait quelque part.
+
+          Une vie dans laquelle il n'aurait
+          plus à souffrir.
+
+        </p>
+
+        <p>
+
+          Malheureusement, il était déjà trop tard.
+
+          Hiro s'est envolé, emportant avec lui
+          tous les espoirs que j'avais pour son avenir.
+
+        </p>
+
+        <p>
+
+          Il fait partie de ces rencontres
+          qui me rappellent à quel point
+          la vie des animaux errants peut être fragile.
+
+          De ces petites âmes que l'on voudrait
+          protéger, mais que l'on rencontre
+          parfois trop tard.
+
+        </p>
+
+        <p>
+
+          Son histoire mérite pourtant
+          d'être racontée.
+
+          Parce que sa vie avait de la valeur.
+          Parce que lui aussi méritait d'être aimé.
+
+        </p>
+
+
+        <blockquote class="memory-quote">
+
+          Je n'ai pas pu t'offrir une nouvelle vie,
+          mais j'ai pu essayer de changer ton destin.
+
+          Désormais, ta lumière fait partie
+          de mon chemin.
+
+        </blockquote>
+
+        <div class="memory-end-symbol">
+
+          ✦
+
+        </div>
+
+        <button class="stars-button memory-back"
+                type="button">
+
+          Retour au ciel
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </dialog>
+
+</main>
+
+
+<!-- ======================================
+     FOOTER
+     ====================================== -->
+
+<footer>
+
+  <div class="footer-logo">
+
+    <img src="logo.jpeg" alt="Cœur Errant">
+
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-socials">
+
+    <a href="https://www.tiktok.com/@coeur_errant"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-social-link">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/tiktok/white"
+             alt="">
+
+      </div>
+
+      <span class="footer-social-name">TikTok</span>
+
+    </a>
+
+    <a href="https://www.instagram.com/coeur.errant/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-social-link">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/instagram/white"
+             alt="">
+
+      </div>
+
+      <span class="footer-social-name">Instagram</span>
+
+    </a>
+
+    <a href="https://www.youtube.com/@CoeurErrant"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-social-link">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/youtube/white"
+             alt="">
+
+      </div>
+
+      <span class="footer-social-name">YouTube</span>
+
+    </a>
+
+    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-social-link">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/facebook/white"
+             alt="">
+
+      </div>
+
+      <span class="footer-social-name">Facebook</span>
+
+    </a>
+
+    <a href="https://www.snapchat.com/add/coeur_errant"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="footer-social-link">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/snapchat/white"
+             alt="">
+
+      </div>
+
+      <span class="footer-social-name">Snapchat</span>
+
+    </a>
+
+    <a href="mailto:coeur.errant@outlook.be"
+       class="footer-social-link">
+
+      <div class="footer-social-icon">
+
+        <img src="https://cdn.simpleicons.org/gmail/white"
+             alt="">
+
+      </div>
+
+      <span class="footer-social-name">Contact</span>
+
+    </a>
+
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <p class="footer-copy">
+
+    © <span id="annee"></span>
+
+    Cœur Errant — Chaque animal a une histoire.
+
+  </p>
+
+</footer>
+
+
+<!-- ======================================
+     JAVASCRIPT
+     ====================================== -->
+
+<script>
+
+/* ANNÉE AUTOMATIQUE */
+
+document.getElementById('annee').textContent =
+  new Date().getFullYear();
+
+
+/* MENU MOBILE */
+
+const navLinks = document.getElementById('nav-links');
+const hamburger = document.getElementById('hamburger');
+
+function toggleMenu() {
+
+  const isOpen = navLinks.classList.toggle('open');
+
+  hamburger.classList.toggle('open', isOpen);
+
+  hamburger.setAttribute(
+    'aria-expanded',
+    String(isOpen)
+  );
+
+  hamburger.setAttribute(
+    'aria-label',
+    isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
+  );
+
+}
+
+function closeMenu() {
+
+  navLinks.classList.remove('open');
+  hamburger.classList.remove('open');
+
+  hamburger.setAttribute('aria-expanded', 'false');
+
+  hamburger.setAttribute(
+    'aria-label',
+    'Ouvrir le menu'
+  );
+
+}
+
+document.addEventListener('keydown', event => {
+
+  if (event.key === 'Escape') {
+    closeMenu();
+  }
+
+});
+
+
+/* ======================================
+   CRÉATION DU CIEL ÉTOILÉ
+   ====================================== */
+
+const nightStars = document.getElementById('night-stars');
+
+const starFragment = document.createDocumentFragment();
+
+for (let i = 0; i < 160; i++) {
+
+  const star = document.createElement('span');
+
+  star.className = 'night-star';
+
+  star.style.left = Math.random() * 100 + '%';
+
+  star.style.top = Math.random() * 100 + '%';
+
+  const size = .8 + Math.random() * 2.8;
+
+  star.style.width = size + 'px';
+
+  star.style.height = size + 'px';
+
+  star.style.animationDelay =
+    Math.random() * 7 + 's';
+
+  star.style.animationDuration =
+    2 + Math.random() * 5 + 's';
+
+  starFragment.appendChild(star);
+
+}
+
+nightStars.appendChild(starFragment);
+
+
+/* ======================================
+   OUVERTURE DES SOUVENIRS
+   ====================================== */
+
+let activeStar = null;
+
+document.querySelectorAll('.memory-star')
+  .forEach(star => {
+
+    star.addEventListener('click', () => {
+
+      const memoryId = star.dataset.memory;
+
+      const dialog = document.getElementById(
+        'memory-' + memoryId
+      );
+
+      if (!dialog || dialog.open) return;
+
+      activeStar = star;
+
+      dialog.showModal();
+
+      dialog.scrollTop = 0;
+
+      document.body.classList.add('memory-open');
+
+    });
+
+  });
+
+
+/* FERMETURE DES SOUVENIRS */
+
+document.querySelectorAll('.memory-dialog')
+  .forEach(dialog => {
+
+    dialog.querySelectorAll(
+      '.memory-close, .memory-back'
+    ).forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        dialog.close();
+
+      });
+
+    });
+
+
+    /* FERMETURE EN CLIQUANT À L'EXTÉRIEUR */
+
+    dialog.addEventListener('click', event => {
+
+      if (event.target === dialog) {
+
+        const rect = dialog.getBoundingClientRect();
+
+        const outside =
+          event.clientX < rect.left ||
+          event.clientX > rect.right ||
+          event.clientY < rect.top ||
+          event.clientY > rect.bottom;
+
+        if (outside) {
+          dialog.close();
+        }
+
+      }
+
+    });
+
+
+    /* RESTAURATION DU DÉFILEMENT ET DU FOCUS */
+
+    dialog.addEventListener('close', () => {
+
+      document.body.classList.remove('memory-open');
+
+      if (activeStar) {
+
+        activeStar.focus();
+
+        activeStar = null;
+
+      }
+
+    });
+
+  });
+
+
+/* ======================================
+   BOUGIE VIRTUELLE
+   ====================================== */
+
+const candleButton =
+  document.getElementById('candle-button');
+
+const candleScene =
+  document.getElementById('candle-scene');
+
+const candleMessage =
+  document.getElementById('candle-message');
+
+let candleLit = false;
+
+candleButton.addEventListener('click', () => {
+
+  candleLit = !candleLit;
+
+  candleScene.classList.toggle(
+    'candle-lit',
+    candleLit
+  );
+
+  candleMessage.hidden = !candleLit;
+
+  candleButton.setAttribute(
+    'aria-pressed',
+    String(candleLit)
+  );
+
+  candleButton.textContent = candleLit
+
+    ? 'Éteindre la bougie'
+
+    : 'Allumer une bougie ♡';
+
+});
+
+
+/* ======================================
+   APPARITION AU DÉFILEMENT
+   ====================================== */
+
+if (
+  'IntersectionObserver' in window &&
+  !window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches
+) {
+
+  document.body.classList.add('stars-animations');
+
+  const observer = new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add('stars-visible');
+
+          observer.unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+
+    {
+      threshold: 0.1
+    }
+
+  );
+
+  document.querySelectorAll('.stars-reveal')
+    .forEach(element => {
+
+      observer.observe(element);
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>
