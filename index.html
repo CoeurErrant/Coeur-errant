@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Cœur Errant — Chaque animal a une histoire</title>
+  <title>Cœur Errant — Sur les traces du cœur</title>
 
-  <meta name="description" content="Découvrez Cœur Errant, un projet consacré aux animaux errants, à travers des voyages, des rencontres, des livres et des actions solidaires.">
-
+  <meta name="description" content="Un voyage sans frontières à la rencontre des animaux errants. Découvrez l'univers de Cœur Errant.">
   <meta name="theme-color" content="#faf8f5">
 
   <link rel="icon" href="logo.jpeg">
@@ -17,6 +16,11 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="accueil-v2.css">
+  <link rel="stylesheet" href="accueil-v3.css">
+
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
 </head>
 
 <body>
@@ -24,39 +28,26 @@
 <!-- NAVIGATION -->
 
 <nav>
+
   <a class="nav-logo" href="index.html">
     <img src="logo.jpeg" alt="Cœur Errant">
   </a>
 
   <ul class="nav-links" id="nav-links">
 
-    <li>
-      <a href="index.html" onclick="closeMenu()">Accueil</a>
-    </li>
+    <li><a href="index.html" aria-current="page">Accueil</a></li>
 
-    <li>
-      <a href="#histoire" onclick="closeMenu()">Mon histoire</a>
-    </li>
+    <li><a href="#histoire" onclick="closeMenu()">Mon histoire</a></li>
 
-    <li>
-      <a href="mission.html" onclick="closeMenu()">La mission</a>
-    </li>
+    <li><a href="mission.html">La mission</a></li>
 
-    <li>
-      <a href="voyages.html" onclick="closeMenu()">Voyages</a>
-    </li>
+    <li><a href="voyages.html">Voyages</a></li>
 
-    <li>
-      <a href="#livres" onclick="closeMenu()">Mes livres</a>
-    </li>
+    <li><a href="livres.html">Mes livres</a></li>
 
-    <li>
-      <a href="#nos-etoiles" onclick="closeMenu()">Nos étoiles</a>
-    </li>
+    <li><a href="#nos-etoiles" onclick="closeMenu()">Nos étoiles</a></li>
 
-    <li>
-      <a href="soutenir.html" onclick="closeMenu()">Soutenir</a>
-    </li>
+    <li><a href="soutenir.html">Soutenir</a></li>
 
     <li class="lang-mobile">
       <a href="index-nl.html">Nederlands</a>
@@ -76,624 +67,559 @@
           aria-label="Ouvrir le menu"
           aria-controls="nav-links"
           aria-expanded="false">
+
     <span></span>
     <span></span>
     <span></span>
+
   </button>
+
 </nav>
 
-<main>
+<main class="ce-home">
 
-<!-- ACCUEIL -->
+<!-- OUVERTURE IMMERSIVE -->
 
-<section class="hero">
+<section class="ce-opening">
 
-  <div class="hero-left">
+  <div class="ce-opening-photo"></div>
 
-    <p class="hero-eyebrow">
-      Un projet de cœur, sans frontières
+  <div class="ce-opening-overlay"></div>
+
+  <div class="ce-opening-content">
+
+    <p class="ce-eyebrow ce-enter">
+      Un cœur sans frontières
     </p>
 
-    <h1>
-      Chaque animal a <em>une histoire.</em>
+    <h1 class="ce-enter ce-delay-one">
+
+      Le monde est grand.<br>
+
+      <em>Leur solitude aussi.</em>
+
     </h1>
 
-    <p class="hero-story">
-      Quelque part dans le monde, un animal attend un regard,
-      un repas ou simplement un peu de douceur.
-      Cœur Errant est né pour ceux que l'on ne voit plus.
+    <p class="ce-enter ce-delay-two">
+
+      Des kilomètres parcourus.<br>
+      Des regards croisés.<br>
+      Des vies qui méritent d'être regardées.
+
     </p>
 
-    <p class="hero-story">
-      À travers mes voyages, mes rencontres et mes livres,
-      je souhaite leur donner une voix et rappeler que
-      chaque vie mérite d'être regardée avec bienveillance.
-    </p>
+    <a href="#histoire"
+       class="ce-button ce-enter ce-delay-three">
 
-    <p class="hero-origin">
-      Depuis juin 2024 · Tanger, Maroc
-    </p>
+      Entrer dans mon univers
+      <span>♡</span>
 
-    <div class="hero-actions">
-
-      <a href="mission.html" class="btn-primary">
-        Découvrir ma mission
-      </a>
-
-      <a href="#livres" class="btn-outline">
-        Mes livres
-      </a>
-
-    </div>
+    </a>
 
   </div>
 
-  <div class="hero-right">
-
-    <img src="hero.jpeg"
-         alt="Un animal rencontré lors des voyages Cœur Errant"
-         class="hero-img">
-
+  <div class="ce-opening-signature">
+    Chaque animal a une histoire.
   </div>
 
-</section>
+  <a href="#histoire"
+     class="ce-scroll"
+     aria-label="Continuer la découverte">
 
-<!-- STATISTIQUES -->
+    <span></span>
 
-<section class="stats" aria-label="Cœur Errant en quelques chiffres">
-
-  <div class="stat">
-    <span class="stat-num" id="compteur">0</span>
-    <span class="stat-label">Jours depuis le début</span>
-  </div>
-
-  <div class="stat">
-    <span class="stat-num">3</span>
-    <span class="stat-label">Livres publiés</span>
-  </div>
-
-  <div class="stat">
-    <span class="stat-num">♥</span>
-    <span class="stat-label">Un amour sans frontières</span>
-  </div>
+  </a>
 
 </section>
 
 <!-- MON HISTOIRE -->
 
-<section class="origin" id="histoire">
+<section class="ce-intro" id="histoire">
 
-  <div class="origin-text">
+  <div class="ce-intro-photos ce-reveal">
 
-    <p class="section-tag">Mon histoire</p>
+    <div class="ce-polaroid ce-polaroid-first">
+
+      <img src="corsee.jpeg"
+           alt="Un chat rencontré en Corse"
+           loading="lazy">
+
+      <span>Corse · Avril 2023</span>
+
+    </div>
+
+    <div class="ce-polaroid ce-polaroid-second">
+
+      <img src="Tanger.jpeg"
+           alt="Un chiot rencontré à Tanger"
+           loading="lazy">
+
+      <span>Tanger · Juin 2024</span>
+
+    </div>
+
+    <div class="ce-photo-heart" aria-hidden="true">♡</div>
+
+  </div>
+
+  <div class="ce-intro-text ce-reveal">
+
+    <p class="ce-label">Les premières empreintes</p>
 
     <h2>
-      Tanger, l'été qui a <em>tout changé</em>
+
+      Et si l'on voyageait
+      <em>autrement ?</em>
+
     </h2>
 
     <p>
-      Juin 2024. Je pose mes valises à Tanger, au Maroc,
-      pour ce qui devait être des vacances. Mais dès les
-      premiers jours, quelque chose me saisit. Des dizaines
-      de chiens et de chats errants partout, affamés,
-      souffrants, invisibles aux yeux de la plupart des gens.
-    </p>
 
-    <div class="origin-quote">
-      <p>
-        « Pour la première fois de ma vie, j'étais face
-        à autant d'animaux qui luttaient pour survivre.
-        Je ne pouvais pas faire semblant de ne pas les voir. »
-      </p>
-    </div>
+      Tout a commencé en Corse, en avril 2023,
+      auprès de petites âmes oubliées.
 
-    <p>
-      Matin et soir, je suis sortie les nourrir.
-      Chaque animal croisé dans la rue recevait à manger.
-      Mes finances de vacances sont allées en priorité
-      vers eux, plutôt que vers mes propres plaisirs.
-      Ce n'était pas un sacrifice, c'était une évidence.
     </p>
 
     <p>
-      Ce voyage a tout changé. Cœur Errant était né.
+
+      Un an plus tard, à Tanger, mes voyages
+      ont pris un autre sens.
+
+      Depuis, je ne parcours plus seulement le monde
+      pour le découvrir, mais aussi pour prendre soin
+      de ceux qui y vivent sans foyer.
+
     </p>
 
-    <p>
-      Depuis, chaque nouvelle destination est devenue
-      une occasion de rencontrer, de nourrir et de raconter
-      l'histoire de ces animaux que le monde oublie.
+    <p class="ce-handwritten">
+
+      Je voyage avec mon cœur,
+      et parfois avec un sac rempli de croquettes.
+
     </p>
 
-    <a href="mission.html" class="btn-outline">
-      Découvrir la mission
+    <a href="mission.html" class="ce-text-link">
+      Découvrir ce qui m'anime <span>↗</span>
     </a>
 
   </div>
 
-  <div class="origin-image">
-    <img src="Tanger2.jpeg"
-         alt="Une rencontre à Tanger"
-         class="origin-img"
-         loading="lazy">
+</section>
+
+<!-- CHEMIN D'EMPREINTES -->
+
+<div class="ce-paw-trail" aria-hidden="true">
+
+  <span>🐾</span>
+  <span>🐾</span>
+  <span>🐾</span>
+  <span>🐾</span>
+  <span>🐾</span>
+  <span>🐾</span>
+
+</div>
+
+<!-- EXPLORER L'UNIVERS -->
+
+<section class="ce-universe" id="univers">
+
+  <div class="ce-section-heading ce-reveal">
+
+    <p class="ce-label">Un univers à découvrir</p>
+
+    <h2>
+
+      Suivez les traces
+      <em>de mon cœur.</em>
+
+    </h2>
+
+    <p>
+
+      Chaque chemin mène à une histoire différente.
+      À vous de choisir par où commencer.
+
+    </p>
+
+  </div>
+
+  <div class="ce-door-grid">
+
+    <!-- VOYAGES -->
+
+    <a href="voyages.html"
+       class="ce-door ce-door-travel ce-reveal">
+
+      <div class="ce-door-number">01</div>
+
+      <div class="ce-door-symbol">✧</div>
+
+      <div class="ce-door-content">
+
+        <p class="ce-door-tag">Le carnet de route</p>
+
+        <h3>Partir</h3>
+
+        <p>
+          Des frontières traversées,
+          des rencontres à découvrir.
+        </p>
+
+        <span class="ce-door-link">
+          Ouvrir le carnet ↗
+        </span>
+
+      </div>
+
+    </a>
+
+    <!-- MISSION -->
+
+    <a href="mission.html"
+       class="ce-door ce-door-mission ce-reveal">
+
+      <div class="ce-door-number">02</div>
+
+      <div class="ce-door-symbol">♡</div>
+
+      <div class="ce-door-content">
+
+        <p class="ce-door-tag">Au-delà du voyage</p>
+
+        <h3>Comprendre</h3>
+
+        <p>
+          Une conviction, des gestes simples,
+          une mission sans frontières.
+        </p>
+
+        <span class="ce-door-link">
+          Découvrir la mission ↗
+        </span>
+
+      </div>
+
+    </a>
+
+    <!-- LIVRES -->
+
+    <a href="livres.html"
+       class="ce-door ce-door-books ce-reveal">
+
+      <div class="ce-door-number">03</div>
+
+      <div class="ce-door-symbol">❋</div>
+
+      <div class="ce-door-content">
+
+        <p class="ce-door-tag">Entre les lignes</p>
+
+        <h3>S'évader</h3>
+
+        <p>
+          Lorsque les rencontres deviennent
+          des mots et des illustrations.
+        </p>
+
+        <span class="ce-door-link">
+          Tourner la première page ↗
+        </span>
+
+      </div>
+
+    </a>
+
+    <!-- SOUTIEN -->
+
+    <a href="soutenir.html"
+       class="ce-door ce-door-help ce-reveal">
+
+      <div class="ce-door-number">04</div>
+
+      <div class="ce-door-symbol">✿</div>
+
+      <div class="ce-door-content">
+
+        <p class="ce-door-tag">Ensemble pour eux</p>
+
+        <h3>Agir</h3>
+
+        <p>
+          Parce que les petits gestes
+          peuvent avoir une grande importance.
+        </p>
+
+        <span class="ce-door-link">
+          Faire partie de l'aventure ↗
+        </span>
+
+      </div>
+
+    </a>
+
   </div>
 
 </section>
 
-<!-- MES LIVRES -->
+<!-- CARTE INTERACTIVE -->
 
-<section class="books" id="livres">
+<section class="ce-map-section" id="destinations">
 
-  <p class="section-tag">Mes créations</p>
+  <div class="ce-section-heading ce-reveal">
+
+    <p class="ce-label">Mon carnet sans frontières</p>
+
+    <h2>
+
+      Là où mes pas
+      <em>m'ont menée.</em>
+
+    </h2>
+
+    <p>
+
+      Des lieux, des souvenirs et des petites âmes
+      rencontrées au fil de mes voyages.
+
+      Explorez la carte pour découvrir mon parcours.
+
+    </p>
+
+  </div>
+
+  <div class="ce-map-frame ce-reveal">
+
+    <div class="ce-map-top">
+
+      <span>✧ Le monde de Cœur Errant</span>
+
+      <span>Depuis 2023</span>
+
+    </div>
+
+    <div id="ce-map"
+         aria-label="Carte interactive de mes voyages">
+
+      <p class="ce-map-loading">
+        Chargement du carnet de voyage…
+      </p>
+
+    </div>
+
+    <div class="ce-map-bottom">
+
+      <span>
+        ♡ Une empreinte, une destination.
+      </span>
+
+      <button id="ce-map-reset" type="button">
+        Recentrer la carte
+      </button>
+
+    </div>
+
+  </div>
+
+  <a href="voyages.html" class="ce-text-link">
+    Découvrir les histoires derrière ces voyages ↗
+  </a>
+
+</section>
+
+<!-- UNE LETTRE À OUVRIR -->
+
+<section class="ce-letter-section ce-reveal">
+
+  <p class="ce-label">Quelques mots pour vous</p>
 
   <h2>
-    Des livres qui donnent <em>une voix aux oubliés</em>
+
+    Une petite lettre,
+    <em>un grand message.</em>
+
   </h2>
 
   <p>
-    Trois livres, trois univers, une même conviction.
-    Chaque animal mérite une histoire, un regard et
-    une place dans nos cœurs.
-    Découvrez mes créations disponibles sur Amazon.
+    Cliquez sur l'enveloppe pour découvrir son secret.
   </p>
 
-  <div class="book-grid">
+  <button class="ce-envelope-button"
+          id="ce-envelope"
+          type="button"
+          aria-label="Ouvrir la lettre"
+          aria-expanded="false"
+          aria-controls="ce-letter-message">
 
-    <!-- LIVRE 1 -->
+    <span class="ce-envelope-back"></span>
 
-    <article class="book-card">
+    <span class="ce-envelope-paper">
+      Pour vous ♡
+    </span>
 
-      <div class="book-cover">
-        <img src="livre-lanterne.jpg"
-             alt="Couverture de La petite lanterne"
-             loading="lazy">
-      </div>
+    <span class="ce-envelope-front"></span>
 
-      <p class="section-tag">Livre jeunesse</p>
+    <span class="ce-envelope-flap"></span>
 
-      <h3>La petite lanterne</h3>
+    <span class="ce-envelope-seal">♡</span>
 
-      <p>
-        <em>Une histoire pour apprendre à regarder</em>
-      </p>
+  </button>
 
-      <p>
-        Une histoire douce et lumineuse pour apprendre
-        aux enfants à regarder le monde autrement,
-        à reconnaître les animaux oubliés et à grandir
-        avec bienveillance et compassion.
-      </p>
+  <div class="ce-letter-message"
+       id="ce-letter-message"
+       hidden>
 
-      <strong>16,95 €</strong>
+    <p>À vous qui êtes de passage,</p>
 
-      <a href="https://amzn.eu/d/04uXHShr"
-         class="btn-primary"
-         target="_blank"
-         rel="noopener noreferrer">
-        Acheter sur Amazon ↗
-      </a>
+    <p>
 
-      <details>
-        <summary>Afficher le QR code</summary>
+      La prochaine fois que vous croiserez un animal
+      dans la rue, prenez quelques secondes pour le regarder.
 
-        <img src="qr-lanterne.png"
-             alt="QR code Amazon La petite lanterne"
-             class="book-qr"
-             loading="lazy">
-      </details>
+      Peut-être attend-il simplement un peu d'eau,
+      un repas ou un geste de douceur.
 
-    </article>
+    </p>
 
-    <!-- LIVRE 2 -->
+    <p>
 
-    <article class="book-card">
+      Nous ne pouvons pas changer le monde entier
+      en un seul jour.
 
-      <div class="book-cover">
-        <img src="livre-ames-errantes.jpg"
-             alt="Couverture de Nos âmes errantes"
-             loading="lazy">
-      </div>
+      Mais nous pouvons rendre une journée
+      un peu plus belle pour quelqu'un.
 
-      <p class="section-tag">Récits et témoignages</p>
+    </p>
 
-      <h3>Nos âmes errantes</h3>
+    <p class="ce-letter-signature">
 
-      <p>
-        <em>Dans la peau des animaux des rues</em>
-      </p>
+      Avec tout mon cœur,<br>
+      Cœur Errant ♡
 
-      <p>
-        Des rencontres véritables, des regards inoubliables,
-        des histoires de sauvetages et d'adieux.
-        Un voyage à travers le monde, dans la peau
-        de ceux que personne ne regarde.
-      </p>
-
-      <strong>17,98 €</strong>
-
-      <a href="https://amzn.eu/d/0fyDrXjy"
-         class="btn-primary"
-         target="_blank"
-         rel="noopener noreferrer">
-        Acheter sur Amazon ↗
-      </a>
-
-      <details>
-        <summary>Afficher le QR code</summary>
-
-        <img src="qr-ames-errantes.png"
-             alt="QR code Amazon Nos âmes errantes"
-             class="book-qr"
-             loading="lazy">
-      </details>
-
-    </article>
-
-    <!-- LIVRE 3 -->
-
-    <article class="book-card">
-
-      <div class="book-cover">
-        <img src="livre-coloriage.jpg"
-             alt="Couverture du livre de coloriage Cœur Errant"
-             loading="lazy">
-      </div>
-
-      <p class="section-tag">Coloriage pour adultes</p>
-
-      <h3>Cœur Errant</h3>
-
-      <p>
-        <em>Chaque animal a une histoire</em>
-      </p>
-
-      <p>
-        Un livre de coloriage inspiré de véritables
-        rencontres avec les animaux errants.
-        Entre créativité, douceur et sensibilisation,
-        prenez le temps de découvrir leurs histoires.
-      </p>
-
-      <strong>14,99 €</strong>
-
-      <a href="https://amzn.eu/d/0h3yOZae"
-         class="btn-primary"
-         target="_blank"
-         rel="noopener noreferrer">
-        Acheter sur Amazon ↗
-      </a>
-
-      <details>
-        <summary>Afficher le QR code</summary>
-
-        <img src="qr-coloriage.png"
-             alt="QR code Amazon Cœur Errant"
-             class="book-qr"
-             loading="lazy">
-      </details>
-
-    </article>
+    </p>
 
   </div>
-
-  <small>
-    Les prix sont indicatifs et peuvent évoluer sur Amazon.
-    Les commandes, paiements et livraisons sont gérés
-    directement par Amazon.
-  </small>
-
-</section>
-
-<!-- LA MISSION -->
-
-<section class="how" id="mission">
-
-  <p class="section-tag">La mission</p>
-
-  <h2>
-    De petits gestes, <em>de grandes différences.</em>
-  </h2>
-
-  <div class="how-grid">
-
-    <div class="how-item">
-
-      <div class="how-num">01</div>
-
-      <p class="how-title">Voyager</p>
-
-      <p class="how-desc">
-        De pays en pays, je pars à la rencontre
-        des animaux errants et découvre leur quotidien.
-      </p>
-
-    </div>
-
-    <div class="how-item">
-
-      <div class="how-num">02</div>
-
-      <p class="how-title">Nourrir</p>
-
-      <p class="how-desc">
-        Leur offrir de la nourriture, de l'eau,
-        de la douceur et, lorsque cela est possible,
-        les aider à recevoir les soins dont ils ont besoin.
-      </p>
-
-    </div>
-
-    <div class="how-item">
-
-      <div class="how-num">03</div>
-
-      <p class="how-title">Sensibiliser</p>
-
-      <p class="how-desc">
-        Partager leurs histoires à travers mes livres,
-        mes photos et mes réseaux sociaux pour
-        qu'ils ne soient plus invisibles.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- DESTINATIONS -->
-
-<section class="destinations" id="destinations">
-
-  <p class="section-tag">Au-delà des frontières</p>
-
-  <h2>
-    Les destinations du <em>cœur</em>
-  </h2>
-
-  <div class="destinations-grid">
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/ma.png"
-           alt="Maroc">
-      <span class="dest-name">Maroc</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/tn.png"
-           alt="Tunisie">
-      <span class="dest-name">Tunisie</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/al.png"
-           alt="Albanie">
-      <span class="dest-name">Albanie</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/xk.png"
-           alt="Kosovo">
-      <span class="dest-name">Kosovo</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/mk.png"
-           alt="Macédoine du Nord">
-      <span class="dest-name">Macédoine du Nord</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="flag-sicille.png"
-           alt="Sicile">
-      <span class="dest-name">Sicile</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/pl.png"
-           alt="Pologne">
-      <span class="dest-name">Pologne</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/de.png"
-           alt="Allemagne">
-      <span class="dest-name">Allemagne</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/fr.png"
-           alt="France">
-      <span class="dest-name">France</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="flag-corse.png"
-           alt="Corse">
-      <span class="dest-name">Corse</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/tr.png"
-           alt="Turquie">
-      <span class="dest-name">Turquie</span>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- DERNIERS VOYAGES -->
-
-<section class="books" id="actualites">
-
-  <p class="section-tag">Carnet de voyage</p>
-
-  <h2>
-    Les dernières <em>aventures</em>
-  </h2>
-
-  <div class="book-grid">
-
-    <article class="book-card">
-
-      <p class="section-tag">Juin 2026</p>
-
-      <h3>Marrakech &amp; Agadir</h3>
-
-      <p>
-        Un retour au Maroc, là où tout a commencé.
-        De nouvelles rencontres et de nouveaux souvenirs.
-      </p>
-
-    </article>
-
-    <article class="book-card">
-
-      <p class="section-tag">Août 2026</p>
-
-      <h3>Djerba, Tunisie</h3>
-
-      <p>
-        Entre les ruelles et les plages tunisiennes,
-        de nouvelles histoires à raconter.
-      </p>
-
-    </article>
-
-    <article class="book-card">
-
-      <p class="section-tag">Décembre 2026</p>
-
-      <h3>Une nouvelle aventure</h3>
-
-      <p>
-        Une prochaine destination se prépare.
-        Encore de nouveaux regards à croiser
-        et de nouvelles histoires à partager.
-      </p>
-
-    </article>
-
-  </div>
-
-  <a href="voyages.html" class="btn-outline">
-    Découvrir tous mes voyages
-  </a>
 
 </section>
 
 <!-- NOS ÉTOILES -->
 
-<section class="nala" id="nos-etoiles">
+<section class="ce-stars" id="nos-etoiles">
 
-  <div class="nala-image">
+  <div class="ce-sky" aria-hidden="true"></div>
 
-    <img src="nala.jpeg"
-         alt="En souvenir de Nala"
-         class="nala-img"
-         loading="lazy">
+  <div class="ce-stars-content ce-reveal">
 
-  </div>
+    <p class="ce-label">Pour ceux qui restent en nous</p>
 
-  <div class="nala-text">
-
-    <p class="section-tag">Nos étoiles</p>
+    <div class="ce-star-main" aria-hidden="true">✧</div>
 
     <h2>
-      Nala, pour <em>toujours</em>
+
+      Certaines âmes
+      <em>ne nous quittent jamais.</em>
+
     </h2>
 
     <p>
-      On l'a trouvée dans la rue, le museau fouillant
-      des ordures pour survivre. Un petit chiot,
-      seul, affamé.
+
+      Elles ont traversé mon chemin.
+      Aujourd'hui, elles continuent de briller autrement.
+
     </p>
 
-    <p>
-      On l'a prise avec nous, emmenée chez le vétérinaire,
-      vaccinée. Elle avait désormais un carnet de santé
-      à mon nom. Elle avait un nom, Nala.
-    </p>
+    <a href="etoiles.html" class="ce-star-button">
 
-    <div class="origin-quote">
+      Entrer dans leur ciel ✧
 
-      <p>
-        « Elle cherchait juste à manger.
-        On lui a donné bien plus que ça,
-        on lui a donné une chance. »
-      </p>
-
-    </div>
-
-    <p>
-      On a trouvé quelqu'un pour la garder.
-      Mais un matin, on l'a retrouvée sous un arbre,
-      sans vie. Elle nous a laissé un vide immense
-      dans le cœur.
-    </p>
-
-    <p>
-      Nala est la raison pour laquelle Cœur Errant continue.
-      Pour elle, et pour tous ceux qui méritent une chance.
-    </p>
-
-    <p>
-      À toutes ces petites âmes parties trop tôt,
-      vous ne serez jamais oubliées.
-    </p>
+    </a>
 
   </div>
 
 </section>
 
-<!-- SOUTENIR -->
+<!-- PROCHAINE DESTINATION -->
 
-<section class="cta" id="soutenir">
+<section class="ce-next ce-reveal">
 
-  <p class="section-tag" style="justify-content:center;">
-    Ensemble, faisons la différence
-  </p>
+  <div class="ce-ticket">
 
-  <h2>
-    Un petit geste peut <em>changer une vie.</em>
-  </h2>
+    <div class="ce-ticket-main">
 
-  <p class="cta-desc">
-    Un repas, un partage, un livre, un geste de solidarité.
-    Il existe mille façons de soutenir Cœur Errant
-    et de contribuer à rendre les animaux errants
-    un peu moins invisibles.
-  </p>
+      <p class="ce-label">Le prochain chapitre</p>
 
-  <div class="cta-actions">
+      <h2>
 
-    <a href="soutenir.html" class="btn-primary">
-      Soutenir Cœur Errant
-    </a>
+        Quelque part,
+        <em>ailleurs.</em>
 
-    <a href="#livres" class="btn-outline">
-      Découvrir mes livres
-    </a>
+      </h2>
+
+      <p>
+
+        Une nouvelle destination.
+        De nouvelles rencontres.
+        Une mission qui ne change pas.
+
+      </p>
+
+      <a href="voyages.html#prochain-voyage"
+         class="ce-text-link">
+
+        Découvrir le prochain voyage ↗
+
+      </a>
+
+    </div>
+
+    <div class="ce-ticket-side">
+
+      <span class="ce-ticket-plane">✈</span>
+
+      <span>DESTINATION</span>
+
+      <strong>Mystère</strong>
+
+      <span>Décembre 2026</span>
+
+      <div class="ce-barcode"></div>
+
+    </div>
 
   </div>
+
+</section>
+
+<!-- CONCLUSION -->
+
+<section class="ce-ending ce-reveal">
+
+  <span class="ce-ending-heart">♡</span>
+
+  <h2>
+
+    Le monde change,
+    <em>un petit geste à la fois.</em>
+
+  </h2>
+
+  <p>
+
+    Merci d'avoir pris quelques instants
+    pour entrer dans mon univers.
+
+  </p>
+
+  <a href="soutenir.html" class="ce-button">
+
+    Écrivons la suite ensemble
+
+  </a>
 
 </section>
 
 </main>
 
-<!-- PIED DE PAGE -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -705,82 +631,76 @@
 
   <div class="footer-socials">
 
-    <a class="footer-social-link"
-       href="https://www.tiktok.com/@coeur_errant"
+    <a href="https://www.tiktok.com/@coeur_errant"
        target="_blank"
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/tiktok/white"
-             alt="TikTok">
+        <img src="https://cdn.simpleicons.org/tiktok/white" alt="">
       </div>
 
       <span class="footer-social-name">TikTok</span>
 
     </a>
 
-    <a class="footer-social-link"
-       href="https://www.instagram.com/coeur.errant/"
+    <a href="https://www.instagram.com/coeur.errant/"
        target="_blank"
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/instagram/white"
-             alt="Instagram">
+        <img src="https://cdn.simpleicons.org/instagram/white" alt="">
       </div>
 
       <span class="footer-social-name">Instagram</span>
 
     </a>
 
-    <a class="footer-social-link"
-       href="https://www.youtube.com/@CoeurErrant"
+    <a href="https://www.youtube.com/@CoeurErrant"
        target="_blank"
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/youtube/white"
-             alt="YouTube">
+        <img src="https://cdn.simpleicons.org/youtube/white" alt="">
       </div>
 
       <span class="footer-social-name">YouTube</span>
 
     </a>
 
-    <a class="footer-social-link"
-       href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
        target="_blank"
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/facebook/white"
-             alt="Facebook">
+        <img src="https://cdn.simpleicons.org/facebook/white" alt="">
       </div>
 
       <span class="footer-social-name">Facebook</span>
 
     </a>
 
-    <a class="footer-social-link"
-       href="https://www.snapchat.com/add/coeur_errant"
+    <a href="https://www.snapchat.com/add/coeur_errant"
        target="_blank"
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/snapchat/white"
-             alt="Snapchat">
+        <img src="https://cdn.simpleicons.org/snapchat/white" alt="">
       </div>
 
       <span class="footer-social-name">Snapchat</span>
 
     </a>
 
-    <a class="footer-social-link"
-       href="mailto:coeur.errant@outlook.be">
+    <a href="mailto:coeur.errant@outlook.be"
+       class="footer-social-link">
 
       <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/gmail/white"
-             alt="E-mail">
+        <img src="https://cdn.simpleicons.org/gmail/white" alt="">
       </div>
 
       <span class="footer-social-name">Contact</span>
@@ -792,67 +712,388 @@
   <div class="footer-divider"></div>
 
   <p class="footer-copy">
-    © <span id="annee"></span> Cœur Errant —
-    Chaque animal a une histoire.
+
+    © <span id="annee"></span>
+    Cœur Errant — Chaque animal a une histoire.
+
   </p>
 
 </footer>
 
-<!-- JAVASCRIPT -->
+<!-- BIBLIOTHÈQUE DE LA CARTE -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
 
-  // Compteur depuis juin 2024
+/* ANNÉE AUTOMATIQUE */
 
-  const debut = new Date('2024-06-01T00:00:00');
-  const aujourdhui = new Date();
+document.getElementById('annee').textContent =
+  new Date().getFullYear();
 
-  const jours = Math.floor(
-    (aujourdhui - debut) / (1000 * 60 * 60 * 24)
+
+/* MENU MOBILE */
+
+const navLinks = document.getElementById('nav-links');
+const hamburger = document.getElementById('hamburger');
+
+function toggleMenu() {
+
+  const isOpen = navLinks.classList.toggle('open');
+
+  hamburger.classList.toggle('open', isOpen);
+
+  hamburger.setAttribute('aria-expanded', String(isOpen));
+
+  hamburger.setAttribute(
+    'aria-label',
+    isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
   );
 
-  document.getElementById('compteur').textContent = jours;
+}
 
-  // Année automatique
+function closeMenu() {
 
-  document.getElementById('annee').textContent =
-    new Date().getFullYear();
+  navLinks.classList.remove('open');
+  hamburger.classList.remove('open');
 
-  // Menu mobile
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-label', 'Ouvrir le menu');
 
-  function toggleMenu() {
+}
 
-    const menu = document.getElementById('nav-links');
-    const bouton = document.getElementById('hamburger');
+document.addEventListener('keydown', event => {
 
-    const ouvert = menu.classList.toggle('open');
-
-    bouton.classList.toggle('open', ouvert);
-    bouton.setAttribute('aria-expanded', ouvert);
-
+  if (event.key === 'Escape') {
+    closeMenu();
   }
 
-  function closeMenu() {
+});
 
-    document.getElementById('nav-links')
-      .classList.remove('open');
 
-    const bouton = document.getElementById('hamburger');
+/* APPARITION AU DÉFILEMENT */
 
-    bouton.classList.remove('open');
-    bouton.setAttribute('aria-expanded', 'false');
+if ('IntersectionObserver' in window &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
-  }
+  document.body.classList.add('ce-animations');
 
-  // Fermer le menu avec la touche Échap
+  const observer = new IntersectionObserver(entries => {
 
-  document.addEventListener('keydown', function(event) {
+    entries.forEach(entry => {
 
-    if (event.key === 'Escape') {
-      closeMenu();
-    }
+      if (entry.isIntersecting) {
+
+        entry.target.classList.add('ce-visible');
+
+        observer.unobserve(entry.target);
+
+      }
+
+    });
+
+  }, {
+    threshold: 0.12
+  });
+
+  document.querySelectorAll('.ce-reveal').forEach(element => {
+
+    observer.observe(element);
 
   });
+
+}
+
+
+/* ENVELOPPE INTERACTIVE */
+
+const envelope = document.getElementById('ce-envelope');
+const letter = document.getElementById('ce-letter-message');
+
+envelope.addEventListener('click', () => {
+
+  const isOpen = envelope.classList.toggle('ce-envelope-open');
+
+  envelope.setAttribute('aria-expanded', String(isOpen));
+
+  envelope.setAttribute(
+    'aria-label',
+    isOpen ? 'Fermer la lettre' : 'Ouvrir la lettre'
+  );
+
+  letter.hidden = !isOpen;
+
+});
+
+
+/* CIEL ÉTOILÉ */
+
+const sky = document.querySelector('.ce-sky');
+
+for (let i = 0; i < 55; i++) {
+
+  const star = document.createElement('span');
+
+  star.className = 'ce-small-star';
+
+  star.style.left = Math.random() * 100 + '%';
+
+  star.style.top = Math.random() * 100 + '%';
+
+  star.style.animationDelay = Math.random() * 5 + 's';
+
+  star.style.animationDuration = 2 + Math.random() * 4 + 's';
+
+  const size = 1 + Math.random() * 3;
+
+  star.style.width = size + 'px';
+
+  star.style.height = size + 'px';
+
+  sky.appendChild(star);
+
+}
+
+
+/* DESTINATIONS */
+
+const destinations = [
+
+  {
+    name: 'Corse, France',
+    date: 'Avril 2023',
+    lat: 42.15,
+    lng: 9.10,
+    link: 'voyages.html#annee-2023'
+  },
+
+  {
+    name: 'Tanger, Maroc',
+    date: 'Juin 2024 et septembre 2025',
+    lat: 35.7595,
+    lng: -5.8340,
+    link: 'voyages.html#annee-2024'
+  },
+
+  {
+    name: 'Sciacca, Sicile',
+    date: 'Août 2024',
+    lat: 37.507,
+    lng: 13.083,
+    link: 'voyages.html#annee-2024'
+  },
+
+  {
+    name: 'Palerme, Sicile',
+    date: 'Août 2024',
+    lat: 38.1157,
+    lng: 13.3615,
+    link: 'voyages.html#annee-2024'
+  },
+
+  {
+    name: 'Agrigente, Sicile',
+    date: 'Août 2024',
+    lat: 37.3111,
+    lng: 13.5765,
+    link: 'voyages.html#annee-2024'
+  },
+
+  {
+    name: 'Casteltermini, Sicile',
+    date: 'Août 2024',
+    lat: 37.539,
+    lng: 13.646,
+    link: 'voyages.html#annee-2024'
+  },
+
+  {
+    name: 'Varsovie, Pologne',
+    date: 'Janvier 2025',
+    lat: 52.2297,
+    lng: 21.0122,
+    link: 'voyages.html#annee-2025'
+  },
+
+  {
+    name: 'Chefchaouen, Maroc',
+    date: 'Septembre 2025',
+    lat: 35.1714,
+    lng: -5.2697,
+    link: 'voyages.html#annee-2025'
+  },
+
+  {
+    name: 'Akchour, Maroc',
+    date: 'Septembre 2025',
+    lat: 35.237,
+    lng: -5.176,
+    link: 'voyages.html#annee-2025'
+  },
+
+  {
+    name: 'Istanbul, Turquie',
+    date: 'Novembre 2025',
+    lat: 41.0082,
+    lng: 28.9784,
+    link: 'voyages.html#annee-2025'
+  },
+
+  {
+    name: 'Skopje, Macédoine du Nord',
+    date: 'Janvier 2026',
+    lat: 41.9981,
+    lng: 21.4254,
+    link: 'voyages.html#annee-2026'
+  },
+
+  {
+    name: 'Pristina, Kosovo',
+    date: 'Janvier 2026',
+    lat: 42.6629,
+    lng: 21.1655,
+    link: 'voyages.html#annee-2026'
+  },
+
+  {
+    name: 'Tirana, Albanie',
+    date: 'Janvier 2026',
+    lat: 41.3275,
+    lng: 19.8187,
+    link: 'voyages.html#annee-2026'
+  },
+
+  {
+    name: 'Marrakech, Maroc',
+    date: 'Juin 2026',
+    lat: 31.6295,
+    lng: -7.9811,
+    link: 'voyages.html#djibou'
+  },
+
+  {
+    name: 'Agadir, Maroc',
+    date: 'Juin 2026',
+    lat: 30.4278,
+    lng: -9.5981,
+    link: 'voyages.html#annee-2026'
+  },
+
+  {
+    name: 'Djerba, Tunisie',
+    date: 'Août 2026',
+    lat: 33.8076,
+    lng: 10.8451,
+    link: 'voyages.html#annee-2026'
+  }
+
+];
+
+
+/* CARTE INTERACTIVE */
+
+if (typeof L !== 'undefined') {
+
+  document.getElementById('ce-map').innerHTML = '';
+
+  const map = L.map('ce-map', {
+
+    scrollWheelZoom: false,
+    minZoom: 2,
+    maxZoom: 16
+
+  });
+
+  L.tileLayer(
+
+    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+
+    {
+      maxZoom: 19,
+
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }
+
+  ).addTo(map);
+
+  const heartIcon = L.divIcon({
+
+    className: 'ce-map-icon',
+
+    html: '<span>♡</span>',
+
+    iconSize: [30, 30],
+
+    iconAnchor: [15, 15],
+
+    popupAnchor: [0, -18]
+
+  });
+
+  const bounds = [];
+
+  destinations.forEach(destination => {
+
+    const position = [
+      destination.lat,
+      destination.lng
+    ];
+
+    bounds.push(position);
+
+    L.marker(position, {
+
+      icon: heartIcon,
+
+      title: destination.name,
+
+      alt: destination.name
+
+    })
+
+    .addTo(map)
+
+    .bindPopup(`
+
+      <div class="ce-map-popup">
+
+        <h3>${destination.name}</h3>
+
+        <p>${destination.date}</p>
+
+        <a href="${destination.link}">
+          Découvrir ce voyage ↗
+        </a>
+
+      </div>
+
+    `);
+
+  });
+
+  function resetMap() {
+
+    map.fitBounds(bounds, {
+      padding: [35, 35]
+    });
+
+  }
+
+  resetMap();
+
+  document.getElementById('ce-map-reset')
+    .addEventListener('click', resetMap);
+
+} else {
+
+  document.getElementById('ce-map').innerHTML =
+
+    '<p class="ce-map-loading">La carte est momentanément indisponible. Retrouvez mes destinations dans le carnet de voyage.</p>';
+
+  document.getElementById('ce-map-reset').hidden = true;
+
+}
 
 </script>
 
