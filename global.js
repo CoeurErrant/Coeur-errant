@@ -267,8 +267,6 @@
 
       } catch (error) {
 
-        // Pas de stockage disponible :
-        // on évite de répéter l'animation.
         return;
 
       }
@@ -384,6 +382,172 @@
     `;
 
     document.body.appendChild(tools);
+
+    /* =====================================
+       PASSEPORT DU CŒUR
+       ===================================== */
+
+    const passportButton = document.createElement("button");
+
+    passportButton.type = "button";
+
+    passportButton.className = "ce-passport-button";
+
+    passportButton.innerHTML = `
+
+      <svg viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="1.4"
+           stroke-linecap="round"
+           aria-hidden="true">
+
+        <rect x="5" y="2.5"
+              width="14" height="19"
+              rx="2"/>
+
+        <path d="M8 3V21"/>
+
+        <circle cx="13.5" cy="10" r="3.5"/>
+
+        <ellipse cx="13.5" cy="10"
+                 rx="1.5" ry="3.5"/>
+
+        <path d="M10 10H17 M11 16H16 M12 18H15"/>
+
+      </svg>
+
+      <span class="ce-passport-counter"
+            aria-hidden="true">0/14</span>
+
+    `;
+
+    tools.prepend(passportButton);
+
+    const passportKey = "coeur-errant-passport-v1";
+
+    const passportIds = [
+
+      "corse-2023",
+      "tanger-2024",
+      "sicile-2024",
+      "varsovie-2025",
+      "tanger-2025",
+      "chefchaouen-2025",
+      "akchour-2025",
+      "istanbul-2025",
+      "skopje-2026",
+      "pristina-2026",
+      "tirana-2026",
+      "marrakech-2026",
+      "agadir-2026",
+      "djerba-2026"
+
+    ];
+
+    function updatePassportCounter() {
+
+      let count = 0;
+
+      try {
+
+        const saved = JSON.parse(
+          localStorage.getItem(passportKey)
+        );
+
+        if (saved && Array.isArray(saved.stamps)) {
+
+          count = passportIds.filter(
+            id => saved.stamps.includes(id)
+          ).length;
+
+        }
+
+      } catch (error) {}
+
+      const label =
+
+        (isDutch
+          ? "Mijn hartpaspoort"
+          : "Mon passeport du cœur")
+
+        + " — " + count + "/" + passportIds.length;
+
+      passportButton.querySelector(
+        ".ce-passport-counter"
+      ).textContent = count + "/" + passportIds.length;
+
+      passportButton.classList.toggle(
+        "ce-passport-complete",
+        count === passportIds.length
+      );
+
+      passportButton.title = label;
+
+      passportButton.setAttribute(
+        "aria-label",
+        label
+      );
+
+    }
+
+    passportButton.addEventListener("click", () => {
+
+      const section =
+        document.getElementById("mon-passeport");
+
+      if (section) {
+
+        section.scrollIntoView({
+
+          behavior: reducedMotion
+            ? "instant"
+            : "smooth",
+
+          block: "start"
+
+        });
+
+      } else {
+
+        window.location.href =
+          "/Coeur-errant/passeport.html";
+
+      }
+
+    });
+
+    window.addEventListener(
+      "storage",
+      updatePassportCounter
+    );
+
+    window.addEventListener(
+      "pageshow",
+      updatePassportCounter
+    );
+
+    window.addEventListener(
+      "focus",
+      updatePassportCounter
+    );
+
+    document.addEventListener(
+      "visibilitychange",
+      updatePassportCounter
+    );
+
+    window.setInterval(() => {
+
+      if (!document.hidden) {
+
+        updatePassportCounter();
+
+      }
+
+    }, 1000);
+
+    updatePassportCounter();
 
     /* =====================================
        RETOUR EN HAUT
