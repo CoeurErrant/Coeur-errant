@@ -1,0 +1,1196 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="robots" content="noindex">
+
+  <meta name="theme-color" content="#faf8f5">
+
+  <title>Une petite patte s'est égarée — Cœur Errant</title>
+
+  <link rel="icon"
+        type="image/jpeg"
+        href="/Coeur-errant/logo.jpeg">
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    /* =====================================
+       CŒUR ERRANT — PAGE 404
+       ===================================== */
+
+    :root {
+
+      --cream: #faf8f5;
+      --paper: #fffdf9;
+      --rose: #a85e68;
+      --pink: #b77d88;
+      --gold: #c4a477;
+      --dark: #493c35;
+      --muted: #80736b;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+
+    }
+
+    * {
+
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+
+    }
+
+    body {
+
+      min-height: 100vh;
+      min-height: 100svh;
+
+      display: flex;
+      flex-direction: column;
+
+      background:
+
+        radial-gradient(
+          ellipse at 15% 20%,
+          #f0dfe0 0%,
+          transparent 40%
+        ),
+
+        radial-gradient(
+          ellipse at 90% 85%,
+          #eedfd5 0%,
+          transparent 45%
+        ),
+
+        var(--cream);
+
+      color: var(--dark);
+
+      font-family: var(--sans);
+
+      overflow-x: hidden;
+
+    }
+
+    a {
+
+      color: inherit;
+
+    }
+
+    /* =====================================
+       PETIT HEADER
+       ===================================== */
+
+    .lost-header {
+
+      position: relative;
+      z-index: 5;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 22px 6%;
+
+    }
+
+    .lost-logo {
+
+      display: inline-flex;
+      align-items: center;
+
+      gap: 14px;
+
+      text-decoration: none;
+
+    }
+
+    .lost-logo img {
+
+      width: 58px;
+      height: 58px;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+
+      border: 1px solid #e4d2cc;
+
+    }
+
+    .lost-logo span {
+
+      font-family: var(--serif);
+      font-size: 1.6rem;
+
+    }
+
+    .lost-header-link {
+
+      font-size: .8rem;
+
+      color: var(--rose);
+
+      text-decoration: none;
+
+    }
+
+    .lost-header-link:hover {
+
+      text-decoration: underline;
+
+    }
+
+    /* =====================================
+       CONTENU PRINCIPAL
+       ===================================== */
+
+    .lost-main {
+
+      position: relative;
+
+      flex: 1;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 25px 20px 55px;
+
+      isolation: isolate;
+
+    }
+
+    .lost-content {
+
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      max-width: 760px;
+
+      text-align: center;
+
+      animation: lostAppear 1s ease both;
+
+    }
+
+    .lost-label {
+
+      font-size: .7rem;
+
+      letter-spacing: .3em;
+
+      text-transform: uppercase;
+
+      color: var(--rose);
+
+      margin-bottom: 12px;
+
+    }
+
+    /* =====================================
+       PETIT CHAT PERDU
+       ===================================== */
+
+    .lost-illustration {
+
+      position: relative;
+
+      width: min(340px, 85vw);
+
+      margin: 0 auto;
+
+    }
+
+    .lost-illustration svg {
+
+      display: block;
+
+      width: 100%;
+      height: auto;
+
+      overflow: visible;
+
+    }
+
+    .lost-cat {
+
+      transform-origin: center bottom;
+      transform-box: fill-box;
+
+      animation: catBreathe 4s ease-in-out infinite;
+
+    }
+
+    .lost-tail {
+
+      transform-origin: left bottom;
+      transform-box: fill-box;
+
+      animation: tailMove 4s ease-in-out infinite;
+
+    }
+
+    .lost-eyes {
+
+      transform-origin: center;
+      transform-box: fill-box;
+
+      animation: catBlink 6s infinite;
+
+    }
+
+    .lost-question {
+
+      animation: questionFloat 3s ease-in-out infinite;
+
+    }
+
+    .lost-sparkle {
+
+      transform-origin: center;
+      transform-box: fill-box;
+
+      animation: sparkle 3s ease-in-out infinite;
+
+    }
+
+    /* =====================================
+       NUMÉRO ET TITRES
+       ===================================== */
+
+    .lost-number {
+
+      font-family: var(--serif);
+      font-size: clamp(5rem, 12vw, 8rem);
+      font-weight: 400;
+
+      line-height: .85;
+
+      letter-spacing: -.04em;
+
+      color: var(--pink);
+
+      margin: 12px 0 22px;
+
+    }
+
+    .lost-content h1 {
+
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 4.4rem);
+      font-weight: 400;
+
+      line-height: 1.05;
+
+      margin-bottom: 22px;
+
+    }
+
+    .lost-content h1 em {
+
+      display: block;
+
+      font-weight: 400;
+
+      color: var(--rose);
+
+    }
+
+    .lost-description {
+
+      max-width: 480px;
+
+      margin: 0 auto;
+
+      color: var(--muted);
+
+      font-size: .95rem;
+      font-weight: 300;
+
+      line-height: 1.9;
+
+    }
+
+    /* =====================================
+       BOUTONS
+       ===================================== */
+
+    .lost-actions {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 20px;
+
+      margin-top: 32px;
+
+    }
+
+    .lost-button {
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 12px;
+
+      padding: 15px 30px;
+
+      background: var(--rose);
+
+      border: 1px solid var(--rose);
+      border-radius: 5px;
+
+      color: white;
+
+      font-family: var(--sans);
+      font-size: .85rem;
+
+      text-decoration: none;
+
+      box-shadow: 0 8px 25px rgba(168, 94, 104, .16);
+
+      transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+
+    }
+
+    .lost-button:hover {
+
+      transform: translateY(-4px);
+
+      background: #914b58;
+
+      box-shadow: 0 12px 30px rgba(168, 94, 104, .25);
+
+    }
+
+    .lost-button span {
+
+      font-size: 1.3rem;
+
+      line-height: 1;
+
+    }
+
+    .lost-secondary {
+
+      color: var(--rose);
+
+      font-size: .82rem;
+
+      text-decoration: underline;
+
+      text-underline-offset: 5px;
+
+    }
+
+    .lost-secondary:hover {
+
+      color: var(--dark);
+
+    }
+
+    a:focus-visible {
+
+      outline: 2px solid var(--rose);
+
+      outline-offset: 6px;
+
+    }
+
+    /* =====================================
+       EMPREINTES DÉCORATIVES
+       ===================================== */
+
+    .lost-trail {
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: -1;
+
+      overflow: hidden;
+
+      pointer-events: none;
+
+    }
+
+    .lost-paw {
+
+      position: absolute;
+
+      width: 42px;
+      height: 42px;
+
+      color: #b77d88;
+
+      opacity: .12;
+
+      animation: pawFloat 5s ease-in-out infinite;
+
+    }
+
+    .lost-paw svg {
+
+      width: 100%;
+      height: 100%;
+
+      fill: currentColor;
+
+    }
+
+    .lost-paw:nth-child(1) {
+
+      left: 7%;
+      bottom: 12%;
+
+      --rotation: -25deg;
+
+    }
+
+    .lost-paw:nth-child(2) {
+
+      left: 12%;
+      bottom: 27%;
+
+      --rotation: 15deg;
+
+      animation-delay: .4s;
+
+    }
+
+    .lost-paw:nth-child(3) {
+
+      left: 7%;
+      bottom: 43%;
+
+      --rotation: -20deg;
+
+      animation-delay: .8s;
+
+    }
+
+    .lost-paw:nth-child(4) {
+
+      right: 8%;
+      top: 10%;
+
+      --rotation: 25deg;
+
+      animation-delay: 1.2s;
+
+    }
+
+    .lost-paw:nth-child(5) {
+
+      right: 13%;
+      top: 25%;
+
+      --rotation: -15deg;
+
+      animation-delay: 1.6s;
+
+    }
+
+    .lost-paw:nth-child(6) {
+
+      right: 7%;
+      top: 41%;
+
+      --rotation: 20deg;
+
+      animation-delay: 2s;
+
+    }
+
+    /* =====================================
+       PETIT MESSAGE FINAL
+       ===================================== */
+
+    .lost-footer {
+
+      padding: 15px 20px 30px;
+
+      text-align: center;
+
+    }
+
+    .lost-footer-heart {
+
+      display: block;
+
+      font-family: Georgia, serif;
+      font-size: 1.8rem;
+
+      color: var(--rose);
+
+      margin-bottom: 7px;
+
+      animation: heartBeat 3s ease-in-out infinite;
+
+    }
+
+    .lost-footer p {
+
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+
+      color: var(--muted);
+
+    }
+
+    .lost-copyright {
+
+      display: block;
+
+      margin-top: 14px;
+
+      font-size: .65rem;
+
+      letter-spacing: .08em;
+
+      color: var(--muted);
+
+    }
+
+    /* =====================================
+       ANIMATIONS
+       ===================================== */
+
+    @keyframes lostAppear {
+
+      from {
+
+        opacity: 0;
+        transform: translateY(18px);
+
+      }
+
+      to {
+
+        opacity: 1;
+        transform: translateY(0);
+
+      }
+
+    }
+
+    @keyframes catBreathe {
+
+      0%, 100% {
+
+        transform: scaleY(1);
+
+      }
+
+      50% {
+
+        transform: scaleY(1.025);
+
+      }
+
+    }
+
+    @keyframes tailMove {
+
+      0%, 100% {
+
+        transform: rotate(0deg);
+
+      }
+
+      50% {
+
+        transform: rotate(-8deg);
+
+      }
+
+    }
+
+    @keyframes catBlink {
+
+      0%, 44%, 48%, 100% {
+
+        transform: scaleY(1);
+
+      }
+
+      46% {
+
+        transform: scaleY(.08);
+
+      }
+
+    }
+
+    @keyframes questionFloat {
+
+      0%, 100% {
+
+        transform: translateY(0);
+
+      }
+
+      50% {
+
+        transform: translateY(-8px);
+
+      }
+
+    }
+
+    @keyframes sparkle {
+
+      0%, 100% {
+
+        opacity: .5;
+        transform: scale(.85);
+
+      }
+
+      50% {
+
+        opacity: 1;
+        transform: scale(1.15);
+
+      }
+
+    }
+
+    @keyframes pawFloat {
+
+      0%, 100% {
+
+        opacity: .1;
+
+        transform:
+          translateY(0)
+          rotate(var(--rotation));
+
+      }
+
+      50% {
+
+        opacity: .22;
+
+        transform:
+          translateY(-7px)
+          rotate(var(--rotation));
+
+      }
+
+    }
+
+    @keyframes heartBeat {
+
+      0%, 100% {
+
+        transform: scale(1);
+
+      }
+
+      30% {
+
+        transform: scale(1.1);
+
+      }
+
+      45% {
+
+        transform: scale(1);
+
+      }
+
+      60% {
+
+        transform: scale(1.06);
+
+      }
+
+    }
+
+    /* =====================================
+       TÉLÉPHONES
+       ===================================== */
+
+    @media (max-width: 600px) {
+
+      .lost-header {
+
+        padding: 16px 20px;
+
+      }
+
+      .lost-logo {
+
+        gap: 9px;
+
+      }
+
+      .lost-logo img {
+
+        width: 43px;
+        height: 43px;
+
+      }
+
+      .lost-logo span {
+
+        font-size: 1.3rem;
+
+      }
+
+      .lost-header-link {
+
+        font-size: .7rem;
+
+      }
+
+      .lost-main {
+
+        padding: 25px 24px 35px;
+
+      }
+
+      .lost-illustration {
+
+        max-width: 270px;
+
+      }
+
+      .lost-description {
+
+        font-size: .85rem;
+
+      }
+
+      .lost-paw {
+
+        width: 25px;
+        height: 25px;
+
+      }
+
+      .lost-footer p {
+
+        font-size: 1.05rem;
+
+      }
+
+    }
+
+    /* ACCESSIBILITÉ */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+
+        animation: none !important;
+        transition: none !important;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =====================================
+       HEADER
+       ===================================== -->
+
+  <header class="lost-header">
+
+    <a href="/Coeur-errant/"
+       class="lost-logo">
+
+      <img src="/Coeur-errant/logo.jpeg"
+           alt=""
+           onerror="this.hidden=true">
+
+      <span>Cœur Errant</span>
+
+    </a>
+
+    <a href="/Coeur-errant/"
+       class="lost-header-link">
+
+      Retour à l'accueil ♡
+
+    </a>
+
+  </header>
+
+  <!-- =====================================
+       CONTENU
+       ===================================== -->
+
+  <main class="lost-main">
+
+    <div class="lost-trail"
+         aria-hidden="true">
+
+      <span class="lost-paw"></span>
+      <span class="lost-paw"></span>
+      <span class="lost-paw"></span>
+      <span class="lost-paw"></span>
+      <span class="lost-paw"></span>
+      <span class="lost-paw"></span>
+
+    </div>
+
+    <div class="lost-content">
+
+      <p class="lost-label">
+
+        Un petit détour imprévu
+
+      </p>
+
+      <!-- ILLUSTRATION DU CHAT -->
+
+      <div class="lost-illustration">
+
+        <svg viewBox="0 0 300 180"
+             role="img"
+             aria-label="Un petit chat beige perdu avec un point d'interrogation">
+
+          <ellipse cx="150"
+                   cy="158"
+                   rx="95"
+                   ry="9"
+                   fill="#eadbd4"/>
+
+          <circle cx="150"
+                  cy="85"
+                  r="75"
+                  fill="#f3e5e4"/>
+
+          <!-- QUEUE -->
+
+          <path class="lost-tail"
+                d="M182 143 Q235 153 224 116 Q219 106 212 116"
+                fill="none"
+                stroke="#ad8a78"
+                stroke-width="13"
+                stroke-linecap="round"/>
+
+          <g class="lost-cat">
+
+            <!-- CORPS -->
+
+            <ellipse cx="151"
+                     cy="122"
+                     rx="37"
+                     ry="35"
+                     fill="#c8aa95"/>
+
+            <!-- OREILLES -->
+
+            <path d="M113 67 L109 23 Q111 18 119 25
+                     L140 43 L163 43 L190 22
+                     Q196 20 194 31 L189 70Z"
+                  fill="#c8aa95"
+                  stroke="#ad8a78"
+                  stroke-width="1.5"/>
+
+            <path d="M117 32 L120 56 L134 46Z
+                     M186 32 L182 56 L168 46Z"
+                  fill="#e7b6b5"/>
+
+            <!-- TÊTE -->
+
+            <ellipse cx="151"
+                     cy="77"
+                     rx="43"
+                     ry="36"
+                     fill="#c8aa95"/>
+
+            <!-- VENTRE -->
+
+            <ellipse cx="151"
+                     cy="135"
+                     rx="21"
+                     ry="21"
+                     fill="#f4e5d8"/>
+
+            <!-- YEUX -->
+
+            <g class="lost-eyes">
+
+              <ellipse cx="133"
+                       cy="75"
+                       rx="6"
+                       ry="8"
+                       fill="#493c35"/>
+
+              <ellipse cx="169"
+                       cy="75"
+                       rx="6"
+                       ry="8"
+                       fill="#493c35"/>
+
+              <circle cx="135"
+                      cy="72"
+                      r="2"
+                      fill="white"/>
+
+              <circle cx="171"
+                      cy="72"
+                      r="2"
+                      fill="white"/>
+
+            </g>
+
+            <!-- NEZ -->
+
+            <path d="M146 88 Q151 84 156 88 L151 93Z"
+                  fill="#a85e68"/>
+
+            <!-- BOUCHE -->
+
+            <path d="M151 93 Q146 99 142 96
+                     M151 93 Q156 99 160 96"
+                  fill="none"
+                  stroke="#806759"
+                  stroke-width="1.5"/>
+
+            <!-- MOUSTACHES -->
+
+            <path d="M122 87 L96 82
+                     M122 94 L97 97
+                     M180 87 L205 82
+                     M180 94 L205 97"
+                  stroke="#ad8a78"
+                  stroke-width="1.4"/>
+
+            <!-- PATTES -->
+
+            <ellipse cx="130"
+                     cy="151"
+                     rx="16"
+                     ry="8"
+                     fill="#d7bcaa"/>
+
+            <ellipse cx="171"
+                     cy="151"
+                     rx="16"
+                     ry="8"
+                     fill="#d7bcaa"/>
+
+          </g>
+
+          <!-- POINT D'INTERROGATION -->
+
+          <text class="lost-question"
+                x="213"
+                y="43"
+                font-size="32"
+                fill="#b77d88"
+                font-family="Georgia">
+
+            ?
+
+          </text>
+
+          <!-- ÉTOILES -->
+
+          <text class="lost-sparkle"
+                x="66"
+                y="55"
+                font-size="23"
+                fill="#c4a477">
+
+            ✧
+
+          </text>
+
+          <text class="lost-sparkle"
+                x="238"
+                y="85"
+                font-size="15"
+                fill="#c4a477">
+
+            ✦
+
+          </text>
+
+        </svg>
+
+      </div>
+
+      <!-- MESSAGE -->
+
+      <div class="lost-number"
+           aria-label="Erreur 404">
+
+        404
+
+      </div>
+
+      <h1>
+
+        Oups…
+
+        <em>Une petite patte s'est égarée.</em>
+
+      </h1>
+
+      <p class="lost-description">
+
+        Même les plus belles aventures connaissent
+        parfois quelques détours.
+
+        La page que vous cherchez semble avoir
+        emprunté un autre chemin.
+
+        Mais ne vous inquiétez pas,
+        il reste encore tant de belles histoires
+        à découvrir.
+
+      </p>
+
+      <!-- NAVIGATION -->
+
+      <div class="lost-actions">
+
+        <a href="/Coeur-errant/"
+           class="lost-button">
+
+          Retrouver mon chemin
+
+          <span aria-hidden="true">♡</span>
+
+        </a>
+
+        <a href="/Coeur-errant/voyages.html"
+           class="lost-secondary">
+
+          Continuer l'aventure
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- =====================================
+       FOOTER
+       ===================================== -->
+
+  <footer class="lost-footer">
+
+    <span class="lost-footer-heart"
+          aria-hidden="true">
+
+      ♡
+
+    </span>
+
+    <p>
+
+      Aucune âme ne devrait rester perdue.
+
+    </p>
+
+    <span class="lost-copyright">
+
+      © 2026 Cœur Errant — Chaque animal a une histoire.
+
+    </span>
+
+  </footer>
+
+  <!-- =====================================
+       EMPREINTES
+       ===================================== -->
+
+  <script>
+
+    const pawIcon = `
+
+      <svg viewBox="0 0 100 100"
+           aria-hidden="true">
+
+        <ellipse cx="20"
+                 cy="39"
+                 rx="10"
+                 ry="14"
+                 transform="rotate(-25 20 39)"/>
+
+        <ellipse cx="40"
+                 cy="23"
+                 rx="10"
+                 ry="15"
+                 transform="rotate(-10 40 23)"/>
+
+        <ellipse cx="63"
+                 cy="23"
+                 rx="10"
+                 ry="15"
+                 transform="rotate(10 63 23)"/>
+
+        <ellipse cx="82"
+                 cy="40"
+                 rx="10"
+                 ry="14"
+                 transform="rotate(25 82 40)"/>
+
+        <path d="M50 43
+                 C37 43 34 56 25 64
+                 C13 76 22 91 35 89
+                 C42 88 46 83 51 83
+                 C57 83 63 89 70 89
+                 C84 89 89 75 77 64
+                 C68 56 64 43 50 43Z"/>
+
+      </svg>
+
+    `;
+
+    document.querySelectorAll(".lost-paw")
+      .forEach(paw => {
+
+        paw.innerHTML = pawIcon;
+
+      });
+
+  </script>
+
+</body>
+
+</html>
