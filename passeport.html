@@ -1,0 +1,1511 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Le passeport du cœur — Cœur Errant</title>
+
+    <meta name="description"
+          content="Partez sur les traces de Cœur Errant, découvrez les animaux des rues et collectionnez les tampons de votre passeport du cœur.">
+
+    <meta name="theme-color" content="#faf8f5">
+
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="passeport.css">
+    <link rel="stylesheet" href="global.css">
+
+    <script src="global.js" defer></script>
+    <script src="passeport.js" defer></script>
+
+</head>
+
+<body>
+
+    <!-- =====================================
+         NAVIGATION
+         ===================================== -->
+
+    <nav>
+
+        <a class="nav-logo" href="index.html">
+            <img src="logo.jpeg" alt="Cœur Errant">
+        </a>
+
+        <ul class="nav-links" id="nav-links">
+
+            <li><a href="index.html">Accueil</a></li>
+
+            <li>
+                <a href="index.html#histoire">
+                    Mon histoire
+                </a>
+            </li>
+
+            <li><a href="mission.html">La mission</a></li>
+
+            <li>
+                <a href="voyages.html" class="active">
+                    Voyages
+                </a>
+            </li>
+
+            <li><a href="livres.html">Mes livres</a></li>
+
+            <li><a href="etoiles.html">Nos étoiles</a></li>
+
+            <li><a href="soutenir.html">Soutenir</a></li>
+
+        </ul>
+
+        <div class="lang-switcher">
+            <a href="passeport.html" class="lang-btn active">
+                FR
+            </a>
+            <a href="index-nl.html" class="lang-btn">
+                NL
+            </a>
+        </div>
+
+        <button class="hamburger"
+                id="hamburger"
+                type="button"
+                aria-label="Ouvrir le menu"
+                aria-controls="nav-links"
+                aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </nav>
+
+    <main class="passport-page">
+
+        <!-- =====================================
+             DÉCORATIONS
+             ===================================== -->
+
+        <div class="passport-background"
+             aria-hidden="true">
+
+            <span>✧</span>
+            <span>♡</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>♡</span>
+
+        </div>
+
+        <!-- =====================================
+             INTRODUCTION
+             ===================================== -->
+
+        <section class="passport-opening">
+
+            <div class="passport-opening-inner">
+
+                <div class="passport-opening-content">
+
+                    <span class="passport-label">
+                        Une invitation à voyager autrement
+                    </span>
+
+                    <h1>
+                        Le passeport
+                        <em>du cœur.</em>
+                    </h1>
+
+                    <p class="passport-intro">
+
+                        Et si les plus beaux souvenirs
+                        de voyage ne se trouvaient pas
+                        dans les monuments, mais dans
+                        les regards que l'on croise ?
+
+                    </p>
+
+                    <p class="passport-opening-quote">
+
+                        Des frontières à traverser.
+                        Des histoires à découvrir.
+                        Des petites âmes à ne jamais oublier.
+
+                    </p>
+
+                    <button type="button"
+                            class="passport-button"
+                            id="open-passport">
+
+                        Ouvrir mon passeport
+
+                        <span aria-hidden="true">♡</span>
+
+                    </button>
+
+                    <p class="passport-opening-note">
+                        Gratuit, personnel et rempli de douceur.
+                    </p>
+
+                </div>
+
+                <!-- COUVERTURE DU PASSEPORT -->
+
+                <div class="passport-cover-scene">
+
+                    <div class="passport-cover-halo"></div>
+
+                    <span class="passport-cover-star star-one">
+                        ✧
+                    </span>
+
+                    <span class="passport-cover-star star-two">
+                        ✦
+                    </span>
+
+                    <span class="passport-cover-star star-three">
+                        ♡
+                    </span>
+
+                    <button type="button"
+                            class="passport-cover"
+                            id="passport-cover"
+                            aria-label="Ouvrir le passeport du cœur">
+
+                        <span class="passport-cover-border"></span>
+
+                        <span class="passport-cover-corner corner-tl">
+                            ✧
+                        </span>
+
+                        <span class="passport-cover-corner corner-tr">
+                            ✧
+                        </span>
+
+                        <span class="passport-cover-corner corner-bl">
+                            ✧
+                        </span>
+
+                        <span class="passport-cover-corner corner-br">
+                            ✧
+                        </span>
+
+                        <span class="passport-cover-small">
+                            CŒUR ERRANT
+                        </span>
+
+                        <span class="passport-cover-title">
+                            PASSEPORT
+                        </span>
+
+                        <span class="passport-cover-subtitle">
+                            du cœur
+                        </span>
+
+                        <svg class="passport-cover-emblem"
+                             viewBox="0 0 200 200"
+                             aria-hidden="true">
+
+                            <circle cx="100"
+                                    cy="100"
+                                    r="85"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1"/>
+
+                            <circle cx="100"
+                                    cy="100"
+                                    r="75"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width=".7"
+                                    stroke-dasharray="2 5"/>
+
+                            <g fill="currentColor">
+
+                                <ellipse cx="66"
+                                         cy="77"
+                                         rx="12"
+                                         ry="17"
+                                         transform="rotate(-25 66 77)"/>
+
+                                <ellipse cx="89"
+                                         cy="60"
+                                         rx="12"
+                                         ry="18"
+                                         transform="rotate(-10 89 60)"/>
+
+                                <ellipse cx="114"
+                                         cy="60"
+                                         rx="12"
+                                         ry="18"
+                                         transform="rotate(10 114 60)"/>
+
+                                <ellipse cx="137"
+                                         cy="77"
+                                         rx="12"
+                                         ry="17"
+                                         transform="rotate(25 137 77)"/>
+
+                                <path d="
+                                    M100 83
+                                    C84 83 82 98 70 108
+                                    C55 121 66 140 82 136
+                                    C91 134 95 128 100 128
+                                    C106 128 111 134 120 136
+                                    C137 140 148 121 132 108
+                                    C120 98 116 83 100 83Z
+                                "/>
+
+                            </g>
+
+                            <path d="
+                                M100 151
+                                C91 141 79 153 100 166
+                                C121 153 109 141 100 151Z
+                            "
+                            fill="currentColor"/>
+
+                        </svg>
+
+                        <span class="passport-cover-motto">
+
+                            Sans frontières.
+                            <br>
+                            Avec le cœur.
+
+                        </span>
+
+                        <span class="passport-cover-bottom">
+                            ÉDITION DES VOYAGEURS DU CŒUR
+                        </span>
+
+                    </button>
+
+                    <p class="passport-cover-caption">
+                        Un monde à découvrir, des vies à regarder.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             PASSEPORT INTERACTIF
+             ===================================== -->
+
+        <section class="passport-experience"
+                 id="mon-passeport">
+
+            <div class="passport-heading">
+
+                <span class="passport-label">
+                    Votre aventure commence ici
+                </span>
+
+                <h2>
+                    Chaque rencontre
+                    <em>laisse une empreinte.</em>
+                </h2>
+
+                <p>
+
+                    Découvrez les destinations de Cœur Errant
+                    et collectionnez les souvenirs de ces
+                    petites âmes rencontrées au fil des voyages.
+
+                </p>
+
+            </div>
+
+            <!-- IDENTITÉ DU VOYAGEUR -->
+
+            <div class="passport-identity">
+
+                <div class="passport-identity-symbol"
+                     aria-hidden="true">
+
+                    ♡
+
+                </div>
+
+                <div class="passport-identity-content">
+
+                    <span class="passport-label">
+                        Ce passeport appartient à
+                    </span>
+
+                    <form id="passport-name-form">
+
+                        <label for="passport-name"
+                               class="passport-sr-only">
+
+                            Votre prénom ou pseudonyme
+
+                        </label>
+
+                        <input type="text"
+                               id="passport-name"
+                               maxlength="30"
+                               autocomplete="off"
+                               placeholder="Votre prénom ou pseudonyme">
+
+                        <button type="submit"
+                                class="passport-small-button">
+
+                            Enregistrer
+
+                        </button>
+
+                    </form>
+
+                    <p id="passport-name-message"
+                       aria-live="polite">
+
+                        Un petit prénom pour une grande aventure.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- PROGRESSION -->
+
+            <div class="passport-progress">
+
+                <div class="passport-progress-header">
+
+                    <div>
+
+                        <span class="passport-label">
+                            Votre collection
+                        </span>
+
+                        <h3>
+                            Les empreintes du voyage
+                        </h3>
+
+                    </div>
+
+                    <div class="passport-progress-count">
+
+                        <strong id="passport-count">0</strong>
+
+                        <span>
+                            / <span id="passport-total">13</span>
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="passport-progress-track"
+                     id="passport-progress-track"
+                     role="progressbar"
+                     aria-label="Destinations découvertes"
+                     aria-valuemin="0"
+                     aria-valuemax="13"
+                     aria-valuenow="0">
+
+                    <div id="passport-progress-fill"></div>
+
+                </div>
+
+                <p id="passport-progress-message"
+                   aria-live="polite">
+
+                    Votre première empreinte vous attend...
+
+                </p>
+
+            </div>
+
+            <!-- LIVRET INTERACTIF -->
+
+            <div class="passport-book-wrapper">
+
+                <div class="passport-book"
+                     id="passport-book">
+
+                    <!-- PAGE GAUCHE -->
+
+                    <article class="passport-paper passport-paper-left">
+
+                        <div class="passport-paper-header">
+
+                            <span>CŒUR ERRANT</span>
+
+                            <span>✧</span>
+
+                        </div>
+
+                        <div class="passport-page-content"
+                             id="passport-left-page">
+
+                            <span class="passport-label">
+                                Bienvenue
+                            </span>
+
+                            <h3>
+                                Voyageur du cœur
+                            </h3>
+
+                            <p>
+
+                                Ce passeport ne mesure pas
+                                les kilomètres parcourus.
+
+                            </p>
+
+                            <p>
+
+                                Il garde les traces des vies
+                                que vous avez pris le temps
+                                de découvrir.
+
+                            </p>
+
+                        </div>
+
+                        <div class="passport-paper-footer">
+
+                            <span id="passport-left-number">
+                                01
+                            </span>
+
+                            <span>♡</span>
+
+                        </div>
+
+                    </article>
+
+                    <!-- PAGE DROITE -->
+
+                    <article class="passport-paper passport-paper-right">
+
+                        <div class="passport-paper-header">
+
+                            <span>LES EMPREINTES DU CŒUR</span>
+
+                            <span>✧</span>
+
+                        </div>
+
+                        <div class="passport-page-content"
+                             id="passport-right-page">
+
+                            <span class="passport-label">
+                                Votre collection
+                            </span>
+
+                            <h3>
+                                Une histoire à la fois.
+                            </h3>
+
+                            <p>
+
+                                Tournez les pages pour découvrir
+                                les destinations et leurs tampons.
+
+                            </p>
+
+                        </div>
+
+                        <div class="passport-paper-footer">
+
+                            <span>♡</span>
+
+                            <span id="passport-right-number">
+                                02
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                    <div class="passport-book-binding"
+                         aria-hidden="true">
+                    </div>
+
+                </div>
+
+                <!-- COMMANDES DU LIVRET -->
+
+                <div class="passport-book-controls">
+
+                    <button type="button"
+                            id="passport-prev"
+                            class="passport-page-button"
+                            aria-label="Page précédente"
+                            disabled>
+
+                        ←
+
+                    </button>
+
+                    <div class="passport-pagination">
+
+                        <span id="passport-page-current">1</span>
+
+                        <span>/</span>
+
+                        <span id="passport-page-total">8</span>
+
+                    </div>
+
+                    <button type="button"
+                            id="passport-next"
+                            class="passport-page-button"
+                            aria-label="Page suivante">
+
+                        →
+
+                    </button>
+
+                </div>
+
+                <p class="passport-book-hint">
+                    Tournez les pages de votre passeport.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             COLLECTION DES TAMPONS
+             ===================================== -->
+
+        <section class="passport-collection"
+                 id="collection">
+
+            <div class="passport-heading">
+
+                <span class="passport-label">
+                    Des souvenirs à collectionner
+                </span>
+
+                <h2>
+                    Les tampons
+                    <em>du cœur.</em>
+                </h2>
+
+                <p>
+
+                    Chaque destination possède sa propre
+                    empreinte. Découvrez son histoire
+                    pour l'ajouter à votre collection.
+
+                </p>
+
+            </div>
+
+            <div class="passport-legend">
+
+                <span>
+                    <i class="passport-legend-dot discovered"></i>
+                    Découvert
+                </span>
+
+                <span>
+                    <i class="passport-legend-dot undiscovered"></i>
+                    À découvrir
+                </span>
+
+                <span>
+                    <i class="passport-legend-dot mystery"></i>
+                    Destination mystère
+                </span>
+
+            </div>
+
+            <!-- Les tampons seront créés par passeport.js -->
+
+            <div class="passport-stamp-grid"
+                 id="passport-stamp-grid">
+
+            </div>
+
+            <noscript>
+
+                <p>
+
+                    Activez JavaScript pour découvrir
+                    les destinations interactives.
+
+                    Vous pouvez également retrouver
+                    les récits sur la page
+
+                    <a href="voyages.html">Voyages</a>.
+
+                </p>
+
+            </noscript>
+
+        </section>
+
+        <!-- =====================================
+             DESTINATION MYSTÈRE
+             ===================================== -->
+
+        <section class="passport-mystery-section">
+
+            <div class="passport-mystery-inner">
+
+                <div class="passport-mystery-visual">
+
+                    <div class="passport-mystery-halo"></div>
+
+                    <div class="passport-mystery-envelope">
+
+                        <div class="passport-envelope-back"></div>
+
+                        <div class="passport-envelope-paper">
+
+                            <span>✧</span>
+
+                            <p>Quelque part...</p>
+
+                            <span>♡</span>
+
+                        </div>
+
+                        <div class="passport-envelope-front"></div>
+
+                        <div class="passport-envelope-flap"></div>
+
+                        <div class="passport-envelope-seal">
+                            ♡
+                        </div>
+
+                    </div>
+
+                    <span class="passport-mystery-star">
+                        ✦
+                    </span>
+
+                </div>
+
+                <div class="passport-mystery-content">
+
+                    <span class="passport-label">
+                        Une page encore blanche
+                    </span>
+
+                    <h2>
+
+                        Quelque part,
+                        <em>une histoire m'attend.</em>
+
+                    </h2>
+
+                    <p>
+
+                        De nouveaux horizons,
+                        de nouveaux regards,
+                        de nouvelles petites âmes à rencontrer.
+
+                    </p>
+
+                    <p>
+
+                        La prochaine destination reste
+                        encore un mystère.
+
+                    </p>
+
+                    <div class="passport-mystery-details">
+
+                        <span>Décembre 2026</span>
+
+                        <span>Destination inconnue</span>
+
+                        <span>Mission inchangée ♡</span>
+
+                    </div>
+
+                    <p class="passport-mystery-quote">
+
+                        Peu importe la destination,
+                        le cœur connaît déjà le chemin.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             DIPLÔME
+             ===================================== -->
+
+        <section class="passport-reward-section"
+                 id="diplome">
+
+            <div class="passport-heading">
+
+                <span class="passport-label">
+                    Un souvenir rien qu'à vous
+                </span>
+
+                <h2>
+
+                    Devenez un véritable
+                    <em>voyageur du cœur.</em>
+
+                </h2>
+
+                <p>
+
+                    Lorsque toutes les destinations disponibles
+                    auront été découvertes, votre diplôme
+                    personnalisé vous attendra ici.
+
+                </p>
+
+            </div>
+
+            <div class="passport-certificate"
+                 id="passport-certificate">
+
+                <div class="passport-certificate-border">
+
+                    <span class="passport-certificate-brand">
+                        CŒUR ERRANT
+                    </span>
+
+                    <span class="passport-certificate-symbol">
+                        ♡
+                    </span>
+
+                    <span class="passport-label">
+                        Certificat symbolique
+                    </span>
+
+                    <h3>
+                        Voyageur du cœur
+                    </h3>
+
+                    <p>
+                        Décerné à
+                    </p>
+
+                    <strong id="certificate-name">
+                        Votre prénom
+                    </strong>
+
+                    <p class="passport-certificate-text">
+
+                        Pour avoir pris le temps de découvrir
+                        les histoires des animaux des rues
+                        et de voyager avec bienveillance.
+
+                    </p>
+
+                    <div class="passport-certificate-signature">
+
+                        <span>
+                            Avec amour,
+                        </span>
+
+                        <em>Cœur Errant</em>
+
+                    </div>
+
+                    <span class="passport-certificate-date"
+                          id="certificate-date">
+                    </span>
+
+                </div>
+
+                <div class="passport-certificate-lock"
+                     id="certificate-lock">
+
+                    <span aria-hidden="true">♡</span>
+
+                    <h4>
+                        Encore quelques empreintes...
+                    </h4>
+
+                    <p id="certificate-lock-message">
+
+                        Découvrez toutes les destinations
+                        pour débloquer votre diplôme.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button type="button"
+                    class="passport-button"
+                    id="download-certificate"
+                    disabled>
+
+                Télécharger mon diplôme
+
+                <span aria-hidden="true">↓</span>
+
+            </button>
+
+            <p class="passport-certificate-note">
+
+                Un souvenir symbolique de votre découverte
+                de l'univers Cœur Errant.
+
+            </p>
+
+        </section>
+
+        <!-- =====================================
+             PETITE SURPRISE
+             ===================================== -->
+
+        <section class="passport-surprise-section">
+
+            <div class="passport-surprise-inner">
+
+                <span class="passport-label">
+                    Un petit secret de voyage
+                </span>
+
+                <h2>
+
+                    Certaines empreintes
+                    <em>ne s'effacent jamais.</em>
+
+                </h2>
+
+                <button type="button"
+                        class="passport-secret-paw"
+                        id="passport-secret-paw"
+                        aria-expanded="false"
+                        aria-controls="passport-secret-message">
+
+                    <svg viewBox="0 0 100 100"
+                         fill="currentColor"
+                         aria-hidden="true">
+
+                        <ellipse cx="20"
+                                 cy="39"
+                                 rx="10"
+                                 ry="14"
+                                 transform="rotate(-25 20 39)"/>
+
+                        <ellipse cx="40"
+                                 cy="23"
+                                 rx="10"
+                                 ry="15"/>
+
+                        <ellipse cx="63"
+                                 cy="23"
+                                 rx="10"
+                                 ry="15"/>
+
+                        <ellipse cx="82"
+                                 cy="40"
+                                 rx="10"
+                                 ry="14"
+                                 transform="rotate(25 82 40)"/>
+
+                        <path d="
+                            M50 43
+                            C37 43 34 56 25 64
+                            C13 76 22 91 35 89
+                            C42 88 46 83 51 83
+                            C57 83 63 89 70 89
+                            C84 89 89 75 77 64
+                            C68 56 64 43 50 43Z
+                        "/>
+
+                    </svg>
+
+                </button>
+
+                <p class="passport-secret-hint">
+                    Touchez la petite patte...
+                </p>
+
+                <div class="passport-secret-message"
+                     id="passport-secret-message"
+                     hidden>
+
+                    <span>♡</span>
+
+                    <p>
+
+                        Vous n'avez peut-être jamais rencontré
+                        ces animaux.
+
+                        Pourtant, aujourd'hui, vous avez
+                        pris un instant pour penser à eux.
+
+                    </p>
+
+                    <p>
+
+                        Et quelque part, c'est déjà
+                        une belle façon de leur donner
+                        une place dans ce monde.
+
+                    </p>
+
+                    <em>Merci d'être ici.</em>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             SAUVEGARDE
+             ===================================== -->
+
+        <section class="passport-settings">
+
+            <div class="passport-settings-inner">
+
+                <span aria-hidden="true">♡</span>
+
+                <h3>
+                    Votre passeport, vos souvenirs.
+                </h3>
+
+                <p id="passport-storage-note">
+
+                    Votre prénom et votre progression sont
+                    enregistrés uniquement dans votre navigateur.
+
+                    Aucun compte n'est nécessaire.
+
+                    Si vous changez d'appareil ou effacez
+                    les données du navigateur, votre collection
+                    ne sera pas transférée automatiquement.
+
+                </p>
+
+                <button type="button"
+                        class="passport-text-button"
+                        id="reset-passport">
+
+                    Recommencer mon aventure
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             CONCLUSION
+             ===================================== -->
+
+        <section class="passport-ending">
+
+            <div class="passport-ending-content">
+
+                <span class="passport-ending-heart">
+                    ♡
+                </span>
+
+                <span class="passport-label">
+                    Le voyage continue
+                </span>
+
+                <h2>
+
+                    Le monde est grand.
+                    <em>Le cœur n'a pas de frontières.</em>
+
+                </h2>
+
+                <p>
+
+                    Derrière chaque destination,
+                    il y a une rencontre.
+
+                    Derrière chaque rencontre,
+                    une histoire qui mérite d'être racontée.
+
+                </p>
+
+                <div class="passport-ending-actions">
+
+                    <a href="voyages.html"
+                       class="passport-button">
+
+                        Découvrir mes voyages
+
+                    </a>
+
+                    <a href="mission.html"
+                       class="passport-text-button">
+
+                        Comprendre la mission →
+
+                    </a>
+
+                </div>
+
+                <p class="passport-ending-signature">
+
+                    Chaque animal a une histoire.
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =====================================
+         FENÊTRE D'UNE DESTINATION
+         ===================================== -->
+
+    <dialog class="passport-destination-dialog"
+            id="passport-destination-dialog"
+            aria-labelledby="destination-title">
+
+        <div class="passport-destination-inner">
+
+            <button type="button"
+                    class="passport-dialog-close"
+                    id="close-destination"
+                    aria-label="Fermer">
+
+                ×
+
+            </button>
+
+            <div class="passport-destination-photo"
+                 id="destination-photo"
+                 hidden>
+
+                <img id="destination-image" alt="">
+
+            </div>
+
+            <div class="passport-destination-content">
+
+                <div class="passport-destination-stamp"
+                     id="destination-stamp">
+
+                </div>
+
+                <span class="passport-label"
+                      id="destination-date">
+
+                </span>
+
+                <h2 id="destination-title"></h2>
+
+                <div id="destination-story"
+                     class="passport-destination-story">
+
+                </div>
+
+                <blockquote id="destination-quote"></blockquote>
+
+                <button type="button"
+                        class="passport-button"
+                        id="collect-stamp">
+
+                    Ajouter cette empreinte
+
+                    <span aria-hidden="true">♡</span>
+
+                </button>
+
+                <p id="destination-status"
+                   aria-live="polite">
+                </p>
+
+                <a href="voyages.html"
+                   class="passport-text-button">
+
+                    Retrouver le carnet de voyage →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </dialog>
+
+    <!-- =====================================
+         CONFIRMATION DE RÉINITIALISATION
+         ===================================== -->
+
+    <dialog class="passport-reset-dialog"
+            id="passport-reset-dialog"
+            aria-labelledby="reset-title">
+
+        <div class="passport-reset-inner">
+
+            <span class="passport-reset-heart">♡</span>
+
+            <h2 id="reset-title">
+
+                Une nouvelle aventure ?
+
+            </h2>
+
+            <p>
+
+                Votre prénom, vos tampons et votre progression
+                seront effacés de ce navigateur.
+
+            </p>
+
+            <div class="passport-reset-actions">
+
+                <button type="button"
+                        class="passport-button"
+                        id="confirm-reset">
+
+                    Recommencer
+
+                </button>
+
+                <button type="button"
+                        class="passport-text-button"
+                        id="cancel-reset">
+
+                    Garder mes souvenirs
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </dialog>
+
+    <!-- =====================================
+         NOTIFICATION DE NOUVEAU TAMPON
+         ===================================== -->
+
+    <div class="passport-toast"
+         id="passport-toast"
+         role="status"
+         hidden>
+
+        <span class="passport-toast-icon">♡</span>
+
+        <div>
+
+            <strong>
+                Une nouvelle empreinte !
+            </strong>
+
+            <p id="passport-toast-message"></p>
+
+        </div>
+
+    </div>
+
+    <div class="passport-confetti"
+         id="passport-confetti"
+         aria-hidden="true">
+
+    </div>
+
+    <!-- =====================================
+         FOOTER
+         ===================================== -->
+
+    <footer class="ce-footer">
+
+        <div class="ce-footer-decoration"
+             aria-hidden="true">
+
+            <span>♡</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>♡</span>
+            <span>✧</span>
+
+        </div>
+
+        <div class="ce-footer-inner">
+
+            <div class="ce-footer-brand">
+
+                <a href="index.html">
+
+                    <img src="logo.jpeg"
+                         alt="Cœur Errant">
+
+                </a>
+
+                <h2>Cœur Errant</h2>
+
+                <p class="ce-footer-tagline">
+                    Chaque animal a une histoire.
+                </p>
+
+                <p class="ce-footer-description">
+
+                    Parce que même les plus petites âmes
+                    méritent une place dans ce monde.
+
+                </p>
+
+            </div>
+
+            <div class="ce-footer-socials">
+
+                <a href="https://www.tiktok.com/@coeur_errant"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="TikTok">
+
+                    <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+                         alt="">
+
+                </a>
+
+                <a href="https://www.instagram.com/coeur.errant/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Instagram">
+
+                    <img src="https://cdn.simpleicons.org/instagram/A85E68"
+                         alt="">
+
+                </a>
+
+                <a href="https://www.youtube.com/@CoeurErrant"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="YouTube">
+
+                    <img src="https://cdn.simpleicons.org/youtube/A85E68"
+                         alt="">
+
+                </a>
+
+                <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Facebook">
+
+                    <img src="https://cdn.simpleicons.org/facebook/A85E68"
+                         alt="">
+
+                </a>
+
+                <a href="https://www.snapchat.com/add/coeur_errant"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Snapchat">
+
+                    <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+                         alt="">
+
+                </a>
+
+                <a href="mailto:coeur.errant@outlook.be"
+                   aria-label="Contact par e-mail">
+
+                    <svg width="21"
+                         height="21"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="#a85e68"
+                         stroke-width="1.5"
+                         aria-hidden="true">
+
+                        <rect x="3"
+                              y="5"
+                              width="18"
+                              height="14"
+                              rx="2"/>
+
+                        <path d="m3 7 9 6 9-6"/>
+
+                    </svg>
+
+                </a>
+
+            </div>
+
+            <div class="ce-footer-navigation">
+
+                <div class="ce-footer-column">
+
+                    <h3>Découvrir</h3>
+
+                    <a href="index.html#histoire">
+                        Mon histoire
+                    </a>
+
+                    <a href="mission.html">
+                        La mission
+                    </a>
+
+                    <a href="voyages.html">
+                        Voyages
+                    </a>
+
+                    <a href="passeport.html">
+                        Le passeport du cœur
+                    </a>
+
+                </div>
+
+                <div class="ce-footer-column">
+
+                    <h3>Notre univers</h3>
+
+                    <a href="livres.html">
+                        Mes livres
+                    </a>
+
+                    <a href="etoiles.html">
+                        Nos étoiles
+                    </a>
+
+                    <a href="soutenir.html">
+                        Soutenir
+                    </a>
+
+                </div>
+
+                <div class="ce-footer-column">
+
+                    <h3>Restons proches</h3>
+
+                    <a href="mailto:coeur.errant@outlook.be">
+                        Me contacter
+                    </a>
+
+                    <a href="https://www.instagram.com/coeur.errant/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Suivre l'aventure
+
+                    </a>
+
+                    <a href="index-nl.html">
+                        Nederlands
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="ce-footer-signature">
+
+                <span class="ce-footer-heart"
+                      aria-hidden="true">
+
+                    ♡
+
+                </span>
+
+                <p>
+
+                    Créé avec amour,
+                    pour ceux qui n'ont pas de voix.
+
+                </p>
+
+                <div class="ce-footer-copyright">
+
+                    © 2026 Cœur Errant — Tous droits réservés.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- =====================================
+         MENU MOBILE
+         ===================================== -->
+
+    <script>
+
+        const hamburger =
+            document.getElementById("hamburger");
+
+        const navLinks =
+            document.getElementById("nav-links");
+
+        hamburger.addEventListener("click", () => {
+
+            const opened =
+                navLinks.classList.toggle("open");
+
+            hamburger.classList.toggle("open", opened);
+
+            hamburger.setAttribute(
+                "aria-expanded",
+                String(opened)
+            );
+
+            hamburger.setAttribute(
+                "aria-label",
+                opened ? "Fermer le menu" : "Ouvrir le menu"
+            );
+
+        });
+
+        navLinks.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("open");
+
+                hamburger.classList.remove("open");
+
+                hamburger.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                hamburger.setAttribute(
+                    "aria-label",
+                    "Ouvrir le menu"
+                );
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
