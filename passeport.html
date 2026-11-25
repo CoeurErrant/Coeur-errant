@@ -6,13 +6,11 @@
 
     <title>Le Royaume des cœurs errants — Cœur Errant</title>
 
-    <meta name="description"
-          content="Entrez dans un royaume secret, collectionnez les fragments enchantés et devenez Gardien des cœurs errants.">
+    <meta name="description" content="Découvrez le Royaume des cœurs errants, retrouvez les quatorze trésors et obtenez votre passeport personnalisé.">
 
     <meta name="theme-color" content="#faf8f5">
 
     <link rel="icon" type="image/jpeg" href="logo.jpeg">
-
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="passeport.css">
     <link rel="stylesheet" href="global.css">
@@ -58,18 +56,14 @@
 
 <main class="kingdom-page" id="kingdom">
 
-    <!-- =========================================
-         PARTICULES ET AMBIANCE
-    ========================================== -->
+    <!-- PARTICULES -->
 
     <div class="kingdom-particles"
          id="kingdom-particles"
          aria-hidden="true">
     </div>
 
-    <!-- =========================================
-         PORTE ENCHANTÉE
-    ========================================== -->
+    <!-- ARBRE DES ÂMES -->
 
     <section class="kingdom-entrance" id="kingdom-entrance">
 
@@ -92,37 +86,22 @@
             </h1>
 
             <p class="entrance-description">
-                Au-delà des roses et des chemins oubliés,
-                il existe un monde où la bienveillance
-                possède sa propre magie.
+                Quelque part, il existe un monde où aucune
+                âme n'est oubliée.
+                Et si vous aviez le pouvoir d'en retrouver
+                le chemin ?
             </p>
 
-            <div class="enchanted-door" id="enchanted-door">
-
-                <div class="door-glow"></div>
-
-                <div class="door-frame">
-
-                    <div class="door-interior"></div>
-
-                    <div class="door-panel door-left">
-                        <span class="door-decoration">✧</span>
-                        <span class="door-handle"></span>
-                    </div>
-
-                    <div class="door-panel door-right">
-                        <span class="door-decoration">✧</span>
-                        <span class="door-handle"></span>
-                    </div>
-
-                </div>
-
+            <div class="enchanted-tree" id="enchanted-tree">
+                <img src="royaume-arbre.png"
+                     alt="L'Arbre des âmes">
+                <div class="tree-glow"></div>
             </div>
 
             <button class="kingdom-button"
                     id="enter-kingdom"
                     type="button">
-                Franchir la porte
+                Entrer dans le royaume
                 <span aria-hidden="true">✧</span>
             </button>
 
@@ -135,9 +114,7 @@
 
     </section>
 
-    <!-- =========================================
-         PRÉSENTATION
-    ========================================== -->
+    <!-- INTRODUCTION -->
 
     <section class="kingdom-introduction kingdom-reveal"
              id="kingdom-introduction">
@@ -148,8 +125,15 @@
 
         <h2>
             Bienvenue dans
-            <em>votre royaume</em>
+            <em>votre royaume.</em>
         </h2>
+
+        <p>
+            Imaginez un monde où aucun animal ne connaît
+            la faim, la peur ou la solitude.
+            Un monde où chaque petite âme trouve enfin
+            sa place.
+        </p>
 
         <p>
             Quatorze fragments précieux sont dispersés
@@ -158,9 +142,8 @@
         </p>
 
         <p>
-            Retrouvez-les, réunissez-les dans votre
-            médaillon et ouvrez progressivement les
-            portes des lieux oubliés.
+            Retrouvez-les, illuminez votre médaillon
+            et découvrez les secrets du royaume.
         </p>
 
         <div class="kingdom-intro-grid">
@@ -170,8 +153,8 @@
                 <span class="intro-symbol">✧</span>
                 <h3>Explorer</h3>
                 <p>
-                    Des fragments sont dissimulés
-                    dans les pages de voyage.
+                    Des trésors sont dissimulés dans
+                    les récits de voyage.
                 </p>
             </article>
 
@@ -180,7 +163,7 @@
                 <span class="intro-symbol">◇</span>
                 <h3>Collectionner</h3>
                 <p>
-                    Chaque découverte enrichit
+                    Chaque découverte illumine
                     votre médaillon personnel.
                 </p>
             </article>
@@ -190,26 +173,38 @@
                 <span class="intro-symbol">♡</span>
                 <h3>Dévoiler</h3>
                 <p>
-                    De nouveaux lieux et des secrets
-                    apparaissent au fil de votre aventure.
+                    Des lieux secrets et une récompense
+                    unique vous attendent.
                 </p>
             </article>
 
         </div>
 
+        <div class="kingdom-storage-intro">
+            <p>
+                Pour conserver votre progression entre
+                les différentes pages, vous pouvez activer
+                la sauvegarde sur cet appareil.
+            </p>
+
+            <button type="button"
+                    class="kingdom-outline-button"
+                    id="enable-adventure-storage">
+                Activer la sauvegarde
+            </button>
+        </div>
+
     </section>
 
-    <!-- =========================================
-         IDENTITÉ PERSONNELLE
-    ========================================== -->
+    <!-- IDENTITÉ -->
 
     <section class="kingdom-identity kingdom-reveal"
              id="kingdom-identity">
 
         <div class="identity-visual">
-            <div class="identity-medallion">
-                <span>♡</span>
-            </div>
+            <img src="royaume-medallion.png"
+                 alt="Médaillon de l'Arbre des âmes"
+                 loading="lazy">
         </div>
 
         <div class="identity-content">
@@ -297,9 +292,7 @@
 
     </section>
 
-    <!-- =========================================
-         COMPAGNON
-    ========================================== -->
+    <!-- COMPAGNONS -->
 
     <section class="kingdom-companion kingdom-reveal"
              id="kingdom-companion">
@@ -312,7 +305,7 @@
 
             <h2>
                 Votre compagnon
-                <em>de voyage</em>
+                <em>de voyage.</em>
             </h2>
 
             <p>
@@ -329,8 +322,7 @@
                     data-companion="cat"
                     aria-pressed="false">
 
-                <div class="companion-image companion-cat">
-                </div>
+                <div class="companion-image companion-cat"></div>
 
                 <div class="companion-description">
                     <h3>Le chat</h3>
@@ -344,8 +336,7 @@
                     data-companion="dog"
                     aria-pressed="false">
 
-                <div class="companion-image companion-dog">
-                </div>
+                <div class="companion-image companion-dog"></div>
 
                 <div class="companion-description">
                     <h3>Le chien</h3>
@@ -359,8 +350,7 @@
                     data-companion="rabbit"
                     aria-pressed="false">
 
-                <div class="companion-image companion-rabbit">
-                </div>
+                <div class="companion-image companion-rabbit"></div>
 
                 <div class="companion-description">
                     <h3>Le lapin</h3>
@@ -403,9 +393,7 @@
 
     </section>
 
-    <!-- =========================================
-         MÉDAILLON PRINCIPAL
-    ========================================== -->
+    <!-- MÉDAILLON -->
 
     <section class="kingdom-medallion-section kingdom-reveal"
              id="mon-passeport">
@@ -418,7 +406,7 @@
 
             <h2>
                 Le médaillon
-                <em>des âmes</em>
+                <em>des âmes.</em>
             </h2>
 
             <p>
@@ -435,41 +423,41 @@
 
                 <div class="medallion-halo"></div>
 
-                <div class="medallion-chain"></div>
-
                 <div class="royal-medallion"
                      id="royal-medallion">
 
-                    <div class="medallion-outer-ring"></div>
-                    <div class="medallion-inner-ring"></div>
+                    <img class="medallion-artwork"
+                         src="royaume-medallion.png"
+                         alt="Votre médaillon enchanté"
+                         loading="lazy">
 
                     <div class="medallion-gems"
                          id="medallion-gems">
                     </div>
 
-                    <div class="medallion-center">
+                </div>
 
-                        <span class="medallion-brand">
-                            Cœur Errant
-                        </span>
+                <div class="medallion-center">
 
-                        <span class="medallion-emblem"
-                              id="medallion-emblem">
-                            ♡
-                        </span>
+                    <span class="medallion-brand">
+                        Cœur Errant
+                    </span>
 
-                        <span class="medallion-owner"
-                              id="medallion-owner">
-                            Votre royaume
-                        </span>
+                    <span class="medallion-emblem"
+                          id="medallion-emblem">
+                        ♡
+                    </span>
 
-                        <span class="medallion-counter">
-                            <strong id="fragment-count">0</strong>
-                            <span>/</span>
-                            <span id="fragment-total">14</span>
-                        </span>
+                    <span class="medallion-owner"
+                          id="medallion-owner">
+                        Votre royaume
+                    </span>
 
-                    </div>
+                    <span class="medallion-counter">
+                        <strong id="fragment-count">0</strong>
+                        <span>/</span>
+                        <span id="fragment-total">14</span>
+                    </span>
 
                 </div>
 
@@ -504,13 +492,11 @@
                 </div>
 
                 <div class="kingdom-milestones">
-
                     <span data-milestone="3">3</span>
                     <span data-milestone="5">5</span>
                     <span data-milestone="8">8</span>
                     <span data-milestone="10">10</span>
                     <span data-milestone="14">14</span>
-
                 </div>
 
                 <a href="voyages.html"
@@ -525,9 +511,7 @@
 
     </section>
 
-    <!-- =========================================
-         COFFRET DES FRAGMENTS
-    ========================================== -->
+    <!-- COFFRET DES TRÉSORS -->
 
     <section class="kingdom-treasures kingdom-reveal"
              id="kingdom-treasures">
@@ -540,7 +524,7 @@
 
             <h2>
                 Le coffret
-                <em>des fragments</em>
+                <em>des fragments.</em>
             </h2>
 
             <p>
@@ -585,9 +569,7 @@
 
     </section>
 
-    <!-- =========================================
-         LES LIEUX ENCHANTÉS
-    ========================================== -->
+    <!-- LES LIEUX SECRETS -->
 
     <section class="kingdom-world kingdom-reveal"
              id="kingdom-world">
@@ -599,13 +581,13 @@
             </span>
 
             <h2>
-                Les lieux
-                <em>oubliés du royaume</em>
+                Les lieux secrets
+                <em>du royaume.</em>
             </h2>
 
             <p>
                 À mesure que votre médaillon retrouve
-                sa lumière, de nouvelles portes s'ouvrent.
+                sa lumière, de nouveaux lieux se dévoilent.
             </p>
 
         </div>
@@ -616,8 +598,8 @@
 
             <div class="world-landscape-content">
                 <span>✧</span>
-                <h3>Le Royaume des cœurs errants</h3>
-                <p>Un monde qui s'éveille avec vous.</p>
+                <h3>Le jardin des âmes</h3>
+                <p>Un monde où chaque animal a sa place.</p>
             </div>
 
         </div>
@@ -631,24 +613,10 @@
                      data-required="3">
 
                 <div class="location-image location-library">
-
-                    <span class="location-lock">
-                        <svg viewBox="0 0 24 24"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="1.5"
-                             aria-hidden="true">
-                            <rect x="5" y="10"
-                                  width="14" height="11" rx="2"/>
-                            <path d="M8 10V6a4 4 0 018 0v4"/>
-                            <path d="M12 14v3"/>
-                        </svg>
-                    </span>
-
+                    <span class="location-lock">◇</span>
                     <span class="location-requirement">
                         3 fragments
                     </span>
-
                 </div>
 
                 <div class="location-content">
@@ -660,16 +628,16 @@
                     <h3>La bibliothèque des âmes</h3>
 
                     <p>
-                        Des lettres oubliées et des pensées
-                        précieuses reposent entre les pages
-                        de livres anciens.
+                        Au cœur de l'arbre reposent
+                        des lettres oubliées et des
+                        pensées précieuses.
                     </p>
 
                     <button type="button"
                             class="location-button"
                             data-open-location="library"
                             disabled>
-                        Porte verrouillée
+                        Lieu verrouillé
                     </button>
 
                 </div>
@@ -683,24 +651,10 @@
                      data-required="5">
 
                 <div class="location-image location-greenhouse">
-
-                    <span class="location-lock">
-                        <svg viewBox="0 0 24 24"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="1.5"
-                             aria-hidden="true">
-                            <rect x="5" y="10"
-                                  width="14" height="11" rx="2"/>
-                            <path d="M8 10V6a4 4 0 018 0v4"/>
-                            <path d="M12 14v3"/>
-                        </svg>
-                    </span>
-
+                    <span class="location-lock">◇</span>
                     <span class="location-requirement">
                         5 fragments
                     </span>
-
                 </div>
 
                 <div class="location-content">
@@ -709,19 +663,19 @@
                         Deuxième secret
                     </span>
 
-                    <h3>La serre des merveilles</h3>
+                    <h3>La serre des lumières</h3>
 
                     <p>
-                        Derrière une ancienne verrière,
-                        les roses et les papillons gardent
-                        de délicats mystères.
+                        Des papillons lumineux veillent
+                        sur les animaux endormis et
+                        portent des messages de douceur.
                     </p>
 
                     <button type="button"
                             class="location-button"
                             data-open-location="greenhouse"
                             disabled>
-                        Porte verrouillée
+                        Lieu verrouillé
                     </button>
 
                 </div>
@@ -735,24 +689,10 @@
                      data-required="8">
 
                 <div class="location-image location-lake">
-
-                    <span class="location-lock">
-                        <svg viewBox="0 0 24 24"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="1.5"
-                             aria-hidden="true">
-                            <rect x="5" y="10"
-                                  width="14" height="11" rx="2"/>
-                            <path d="M8 10V6a4 4 0 018 0v4"/>
-                            <path d="M12 14v3"/>
-                        </svg>
-                    </span>
-
+                    <span class="location-lock">◇</span>
                     <span class="location-requirement">
                         8 fragments
                     </span>
-
                 </div>
 
                 <div class="location-content">
@@ -761,19 +701,19 @@
                         Troisième secret
                     </span>
 
-                    <h3>Le lac des souhaits</h3>
+                    <h3>Le lac des vœux</h3>
 
                     <p>
-                        À la surface de l'eau,
-                        de petites lanternes emportent
-                        les souhaits vers l'horizon.
+                        Confiez un souhait à la nuit
+                        et laissez une petite lumière
+                        flotter sur l'eau.
                     </p>
 
                     <button type="button"
                             class="location-button"
                             data-open-location="lake"
                             disabled>
-                        Porte verrouillée
+                        Lieu verrouillé
                     </button>
 
                 </div>
@@ -787,24 +727,10 @@
                      data-required="10">
 
                 <div class="location-image location-spring">
-
-                    <span class="location-lock">
-                        <svg viewBox="0 0 24 24"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="1.5"
-                             aria-hidden="true">
-                            <rect x="5" y="10"
-                                  width="14" height="11" rx="2"/>
-                            <path d="M8 10V6a4 4 0 018 0v4"/>
-                            <path d="M12 14v3"/>
-                        </svg>
-                    </span>
-
+                    <span class="location-lock">◇</span>
                     <span class="location-requirement">
                         10 fragments
                     </span>
-
                 </div>
 
                 <div class="location-content">
@@ -813,19 +739,19 @@
                         Quatrième secret
                     </span>
 
-                    <h3>La source des merveilles</h3>
+                    <h3>La source de la vie</h3>
 
                     <p>
-                        Au cœur d'une forêt silencieuse,
-                        une cascade cristalline dissimule
-                        un trésor inattendu.
+                        Sous les racines de l'arbre,
+                        une source paisible abrite
+                        un trésor mystérieux.
                     </p>
 
                     <button type="button"
                             class="location-button"
                             data-open-location="spring"
                             disabled>
-                        Passage verrouillé
+                        Lieu verrouillé
                     </button>
 
                 </div>
@@ -839,24 +765,10 @@
                      data-required="14">
 
                 <div class="location-image location-castle">
-
-                    <span class="location-lock">
-                        <svg viewBox="0 0 24 24"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="1.5"
-                             aria-hidden="true">
-                            <rect x="5" y="10"
-                                  width="14" height="11" rx="2"/>
-                            <path d="M8 10V6a4 4 0 018 0v4"/>
-                            <path d="M12 14v3"/>
-                        </svg>
-                    </span>
-
+                    <span class="location-lock">◇</span>
                     <span class="location-requirement">
                         14 fragments
                     </span>
-
                 </div>
 
                 <div class="location-content">
@@ -865,19 +777,19 @@
                         Le dernier secret
                     </span>
 
-                    <h3>Le château oublié</h3>
+                    <h3>Le château des cœurs errants</h3>
 
                     <p>
-                        Lorsque toutes les lumières
-                        seront réunies, ses portes
-                        s'ouvriront enfin.
+                        Au terme de votre aventure,
+                        une dernière lettre et votre
+                        passeport personnalisé vous attendent.
                     </p>
 
                     <button type="button"
                             class="location-button"
                             data-open-location="castle"
                             disabled>
-                        Porte verrouillée
+                        Lieu verrouillé
                     </button>
 
                 </div>
@@ -888,128 +800,111 @@
 
     </section>
 
-    <!-- =========================================
-         AMBIANCE JOUR / NUIT
-    ========================================== -->
+    <!-- AMBIANCE -->
 
-    <section class="kingdom-atmosphere kingdom-reveal">
-
-        <div class="atmosphere-content">
-
-            <span class="kingdom-eyebrow">
-                Un royaume vivant
-            </span>
-
-            <h2>
-                Entre lumière
-                <em>et clair de lune</em>
-            </h2>
-
-            <p>
-                Choisissez l'atmosphère qui accompagnera
-                votre exploration.
-            </p>
-
-            <div class="atmosphere-options">
-
-                <button type="button"
-                        data-atmosphere="auto"
-                        aria-pressed="true">
-                    <span>✧</span>
-                    Automatique
-                </button>
-
-                <button type="button"
-                        data-atmosphere="day"
-                        aria-pressed="false">
-                    <span>☼</span>
-                    Lumière du jour
-                </button>
-
-                <button type="button"
-                        data-atmosphere="night"
-                        aria-pressed="false">
-                    <span>☾</span>
-                    Clair de lune
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================================
-         DESTINATION MYSTÈRE
-    ========================================== -->
-
-    <section class="kingdom-mystery kingdom-reveal"
-             id="destination-mystere">
-
-        <div class="mystery-visual">
-
-            <div class="mystery-envelope">
-
-                <div class="mystery-envelope-back"></div>
-                <div class="mystery-envelope-paper"></div>
-                <div class="mystery-envelope-front"></div>
-                <div class="mystery-envelope-flap"></div>
-
-                <span class="mystery-wax-seal">
-                    ♡
-                </span>
-
-            </div>
-
-        </div>
-
-        <div class="mystery-content">
-
-            <span class="kingdom-eyebrow">
-                Un nouveau chapitre
-            </span>
-
-            <h2>
-                Le fragment
-                <em>encore inconnu</em>
-            </h2>
-
-            <p>
-                Quelque part dans le monde,
-                un nouveau trésor attend d'être découvert.
-            </p>
-
-            <span class="mystery-date">
-                Décembre 2026
-            </span>
-
-            <p class="mystery-note">
-                Ce fragment supplémentaire ne compte
-                pas parmi les quatorze trésors nécessaires
-                pour terminer votre première aventure.
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- =========================================
-         CERTIFICAT FINAL
-    ========================================== -->
-
-    <section class="kingdom-reward kingdom-reveal"
-             id="kingdom-reward">
+    <section class="kingdom-atmosphere kingdom-reveal"
+             id="kingdom-atmosphere">
 
         <div class="kingdom-heading">
 
             <span class="kingdom-eyebrow">
-                Au terme de votre aventure
+                Un royaume qui vit avec vous
             </span>
 
             <h2>
-                Gardien
-                <em>des cœurs errants</em>
+                Entre lumière
+                <em>et clair de lune.</em>
             </h2>
+
+            <p>
+                Choisissez l'atmosphère de votre aventure.
+            </p>
+
+        </div>
+
+        <div class="atmosphere-options">
+
+            <button type="button"
+                    data-atmosphere="auto"
+                    aria-pressed="true">
+                <span>◐</span>
+                Automatique
+            </button>
+
+            <button type="button"
+                    data-atmosphere="day"
+                    aria-pressed="false">
+                <span>☀</span>
+                Lumière du jour
+            </button>
+
+            <button type="button"
+                    data-atmosphere="night"
+                    aria-pressed="false">
+                <span>☾</span>
+                Clair de lune
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- DESTINATION MYSTÈRE -->
+
+    <section class="kingdom-mystery kingdom-reveal">
+
+        <span class="kingdom-eyebrow">
+            Une aventure qui continue
+        </span>
+
+        <h2>
+            Une nouvelle
+            <em>destination mystérieuse.</em>
+        </h2>
+
+        <div class="mystery-envelope" aria-hidden="true">
+            <div class="mystery-envelope-back"></div>
+            <div class="mystery-envelope-front"></div>
+            <div class="mystery-envelope-flap"></div>
+            <div class="mystery-envelope-seal">♡</div>
+        </div>
+
+        <span class="mystery-date">
+            Décembre 2026
+        </span>
+
+        <p>
+            Quelque part dans le monde,
+            une nouvelle histoire m'attend...
+        </p>
+
+        <p>
+            Peu importe la destination,
+            le cœur connaît déjà le chemin.
+        </p>
+
+    </section>
+
+    <!-- PASSEPORT FINAL -->
+
+    <section class="kingdom-certificate-section kingdom-reveal"
+             id="recompense-finale">
+
+        <div class="kingdom-heading">
+
+            <span class="kingdom-eyebrow">
+                La récompense ultime
+            </span>
+
+            <h2>
+                Votre passeport
+                <em>Cœur Errant.</em>
+            </h2>
+
+            <p>
+                Un souvenir personnel de votre aventure,
+                à conserver, à imprimer ou à partager.
+            </p>
 
         </div>
 
@@ -1027,18 +922,20 @@
                 </span>
 
                 <div class="certificate-medallion">
-                    ♡
+                    <img src="royaume-medallion.png"
+                         alt=""
+                         loading="lazy">
                 </div>
 
                 <span class="certificate-label">
-                    Certificat symbolique
+                    Passeport symbolique
                 </span>
 
                 <h3>
                     Gardien des cœurs errants
                 </h3>
 
-                <p>Décerné à</p>
+                <p>Ce passeport est décerné à</p>
 
                 <strong id="certificate-name">
                     Votre prénom
@@ -1046,22 +943,23 @@
 
                 <p>
                     Pour avoir retrouvé les quatorze
-                    fragments du royaume et célébré
-                    les valeurs de bienveillance,
-                    de douceur et de respect.
+                    fragments de lumière et parcouru
+                    les chemins du royaume.
                 </p>
 
                 <span id="certificate-date">
-                    Votre date de découverte
+                    Date de votre accomplissement
                 </span>
 
+                <div id="passport-details"></div>
+
                 <div class="certificate-signature">
-                    Avec le cœur,
-                    <em>Cœur Errant</em>
+                    Avec toute notre bienveillance,<br>
+                    Cœur Errant
                 </div>
 
                 <div class="certificate-ornament">
-                    ───── ✧ ─────
+                    ───── ♡ ─────
                 </div>
 
             </div>
@@ -1071,11 +969,11 @@
 
                 <span>◇</span>
 
-                <h3>Un trésor vous attend</h3>
+                <h3>Votre passeport vous attend</h3>
 
                 <p>
                     Retrouvez les 14 fragments
-                    pour dévoiler votre certificat.
+                    pour recevoir votre récompense.
                 </p>
 
             </div>
@@ -1086,126 +984,82 @@
                 class="kingdom-button"
                 id="download-certificate"
                 disabled>
-            Conserver mon certificat
+            Imprimer ou enregistrer mon passeport
         </button>
 
     </section>
 
-    <!-- =========================================
-         SECRET FACULTATIF
-    ========================================== -->
+    <!-- SECRET BONUS -->
 
-    <section class="kingdom-hidden-secret">
+    <section class="kingdom-secret-section">
 
         <button type="button"
                 id="kingdom-secret"
                 class="kingdom-secret-button"
-                aria-label="Découvrir un secret">
-            ✧
+                aria-label="Découvrir un petit secret">
+            ♡
         </button>
 
-        <div class="secret-message"
-             id="kingdom-secret-message"
-             hidden>
-
-            <span class="kingdom-eyebrow">
-                Pour les âmes curieuses
-            </span>
-
-            <p>
-                Les plus belles choses sont parfois
-                celles que personne ne pense à chercher.
-            </p>
-
-            <span>♡</span>
-
-        </div>
+        <p id="kingdom-secret-message"
+           aria-live="polite">
+        </p>
 
     </section>
 
-    <!-- =========================================
-         PARAMÈTRES
-    ========================================== -->
+    <!-- SAUVEGARDE -->
 
-    <section class="kingdom-settings">
+    <section class="kingdom-settings"
+             id="kingdom-settings">
 
-        <div class="kingdom-settings-inner">
+        <h3>Votre aventure, à votre rythme.</h3>
 
-            <h3>Votre aventure vous appartient</h3>
+        <p id="kingdom-storage-note"></p>
 
-            <p id="kingdom-storage-note">
-                Votre progression peut être conservée
-                sur cet appareil avec votre accord.
-                Elle n'est pas synchronisée avec
-                vos autres appareils.
-            </p>
+        <button type="button"
+                class="kingdom-outline-button"
+                id="reset-kingdom">
+            Recommencer mon aventure
+        </button>
 
-            <div class="kingdom-settings-actions">
-
-                <button type="button"
-                        id="reset-kingdom"
-                        class="kingdom-text-button">
-                    Recommencer mon aventure
-                </button>
-
-                <a href="mentions-legales.html">
-                    Confidentialité
-                </a>
-
-            </div>
-
-        </div>
+        <p>
+            <a href="mentions-legales.html">
+                Confidentialité et données locales
+            </a>
+        </p>
 
     </section>
 
-    <!-- =========================================
-         CONCLUSION
-    ========================================== -->
+    <!-- CONCLUSION -->
 
-    <section class="kingdom-ending">
+    <section class="kingdom-ending kingdom-reveal">
 
-        <div class="kingdom-ending-content">
+        <span class="kingdom-eyebrow">
+            Au-delà du royaume
+        </span>
 
-            <span class="ending-symbol">♡</span>
+        <h2>
+            La véritable magie
+            <em>existe aussi dans la réalité.</em>
+        </h2>
 
-            <span class="kingdom-eyebrow">
-                Au-delà de l'enchantement
-            </span>
+        <p>
+            Une gamelle d'eau, un peu de nourriture,
+            un regard bienveillant.
+            Les plus petits gestes peuvent faire
+            une véritable différence.
+        </p>
 
-            <h2>
-                La véritable magie
-                <em>existe aussi dans notre monde.</em>
-            </h2>
+        <div class="kingdom-ending-buttons">
 
-            <p>
-                Elle se trouve dans une gamelle remplie,
-                un regard bienveillant, un instant
-                de douceur offert à une âme oubliée.
-            </p>
+            <a href="voyages.html"
+               class="kingdom-button">
+                Continuer les voyages
+            </a>
 
-            <p>
-                Aucun pouvoir extraordinaire n'est nécessaire
-                pour rendre le monde un peu plus beau.
-            </p>
-
-            <div class="kingdom-ending-actions">
-
-                <a href="voyages.html"
-                   class="kingdom-button">
-                    Continuer l'aventure
-                </a>
-
-                <a href="agir.html"
-                   class="kingdom-outline-button">
-                    Agir dans le monde réel
-                </a>
-
-            </div>
-
-            <span class="kingdom-signature">
-                Avec tout mon cœur,
-                Cœur Errant.
-            </span>
+            <a href="agir.html"
+               class="kingdom-outline-button">
+                Agir dans la vraie vie
+            </a>
 
         </div>
 
@@ -1213,139 +1067,102 @@
 
 </main>
 
-<!-- =============================================
-     FENÊTRE D'UN FRAGMENT
-============================================== -->
+<!-- FENÊTRE DES TRÉSORS -->
 
-<dialog class="kingdom-dialog treasure-dialog"
-        id="treasure-dialog"
-        aria-labelledby="treasure-title">
+<dialog class="kingdom-dialog" id="treasure-dialog">
 
-    <div class="kingdom-dialog-inner">
+    <button type="button"
+            class="kingdom-dialog-close"
+            data-close-dialog
+            aria-label="Fermer">
+        ×
+    </button>
 
-        <button type="button"
-                class="kingdom-dialog-close"
-                data-close-dialog="treasure-dialog"
-                aria-label="Fermer">
-            ×
-        </button>
+    <div id="treasure-visual"></div>
 
-        <div class="treasure-dialog-visual"
-             id="treasure-visual">
-        </div>
+    <span class="kingdom-eyebrow"
+          id="treasure-destination">
+    </span>
 
-        <span class="kingdom-eyebrow"
-              id="treasure-destination">
-        </span>
+    <h2 id="treasure-title"></h2>
 
-        <h2 id="treasure-title"></h2>
+    <p id="treasure-meaning"></p>
 
-        <p id="treasure-meaning"></p>
+    <p id="treasure-status"></p>
 
-        <span id="treasure-status"
-              class="treasure-status">
-        </span>
-
-        <button type="button"
-                class="kingdom-button"
-                data-close-dialog="treasure-dialog">
-            Retour à mon coffret
-        </button>
-
-    </div>
+    <button type="button"
+            class="kingdom-button"
+            data-close-dialog>
+        Continuer mon aventure
+    </button>
 
 </dialog>
 
-<!-- =============================================
-     FENÊTRE D'UN LIEU ENCHANTÉ
-============================================== -->
+<!-- FENÊTRE DES LIEUX -->
 
 <dialog class="kingdom-dialog location-dialog"
-        id="location-dialog"
-        aria-labelledby="location-dialog-title">
+        id="location-dialog">
 
-    <div class="location-dialog-inner">
+    <button type="button"
+            class="kingdom-dialog-close"
+            data-close-dialog
+            aria-label="Fermer">
+        ×
+    </button>
+
+    <div class="location-dialog-image"
+         id="location-dialog-image">
+    </div>
+
+    <div class="location-dialog-content">
+
+        <span class="kingdom-eyebrow">
+            Un secret du royaume
+        </span>
+
+        <h2 id="location-dialog-title"></h2>
+
+        <p id="location-dialog-description"></p>
+
+        <div id="location-interaction"></div>
 
         <button type="button"
-                class="kingdom-dialog-close"
-                data-close-dialog="location-dialog"
-                aria-label="Fermer">
-            ×
+                class="kingdom-outline-button"
+                data-close-dialog>
+            Retour au royaume
         </button>
 
-        <div class="location-dialog-image"
-             id="location-dialog-image">
-        </div>
-
-        <div class="location-dialog-content">
-
-            <span class="kingdom-eyebrow">
-                Un secret dévoilé
-            </span>
-
-            <h2 id="location-dialog-title"></h2>
-
-            <p id="location-dialog-description"></p>
-
-            <div id="location-interaction"></div>
-
-            <button type="button"
-                    class="kingdom-outline-button"
-                    data-close-dialog="location-dialog">
-                Retour au royaume
-            </button>
-
-        </div>
-
     </div>
 
 </dialog>
 
-<!-- =============================================
-     CONFIRMATION DE RÉINITIALISATION
-============================================== -->
+<!-- CONFIRMATION DE RÉINITIALISATION -->
 
-<dialog class="kingdom-dialog reset-dialog"
-        id="kingdom-reset-dialog"
-        aria-labelledby="reset-dialog-title">
+<dialog class="kingdom-dialog"
+        id="kingdom-reset-dialog">
 
-    <div class="kingdom-dialog-inner">
+    <h2>Une nouvelle aventure ?</h2>
 
-        <span class="reset-symbol">♡</span>
+    <p>
+        Votre progression, vos fragments et votre
+        personnalisation seront effacés de cet appareil.
+    </p>
 
-        <h2 id="reset-dialog-title">
-            Une nouvelle aventure ?
-        </h2>
+    <button type="button"
+            class="kingdom-button"
+            id="confirm-reset-kingdom">
+        Oui, recommencer
+    </button>
 
-        <p>
-            Votre collection, votre compagnon
-            et votre progression seront effacés
-            de cet appareil.
-        </p>
-
-        <div class="reset-dialog-actions">
-
-            <button type="button"
-                    class="kingdom-outline-button"
-                    data-close-dialog="kingdom-reset-dialog">
-                Annuler
-            </button>
-
-            <button type="button"
-                    class="kingdom-button"
-                    id="confirm-reset-kingdom">
-                Recommencer
-            </button>
-
-        </div>
-
-    </div>
+    <button type="button"
+            class="kingdom-outline-button"
+            data-close-dialog>
+        Annuler
+    </button>
 
 </dialog>
 
-<!-- =============================================
-     NOTIFICATION
-============================================== -->
+<!-- NOTIFICATIONS -->
 
 <div class="kingdom-toast"
      id="kingdom-toast"
@@ -1367,11 +1184,18 @@
      aria-hidden="true">
 </div>
 
-<!-- =============================================
-     FOOTER
-============================================== -->
+<!-- PIED DE PAGE -->
 
 <footer class="ce-footer">
+
+    <div class="ce-footer-decoration"
+         aria-hidden="true">
+        <span>♡</span>
+        <span>✧</span>
+        <span>❀</span>
+        <span>♡</span>
+        <span>✧</span>
+    </div>
 
     <div class="ce-footer-inner">
 
@@ -1396,22 +1220,20 @@
 
         <div class="ce-footer-socials">
 
-            <a href="https://www.instagram.com/coeur.errant/"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Instagram">
-                <img src="https://cdn.simpleicons.org/instagram/A85E68"
-                     alt=""
-                     loading="lazy">
-            </a>
-
             <a href="https://www.tiktok.com/@coeur_errant"
                target="_blank"
                rel="noopener noreferrer"
                aria-label="TikTok">
                 <img src="https://cdn.simpleicons.org/tiktok/A85E68"
-                     alt=""
-                     loading="lazy">
+                     alt="">
+            </a>
+
+            <a href="https://www.instagram.com/coeur.errant/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram">
+                <img src="https://cdn.simpleicons.org/instagram/A85E68"
+                     alt="">
             </a>
 
             <a href="https://www.youtube.com/@CoeurErrant"
@@ -1419,8 +1241,7 @@
                rel="noopener noreferrer"
                aria-label="YouTube">
                 <img src="https://cdn.simpleicons.org/youtube/A85E68"
-                     alt=""
-                     loading="lazy">
+                     alt="">
             </a>
 
             <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
@@ -1428,8 +1249,7 @@
                rel="noopener noreferrer"
                aria-label="Facebook">
                 <img src="https://cdn.simpleicons.org/facebook/A85E68"
-                     alt=""
-                     loading="lazy">
+                     alt="">
             </a>
 
             <a href="https://www.snapchat.com/add/coeur_errant"
@@ -1437,8 +1257,12 @@
                rel="noopener noreferrer"
                aria-label="Snapchat">
                 <img src="https://cdn.simpleicons.org/snapchat/A85E68"
-                     alt=""
-                     loading="lazy">
+                     alt="">
+            </a>
+
+            <a href="mailto:coeur.errant@outlook.be"
+               aria-label="Nous contacter">
+                <span>✉</span>
             </a>
 
         </div>
@@ -1446,29 +1270,47 @@
         <div class="ce-footer-navigation">
 
             <div class="ce-footer-column">
+
                 <h3>Découvrir</h3>
+
                 <a href="index.html#histoire">Mon histoire</a>
                 <a href="mission.html">La mission</a>
                 <a href="voyages.html">Voyages</a>
+                <a href="agir.html">Comment agir</a>
+
             </div>
 
             <div class="ce-footer-column">
+
                 <h3>Notre univers</h3>
+
                 <a href="livres.html">Mes livres</a>
                 <a href="etoiles.html">Nos étoiles</a>
-                <a href="passeport.html">Le royaume</a>
+                <a href="passeport.html">Le Royaume</a>
+                <a href="soutenir.html">Soutenir</a>
+
             </div>
 
             <div class="ce-footer-column">
+
                 <h3>Restons proches</h3>
-                <a href="soutenir.html">Soutenir</a>
-                <a href="agir.html">À votre tour d'agir</a>
+
                 <a href="mailto:coeur.errant@outlook.be">
                     Me contacter
                 </a>
+
+                <a href="https://www.instagram.com/coeur.errant/">
+                    Suivre l'aventure
+                </a>
+
                 <a href="mentions-legales.html">
                     Mentions légales
                 </a>
+
+                <a href="index-nl.html">
+                    Nederlands
+                </a>
+
             </div>
 
         </div>
@@ -1478,54 +1320,42 @@
             <span class="ce-footer-heart">♡</span>
 
             <p>
-                Créé avec amour,
-                pour ceux qui n'ont pas de voix.
+                Créé avec amour, pour ceux qui
+                n'ont pas de voix.
             </p>
 
         </div>
 
-        <p class="ce-footer-copyright">
+        <div class="ce-footer-copyright">
             © 2026 Cœur Errant — Tous droits réservés.
-        </p>
+        </div>
 
     </div>
 
 </footer>
 
 <script>
-    (() => {
-        const hamburger = document.getElementById("hamburger");
-        const menu = document.getElementById("nav-links");
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
 
-        if (!hamburger || !menu) return;
+    hamburger.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
 
-        function closeMenu() {
+        hamburger.classList.toggle("open", isOpen);
+
+        hamburger.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
             hamburger.classList.remove("open");
-            menu.classList.remove("open");
             hamburger.setAttribute("aria-expanded", "false");
-        }
-
-        hamburger.addEventListener("click", () => {
-            const opened = menu.classList.toggle("open");
-
-            hamburger.classList.toggle("open", opened);
-
-            hamburger.setAttribute(
-                "aria-expanded",
-                String(opened)
-            );
         });
-
-        menu.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", closeMenu);
-        });
-
-        document.addEventListener("keydown", event => {
-            if (event.key === "Escape") {
-                closeMenu();
-            }
-        });
-    })();
+    });
 </script>
 
 </body>
