@@ -1,4 +1,3 @@
-
 /* =========================================
    CŒUR ERRANT
    EXPÉRIENCES COMMUNES
@@ -6,16 +5,17 @@
    ========================================= */
 
 :root {
-  --ce-global-cream: #faf8f5;
-  --ce-global-paper: #fffdf9;
-  --ce-global-rose: #a85e68;
-  --ce-global-pink: #b77d88;
-  --ce-global-light: #f1e2e4;
-  --ce-global-dark: #493c35;
-  --ce-global-muted: #80736b;
-  --ce-global-border: #e5d8cf;
-  --ce-global-serif: 'Cormorant Garamond', Georgia, serif;
-  --ce-global-sans: 'Jost', sans-serif;
+    --ce-global-cream: #faf8f5;
+    --ce-global-paper: #fffdf9;
+    --ce-global-rose: #a85e68;
+    --ce-global-pink: #b77d88;
+    --ce-global-light: #f1e2e4;
+    --ce-global-dark: #493c35;
+    --ce-global-muted: #80736b;
+    --ce-global-border: #e5d8cf;
+    --ce-global-gold: #c4a477;
+    --ce-global-serif: 'Cormorant Garamond', Georgia, serif;
+    --ce-global-sans: 'Jost', sans-serif;
 }
 
 /* =========================================
@@ -23,224 +23,172 @@
    ========================================= */
 
 .ce-welcome-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      #fffdf9 0%,
-      #f8efeb 55%,
-      #efdee0 100%
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(
+        ellipse at center,
+        #fffdf9 0%,
+        #f8efeb 55%,
+        #efdee0 100%
     );
-
-  opacity: 1;
-  visibility: visible;
-
-  transition:
-    opacity .5s ease,
-    visibility .5s ease;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .5s ease, visibility .5s ease;
 }
 
 .ce-welcome-screen.ce-welcome-finished {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .ce-welcome-content {
-  position: relative;
-  z-index: 2;
-
-  width: 90%;
-  max-width: 500px;
-  padding: 30px;
-
-  text-align: center;
-
-  animation: ceWelcomeAppear .7s ease both;
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    text-align: center;
+    animation: ceWelcomeAppear .7s ease both;
 }
 
 /* PATTE ANIMÉE */
 
 .ce-welcome-paw {
-  position: relative;
-
-  width: 85px;
-  height: 85px;
-
-  margin: 0 auto 24px;
-
-  color: var(--ce-global-pink);
-
-  animation: ceWelcomePaw 1.5s ease-in-out infinite;
+    position: relative;
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 24px;
+    color: var(--ce-global-pink);
+    animation: ceWelcomePaw 1.5s ease-in-out infinite;
 }
 
 .ce-welcome-paw::before {
-  content: "";
-
-  position: absolute;
-  inset: -30px;
-
-  border-radius: 50%;
-
-  background: radial-gradient(
-    circle,
-    rgba(183, 125, 136, .18),
-    transparent 70%
-  );
+    content: "";
+    position: absolute;
+    inset: -30px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(183,125,136,.18),
+        transparent 70%
+    );
 }
 
 .ce-welcome-paw svg {
-  position: relative;
-
-  display: block;
-
-  width: 100%;
-  height: 100%;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .ce-welcome-paw svg ellipse,
 .ce-welcome-paw svg path {
-  transform-box: fill-box;
-  transform-origin: center;
-
-  animation: cePawAppear .6s ease both;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: cePawAppear .6s ease both;
 }
 
 .ce-welcome-paw svg ellipse:nth-child(1) {
-  animation-delay: .05s;
+    animation-delay: .05s;
 }
 
 .ce-welcome-paw svg ellipse:nth-child(2) {
-  animation-delay: .12s;
+    animation-delay: .12s;
 }
 
 .ce-welcome-paw svg ellipse:nth-child(3) {
-  animation-delay: .19s;
+    animation-delay: .19s;
 }
 
 .ce-welcome-paw svg ellipse:nth-child(4) {
-  animation-delay: .26s;
+    animation-delay: .26s;
 }
 
 .ce-welcome-paw svg path {
-  animation-delay: .32s;
+    animation-delay: .32s;
 }
 
-/* TITRE */
-
 .ce-welcome-brand {
-  font-family: var(--ce-global-serif);
-  font-size: clamp(3rem, 7vw, 4.8rem);
-  font-weight: 400;
-  line-height: 1.1;
-
-  color: var(--ce-global-dark);
-
-  margin-bottom: 12px;
-
-  letter-spacing: -.02em;
+    font-family: var(--ce-global-serif);
+    font-size: clamp(3rem,7vw,4.8rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ce-global-dark);
+    margin-bottom: 12px;
+    letter-spacing: -.02em;
 }
 
 .ce-welcome-content p {
-  font-family: var(--ce-global-serif);
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
-  font-style: italic;
-
-  color: var(--ce-global-rose);
-
-  margin: 0;
+    font-family: var(--ce-global-serif);
+    font-size: clamp(1.2rem,3vw,1.6rem);
+    font-style: italic;
+    color: var(--ce-global-rose);
+    margin: 0;
 }
 
-/* BARRE DE CHARGEMENT */
-
 .ce-welcome-progress {
-  width: 125px;
-  height: 3px;
-
-  margin: 32px auto 0;
-
-  border-radius: 20px;
-
-  background: #e9d5d5;
-
-  overflow: hidden;
+    width: 125px;
+    height: 3px;
+    margin: 32px auto 0;
+    border-radius: 20px;
+    background: #e9d5d5;
+    overflow: hidden;
 }
 
 .ce-welcome-progress span {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  background: var(--ce-global-pink);
-
-  border-radius: inherit;
-
-  transform-origin: left;
-
-  animation: ceWelcomeProgress 1.1s ease forwards;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--ce-global-pink);
+    border-radius: inherit;
+    transform-origin: left;
+    animation: ceWelcomeProgress 1.1s ease forwards;
 }
 
-/* DÉCORATIONS FLOTTANTES */
-
 .ce-welcome-decoration {
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
 }
 
 .ce-welcome-decoration span {
-  position: absolute;
-
-  color: rgba(168, 94, 104, .2);
-
-  font-family: Georgia, serif;
-
-  animation: ceGlobalFloat 4s ease-in-out infinite;
+    position: absolute;
+    color: rgba(168,94,104,.2);
+    font-family: Georgia, serif;
+    animation: ceGlobalFloat 4s ease-in-out infinite;
 }
 
 .ce-welcome-decoration span:nth-child(1) {
-  top: 18%;
-  left: 16%;
-
-  font-size: 4rem;
+    top: 18%;
+    left: 16%;
+    font-size: 4rem;
 }
 
 .ce-welcome-decoration span:nth-child(2) {
-  top: 22%;
-  right: 19%;
-
-  font-size: 2rem;
-
-  animation-delay: .5s;
+    top: 22%;
+    right: 19%;
+    font-size: 2rem;
+    animation-delay: .5s;
 }
 
 .ce-welcome-decoration span:nth-child(3) {
-  bottom: 22%;
-  left: 23%;
-
-  font-size: 1.5rem;
-
-  animation-delay: 1s;
+    bottom: 22%;
+    left: 23%;
+    font-size: 1.5rem;
+    animation-delay: 1s;
 }
 
 .ce-welcome-decoration span:nth-child(4) {
-  bottom: 17%;
-  right: 15%;
-
-  font-size: 5rem;
-
-  animation-delay: 1.5s;
+    bottom: 17%;
+    right: 15%;
+    font-size: 5rem;
+    animation-delay: 1.5s;
 }
 
 /* =========================================
@@ -248,192 +196,186 @@
    ========================================= */
 
 .ce-global-tools {
-  position: fixed;
-
-  right: 24px;
-  bottom: 26px;
-
-  right: max(24px, env(safe-area-inset-right));
-  bottom: max(26px, env(safe-area-inset-bottom));
-
-  z-index: 900;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 12px;
-
-  pointer-events: none;
+    position: fixed;
+    right: 24px;
+    bottom: 26px;
+    right: max(24px,env(safe-area-inset-right));
+    bottom: max(26px,env(safe-area-inset-bottom));
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    pointer-events: none;
 }
 
 .ce-global-tools *,
 .ce-daily-dialog *,
 .ce-welcome-screen * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .ce-global-tools [hidden],
 .ce-daily-dialog [hidden] {
-  display: none !important;
+    display: none !important;
 }
 
 .ce-global-tools button {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 53px;
-  height: 53px;
-
-  padding: 0;
-  margin: 0;
-
-  border: 1px solid #dfc6c9;
-  border-radius: 50%;
-
-  background: rgba(255, 253, 249, .96);
-
-  color: var(--ce-global-rose);
-
-  box-shadow: 0 5px 20px rgba(73, 60, 53, .1);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  cursor: pointer;
-  pointer-events: auto;
-
-  -webkit-tap-highlight-color: transparent;
-
-  transition:
-    transform .3s ease,
-    background .3s ease,
-    color .3s ease,
-    border-color .3s ease,
-    box-shadow .3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 53px;
+    height: 53px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #dfc6c9;
+    border-radius: 50%;
+    background: rgba(255,253,249,.96);
+    color: var(--ce-global-rose);
+    box-shadow: 0 5px 20px rgba(73,60,53,.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    cursor: pointer;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
 }
 
 .ce-global-tools button:hover {
-  transform: translateY(-4px);
-
-  background: var(--ce-global-rose);
-  border-color: var(--ce-global-rose);
-
-  color: white;
-
-  box-shadow: 0 8px 25px rgba(168, 94, 104, .25);
+    transform: translateY(-4px);
+    background: var(--ce-global-rose);
+    border-color: var(--ce-global-rose);
+    color: white;
+    box-shadow: 0 8px 25px rgba(168,94,104,.25);
 }
 
 .ce-global-tools button:active {
-  transform: scale(.94);
+    transform: scale(.94);
 }
 
 .ce-global-tools button:focus-visible {
-  outline: 2px solid var(--ce-global-rose);
-  outline-offset: 5px;
+    outline: 2px solid var(--ce-global-rose);
+    outline-offset: 5px;
 }
 
 /* =========================================
-   PASSEPORT DU CŒUR
+   LE ROYAUME DES CŒURS ERRANTS
+   MÉDAILLON FLOTTANT
    ========================================= */
 
 .ce-global-tools .ce-passport-button {
-  position: relative;
+    width: 58px;
+    height: 58px;
+    border: 2px solid #c4a477;
+    background: radial-gradient(
+        circle at 35% 25%,
+        #fffdf4,
+        #f1e1c5 65%,
+        #e5cfaa
+    );
+    color: #a08350;
+    box-shadow:
+        0 0 0 3px rgba(196,164,119,.12),
+        0 5px 20px rgba(145,110,63,.2);
+    animation: ceToolAppear .6s ease;
+}
 
-  animation: ceToolAppear .6s ease both;
+.ce-passport-button::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(160,131,80,.45);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
 .ce-passport-button svg {
-  display: block;
+    position: relative;
+    display: block;
+    width: 33px;
+    height: 33px;
+    transition: transform .4s ease;
+}
 
-  width: 27px;
-  height: 27px;
-
-  transition: transform .3s ease;
+.ce-global-tools .ce-passport-button:hover {
+    color: #92703c;
+    border-color: #b39565;
+    background: #fff4dd;
+    box-shadow: 0 0 25px rgba(196,164,119,.5);
 }
 
 .ce-passport-button:hover svg {
-  transform: rotate(-8deg);
+    transform: rotate(-8deg) scale(1.08);
 }
 
-/* COMPTEUR DES TAMPONS */
+/* COMPTEUR DES TRÉSORS */
 
 .ce-passport-counter {
-  position: absolute;
-
-  top: -5px;
-  right: -8px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 30px;
-  height: 19px;
-
-  padding: 0 5px;
-
-  border: 2px solid #fffdf9;
-  border-radius: 20px;
-
-  background: var(--ce-global-rose);
-
-  color: white;
-
-  font-family: var(--ce-global-sans);
-  font-size: 9px;
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-
-  box-shadow: 0 2px 8px rgba(168, 94, 104, .15);
-
-  pointer-events: none;
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 20px;
+    padding: 0 5px;
+    border: 2px solid #fffdf9;
+    border-radius: 20px;
+    background: #a58b5d;
+    color: white;
+    font-family: var(--ce-global-sans);
+    font-size: 10px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    box-shadow: 0 2px 8px rgba(145,110,63,.2);
+    pointer-events: none;
 }
 
-/* PASSEPORT COMPLÉTÉ */
+.ce-passport-button.ce-has-treasures {
+    box-shadow:
+        0 0 0 3px rgba(196,164,119,.15),
+        0 0 18px rgba(196,164,119,.35);
+}
+
+.ce-passport-button.ce-new-treasure {
+    animation: ceTreasurePulse .8s ease;
+}
+
+/* MÉDAILLON COMPLÉTÉ */
 
 .ce-global-tools .ce-passport-complete {
-  border-color: #c4a477;
-
-  background: #fff9ef;
-
-  color: #b39565;
-
-  box-shadow: 0 5px 20px rgba(196, 164, 119, .2);
-}
-
-.ce-global-tools .ce-passport-complete:hover {
-  background: #b39565;
-
-  border-color: #b39565;
-
-  color: white;
+    border-color: #b39565;
+    background: radial-gradient(
+        circle at 30% 20%,
+        #fffdf1,
+        #ebd3a1
+    );
+    color: #92703c;
+    box-shadow: 0 0 25px rgba(196,164,119,.5);
 }
 
 .ce-passport-complete .ce-passport-counter {
-  background: #a58b5d;
+    background: #8b7042;
 }
 
 .ce-passport-complete::after {
-  content: "✧";
-
-  position: absolute;
-
-  bottom: -3px;
-  left: -5px;
-
-  font-family: Georgia, serif;
-  font-size: 19px;
-
-  color: #c4a477;
-
-  pointer-events: none;
-
-  animation: cePassportSparkle 2.5s ease-in-out infinite;
+    content: "✧";
+    position: absolute;
+    bottom: -3px;
+    left: -5px;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    color: #c4a477;
+    pointer-events: none;
+    animation: cePassportSparkle 2.5s ease-in-out infinite;
 }
 
 /* =========================================
@@ -441,73 +383,60 @@
    ========================================= */
 
 .ce-daily-button {
-  animation: ceToolAppear .6s ease both;
+    animation: ceToolAppear .6s ease;
 }
 
 .ce-daily-button svg {
-  display: block;
-
-  width: 25px;
-  height: 25px;
+    display: block;
+    width: 25px;
+    height: 25px;
 }
 
 .ce-daily-notification {
-  position: absolute;
-
-  top: -5px;
-  right: -4px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 20px;
-  height: 20px;
-
-  border: 2px solid #fffdf9;
-  border-radius: 50%;
-
-  background: var(--ce-global-rose);
-
-  color: white;
-
-  font-family: Georgia, serif;
-  font-size: 13px;
-  line-height: 1;
-
-  animation: ceNotificationPulse 3s ease-in-out infinite;
+    position: absolute;
+    top: -5px;
+    right: -4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fffdf9;
+    border-radius: 50%;
+    background: var(--ce-global-rose);
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    line-height: 1;
+    animation: ceNotificationPulse 3s ease-in-out infinite;
 }
 
 /* =========================================
-   BOUTON RETOUR EN HAUT
+   RETOUR EN HAUT
    ========================================= */
 
 .ce-back-top {
-  animation: ceToolAppear .4s ease both;
+    animation: ceToolAppear .4s ease;
 }
 
 .ce-back-top svg {
-  display: block;
-
-  width: 25px;
-  height: 25px;
-
-  transition: transform .3s ease;
+    display: block;
+    width: 25px;
+    height: 25px;
+    transition: transform .3s ease;
 }
 
 .ce-back-top span {
-  position: absolute;
-
-  top: 3px;
-  right: 8px;
-
-  font-family: var(--ce-global-sans);
-  font-size: 12px;
-  font-weight: 500;
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    font-family: var(--ce-global-sans);
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .ce-back-top:hover svg {
-  transform: translateY(-2px);
+    transform: translateY(-2px);
 }
 
 /* =========================================
@@ -515,324 +444,237 @@
    ========================================= */
 
 dialog.ce-daily-dialog {
-  position: fixed;
-  inset: 0;
-
-  width: min(480px, calc(100% - 32px));
-  max-width: 480px;
-  max-height: calc(100dvh - 40px);
-
-  padding: 0;
-  margin: auto;
-
-  border: 1px solid #dfc9c1;
-  border-radius: 6px;
-
-  background: var(--ce-global-paper);
-
-  color: var(--ce-global-dark);
-
-  box-shadow:
-    0 25px 100px rgba(73, 60, 53, .2),
-    0 5px 25px rgba(73, 60, 53, .08);
-
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  overscroll-behavior: contain;
+    position: fixed;
+    inset: 0;
+    width: min(480px,calc(100% - 32px));
+    max-width: 480px;
+    max-height: calc(100dvh - 40px);
+    padding: 0;
+    margin: auto;
+    border: 1px solid #dfc9c1;
+    border-radius: 6px;
+    background: var(--ce-global-paper);
+    color: var(--ce-global-dark);
+    box-shadow:
+        0 25px 100px rgba(73,60,53,.2),
+        0 5px 25px rgba(73,60,53,.08);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 }
 
 dialog.ce-daily-dialog:not([open]) {
-  display: none;
+    display: none;
 }
 
 dialog.ce-daily-dialog[open] {
-  display: block;
-
-  animation: ceLetterAppear .45s cubic-bezier(.2, .7, .3, 1) both;
+    display: block;
+    animation: ceLetterAppear .45s cubic-bezier(.2,.7,.3,1) both;
 }
 
 .ce-daily-dialog::backdrop {
-  background: rgba(54, 39, 36, .42);
-
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
+    background: rgba(54,39,36,.42);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
 }
 
 body:has(.ce-daily-dialog[open]) {
-  overflow: hidden;
+    overflow: hidden;
 }
 
-/* =========================================
-   PAPIER À LETTRES
-   ========================================= */
+/* PAPIER À LETTRES */
 
 .ce-daily-letter {
-  position: relative;
+    position: relative;
+    isolation: isolate;
+    padding: 48px 40px 36px;
+    text-align: center;
+    background:
+        radial-gradient(
+            ellipse at top left,
+            rgba(235,210,207,.25),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at bottom right,
+            rgba(235,210,207,.3),
+            transparent 45%
+        ),
+        var(--ce-global-paper);
+}
 
-  isolation: isolate;
-
-  padding: 48px 40px 36px;
-
-  text-align: center;
-
-  background:
-
-    radial-gradient(
-      ellipse at top left,
-      rgba(235, 210, 207, .25),
-      transparent 45%
-    ),
-
-    radial-gradient(
-      ellipse at bottom right,
-      rgba(235, 210, 207, .3),
-      transparent 45%
-    ),
-
-    var(--ce-global-paper);
+.ce-daily-letter::before,
+.ce-daily-letter::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .ce-daily-letter::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 12px;
-
-  border: 1px solid rgba(183, 125, 136, .25);
-
-  pointer-events: none;
-
-  z-index: -1;
+    inset: 12px;
+    border: 1px solid rgba(183,125,136,.25);
 }
 
 .ce-daily-letter::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 17px;
-
-  border: 1px solid rgba(183, 125, 136, .1);
-
-  pointer-events: none;
-
-  z-index: -1;
+    inset: 17px;
+    border: 1px solid rgba(183,125,136,.1);
 }
 
-/* BOUTON FERMER */
+/* FERMETURE */
 
 .ce-daily-close {
-  position: absolute;
-
-  top: 22px;
-  right: 22px;
-
-  z-index: 5;
-
-  display: grid;
-  place-items: center;
-
-  width: 33px;
-  height: 33px;
-
-  padding: 0;
-
-  border: 1px solid var(--ce-global-border);
-  border-radius: 50%;
-
-  background: var(--ce-global-paper);
-
-  color: var(--ce-global-rose);
-
-  font-family: var(--ce-global-sans);
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 1;
-
-  cursor: pointer;
-
-  transition:
-    background .3s ease,
-    color .3s ease,
-    transform .3s ease;
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    z-index: 5;
+    display: grid;
+    place-items: center;
+    width: 33px;
+    height: 33px;
+    padding: 0;
+    border: 1px solid var(--ce-global-border);
+    border-radius: 50%;
+    background: var(--ce-global-paper);
+    color: var(--ce-global-rose);
+    font-family: var(--ce-global-sans);
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
 }
 
 .ce-daily-close:hover {
-  background: var(--ce-global-rose);
-
-  color: white;
-
-  transform: rotate(90deg);
+    background: var(--ce-global-rose);
+    color: white;
+    transform: rotate(90deg);
 }
 
 .ce-daily-close:focus-visible {
-  outline: 2px solid var(--ce-global-rose);
-  outline-offset: 3px;
+    outline: 2px solid var(--ce-global-rose);
+    outline-offset: 3px;
 }
 
-/* PETITES DÉCORATIONS */
+/* DÉCORATIONS */
 
 .ce-daily-decoration {
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  z-index: -1;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .ce-daily-decoration span {
-  position: absolute;
-
-  font-family: Georgia, serif;
-
-  color: rgba(168, 94, 104, .17);
-
-  animation: ceGlobalFloat 5s ease-in-out infinite;
+    position: absolute;
+    font-family: Georgia, serif;
+    color: rgba(168,94,104,.17);
+    animation: ceGlobalFloat 5s ease-in-out infinite;
 }
 
 .ce-daily-decoration span:nth-child(1) {
-  top: 17%;
-  left: 10%;
-
-  font-size: 2.4rem;
+    top: 17%;
+    left: 10%;
+    font-size: 2.4rem;
 }
 
 .ce-daily-decoration span:nth-child(2) {
-  bottom: 14%;
-  right: 8%;
-
-  font-size: 3rem;
-
-  animation-delay: 1s;
+    bottom: 14%;
+    right: 8%;
+    font-size: 3rem;
+    animation-delay: 1s;
 }
 
 .ce-daily-decoration span:nth-child(3) {
-  top: 28%;
-  right: 10%;
-
-  font-size: 1rem;
-
-  animation-delay: 2s;
+    top: 28%;
+    right: 10%;
+    font-size: 1rem;
+    animation-delay: 2s;
 }
-
-/* CŒUR */
 
 .ce-daily-heart {
-  display: block;
-
-  font-family: Georgia, serif;
-  font-size: 3.5rem;
-  font-weight: 400;
-  line-height: 1;
-
-  color: var(--ce-global-rose);
-
-  margin: 0 auto 18px;
-
-  animation: ceDailyHeartbeat 3s ease-in-out infinite;
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--ce-global-rose);
+    margin: 0 auto 18px;
+    animation: ceDailyHeartbeat 3s ease-in-out infinite;
 }
 
-/* TITRES ET DATE */
-
 .ce-daily-label {
-  font-family: var(--ce-global-sans);
-  font-size: .65rem;
-  font-weight: 500;
-
-  letter-spacing: .25em;
-  text-transform: uppercase;
-
-  color: var(--ce-global-rose);
-
-  margin: 0 0 14px;
+    font-family: var(--ce-global-sans);
+    font-size: .65rem;
+    font-weight: 500;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--ce-global-rose);
+    margin: 0 0 14px;
 }
 
 .ce-daily-letter h2 {
-  font-family: var(--ce-global-serif);
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  font-weight: 400;
-  line-height: 1.1;
-
-  color: var(--ce-global-dark);
-
-  margin: 0 0 12px;
+    font-family: var(--ce-global-serif);
+    font-size: clamp(2rem,5vw,2.8rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ce-global-dark);
+    margin: 0 0 12px;
 }
 
 .ce-daily-date {
-  font-family: var(--ce-global-sans);
-  font-size: .75rem;
-  font-weight: 400;
-
-  letter-spacing: .08em;
-
-  color: var(--ce-global-muted);
-
-  margin: 0;
+    font-family: var(--ce-global-sans);
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: .08em;
+    color: var(--ce-global-muted);
+    margin: 0;
 }
-
-/* CITATION */
 
 .ce-daily-quote {
-  position: relative;
-
-  max-width: 350px;
-
-  padding: 25px 0;
-  margin: 25px auto;
-
-  border: 0;
-  border-top: 1px solid #eadbd4;
-  border-bottom: 1px solid #eadbd4;
-
-  background: transparent;
-
-  font-family: var(--ce-global-serif);
-  font-size: clamp(1.55rem, 4vw, 2rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.5;
-
-  color: #98616b;
-
-  overflow-wrap: break-word;
+    position: relative;
+    max-width: 350px;
+    padding: 25px 0;
+    margin: 25px auto;
+    border: 0;
+    border-top: 1px solid #eadbd4;
+    border-bottom: 1px solid #eadbd4;
+    background: transparent;
+    font-family: var(--ce-global-serif);
+    font-size: clamp(1.55rem,4vw,2rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    color: #98616b;
+    overflow-wrap: break-word;
 }
 
-/* SIGNATURE */
-
 .ce-daily-signature {
-  font-family: var(--ce-global-serif);
-  font-size: 1.35rem;
-  font-style: italic;
-
-  color: var(--ce-global-rose);
-
-  margin: 0 0 20px;
+    font-family: var(--ce-global-serif);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--ce-global-rose);
+    margin: 0 0 20px;
 }
 
 .ce-daily-divider {
-  width: 35px;
-  height: 1px;
-
-  background: #d9b9be;
-
-  margin: 0 auto 20px;
+    width: 35px;
+    height: 1px;
+    background: #d9b9be;
+    margin: 0 auto 20px;
 }
 
 .ce-daily-tomorrow {
-  max-width: 270px;
-
-  margin: 0 auto;
-
-  font-family: var(--ce-global-sans);
-  font-size: .78rem;
-  font-weight: 400;
-  line-height: 1.8;
-
-  color: var(--ce-global-muted);
+    max-width: 270px;
+    margin: 0 auto;
+    font-family: var(--ce-global-sans);
+    font-size: .78rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--ce-global-muted);
 }
 
 /* =========================================
@@ -840,145 +682,121 @@ body:has(.ce-daily-dialog[open]) {
    ========================================= */
 
 @keyframes ceWelcomeAppear {
-
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes ceWelcomePaw {
-
-  0%, 100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.07);
-  }
-
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.07);
+    }
 }
 
 @keyframes cePawAppear {
-
-  from {
-    opacity: 0;
-    scale: .5;
-  }
-
-  to {
-    opacity: 1;
-    scale: 1;
-  }
-
+    from {
+        opacity: 0;
+        scale: .5;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
 }
 
 @keyframes ceWelcomeProgress {
-
-  from {
-    transform: scaleX(0);
-  }
-
-  to {
-    transform: scaleX(1);
-  }
-
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
 }
 
 @keyframes ceGlobalFloat {
-
-  0%, 100% {
-    transform: translateY(0) rotate(-5deg);
-  }
-
-  50% {
-    transform: translateY(-10px) rotate(5deg);
-  }
-
+    0%,100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
 }
 
 @keyframes ceToolAppear {
-
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(.85);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(.85);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 @keyframes ceNotificationPulse {
-
-  0%, 100% {
-    transform: scale(1);
-
-    box-shadow: 0 0 0 0 rgba(168, 94, 104, 0);
-  }
-
-  50% {
-    transform: scale(1.1);
-
-    box-shadow: 0 0 0 5px rgba(168, 94, 104, .1);
-  }
-
+    0%,100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(168,94,104,0);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 5px rgba(168,94,104,.1);
+    }
 }
 
 @keyframes ceLetterAppear {
-
-  from {
-    opacity: 0;
-    transform: translateY(25px) scale(.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 @keyframes ceDailyHeartbeat {
-
-  0%, 100% {
-    transform: scale(1);
-  }
-
-  30% {
-    transform: scale(1.1);
-  }
-
-  45% {
-    transform: scale(1);
-  }
-
-  60% {
-    transform: scale(1.06);
-  }
-
+    0%,100% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    45% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.06);
+    }
 }
 
 @keyframes cePassportSparkle {
+    0%,100% {
+        opacity: .5;
+        transform: scale(.8) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(15deg);
+    }
+}
 
-  0%, 100% {
-    opacity: .5;
-    transform: scale(.8) rotate(0deg);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.2) rotate(15deg);
-  }
-
+@keyframes ceTreasurePulse {
+    0%,100% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.18);
+        box-shadow: 0 0 35px rgba(196,164,119,.7);
+    }
 }
 
 /* =========================================
@@ -987,14 +805,10 @@ body:has(.ce-daily-dialog[open]) {
 
 @media (max-width: 900px) {
 
-  .ce-global-tools {
-    right: 18px;
-    bottom: 20px;
-
-    right: max(18px, env(safe-area-inset-right));
-    bottom: max(20px, env(safe-area-inset-bottom));
-  }
-
+    .ce-global-tools {
+        right: max(18px,env(safe-area-inset-right));
+        bottom: max(20px,env(safe-area-inset-bottom));
+    }
 }
 
 /* =========================================
@@ -1003,147 +817,128 @@ body:has(.ce-daily-dialog[open]) {
 
 @media (max-width: 600px) {
 
-  .ce-welcome-paw {
-    width: 70px;
-    height: 70px;
+    .ce-welcome-paw {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+    }
 
-    margin-bottom: 20px;
-  }
+    .ce-welcome-content {
+        padding: 20px;
+    }
 
-  .ce-welcome-content {
-    padding: 20px;
-  }
+    .ce-welcome-decoration span:nth-child(1) {
+        left: 8%;
+        font-size: 2.8rem;
+    }
 
-  .ce-welcome-decoration span:nth-child(1) {
-    left: 8%;
+    .ce-welcome-decoration span:nth-child(4) {
+        right: 8%;
+        font-size: 3rem;
+    }
 
-    font-size: 2.8rem;
-  }
+    .ce-global-tools {
+        right: max(13px,env(safe-area-inset-right));
+        bottom: max(16px,env(safe-area-inset-bottom));
+        gap: 10px;
+    }
 
-  .ce-welcome-decoration span:nth-child(4) {
-    right: 8%;
+    .ce-global-tools button {
+        width: 46px;
+        height: 46px;
+    }
 
-    font-size: 3rem;
-  }
+    .ce-global-tools .ce-passport-button {
+        width: 51px;
+        height: 51px;
+    }
 
-  .ce-global-tools {
-    right: 13px;
-    bottom: 16px;
+    .ce-passport-button svg {
+        width: 29px;
+        height: 29px;
+    }
 
-    right: max(13px, env(safe-area-inset-right));
-    bottom: max(16px, env(safe-area-inset-bottom));
+    .ce-passport-counter {
+        min-width: 28px;
+        height: 18px;
+        right: -6px;
+        font-size: 9px;
+        padding: 0 4px;
+    }
 
-    gap: 10px;
-  }
+    .ce-passport-complete::after {
+        font-size: 16px;
+    }
 
-  .ce-global-tools button {
-    width: 46px;
-    height: 46px;
-  }
+    .ce-daily-button svg,
+    .ce-back-top svg {
+        width: 22px;
+        height: 22px;
+    }
 
-  .ce-passport-button svg {
-    width: 23px;
-    height: 23px;
-  }
+    .ce-daily-notification {
+        width: 18px;
+        height: 18px;
+        font-size: 11px;
+    }
 
-  .ce-passport-counter {
-    min-width: 27px;
-    height: 17px;
+    .ce-back-top span {
+        right: 6px;
+        top: 2px;
+        font-size: 11px;
+    }
 
-    right: -6px;
+    .ce-daily-letter {
+        padding: 42px 28px 30px;
+    }
 
-    font-size: 8px;
+    .ce-daily-letter::before {
+        inset: 9px;
+    }
 
-    padding: 0 4px;
-  }
+    .ce-daily-letter::after {
+        inset: 14px;
+    }
 
-  .ce-passport-complete::after {
-    font-size: 16px;
-  }
+    .ce-daily-close {
+        top: 18px;
+        right: 18px;
+        width: 30px;
+        height: 30px;
+        font-size: 21px;
+    }
 
-  .ce-daily-button svg {
-    width: 22px;
-    height: 22px;
-  }
+    .ce-daily-heart {
+        font-size: 3rem;
+    }
 
-  .ce-back-top svg {
-    width: 22px;
-    height: 22px;
-  }
+    .ce-daily-quote {
+        padding: 20px 0;
+        margin: 20px auto;
+    }
 
-  .ce-daily-notification {
-    width: 18px;
-    height: 18px;
-
-    font-size: 11px;
-  }
-
-  .ce-back-top span {
-    right: 6px;
-    top: 2px;
-
-    font-size: 11px;
-  }
-
-  .ce-daily-letter {
-    padding: 42px 28px 30px;
-  }
-
-  .ce-daily-letter::before {
-    inset: 9px;
-  }
-
-  .ce-daily-letter::after {
-    inset: 14px;
-  }
-
-  .ce-daily-close {
-    top: 18px;
-    right: 18px;
-
-    width: 30px;
-    height: 30px;
-
-    font-size: 21px;
-  }
-
-  .ce-daily-heart {
-    font-size: 3rem;
-  }
-
-  .ce-daily-quote {
-    padding: 20px 0;
-    margin: 20px auto;
-  }
-
-  .ce-daily-signature {
-    font-size: 1.2rem;
-  }
-
+    .ce-daily-signature {
+        font-size: 1.2rem;
+    }
 }
-
-/* =========================================
-   PETITS TÉLÉPHONES
-   ========================================= */
 
 @media (max-width: 360px) {
 
-  .ce-daily-letter {
-    padding: 40px 23px 28px;
-  }
+    .ce-daily-letter {
+        padding: 40px 23px 28px;
+    }
 
-  .ce-daily-letter h2 {
-    font-size: 1.9rem;
-  }
+    .ce-daily-letter h2 {
+        font-size: 1.9rem;
+    }
 
-  .ce-daily-quote {
-    font-size: 1.45rem;
-  }
+    .ce-daily-quote {
+        font-size: 1.45rem;
+    }
 
-  .ce-daily-tomorrow {
-    font-size: .72rem;
-  }
-
+    .ce-daily-tomorrow {
+        font-size: .72rem;
+    }
 }
 
 /* =========================================
@@ -1152,37 +947,26 @@ body:has(.ce-daily-dialog[open]) {
 
 @media (hover: none) {
 
-  .ce-global-tools button:hover {
-    transform: none;
+    .ce-global-tools button:hover {
+        transform: none;
+    }
 
-    background: var(--ce-global-paper);
+    .ce-global-tools button:not(.ce-passport-button):hover {
+        background: var(--ce-global-paper);
+        color: var(--ce-global-rose);
+        border-color: #dfc6c9;
+    }
 
-    color: var(--ce-global-rose);
+    .ce-passport-button:hover svg,
+    .ce-back-top:hover svg {
+        transform: none;
+    }
 
-    border-color: #dfc6c9;
-  }
-
-  .ce-global-tools .ce-passport-complete:hover {
-    background: #fff9ef;
-
-    color: #b39565;
-
-    border-color: #c4a477;
-  }
-
-  .ce-passport-button:hover svg,
-  .ce-back-top:hover svg {
-    transform: none;
-  }
-
-  .ce-daily-close:hover {
-    transform: none;
-
-    background: var(--ce-global-paper);
-
-    color: var(--ce-global-rose);
-  }
-
+    .ce-daily-close:hover {
+        transform: none;
+        background: var(--ce-global-paper);
+        color: var(--ce-global-rose);
+    }
 }
 
 /* =========================================
@@ -1191,19 +975,16 @@ body:has(.ce-daily-dialog[open]) {
 
 @media (prefers-reduced-motion: reduce) {
 
-  .ce-welcome-screen,
-  .ce-welcome-screen *,
-  .ce-global-tools,
-  .ce-global-tools *,
-  .ce-passport-complete::after,
-  .ce-daily-dialog,
-  .ce-daily-dialog * {
-
-    animation: none !important;
-    transition: none !important;
-
-  }
-
+    .ce-welcome-screen,
+    .ce-welcome-screen *,
+    .ce-global-tools,
+    .ce-global-tools *,
+    .ce-passport-complete::after,
+    .ce-daily-dialog,
+    .ce-daily-dialog * {
+        animation: none !important;
+        transition: none !important;
+    }
 }
 
 /* =========================================

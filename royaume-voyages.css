@@ -1,184 +1,256 @@
+/* TRÉSORS CACHÉS — CŒUR ERRANT */
+
 .kingdom-fragment {
     position: relative;
-    display: inline-grid;
-    place-items: center;
-    width: 48px;
-    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    width: 38px;
+    height: 38px;
+    margin: 6px 10px;
     padding: 7px;
-    border: 1px solid #c4a47780;
+    border: 1px solid #d8c3a0;
     border-radius: 50%;
-    background: #faf7f2;
-    color: #b99a65;
+    background: #fff8ed;
+    color: #b39565;
     cursor: pointer;
-    box-shadow: 0 0 15px #c4a47720;
+    box-shadow: 0 0 12px rgba(196,164,119,.2);
     transition: transform .3s, box-shadow .3s;
+    animation: fragmentGlow 4s infinite;
+}
+
+.kingdom-fragment svg {
+    width: 100%;
+    height: 100%;
 }
 
 .kingdom-fragment:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 20px #c4a47770;
+    transform: scale(1.2) rotate(-8deg);
+    box-shadow: 0 0 20px rgba(196,164,119,.6);
 }
 
 .kingdom-fragment:focus-visible {
-    outline: 3px solid #a85e78;
-    outline-offset: 5px;
-}
-
-.kingdom-fragment img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.kingdom-fragment span {
-    font-size: 24px;
+    outline: 2px solid #a85e78;
+    outline-offset: 4px;
 }
 
 .kingdom-fragment.is-collected {
-    background: #f0e4d2;
-    border-color: #b99a65;
+    background: #f0e5d5;
+    animation: none;
 }
 
 .kingdom-fragment.is-collected::after {
     content: "✓";
     position: absolute;
+    right: -5px;
     bottom: -4px;
-    right: -4px;
     width: 17px;
     height: 17px;
     display: grid;
     place-items: center;
     border-radius: 50%;
-    background: #b99a65;
-    color: #fff;
+    background: #a8b29b;
+    color: white;
     font-size: 10px;
+    border: 1px solid white;
 }
 
+@keyframes fragmentGlow {
+    0%, 100% {
+        box-shadow: 0 0 6px rgba(196,164,119,.15);
+    }
+    50% {
+        box-shadow: 0 0 17px rgba(196,164,119,.55);
+    }
+}
+
+/* FENÊTRE DE DÉCOUVERTE */
+
 .fragment-discovery-dialog {
-    width: min(92vw, 470px);
-    max-height: 88dvh;
-    padding: 0;
-    border: 1px solid #c4a477;
-    border-radius: 18px;
-    background: #fffaf4;
-    color: #493c43;
-    box-shadow: 0 25px 70px #49334350;
+    position: fixed;
+    inset: 0;
+    width: min(90%, 470px);
+    max-height: 90vh;
     overflow: auto;
+    margin: auto;
+    padding: 45px 30px 30px;
+    border: 3px double #c4a477;
+    border-radius: 25px;
+    background: #fffaf3;
+    color: #51434f;
+    text-align: center;
+    font-family: "Jost", sans-serif;
+    box-shadow: 0 20px 80px rgba(0,0,0,.25);
 }
 
 .fragment-discovery-dialog::backdrop {
-    background: #493343a0;
-    backdrop-filter: blur(5px);
+    background: rgba(45,32,40,.65);
+    backdrop-filter: blur(6px);
 }
 
-.fragment-discovery-inner {
-    position: relative;
-    padding: 40px 25px;
-    text-align: center;
+.fragment-discovery-dialog[open] {
+    animation: fragmentAppear .5s ease;
 }
 
-.fragment-discovery-close {
-    position: absolute;
-    top: 10px;
-    right: 12px;
-    width: 34px;
-    height: 34px;
-    border: 0;
-    border-radius: 50%;
-    background: #f0e1e6;
-    color: #a85e78;
-    font-size: 23px;
-    cursor: pointer;
-}
-
-.fragment-discovery-eyebrow {
-    display: block;
-    font-family: "Jost", Arial, sans-serif;
-    font-size: .68rem;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: #b99a65;
-}
-
-.fragment-discovery-art {
-    display: grid;
-    place-items: center;
-    width: 160px;
-    height: 160px;
-    margin: 25px auto;
-    background: radial-gradient(
-        circle,
-        #e8c9ce80,
-        transparent 70%
-    );
-    font-size: 80px;
-    color: #b99a65;
-    animation: fragmentFloat 4s infinite;
-}
-
-.fragment-discovery-art img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-@keyframes fragmentFloat {
-    50% {
-        transform: translateY(-7px);
+@keyframes fragmentAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 
-.fragment-discovery-inner h2 {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: 2.4rem;
-    font-weight: 500;
-    color: #a85e78;
-    margin: 15px 0;
-}
-
-.fragment-discovery-message {
-    font-family: "Jost", Arial, sans-serif;
-    font-size: .9rem;
-    line-height: 1.8;
-    color: #82747b;
-    margin-bottom: 25px;
-}
-
-.fragment-discovery-link,
-.fragment-discovery-save {
-    display: block;
-    width: 100%;
-    padding: 14px 20px;
-    margin: 12px 0;
-    border: 0;
-    border-radius: 30px;
-    background: #a85e78;
-    color: #fff;
-    font-family: "Jost", Arial, sans-serif;
-    font-size: .85rem;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.fragment-discovery-save[hidden] {
-    display: none;
-}
-
-.fragment-discovery-continue {
-    padding: 12px;
-    border: 0;
+.fragment-dialog-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #e5d8cf;
+    border-radius: 50%;
     background: transparent;
     color: #a85e78;
-    font-family: "Jost", Arial, sans-serif;
+    font-size: 22px;
     cursor: pointer;
+}
+
+.fragment-dialog-label {
+    display: block;
+    color: #a58565;
+    font-size: 10px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+}
+
+.fragment-dialog-visual {
+    display: grid;
+    place-items: center;
+    width: 110px;
+    height: 110px;
+    margin: 25px auto;
+    border: 3px double #c4a477;
+    border-radius: 50%;
+    background: radial-gradient(#fffdf8, #f0ded7);
+    box-shadow: 0 0 30px rgba(196,164,119,.25);
+}
+
+.fragment-dialog-visual svg {
+    width: 65px;
+    height: 65px;
+}
+
+.fragment-discovery-dialog h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.fragment-dialog-destination {
+    color: #a85e78;
+    font-size: 13px;
+    letter-spacing: .12em;
+}
+
+.fragment-discovery-dialog p {
+    line-height: 1.8;
+    color: #82747b;
+    font-size: 14px;
+}
+
+.fragment-dialog-progress {
+    margin: 25px 0;
+}
+
+.fragment-dialog-count {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    color: #a58565;
+    font-size: 2rem;
+}
+
+.fragment-dialog-track {
+    height: 7px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #eadfd2;
+    margin: 12px 0;
+}
+
+.fragment-dialog-fill {
+    width: 0;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg,#d6a0b1,#c4a477);
+    transition: width .7s ease;
+}
+
+.fragment-dialog-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.fragment-dialog-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 23px;
+    border: 1px solid #a85e78;
+    border-radius: 30px;
+    background: #a85e78;
+    color: white;
+    font: inherit;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.fragment-dialog-button:hover {
+    background: #914a63;
+}
+
+.fragment-dialog-secondary {
+    background: transparent;
+    color: #a85e78;
+}
+
+.fragment-dialog-secondary:hover {
+    background: #f2e3e6;
+}
+
+.fragment-dialog-link {
+    color: #a58565;
+    font-size: 13px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.fragment-discovery-dialog [hidden] {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .fragment-discovery-dialog {
+        padding: 40px 22px 25px;
+    }
+
+    .fragment-discovery-dialog h2 {
+        font-size: 2rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .fragment-discovery-art {
-        animation: none;
-    }
-
-    .kingdom-fragment {
-        transition: none;
+    .kingdom-fragment,
+    .fragment-discovery-dialog {
+        animation: none !important;
+        transition: none !important;
     }
 }
