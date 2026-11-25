@@ -1,2056 +1,1977 @@
-
-/* =========================================
-   CŒUR ERRANT
-   LE PASSEPORT DU CŒUR
-   passeport.js
-   ========================================= */
-
 (() => {
-
     "use strict";
 
-    const $ = id => document.getElementById(id);
-
-    const page = document.querySelector(".passport-page");
+    const page = document.querySelector(".kingdom-page");
 
     if (!page) return;
 
+    const $ = id => document.getElementById(id);
+
     const STORAGE_KEY = "coeur-errant-passport-v1";
+    const CONSENT_KEY = "coeur-errant-kingdom-consent-v1";
 
     const reducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    /* =====================================
-       LES DESTINATIONS
-       ===================================== */
+    /* =========================================
+       LES 14 FRAGMENTS
+    ========================================== */
 
-    const destinations = [
-
+    const treasures = [
         {
             id: "corse-2023",
-            name: "Corse",
-            country: "France",
-            date: "Avril 2023",
-            shortDate: "AVR. 2023",
-            symbol: "♡",
-            color: "#a77983",
-            image: "corsee.jpeg",
-            imageAlt: "Un chat rencontré en Corse",
-
-            story: [
-                "Tout a commencé en Corse, en avril 2023. Près de mon camping, j'ai découvert des chats qui vivaient dehors, autour de petites cabanes et de gamelles souvent vides.",
-
-                "Chaque matin et chaque soir, je revenais leur apporter de la nourriture. Petit à petit, certains ont commencé à me reconnaître et à me suivre.",
-
-                "Parmi eux, Sushi a pris une place particulière dans mon cœur. Il venait même dormir dans mon bungalow. Le quitter a été particulièrement difficile.",
-
-                "Je ne le savais pas encore, mais ce voyage allait changer ma manière de regarder le monde."
-            ],
-
-            quote: "Certaines rencontres sont le début de toute une histoire."
+            destination: "Corse",
+            name: "Le coquillage des rêves",
+            meaning: "Il représente les rêves que l'on garde précieusement au fond de soi.",
+            color: "#e5b9bc",
+            symbol: "shell"
         },
-
         {
             id: "tanger-2024",
-            name: "Tanger",
-            country: "Maroc",
-            date: "Juin 2024",
-            shortDate: "JUIN 2024",
-            symbol: "☀",
-            color: "#ad8a58",
-            image: "Tanger.jpeg",
-            imageAlt: "Un chiot rencontré à Tanger",
-
-            story: [
-                "Je pensais découvrir Tanger, ses paysages, ses ruelles et ses traditions. Mais ce sont les animaux des rues qui ont profondément marqué mon voyage.",
-
-                "J'ai rencontré des chiens et des chats qui avaient besoin de nourriture, de soins et parfois simplement d'un peu d'attention.",
-
-                "J'ai commencé à emporter de la nourriture avec moi lors de mes promenades. Chaque rencontre devenait une raison de m'arrêter.",
-
-                "En quittant Tanger, j'ai compris que mes prochains voyages auraient une autre signification."
-            ],
-
-            quote: "Je suis partie découvrir une ville. J'y ai découvert une mission."
+            destination: "Tanger",
+            name: "La plume du courage",
+            meaning: "Le courage commence parfois par un simple geste de douceur.",
+            color: "#d8bd83",
+            symbol: "feather"
         },
-
         {
             id: "sicile-2024",
-            name: "Sicile",
-            country: "Italie",
-            date: "Août 2024",
-            shortDate: "AOÛT 2024",
-            symbol: "❀",
-            color: "#899777",
-            image: "sicillle.jpeg",
-            imageAlt: "Un chat rencontré en Sicile",
-
-            story: [
-                "La Sicile représente une partie de mes origines et occupe une place particulière dans mon cœur.",
-
-                "Durant ce voyage, j'ai croisé quelques animaux des rues, notamment des chiens près d'un magasin auxquels j'ai apporté de la nourriture.",
-
-                "Je me souviens aussi d'un chat roux qui est venu se frotter contre moi avant de s'installer sur mes jambes.",
-
-                "Un moment tout simple, mais de ceux que l'on emporte longtemps avec soi."
-            ],
-
-            quote: "Parfois, le bonheur vient simplement s'asseoir sur nos genoux."
+            destination: "Sicile",
+            name: "Le fruit du soleil",
+            meaning: "Une lumière chaleureuse, même lorsque le monde semble gris.",
+            color: "#e5ca75",
+            symbol: "sun"
         },
-
         {
             id: "varsovie-2025",
-            name: "Varsovie",
-            country: "Pologne",
-            date: "Janvier 2025",
-            shortDate: "JAN. 2025",
-            symbol: "❄",
-            color: "#8499a7",
-            image: null,
-
-            story: [
-                "En janvier 2025, je suis partie découvrir Varsovie avec des amis.",
-
-                "Comme lors de mes autres voyages, je gardais les yeux ouverts, attentive aux animaux que je pourrais rencontrer.",
-
-                "Cette fois, j'ai aperçu très peu d'animaux errants. Chaque voyage est différent, et toutes les destinations ne donnent pas lieu aux mêmes rencontres.",
-
-                "Mais apprendre à regarder autour de soi fait aussi partie du chemin."
-            ],
-
-            quote: "Même lorsqu'aucune rencontre ne nous attend, la bienveillance voyage avec nous."
+            destination: "Varsovie",
+            name: "Le flocon éternel",
+            meaning: "Chaque âme est unique, comme les cristaux d'un flocon.",
+            color: "#b6d4e5",
+            symbol: "snow"
         },
-
         {
             id: "tanger-2025",
-            name: "Tanger",
-            country: "Maroc",
-            date: "Septembre 2025",
-            shortDate: "SEPT. 2025",
-            symbol: "✦",
-            color: "#b27f89",
-            image: "nala.jpeg",
-            imageAlt: "Nala, une petite chienne rencontrée à Tanger",
-
-            story: [
-                "Lors de mon retour à Tanger, une petite chienne a bouleversé mon cœur.",
-
-                "Je l'ai découverte près de poubelles, seule et couverte d'huile. Elle était encore toute petite. Je l'ai appelée Nala.",
-
-                "Elle a été nettoyée, emmenée chez le vétérinaire et vaccinée à mon nom. J'espérais de tout mon cœur qu'une nouvelle vie l'attendait.",
-
-                "Malheureusement, après mon départ, Nala a disparu. Elle a finalement été retrouvée sans vie sous un arbre.",
-
-                "Aujourd'hui, son souvenir continue de m'accompagner. Elle fait partie des petites étoiles de Cœur Errant."
-            ],
-
-            quote: "Certaines petites âmes deviennent des étoiles que l'on porte pour toujours."
+            destination: "Tanger",
+            name: "Le cristal de l'amour",
+            meaning: "L'amour véritable ne demande rien en retour.",
+            color: "#e8a5b9",
+            symbol: "heart"
         },
-
         {
             id: "chefchaouen-2025",
-            name: "Chefchaouen",
-            country: "Maroc",
-            date: "Septembre 2025",
-            shortDate: "SEPT. 2025",
-            symbol: "☾",
-            color: "#7895ae",
-            image: null,
-
-            story: [
-                "Au milieu des magnifiques ruelles bleues de Chefchaouen, j'ai rencontré un tout petit chaton.",
-
-                "Ses yeux étaient collés et il se trouvait dans un endroit où beaucoup de personnes passaient.",
-
-                "J'ai pris le temps de m'arrêter et de le déplacer hors du passage.",
-
-                "Derrière la beauté d'une destination, il existe parfois des histoires fragiles que l'on ne remarque pas au premier regard."
-            ],
-
-            quote: "Les plus belles couleurs d'une ville ne doivent pas nous empêcher de voir ses petites âmes."
+            destination: "Chefchaouen",
+            name: "Le papillon de la liberté",
+            meaning: "Chaque être vivant mérite de pouvoir vivre librement et dignement.",
+            color: "#94bad8",
+            symbol: "butterfly"
         },
-
         {
             id: "akchour-2025",
-            name: "Akchour",
-            country: "Maroc",
-            date: "Septembre 2025",
-            shortDate: "SEPT. 2025",
-            symbol: "❧",
-            color: "#829477",
-            image: null,
-
-            story: [
-                "Akchour a fait partie de mon voyage au Maroc en septembre 2025.",
-
-                "Cette destination représente une autre étape de mon carnet de voyage, entre nature et découverte.",
-
-                "Toutes les étapes ne possèdent pas nécessairement une histoire animale particulière à raconter. Mais chacune fait partie du chemin de Cœur Errant."
-            ],
-
-            quote: "La nature nous rappelle que nous partageons tous le même monde."
+            destination: "Akchour",
+            name: "La feuille de vie",
+            meaning: "La nature nous rappelle la fragilité et la beauté de la vie.",
+            color: "#a6c5a0",
+            symbol: "leaf"
         },
-
         {
             id: "istanbul-2025",
-            name: "Istanbul",
-            country: "Turquie",
-            date: "Novembre 2025",
-            shortDate: "NOV. 2025",
-            symbol: "☽",
-            color: "#b58e70",
-            image: null,
-
-            story: [
-                "Istanbul est une ville où les chats occupent une place particulière dans le paysage quotidien.",
-
-                "Lors de mes promenades, notamment autour de Sainte-Sophie et de la Mosquée bleue, j'en rencontrais régulièrement.",
-
-                "J'emportais de la nourriture avec moi et je m'arrêtais pour leur en donner.",
-
-                "Ces petites rencontres ont ajouté une douceur particulière à mes souvenirs d'Istanbul."
-            ],
-
-            quote: "Au détour d'une ruelle, une petite âme peut devenir le plus beau souvenir du voyage."
+            destination: "Istanbul",
+            name: "La pierre des secrets",
+            meaning: "Les plus beaux trésors sont parfois les plus discrets.",
+            color: "#b6a6d4",
+            symbol: "gem"
         },
-
         {
             id: "skopje-2026",
-            name: "Skopje",
-            country: "Macédoine du Nord",
-            date: "Janvier 2026",
-            shortDate: "JAN. 2026",
-            symbol: "♡",
-            color: "#8c849d",
-            image: "Macedoine.jpeg",
-            imageAlt: "Un chien rencontré à Skopje",
-
-            story: [
-                "En plein hiver, mon voyage m'a menée jusqu'à Skopje.",
-
-                "Parmi les animaux rencontrés, je garde le souvenir d'un chien noir qui s'est allongé sur le dos.",
-
-                "Ce geste de confiance m'a profondément touchée.",
-
-                "Il existe des moments où aucun mot n'est nécessaire pour comprendre la beauté d'une rencontre."
-            ],
-
-            quote: "La confiance d'un animal est un cadeau précieux."
+            destination: "Skopje",
+            name: "La clé des possibles",
+            meaning: "Un petit geste peut ouvrir des portes que l'on croyait fermées.",
+            color: "#d8b77b",
+            symbol: "key"
         },
-
         {
             id: "pristina-2026",
-            name: "Pristina",
-            country: "Kosovo",
-            date: "Janvier 2026",
-            shortDate: "JAN. 2026",
-            symbol: "✧",
-            color: "#a68d75",
-            image: "kossovo.jpeg",
-            imageAlt: "Des chiens rencontrés au Kosovo",
-
-            story: [
-                "Au Kosovo, j'ai rencontré des chiens qui vivaient parmi les déchets.",
-
-                "Malgré les conditions dans lesquelles ils se trouvaient, certains remuaient la queue.",
-
-                "Ces regards et ces petits signes de confiance m'ont rappelé combien les animaux peuvent nous toucher, même dans les situations les plus difficiles.",
-
-                "Ils méritent, eux aussi, d'être regardés avec respect et douceur."
-            ],
-
-            quote: "La dignité d'une vie ne dépend jamais de l'endroit où elle se trouve."
+            destination: "Pristina",
+            name: "L'étoile de l'espoir",
+            meaning: "Même dans l'obscurité, une petite lumière peut subsister.",
+            color: "#e8d19a",
+            symbol: "star"
         },
-
         {
             id: "tirana-2026",
-            name: "Tirana",
-            country: "Albanie",
-            date: "Janvier 2026",
-            shortDate: "JAN. 2026",
-            symbol: "❀",
-            color: "#ae8181",
-            image: "albanie.jpeg",
-            imageAlt: "Un chat rencontré à Tirana",
-
-            story: [
-                "À Tirana, j'ai rencontré un chat blessé et affamé près d'un supermarché.",
-
-                "Je lui ai acheté de la nourriture et j'ai essayé de contacter des associations pour trouver une solution.",
-
-                "Sans réponse, je suis retournée le lendemain avec l'espoir de pouvoir l'emmener chez un vétérinaire.",
-
-                "Mais il n'était plus là. Certaines rencontres laissent des questions auxquelles on n'obtiendra peut-être jamais de réponse."
-            ],
-
-            quote: "Même lorsque l'on ne peut pas tout changer, essayer garde toute sa valeur."
+            destination: "Tirana",
+            name: "Le sablier de la patience",
+            meaning: "Certaines rencontres demandent simplement du temps et de la patience.",
+            color: "#d8ad94",
+            symbol: "hourglass"
         },
-
         {
             id: "marrakech-2026",
-            name: "Marrakech",
-            country: "Maroc",
-            date: "Juin 2026",
-            shortDate: "JUIN 2026",
-            symbol: "☀",
-            color: "#b88368",
-            image: "djibou-avant.png",
-            imageAlt: "Djibou lors de sa rencontre à Marrakech",
-
-            story: [
-                "Lors d'un voyage à Marrakech avec mon père, j'ai rencontré un minuscule chaton noir et blanc.",
-
-                "Il était maigre, couvert de puces et souffrait de problèmes respiratoires. Je l'ai appelé Djibou.",
-
-                "Il venait dormir contre mon cou et m'attendait près de la porte. Très rapidement, une relation particulière s'est créée entre nous.",
-
-                "Une personne au Maroc a ensuite accepté de prendre soin de lui.",
-
-                "Djibou représente l'espoir qu'une rencontre puisse ouvrir le chemin vers une vie meilleure."
-            ],
-
-            quote: "Les plus petites rencontres peuvent prendre les plus grandes places dans nos cœurs."
+            destination: "Marrakech",
+            name: "La lanterne de la lumière",
+            meaning: "La bienveillance éclaire les chemins les plus inattendus.",
+            color: "#dfa88e",
+            symbol: "lantern"
         },
-
         {
             id: "agadir-2026",
-            name: "Agadir",
-            country: "Maroc",
-            date: "Juin 2026",
-            shortDate: "JUIN 2026",
-            symbol: "≈",
-            color: "#7d9a9d",
-            image: "agadir-chat.png",
-            imageAlt: "Un chat roux rencontré à Agadir",
-
-            story: [
-                "À Agadir, j'ai aperçu un chat roux près d'un pot de fleurs et d'une bouteille vide.",
-
-                "Je me suis arrêtée pour lui offrir de la nourriture et de l'eau.",
-
-                "Je ne l'ai plus revu par la suite.",
-
-                "Cette rencontre n'a duré qu'un instant, mais elle fait partie de ces petits gestes qui donnent du sens à mes voyages."
-            ],
-
-            quote: "Un instant de douceur peut compter, même lorsqu'il ne dure pas."
+            destination: "Agadir",
+            name: "La larme de l'océan",
+            meaning: "Une seule goutte peut rejoindre un océan de solidarité.",
+            color: "#93c9cf",
+            symbol: "drop"
         },
-
         {
             id: "djerba-2026",
-            name: "Djerba",
-            country: "Tunisie",
-            date: "Août 2026",
-            shortDate: "AOÛT 2026",
-            symbol: "☼",
-            color: "#b19a69",
-            image: "djerba.webp",
-            imageAlt: "Un chien rencontré sur une plage de Djerba",
-
-            story: [
-                "Djerba fait partie de mes plus beaux voyages. La Tunisie, ses paysages, sa lumière et la chaleur de ses habitants ont pris une place particulière dans mon cœur.",
-
-                "Sur la plage, j'ai rencontré un chien plutôt timide.",
-
-                "Petit à petit, il s'est approché et j'ai pu lui offrir de la nourriture.",
-
-                "Ces instants passés auprès des animaux font partie des souvenirs les plus précieux que je rapporte de mes voyages."
-            ],
-
-            quote: "Il existe des souvenirs que l'on ne rapporte pas dans une valise, mais dans son cœur."
+            destination: "Djerba",
+            name: "La fleur de la douceur",
+            meaning: "La douceur est une force silencieuse.",
+            color: "#f0e1c8",
+            symbol: "flower"
         }
-
     ];
 
-    /* =====================================
-       DESTINATION MYSTÈRE
-       ===================================== */
+    const validIds = new Set(
+        treasures.map(treasure => treasure.id)
+    );
 
-    const mystery = {
-
-        id: "destination-mystere",
-        name: "Mystère",
-        country: "Quelque part dans le monde",
-        date: "Décembre 2026",
-        shortDate: "DÉC. 2026",
-        symbol: "?",
-        color: "#b69b74",
-        mystery: true
-
+    const emblemSymbols = {
+        rose: "❀",
+        star: "✧",
+        heart: "♡",
+        moon: "☾"
     };
 
-    const total = destinations.length;
+    const companionLabels = {
+        cat: "Votre chat",
+        dog: "Votre chien",
+        rabbit: "Votre lapin"
+    };
 
-    /* =====================================
-       SAUVEGARDE LOCALE
-       ===================================== */
+    /* =========================================
+       SAUVEGARDE ET CONSENTEMENT
+    ========================================== */
 
-    let storageAvailable = true;
-
-    function loadPassport() {
-
-        const emptyPassport = {
+    function createState() {
+        return {
             name: "",
             stamps: [],
-            completedAt: null
+            emblem: "heart",
+            companion: "",
+            companionName: "",
+            atmosphere: "auto",
+            completedAt: null,
+            secretFound: false,
+            rewards: []
         };
-
-        try {
-
-            const saved = localStorage.getItem(STORAGE_KEY);
-
-            if (!saved) return emptyPassport;
-
-            const parsed = JSON.parse(saved);
-
-            const validIds = destinations.map(
-                destination => destination.id
-            );
-
-            return {
-
-                name: typeof parsed.name === "string"
-                    ? parsed.name.slice(0, 30)
-                    : "",
-
-                stamps: Array.isArray(parsed.stamps)
-                    ? [...new Set(parsed.stamps)].filter(
-                        id => validIds.includes(id)
-                    )
-                    : [],
-
-                completedAt:
-                    typeof parsed.completedAt === "string" &&
-                    !Number.isNaN(Date.parse(parsed.completedAt))
-                        ? parsed.completedAt
-                        : null
-
-            };
-
-        } catch (error) {
-
-            storageAvailable = false;
-
-            return emptyPassport;
-
-        }
-
     }
 
-    let passport = loadPassport();
+    function cleanText(value, length) {
+        return typeof value === "string"
+            ? value.trim().slice(0, length)
+            : "";
+    }
 
-    let currentSpread = 0;
+    function hasConsent() {
+        try {
+            return localStorage.getItem(CONSENT_KEY) === "yes";
+        } catch {
+            return false;
+        }
+    }
 
-    let activeDestination = null;
+    function normalizeState(raw) {
+        const base = createState();
 
-    let toastTimeout = null;
+        if (!raw || typeof raw !== "object") {
+            return base;
+        }
 
-    let lastFocusedElement = null;
+        base.name = cleanText(raw.name, 30);
 
-    const totalSpreads = Math.ceil((total + 2) / 2);
+        base.stamps = Array.isArray(raw.stamps)
+            ? [...new Set(
+                raw.stamps.filter(id => validIds.has(id))
+            )]
+            : [];
 
-    function savePassport() {
+        base.emblem = Object.hasOwn(
+            emblemSymbols,
+            raw.emblem
+        ) ? raw.emblem : "heart";
+
+        base.companion = Object.hasOwn(
+            companionLabels,
+            raw.companion
+        ) ? raw.companion : "";
+
+        base.companionName = cleanText(
+            raw.companionName,
+            25
+        );
+
+        base.atmosphere = [
+            "auto",
+            "day",
+            "night"
+        ].includes(raw.atmosphere)
+            ? raw.atmosphere
+            : "auto";
+
+        base.secretFound = raw.secretFound === true;
+
+        base.rewards = Array.isArray(raw.rewards)
+            ? raw.rewards.filter(item =>
+                typeof item === "string"
+            )
+            : [];
+
+        if (base.stamps.length === treasures.length) {
+            const date = new Date(raw.completedAt || Date.now());
+
+            base.completedAt = Number.isNaN(date.getTime())
+                ? new Date().toISOString()
+                : date.toISOString();
+        }
+
+        return base;
+    }
+
+    function readState() {
+        if (!hasConsent()) {
+            return createState();
+        }
 
         try {
+            return normalizeState(
+                JSON.parse(
+                    localStorage.getItem(STORAGE_KEY) || "null"
+                )
+            );
+        } catch {
+            return createState();
+        }
+    }
 
+    let state = readState();
+
+    function saveState() {
+        if (!hasConsent()) {
+            return false;
+        }
+
+        try {
             localStorage.setItem(
                 STORAGE_KEY,
-                JSON.stringify(passport)
+                JSON.stringify(state)
             );
 
-            storageAvailable = true;
+            window.dispatchEvent(
+                new CustomEvent(
+                    "coeur-errant-passport-updated"
+                )
+            );
 
-        } catch (error) {
+            return true;
+        } catch {
+            showToast(
+                "Sauvegarde indisponible",
+                "Votre navigateur ne permet pas la sauvegarde."
+            );
 
-            storageAvailable = false;
+            return false;
+        }
+    }
 
+    function setupStorageConsent() {
+        const note = $("kingdom-storage-note");
+
+        if (!note) return;
+
+        let button = $("kingdom-consent-button");
+
+        if (!button) {
+            button = document.createElement("button");
+
+            button.id = "kingdom-consent-button";
+            button.type = "button";
+            button.className = "kingdom-outline-button";
+            button.style.margin = "10px 0 25px";
+
+            note.insertAdjacentElement("afterend", button);
+
+            button.addEventListener("click", () => {
+                if (hasConsent()) {
+                    try {
+                        localStorage.removeItem(STORAGE_KEY);
+                        localStorage.removeItem(CONSENT_KEY);
+
+                        state = createState();
+
+                        renderAll();
+
+                        showToast(
+                            "Sauvegarde désactivée",
+                            "Les données enregistrées ont été effacées."
+                        );
+                    } catch {
+                        showToast(
+                            "Action impossible",
+                            "La suppression n'a pas pu être confirmée."
+                        );
+                    }
+                } else {
+                    try {
+                        const previous = normalizeState(
+                            JSON.parse(
+                                localStorage.getItem(
+                                    STORAGE_KEY
+                                ) || "null"
+                            )
+                        );
+
+                        state.stamps = [...new Set([
+                            ...previous.stamps,
+                            ...state.stamps
+                        ])];
+
+                        if (!state.name) {
+                            state.name = previous.name;
+                        }
+
+                        if (
+                            state.stamps.length ===
+                            treasures.length
+                        ) {
+                            state.completedAt =
+                                previous.completedAt ||
+                                new Date().toISOString();
+                        }
+
+                        localStorage.setItem(
+                            CONSENT_KEY,
+                            "yes"
+                        );
+
+                        saveState();
+                        renderAll();
+
+                        showToast(
+                            "Sauvegarde activée",
+                            "Votre aventure sera conservée sur cet appareil."
+                        );
+                    } catch {
+                        showToast(
+                            "Sauvegarde impossible",
+                            "Vous pouvez explorer le royaume sans sauvegarde."
+                        );
+                    }
+                }
+
+                updateStorageNote();
+            });
         }
 
         updateStorageNote();
-
     }
 
     function updateStorageNote() {
+        const note = $("kingdom-storage-note");
+        const button = $("kingdom-consent-button");
 
-        if (!storageAvailable) {
+        if (!note || !button) return;
 
-            $("passport-storage-note").textContent =
-                "Votre navigateur ne permet pas actuellement " +
-                "la sauvegarde locale. Votre collection reste " +
-                "accessible pendant cette visite, mais pourrait " +
-                "disparaître lorsque vous quitterez cette page.";
+        if (hasConsent()) {
+            note.textContent =
+                "Votre progression est conservée localement sur cet appareil. Vous pouvez retirer votre accord à tout moment.";
 
+            button.textContent =
+                "Désactiver la sauvegarde et effacer mes données";
+        } else {
+            note.textContent =
+                "La sauvegarde est désactivée. Activez-la pour conserver vos fragments entre les différentes pages du site.";
+
+            button.textContent =
+                "Activer la sauvegarde de mon aventure";
         }
-
     }
 
-    function isDiscovered(id) {
+    /* =========================================
+       NOTIFICATIONS
+    ========================================== */
 
-        return passport.stamps.includes(id);
+    let toastTimer;
 
+    function showToast(title, message) {
+        const toast = $("kingdom-toast");
+
+        if (!toast) return;
+
+        $("kingdom-toast-title").textContent = title;
+        $("kingdom-toast-message").textContent = message;
+
+        toast.hidden = false;
+
+        clearTimeout(toastTimer);
+
+        toastTimer = setTimeout(() => {
+            toast.hidden = true;
+        }, 5000);
     }
 
-    function isComplete() {
+    /* =========================================
+       PARTICULES LUMINEUSES
+    ========================================== */
 
-        return passport.stamps.length === total;
+    function createParticles() {
+        const container = $("kingdom-particles");
 
-    }
+        if (!container || reducedMotion) return;
 
-    /* =====================================
-       CRÉATION DES ÉLÉMENTS
-       ===================================== */
+        container.replaceChildren();
 
-    function createElement(tag, className, content) {
+        const count = window.innerWidth < 600 ? 24 : 55;
 
-        const element = document.createElement(tag);
+        for (let i = 0; i < count; i++) {
+            const particle = document.createElement("span");
 
-        if (className) {
+            particle.className = "kingdom-particle";
 
-            element.className = className;
-
-        }
-
-        if (content !== undefined) {
-
-            element.textContent = content;
-
-        }
-
-        return element;
-
-    }
-
-    /* =====================================
-       CRÉATION D'UN TAMPON
-       ===================================== */
-
-    function createStamp(destination) {
-
-        const stamp = createElement(
-            "div",
-            "passport-stamp"
-        );
-
-        stamp.style.setProperty(
-            "--stamp-color",
-            destination.color
-        );
-
-        stamp.append(
-
-            createElement(
-                "span",
-                "passport-stamp-brand",
-                "CŒUR ERRANT"
-            ),
-
-            createElement(
-                "span",
-                "passport-stamp-symbol",
-                destination.symbol
-            ),
-
-            createElement(
-                "span",
-                "passport-stamp-name",
-                destination.name
-            ),
-
-            createElement(
-                "span",
-                "passport-stamp-date",
-                destination.shortDate
-            )
-
-        );
-
-        return stamp;
-
-    }
-
-    /* =====================================
-       COLLECTION DES TAMPONS
-       ===================================== */
-
-    function renderCollection() {
-
-        const grid = $("passport-stamp-grid");
-
-        grid.replaceChildren();
-
-        [...destinations, mystery].forEach(destination => {
-
-            const discovered = isDiscovered(destination.id);
-
-            const card = createElement(
-                "button",
-                "passport-stamp-card"
+            particle.style.setProperty(
+                "--particle-x",
+                `${Math.random() * 100}%`
             );
 
-            card.type = "button";
-
-            card.dataset.destination = destination.id;
-
-            if (destination.mystery) {
-
-                card.classList.add("is-mystery");
-
-            } else if (discovered) {
-
-                card.classList.add("is-discovered");
-
-            } else {
-
-                card.classList.add("is-locked");
-
-            }
-
-            card.append(
-
-                createStamp(destination),
-
-                createElement(
-                    "h3",
-                    "",
-                    destination.name
-                ),
-
-                createElement(
-                    "p",
-                    "",
-                    destination.date
-                ),
-
-                createElement(
-                    "span",
-                    "passport-stamp-status",
-                    destination.mystery
-                        ? "✧ À venir"
-                        : discovered
-                            ? "✓ Découvert"
-                            : "♡ À découvrir"
-                )
-
+            particle.style.setProperty(
+                "--particle-y",
+                `${Math.random() * 100}%`
             );
 
-            card.setAttribute(
-
-                "aria-label",
-
-                destination.name + ", " +
-                destination.date + ", " +
-                (
-                    destination.mystery
-                        ? "destination mystère"
-                        : discovered
-                            ? "tampon découvert"
-                            : "tampon à découvrir"
-                )
-
+            particle.style.setProperty(
+                "--particle-size",
+                `${2 + Math.random() * 4}px`
             );
 
-            card.addEventListener("click", () => {
+            particle.style.setProperty(
+                "--particle-duration",
+                `${3 + Math.random() * 5}s`
+            );
 
-                if (destination.mystery) {
+            particle.style.setProperty(
+                "--particle-delay",
+                `${Math.random() * -6}s`
+            );
 
-                    document.querySelector(
-                        ".passport-mystery-section"
-                    ).scrollIntoView({
+            container.appendChild(particle);
+        }
+    }
 
-                        behavior: reducedMotion
-                            ? "instant"
-                            : "smooth",
+    /* =========================================
+       OUVERTURE DE LA PORTE
+    ========================================== */
 
-                        block: "center"
+    $("enter-kingdom")?.addEventListener("click", () => {
+        const door = $("enchanted-door");
+        const button = $("enter-kingdom");
 
-                    });
+        door.classList.add("is-open");
 
-                } else {
+        button.textContent = "Bienvenue dans le royaume";
+        button.disabled = true;
 
-                    openDestination(destination);
-
-                }
-
+        setTimeout(() => {
+            $("kingdom-introduction").scrollIntoView({
+                behavior: reducedMotion ? "auto" : "smooth"
             });
 
-            grid.appendChild(card);
+            button.disabled = false;
+        }, reducedMotion ? 0 : 1600);
+    });
 
-        });
+    /* =========================================
+       IDENTITÉ
+    ========================================== */
 
-    }
-
-    /* =====================================
-       IDENTITÉ DU VOYAGEUR
-       ===================================== */
-
-    $("passport-name").value = passport.name;
-
-    $("passport-name-form").addEventListener(
+    $("kingdom-name-form")?.addEventListener(
         "submit",
         event => {
-
             event.preventDefault();
 
-            passport.name = $("passport-name")
-                .value
-                .trim()
-                .slice(0, 30);
+            const name = cleanText(
+                $("kingdom-name").value,
+                30
+            );
 
-            $("passport-name").value = passport.name;
+            if (!name) return;
 
-            savePassport();
+            state.name = name;
 
-            $("passport-name-message").textContent =
-                passport.name
-                    ? (
-                        storageAvailable
-                            ? "Bienvenue, " + passport.name +
-                              " ! Votre passeport vous appartient. ♡"
-                            : "Bienvenue, " + passport.name +
-                              " ! Votre prénom est utilisé pour cette visite."
+            const saved = saveState();
+
+            renderIdentity();
+            renderCertificate();
+
+            $("kingdom-name-message").textContent = saved
+                ? `Bienvenue dans votre royaume, ${name}.`
+                : `Bienvenue, ${name}. Activez la sauvegarde pour conserver votre prénom.`;
+
+            showToast(
+                "Votre identité",
+                `Bienvenue, ${name}.`
+            );
+        }
+    );
+
+    document.querySelectorAll("[data-emblem]")
+        .forEach(button => {
+            button.addEventListener("click", () => {
+                const emblem = button.dataset.emblem;
+
+                if (!Object.hasOwn(
+                    emblemSymbols,
+                    emblem
+                )) return;
+
+                state.emblem = emblem;
+
+                saveState();
+                renderIdentity();
+            });
+        });
+
+    function renderIdentity() {
+        $("kingdom-name").value = state.name;
+
+        $("medallion-owner").textContent =
+            state.name || "Votre royaume";
+
+        $("medallion-emblem").textContent =
+            emblemSymbols[state.emblem];
+
+        const identitySymbol = document.querySelector(
+            ".identity-medallion span"
+        );
+
+        if (identitySymbol) {
+            identitySymbol.textContent =
+                emblemSymbols[state.emblem];
+        }
+
+        document.querySelectorAll("[data-emblem]")
+            .forEach(button => {
+                button.setAttribute(
+                    "aria-pressed",
+                    String(
+                        button.dataset.emblem === state.emblem
                     )
-                    : "Vous pouvez voyager anonymement.";
-
-            renderBook();
-
-            updateCertificate();
-
-        }
-    );
-
-    /* =====================================
-       OUVERTURE DU PASSEPORT
-       ===================================== */
-
-    function openPassport() {
-
-        $("mon-passeport").scrollIntoView({
-
-            behavior: reducedMotion
-                ? "instant"
-                : "smooth",
-
-            block: "start"
-
-        });
-
-    }
-
-    $("open-passport").addEventListener(
-        "click",
-        openPassport
-    );
-
-    $("passport-cover").addEventListener(
-        "click",
-        openPassport
-    );
-
-    /* =====================================
-       PAGES DU LIVRET
-       ===================================== */
-
-    function renderWelcome(container) {
-
-        container.append(
-
-            createElement(
-                "span",
-                "passport-label",
-                "Bienvenue"
-            ),
-
-            createElement(
-                "h3",
-                "",
-                passport.name || "Voyageur du cœur"
-            ),
-
-            createElement(
-                "p",
-                "",
-                "Ce passeport ne mesure pas les kilomètres parcourus."
-            ),
-
-            createElement(
-                "p",
-                "",
-                "Il garde les traces des vies que vous avez pris le temps de découvrir."
-            ),
-
-            createElement(
-                "p",
-                "",
-                "♡"
-            )
-
-        );
-
-    }
-
-    function renderInstructions(container) {
-
-        container.append(
-
-            createElement(
-                "span",
-                "passport-label",
-                "Votre aventure"
-            ),
-
-            createElement(
-                "h3",
-                "",
-                "Une histoire à la fois."
-            ),
-
-            createElement(
-                "p",
-                "",
-                "Découvrez chaque récit et ajoutez son empreinte à votre passeport."
-            ),
-
-            createElement(
-                "p",
-                "",
-                "Collectionnez les " + total +
-                " tampons pour obtenir votre diplôme."
-            )
-
-        );
-
-        const button = createElement(
-            "button",
-            "passport-text-button",
-            "Commencer mon voyage →"
-        );
-
-        button.type = "button";
-
-        button.addEventListener("click", () => {
-
-            currentSpread = 1;
-
-            renderBook(true);
-
-        });
-
-        container.appendChild(button);
-
-    }
-
-    function renderDestinationPage(
-        container,
-        destination
-    ) {
-
-        if (!destination) {
-
-            container.append(
-
-                createElement(
-                    "span",
-                    "passport-label",
-                    "À suivre"
-                ),
-
-                createElement(
-                    "h3",
-                    "",
-                    "Le voyage continue..."
-                ),
-
-                createElement(
-                    "p",
-                    "",
-                    "De nouvelles histoires attendent encore d'être écrites."
-                )
-
-            );
-
-            return;
-
-        }
-
-        const discovered = isDiscovered(destination.id);
-
-        const stamp = createStamp(destination);
-
-        if (!discovered) {
-
-            stamp.style.filter = "grayscale(1)";
-
-            stamp.style.opacity = ".42";
-
-        }
-
-        container.append(
-
-            createElement(
-                "span",
-                "passport-label",
-                destination.country
-            ),
-
-            stamp,
-
-            createElement(
-                "h3",
-                "",
-                destination.name
-            ),
-
-            createElement(
-                "p",
-                "",
-                destination.date
-            )
-
-        );
-
-        const button = createElement(
-
-            "button",
-
-            "passport-text-button",
-
-            discovered
-                ? "Relire cette histoire ♡"
-                : "Découvrir cette histoire →"
-
-        );
-
-        button.type = "button";
-
-        button.addEventListener("click", () => {
-
-            openDestination(destination);
-
-        });
-
-        container.appendChild(button);
-
-    }
-
-    function renderBook(animate = false) {
-
-        const left = $("passport-left-page");
-
-        const right = $("passport-right-page");
-
-        left.replaceChildren();
-
-        right.replaceChildren();
-
-        if (currentSpread === 0) {
-
-            renderWelcome(left);
-
-            renderInstructions(right);
-
-        } else {
-
-            const index = (currentSpread - 1) * 2;
-
-            renderDestinationPage(
-                left,
-                destinations[index]
-            );
-
-            renderDestinationPage(
-                right,
-                destinations[index + 1]
-            );
-
-        }
-
-        $("passport-left-number").textContent =
-            String(currentSpread * 2 + 1).padStart(2, "0");
-
-        $("passport-right-number").textContent =
-            String(currentSpread * 2 + 2).padStart(2, "0");
-
-        $("passport-page-current").textContent =
-            currentSpread + 1;
-
-        $("passport-page-total").textContent =
-            totalSpreads;
-
-        $("passport-prev").disabled =
-            currentSpread === 0;
-
-        $("passport-next").disabled =
-            currentSpread >= totalSpreads - 1;
-
-        if (animate && !reducedMotion) {
-
-            const book = $("passport-book");
-
-            book.classList.remove("passport-turning");
-
-            void book.offsetWidth;
-
-            book.classList.add("passport-turning");
-
-        }
-
-    }
-
-    $("passport-prev").addEventListener("click", () => {
-
-        if (currentSpread > 0) {
-
-            currentSpread--;
-
-            renderBook(true);
-
-        }
-
-    });
-
-    $("passport-next").addEventListener("click", () => {
-
-        if (currentSpread < totalSpreads - 1) {
-
-            currentSpread++;
-
-            renderBook(true);
-
-        }
-
-    });
-
-    /* =====================================
-       OUVERTURE DES RÉCITS
-       ===================================== */
-
-    const destinationDialog =
-        $("passport-destination-dialog");
-
-    function openDestination(destination) {
-
-        activeDestination = destination;
-
-        lastFocusedElement = document.activeElement;
-
-        $("destination-title").textContent =
-            destination.name;
-
-        $("destination-date").textContent =
-            destination.country + " · " + destination.date;
-
-        $("destination-stamp").replaceChildren(
-            createStamp(destination)
-        );
-
-        const story = $("destination-story");
-
-        story.replaceChildren();
-
-        destination.story.forEach(paragraph => {
-
-            story.appendChild(
-
-                createElement("p", "", paragraph)
-
-            );
-
-        });
-
-        $("destination-quote").textContent =
-            "« " + destination.quote + " »";
-
-        const photo = $("destination-photo");
-
-        const image = $("destination-image");
-
-        photo.hidden = true;
-
-        image.onload = null;
-
-        image.onerror = null;
-
-        image.removeAttribute("src");
-
-        if (destination.image) {
-
-            image.alt = destination.imageAlt || "";
-
-            image.onload = () => {
-
-                photo.hidden = false;
-
-            };
-
-            image.onerror = () => {
-
-                photo.hidden = true;
-
-            };
-
-            image.src = destination.image;
-
-        }
-
-        updateDestinationButton();
-
-        if (!destinationDialog.open) {
-
-            destinationDialog.showModal();
-
-        }
-
-        destinationDialog.scrollTop = 0;
-
-    }
-
-    function updateDestinationButton() {
-
-        if (!activeDestination) return;
-
-        const button = $("collect-stamp");
-
-        const discovered = isDiscovered(
-            activeDestination.id
-        );
-
-        button.disabled = discovered;
-
-        button.textContent = discovered
-
-            ? "✓ Empreinte collectionnée"
-
-            : "Ajouter cette empreinte ♡";
-
-        $("destination-status").textContent = discovered
-
-            ? "Cette histoire fait désormais partie de votre passeport."
-
-            : "Après votre lecture, ajoutez ce souvenir à votre collection.";
-
-    }
-
-    $("close-destination").addEventListener(
-        "click",
-        () => destinationDialog.close()
-    );
-
-    destinationDialog.addEventListener(
-        "close",
-        () => {
-
-            activeDestination = null;
-
-            if (
-                lastFocusedElement &&
-                lastFocusedElement.isConnected
-            ) {
-
-                lastFocusedElement.focus({
-                    preventScroll: true
-                });
-
-            }
-
-        }
-    );
-
-    /* =====================================
-       FERMETURE EN CLIQUANT À L'EXTÉRIEUR
-       ===================================== */
-
-    function enableBackdropClose(dialog) {
-
-        dialog.addEventListener("click", event => {
-
-            if (event.target !== dialog) return;
-
-            const rect = dialog.getBoundingClientRect();
-
-            const outside =
-
-                event.clientX < rect.left ||
-
-                event.clientX > rect.right ||
-
-                event.clientY < rect.top ||
-
-                event.clientY > rect.bottom;
-
-            if (outside) {
-
-                dialog.close();
-
-            }
-
-        });
-
-    }
-
-    enableBackdropClose(destinationDialog);
-
-    /* =====================================
-       COLLECTIONNER UNE EMPREINTE
-       ===================================== */
-
-    $("collect-stamp").addEventListener("click", () => {
-
-        if (!activeDestination) return;
-
-        const destination = activeDestination;
-
-        if (isDiscovered(destination.id)) return;
-
-        passport.stamps.push(destination.id);
-
-        if (isComplete() && !passport.completedAt) {
-
-            passport.completedAt = new Date().toISOString();
-
-        }
-
-        savePassport();
-
-        updateProgress();
-
-        renderCollection();
-
-        renderBook();
-
-        updateCertificate();
-
-        updateDestinationButton();
-
-        const dialogStamp = $("destination-stamp")
-            .querySelector(".passport-stamp");
-
-        if (dialogStamp) {
-
-            dialogStamp.classList.add("passport-stamp-new");
-
-        }
-
-        const card = $("passport-stamp-grid")
-            .querySelector(
-                '[data-destination="' + destination.id + '"]'
-            );
-
-        if (card) {
-
-            lastFocusedElement = card;
-
-            const stamp = card.querySelector(
-                ".passport-stamp"
-            );
-
-            if (stamp) {
-
-                stamp.classList.add("passport-stamp-new");
-
-            }
-
-        }
-
-        destinationDialog.addEventListener(
-
-            "close",
-
-            () => {
-
-                showToast(
-
-                    isComplete()
-
-                        ? "Votre diplôme de voyageur du cœur est disponible !"
-
-                        : destination.name +
-                          " rejoint votre collection. ♡"
-
                 );
+            });
+    }
 
-                createConfetti(isComplete() ? 60 : 18);
+    /* =========================================
+       COMPAGNON
+    ========================================== */
 
-            },
+    document.querySelectorAll("[data-companion]")
+        .forEach(button => {
+            button.addEventListener("click", () => {
+                const companion = button.dataset.companion;
 
-            { once: true }
+                if (!Object.hasOwn(
+                    companionLabels,
+                    companion
+                )) return;
 
+                if (state.companion !== companion) {
+                    state.companionName = "";
+                }
+
+                state.companion = companion;
+
+                saveState();
+                renderCompanion();
+
+                $("companion-name").focus();
+            });
+        });
+
+    $("companion-name-form")?.addEventListener(
+        "submit",
+        event => {
+            event.preventDefault();
+
+            if (!state.companion) return;
+
+            state.companionName = cleanText(
+                $("companion-name").value,
+                25
+            );
+
+            if (!state.companionName) return;
+
+            saveState();
+            renderCompanion();
+
+            showToast(
+                "Un nouveau compagnon",
+                `${state.companionName} vous accompagne désormais.`
+            );
+        }
+    );
+
+    function renderCompanion() {
+        document.querySelectorAll("[data-companion]")
+            .forEach(button => {
+                button.setAttribute(
+                    "aria-pressed",
+                    String(
+                        button.dataset.companion ===
+                        state.companion
+                    )
+                );
+            });
+
+        $("companion-personalization").hidden =
+            !state.companion;
+
+        $("companion-name").value =
+            state.companionName;
+
+        $("companion-message").textContent =
+            state.companionName
+                ? `${state.companionName} vous attend sur les chemins du royaume.`
+                : state.companion
+                    ? "Choisissez maintenant son prénom."
+                    : "";
+    }
+
+    /* =========================================
+       MÉDAILLON
+    ========================================== */
+
+    function renderMedallion() {
+        const container = $("medallion-gems");
+
+        container.replaceChildren();
+
+        treasures.forEach((treasure, index) => {
+            const angle =
+                index * Math.PI * 2 / treasures.length;
+
+            const gem = document.createElement("span");
+
+            gem.className = "medallion-gem";
+
+            gem.style.left =
+                `${50 + Math.sin(angle) * 41}%`;
+
+            gem.style.top =
+                `${50 - Math.cos(angle) * 41}%`;
+
+            gem.style.setProperty(
+                "--gem-color",
+                treasure.color
+            );
+
+            const discovered = state.stamps.includes(
+                treasure.id
+            );
+
+            gem.classList.toggle(
+                "is-discovered",
+                discovered
+            );
+
+            gem.title = discovered
+                ? treasure.name
+                : "Fragment encore caché";
+
+            gem.setAttribute("aria-hidden", "true");
+
+            container.appendChild(gem);
+        });
+
+        const count = state.stamps.length;
+
+        $("fragment-count").textContent = count;
+        $("fragment-total").textContent = treasures.length;
+
+        $("royal-medallion").classList.toggle(
+            "is-complete",
+            count === treasures.length
         );
+    }
 
-    });
-
-    /* =====================================
+    /* =========================================
        PROGRESSION
-       ===================================== */
+    ========================================== */
 
-    function updateProgress() {
+    function getRank(count) {
+        if (count >= 14) return "Gardien des cœurs errants";
+        if (count >= 10) return "Gardien des merveilles";
+        if (count >= 8) return "Explorateur des secrets";
+        if (count >= 5) return "Collectionneur de lumière";
+        if (count >= 3) return "Chercheur de trésors";
+        if (count >= 1) return "Cueilleur de lumière";
 
-        const count = passport.stamps.length;
+        return "Âme voyageuse";
+    }
 
-        const percentage = count / total * 100;
+    function renderProgress() {
+        const count = state.stamps.length;
+        const percent = count / treasures.length * 100;
 
-        $("passport-count").textContent = count;
+        $("kingdom-rank").textContent = getRank(count);
 
-        $("passport-total").textContent = total;
+        $("kingdom-progress-fill").style.width =
+            `${percent}%`;
 
-        $("passport-progress-fill").style.width =
-            percentage + "%";
-
-        const track = $("passport-progress-track");
-
-        track.setAttribute(
-            "aria-valuemax",
-            String(total)
-        );
-
-        track.setAttribute(
+        $("kingdom-progress-track").setAttribute(
             "aria-valuenow",
             String(count)
         );
 
-        let message;
+        const remaining = treasures.length - count;
 
-        if (count === 0) {
+        $("kingdom-progress-message").textContent =
+            count === 14
+                ? "Toutes les lumières sont réunies. Le château vous attend."
+                : count === 0
+                    ? "Votre aventure ne fait que commencer."
+                    : `Il vous reste ${remaining} fragment${remaining > 1 ? "s" : ""} à découvrir.`;
 
-            message =
-                "Votre première empreinte vous attend...";
+        document.querySelectorAll("[data-milestone]")
+            .forEach(item => {
+                item.classList.toggle(
+                    "is-unlocked",
+                    count >= Number(item.dataset.milestone)
+                );
+            });
+    }
 
-        } else if (count === 1) {
+    /* =========================================
+       ILLUSTRATIONS DE SECOURS
+       Les véritables images remplaceront ces SVG.
+    ========================================== */
 
-            message =
-                "Une première histoire rejoint votre cœur. ♡";
+    function createTreasureSVG(treasure, locked = false) {
+        const color = treasure.color;
 
-        } else if (count < total / 2) {
+        const shapes = {
+            shell: `
+                <path d="M60 95
+                    C10 78 8 20 60 18
+                    C112 20 110 78 60 95Z"/>
+                <path d="M60 95L28 35
+                    M60 95L45 23
+                    M60 95L75 23
+                    M60 95L92 35"
+                    fill="none"/>
+            `,
+            feather: `
+                <path d="M25 105Q95 55 95 15
+                    Q35 15 30 75Z"/>
+                <path d="M20 110L88 24
+                    M44 80L40 53
+                    M58 62L82 61"
+                    fill="none"/>
+            `,
+            sun: `
+                <circle cx="60" cy="60" r="30"/>
+                <path d="M60 5V20
+                    M60 100V115
+                    M5 60H20
+                    M100 60H115
+                    M20 20L32 32
+                    M88 88L100 100
+                    M20 100L32 88
+                    M88 32L100 20"
+                    fill="none"/>
+            `,
+            snow: `
+                <path d="M60 8V112
+                    M15 34L105 86
+                    M15 86L105 34
+                    M45 18L60 33L75 18
+                    M45 102L60 87L75 102
+                    M18 48L38 47L28 28
+                    M92 92L82 73L102 72
+                    M18 72L38 73L28 92
+                    M92 28L82 47L102 48"
+                    fill="none" stroke-width="4"/>
+            `,
+            heart: `
+                <path d="M60 100
+                    C35 80 8 58 18 34
+                    C27 12 49 15 60 35
+                    C71 15 93 12 102 34
+                    C112 58 85 80 60 100Z"/>
+            `,
+            butterfly: `
+                <path d="M60 65
+                    C8 65 5 12 30 15
+                    Q60 20 60 65
+                    C60 20 90 15 90 15
+                    C115 12 112 65 60 65
+                    C110 72 95 110 75 95
+                    L60 65
+                    L45 95
+                    C25 110 10 72 60 65Z"/>
+                <path d="M60 40V90
+                    M60 40L49 25
+                    M60 40L71 25"
+                    fill="none"/>
+            `,
+            leaf: `
+                <path d="M25 100
+                    Q10 25 100 15
+                    Q105 95 25 100Z"/>
+                <path d="M15 110L90 25
+                    M45 75L35 45
+                    M65 53L90 58"
+                    fill="none"/>
+            `,
+            gem: `
+                <path d="M60 8L100 40
+                    L85 92L60 112
+                    L35 92L20 40Z"/>
+                <path d="M60 8L45 40
+                    L60 112L75 40Z
+                    M20 40H100"
+                    fill="none"/>
+            `,
+            key: `
+                <circle cx="60" cy="28" r="20"
+                    fill="none" stroke-width="8"/>
+                <path d="M60 48V108
+                    M60 85H82
+                    M60 100H75"
+                    fill="none" stroke-width="8"/>
+            `,
+            star: `
+                <path d="M60 7L75 42
+                    L113 45L84 70
+                    L93 108L60 88
+                    L27 108L36 70
+                    L7 45L45 42Z"/>
+            `,
+            hourglass: `
+                <path d="M30 15H90
+                    M30 105H90"
+                    fill="none" stroke-width="7"/>
+                <path d="M38 18
+                    Q38 45 60 60
+                    Q82 75 82 102
+                    H38
+                    Q38 75 60 60
+                    Q82 45 82 18Z"/>
+            `,
+            lantern: `
+                <path d="M30 35L60 15L90 35Z"/>
+                <rect x="35" y="35"
+                    width="50" height="65" rx="5"/>
+                <path d="M48 35V100
+                    M72 35V100
+                    M30 100H90
+                    M60 15V5"
+                    fill="none"/>
+                <path d="M60 85
+                    Q45 70 60 52
+                    Q75 70 60 85Z"
+                    fill="#fff2c2"/>
+            `,
+            drop: `
+                <path d="M60 8
+                    C50 35 20 60 25 82
+                    C30 120 90 120 95 82
+                    C100 60 70 35 60 8Z"/>
+                <path d="M42 68Q32 90 50 95"
+                    fill="none" stroke="#fff8"/>
+            `,
+            flower: `
+                <ellipse cx="60" cy="32"
+                    rx="17" ry="26"/>
+                <ellipse cx="60" cy="88"
+                    rx="17" ry="26"/>
+                <ellipse cx="32" cy="60"
+                    rx="26" ry="17"/>
+                <ellipse cx="88" cy="60"
+                    rx="26" ry="17"/>
+                <circle cx="60" cy="60"
+                    r="14" fill="#d5b67a"/>
+            `
+        };
 
-            message =
-                "Votre passeport se remplit de beaux souvenirs.";
-
-        } else if (count < total - 1) {
-
-            message =
-                "Plus que " + (total - count) +
-                " empreintes à découvrir !";
-
-        } else if (count === total - 1) {
-
-            message =
-                "Une dernière histoire avant votre diplôme...";
-
-        } else {
-
-            message =
-                "Félicitations ! Vous êtes un voyageur du cœur. ♡";
-
+        if (locked) {
+            return `
+                <svg viewBox="0 0 120 120"
+                     aria-hidden="true">
+                    <path d="M60 12L98 60
+                        L60 108L22 60Z"
+                        fill="#3e2b3d"
+                        stroke="#c4a477"
+                        stroke-width="2"/>
+                    <rect x="45" y="55"
+                        width="30" height="25" rx="4"
+                        fill="none"
+                        stroke="#c4a477"
+                        stroke-width="3"/>
+                    <path d="M50 55V45
+                        A10 10 0 0 1 70 45V55"
+                        fill="none"
+                        stroke="#c4a477"
+                        stroke-width="3"/>
+                </svg>
+            `;
         }
 
-        $("passport-progress-message").textContent =
-            message;
-
+        return `
+            <svg viewBox="0 0 120 120"
+                 aria-hidden="true">
+                <g fill="${color}"
+                   stroke="#c4a477"
+                   stroke-width="2.5"
+                   stroke-linecap="round"
+                   stroke-linejoin="round">
+                    ${shapes[treasure.symbol] || shapes.gem}
+                </g>
+                <path d="M105 10V26
+                    M97 18H113"
+                    stroke="#e8c987"
+                    stroke-width="2"/>
+            </svg>
+        `;
     }
 
-    /* =====================================
-       NOTIFICATION
-       ===================================== */
+    function renderTreasureVisual(
+        container,
+        treasure,
+        locked
+    ) {
+        container.replaceChildren();
 
-    function showToast(message) {
+        if (locked) {
+            container.innerHTML =
+                createTreasureSVG(treasure, true);
 
-        const toast = $("passport-toast");
+            return;
+        }
 
-        clearTimeout(toastTimeout);
+        const image = document.createElement("img");
 
-        $("passport-toast-message").textContent =
-            message;
+        image.src = `fragment-${treasure.id}.webp`;
+        image.alt = treasure.name;
+        image.loading = "lazy";
 
-        toast.hidden = false;
+        image.addEventListener("error", () => {
+            container.innerHTML =
+                createTreasureSVG(treasure);
+        }, { once: true });
 
-        toastTimeout = setTimeout(() => {
-
-            toast.hidden = true;
-
-        }, 4500);
-
+        container.appendChild(image);
     }
 
-    /* =====================================
-       CONFETTIS
-       ===================================== */
+    /* =========================================
+       COFFRET
+    ========================================== */
 
-    function createConfetti(amount = 25) {
+    function renderTreasures() {
+        const grid = $("treasure-grid");
 
-        if (reducedMotion) return;
+        grid.replaceChildren();
 
-        const container = $("passport-confetti");
+        treasures.forEach(treasure => {
+            const discovered = state.stamps.includes(
+                treasure.id
+            );
 
-        const colors = [
+            const card = document.createElement("button");
 
-            "#b77d88",
-            "#d9b4ba",
-            "#c4a477",
-            "#a9b99b",
-            "#e5c8bc"
+            card.type = "button";
 
+            card.className =
+                `treasure-card ${discovered
+                    ? "is-discovered"
+                    : "is-locked"}`;
+
+            card.setAttribute(
+                "aria-label",
+                `${treasure.destination} — ${
+                    discovered
+                        ? treasure.name
+                        : "Fragment encore caché"
+                }`
+            );
+
+            const visual = document.createElement("div");
+
+            visual.className = "treasure-object";
+
+            renderTreasureVisual(
+                visual,
+                treasure,
+                !discovered
+            );
+
+            const title = document.createElement("strong");
+
+            title.textContent = treasure.destination;
+
+            const status = document.createElement("small");
+
+            status.textContent = discovered
+                ? "Retrouvé"
+                : "À découvrir";
+
+            card.append(visual, title, status);
+
+            card.addEventListener("click", () => {
+                openTreasure(treasure);
+            });
+
+            grid.appendChild(card);
+        });
+    }
+
+    function openTreasure(treasure) {
+        const discovered = state.stamps.includes(
+            treasure.id
+        );
+
+        renderTreasureVisual(
+            $("treasure-visual"),
+            treasure,
+            !discovered
+        );
+
+        $("treasure-destination").textContent =
+            treasure.destination;
+
+        $("treasure-title").textContent =
+            discovered
+                ? treasure.name
+                : "Un fragment mystérieux";
+
+        $("treasure-meaning").textContent =
+            discovered
+                ? treasure.meaning
+                : "Ce trésor attend encore d'être retrouvé au cours de votre exploration.";
+
+        $("treasure-status").textContent =
+            discovered
+                ? "Une lumière de plus dans votre royaume."
+                : "Fragment non découvert";
+
+        openDialog("treasure-dialog");
+    }
+
+    /* =========================================
+       LIEUX ENCHANTÉS
+    ========================================== */
+
+    const locations = {
+        library: {
+            title: "La bibliothèque des âmes",
+            image: "royaume-bibliotheque.webp",
+            required: 3,
+            description:
+                "Dans le silence des livres anciens, une lettre semble vous attendre."
+        },
+        greenhouse: {
+            title: "La serre des merveilles",
+            image: "royaume-serre.webp",
+            required: 5,
+            description:
+                "Parmi les roses, trois petits secrets se cachent dans la lumière."
+        },
+        lake: {
+            title: "Le lac des souhaits",
+            image: "royaume-lac.webp",
+            required: 8,
+            description:
+                "Confiez un souhait à l'eau et regardez votre lanterne s'éloigner."
+        },
+        spring: {
+            title: "La source des merveilles",
+            image: "royaume-source.webp",
+            required: 10,
+            description:
+                "Une étrange lumière scintille sous la surface de l'eau."
+        },
+        castle: {
+            title: "Le château oublié",
+            image: "royaume-chateau.webp",
+            required: 14,
+            description:
+                "Les portes du château s'ouvrent enfin. Toutes les lumières du royaume sont réunies."
+        }
+    };
+
+    function renderLocations() {
+        document.querySelectorAll("[data-location]")
+            .forEach(card => {
+                const required = Number(
+                    card.dataset.required
+                );
+
+                const unlocked =
+                    state.stamps.length >= required;
+
+                card.classList.toggle(
+                    "is-locked",
+                    !unlocked
+                );
+
+                card.classList.toggle(
+                    "is-unlocked",
+                    unlocked
+                );
+
+                const button = card.querySelector(
+                    "[data-open-location]"
+                );
+
+                button.disabled = !unlocked;
+
+                button.textContent = unlocked
+                    ? "Explorer ce lieu"
+                    : `${required} fragments nécessaires`;
+            });
+    }
+
+    document.querySelectorAll("[data-open-location]")
+        .forEach(button => {
+            button.addEventListener("click", () => {
+                openLocation(
+                    button.dataset.openLocation
+                );
+            });
+        });
+
+    function openLocation(id) {
+        const location = locations[id];
+
+        if (
+            !location ||
+            state.stamps.length < location.required
+        ) return;
+
+        $("location-dialog-title").textContent =
+            location.title;
+
+        $("location-dialog-description").textContent =
+            location.description;
+
+        $("location-dialog-image").style.backgroundImage =
+            `url("${location.image}")`;
+
+        const interaction = $("location-interaction");
+
+        interaction.replaceChildren();
+
+        if (id === "library") {
+            createLibraryInteraction(interaction);
+        }
+
+        if (id === "greenhouse") {
+            createGreenhouseInteraction(interaction);
+        }
+
+        if (id === "lake") {
+            createLakeInteraction(interaction);
+        }
+
+        if (id === "spring") {
+            createSpringInteraction(interaction);
+        }
+
+        if (id === "castle") {
+            createCastleInteraction(interaction);
+        }
+
+        openDialog("location-dialog");
+    }
+
+    /* =========================================
+       BIBLIOTHÈQUE — LETTRE SECRÈTE
+    ========================================== */
+
+    function createLibraryInteraction(container) {
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "kingdom-button";
+        button.textContent = "Décacheter la lettre";
+
+        const letter = document.createElement("div");
+
+        letter.className = "location-letter";
+        letter.hidden = true;
+
+        letter.textContent =
+            "Il n'est pas nécessaire de changer le monde entier pour faire une différence. Parfois, changer un seul instant dans la vie d'une petite âme suffit.";
+
+        button.addEventListener("click", () => {
+            letter.hidden = false;
+            button.hidden = true;
+
+            unlockReward("library-letter");
+        });
+
+        container.append(button, letter);
+    }
+
+    /* =========================================
+       SERRE — MESSAGES CACHÉS
+    ========================================== */
+
+    function createGreenhouseInteraction(container) {
+        const messages = [
+            "La douceur n'est jamais une faiblesse.",
+            "Chaque vie mérite d'être regardée.",
+            "La liberté est un trésor que nul ne devrait perdre."
         ];
 
-        const symbols = ["♡", "✧", "✦", "❀"];
+        const buttons = document.createElement("div");
+
+        buttons.className = "butterfly-buttons";
+
+        const message = document.createElement("div");
+
+        message.className = "location-letter";
+        message.textContent =
+            "Choisissez l'une des trois fleurs.";
+
+        messages.forEach((text, index) => {
+            const button = document.createElement("button");
+
+            button.type = "button";
+            button.textContent = "❀";
+
+            button.setAttribute(
+                "aria-label",
+                `Découvrir la fleur ${index + 1}`
+            );
+
+            button.addEventListener("click", () => {
+                message.textContent = text;
+
+                unlockReward(
+                    `greenhouse-flower-${index}`
+                );
+            });
+
+            buttons.appendChild(button);
+        });
+
+        container.append(buttons, message);
+    }
+
+    /* =========================================
+       LAC — LANTERNE DES SOUHAITS
+    ========================================== */
+
+    function createLakeInteraction(container) {
+        const scene = document.createElement("div");
+
+        scene.className = "lantern-scene";
+
+        const textarea = document.createElement("textarea");
+
+        textarea.className = "location-wish";
+        textarea.placeholder = "Votre souhait...";
+        textarea.maxLength = 300;
+
+        textarea.setAttribute(
+            "aria-label",
+            "Votre souhait personnel"
+        );
+
+        const note = document.createElement("p");
+
+        note.textContent =
+            "Votre souhait n'est ni enregistré ni envoyé.";
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "kingdom-button";
+        button.textContent = "Libérer ma lanterne";
+
+        button.addEventListener("click", () => {
+            if (!textarea.value.trim()) {
+                textarea.focus();
+                return;
+            }
+
+            const lantern = document.createElement("span");
+
+            lantern.className = "floating-lantern";
+
+            scene.appendChild(lantern);
+
+            textarea.value = "";
+
+            note.textContent =
+                "Votre souhait s'éloigne doucement vers l'horizon.";
+
+            unlockReward("lake-lantern");
+
+            setTimeout(() => {
+                lantern.remove();
+            }, 4200);
+        });
+
+        container.append(
+            scene,
+            note,
+            textarea,
+            button
+        );
+    }
+
+    /* =========================================
+       SOURCE — TRÉSOR SOUS L'EAU
+    ========================================== */
+
+    function createSpringInteraction(container) {
+        const water = document.createElement("div");
+
+        water.className = "spring-water";
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.textContent = "✧";
+
+        button.setAttribute(
+            "aria-label",
+            "Toucher la surface de l'eau"
+        );
+
+        const message = document.createElement("p");
+
+        message.textContent =
+            "Touchez la lumière à la surface de l'eau.";
+
+        button.addEventListener("click", () => {
+            const ripple = document.createElement("span");
+
+            ripple.className = "water-ripple";
+
+            water.appendChild(ripple);
+
+            button.textContent = "◇";
+
+            message.textContent =
+                "Vous avez découvert la pierre de sérénité, un trésor secret du royaume.";
+
+            const fresh = unlockReward("spring-crystal");
+
+            if (fresh) {
+                celebrate(25);
+
+                showToast(
+                    "Trésor secret",
+                    "La pierre de sérénité est découverte."
+                );
+            }
+
+            setTimeout(() => ripple.remove(), 2100);
+        });
+
+        water.appendChild(button);
+
+        container.append(water, message);
+    }
+
+    /* =========================================
+       CHÂTEAU — DERNIÈRE LETTRE
+    ========================================== */
+
+    function createCastleInteraction(container) {
+        const letter = document.createElement("div");
+
+        letter.className = "location-letter";
+
+        const paragraphs = [
+            "Il était une fois un cœur qui décida de ne plus détourner le regard.",
+            "Ce cœur n'avait ni couronne, ni baguette magique, ni pouvoirs extraordinaires.",
+            "Il possédait simplement quelque chose de précieux : la bienveillance.",
+            state.name
+                ? `Et ce cœur, ${state.name}, c'était le vôtre.`
+                : "Et ce cœur, c'était le vôtre."
+        ];
+
+        paragraphs.forEach(text => {
+            const paragraph = document.createElement("p");
+
+            paragraph.textContent = text;
+
+            letter.appendChild(paragraph);
+        });
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "kingdom-button";
+        button.textContent = "Découvrir mon certificat";
+
+        button.addEventListener("click", () => {
+            closeDialog("location-dialog");
+
+            $("kingdom-reward").scrollIntoView({
+                behavior: reducedMotion ? "auto" : "smooth"
+            });
+
+            celebrate(45);
+        });
+
+        container.append(letter, button);
+
+        unlockReward("castle-letter");
+    }
+
+    function unlockReward(id) {
+        if (state.rewards.includes(id)) {
+            return false;
+        }
+
+        state.rewards.push(id);
+
+        saveState();
+
+        return true;
+    }
+
+    /* =========================================
+       AMBIANCE JOUR ET NUIT
+    ========================================== */
+
+    function applyAtmosphere() {
+        const hour = new Date().getHours();
+
+        const night = state.atmosphere === "night" ||
+            (
+                state.atmosphere === "auto" &&
+                (hour >= 19 || hour < 7)
+            );
+
+        page.classList.toggle("is-night", night);
+
+        document.querySelectorAll("[data-atmosphere]")
+            .forEach(button => {
+                button.setAttribute(
+                    "aria-pressed",
+                    String(
+                        button.dataset.atmosphere ===
+                        state.atmosphere
+                    )
+                );
+            });
+    }
+
+    document.querySelectorAll("[data-atmosphere]")
+        .forEach(button => {
+            button.addEventListener("click", () => {
+                state.atmosphere =
+                    button.dataset.atmosphere;
+
+                saveState();
+                applyAtmosphere();
+            });
+        });
+
+    setInterval(() => {
+        if (state.atmosphere === "auto") {
+            applyAtmosphere();
+        }
+    }, 60000);
+
+    /* =========================================
+       CERTIFICAT
+    ========================================== */
+
+    function formatDate(value) {
+        if (!value) return "";
+
+        return new Intl.DateTimeFormat("fr-BE", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }).format(new Date(value));
+    }
+
+    function renderCertificate() {
+        const complete =
+            state.stamps.length === treasures.length;
+
+        if (complete && !state.completedAt) {
+            state.completedAt = new Date().toISOString();
+
+            saveState();
+        }
+
+        $("kingdom-certificate").classList.toggle(
+            "is-unlocked",
+            complete
+        );
+
+        $("certificate-name").textContent =
+            state.name || "Une âme bienveillante";
+
+        $("certificate-date").textContent =
+            complete
+                ? formatDate(state.completedAt)
+                : "Votre date de découverte";
+
+        $("download-certificate").disabled =
+            !complete;
+    }
+
+    $("download-certificate")?.addEventListener(
+        "click",
+        downloadCertificate
+    );
+
+    function downloadCertificate() {
+        if (
+            state.stamps.length !== treasures.length
+        ) return;
+
+        const canvas = document.createElement("canvas");
+
+        canvas.width = 1600;
+        canvas.height = 1100;
+
+        const ctx = canvas.getContext("2d");
+
+        if (!ctx) return;
+
+        const w = canvas.width;
+        const h = canvas.height;
+
+        const gradient = ctx.createLinearGradient(
+            0, 0, w, h
+        );
+
+        gradient.addColorStop(0, "#fffaf0");
+        gradient.addColorStop(.5, "#f7eee4");
+        gradient.addColorStop(1, "#ead4dc");
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.strokeStyle = "#b99a65";
+        ctx.lineWidth = 5;
+        ctx.strokeRect(45, 45, w - 90, h - 90);
+
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(65, 65, w - 130, h - 130);
+
+        ctx.textAlign = "center";
+
+        ctx.fillStyle = "#a58b5d";
+        ctx.font = "28px Georgia";
+        ctx.fillText("C Œ U R   E R R A N T", 800, 145);
+
+        ctx.beginPath();
+        ctx.arc(800, 270, 85, 0, Math.PI * 2);
+
+        ctx.fillStyle = "#493343";
+        ctx.fill();
+
+        ctx.strokeStyle = "#d8bb86";
+        ctx.lineWidth = 6;
+        ctx.stroke();
+
+        ctx.fillStyle = "#e8c987";
+        ctx.font = "85px Georgia";
+
+        ctx.fillText(
+            emblemSymbols[state.emblem],
+            800,
+            300
+        );
+
+        ctx.fillStyle = "#a85e78";
+        ctx.font = "58px Georgia";
+
+        ctx.fillText(
+            "Gardien des cœurs errants",
+            800,
+            440
+        );
+
+        ctx.fillStyle = "#82747b";
+        ctx.font = "27px Georgia";
+        ctx.fillText("Certificat symbolique décerné à", 800, 510);
+
+        const name = state.name || "Une âme bienveillante";
+
+        let fontSize = 65;
+
+        ctx.font = `${fontSize}px Georgia`;
+
+        while (
+            ctx.measureText(name).width > 1300 &&
+            fontSize > 25
+        ) {
+            fontSize -= 2;
+            ctx.font = `${fontSize}px Georgia`;
+        }
+
+        ctx.fillStyle = "#a85e78";
+        ctx.fillText(name, 800, 605);
+
+        ctx.fillStyle = "#493c43";
+        ctx.font = "27px Georgia";
+
+        [
+            "Pour avoir retrouvé les quatorze fragments du royaume",
+            "et célébré les valeurs de bienveillance,",
+            "de douceur et de respect."
+        ].forEach((line, index) => {
+            ctx.fillText(
+                line,
+                800,
+                700 + index * 45
+            );
+        });
+
+        ctx.fillStyle = "#82747b";
+        ctx.font = "24px Georgia";
+
+        ctx.fillText(
+            formatDate(state.completedAt),
+            800,
+            870
+        );
+
+        ctx.fillStyle = "#a85e78";
+        ctx.font = "italic 42px Georgia";
+        ctx.fillText("Avec le cœur, Cœur Errant", 800, 970);
+
+        canvas.toBlob(blob => {
+            if (!blob) return;
+
+            const url = URL.createObjectURL(blob);
+
+            const link = document.createElement("a");
+
+            link.href = url;
+            link.download =
+                "certificat-gardien-coeur-errant.png";
+
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+
+            setTimeout(() => {
+                URL.revokeObjectURL(url);
+            }, 3000);
+        }, "image/png");
+    }
+
+    /* =========================================
+       SECRET FACULTATIF
+    ========================================== */
+
+    $("kingdom-secret")?.addEventListener("click", () => {
+        const message = $("kingdom-secret-message");
+
+        message.hidden = !message.hidden;
+
+        if (!state.secretFound) {
+            state.secretFound = true;
+
+            saveState();
+
+            showToast(
+                "Un secret découvert",
+                "Les âmes curieuses trouvent parfois les plus belles surprises."
+            );
+        }
+    });
+
+    /* =========================================
+       FENÊTRES
+    ========================================== */
+
+    let previousFocus = null;
+
+    function openDialog(id) {
+        const dialog = $(id);
+
+        if (!dialog || dialog.open) return;
+
+        previousFocus = document.activeElement;
+
+        dialog.showModal();
+    }
+
+    function closeDialog(id) {
+        const dialog = $(id);
+
+        if (dialog?.open) {
+            dialog.close();
+        }
+    }
+
+    document.querySelectorAll("[data-close-dialog]")
+        .forEach(button => {
+            button.addEventListener("click", () => {
+                closeDialog(
+                    button.dataset.closeDialog
+                );
+            });
+        });
+
+    document.querySelectorAll(".kingdom-dialog")
+        .forEach(dialog => {
+            dialog.addEventListener("close", () => {
+                previousFocus?.focus();
+            });
+
+            dialog.addEventListener("click", event => {
+                if (event.target !== dialog) return;
+
+                const rect = dialog.getBoundingClientRect();
+
+                const outside =
+                    event.clientX < rect.left ||
+                    event.clientX > rect.right ||
+                    event.clientY < rect.top ||
+                    event.clientY > rect.bottom;
+
+                if (outside) {
+                    dialog.close();
+                }
+            });
+        });
+
+    /* =========================================
+       CÉLÉBRATION
+    ========================================== */
+
+    function celebrate(amount = 40) {
+        const container = $("kingdom-celebration");
+
+        if (!container || reducedMotion) return;
+
+        const symbols = ["✧", "❀", "♡", "◇"];
+
+        const colors = [
+            "#d9a6bc",
+            "#b99a65",
+            "#f0d6dc",
+            "#a8b29b"
+        ];
 
         for (let i = 0; i < amount; i++) {
+            const piece = document.createElement("span");
 
-            const piece = createElement(
+            piece.className = "celebration-piece";
 
-                "span",
+            piece.textContent =
+                symbols[i % symbols.length];
 
-                "passport-confetti-piece",
-
-                symbols[
-                    Math.floor(Math.random() * symbols.length)
-                ]
-
+            piece.style.setProperty(
+                "--piece-x",
+                `${Math.random() * 100}%`
             );
 
             piece.style.setProperty(
-                "--confetti-x",
-                Math.random() * 100 + "%"
+                "--piece-color",
+                colors[i % colors.length]
             );
 
             piece.style.setProperty(
-                "--confetti-color",
-                colors[
-                    Math.floor(Math.random() * colors.length)
-                ]
+                "--piece-size",
+                `${10 + Math.random() * 16}px`
             );
 
             piece.style.setProperty(
-                "--confetti-size",
-                12 + Math.random() * 20 + "px"
+                "--piece-duration",
+                `${3 + Math.random() * 3}s`
             );
 
             piece.style.setProperty(
-                "--confetti-duration",
-                2 + Math.random() * 2 + "s"
-            );
-
-            piece.style.setProperty(
-                "--confetti-delay",
-                Math.random() * .7 + "s"
+                "--piece-delay",
+                `${Math.random() * 1.5}s`
             );
 
             container.appendChild(piece);
 
             setTimeout(() => {
-
                 piece.remove();
-
-            }, 5000);
-
+            }, 8000);
         }
-
     }
 
-    /* =====================================
-       DIPLÔME
-       ===================================== */
+    /* =========================================
+       RÉINITIALISATION
+    ========================================== */
 
-    function getCertificateDate() {
+    $("reset-kingdom")?.addEventListener("click", () => {
+        openDialog("kingdom-reset-dialog");
+    });
 
-        const date = passport.completedAt
-
-            ? new Date(passport.completedAt)
-
-            : new Date();
-
-        return new Intl.DateTimeFormat("fr-BE", {
-
-            day: "numeric",
-            month: "long",
-            year: "numeric"
-
-        }).format(date);
-
-    }
-
-    function updateCertificate() {
-
-        const completed = isComplete();
-
-        const certificate = $("passport-certificate");
-
-        $("certificate-name").textContent =
-
-            passport.name || "Voyageur du cœur";
-
-        $("certificate-date").textContent =
-            getCertificateDate();
-
-        $("certificate-lock").hidden = completed;
-
-        $("download-certificate").disabled = !completed;
-
-        certificate.classList.toggle(
-            "is-unlocked",
-            completed
-        );
-
-        const remaining = total - passport.stamps.length;
-
-        $("certificate-lock-message").textContent =
-
-            remaining === 1
-
-                ? "Il vous reste une destination à découvrir."
-
-                : "Il vous reste " + remaining +
-                  " destinations à découvrir.";
-
-    }
-
-    /* =====================================
-       TÉLÉCHARGEMENT DU DIPLÔME EN PNG
-       ===================================== */
-
-    $("download-certificate").addEventListener(
-
+    $("confirm-reset-kingdom")?.addEventListener(
         "click",
-
-        async () => {
-
-            if (!isComplete()) return;
-
-            const button = $("download-certificate");
-
-            button.disabled = true;
-
-            try {
-
-                if (document.fonts) {
-
-                    await document.fonts.ready;
-
-                }
-
-                const canvas = document.createElement(
-                    "canvas"
-                );
-
-                canvas.width = 1600;
-
-                canvas.height = 1100;
-
-                const ctx = canvas.getContext("2d");
-
-                if (!ctx) {
-
-                    throw new Error("Canvas indisponible");
-
-                }
-
-                /* FOND */
-
-                ctx.fillStyle = "#fffdf7";
-
-                ctx.fillRect(
-                    0, 0,
-                    canvas.width,
-                    canvas.height
-                );
-
-                const gradient = ctx.createRadialGradient(
-
-                    0, 0, 0,
-                    0, 0, 850
-
-                );
-
-                gradient.addColorStop(0, "#eed9dc");
-
-                gradient.addColorStop(
-                    1,
-                    "rgba(255,253,247,0)"
-                );
-
-                ctx.fillStyle = gradient;
-
-                ctx.fillRect(0, 0, 1600, 1100);
-
-                const secondGradient =
-                    ctx.createRadialGradient(
-
-                        1600, 1100, 0,
-                        1600, 1100, 850
-
-                    );
-
-                secondGradient.addColorStop(
-                    0,
-                    "#eed9dc"
-                );
-
-                secondGradient.addColorStop(
-                    1,
-                    "rgba(255,253,247,0)"
-                );
-
-                ctx.fillStyle = secondGradient;
-
-                ctx.fillRect(0, 0, 1600, 1100);
-
-                /* BORDURES */
-
-                ctx.strokeStyle = "#c4a477";
-
-                ctx.lineWidth = 5;
-
-                ctx.strokeRect(35, 35, 1530, 1030);
-
-                ctx.lineWidth = 1.5;
-
-                ctx.strokeRect(48, 48, 1504, 1004);
-
-                ctx.strokeRect(63, 63, 1474, 974);
-
-                /* DÉCORATIONS */
-
-                ctx.textAlign = "center";
-
-                ctx.fillStyle = "#c4a477";
-
-                ctx.font = "42px Georgia";
-
-                ctx.fillText("✧", 110, 130);
-
-                ctx.fillText("✧", 1490, 130);
-
-                ctx.fillText("✧", 110, 1000);
-
-                ctx.fillText("✧", 1490, 1000);
-
-                /* MARQUE */
-
-                ctx.font = "500 25px Jost, sans-serif";
-
-                ctx.fillText(
-                    "C Œ U R   E R R A N T",
-                    800,
-                    145
-                );
-
-                /* CŒUR */
-
-                ctx.fillStyle = "#a85e68";
-
-                ctx.font = "105px Georgia";
-
-                ctx.fillText("♡", 800, 280);
-
-                /* TITRE */
-
-                ctx.font =
-                    "400 31px Jost, sans-serif";
-
-                ctx.fillText(
-                    "CERTIFICAT SYMBOLIQUE",
-                    800,
-                    340
-                );
-
-                ctx.font =
-                    "400 88px 'Cormorant Garamond', Georgia";
-
-                ctx.fillText(
-                    "Voyageur du cœur",
-                    800,
-                    445
-                );
-
-                ctx.fillStyle = "#80736b";
-
-                ctx.font = "28px Jost, sans-serif";
-
-                ctx.fillText(
-                    "Décerné à",
-                    800,
-                    520
-                );
-
-                /* PRÉNOM */
-
-                const name =
-                    passport.name || "Voyageur du cœur";
-
-                let fontSize = 75;
-
-                do {
-
-                    ctx.font =
-                        "italic " + fontSize +
-                        "px 'Cormorant Garamond', Georgia";
-
-                    if (
-                        ctx.measureText(name).width < 1200
-                    ) break;
-
-                    fontSize -= 3;
-
-                } while (fontSize > 25);
-
-                ctx.fillStyle = "#493c35";
-
-                ctx.fillText(name, 800, 620);
-
-                ctx.strokeStyle = "#c4a477";
-
-                ctx.lineWidth = 1;
-
-                ctx.beginPath();
-
-                ctx.moveTo(400, 650);
-
-                ctx.lineTo(1200, 650);
-
-                ctx.stroke();
-
-                /* TEXTE */
-
-                ctx.fillStyle = "#80736b";
-
-                ctx.font =
-                    "400 35px 'Cormorant Garamond', Georgia";
-
-                ctx.fillText(
-                    "Pour avoir pris le temps de découvrir les histoires",
-                    800,
-                    720
-                );
-
-                ctx.fillText(
-                    "des animaux des rues et de voyager avec bienveillance.",
-                    800,
-                    765
-                );
-
-                ctx.fillStyle = "#a85e68";
-
-                ctx.font = "23px Jost, sans-serif";
-
-                ctx.fillText(
-                    total + " empreintes collectionnées ♡",
-                    800,
-                    825
-                );
-
-                /* SIGNATURE */
-
-                ctx.fillStyle = "#80736b";
-
-                ctx.font = "23px Jost, sans-serif";
-
-                ctx.fillText(
-                    "Avec amour,",
-                    800,
-                    890
-                );
-
-                ctx.fillStyle = "#a85e68";
-
-                ctx.font =
-                    "italic 52px 'Cormorant Garamond', Georgia";
-
-                ctx.fillText(
-                    "Cœur Errant",
-                    800,
-                    945
-                );
-
-                ctx.fillStyle = "#80736b";
-
-                ctx.font = "20px Jost, sans-serif";
-
-                ctx.fillText(
-                    getCertificateDate(),
-                    800,
-                    990
-                );
-
-                /* TÉLÉCHARGEMENT */
-
-                const blob = await new Promise(
-                    resolve => canvas.toBlob(
-                        resolve,
-                        "image/png"
-                    )
-                );
-
-                if (!blob) {
-
-                    throw new Error(
-                        "Impossible de créer le diplôme"
-                    );
-
-                }
-
-                const url = URL.createObjectURL(blob);
-
-                const link = document.createElement("a");
-
-                const safeName = name
-
-                    .normalize("NFD")
-
-                    .replace(/[\u0300-\u036f]/g, "")
-
-                    .replace(/[^a-zA-Z0-9-]/g, "-");
-
-                link.download =
-
-                    "Diplome-Coeur-Errant-" +
-                    safeName +
-                    ".png";
-
-                link.href = url;
-
-                document.body.appendChild(link);
-
-                link.click();
-
-                link.remove();
-
-                setTimeout(() => {
-
-                    URL.revokeObjectURL(url);
-
-                }, 3000);
-
-                createConfetti(40);
-
-                showToast(
-                    "Votre diplôme est prêt ! ♡"
-                );
-
-            } catch (error) {
-
-                showToast(
-                    "Le téléchargement a échoué. Veuillez réessayer."
-                );
-
-            } finally {
-
-                button.disabled = !isComplete();
-
-            }
-
-        }
-
-    );
-
-    /* =====================================
-       MESSAGE SECRET
-       ===================================== */
-
-    $("passport-secret-paw").addEventListener(
-
-        "click",
-
         () => {
+            state = createState();
 
-            const paw = $("passport-secret-paw");
-
-            const message = $("passport-secret-message");
-
-            const opened = message.hidden;
-
-            message.hidden = !opened;
-
-            paw.setAttribute(
-                "aria-expanded",
-                String(opened)
-            );
-
-            if (opened) {
-
-                createConfetti(12);
-
+            if (hasConsent()) {
+                saveState();
             }
 
-        }
+            $("kingdom-secret-message").hidden = true;
+            $("kingdom-name-message").textContent = "";
 
+            renderAll();
+
+            closeDialog("kingdom-reset-dialog");
+
+            showToast(
+                "Une nouvelle aventure",
+                "Votre royaume est prêt à être redécouvert."
+            );
+        }
     );
 
-    /* =====================================
-       RÉINITIALISATION DU PASSEPORT
-       ===================================== */
-
-    const resetDialog = $("passport-reset-dialog");
-
-    $("reset-passport").addEventListener("click", () => {
-
-        resetDialog.showModal();
-
-    });
-
-    $("cancel-reset").addEventListener("click", () => {
-
-        resetDialog.close();
-
-    });
-
-    $("confirm-reset").addEventListener("click", () => {
-
-        passport = {
-
-            name: "",
-            stamps: [],
-            completedAt: null
-
-        };
-
-        currentSpread = 0;
-
-        savePassport();
-
-        $("passport-name").value = "";
-
-        $("passport-name-message").textContent =
-            "Un petit prénom pour une grande aventure.";
-
-        $("passport-secret-message").hidden = true;
-
-        $("passport-secret-paw").setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        renderCollection();
-
-        renderBook();
-
-        updateProgress();
-
-        updateCertificate();
-
-        resetDialog.close();
-
-        openPassport();
-
-    });
-
-    enableBackdropClose(resetDialog);
-
-    /* =====================================
+    /* =========================================
        ANIMATIONS AU DÉFILEMENT
-       ===================================== */
+    ========================================== */
 
-    function initRevealAnimations() {
-
+    function setupReveal() {
         if (
-
             reducedMotion ||
-
             !("IntersectionObserver" in window)
-
         ) return;
 
-        const elements = page.querySelectorAll(
-
-            ".passport-heading, " +
-
-            ".passport-identity, " +
-
-            ".passport-progress, " +
-
-            ".passport-book-wrapper, " +
-
-            ".passport-mystery-inner, " +
-
-            ".passport-certificate, " +
-
-            ".passport-surprise-inner, " +
-
-            ".passport-settings-inner, " +
-
-            ".passport-ending-content"
-
-        );
+        page.classList.add("kingdom-animations");
 
         const observer = new IntersectionObserver(
-
             entries => {
-
                 entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
 
-                    if (entry.isIntersecting) {
+                    entry.target.classList.add(
+                        "is-visible"
+                    );
 
-                        entry.target.classList.add(
-                            "passport-visible"
-                        );
-
-                        observer.unobserve(entry.target);
-
-                    }
-
+                    observer.unobserve(entry.target);
                 });
-
             },
-
-            {
-                threshold: .08
-            }
-
+            { threshold: .08 }
         );
 
-        page.classList.add("passport-animations");
-
-        elements.forEach(element => {
-
-            element.classList.add("passport-reveal");
-
-            observer.observe(element);
-
-        });
-
+        document.querySelectorAll(".kingdom-reveal")
+            .forEach(section => {
+                observer.observe(section);
+            });
     }
 
-    /* =====================================
-       SYNCHRONISATION ENTRE ONGLETS
-       ===================================== */
+    /* =========================================
+       RETOUR DEPUIS LES VOYAGES
+    ========================================== */
+
+    function handleTravelReturn() {
+        const url = new URL(window.location.href);
+
+        const id =
+            url.searchParams.get("fragment") ||
+            url.searchParams.get("tampon");
+
+        if (!id) return;
+
+        const treasure = treasures.find(
+            item => item.id === id
+        );
+
+        /*
+         * Le paramètre URL ne débloque rien.
+         * Le fragment doit avoir été réellement enregistré
+         * par la page Voyages.
+         */
+
+        if (
+            treasure &&
+            state.stamps.includes(id)
+        ) {
+            showToast(
+                "Un fragment retrouvé",
+                `${treasure.name} a rejoint votre médaillon.`
+            );
+
+            celebrate(
+                state.stamps.length === 14 ? 65 : 20
+            );
+        }
+
+        url.searchParams.delete("fragment");
+        url.searchParams.delete("tampon");
+
+        history.replaceState(
+            null,
+            "",
+            url.pathname + url.search + url.hash
+        );
+    }
+
+    /* =========================================
+       SYNCHRONISATION LOCALE
+    ========================================== */
+
+    function refreshState() {
+        if (hasConsent()) {
+            state = readState();
+
+            renderAll();
+        }
+    }
 
     window.addEventListener("storage", event => {
+        if (
+            event.key === STORAGE_KEY ||
+            event.key === CONSENT_KEY ||
+            event.key === null
+        ) {
+            state = readState();
 
-        if (event.key !== STORAGE_KEY) return;
-
-        passport = loadPassport();
-
-        $("passport-name").value = passport.name;
-
-        renderCollection();
-
-        renderBook();
-
-        updateProgress();
-
-        updateCertificate();
-
-        updateDestinationButton();
-
+            renderAll();
+            updateStorageNote();
+        }
     });
 
-    /* =====================================
+    window.addEventListener("pageshow", event => {
+        if (event.persisted) {
+            refreshState();
+        }
+    });
+
+    /* =========================================
        INITIALISATION
-       ===================================== */
+    ========================================== */
 
-    renderCollection();
+    function renderAll() {
+        renderIdentity();
+        renderCompanion();
+        renderMedallion();
+        renderProgress();
+        renderTreasures();
+        renderLocations();
+        renderCertificate();
+        applyAtmosphere();
+    }
 
-    renderBook();
-
-    updateProgress();
-
-    updateCertificate();
-
-    updateStorageNote();
-
-    initRevealAnimations();
+    setupStorageConsent();
+    createParticles();
+    renderAll();
+    setupReveal();
+    handleTravelReturn();
 
 })();
-
-/* =========================================
-   FIN — PASSEPORT DU CŒUR
-   Sans frontières. Avec le cœur.
-   ========================================= */

@@ -1,30 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Le passeport du cœur — Cœur Errant</title>
+    <title>Le Royaume des cœurs errants — Cœur Errant</title>
 
     <meta name="description"
-          content="Explorez les destinations de Cœur Errant, retrouvez les tampons cachés et complétez votre passeport du cœur.">
+          content="Entrez dans un royaume secret, collectionnez les fragments enchantés et devenez Gardien des cœurs errants.">
 
     <meta name="theme-color" content="#faf8f5">
 
     <link rel="icon" type="image/jpeg" href="logo.jpeg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"
-          rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="passeport.css">
@@ -32,1617 +19,1514 @@
 
     <script src="global.js" defer></script>
     <script src="passeport.js" defer></script>
-
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-
+<header>
     <nav>
-
-        <a class="nav-logo" href="index.html">
+        <a href="index.html" class="nav-logo">
             <img src="logo.jpeg" alt="Cœur Errant">
         </a>
 
         <ul class="nav-links" id="nav-links">
-
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="index.html#histoire">Mon histoire</a></li>
             <li><a href="mission.html">La mission</a></li>
             <li><a href="voyages.html">Voyages</a></li>
             <li><a href="livres.html">Mes livres</a></li>
             <li><a href="etoiles.html">Nos étoiles</a></li>
             <li><a href="soutenir.html">Soutenir</a></li>
-
         </ul>
 
         <div class="lang-switcher">
-
-            <a href="passeport.html"
-               class="lang-btn active">FR</a>
-
-            <a href="index-nl.html"
-               class="lang-btn">NL</a>
-
+            <a href="passeport.html" class="lang-btn active">FR</a>
+            <a href="index-nl.html" class="lang-btn">NL</a>
         </div>
 
         <button class="hamburger"
                 id="hamburger"
                 type="button"
                 aria-label="Ouvrir le menu"
-                aria-controls="nav-links"
-                aria-expanded="false">
-
+                aria-expanded="false"
+                aria-controls="nav-links">
             <span></span>
             <span></span>
             <span></span>
-
         </button>
-
     </nav>
+</header>
 
-    <main class="passport-page">
+<main class="kingdom-page" id="kingdom">
 
-        <!-- DÉCORATIONS -->
+    <!-- =========================================
+         PARTICULES ET AMBIANCE
+    ========================================== -->
 
-        <div class="passport-background"
-             aria-hidden="true">
+    <div class="kingdom-particles"
+         id="kingdom-particles"
+         aria-hidden="true">
+    </div>
 
-            <span>✧</span>
-            <span>♡</span>
-            <span>✦</span>
-            <span>✧</span>
-            <span>♡</span>
+    <!-- =========================================
+         PORTE ENCHANTÉE
+    ========================================== -->
+
+    <section class="kingdom-entrance" id="kingdom-entrance">
+
+        <div class="entrance-background"></div>
+        <div class="entrance-overlay"></div>
+
+        <div class="entrance-content">
+
+            <span class="kingdom-eyebrow">
+                Une expérience Cœur Errant
+            </span>
+
+            <div class="entrance-ornament" aria-hidden="true">
+                ───── ✧ ─────
+            </div>
+
+            <h1>
+                Le Royaume
+                <em>des cœurs errants</em>
+            </h1>
+
+            <p class="entrance-description">
+                Au-delà des roses et des chemins oubliés,
+                il existe un monde où la bienveillance
+                possède sa propre magie.
+            </p>
+
+            <div class="enchanted-door" id="enchanted-door">
+
+                <div class="door-glow"></div>
+
+                <div class="door-frame">
+
+                    <div class="door-interior"></div>
+
+                    <div class="door-panel door-left">
+                        <span class="door-decoration">✧</span>
+                        <span class="door-handle"></span>
+                    </div>
+
+                    <div class="door-panel door-right">
+                        <span class="door-decoration">✧</span>
+                        <span class="door-handle"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="kingdom-button"
+                    id="enter-kingdom"
+                    type="button">
+                Franchir la porte
+                <span aria-hidden="true">✧</span>
+            </button>
+
+            <p class="entrance-caption">
+                Certains trésors ne se trouvent
+                qu'avec le cœur.
+            </p>
 
         </div>
 
-        <!-- INTRODUCTION -->
+    </section>
 
-        <section class="passport-opening">
+    <!-- =========================================
+         PRÉSENTATION
+    ========================================== -->
 
-            <div class="passport-opening-inner">
+    <section class="kingdom-introduction kingdom-reveal"
+             id="kingdom-introduction">
 
-                <div class="passport-opening-content">
+        <span class="kingdom-eyebrow">
+            Un monde à découvrir
+        </span>
 
-                    <span class="passport-label">
-                        Votre billet pour une aventure différente
-                    </span>
+        <h2>
+            Bienvenue dans
+            <em>votre royaume</em>
+        </h2>
 
-                    <h1>
-                        Le passeport
-                        <em>du cœur.</em>
-                    </h1>
+        <p>
+            Quatorze fragments précieux sont dispersés
+            à travers les voyages de Cœur Errant.
+            Chacun renferme une petite part de lumière.
+        </p>
 
-                    <p class="passport-intro">
+        <p>
+            Retrouvez-les, réunissez-les dans votre
+            médaillon et ouvrez progressivement les
+            portes des lieux oubliés.
+        </p>
 
-                        Quatorze étapes, plusieurs frontières
-                        et une collection de petits trésors
-                        à retrouver.
+        <div class="kingdom-intro-grid">
 
-                        Préparez votre passeport et partez
-                        explorer l'univers de Cœur Errant.
+            <article class="kingdom-intro-card">
+                <span class="intro-number">01</span>
+                <span class="intro-symbol">✧</span>
+                <h3>Explorer</h3>
+                <p>
+                    Des fragments sont dissimulés
+                    dans les pages de voyage.
+                </p>
+            </article>
 
-                    </p>
+            <article class="kingdom-intro-card">
+                <span class="intro-number">02</span>
+                <span class="intro-symbol">◇</span>
+                <h3>Collectionner</h3>
+                <p>
+                    Chaque découverte enrichit
+                    votre médaillon personnel.
+                </p>
+            </article>
 
-                    <p class="passport-opening-quote">
+            <article class="kingdom-intro-card">
+                <span class="intro-number">03</span>
+                <span class="intro-symbol">♡</span>
+                <h3>Dévoiler</h3>
+                <p>
+                    De nouveaux lieux et des secrets
+                    apparaissent au fil de votre aventure.
+                </p>
+            </article>
 
-                        Le monde est grand.
-                        La bienveillance ne connaît
-                        aucune frontière.
+        </div>
 
-                    </p>
+    </section>
 
-                    <button type="button"
-                            class="passport-button"
-                            id="open-passport">
+    <!-- =========================================
+         IDENTITÉ PERSONNELLE
+    ========================================== -->
 
-                        Ouvrir mon passeport
+    <section class="kingdom-identity kingdom-reveal"
+             id="kingdom-identity">
 
-                        <span aria-hidden="true">♡</span>
+        <div class="identity-visual">
+            <div class="identity-medallion">
+                <span>♡</span>
+            </div>
+        </div>
 
+        <div class="identity-content">
+
+            <span class="kingdom-eyebrow">
+                Votre identité
+            </span>
+
+            <h2>
+                Chaque aventure
+                <em>commence par un nom.</em>
+            </h2>
+
+            <form id="kingdom-name-form">
+
+                <label for="kingdom-name">
+                    Votre prénom ou votre pseudonyme
+                </label>
+
+                <div class="identity-input-row">
+
+                    <input type="text"
+                           id="kingdom-name"
+                           maxlength="30"
+                           placeholder="Votre prénom..."
+                           autocomplete="off"
+                           required>
+
+                    <button class="kingdom-button"
+                            type="submit">
+                        Enregistrer
                     </button>
 
-                    <p class="passport-opening-note">
-                        Gratuit · Personnel · Sans inscription
-                    </p>
-
                 </div>
 
-                <!-- COUVERTURE DU PASSEPORT -->
+            </form>
 
-                <div class="passport-cover-scene">
+            <p id="kingdom-name-message"
+               aria-live="polite">
+            </p>
 
-                    <div class="passport-cover-halo"></div>
+            <div class="emblem-selection">
 
-                    <span class="passport-cover-star star-one"
-                          aria-hidden="true">✧</span>
+                <h3>Choisissez votre emblème</h3>
 
-                    <span class="passport-cover-star star-two"
-                          aria-hidden="true">✦</span>
-
-                    <span class="passport-cover-star star-three"
-                          aria-hidden="true">♡</span>
+                <div class="emblem-options">
 
                     <button type="button"
-                            class="passport-cover"
-                            id="passport-cover"
-                            aria-label="Ouvrir le passeport du cœur">
-
-                        <span class="passport-cover-border"></span>
-
-                        <span class="passport-cover-corner corner-tl">✧</span>
-                        <span class="passport-cover-corner corner-tr">✧</span>
-                        <span class="passport-cover-corner corner-bl">✧</span>
-                        <span class="passport-cover-corner corner-br">✧</span>
-
-                        <span class="passport-cover-small">
-                            CŒUR ERRANT
-                        </span>
-
-                        <span class="passport-cover-title">
-                            PASSEPORT
-                        </span>
-
-                        <span class="passport-cover-subtitle">
-                            du cœur
-                        </span>
-
-                        <svg class="passport-cover-emblem"
-                             viewBox="0 0 200 200"
-                             aria-hidden="true">
-
-                            <g fill="none"
-                               stroke="currentColor"
-                               stroke-width="1.5">
-
-                                <circle cx="100" cy="100" r="85"/>
-
-                                <circle cx="100" cy="100" r="77"
-                                        stroke-dasharray="2 5"/>
-
-                                <circle cx="100" cy="91" r="53"/>
-
-                                <ellipse cx="100" cy="91"
-                                         rx="25" ry="53"/>
-
-                                <path d="M47 91H153"/>
-
-                                <path d="M58 61Q100 80 142 61"/>
-
-                                <path d="M58 121Q100 102 142 121"/>
-
-                                <path d="M100 38V144"/>
-
-                            </g>
-
-                            <g fill="currentColor">
-
-                                <ellipse cx="84" cy="139"
-                                         rx="5" ry="8"
-                                         transform="rotate(-25 84 139)"/>
-
-                                <ellipse cx="95" cy="132"
-                                         rx="5" ry="8"/>
-
-                                <ellipse cx="106" cy="132"
-                                         rx="5" ry="8"/>
-
-                                <ellipse cx="117" cy="139"
-                                         rx="5" ry="8"
-                                         transform="rotate(25 117 139)"/>
-
-                                <path d="M100 142
-                                         C91 142 89 150 84 155
-                                         C78 166 90 171 100 163
-                                         C110 171 122 166 116 155
-                                         C111 150 109 142 100 142Z"/>
-
-                            </g>
-
-                        </svg>
-
-                        <span class="passport-cover-motto">
-
-                            Sans frontières.
-                            <br>
-                            Avec le cœur.
-
-                        </span>
-
-                        <span class="passport-cover-bottom">
-                            ÉDITION DES VOYAGEURS DU CŒUR
-                        </span>
-
+                            class="emblem-option"
+                            data-emblem="rose"
+                            aria-pressed="false">
+                        <span>❀</span>
+                        <strong>Douceur</strong>
                     </button>
 
-                    <p class="passport-cover-caption">
-                        Votre prochaine aventure commence ici.
-                    </p>
+                    <button type="button"
+                            class="emblem-option"
+                            data-emblem="star"
+                            aria-pressed="false">
+                        <span>✧</span>
+                        <strong>Espoir</strong>
+                    </button>
+
+                    <button type="button"
+                            class="emblem-option"
+                            data-emblem="heart"
+                            aria-pressed="true">
+                        <span>♡</span>
+                        <strong>Bienveillance</strong>
+                    </button>
+
+                    <button type="button"
+                            class="emblem-option"
+                            data-emblem="moon"
+                            aria-pressed="false">
+                        <span>☾</span>
+                        <strong>Rêverie</strong>
+                    </button>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
-        <!-- COMMENT JOUER -->
+    </section>
 
-        <section class="passport-how passport-reveal"
-                 id="comment-jouer">
+    <!-- =========================================
+         COMPAGNON
+    ========================================== -->
 
-            <div class="passport-heading">
+    <section class="kingdom-companion kingdom-reveal"
+             id="kingdom-companion">
 
-                <span class="passport-label">
-                    Une petite chasse aux trésors
-                </span>
+        <div class="kingdom-heading">
 
-                <h2>
-                    Trois étapes,
-                    <em>une belle aventure.</em>
-                </h2>
+            <span class="kingdom-eyebrow">
+                Une présence à vos côtés
+            </span>
 
-                <p>
-                    Les tampons sont cachés au fil des voyages.
-                    À vous de les retrouver !
-                </p>
+            <h2>
+                Votre compagnon
+                <em>de voyage</em>
+            </h2>
 
-            </div>
+            <p>
+                Une petite âme vous accompagnera
+                à travers les chemins du royaume.
+            </p>
 
-            <div class="passport-how-grid">
+        </div>
 
-                <article class="passport-how-card">
+        <div class="companion-grid">
 
-                    <span class="passport-how-number">01</span>
+            <button type="button"
+                    class="companion-card"
+                    data-companion="cat"
+                    aria-pressed="false">
 
-                    <div class="passport-how-icon"
-                         aria-hidden="true">
-
-                        <svg viewBox="0 0 100 100"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="2">
-
-                            <rect x="24" y="12"
-                                  width="54" height="76"
-                                  rx="5"/>
-
-                            <path d="M33 12V88"/>
-
-                            <circle cx="54" cy="44" r="15"/>
-
-                            <ellipse cx="54" cy="44"
-                                     rx="7" ry="15"/>
-
-                            <path d="M39 44H69"/>
-                            <path d="M44 67H65"/>
-
-                        </svg>
-
-                    </div>
-
-                    <h3>Personnalisez</h3>
-
-                    <p>
-                        Ajoutez votre prénom ou votre pseudonyme
-                        à votre passeport personnel.
-                    </p>
-
-                </article>
-
-                <article class="passport-how-card">
-
-                    <span class="passport-how-number">02</span>
-
-                    <div class="passport-how-icon"
-                         aria-hidden="true">
-
-                        <svg viewBox="0 0 100 100"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="2">
-
-                            <path d="M12 23L36 14
-                                     64 24 88 15
-                                     V77L64 86
-                                     36 76 12 85Z"/>
-
-                            <path d="M36 14V76M64 24V86"/>
-
-                            <path d="M22 64Q42 30 58 53"
-                                  stroke-dasharray="3 5"/>
-
-                            <circle cx="69" cy="42" r="12"/>
-
-                            <path d="M78 51L90 63"/>
-
-                        </svg>
-
-                    </div>
-
-                    <h3>Explorez</h3>
-
-                    <p>
-                        Parcourez les destinations de la page
-                        Voyages et cherchez les petits tampons
-                        dissimulés dans les récits.
-                    </p>
-
-                </article>
-
-                <article class="passport-how-card">
-
-                    <span class="passport-how-number">03</span>
-
-                    <div class="passport-how-icon"
-                         aria-hidden="true">
-
-                        <svg viewBox="0 0 100 100"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="2">
-
-                            <rect x="15" y="15"
-                                  width="70" height="52"
-                                  rx="3"/>
-
-                            <rect x="21" y="21"
-                                  width="58" height="40"
-                                  rx="2"/>
-
-                            <path d="M30 32H70M30 40H60"/>
-
-                            <circle cx="65" cy="63" r="13"
-                                    fill="#faf7f2"/>
-
-                            <path d="M58 74L53 91
-                                     65 85 76 91 72 74"/>
-
-                            <path d="M65 68
-                                     C50 58 62 52 65 59
-                                     C68 52 80 58 65 68Z"/>
-
-                        </svg>
-
-                    </div>
-
-                    <h3>Collectionnez</h3>
-
-                    <p>
-                        Retrouvez les quatorze tampons et
-                        débloquez votre diplôme personnalisé
-                        de voyageur du cœur.
-                    </p>
-
-                </article>
-
-            </div>
-
-            <div class="passport-hunt-note">
-
-                <span aria-hidden="true">✧</span>
-
-                <p>
-
-                    Pas besoin de prendre l'avion.
-                    Cette aventure se déroule entièrement
-                    sur le site, à votre rythme.
-
-                </p>
-
-                <a href="voyages.html"
-                   class="passport-button">
-
-                    Partir à l'aventure
-                    <span aria-hidden="true">→</span>
-
-                </a>
-
-            </div>
-
-        </section>
-
-        <!-- PASSEPORT INTERACTIF -->
-
-        <section class="passport-experience"
-                 id="mon-passeport">
-
-            <div class="passport-heading">
-
-                <span class="passport-label">
-                    Votre carnet personnel
-                </span>
-
-                <h2>
-                    Une aventure
-                    <em>à votre nom.</em>
-                </h2>
-
-                <p>
-                    Chaque tampon retrouvé viendra colorer
-                    une nouvelle page de votre passeport.
-                </p>
-
-            </div>
-
-            <!-- IDENTITÉ -->
-
-            <div class="passport-identity">
-
-                <div class="passport-identity-symbol"
-                     aria-hidden="true">♡</div>
-
-                <div class="passport-identity-content">
-
-                    <span class="passport-label">
-                        Ce passeport appartient à
-                    </span>
-
-                    <form id="passport-name-form">
-
-                        <label for="passport-name"
-                               class="passport-sr-only">
-
-                            Votre prénom ou pseudonyme
-
-                        </label>
-
-                        <input type="text"
-                               id="passport-name"
-                               maxlength="30"
-                               autocomplete="off"
-                               placeholder="Votre prénom ou pseudonyme">
-
-                        <button type="submit"
-                                class="passport-small-button">
-
-                            Enregistrer
-
-                        </button>
-
-                    </form>
-
-                    <p id="passport-name-message"
-                       aria-live="polite">
-
-                        Un petit prénom pour une grande aventure.
-
-                    </p>
-
+                <div class="companion-image companion-cat">
                 </div>
 
-            </div>
+                <div class="companion-description">
+                    <h3>Le chat</h3>
+                    <p>Curieux, discret et indépendant.</p>
+                </div>
 
-            <!-- PROGRESSION -->
+            </button>
 
-            <div class="passport-progress">
+            <button type="button"
+                    class="companion-card"
+                    data-companion="dog"
+                    aria-pressed="false">
 
-                <div class="passport-progress-header">
+                <div class="companion-image companion-dog">
+                </div>
 
-                    <div>
+                <div class="companion-description">
+                    <h3>Le chien</h3>
+                    <p>Fidèle, doux et courageux.</p>
+                </div>
 
-                        <span class="passport-label">
-                            Votre progression
+            </button>
+
+            <button type="button"
+                    class="companion-card"
+                    data-companion="rabbit"
+                    aria-pressed="false">
+
+                <div class="companion-image companion-rabbit">
+                </div>
+
+                <div class="companion-description">
+                    <h3>Le lapin</h3>
+                    <p>Délicat, attentif et rêveur.</p>
+                </div>
+
+            </button>
+
+        </div>
+
+        <div class="companion-personalization"
+             id="companion-personalization"
+             hidden>
+
+            <form id="companion-name-form">
+
+                <label for="companion-name">
+                    Donnez un prénom à votre compagnon
+                </label>
+
+                <input type="text"
+                       id="companion-name"
+                       maxlength="25"
+                       placeholder="Son prénom..."
+                       autocomplete="off"
+                       required>
+
+                <button type="submit"
+                        class="kingdom-button">
+                    Confirmer
+                </button>
+
+            </form>
+
+        </div>
+
+        <p id="companion-message"
+           aria-live="polite">
+        </p>
+
+    </section>
+
+    <!-- =========================================
+         MÉDAILLON PRINCIPAL
+    ========================================== -->
+
+    <section class="kingdom-medallion-section kingdom-reveal"
+             id="mon-passeport">
+
+        <div class="kingdom-heading">
+
+            <span class="kingdom-eyebrow">
+                Votre collection personnelle
+            </span>
+
+            <h2>
+                Le médaillon
+                <em>des âmes</em>
+            </h2>
+
+            <p>
+                Quatorze fragments.
+                Quatorze lumières.
+                Un seul cœur.
+            </p>
+
+        </div>
+
+        <div class="medallion-layout">
+
+            <div class="medallion-scene">
+
+                <div class="medallion-halo"></div>
+
+                <div class="medallion-chain"></div>
+
+                <div class="royal-medallion"
+                     id="royal-medallion">
+
+                    <div class="medallion-outer-ring"></div>
+                    <div class="medallion-inner-ring"></div>
+
+                    <div class="medallion-gems"
+                         id="medallion-gems">
+                    </div>
+
+                    <div class="medallion-center">
+
+                        <span class="medallion-brand">
+                            Cœur Errant
                         </span>
 
-                        <h3>Les tampons retrouvés</h3>
+                        <span class="medallion-emblem"
+                              id="medallion-emblem">
+                            ♡
+                        </span>
 
-                    </div>
+                        <span class="medallion-owner"
+                              id="medallion-owner">
+                            Votre royaume
+                        </span>
 
-                    <div class="passport-progress-count">
-
-                        <strong id="passport-count">0</strong>
-
-                        <span>
-                            / <span id="passport-total">14</span>
+                        <span class="medallion-counter">
+                            <strong id="fragment-count">0</strong>
+                            <span>/</span>
+                            <span id="fragment-total">14</span>
                         </span>
 
                     </div>
 
                 </div>
 
-                <div class="passport-progress-track"
-                     id="passport-progress-track"
+            </div>
+
+            <div class="medallion-information">
+
+                <span class="kingdom-eyebrow">
+                    Votre progression
+                </span>
+
+                <h3 id="kingdom-rank">
+                    Âme voyageuse
+                </h3>
+
+                <p id="kingdom-progress-message">
+                    Votre aventure ne fait que commencer.
+                </p>
+
+                <div class="kingdom-progress-track"
+                     id="kingdom-progress-track"
                      role="progressbar"
-                     aria-label="Tampons retrouvés"
+                     aria-label="Fragments retrouvés"
                      aria-valuemin="0"
                      aria-valuemax="14"
                      aria-valuenow="0">
 
-                    <div id="passport-progress-fill"></div>
-
-                </div>
-
-                <p id="passport-progress-message"
-                   aria-live="polite">
-
-                    Votre premier tampon vous attend...
-
-                </p>
-
-                <div class="passport-milestones">
-
-                    <span data-milestone="1">
-                        ♡ Premier pas
-                    </span>
-
-                    <span data-milestone="5">
-                        ✧ Explorateur
-                    </span>
-
-                    <span data-milestone="10">
-                        ✦ Grand voyageur
-                    </span>
-
-                    <span data-milestone="14">
-                        ♡ Voyageur du cœur
-                    </span>
-
-                </div>
-
-            </div>
-
-            <!-- LIVRET -->
-
-            <div class="passport-book-wrapper">
-
-                <div class="passport-book"
-                     id="passport-book">
-
-                    <article class="passport-paper passport-paper-left">
-
-                        <div class="passport-paper-header">
-
-                            <span>CŒUR ERRANT</span>
-                            <span aria-hidden="true">✧</span>
-
-                        </div>
-
-                        <div class="passport-page-content"
-                             id="passport-left-page">
-
-                            <span class="passport-label">
-                                Bienvenue
-                            </span>
-
-                            <h3>Voyageur du cœur</h3>
-
-                            <p>
-                                Ce passeport est votre invitation
-                                à découvrir le monde autrement.
-                            </p>
-
-                            <p>
-                                Chaque destination vous réserve
-                                un petit trésor à collectionner.
-                            </p>
-
-                        </div>
-
-                        <div class="passport-paper-footer">
-
-                            <span id="passport-left-number">01</span>
-                            <span aria-hidden="true">♡</span>
-
-                        </div>
-
-                    </article>
-
-                    <article class="passport-paper passport-paper-right">
-
-                        <div class="passport-paper-header">
-
-                            <span>LES EMPREINTES DU CŒUR</span>
-                            <span aria-hidden="true">✧</span>
-
-                        </div>
-
-                        <div class="passport-page-content"
-                             id="passport-right-page">
-
-                            <span class="passport-label">
-                                Votre mission
-                            </span>
-
-                            <h3>À vous de jouer.</h3>
-
-                            <p>
-                                Tournez les pages pour découvrir
-                                les destinations et leurs indices.
-                            </p>
-
-                            <a href="voyages.html"
-                               class="passport-text-button">
-
-                                Commencer mes recherches →
-
-                            </a>
-
-                        </div>
-
-                        <div class="passport-paper-footer">
-
-                            <span aria-hidden="true">♡</span>
-                            <span id="passport-right-number">02</span>
-
-                        </div>
-
-                    </article>
-
-                    <div class="passport-book-binding"
-                         aria-hidden="true"></div>
-
-                </div>
-
-                <div class="passport-book-controls">
-
-                    <button type="button"
-                            id="passport-prev"
-                            class="passport-page-button"
-                            aria-label="Page précédente"
-                            disabled>
-
-                        ←
-
-                    </button>
-
-                    <div class="passport-pagination"
-                         aria-live="polite">
-
-                        <span id="passport-page-current">1</span>
-                        <span>/</span>
-                        <span id="passport-page-total">8</span>
-
+                    <div class="kingdom-progress-fill"
+                         id="kingdom-progress-fill">
                     </div>
 
-                    <button type="button"
-                            id="passport-next"
-                            class="passport-page-button"
-                            aria-label="Page suivante">
-
-                        →
-
-                    </button>
-
                 </div>
 
-                <p class="passport-book-hint">
+                <div class="kingdom-milestones">
 
-                    Tournez les pages pour découvrir
-                    les étapes de votre aventure.
+                    <span data-milestone="3">3</span>
+                    <span data-milestone="5">5</span>
+                    <span data-milestone="8">8</span>
+                    <span data-milestone="10">10</span>
+                    <span data-milestone="14">14</span>
 
-                </p>
-
-            </div>
-
-        </section>
-
-        <!-- COLLECTION -->
-
-        <section class="passport-collection"
-                 id="collection">
-
-            <div class="passport-heading">
-
-                <span class="passport-label">
-                    Quatorze petits trésors
-                </span>
-
-                <h2>
-                    Les tampons
-                    <em>du cœur.</em>
-                </h2>
-
-                <p>
-
-                    Des ruelles bleues du Maroc aux paysages
-                    méditerranéens, chaque étape possède
-                    son propre tampon illustré.
-
-                    Cliquez sur une destination pour obtenir
-                    un indice.
-
-                </p>
-
-            </div>
-
-            <div class="passport-legend">
-
-                <span>
-
-                    <i class="passport-legend-dot discovered"></i>
-                    Retrouvé
-
-                </span>
-
-                <span>
-
-                    <i class="passport-legend-dot undiscovered"></i>
-                    À rechercher
-
-                </span>
-
-                <span>
-
-                    <i class="passport-legend-dot mystery"></i>
-                    Destination mystère
-
-                </span>
-
-            </div>
-
-            <div class="passport-stamp-grid"
-                 id="passport-stamp-grid">
-
-                <!-- Généré par passeport.js -->
-
-            </div>
-
-            <noscript>
-
-                <p>
-
-                    Activez JavaScript pour utiliser
-                    le passeport interactif.
-
-                    Vous pouvez toujours consulter
-                    la page <a href="voyages.html">Voyages</a>.
-
-                </p>
-
-            </noscript>
-
-            <div class="passport-collection-action">
-
-                <p>
-                    Un tampon vous manque ?
-                    Une nouvelle exploration vous attend.
-                </p>
+                </div>
 
                 <a href="voyages.html"
-                   class="passport-button">
-
-                    Reprendre mes recherches
-                    <span aria-hidden="true">→</span>
-
-                </a>
-
-            </div>
-
-        </section>
-
-        <!-- DESTINATION MYSTÈRE -->
-
-        <section class="passport-mystery-section"
-                 id="destination-mystere">
-
-            <div class="passport-mystery-inner">
-
-                <div class="passport-mystery-visual"
-                     aria-hidden="true">
-
-                    <div class="passport-mystery-halo"></div>
-
-                    <div class="passport-mystery-envelope">
-
-                        <div class="passport-envelope-back"></div>
-
-                        <div class="passport-envelope-paper">
-
-                            <span>✧</span>
-                            <p>Quelque part...</p>
-                            <span>♡</span>
-
-                        </div>
-
-                        <div class="passport-envelope-front"></div>
-
-                        <div class="passport-envelope-flap"></div>
-
-                        <div class="passport-envelope-seal">
-                            ♡
-                        </div>
-
-                    </div>
-
-                    <span class="passport-mystery-star">✦</span>
-
-                </div>
-
-                <div class="passport-mystery-content">
-
-                    <span class="passport-label">
-                        Un tampon encore secret
-                    </span>
-
-                    <h2>
-
-                        Prochain arrêt,
-                        <em>destination inconnue.</em>
-
-                    </h2>
-
-                    <p>
-
-                        Une nouvelle destination viendra
-                        bientôt rejoindre le passeport
-                        du cœur.
-
-                    </p>
-
-                    <p>
-
-                        Pour le moment, son illustration
-                        reste bien cachée dans cette enveloppe.
-
-                    </p>
-
-                    <div class="passport-mystery-details">
-
-                        <span>Décembre 2026</span>
-                        <span>Destination inconnue</span>
-                        <span>Tampon à venir ♡</span>
-
-                    </div>
-
-                    <p class="passport-mystery-quote">
-
-                        Peu importe la destination,
-                        le cœur connaît déjà le chemin.
-
-                    </p>
-
-                    <p class="passport-mystery-bonus">
-
-                        Cette destination bonus n'est pas
-                        nécessaire pour obtenir votre diplôme.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- DIPLÔME -->
-
-        <section class="passport-reward-section"
-                 id="diplome">
-
-            <div class="passport-heading">
-
-                <span class="passport-label">
-                    Votre récompense
-                </span>
-
-                <h2>
-
-                    Devenez un véritable
-                    <em>voyageur du cœur.</em>
-
-                </h2>
-
-                <p>
-
-                    Retrouvez les quatorze tampons disponibles
-                    pour débloquer votre diplôme personnalisé.
-
-                    Un souvenir de votre aventure
-                    dans l'univers de Cœur Errant.
-
-                </p>
-
-            </div>
-
-            <div class="passport-certificate"
-                 id="passport-certificate">
-
-                <div class="passport-certificate-border">
-
-                    <span class="passport-certificate-brand">
-                        CŒUR ERRANT
-                    </span>
-
-                    <span class="passport-certificate-symbol">
-                        ♡
-                    </span>
-
-                    <span class="passport-label">
-                        Certificat symbolique
-                    </span>
-
-                    <h3>Voyageur du cœur</h3>
-
-                    <p>Décerné à</p>
-
-                    <strong id="certificate-name">
-                        Votre prénom
-                    </strong>
-
-                    <p class="passport-certificate-text">
-
-                        Pour avoir exploré les quatorze étapes
-                        de Cœur Errant et choisi de découvrir
-                        le monde avec bienveillance.
-
-                    </p>
-
-                    <div class="passport-certificate-signature">
-
-                        <span>Avec amour,</span>
-                        <em>Cœur Errant</em>
-
-                    </div>
-
-                    <span class="passport-certificate-date"
-                          id="certificate-date"></span>
-
-                </div>
-
-                <div class="passport-certificate-lock"
-                     id="certificate-lock">
-
-                    <span aria-hidden="true">♡</span>
-
-                    <h4>
-                        Encore quelques trésors...
-                    </h4>
-
-                    <p id="certificate-lock-message">
-
-                        Retrouvez tous les tampons
-                        pour débloquer votre diplôme.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <button type="button"
-                    class="passport-button"
-                    id="download-certificate"
-                    disabled>
-
-                Télécharger mon diplôme
-
-                <span aria-hidden="true">↓</span>
-
-            </button>
-
-            <p class="passport-certificate-note">
-
-                Gratuit · Personnalisé · Format PNG
-
-            </p>
-
-        </section>
-
-        <!-- SURPRISE -->
-
-        <section class="passport-surprise-section">
-
-            <div class="passport-surprise-inner">
-
-                <span class="passport-label">
-                    Les petits détails
-                </span>
-
-                <h2>
-
-                    Les trésors ne sont pas
-                    <em>toujours bien cachés.</em>
-
-                </h2>
-
-                <p>
-
-                    Parfois, il suffit d'être un peu curieux
-                    pour découvrir une jolie surprise.
-
-                </p>
-
-                <button type="button"
-                        class="passport-secret-paw"
-                        id="passport-secret-paw"
-                        aria-label="Découvrir la surprise"
-                        aria-controls="passport-secret-message"
-                        aria-expanded="false">
-
-                    <svg viewBox="0 0 100 100"
-                         fill="currentColor"
-                         aria-hidden="true">
-
-                        <ellipse cx="25" cy="34"
-                                 rx="10" ry="14"
-                                 transform="rotate(-25 25 34)"/>
-
-                        <ellipse cx="43" cy="21"
-                                 rx="10" ry="14"/>
-
-                        <ellipse cx="62" cy="21"
-                                 rx="10" ry="14"/>
-
-                        <ellipse cx="80" cy="34"
-                                 rx="10" ry="14"
-                                 transform="rotate(25 80 34)"/>
-
-                        <path d="M52 42
-                                 C38 42 36 55 25 65
-                                 C12 78 25 94 41 87
-                                 Q52 80 63 87
-                                 C79 94 92 78 79 65
-                                 C68 55 66 42 52 42Z"/>
-
-                    </svg>
-
-                </button>
-
-                <p class="passport-secret-hint">
-
-                    Pssst... essayez de toucher cette petite patte.
-
-                </p>
-
-                <div class="passport-secret-message"
-                     id="passport-secret-message"
-                     hidden>
-
+                   class="kingdom-button">
+                    Partir à l'aventure
                     <span aria-hidden="true">✧</span>
-
-                    <h3>Un trésor supplémentaire !</h3>
-
-                    <p>
-
-                        Vous avez trouvé la patte secrète.
-
-                        Gardez cette curiosité lorsque
-                        vous découvrirez le monde.
-
-                        Les plus belles choses se trouvent
-                        parfois là où personne ne pense
-                        à regarder.
-
-                    </p>
-
-                    <span>Avec amour, Cœur Errant ♡</span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- GESTION DU PASSEPORT -->
-
-        <section class="passport-settings">
-
-            <div class="passport-settings-inner">
-
-                <span class="passport-label">
-                    Votre espace personnel
-                </span>
-
-                <h3>Votre aventure reste la vôtre.</h3>
-
-                <p id="passport-storage-note">
-
-                    Votre prénom et votre progression sont
-                    enregistrés localement dans votre navigateur.
-
-                    Aucun compte n'est nécessaire.
-                    Si vous effacez les données de votre navigateur
-                    ou changez d'appareil, votre collection
-                    ne sera pas automatiquement transférée.
-
-                </p>
-
-                <button type="button"
-                        class="passport-text-button"
-                        id="reset-passport">
-
-                    Recommencer mon passeport
-
-                </button>
-
-                <a href="mentions-legales.html"
-                   class="passport-text-button">
-
-                    En savoir plus sur la confidentialité
-
                 </a>
-
-            </div>
-
-        </section>
-
-        <!-- CONCLUSION -->
-
-        <section class="passport-ending">
-
-            <div class="passport-ending-content">
-
-                <span class="passport-ending-heart"
-                      aria-hidden="true">♡</span>
-
-                <h2>
-
-                    Un monde à explorer.
-                    <em>Un cœur à garder ouvert.</em>
-
-                </h2>
-
-                <p>
-
-                    Collectionner des souvenirs, c'est beau.
-
-                    Transformer sa curiosité en bienveillance,
-                    c'est encore plus précieux.
-
-                </p>
-
-                <div class="passport-ending-actions">
-
-                    <a href="voyages.html"
-                       class="passport-button">
-
-                        Explorer les voyages
-                        <span aria-hidden="true">→</span>
-
-                    </a>
-
-                    <a href="agir.html"
-                       class="passport-text-button">
-
-                        À mon tour d'agir ♡
-
-                    </a>
-
-                </div>
-
-                <p class="passport-ending-signature">
-
-                    Sans frontières. Avec le cœur.
-
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- FENÊTRE DES DESTINATIONS -->
-
-    <dialog class="passport-destination-dialog"
-            id="passport-destination-dialog"
-            aria-labelledby="destination-title">
-
-        <div class="passport-destination-inner">
-
-            <button type="button"
-                    class="passport-dialog-close"
-                    id="close-destination"
-                    aria-label="Fermer">
-
-                ×
-
-            </button>
-
-            <!-- Illustration SVG générée par JavaScript -->
-
-            <div class="passport-destination-illustration"
-                 id="destination-illustration"
-                 aria-hidden="true">
-
-            </div>
-
-            <div class="passport-destination-content">
-
-                <div class="passport-destination-stamp"
-                     id="destination-stamp"></div>
-
-                <span class="passport-label"
-                      id="destination-date"></span>
-
-                <h2 id="destination-title"></h2>
-
-                <p class="passport-destination-country"
-                   id="destination-country"></p>
-
-                <div class="passport-destination-fact"
-                     id="destination-fact"></div>
-
-                <div class="passport-destination-hint">
-
-                    <span class="passport-label">
-                        Votre indice
-                    </span>
-
-                    <p id="destination-hint"></p>
-
-                </div>
-
-                <p class="passport-destination-status"
-                   id="destination-status"
-                   aria-live="polite"></p>
-
-                <div class="passport-destination-actions">
-
-                    <a href="voyages.html"
-                       class="passport-button"
-                       id="destination-travel-link">
-
-                        Chercher ce tampon
-                        <span aria-hidden="true">→</span>
-
-                    </a>
-
-                    <button type="button"
-                            class="passport-text-button"
-                            id="finish-destination">
-
-                        Retour à mon passeport
-
-                    </button>
-
-                </div>
 
             </div>
 
         </div>
 
-    </dialog>
+    </section>
 
-    <!-- CONFIRMATION DE RÉINITIALISATION -->
+    <!-- =========================================
+         COFFRET DES FRAGMENTS
+    ========================================== -->
 
-    <dialog class="passport-reset-dialog"
-            id="passport-reset-dialog"
-            aria-labelledby="passport-reset-title">
+    <section class="kingdom-treasures kingdom-reveal"
+             id="kingdom-treasures">
 
-        <div class="passport-reset-inner">
+        <div class="kingdom-heading">
 
-            <span class="passport-reset-heart"
-                  aria-hidden="true">♡</span>
+            <span class="kingdom-eyebrow">
+                Des merveilles à réunir
+            </span>
 
-            <h2 id="passport-reset-title">
-
-                Une nouvelle aventure ?
-
+            <h2>
+                Le coffret
+                <em>des fragments</em>
             </h2>
 
             <p>
-
-                Votre prénom, vos tampons et votre diplôme
-                seront réinitialisés.
-
-                Cette action ne peut pas être annulée.
-
+                Chaque trésor retrouvé prend place
+                dans votre collection.
             </p>
 
-            <div class="passport-reset-actions">
+        </div>
+
+        <div class="treasure-box">
+
+            <div class="treasure-box-decoration">
+                <span>✧</span>
+                <span>Cœur Errant</span>
+                <span>✧</span>
+            </div>
+
+            <div class="treasure-grid"
+                 id="treasure-grid">
+            </div>
+
+            <div class="treasure-box-lock"
+                 aria-hidden="true">
+                ◇
+            </div>
+
+        </div>
+
+        <div class="treasure-legend">
+
+            <span>
+                <i class="legend-discovered"></i>
+                Fragment retrouvé
+            </span>
+
+            <span>
+                <i class="legend-locked"></i>
+                Fragment encore caché
+            </span>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================
+         LES LIEUX ENCHANTÉS
+    ========================================== -->
+
+    <section class="kingdom-world kingdom-reveal"
+             id="kingdom-world">
+
+        <div class="kingdom-heading">
+
+            <span class="kingdom-eyebrow">
+                Au-delà des chemins
+            </span>
+
+            <h2>
+                Les lieux
+                <em>oubliés du royaume</em>
+            </h2>
+
+            <p>
+                À mesure que votre médaillon retrouve
+                sa lumière, de nouvelles portes s'ouvrent.
+            </p>
+
+        </div>
+
+        <div class="world-landscape">
+
+            <div class="world-landscape-overlay"></div>
+
+            <div class="world-landscape-content">
+                <span>✧</span>
+                <h3>Le Royaume des cœurs errants</h3>
+                <p>Un monde qui s'éveille avec vous.</p>
+            </div>
+
+        </div>
+
+        <div class="kingdom-locations">
+
+            <!-- BIBLIOTHÈQUE -->
+
+            <article class="location-card is-locked"
+                     data-location="library"
+                     data-required="3">
+
+                <div class="location-image location-library">
+
+                    <span class="location-lock">
+                        <svg viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.5"
+                             aria-hidden="true">
+                            <rect x="5" y="10"
+                                  width="14" height="11" rx="2"/>
+                            <path d="M8 10V6a4 4 0 018 0v4"/>
+                            <path d="M12 14v3"/>
+                        </svg>
+                    </span>
+
+                    <span class="location-requirement">
+                        3 fragments
+                    </span>
+
+                </div>
+
+                <div class="location-content">
+
+                    <span class="location-number">
+                        Premier secret
+                    </span>
+
+                    <h3>La bibliothèque des âmes</h3>
+
+                    <p>
+                        Des lettres oubliées et des pensées
+                        précieuses reposent entre les pages
+                        de livres anciens.
+                    </p>
+
+                    <button type="button"
+                            class="location-button"
+                            data-open-location="library"
+                            disabled>
+                        Porte verrouillée
+                    </button>
+
+                </div>
+
+            </article>
+
+            <!-- SERRE -->
+
+            <article class="location-card is-locked"
+                     data-location="greenhouse"
+                     data-required="5">
+
+                <div class="location-image location-greenhouse">
+
+                    <span class="location-lock">
+                        <svg viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.5"
+                             aria-hidden="true">
+                            <rect x="5" y="10"
+                                  width="14" height="11" rx="2"/>
+                            <path d="M8 10V6a4 4 0 018 0v4"/>
+                            <path d="M12 14v3"/>
+                        </svg>
+                    </span>
+
+                    <span class="location-requirement">
+                        5 fragments
+                    </span>
+
+                </div>
+
+                <div class="location-content">
+
+                    <span class="location-number">
+                        Deuxième secret
+                    </span>
+
+                    <h3>La serre des merveilles</h3>
+
+                    <p>
+                        Derrière une ancienne verrière,
+                        les roses et les papillons gardent
+                        de délicats mystères.
+                    </p>
+
+                    <button type="button"
+                            class="location-button"
+                            data-open-location="greenhouse"
+                            disabled>
+                        Porte verrouillée
+                    </button>
+
+                </div>
+
+            </article>
+
+            <!-- LAC -->
+
+            <article class="location-card is-locked"
+                     data-location="lake"
+                     data-required="8">
+
+                <div class="location-image location-lake">
+
+                    <span class="location-lock">
+                        <svg viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.5"
+                             aria-hidden="true">
+                            <rect x="5" y="10"
+                                  width="14" height="11" rx="2"/>
+                            <path d="M8 10V6a4 4 0 018 0v4"/>
+                            <path d="M12 14v3"/>
+                        </svg>
+                    </span>
+
+                    <span class="location-requirement">
+                        8 fragments
+                    </span>
+
+                </div>
+
+                <div class="location-content">
+
+                    <span class="location-number">
+                        Troisième secret
+                    </span>
+
+                    <h3>Le lac des souhaits</h3>
+
+                    <p>
+                        À la surface de l'eau,
+                        de petites lanternes emportent
+                        les souhaits vers l'horizon.
+                    </p>
+
+                    <button type="button"
+                            class="location-button"
+                            data-open-location="lake"
+                            disabled>
+                        Porte verrouillée
+                    </button>
+
+                </div>
+
+            </article>
+
+            <!-- SOURCE -->
+
+            <article class="location-card is-locked"
+                     data-location="spring"
+                     data-required="10">
+
+                <div class="location-image location-spring">
+
+                    <span class="location-lock">
+                        <svg viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.5"
+                             aria-hidden="true">
+                            <rect x="5" y="10"
+                                  width="14" height="11" rx="2"/>
+                            <path d="M8 10V6a4 4 0 018 0v4"/>
+                            <path d="M12 14v3"/>
+                        </svg>
+                    </span>
+
+                    <span class="location-requirement">
+                        10 fragments
+                    </span>
+
+                </div>
+
+                <div class="location-content">
+
+                    <span class="location-number">
+                        Quatrième secret
+                    </span>
+
+                    <h3>La source des merveilles</h3>
+
+                    <p>
+                        Au cœur d'une forêt silencieuse,
+                        une cascade cristalline dissimule
+                        un trésor inattendu.
+                    </p>
+
+                    <button type="button"
+                            class="location-button"
+                            data-open-location="spring"
+                            disabled>
+                        Passage verrouillé
+                    </button>
+
+                </div>
+
+            </article>
+
+            <!-- CHÂTEAU -->
+
+            <article class="location-card location-final is-locked"
+                     data-location="castle"
+                     data-required="14">
+
+                <div class="location-image location-castle">
+
+                    <span class="location-lock">
+                        <svg viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.5"
+                             aria-hidden="true">
+                            <rect x="5" y="10"
+                                  width="14" height="11" rx="2"/>
+                            <path d="M8 10V6a4 4 0 018 0v4"/>
+                            <path d="M12 14v3"/>
+                        </svg>
+                    </span>
+
+                    <span class="location-requirement">
+                        14 fragments
+                    </span>
+
+                </div>
+
+                <div class="location-content">
+
+                    <span class="location-number">
+                        Le dernier secret
+                    </span>
+
+                    <h3>Le château oublié</h3>
+
+                    <p>
+                        Lorsque toutes les lumières
+                        seront réunies, ses portes
+                        s'ouvriront enfin.
+                    </p>
+
+                    <button type="button"
+                            class="location-button"
+                            data-open-location="castle"
+                            disabled>
+                        Porte verrouillée
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================
+         AMBIANCE JOUR / NUIT
+    ========================================== -->
+
+    <section class="kingdom-atmosphere kingdom-reveal">
+
+        <div class="atmosphere-content">
+
+            <span class="kingdom-eyebrow">
+                Un royaume vivant
+            </span>
+
+            <h2>
+                Entre lumière
+                <em>et clair de lune</em>
+            </h2>
+
+            <p>
+                Choisissez l'atmosphère qui accompagnera
+                votre exploration.
+            </p>
+
+            <div class="atmosphere-options">
 
                 <button type="button"
-                        class="passport-button"
-                        id="confirm-reset">
-
-                    Recommencer
-
+                        data-atmosphere="auto"
+                        aria-pressed="true">
+                    <span>✧</span>
+                    Automatique
                 </button>
 
                 <button type="button"
-                        class="passport-text-button"
-                        id="cancel-reset">
+                        data-atmosphere="day"
+                        aria-pressed="false">
+                    <span>☼</span>
+                    Lumière du jour
+                </button>
 
-                    Garder mon passeport
-
+                <button type="button"
+                        data-atmosphere="night"
+                        aria-pressed="false">
+                    <span>☾</span>
+                    Clair de lune
                 </button>
 
             </div>
 
         </div>
 
-    </dialog>
+    </section>
 
-    <!-- NOTIFICATIONS -->
+    <!-- =========================================
+         DESTINATION MYSTÈRE
+    ========================================== -->
 
-    <div class="passport-toast"
-         id="passport-toast"
-         role="status"
-         aria-live="polite"
-         hidden>
+    <section class="kingdom-mystery kingdom-reveal"
+             id="destination-mystere">
 
-        <span class="passport-toast-icon"
-              aria-hidden="true">♡</span>
+        <div class="mystery-visual">
 
-        <div>
+            <div class="mystery-envelope">
 
-            <strong id="passport-toast-title">
-                Une jolie surprise !
-            </strong>
+                <div class="mystery-envelope-back"></div>
+                <div class="mystery-envelope-paper"></div>
+                <div class="mystery-envelope-front"></div>
+                <div class="mystery-envelope-flap"></div>
 
-            <p id="passport-toast-message"></p>
+                <span class="mystery-wax-seal">
+                    ♡
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="mystery-content">
+
+            <span class="kingdom-eyebrow">
+                Un nouveau chapitre
+            </span>
+
+            <h2>
+                Le fragment
+                <em>encore inconnu</em>
+            </h2>
+
+            <p>
+                Quelque part dans le monde,
+                un nouveau trésor attend d'être découvert.
+            </p>
+
+            <span class="mystery-date">
+                Décembre 2026
+            </span>
+
+            <p class="mystery-note">
+                Ce fragment supplémentaire ne compte
+                pas parmi les quatorze trésors nécessaires
+                pour terminer votre première aventure.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================
+         CERTIFICAT FINAL
+    ========================================== -->
+
+    <section class="kingdom-reward kingdom-reveal"
+             id="kingdom-reward">
+
+        <div class="kingdom-heading">
+
+            <span class="kingdom-eyebrow">
+                Au terme de votre aventure
+            </span>
+
+            <h2>
+                Gardien
+                <em>des cœurs errants</em>
+            </h2>
+
+        </div>
+
+        <div class="kingdom-certificate"
+             id="kingdom-certificate">
+
+            <div class="certificate-border">
+
+                <div class="certificate-ornament">
+                    ───── ✧ ─────
+                </div>
+
+                <span class="certificate-brand">
+                    Cœur Errant
+                </span>
+
+                <div class="certificate-medallion">
+                    ♡
+                </div>
+
+                <span class="certificate-label">
+                    Certificat symbolique
+                </span>
+
+                <h3>
+                    Gardien des cœurs errants
+                </h3>
+
+                <p>Décerné à</p>
+
+                <strong id="certificate-name">
+                    Votre prénom
+                </strong>
+
+                <p>
+                    Pour avoir retrouvé les quatorze
+                    fragments du royaume et célébré
+                    les valeurs de bienveillance,
+                    de douceur et de respect.
+                </p>
+
+                <span id="certificate-date">
+                    Votre date de découverte
+                </span>
+
+                <div class="certificate-signature">
+                    Avec le cœur,
+                    <em>Cœur Errant</em>
+                </div>
+
+                <div class="certificate-ornament">
+                    ───── ✧ ─────
+                </div>
+
+            </div>
+
+            <div class="certificate-lock"
+                 id="certificate-lock">
+
+                <span>◇</span>
+
+                <h3>Un trésor vous attend</h3>
+
+                <p>
+                    Retrouvez les 14 fragments
+                    pour dévoiler votre certificat.
+                </p>
+
+            </div>
+
+        </div>
+
+        <button type="button"
+                class="kingdom-button"
+                id="download-certificate"
+                disabled>
+            Conserver mon certificat
+        </button>
+
+    </section>
+
+    <!-- =========================================
+         SECRET FACULTATIF
+    ========================================== -->
+
+    <section class="kingdom-hidden-secret">
+
+        <button type="button"
+                id="kingdom-secret"
+                class="kingdom-secret-button"
+                aria-label="Découvrir un secret">
+            ✧
+        </button>
+
+        <div class="secret-message"
+             id="kingdom-secret-message"
+             hidden>
+
+            <span class="kingdom-eyebrow">
+                Pour les âmes curieuses
+            </span>
+
+            <p>
+                Les plus belles choses sont parfois
+                celles que personne ne pense à chercher.
+            </p>
+
+            <span>♡</span>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================
+         PARAMÈTRES
+    ========================================== -->
+
+    <section class="kingdom-settings">
+
+        <div class="kingdom-settings-inner">
+
+            <h3>Votre aventure vous appartient</h3>
+
+            <p id="kingdom-storage-note">
+                Votre progression peut être conservée
+                sur cet appareil avec votre accord.
+                Elle n'est pas synchronisée avec
+                vos autres appareils.
+            </p>
+
+            <div class="kingdom-settings-actions">
+
+                <button type="button"
+                        id="reset-kingdom"
+                        class="kingdom-text-button">
+                    Recommencer mon aventure
+                </button>
+
+                <a href="mentions-legales.html">
+                    Confidentialité
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================
+         CONCLUSION
+    ========================================== -->
+
+    <section class="kingdom-ending">
+
+        <div class="kingdom-ending-content">
+
+            <span class="ending-symbol">♡</span>
+
+            <span class="kingdom-eyebrow">
+                Au-delà de l'enchantement
+            </span>
+
+            <h2>
+                La véritable magie
+                <em>existe aussi dans notre monde.</em>
+            </h2>
+
+            <p>
+                Elle se trouve dans une gamelle remplie,
+                un regard bienveillant, un instant
+                de douceur offert à une âme oubliée.
+            </p>
+
+            <p>
+                Aucun pouvoir extraordinaire n'est nécessaire
+                pour rendre le monde un peu plus beau.
+            </p>
+
+            <div class="kingdom-ending-actions">
+
+                <a href="voyages.html"
+                   class="kingdom-button">
+                    Continuer l'aventure
+                </a>
+
+                <a href="agir.html"
+                   class="kingdom-outline-button">
+                    Agir dans le monde réel
+                </a>
+
+            </div>
+
+            <span class="kingdom-signature">
+                Avec tout mon cœur,
+                Cœur Errant.
+            </span>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- =============================================
+     FENÊTRE D'UN FRAGMENT
+============================================== -->
+
+<dialog class="kingdom-dialog treasure-dialog"
+        id="treasure-dialog"
+        aria-labelledby="treasure-title">
+
+    <div class="kingdom-dialog-inner">
+
+        <button type="button"
+                class="kingdom-dialog-close"
+                data-close-dialog="treasure-dialog"
+                aria-label="Fermer">
+            ×
+        </button>
+
+        <div class="treasure-dialog-visual"
+             id="treasure-visual">
+        </div>
+
+        <span class="kingdom-eyebrow"
+              id="treasure-destination">
+        </span>
+
+        <h2 id="treasure-title"></h2>
+
+        <p id="treasure-meaning"></p>
+
+        <span id="treasure-status"
+              class="treasure-status">
+        </span>
+
+        <button type="button"
+                class="kingdom-button"
+                data-close-dialog="treasure-dialog">
+            Retour à mon coffret
+        </button>
+
+    </div>
+
+</dialog>
+
+<!-- =============================================
+     FENÊTRE D'UN LIEU ENCHANTÉ
+============================================== -->
+
+<dialog class="kingdom-dialog location-dialog"
+        id="location-dialog"
+        aria-labelledby="location-dialog-title">
+
+    <div class="location-dialog-inner">
+
+        <button type="button"
+                class="kingdom-dialog-close"
+                data-close-dialog="location-dialog"
+                aria-label="Fermer">
+            ×
+        </button>
+
+        <div class="location-dialog-image"
+             id="location-dialog-image">
+        </div>
+
+        <div class="location-dialog-content">
+
+            <span class="kingdom-eyebrow">
+                Un secret dévoilé
+            </span>
+
+            <h2 id="location-dialog-title"></h2>
+
+            <p id="location-dialog-description"></p>
+
+            <div id="location-interaction"></div>
+
+            <button type="button"
+                    class="kingdom-outline-button"
+                    data-close-dialog="location-dialog">
+                Retour au royaume
+            </button>
 
         </div>
 
     </div>
 
-    <!-- CONFETTIS -->
+</dialog>
 
-    <div class="passport-confetti"
-         id="passport-confetti"
-         aria-hidden="true"></div>
+<!-- =============================================
+     CONFIRMATION DE RÉINITIALISATION
+============================================== -->
 
-    <!-- FOOTER -->
+<dialog class="kingdom-dialog reset-dialog"
+        id="kingdom-reset-dialog"
+        aria-labelledby="reset-dialog-title">
 
-    <footer class="ce-footer">
+    <div class="kingdom-dialog-inner">
 
-        <div class="ce-footer-decoration"
-             aria-hidden="true">
+        <span class="reset-symbol">♡</span>
 
-            <span>♡</span>
-            <span>✧</span>
-            <span>✦</span>
-            <span>♡</span>
-            <span>✧</span>
+        <h2 id="reset-dialog-title">
+            Une nouvelle aventure ?
+        </h2>
+
+        <p>
+            Votre collection, votre compagnon
+            et votre progression seront effacés
+            de cet appareil.
+        </p>
+
+        <div class="reset-dialog-actions">
+
+            <button type="button"
+                    class="kingdom-outline-button"
+                    data-close-dialog="kingdom-reset-dialog">
+                Annuler
+            </button>
+
+            <button type="button"
+                    class="kingdom-button"
+                    id="confirm-reset-kingdom">
+                Recommencer
+            </button>
 
         </div>
 
-        <div class="ce-footer-inner">
+    </div>
 
-            <div class="ce-footer-brand">
+</dialog>
 
-                <a href="index.html">
+<!-- =============================================
+     NOTIFICATION
+============================================== -->
 
-                    <img src="logo.jpeg"
-                         alt="Cœur Errant">
+<div class="kingdom-toast"
+     id="kingdom-toast"
+     role="status"
+     aria-live="polite"
+     hidden>
 
-                </a>
+    <span class="kingdom-toast-icon">✧</span>
 
-                <h2>Cœur Errant</h2>
+    <div>
+        <strong id="kingdom-toast-title"></strong>
+        <p id="kingdom-toast-message"></p>
+    </div>
 
-                <p class="ce-footer-tagline">
+</div>
 
-                    Chaque animal a une histoire.
+<div class="kingdom-celebration"
+     id="kingdom-celebration"
+     aria-hidden="true">
+</div>
 
-                </p>
+<!-- =============================================
+     FOOTER
+============================================== -->
 
-                <p class="ce-footer-description">
+<footer class="ce-footer">
 
-                    Parce que même les plus petites âmes
-                    méritent une place dans ce monde.
+    <div class="ce-footer-inner">
 
-                </p>
+        <div class="ce-footer-brand">
 
+            <img src="logo.jpeg"
+                 alt="Cœur Errant"
+                 loading="lazy">
+
+            <h2>Cœur Errant</h2>
+
+            <p class="ce-footer-tagline">
+                Chaque animal a une histoire.
+            </p>
+
+            <p class="ce-footer-description">
+                Parce que même les plus petites âmes
+                méritent une place dans ce monde.
+            </p>
+
+        </div>
+
+        <div class="ce-footer-socials">
+
+            <a href="https://www.instagram.com/coeur.errant/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram">
+                <img src="https://cdn.simpleicons.org/instagram/A85E68"
+                     alt=""
+                     loading="lazy">
+            </a>
+
+            <a href="https://www.tiktok.com/@coeur_errant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="TikTok">
+                <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+                     alt=""
+                     loading="lazy">
+            </a>
+
+            <a href="https://www.youtube.com/@CoeurErrant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="YouTube">
+                <img src="https://cdn.simpleicons.org/youtube/A85E68"
+                     alt=""
+                     loading="lazy">
+            </a>
+
+            <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Facebook">
+                <img src="https://cdn.simpleicons.org/facebook/A85E68"
+                     alt=""
+                     loading="lazy">
+            </a>
+
+            <a href="https://www.snapchat.com/add/coeur_errant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Snapchat">
+                <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+                     alt=""
+                     loading="lazy">
+            </a>
+
+        </div>
+
+        <div class="ce-footer-navigation">
+
+            <div class="ce-footer-column">
+                <h3>Découvrir</h3>
+                <a href="index.html#histoire">Mon histoire</a>
+                <a href="mission.html">La mission</a>
+                <a href="voyages.html">Voyages</a>
             </div>
 
-            <div class="ce-footer-socials">
-
-                <a href="https://www.tiktok.com/@coeur_errant"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="TikTok">
-
-                    <img src="https://cdn.simpleicons.org/tiktok/A85E68"
-                         alt="">
-
-                </a>
-
-                <a href="https://www.instagram.com/coeur.errant/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Instagram">
-
-                    <img src="https://cdn.simpleicons.org/instagram/A85E68"
-                         alt="">
-
-                </a>
-
-                <a href="https://www.youtube.com/@CoeurErrant"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="YouTube">
-
-                    <img src="https://cdn.simpleicons.org/youtube/A85E68"
-                         alt="">
-
-                </a>
-
-                <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Facebook">
-
-                    <img src="https://cdn.simpleicons.org/facebook/A85E68"
-                         alt="">
-
-                </a>
-
-                <a href="https://www.snapchat.com/add/coeur_errant"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Snapchat">
-
-                    <img src="https://cdn.simpleicons.org/snapchat/A85E68"
-                         alt="">
-
-                </a>
-
-                <a href="mailto:coeur.errant@outlook.be"
-                   aria-label="Contact par e-mail">
-
-                    <svg width="21"
-                         height="21"
-                         viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="#a85e68"
-                         stroke-width="1.5"
-                         aria-hidden="true">
-
-                        <rect x="3" y="5"
-                              width="18" height="14"
-                              rx="2"/>
-
-                        <path d="m3 7 9 6 9-6"/>
-
-                    </svg>
-
-                </a>
-
+            <div class="ce-footer-column">
+                <h3>Notre univers</h3>
+                <a href="livres.html">Mes livres</a>
+                <a href="etoiles.html">Nos étoiles</a>
+                <a href="passeport.html">Le royaume</a>
             </div>
 
-            <div class="ce-footer-navigation">
-
-                <div class="ce-footer-column">
-
-                    <h3>Découvrir</h3>
-
-                    <a href="index.html#histoire">
-                        Mon histoire
-                    </a>
-
-                    <a href="mission.html">La mission</a>
-
-                    <a href="voyages.html">Voyages</a>
-
-                    <a href="passeport.html">
-                        Le passeport du cœur
-                    </a>
-
-                </div>
-
-                <div class="ce-footer-column">
-
-                    <h3>Notre univers</h3>
-
-                    <a href="livres.html">Mes livres</a>
-
-                    <a href="etoiles.html">Nos étoiles</a>
-
-                    <a href="agir.html">À votre tour d'agir</a>
-
-                    <a href="soutenir.html">Soutenir</a>
-
-                </div>
-
-                <div class="ce-footer-column">
-
-                    <h3>Restons proches</h3>
-
-                    <a href="mailto:coeur.errant@outlook.be">
-                        Me contacter
-                    </a>
-
-                    <a href="https://www.instagram.com/coeur.errant/"
-                       target="_blank"
-                       rel="noopener noreferrer">
-
-                        Suivre l'aventure
-
-                    </a>
-
-                    <a href="mentions-legales.html">
-
-                        Mentions légales et confidentialité
-
-                    </a>
-
-                    <a href="index-nl.html">
-                        Nederlands
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="ce-footer-signature">
-
-                <span class="ce-footer-heart"
-                      aria-hidden="true">♡</span>
-
-                <p>
-
-                    Créé avec amour,
-                    pour ceux qui n'ont pas de voix.
-
-                </p>
-
-                <div class="ce-footer-copyright">
-
-                    © 2026 Cœur Errant — Tous droits réservés.
-
-                </div>
-
+            <div class="ce-footer-column">
+                <h3>Restons proches</h3>
+                <a href="soutenir.html">Soutenir</a>
+                <a href="agir.html">À votre tour d'agir</a>
+                <a href="mailto:coeur.errant@outlook.be">
+                    Me contacter
+                </a>
+                <a href="mentions-legales.html">
+                    Mentions légales
+                </a>
             </div>
 
         </div>
 
-    </footer>
+        <div class="ce-footer-signature">
 
-    <!-- MENU MOBILE -->
+            <span class="ce-footer-heart">♡</span>
 
-    <script>
+            <p>
+                Créé avec amour,
+                pour ceux qui n'ont pas de voix.
+            </p>
 
-        (() => {
+        </div>
 
-            const hamburger =
-                document.getElementById("hamburger");
+        <p class="ce-footer-copyright">
+            © 2026 Cœur Errant — Tous droits réservés.
+        </p>
 
-            const navLinks =
-                document.getElementById("nav-links");
+    </div>
 
-            function setMenu(opened) {
+</footer>
 
-                navLinks.classList.toggle("open", opened);
+<script>
+    (() => {
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("nav-links");
 
-                hamburger.classList.toggle("open", opened);
+        if (!hamburger || !menu) return;
 
-                hamburger.setAttribute(
-                    "aria-expanded",
-                    String(opened)
-                );
+        function closeMenu() {
+            hamburger.classList.remove("open");
+            menu.classList.remove("open");
+            hamburger.setAttribute("aria-expanded", "false");
+        }
 
-                hamburger.setAttribute(
-                    "aria-label",
-                    opened
-                        ? "Fermer le menu"
-                        : "Ouvrir le menu"
-                );
+        hamburger.addEventListener("click", () => {
+            const opened = menu.classList.toggle("open");
 
+            hamburger.classList.toggle("open", opened);
+
+            hamburger.setAttribute(
+                "aria-expanded",
+                String(opened)
+            );
+        });
+
+        menu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") {
+                closeMenu();
             }
-
-            hamburger.addEventListener("click", () => {
-
-                setMenu(
-                    !navLinks.classList.contains("open")
-                );
-
-            });
-
-            navLinks.querySelectorAll("a").forEach(link => {
-
-                link.addEventListener("click", () => {
-
-                    setMenu(false);
-
-                });
-
-            });
-
-            document.addEventListener("keydown", event => {
-
-                if (event.key === "Escape") {
-
-                    setMenu(false);
-
-                }
-
-            });
-
-        })();
-
-    </script>
+        });
+    })();
+</script>
 
 </body>
 </html>
