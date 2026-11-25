@@ -26,10 +26,13 @@
   position: fixed;
   inset: 0;
   z-index: 99999;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   overflow: hidden;
+
   background:
     radial-gradient(
       ellipse at center,
@@ -37,8 +40,10 @@
       #f8efeb 55%,
       #efdee0 100%
     );
+
   opacity: 1;
   visibility: visible;
+
   transition:
     opacity .5s ease,
     visibility .5s ease;
@@ -53,10 +58,13 @@
 .ce-welcome-content {
   position: relative;
   z-index: 2;
+
   width: 90%;
   max-width: 500px;
   padding: 30px;
+
   text-align: center;
+
   animation: ceWelcomeAppear .7s ease both;
 }
 
@@ -64,18 +72,25 @@
 
 .ce-welcome-paw {
   position: relative;
+
   width: 85px;
   height: 85px;
+
   margin: 0 auto 24px;
+
   color: var(--ce-global-pink);
+
   animation: ceWelcomePaw 1.5s ease-in-out infinite;
 }
 
 .ce-welcome-paw::before {
   content: "";
+
   position: absolute;
   inset: -30px;
+
   border-radius: 50%;
+
   background: radial-gradient(
     circle,
     rgba(183, 125, 136, .18),
@@ -85,7 +100,9 @@
 
 .ce-welcome-paw svg {
   position: relative;
+
   display: block;
+
   width: 100%;
   height: 100%;
 }
@@ -94,6 +111,7 @@
 .ce-welcome-paw svg path {
   transform-box: fill-box;
   transform-origin: center;
+
   animation: cePawAppear .6s ease both;
 }
 
@@ -124,8 +142,11 @@
   font-size: clamp(3rem, 7vw, 4.8rem);
   font-weight: 400;
   line-height: 1.1;
+
   color: var(--ce-global-dark);
+
   margin-bottom: 12px;
+
   letter-spacing: -.02em;
 }
 
@@ -133,7 +154,9 @@
   font-family: var(--ce-global-serif);
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-style: italic;
+
   color: var(--ce-global-rose);
+
   margin: 0;
 }
 
@@ -142,19 +165,28 @@
 .ce-welcome-progress {
   width: 125px;
   height: 3px;
+
   margin: 32px auto 0;
+
   border-radius: 20px;
+
   background: #e9d5d5;
+
   overflow: hidden;
 }
 
 .ce-welcome-progress span {
   display: block;
+
   width: 100%;
   height: 100%;
+
   background: var(--ce-global-pink);
+
   border-radius: inherit;
+
   transform-origin: left;
+
   animation: ceWelcomeProgress 1.1s ease forwards;
 }
 
@@ -163,40 +195,51 @@
 .ce-welcome-decoration {
   position: absolute;
   inset: 0;
+
   pointer-events: none;
 }
 
 .ce-welcome-decoration span {
   position: absolute;
+
   color: rgba(168, 94, 104, .2);
+
   font-family: Georgia, serif;
+
   animation: ceGlobalFloat 4s ease-in-out infinite;
 }
 
 .ce-welcome-decoration span:nth-child(1) {
   top: 18%;
   left: 16%;
+
   font-size: 4rem;
 }
 
 .ce-welcome-decoration span:nth-child(2) {
   top: 22%;
   right: 19%;
+
   font-size: 2rem;
+
   animation-delay: .5s;
 }
 
 .ce-welcome-decoration span:nth-child(3) {
   bottom: 22%;
   left: 23%;
+
   font-size: 1.5rem;
+
   animation-delay: 1s;
 }
 
 .ce-welcome-decoration span:nth-child(4) {
   bottom: 17%;
   right: 15%;
+
   font-size: 5rem;
+
   animation-delay: 1.5s;
 }
 
@@ -206,15 +249,21 @@
 
 .ce-global-tools {
   position: fixed;
+
   right: 24px;
   bottom: 26px;
+
   right: max(24px, env(safe-area-inset-right));
   bottom: max(26px, env(safe-area-inset-bottom));
+
   z-index: 900;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 12px;
+
   pointer-events: none;
 }
 
@@ -231,23 +280,34 @@
 
 .ce-global-tools button {
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 53px;
   height: 53px;
+
   padding: 0;
   margin: 0;
+
   border: 1px solid #dfc6c9;
   border-radius: 50%;
+
   background: rgba(255, 253, 249, .96);
+
   color: var(--ce-global-rose);
+
   box-shadow: 0 5px 20px rgba(73, 60, 53, .1);
+
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+
   cursor: pointer;
   pointer-events: auto;
+
   -webkit-tap-highlight-color: transparent;
+
   transition:
     transform .3s ease,
     background .3s ease,
@@ -258,9 +318,12 @@
 
 .ce-global-tools button:hover {
   transform: translateY(-4px);
+
   background: var(--ce-global-rose);
   border-color: var(--ce-global-rose);
+
   color: white;
+
   box-shadow: 0 8px 25px rgba(168, 94, 104, .25);
 }
 
@@ -274,6 +337,106 @@
 }
 
 /* =========================================
+   PASSEPORT DU CŒUR
+   ========================================= */
+
+.ce-global-tools .ce-passport-button {
+  position: relative;
+
+  animation: ceToolAppear .6s ease both;
+}
+
+.ce-passport-button svg {
+  display: block;
+
+  width: 27px;
+  height: 27px;
+
+  transition: transform .3s ease;
+}
+
+.ce-passport-button:hover svg {
+  transform: rotate(-8deg);
+}
+
+/* COMPTEUR DES TAMPONS */
+
+.ce-passport-counter {
+  position: absolute;
+
+  top: -5px;
+  right: -8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 30px;
+  height: 19px;
+
+  padding: 0 5px;
+
+  border: 2px solid #fffdf9;
+  border-radius: 20px;
+
+  background: var(--ce-global-rose);
+
+  color: white;
+
+  font-family: var(--ce-global-sans);
+  font-size: 9px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+
+  box-shadow: 0 2px 8px rgba(168, 94, 104, .15);
+
+  pointer-events: none;
+}
+
+/* PASSEPORT COMPLÉTÉ */
+
+.ce-global-tools .ce-passport-complete {
+  border-color: #c4a477;
+
+  background: #fff9ef;
+
+  color: #b39565;
+
+  box-shadow: 0 5px 20px rgba(196, 164, 119, .2);
+}
+
+.ce-global-tools .ce-passport-complete:hover {
+  background: #b39565;
+
+  border-color: #b39565;
+
+  color: white;
+}
+
+.ce-passport-complete .ce-passport-counter {
+  background: #a58b5d;
+}
+
+.ce-passport-complete::after {
+  content: "✧";
+
+  position: absolute;
+
+  bottom: -3px;
+  left: -5px;
+
+  font-family: Georgia, serif;
+  font-size: 19px;
+
+  color: #c4a477;
+
+  pointer-events: none;
+
+  animation: cePassportSparkle 2.5s ease-in-out infinite;
+}
+
+/* =========================================
    ENVELOPPE DU JOUR
    ========================================= */
 
@@ -283,26 +446,35 @@
 
 .ce-daily-button svg {
   display: block;
+
   width: 25px;
   height: 25px;
 }
 
 .ce-daily-notification {
   position: absolute;
+
   top: -5px;
   right: -4px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 20px;
   height: 20px;
+
   border: 2px solid #fffdf9;
   border-radius: 50%;
+
   background: var(--ce-global-rose);
+
   color: white;
+
   font-family: Georgia, serif;
   font-size: 13px;
   line-height: 1;
+
   animation: ceNotificationPulse 3s ease-in-out infinite;
 }
 
@@ -316,15 +488,19 @@
 
 .ce-back-top svg {
   display: block;
+
   width: 25px;
   height: 25px;
+
   transition: transform .3s ease;
 }
 
 .ce-back-top span {
   position: absolute;
+
   top: 3px;
   right: 8px;
+
   font-family: var(--ce-global-sans);
   font-size: 12px;
   font-weight: 500;
@@ -341,20 +517,28 @@
 dialog.ce-daily-dialog {
   position: fixed;
   inset: 0;
+
   width: min(480px, calc(100% - 32px));
   max-width: 480px;
   max-height: calc(100dvh - 40px);
+
   padding: 0;
   margin: auto;
+
   border: 1px solid #dfc9c1;
   border-radius: 6px;
+
   background: var(--ce-global-paper);
+
   color: var(--ce-global-dark);
+
   box-shadow:
     0 25px 100px rgba(73, 60, 53, .2),
     0 5px 25px rgba(73, 60, 53, .08);
+
   overflow-x: hidden;
   overflow-y: auto;
+
   overscroll-behavior: contain;
 }
 
@@ -364,11 +548,13 @@ dialog.ce-daily-dialog:not([open]) {
 
 dialog.ce-daily-dialog[open] {
   display: block;
+
   animation: ceLetterAppear .45s cubic-bezier(.2, .7, .3, 1) both;
 }
 
 .ce-daily-dialog::backdrop {
   background: rgba(54, 39, 36, .42);
+
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
 }
@@ -383,38 +569,55 @@ body:has(.ce-daily-dialog[open]) {
 
 .ce-daily-letter {
   position: relative;
+
   isolation: isolate;
+
   padding: 48px 40px 36px;
+
   text-align: center;
+
   background:
+
     radial-gradient(
       ellipse at top left,
       rgba(235, 210, 207, .25),
       transparent 45%
     ),
+
     radial-gradient(
       ellipse at bottom right,
       rgba(235, 210, 207, .3),
       transparent 45%
     ),
+
     var(--ce-global-paper);
 }
 
 .ce-daily-letter::before {
   content: "";
+
   position: absolute;
+
   inset: 12px;
+
   border: 1px solid rgba(183, 125, 136, .25);
+
   pointer-events: none;
+
   z-index: -1;
 }
 
 .ce-daily-letter::after {
   content: "";
+
   position: absolute;
+
   inset: 17px;
+
   border: 1px solid rgba(183, 125, 136, .1);
+
   pointer-events: none;
+
   z-index: -1;
 }
 
@@ -422,23 +625,34 @@ body:has(.ce-daily-dialog[open]) {
 
 .ce-daily-close {
   position: absolute;
+
   top: 22px;
   right: 22px;
+
   z-index: 5;
+
   display: grid;
   place-items: center;
+
   width: 33px;
   height: 33px;
+
   padding: 0;
+
   border: 1px solid var(--ce-global-border);
   border-radius: 50%;
+
   background: var(--ce-global-paper);
+
   color: var(--ce-global-rose);
+
   font-family: var(--ce-global-sans);
   font-size: 24px;
   font-weight: 300;
   line-height: 1;
+
   cursor: pointer;
+
   transition:
     background .3s ease,
     color .3s ease,
@@ -447,7 +661,9 @@ body:has(.ce-daily-dialog[open]) {
 
 .ce-daily-close:hover {
   background: var(--ce-global-rose);
+
   color: white;
+
   transform: rotate(90deg);
 }
 
@@ -460,35 +676,46 @@ body:has(.ce-daily-dialog[open]) {
 
 .ce-daily-decoration {
   position: absolute;
+
   inset: 0;
+
   pointer-events: none;
+
   z-index: -1;
 }
 
 .ce-daily-decoration span {
   position: absolute;
+
   font-family: Georgia, serif;
+
   color: rgba(168, 94, 104, .17);
+
   animation: ceGlobalFloat 5s ease-in-out infinite;
 }
 
 .ce-daily-decoration span:nth-child(1) {
   top: 17%;
   left: 10%;
+
   font-size: 2.4rem;
 }
 
 .ce-daily-decoration span:nth-child(2) {
   bottom: 14%;
   right: 8%;
+
   font-size: 3rem;
+
   animation-delay: 1s;
 }
 
 .ce-daily-decoration span:nth-child(3) {
   top: 28%;
   right: 10%;
+
   font-size: 1rem;
+
   animation-delay: 2s;
 }
 
@@ -496,12 +723,16 @@ body:has(.ce-daily-dialog[open]) {
 
 .ce-daily-heart {
   display: block;
+
   font-family: Georgia, serif;
   font-size: 3.5rem;
   font-weight: 400;
   line-height: 1;
+
   color: var(--ce-global-rose);
+
   margin: 0 auto 18px;
+
   animation: ceDailyHeartbeat 3s ease-in-out infinite;
 }
 
@@ -511,9 +742,12 @@ body:has(.ce-daily-dialog[open]) {
   font-family: var(--ce-global-sans);
   font-size: .65rem;
   font-weight: 500;
+
   letter-spacing: .25em;
   text-transform: uppercase;
+
   color: var(--ce-global-rose);
+
   margin: 0 0 14px;
 }
 
@@ -522,7 +756,9 @@ body:has(.ce-daily-dialog[open]) {
   font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 400;
   line-height: 1.1;
+
   color: var(--ce-global-dark);
+
   margin: 0 0 12px;
 }
 
@@ -530,8 +766,11 @@ body:has(.ce-daily-dialog[open]) {
   font-family: var(--ce-global-sans);
   font-size: .75rem;
   font-weight: 400;
+
   letter-spacing: .08em;
+
   color: var(--ce-global-muted);
+
   margin: 0;
 }
 
@@ -539,19 +778,26 @@ body:has(.ce-daily-dialog[open]) {
 
 .ce-daily-quote {
   position: relative;
+
   max-width: 350px;
+
   padding: 25px 0;
   margin: 25px auto;
+
   border: 0;
   border-top: 1px solid #eadbd4;
   border-bottom: 1px solid #eadbd4;
+
   background: transparent;
+
   font-family: var(--ce-global-serif);
   font-size: clamp(1.55rem, 4vw, 2rem);
   font-weight: 400;
   font-style: italic;
   line-height: 1.5;
+
   color: #98616b;
+
   overflow-wrap: break-word;
 }
 
@@ -561,24 +807,31 @@ body:has(.ce-daily-dialog[open]) {
   font-family: var(--ce-global-serif);
   font-size: 1.35rem;
   font-style: italic;
+
   color: var(--ce-global-rose);
+
   margin: 0 0 20px;
 }
 
 .ce-daily-divider {
   width: 35px;
   height: 1px;
+
   background: #d9b9be;
+
   margin: 0 auto 20px;
 }
 
 .ce-daily-tomorrow {
   max-width: 270px;
+
   margin: 0 auto;
+
   font-family: var(--ce-global-sans);
   font-size: .78rem;
   font-weight: 400;
   line-height: 1.8;
+
   color: var(--ce-global-muted);
 }
 
@@ -587,6 +840,7 @@ body:has(.ce-daily-dialog[open]) {
    ========================================= */
 
 @keyframes ceWelcomeAppear {
+
   from {
     opacity: 0;
     transform: translateY(12px);
@@ -596,9 +850,11 @@ body:has(.ce-daily-dialog[open]) {
     opacity: 1;
     transform: translateY(0);
   }
+
 }
 
 @keyframes ceWelcomePaw {
+
   0%, 100% {
     transform: scale(1);
   }
@@ -606,9 +862,11 @@ body:has(.ce-daily-dialog[open]) {
   50% {
     transform: scale(1.07);
   }
+
 }
 
 @keyframes cePawAppear {
+
   from {
     opacity: 0;
     scale: .5;
@@ -618,9 +876,11 @@ body:has(.ce-daily-dialog[open]) {
     opacity: 1;
     scale: 1;
   }
+
 }
 
 @keyframes ceWelcomeProgress {
+
   from {
     transform: scaleX(0);
   }
@@ -628,9 +888,11 @@ body:has(.ce-daily-dialog[open]) {
   to {
     transform: scaleX(1);
   }
+
 }
 
 @keyframes ceGlobalFloat {
+
   0%, 100% {
     transform: translateY(0) rotate(-5deg);
   }
@@ -638,9 +900,11 @@ body:has(.ce-daily-dialog[open]) {
   50% {
     transform: translateY(-10px) rotate(5deg);
   }
+
 }
 
 @keyframes ceToolAppear {
+
   from {
     opacity: 0;
     transform: translateY(10px) scale(.85);
@@ -650,21 +914,27 @@ body:has(.ce-daily-dialog[open]) {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+
 }
 
 @keyframes ceNotificationPulse {
+
   0%, 100% {
     transform: scale(1);
+
     box-shadow: 0 0 0 0 rgba(168, 94, 104, 0);
   }
 
   50% {
     transform: scale(1.1);
+
     box-shadow: 0 0 0 5px rgba(168, 94, 104, .1);
   }
+
 }
 
 @keyframes ceLetterAppear {
+
   from {
     opacity: 0;
     transform: translateY(25px) scale(.96);
@@ -674,9 +944,11 @@ body:has(.ce-daily-dialog[open]) {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+
 }
 
 @keyframes ceDailyHeartbeat {
+
   0%, 100% {
     transform: scale(1);
   }
@@ -692,6 +964,21 @@ body:has(.ce-daily-dialog[open]) {
   60% {
     transform: scale(1.06);
   }
+
+}
+
+@keyframes cePassportSparkle {
+
+  0%, 100% {
+    opacity: .5;
+    transform: scale(.8) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(15deg);
+  }
+
 }
 
 /* =========================================
@@ -703,6 +990,7 @@ body:has(.ce-daily-dialog[open]) {
   .ce-global-tools {
     right: 18px;
     bottom: 20px;
+
     right: max(18px, env(safe-area-inset-right));
     bottom: max(20px, env(safe-area-inset-bottom));
   }
@@ -718,6 +1006,7 @@ body:has(.ce-daily-dialog[open]) {
   .ce-welcome-paw {
     width: 70px;
     height: 70px;
+
     margin-bottom: 20px;
   }
 
@@ -727,25 +1016,49 @@ body:has(.ce-daily-dialog[open]) {
 
   .ce-welcome-decoration span:nth-child(1) {
     left: 8%;
+
     font-size: 2.8rem;
   }
 
   .ce-welcome-decoration span:nth-child(4) {
     right: 8%;
+
     font-size: 3rem;
   }
 
   .ce-global-tools {
     right: 13px;
     bottom: 16px;
+
     right: max(13px, env(safe-area-inset-right));
     bottom: max(16px, env(safe-area-inset-bottom));
+
     gap: 10px;
   }
 
   .ce-global-tools button {
     width: 46px;
     height: 46px;
+  }
+
+  .ce-passport-button svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .ce-passport-counter {
+    min-width: 27px;
+    height: 17px;
+
+    right: -6px;
+
+    font-size: 8px;
+
+    padding: 0 4px;
+  }
+
+  .ce-passport-complete::after {
+    font-size: 16px;
   }
 
   .ce-daily-button svg {
@@ -761,12 +1074,14 @@ body:has(.ce-daily-dialog[open]) {
   .ce-daily-notification {
     width: 18px;
     height: 18px;
+
     font-size: 11px;
   }
 
   .ce-back-top span {
     right: 6px;
     top: 2px;
+
     font-size: 11px;
   }
 
@@ -785,8 +1100,10 @@ body:has(.ce-daily-dialog[open]) {
   .ce-daily-close {
     top: 18px;
     right: 18px;
+
     width: 30px;
     height: 30px;
+
     font-size: 21px;
   }
 
@@ -837,13 +1154,32 @@ body:has(.ce-daily-dialog[open]) {
 
   .ce-global-tools button:hover {
     transform: none;
+
     background: var(--ce-global-paper);
+
     color: var(--ce-global-rose);
+
+    border-color: #dfc6c9;
+  }
+
+  .ce-global-tools .ce-passport-complete:hover {
+    background: #fff9ef;
+
+    color: #b39565;
+
+    border-color: #c4a477;
+  }
+
+  .ce-passport-button:hover svg,
+  .ce-back-top:hover svg {
+    transform: none;
   }
 
   .ce-daily-close:hover {
     transform: none;
+
     background: var(--ce-global-paper);
+
     color: var(--ce-global-rose);
   }
 
@@ -859,10 +1195,13 @@ body:has(.ce-daily-dialog[open]) {
   .ce-welcome-screen *,
   .ce-global-tools,
   .ce-global-tools *,
+  .ce-passport-complete::after,
   .ce-daily-dialog,
   .ce-daily-dialog * {
+
     animation: none !important;
     transition: none !important;
+
   }
 
 }
