@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,13 +10,41 @@
 
   <meta name="theme-color" content="#faf8f5">
 
-  <link rel="icon" href="logo.jpeg">
+  <link rel="canonical" href="https://coeurerrant.github.io/Coeur-errant/voyages.html">
+
+  <link rel="alternate" hreflang="fr" href="https://coeurerrant.github.io/Coeur-errant/voyages.html">
+  <link rel="alternate" hreflang="nl" href="https://coeurerrant.github.io/Coeur-errant/voyages-nl.html">
+  <link rel="alternate" hreflang="x-default" href="https://coeurerrant.github.io/Coeur-errant/voyages.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cœur Errant">
+  <meta property="og:locale" content="fr_BE">
+  <meta property="og:title" content="Des voyages, des rencontres — Cœur Errant">
+  <meta property="og:description" content="Un carnet de voyage consacré aux animaux errants, aux rencontres et aux petites empreintes laissées à travers le monde.">
+  <meta property="og:url" content="https://coeurerrant.github.io/Coeur-errant/voyages.html">
+  <meta property="og:image" content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+  <meta property="og:image:alt" content="Logo de Cœur Errant">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mes voyages — Cœur Errant">
+  <meta name="twitter:description" content="Des voyages, des rencontres et des histoires d'animaux errants.">
+  <meta name="twitter:image" content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+  <link rel="icon" type="image/jpeg" href="logo.jpeg">
+  <link rel="apple-touch-icon" href="logo.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="accueil-v2.css">
   <link rel="stylesheet" href="voyages.css">
+  <link rel="stylesheet" href="royaume-voyages.css">
+  <link rel="stylesheet" href="global.css">
+
+  <script src="global.js" defer></script>
+  <script src="royaume-voyages.js" defer></script>
 
   <style>
 
@@ -213,6 +240,7 @@
 
     .voyage-content {
       padding: 1rem 0;
+      min-width: 0;
     }
 
     .voyage-date {
@@ -383,6 +411,16 @@
       margin-bottom: 1rem;
     }
 
+    /* ILLUSTRATION DU MAROC */
+
+    .morocco-illustration {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 450px;
+      border-radius: 12px;
+    }
+
     /* INTRODUCTION DES VOYAGES GROUPÉS */
 
     .journey-intro {
@@ -428,6 +466,7 @@
     .rescue-section {
       background: var(--warm);
       padding: 5rem 7%;
+      scroll-margin-top: 100px;
     }
 
     .rescue-inner {
@@ -470,6 +509,7 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
+      min-width: 0;
     }
 
     .rescue-photo img {
@@ -612,6 +652,7 @@
     .mystery-section {
       background: var(--warm);
       padding: 5rem 5%;
+      scroll-margin-top: 100px;
     }
 
     .mystery-card {
@@ -761,6 +802,7 @@
       .rescue-photo img {
         height: 300px;
       }
+
     }
 
     @media (max-width: 600px) {
@@ -779,6 +821,7 @@
 
       .year-heading {
         padding: 3rem 1.5rem 1rem;
+        scroll-margin-top: 85px;
       }
 
       .travel-list {
@@ -797,12 +840,17 @@
         min-height: 260px;
       }
 
+      .morocco-illustration {
+        max-height: 340px;
+      }
+
       .journey-intro {
         padding: 1.5rem;
       }
 
       .rescue-section {
         padding: 3rem 1.5rem;
+        scroll-margin-top: 85px;
       }
 
       .rescue-photos {
@@ -831,11 +879,13 @@
 
       .mystery-section {
         padding: 3rem 1.2rem;
+        scroll-margin-top: 85px;
       }
 
       .mystery-card {
         padding: 2rem 1.3rem;
       }
+
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -848,9 +898,11 @@
       .voyage-img > img {
         transition: none;
       }
+
     }
 
   </style>
+
 </head>
 
 <body>
@@ -870,23 +922,30 @@
     </li>
 
     <li>
-      <a href="index.html#histoire" onclick="closeMenu()">Mon histoire</a>
-    </li>
-
-    <li>
       <a href="mission.html" onclick="closeMenu()">La mission</a>
     </li>
 
     <li>
-      <a href="voyages.html" aria-current="page" onclick="closeMenu()">Voyages</a>
+      <a href="voyages.html"
+         class="active"
+         aria-current="page"
+         onclick="closeMenu()">Voyages</a>
     </li>
-<li><a href="passeport.html">Mon passeport</a></li>
+
     <li>
       <a href="livres.html" onclick="closeMenu()">Mes livres</a>
     </li>
 
     <li>
-      <a href="index.html#nos-etoiles" onclick="closeMenu()">Nos étoiles</a>
+      <a href="etoiles.html" onclick="closeMenu()">Nos étoiles</a>
+    </li>
+
+    <li>
+      <a href="agir.html" onclick="closeMenu()">Comment agir</a>
+    </li>
+
+    <li>
+      <a href="passeport.html" onclick="closeMenu()">Le Royaume</a>
     </li>
 
     <li>
@@ -900,13 +959,24 @@
   </ul>
 
   <div class="lang-switcher">
-    <a href="voyages.html" class="lang-btn active">FR</a>
+
+    <a href="voyages.html"
+       class="lang-btn active"
+       lang="fr"
+       aria-label="Français">FR</a>
+
     <span class="lang-sep">|</span>
-    <a href="voyages-nl.html" class="lang-btn">NL</a>
+
+    <a href="voyages-nl.html"
+       class="lang-btn"
+       lang="nl"
+       aria-label="Nederlands">NL</a>
+
   </div>
 
   <button class="hamburger"
           id="hamburger"
+          type="button"
           onclick="toggleMenu()"
           aria-label="Ouvrir le menu"
           aria-controls="nav-links"
@@ -954,9 +1024,7 @@
 
   </div>
 
-</section>
-
-<!-- ==================== 2023 ==================== -->
+</section><!-- ==================== 2023 ==================== -->
 
 <section class="year-heading" id="annee-2023">
 
@@ -978,7 +1046,7 @@
 
   <!-- CORSE -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="corse-2023">
 
     <div class="voyage-visual">
 
@@ -986,7 +1054,8 @@
 
         <img src="corsee.jpeg"
              alt="Chat roux rencontré en Corse en avril 2023"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="flag-corse.png" alt="">
@@ -1102,6 +1171,7 @@
 
 </div>
 
+
 <!-- ==================== 2024 ==================== -->
 
 <section class="year-heading" id="annee-2024">
@@ -1124,7 +1194,7 @@
 
   <!-- TANGER -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="tanger-2024">
 
     <div class="voyage-visual">
 
@@ -1132,7 +1202,8 @@
 
         <img src="Tanger.jpeg"
              alt="Le chiot aux yeux bleus rencontré à Tanger"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/ma.png" alt="">
@@ -1262,9 +1333,10 @@
 
   </article>
 
+
   <!-- SICILE -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="sicile-2024">
 
     <div class="voyage-visual">
 
@@ -1272,7 +1344,8 @@
 
         <img src="sicillle.jpeg"
              alt="Chat roux rencontré en Sicile"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="flag-sicille.png" alt="">
@@ -1376,6 +1449,7 @@
 
 </div>
 
+
 <!-- ==================== 2025 ==================== -->
 
 <section class="year-heading" id="annee-2025">
@@ -1399,13 +1473,15 @@
 
   <!-- VARSOVIE -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="varsovie-2025">
 
     <div class="voyage-visual">
 
       <div class="destination-note">
 
-        <img src="https://flagcdn.com/w80/pl.png" alt="Pologne">
+        <img src="https://flagcdn.com/w80/pl.png"
+             alt="Pologne"
+             loading="lazy">
 
         <p class="paw-symbol">♡</p>
 
@@ -1482,17 +1558,460 @@
 
   </article>
 
+
   <!-- TANGER, CHEFCHAOUEN ET AKCHOUR -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="tanger-2025">
 
     <div class="voyage-visual">
 
       <div class="voyage-img">
 
-        <img src="nala.jpeg"
-             alt="Nala, petite chienne rencontrée à Tanger"
-             loading="lazy">
+        <!--
+          Illustration symbolique du voyage.
+          La véritable photographie de Nala reste
+          réservée à la page Nos étoiles.
+        -->
+
+        <svg class="morocco-illustration"
+             viewBox="0 0 600 650"
+             xmlns="http://www.w3.org/2000/svg"
+             role="img"
+             aria-labelledby="morocco-title morocco-description">
+
+          <title id="morocco-title">
+            Souvenirs du Maroc
+          </title>
+
+          <desc id="morocco-description">
+            Illustration symbolique des montagnes,
+            des ruelles bleues et des paysages du Maroc.
+          </desc>
+
+          <defs>
+
+            <linearGradient id="morocco-sky"
+                            x1="0" y1="0"
+                            x2="0" y2="1">
+
+              <stop offset="0%" stop-color="#e8d6c7"/>
+              <stop offset="100%" stop-color="#faf0df"/>
+
+            </linearGradient>
+
+            <linearGradient id="morocco-blue"
+                            x1="0" y1="0"
+                            x2="1" y2="1">
+
+              <stop offset="0%" stop-color="#adc4d2"/>
+              <stop offset="100%" stop-color="#7295af"/>
+
+            </linearGradient>
+
+            <linearGradient id="morocco-mountain"
+                            x1="0" y1="0"
+                            x2="0" y2="1">
+
+              <stop offset="0%" stop-color="#aab4a2"/>
+              <stop offset="100%" stop-color="#d6d8c5"/>
+
+            </linearGradient>
+
+            <linearGradient id="morocco-ground"
+                            x1="0" y1="0"
+                            x2="0" y2="1">
+
+              <stop offset="0%" stop-color="#e6d6c3"/>
+              <stop offset="100%" stop-color="#cdb9a3"/>
+
+            </linearGradient>
+
+            <clipPath id="morocco-arch">
+
+              <path d="
+                M 90 570
+                L 90 255
+                A 210 210 0 0 1 510 255
+                L 510 570
+                Z
+              "/>
+
+            </clipPath>
+
+          </defs>
+
+          <!-- FOND -->
+
+          <rect width="600"
+                height="650"
+                rx="14"
+                fill="#f1e7dc"/>
+
+          <rect x="24"
+                y="24"
+                width="552"
+                height="602"
+                rx="10"
+                fill="none"
+                stroke="#d2baa0"
+                stroke-width="1.5"/>
+
+          <!-- PAYSAGE DANS L'ARCHE -->
+
+          <g clip-path="url(#morocco-arch)">
+
+            <rect x="70"
+                  y="30"
+                  width="460"
+                  height="560"
+                  fill="url(#morocco-sky)"/>
+
+            <!-- SOLEIL -->
+
+            <circle cx="370"
+                    cy="145"
+                    r="49"
+                    fill="#e8c18f"
+                    opacity=".75"/>
+
+            <circle cx="370"
+                    cy="145"
+                    r="66"
+                    fill="#e8c18f"
+                    opacity=".13"/>
+
+            <!-- MONTAGNES -->
+
+            <path d="
+              M 55 330
+              L 160 185
+              L 235 280
+              L 315 155
+              L 430 300
+              L 530 205
+              L 560 370
+              Z
+            "
+            fill="#c0c5b7"/>
+
+            <path d="
+              M 55 365
+              L 175 250
+              L 265 325
+              L 380 220
+              L 550 355
+              L 550 440
+              L 55 440
+              Z
+            "
+            fill="url(#morocco-mountain)"/>
+
+            <!-- SOL -->
+
+            <path d="
+              M 70 435
+              L 530 435
+              L 530 600
+              L 70 600
+              Z
+            "
+            fill="url(#morocco-ground)"/>
+
+            <!-- MAISON DE GAUCHE -->
+
+            <path d="
+              M 70 290
+              L 215 320
+              L 215 515
+              L 70 565
+              Z
+            "
+            fill="url(#morocco-blue)"/>
+
+            <path d="
+              M 70 290
+              L 215 320
+              L 215 335
+              L 70 305
+              Z
+            "
+            fill="#e7dfd0"/>
+
+            <!-- PORTE -->
+
+            <path d="
+              M 105 505
+              L 105 405
+              A 34 34 0 0 1 173 405
+              L 173 482
+              Z
+            "
+            fill="#557a94"/>
+
+            <path d="
+              M 116 500
+              L 116 410
+              A 23 23 0 0 1 162 410
+              L 162 486
+            "
+            fill="none"
+            stroke="#b3c8d5"
+            stroke-width="2"/>
+
+            <circle cx="151"
+                    cy="450"
+                    r="3"
+                    fill="#d5b48a"/>
+
+            <!-- FENÊTRE -->
+
+            <rect x="130"
+                  y="335"
+                  width="40"
+                  height="42"
+                  rx="3"
+                  fill="#e9e2d6"/>
+
+            <rect x="136"
+                  y="341"
+                  width="28"
+                  height="30"
+                  rx="2"
+                  fill="#6b8ca3"/>
+
+            <path d="M 150 341 V 371 M 136 356 H 164"
+                  stroke="#d8e1e5"
+                  stroke-width="2"/>
+
+            <!-- MAISON DE DROITE -->
+
+            <path d="
+              M 395 315
+              L 530 275
+              L 530 565
+              L 395 500
+              Z
+            "
+            fill="#c3d3db"/>
+
+            <path d="
+              M 395 315
+              L 530 275
+              L 530 290
+              L 395 330
+              Z
+            "
+            fill="#f4ecdf"/>
+
+            <path d="
+              M 432 515
+              L 432 405
+              A 35 35 0 0 1 502 405
+              L 502 550
+              Z
+            "
+            fill="#7196ad"/>
+
+            <path d="
+              M 442 520
+              L 442 410
+              A 25 25 0 0 1 492 410
+              L 492 540
+            "
+            fill="none"
+            stroke="#d3dfe5"
+            stroke-width="2"/>
+
+            <!-- PETITES MAISONS AU LOIN -->
+
+            <rect x="245"
+                  y="355"
+                  width="55"
+                  height="90"
+                  fill="#dce4e6"/>
+
+            <rect x="303"
+                  y="330"
+                  width="62"
+                  height="115"
+                  fill="#a9bfcc"/>
+
+            <rect x="263"
+                  y="390"
+                  width="18"
+                  height="55"
+                  rx="8"
+                  fill="#8ba8ba"/>
+
+            <rect x="323"
+                  y="365"
+                  width="22"
+                  height="28"
+                  fill="#edf0e9"/>
+
+            <!-- RUELLE -->
+
+            <path d="
+              M 215 515
+              L 265 445
+              L 350 445
+              L 395 500
+              L 485 590
+              L 130 590
+              Z
+            "
+            fill="#e8d9c6"/>
+
+            <g stroke="#c8b7a5"
+               stroke-width="1.5"
+               opacity=".6">
+
+              <path d="M 240 480 L 370 480"/>
+              <path d="M 215 515 L 400 515"/>
+              <path d="M 180 550 L 440 550"/>
+              <path d="M 300 445 L 280 590"/>
+              <path d="M 325 445 L 350 590"/>
+
+            </g>
+
+            <!-- VÉGÉTATION -->
+
+            <g fill="#87977d">
+
+              <ellipse cx="98"
+                       cy="315"
+                       rx="24"
+                       ry="10"
+                       transform="rotate(-25 98 315)"/>
+
+              <ellipse cx="112"
+                       cy="290"
+                       rx="26"
+                       ry="10"
+                       transform="rotate(20 112 290)"/>
+
+              <ellipse cx="475"
+                       cy="300"
+                       rx="25"
+                       ry="10"
+                       transform="rotate(-30 475 300)"/>
+
+              <ellipse cx="495"
+                       cy="325"
+                       rx="24"
+                       ry="10"
+                       transform="rotate(35 495 325)"/>
+
+            </g>
+
+            <!-- FLEURS -->
+
+            <g fill="#b87e8d" opacity=".9">
+
+              <circle cx="92" cy="280" r="13"/>
+              <circle cx="111" cy="273" r="12"/>
+              <circle cx="125" cy="288" r="11"/>
+              <circle cx="97" cy="301" r="10"/>
+
+              <circle cx="480" cy="278" r="12"/>
+              <circle cx="500" cy="290" r="14"/>
+              <circle cx="490" cy="310" r="11"/>
+              <circle cx="515" cy="309" r="10"/>
+
+            </g>
+
+            <!-- PETITS POTS -->
+
+            <path d="
+              M 188 515
+              L 218 515
+              L 213 548
+              L 193 548
+              Z
+            "
+            fill="#b98e76"/>
+
+            <g fill="#85957a">
+
+              <ellipse cx="195"
+                       cy="502"
+                       rx="7"
+                       ry="18"
+                       transform="rotate(-25 195 502)"/>
+
+              <ellipse cx="209"
+                       cy="498"
+                       rx="7"
+                       ry="20"
+                       transform="rotate(20 209 498)"/>
+
+            </g>
+
+            <!-- GAMELLE SYMBOLIQUE -->
+
+            <ellipse cx="390"
+                     cy="550"
+                     rx="26"
+                     ry="8"
+                     fill="#ad9d8a"
+                     opacity=".3"/>
+
+            <path d="
+              M 364 536
+              L 416 536
+              L 408 549
+              L 372 549
+              Z
+            "
+            fill="#bda68b"/>
+
+            <ellipse cx="390"
+                     cy="536"
+                     rx="26"
+                     ry="7"
+                     fill="#dce4e4"/>
+
+            <ellipse cx="390"
+                     cy="536"
+                     rx="20"
+                     ry="4"
+                     fill="#91b2c1"/>
+
+          </g>
+
+          <!-- CONTOUR DE L'ARCHE -->
+
+          <path d="
+            M 90 570
+            L 90 255
+            A 210 210 0 0 1 510 255
+            L 510 570
+            Z
+          "
+          fill="none"
+          stroke="#c4a882"
+          stroke-width="3"/>
+
+          <!-- DÉCORATION INFÉRIEURE -->
+
+          <g fill="#a85e68">
+
+            <path d="
+              M 300 607
+              C 275 591 282 577 292 580
+              C 296 581 299 585 300 588
+              C 301 585 304 581 308 580
+              C 318 577 325 591 300 607
+              Z
+            "/>
+
+          </g>
+
+          <path d="M 190 594 H 265 M 335 594 H 410"
+                stroke="#c4a882"
+                stroke-width="1.5"/>
+
+        </svg>
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/ma.png" alt="">
@@ -1502,7 +2021,8 @@
       </div>
 
       <p class="voyage-caption">
-        Nala, une petite âme qui restera toujours dans mon cœur.
+        Tanger, Chefchaouen et Akchour — illustration symbolique
+        de mon deuxième voyage au Maroc.
       </p>
 
     </div>
@@ -1530,13 +2050,13 @@
 
         <div class="travel-details-content">
 
-          <p>
+          <p id="akchour-2025">
             Durant mon séjour, j'ai également eu l'occasion de découvrir
             Chefchaouen, la magnifique ville bleue, ainsi qu'Akchour,
             lors de deux excursions d'une journée.
           </p>
 
-          <p>
+          <p id="chefchaouen-2025">
             Dans les ruelles bleues de Chefchaouen, j'ai rencontré
             de nombreux chats et chiens errants.
           </p>
@@ -1575,6 +2095,11 @@
 
       </details>
 
+      <!--
+        L'histoire complète et la photographie de Nala
+        sont disponibles sur la page Nos étoiles.
+      -->
+
       <div class="animal-testimony">
 
         <p class="testimony-label">À la mémoire de Nala ♡</p>
@@ -1582,29 +2107,13 @@
         <h4>Nala, une petite âme devenue étoile</h4>
 
         <p>
-          Un chiot trouvé le museau dans des ordures,
-          cherchant désespérément à manger.
-        </p>
-
-        <p>
-          Elle avait été prise en charge, vaccinée.
-          Elle avait même un carnet de santé à mon nom.
-          Elle avait un avenir.
-        </p>
-
-        <p>
-          Jusqu'à ce jour où elle a été retrouvée sous un arbre,
-          sans vie.
-        </p>
-
-        <p>
           Aujourd'hui, je lui rends hommage dans mon livre
           <em>Nos âmes errantes</em> et à travers Cœur Errant,
           parce que son existence mérite de ne jamais être oubliée.
         </p>
 
-        <a href="index.html#nos-etoiles" class="travel-link">
-          Découvrir nos étoiles ♡
+        <a href="etoiles.html" class="travel-link">
+          Découvrir son histoire dans Nos étoiles ♡
         </a>
 
       </div>
@@ -1620,15 +2129,18 @@
 
   </article>
 
+
   <!-- ISTANBUL -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="istanbul-2025">
 
     <div class="voyage-visual">
 
       <div class="destination-note">
 
-        <img src="https://flagcdn.com/w80/tr.png" alt="Turquie">
+        <img src="https://flagcdn.com/w80/tr.png"
+             alt="Turquie"
+             loading="lazy">
 
         <p class="paw-symbol">🐾</p>
 
@@ -1725,9 +2237,7 @@
 
   </article>
 
-</div>
-
-<!-- ==================== 2026 ==================== -->
+</div><!-- ==================== 2026 ==================== -->
 
 <section class="year-heading" id="annee-2026">
 
@@ -1780,9 +2290,10 @@
 
   </div>
 
+
   <!-- SKOPJE -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="skopje-2026">
 
     <div class="voyage-visual">
 
@@ -1790,7 +2301,8 @@
 
         <img src="Macedoine.jpeg"
              alt="Chien noir rencontré à Skopje"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/mk.png" alt="">
@@ -1850,9 +2362,10 @@
 
   </article>
 
+
   <!-- PRISTINA -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="pristina-2026">
 
     <div class="voyage-visual">
 
@@ -1860,7 +2373,8 @@
 
         <img src="kossovo.jpeg"
              alt="Chien errant rencontré à Pristina"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/xk.png" alt="">
@@ -1946,9 +2460,10 @@
 
   </article>
 
+
   <!-- TIRANA -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="tirana-2026">
 
     <div class="voyage-visual">
 
@@ -1956,7 +2471,8 @@
 
         <img src="albanie.jpeg"
              alt="Chat errant devant un supermarché à Tirana"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/al.png" alt="">
@@ -2019,6 +2535,7 @@
     </div>
 
   </article>
+
 
   <!-- MAROC JUIN 2026 -->
 
@@ -2091,9 +2608,10 @@
 
   </div>
 
+
   <!-- AGADIR -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="agadir-2026">
 
     <div class="voyage-visual">
 
@@ -2101,7 +2619,8 @@
 
         <img src="agadir-chat.png"
              alt="Chat roux près d'une bouteille d'eau vide à Agadir"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/ma.png" alt="">
@@ -2182,7 +2701,10 @@
 
 </div>
 
-<!-- DJIBOU : UNE HISTOIRE EN COURS -->
+
+<!-- ==========================================
+     DJIBOU : UNE HISTOIRE EN COURS
+     ========================================== -->
 
 <section class="rescue-section" id="djibou">
 
@@ -2208,7 +2730,8 @@
 
         <img src="djibou-avant.png"
              alt="Djibou lors de notre première rencontre à Marrakech"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="rescue-photo-caption">
 
@@ -2228,7 +2751,8 @@
 
         <img src="djibou-apres.png"
              alt="Djibou dans son foyer temporaire au Maroc"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="rescue-photo-caption">
 
@@ -2324,6 +2848,7 @@
 
     </div>
 
+
     <!-- ÉTAPES DU SAUVETAGE -->
 
     <div class="rescue-progress">
@@ -2418,19 +2943,23 @@
 
 </section>
 
-<!-- DJERBA -->
+
+<!-- ==========================================
+     DJERBA
+     ========================================== -->
 
 <div class="travel-list">
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="djerba-2026">
 
     <div class="voyage-visual">
 
       <div class="voyage-img">
 
-        <img src="djerba.webp"
+        <img src="djerba-chien.webp"
              alt="Chien errant rencontré sur une plage de Djerba"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/tn.png" alt="">
@@ -2537,7 +3066,10 @@
 
 </div>
 
-<!-- PROCHAIN VOYAGE : DESTINATION MYSTÈRE -->
+
+<!-- ==========================================
+     PROCHAIN VOYAGE : DESTINATION MYSTÈRE
+     ========================================== -->
 
 <section class="mystery-section" id="prochain-voyage">
 
@@ -2675,7 +3207,10 @@
 
 </section>
 
-<!-- LIVRES ET SOUTIEN -->
+
+<!-- ==========================================
+     LIVRES ET SOUTIEN
+     ========================================== -->
 
 <section class="cta">
 
@@ -2705,146 +3240,592 @@
 
 </section>
 
-</main>
+</main><!-- ==========================================
+     PIED DE PAGE COMMUN — CŒUR ERRANT
+     ========================================== -->
 
-<!-- PIED DE PAGE -->
+<footer class="ce-footer">
 
-<footer>
-
-  <div class="footer-logo">
-    <img src="logo.jpeg" alt="Cœur Errant">
+  <div class="ce-footer-decoration" aria-hidden="true">
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
   </div>
 
-  <div class="footer-divider"></div>
+  <div class="ce-footer-inner">
 
-  <div class="footer-socials">
+    <!-- IDENTITÉ -->
 
-    <a href="https://www.tiktok.com/@coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+    <div class="ce-footer-brand">
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/tiktok/white" alt="">
+      <a href="index.html" aria-label="Accueil de Cœur Errant">
+
+        <img src="logo.jpeg"
+             alt="Logo Cœur Errant"
+             loading="lazy"
+             decoding="async">
+
+      </a>
+
+      <h2>Cœur Errant</h2>
+
+      <p class="ce-footer-tagline">
+        Chaque animal a une histoire.
+      </p>
+
+      <p class="ce-footer-description">
+        Parce que même les plus petites âmes
+        méritent une place dans ce monde.
+      </p>
+
+      <!-- RÉSEAUX SOCIAUX -->
+
+      <div class="ce-footer-socials">
+
+        <a href="https://www.tiktok.com/@coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant sur TikTok"
+           title="TikTok">
+
+          <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant sur Instagram"
+           title="Instagram">
+
+          <img src="https://cdn.simpleicons.org/instagram/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.youtube.com/@CoeurErrant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant sur YouTube"
+           title="YouTube">
+
+          <img src="https://cdn.simpleicons.org/youtube/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant sur Facebook"
+           title="Facebook">
+
+          <img src="https://cdn.simpleicons.org/facebook/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.snapchat.com/add/coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant sur Snapchat"
+           title="Snapchat">
+
+          <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="mailto:coeur.errant@outlook.be"
+           aria-label="Contacter Cœur Errant par e-mail"
+           title="Contact">
+
+          <svg viewBox="0 0 24 24"
+               width="20"
+               height="20"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.5"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               aria-hidden="true">
+
+            <rect x="3"
+                  y="5"
+                  width="18"
+                  height="14"
+                  rx="2"/>
+
+            <path d="M3 7 L12 13 L21 7"/>
+
+          </svg>
+
+        </a>
+
       </div>
 
-      <span class="footer-social-name">TikTok</span>
+    </div>
 
-    </a>
 
-    <a href="https://www.instagram.com/coeur.errant/"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+    <!-- LIENS DU PIED DE PAGE -->
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/instagram/white" alt="">
+    <div class="ce-footer-navigation">
+
+      <!-- DÉCOUVRIR -->
+
+      <div class="ce-footer-column">
+
+        <h3>Découvrir</h3>
+
+        <a href="index.html#histoire">
+          Mon histoire
+        </a>
+
+        <a href="mission.html">
+          La mission
+        </a>
+
+        <a href="voyages.html"
+           class="active"
+           aria-current="page">
+          Mes voyages
+        </a>
+
+        <a href="livres.html">
+          Mes livres
+        </a>
+
       </div>
 
-      <span class="footer-social-name">Instagram</span>
 
-    </a>
+      <!-- NOTRE UNIVERS -->
 
-    <a href="https://www.youtube.com/@CoeurErrant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+      <div class="ce-footer-column">
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/youtube/white" alt="">
+        <h3>Notre univers</h3>
+
+        <a href="etoiles.html">
+          Nos étoiles
+        </a>
+
+        <a href="passeport.html">
+          Le Royaume
+        </a>
+
+        <a href="agir.html">
+          Comment agir
+        </a>
+
+        <a href="soutenir.html">
+          Soutenir Cœur Errant
+        </a>
+
       </div>
 
-      <span class="footer-social-name">YouTube</span>
 
-    </a>
+      <!-- RESTONS PROCHES -->
 
-    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+      <div class="ce-footer-column">
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/facebook/white" alt="">
+        <h3>Restons proches</h3>
+
+        <a href="mailto:coeur.errant@outlook.be">
+          Me contacter
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Suivre l'aventure
+        </a>
+
+        <a href="voyages-nl.html"
+           lang="nl"
+           hreflang="nl">
+          Nederlandse versie
+        </a>
+
+        <a href="mentions-legales.html">
+          Mentions légales
+        </a>
+
       </div>
 
-      <span class="footer-social-name">Facebook</span>
-
-    </a>
-
-    <a href="https://www.snapchat.com/add/coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/snapchat/white" alt="">
-      </div>
-
-      <span class="footer-social-name">Snapchat</span>
-
-    </a>
-
-    <a href="mailto:coeur.errant@outlook.be"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/gmail/white" alt="">
-      </div>
-
-      <span class="footer-social-name">Contact</span>
-
-    </a>
+    </div>
 
   </div>
 
-  <div class="footer-divider"></div>
 
-  <p class="footer-copy">
-    © <span id="annee"></span> Cœur Errant — Chaque animal a une histoire.
-  </p>
+  <!-- SIGNATURE -->
+
+  <div class="ce-footer-signature">
+
+    <span class="ce-footer-heart" aria-hidden="true">
+      ♡
+    </span>
+
+    <p>
+      Créé avec amour, pour ceux qui n'ont pas de voix.
+    </p>
+
+  </div>
+
+
+  <!-- COPYRIGHT -->
+
+  <div class="ce-footer-copyright">
+
+    <p>
+      © <span id="footer-year">2026</span>
+      Cœur Errant — Tous droits réservés.
+    </p>
+
+  </div>
 
 </footer>
 
+
+<!-- ==========================================
+     JAVASCRIPT — PAGE VOYAGES
+     ========================================== -->
+
 <script>
 
-  document.getElementById('annee').textContent =
-    new Date().getFullYear();
+(function () {
+
+  'use strict';
+
+
+  /* ==========================================
+     ANNÉE AUTOMATIQUE
+     ========================================== */
+
+  const footerYear = document.getElementById('footer-year');
+
+  if (footerYear) {
+
+    footerYear.textContent = new Date().getFullYear();
+
+  }
+
+
+  /* ==========================================
+     MENU MOBILE
+     ========================================== */
 
   const navLinks = document.getElementById('nav-links');
+
   const hamburger = document.getElementById('hamburger');
 
-  function toggleMenu() {
 
-    const isOpen = navLinks.classList.toggle('open');
+  function setMenuState(isOpen) {
+
+    if (!navLinks || !hamburger) {
+
+      return;
+
+    }
+
+    navLinks.classList.toggle('open', isOpen);
 
     hamburger.classList.toggle('open', isOpen);
 
-    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute(
+      'aria-expanded',
+      String(isOpen)
+    );
 
     hamburger.setAttribute(
       'aria-label',
-      isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
+      isOpen
+        ? 'Fermer le menu'
+        : 'Ouvrir le menu'
     );
 
   }
 
-  function closeMenu() {
 
-    navLinks.classList.remove('open');
-    hamburger.classList.remove('open');
+  /* FONCTIONS UTILISÉES PAR LA NAVIGATION HTML */
 
-    hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.setAttribute('aria-label', 'Ouvrir le menu');
+  window.toggleMenu = function () {
 
-  }
+    if (!navLinks || !hamburger) {
 
-  document.addEventListener('keydown', function(event) {
+      return;
 
-    if (event.key === 'Escape') {
-      closeMenu();
+    }
+
+    const isOpen =
+      hamburger.getAttribute('aria-expanded') === 'true';
+
+    setMenuState(!isOpen);
+
+  };
+
+
+  window.closeMenu = function () {
+
+    setMenuState(false);
+
+  };
+
+
+  /* ==========================================
+     FERMETURE AVEC LA TOUCHE ÉCHAP
+     ========================================== */
+
+  document.addEventListener('keydown', function (event) {
+
+    if (event.key !== 'Escape') {
+
+      return;
+
+    }
+
+    if (
+      hamburger &&
+      hamburger.getAttribute('aria-expanded') === 'true'
+    ) {
+
+      window.closeMenu();
+
+      hamburger.focus();
+
     }
 
   });
+
+
+  /* ==========================================
+     FERMETURE EN DEHORS DU MENU
+     ========================================== */
+
+  document.addEventListener('click', function (event) {
+
+    if (!navLinks || !hamburger) {
+
+      return;
+
+    }
+
+    if (
+      hamburger.getAttribute('aria-expanded') !== 'true'
+    ) {
+
+      return;
+
+    }
+
+    if (
+      !navLinks.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+
+      window.closeMenu();
+
+    }
+
+  });
+
+
+  /* ==========================================
+     ADAPTATION AU CHANGEMENT D'ÉCRAN
+     ========================================== */
+
+  const desktopMedia = window.matchMedia(
+    '(min-width: 1101px)'
+  );
+
+
+  function handleDesktopChange(event) {
+
+    if (event.matches) {
+
+      window.closeMenu();
+
+    }
+
+  }
+
+
+  if (typeof desktopMedia.addEventListener === 'function') {
+
+    desktopMedia.addEventListener(
+      'change',
+      handleDesktopChange
+    );
+
+  } else if (
+    typeof desktopMedia.addListener === 'function'
+  ) {
+
+    desktopMedia.addListener(handleDesktopChange);
+
+  }
+
+
+  /* ==========================================
+     ACCESSIBILITÉ DES RÉCITS DÉROULANTS
+     ========================================== */
+
+  const travelDetails = document.querySelectorAll(
+    '.travel-details'
+  );
+
+
+  travelDetails.forEach(function (details) {
+
+    const summary = details.querySelector('summary');
+
+    if (!summary) {
+
+      return;
+
+    }
+
+    summary.setAttribute(
+      'aria-expanded',
+      String(details.open)
+    );
+
+
+    details.addEventListener('toggle', function () {
+
+      summary.setAttribute(
+        'aria-expanded',
+        String(details.open)
+      );
+
+    });
+
+  });
+
+
+  /* ==========================================
+     NAVIGATION VERS LES ANCRES
+     ========================================== */
+
+  function openParentDetails(target) {
+
+    let parent = target.parentElement;
+
+    while (parent) {
+
+      if (parent.tagName === 'DETAILS') {
+
+        parent.open = true;
+
+      }
+
+      parent = parent.parentElement;
+
+    }
+
+  }
+
+
+  function revealHashTarget() {
+
+    if (!window.location.hash) {
+
+      return;
+
+    }
+
+    let targetId;
+
+    try {
+
+      targetId = decodeURIComponent(
+        window.location.hash.substring(1)
+      );
+
+    } catch (error) {
+
+      return;
+
+    }
+
+    const target = document.getElementById(targetId);
+
+    if (!target) {
+
+      return;
+
+    }
+
+    openParentDetails(target);
+
+  }
+
+
+  window.addEventListener(
+    'hashchange',
+    revealHashTarget
+  );
+
+
+  if (document.readyState === 'loading') {
+
+    document.addEventListener(
+      'DOMContentLoaded',
+      revealHashTarget,
+      { once: true }
+    );
+
+  } else {
+
+    revealHashTarget();
+
+  }
+
+
+  /* ==========================================
+     RETOUR SUR LA PAGE
+     ========================================== */
+
+  window.addEventListener('pageshow', function () {
+
+    window.closeMenu();
+
+    revealHashTarget();
+
+  });
+
+
+  /* ==========================================
+     INTÉGRATION DES FICHIERS EXTERNES
+
+     global.js :
+     - Boutons flottants
+     - Médaillon du Royaume
+     - Pensée du jour
+     - Message de bienvenue
+     - Navigation active
+
+     royaume-voyages.js :
+     - Les 14 trésors cachés
+     - Fenêtres de découverte
+     - Progression du Royaume
+     - Consentement à la sauvegarde
+     - Communication avec le passeport
+
+     Ces fonctionnalités restent exclusivement
+     gérées par leurs fichiers respectifs.
+
+     Aucun stockage supplémentaire n'est
+     créé par ce script.
+     ========================================== */
+
+})();
 
 </script>
 

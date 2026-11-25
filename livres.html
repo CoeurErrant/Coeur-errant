@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,14 +13,61 @@
 
   <meta name="theme-color" content="#faf8f5">
 
-  <link rel="icon" href="logo.jpeg">
+  <link rel="canonical"
+        href="https://coeurerrant.github.io/Coeur-errant/livres.html">
+
+  <link rel="alternate"
+        hreflang="fr"
+        href="https://coeurerrant.github.io/Coeur-errant/livres.html">
+
+  <link rel="alternate"
+        hreflang="nl"
+        href="https://coeurerrant.github.io/Coeur-errant/livres-nl.html">
+
+  <link rel="alternate"
+        hreflang="x-default"
+        href="https://coeurerrant.github.io/Coeur-errant/livres.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cœur Errant">
+  <meta property="og:locale" content="fr_BE">
+  <meta property="og:title" content="La bibliothèque de Cœur Errant">
+
+  <meta property="og:description"
+        content="Trois livres. Trois univers. Une même raison d'écrire. Découvrez des histoires inspirées par les animaux des rues.">
+
+  <meta property="og:url"
+        content="https://coeurerrant.github.io/Coeur-errant/livres.html">
+
+  <meta property="og:image"
+        content="https://coeurerrant.github.io/Coeur-errant/livre-ames-errantes.jpg">
+
+  <meta property="og:image:alt"
+        content="Couverture du livre Nos âmes errantes">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mes livres — Cœur Errant">
+
+  <meta name="twitter:description"
+        content="Des histoires qui laissent des empreintes. Découvrez les trois livres de Cœur Errant.">
+
+  <meta name="twitter:image"
+        content="https://coeurerrant.github.io/Coeur-errant/livre-ames-errantes.jpg">
+
+  <link rel="icon" type="image/jpeg" href="logo.jpeg">
+  <link rel="apple-touch-icon" href="logo.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="accueil-v2.css">
   <link rel="stylesheet" href="livres.css">
+  <link rel="stylesheet" href="global.css">
+
+  <script src="global.js" defer></script>
 
 </head>
 
@@ -39,43 +85,67 @@
 
   <ul class="nav-links" id="nav-links">
 
-    <li><a href="index.html">Accueil</a></li>
-
-    <li><a href="index.html#histoire">Mon histoire</a></li>
-
-    <li><a href="mission.html">La mission</a></li>
-
-    <li><a href="voyages.html">Voyages</a></li>
-    <li><a href="passeport.html">Mon passeport</a></li>
+    <li>
+      <a href="index.html">Accueil</a>
+    </li>
 
     <li>
-      <a href="livres.html" aria-current="page">
+      <a href="mission.html">La mission</a>
+    </li>
+
+    <li>
+      <a href="voyages.html">Voyages</a>
+    </li>
+
+    <li>
+      <a href="livres.html"
+         class="active"
+         aria-current="page">
         Mes livres
       </a>
     </li>
 
-    <li><a href="etoiles.html">Nos étoiles</a></li>
+    <li>
+      <a href="etoiles.html">Nos étoiles</a>
+    </li>
 
-    <li><a href="soutenir.html">Soutenir</a></li>
+    <li>
+      <a href="agir.html">Comment agir</a>
+    </li>
+
+    <li>
+      <a href="passeport.html">Le Royaume</a>
+    </li>
+
+    <li>
+      <a href="soutenir.html">Soutenir</a>
+    </li>
 
     <li class="lang-mobile">
-      <a href="livres-nl.html">Nederlands</a>
+      <a href="livres-nl.html" lang="nl">Nederlands</a>
     </li>
 
   </ul>
 
   <div class="lang-switcher">
 
-    <a href="livres.html" class="lang-btn active">FR</a>
+    <a href="livres.html"
+       class="lang-btn active"
+       lang="fr"
+       aria-label="Français">FR</a>
 
     <span class="lang-sep">|</span>
 
-    <a href="livres-nl.html" class="lang-btn">NL</a>
+    <a href="livres-nl.html"
+       class="lang-btn"
+       lang="nl"
+       aria-label="Nederlands">NL</a>
 
   </div>
 
   <button class="hamburger"
           id="hamburger"
+          type="button"
           onclick="toggleMenu()"
           aria-label="Ouvrir le menu"
           aria-controls="nav-links"
@@ -343,7 +413,9 @@
                 aria-label="Découvrir La petite lanterne">
 
           <img src="livre-lanterne.jpg"
-               alt="Couverture de La petite lanterne">
+               alt="Couverture de La petite lanterne"
+               loading="lazy"
+               decoding="async">
 
           <span class="shelf-book-spine"></span>
 
@@ -384,7 +456,9 @@
                 aria-label="Découvrir Nos âmes errantes">
 
           <img src="livre-ames-errantes.jpg"
-               alt="Couverture de Nos âmes errantes">
+               alt="Couverture de Nos âmes errantes"
+               loading="lazy"
+               decoding="async">
 
           <span class="shelf-book-spine"></span>
 
@@ -425,7 +499,9 @@
                 aria-label="Découvrir le livre de coloriage Cœur Errant">
 
           <img src="livre-coloriage.jpg"
-               alt="Couverture du livre de coloriage Cœur Errant">
+               alt="Couverture du livre de coloriage Cœur Errant"
+               loading="lazy"
+               decoding="async">
 
           <span class="shelf-book-spine"></span>
 
@@ -499,7 +575,8 @@
 
           <img src="livre-lanterne.jpg"
                alt="La petite lanterne"
-               loading="lazy">
+               loading="lazy"
+               decoding="async">
 
         </button>
 
@@ -620,10 +697,7 @@
 
     </div>
 
-  </section>
-
-
-  <!-- ======================================
+  </section>  <!-- ======================================
        UNIVERS 02 — NOS ÂMES ERRANTES
        ====================================== -->
 
@@ -645,7 +719,8 @@
 
           <img src="livre-ames-errantes.jpg"
                alt="Nos âmes errantes"
-               loading="lazy">
+               loading="lazy"
+               decoding="async">
 
         </button>
 
@@ -799,7 +874,8 @@
 
           <img src="livre-coloriage.jpg"
                alt="Cœur Errant, Chaque animal a une histoire"
-               loading="lazy">
+               loading="lazy"
+               decoding="async">
 
         </button>
 
@@ -920,10 +996,7 @@
 
     </div>
 
-  </section>
-
-
-  <!-- ======================================
+  </section>  <!-- ======================================
        MINI COLORIAGE INTERACTIF
        ====================================== -->
 
@@ -932,26 +1005,19 @@
     <div class="library-heading library-reveal">
 
       <p class="library-label">
-
         Une petite parenthèse créative
-
       </p>
 
       <h2>
-
         Et si vous mettiez<br>
-
         <em>un peu de couleur ?</em>
-
       </h2>
 
       <p>
-
         Choisissez une couleur,
         puis cliquez sur une partie du dessin.
 
         Prenez quelques instants rien que pour vous.
-
       </p>
 
     </div>
@@ -1298,6 +1364,10 @@
 
       </div>
 
+
+      <!-- ======================================
+           PALETTE DE COULEURS
+           ====================================== -->
 
       <div class="coloring-tools">
 
@@ -2142,635 +2212,1054 @@
 
   </div>
 
-</dialog>
-
-
-<!-- ======================================
-     FOOTER
+</dialog><!-- ======================================
+     PIED DE PAGE COMMUN
      ====================================== -->
 
-<footer>
+<footer class="ce-footer">
 
-  <div class="footer-logo">
+  <div class="ce-footer-decoration" aria-hidden="true">
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
+  </div>
 
-    <img src="logo.jpeg" alt="Cœur Errant">
+  <div class="ce-footer-inner">
+
+    <div class="ce-footer-brand">
+
+      <a href="index.html"
+         aria-label="Accueil de Cœur Errant">
+
+        <img src="logo.jpeg"
+             alt="Logo Cœur Errant"
+             loading="lazy"
+             decoding="async">
+
+      </a>
+
+      <h2>Cœur Errant</h2>
+
+      <p class="ce-footer-tagline">
+        Chaque animal a une histoire.
+      </p>
+
+      <p class="ce-footer-description">
+        Parce que même les plus petites âmes
+        méritent une place dans ce monde.
+      </p>
+
+      <div class="ce-footer-socials">
+
+        <a href="https://www.tiktok.com/@coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="TikTok"
+           title="TikTok">
+
+          <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Instagram"
+           title="Instagram">
+
+          <img src="https://cdn.simpleicons.org/instagram/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.youtube.com/@CoeurErrant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="YouTube"
+           title="YouTube">
+
+          <img src="https://cdn.simpleicons.org/youtube/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Facebook"
+           title="Facebook">
+
+          <img src="https://cdn.simpleicons.org/facebook/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.snapchat.com/add/coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Snapchat"
+           title="Snapchat">
+
+          <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="mailto:coeur.errant@outlook.be"
+           aria-label="Contacter Cœur Errant"
+           title="Contact">
+
+          <svg viewBox="0 0 24 24"
+               width="20"
+               height="20"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.5"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               aria-hidden="true">
+
+            <rect x="3"
+                  y="5"
+                  width="18"
+                  height="14"
+                  rx="2"/>
+
+            <path d="M3 7 L12 13 L21 7"/>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- NAVIGATION DU FOOTER -->
+
+    <div class="ce-footer-navigation">
+
+      <div class="ce-footer-column">
+
+        <h3>Découvrir</h3>
+
+        <a href="index.html#histoire">
+          Mon histoire
+        </a>
+
+        <a href="mission.html">
+          La mission
+        </a>
+
+        <a href="voyages.html">
+          Mes voyages
+        </a>
+
+        <a href="livres.html"
+           class="active"
+           aria-current="page">
+          Mes livres
+        </a>
+
+      </div>
+
+      <div class="ce-footer-column">
+
+        <h3>Notre univers</h3>
+
+        <a href="etoiles.html">
+          Nos étoiles
+        </a>
+
+        <a href="passeport.html">
+          Le Royaume
+        </a>
+
+        <a href="agir.html">
+          Comment agir
+        </a>
+
+        <a href="soutenir.html">
+          Soutenir Cœur Errant
+        </a>
+
+      </div>
+
+      <div class="ce-footer-column">
+
+        <h3>Restons proches</h3>
+
+        <a href="mailto:coeur.errant@outlook.be">
+          Me contacter
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Suivre l'aventure
+        </a>
+
+        <a href="livres-nl.html"
+           lang="nl"
+           hreflang="nl">
+          Nederlandse versie
+        </a>
+
+        <a href="mentions-legales.html">
+          Mentions légales
+        </a>
+
+      </div>
+
+    </div>
 
   </div>
 
-  <div class="footer-divider"></div>
 
-  <div class="footer-socials">
+  <!-- SIGNATURE -->
 
-    <a href="https://www.tiktok.com/@coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+  <div class="ce-footer-signature">
 
-      <div class="footer-social-icon">
+    <span class="ce-footer-heart"
+          aria-hidden="true">
+      ♡
+    </span>
 
-        <img src="https://cdn.simpleicons.org/tiktok/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">TikTok</span>
-
-    </a>
-
-    <a href="https://www.instagram.com/coeur.errant/"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/instagram/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Instagram</span>
-
-    </a>
-
-    <a href="https://www.youtube.com/@CoeurErrant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/youtube/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">YouTube</span>
-
-    </a>
-
-    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/facebook/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Facebook</span>
-
-    </a>
-
-    <a href="https://www.snapchat.com/add/coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/snapchat/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Snapchat</span>
-
-    </a>
-
-    <a href="mailto:coeur.errant@outlook.be"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/gmail/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Contact</span>
-
-    </a>
+    <p>
+      Créé avec amour, pour ceux qui n'ont pas de voix.
+    </p>
 
   </div>
 
-  <div class="footer-divider"></div>
 
-  <p class="footer-copy">
+  <!-- COPYRIGHT -->
 
-    © <span id="annee"></span>
+  <div class="ce-footer-copyright">
 
-    Cœur Errant — Chaque animal a une histoire.
+    <p>
+      © <span id="footer-year">2026</span>
+      Cœur Errant — Tous droits réservés.
+    </p>
 
-  </p>
+  </div>
 
 </footer>
 
 
 <!-- ======================================
-     JAVASCRIPT
+     JAVASCRIPT — BIBLIOTHÈQUE
      ====================================== -->
 
 <script>
 
-/* ANNÉE AUTOMATIQUE */
+(function () {
 
-document.getElementById('annee').textContent =
-  new Date().getFullYear();
+  'use strict';
 
 
-/* ======================================
-   MENU MOBILE
-   ====================================== */
+  /* ======================================
+     ANNÉE AUTOMATIQUE
+     ====================================== */
 
-const navLinks = document.getElementById('nav-links');
+  const footerYear =
+    document.getElementById('footer-year');
 
-const hamburger = document.getElementById('hamburger');
+  if (footerYear) {
 
-function toggleMenu() {
-
-  const isOpen = navLinks.classList.toggle('open');
-
-  hamburger.classList.toggle('open', isOpen);
-
-  hamburger.setAttribute(
-    'aria-expanded',
-    String(isOpen)
-  );
-
-  hamburger.setAttribute(
-    'aria-label',
-    isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
-  );
-
-}
-
-function closeMenu() {
-
-  navLinks.classList.remove('open');
-
-  hamburger.classList.remove('open');
-
-  hamburger.setAttribute('aria-expanded', 'false');
-
-  hamburger.setAttribute(
-    'aria-label',
-    'Ouvrir le menu'
-  );
-
-}
-
-navLinks.querySelectorAll('a').forEach(link => {
-
-  link.addEventListener('click', closeMenu);
-
-});
-
-document.addEventListener('keydown', event => {
-
-  if (event.key === 'Escape') {
-
-    closeMenu();
+    footerYear.textContent =
+      new Date().getFullYear();
 
   }
 
-});
 
+  /* ======================================
+     MENU MOBILE
+     ====================================== */
 
-/* ======================================
-   INFORMATIONS DES LIVRES
-   ====================================== */
+  const navLinks =
+    document.getElementById('nav-links');
 
-const libraryBooks = {
+  const hamburger =
+    document.getElementById('hamburger');
 
-  lanterne: {
 
-    title: 'La petite lanterne',
+  function setMenuState(isOpen) {
 
-    cover: 'livre-lanterne.jpg',
+    if (!navLinks || !hamburger) return;
 
-    category: 'Littérature jeunesse',
+    navLinks.classList.toggle('open', isOpen);
 
-    amazon: 'https://amzn.eu/d/04uXHShr',
+    hamburger.classList.toggle('open', isOpen);
 
-    recommendation:
-      "Une histoire à partager avec un enfant " +
-      "pour découvrir la bienveillance et apprendre " +
-      "à regarder le monde autrement.",
+    hamburger.setAttribute(
+      'aria-expanded',
+      String(isOpen)
+    );
 
-    pages: [
-
-      {
-
-        chapter: '01 — Découvrir',
-
-        heading: 'Une petite lumière.',
-
-        text:
-          "Le monde est rempli de petites choses " +
-          "que nous ne remarquons pas toujours. " +
-          "La petite lanterne invite les enfants " +
-          "à ouvrir leurs yeux, mais aussi leur cœur."
-
-      },
-
-      {
-
-        chapter: '02 — Ressentir',
-
-        heading: 'Apprendre la douceur.',
-
-        text:
-          "La bienveillance se découvre dès le plus jeune âge. " +
-          "À travers la lecture et les échanges, " +
-          "les enfants peuvent apprendre à faire attention " +
-          "aux êtres vivants qui les entourent."
-
-      },
-
-      {
-
-        chapter: '03 — Partager',
-
-        heading: 'Un moment ensemble.',
-
-        text:
-          "Une lecture avant de dormir, " +
-          "un moment calme en famille, " +
-          "une conversation qui commence après la dernière page. " +
-          "Les histoires peuvent devenir de précieux souvenirs."
-
-      }
-
-    ]
-
-  },
-
-  ames: {
-
-    title: 'Nos âmes errantes',
-
-    cover: 'livre-ames-errantes.jpg',
-
-    category: 'Récits et témoignages',
-
-    amazon: 'https://amzn.eu/d/0fyDrXjy',
-
-    recommendation:
-      "Des rencontres réelles et des récits imaginés " +
-      "pour découvrir le quotidien des animaux errants " +
-      "à travers un autre regard.",
-
-    pages: [
-
-      {
-
-        chapter: '01 — Ma rencontre',
-
-        heading: "Au détour d'un voyage.",
-
-        text:
-          "De la Corse au Maroc, en passant par " +
-          "la Sicile, la Turquie et d'autres destinations, " +
-          "des animaux ont croisé mon chemin. " +
-          "Certains regards ne m'ont jamais quittée."
-
-      },
-
-      {
-
-        chapter: '02 — Dans leur peau',
-
-        heading: 'Et si nous étions eux ?',
-
-        text:
-          "Après chaque rencontre réelle, " +
-          "le récit invite le lecteur à imaginer " +
-          "le monde du point de vue de l'animal. " +
-          "Ses émotions, ses difficultés " +
-          "et ses instants de douceur."
-
-      },
-
-      {
-
-        chapter: '03 — Ne pas oublier',
-
-        heading: 'Une place entre les pages.',
-
-        text:
-          "Ce livre est une manière de préserver " +
-          "le souvenir de ces petites âmes. " +
-          "Leur existence mérite d'être reconnue, " +
-          "leurs histoires méritent d'être racontées."
-
-      }
-
-    ]
-
-  },
-
-  coloriage: {
-
-    title: 'Chaque animal a une histoire',
-
-    cover: 'livre-coloriage.jpg',
-
-    category: 'Coloriage pour adultes',
-
-    amazon: 'https://amzn.eu/d/0h3yOZae',
-
-    recommendation:
-      "Une parenthèse créative pour découvrir " +
-      "des animaux réellement rencontrés en voyage, " +
-      "tout en laissant parler votre imagination.",
-
-    pages: [
-
-      {
-
-        chapter: '01 — Observer',
-
-        heading: 'Derrière chaque illustration.',
-
-        text:
-          "Les dessins s'inspirent de véritables animaux " +
-          "rencontrés au fil de mes voyages. " +
-          "Chaque rencontre possède sa propre histoire, " +
-          "son propre souvenir."
-
-      },
-
-      {
-
-        chapter: '02 — Imaginer',
-
-        heading: 'Votre monde en couleurs.',
-
-        text:
-          "Des illustrations réalistes, " +
-          "des photographies et des récits " +
-          "vous accompagnent dans cette parenthèse créative. " +
-          "À vous de choisir les couleurs."
-
-      },
-
-      {
-
-        chapter: '03 — Ralentir',
-
-        heading: 'Un instant pour soi.',
-
-        text:
-          "Installez-vous confortablement, " +
-          "préparez vos crayons et prenez votre temps. " +
-          "Il n'existe pas de mauvaise couleur " +
-          "lorsque l'on crée avec le cœur."
-
-      }
-
-    ]
+    hamburger.setAttribute(
+      'aria-label',
+      isOpen
+        ? 'Fermer le menu'
+        : 'Ouvrir le menu'
+    );
 
   }
 
-};
+
+  window.toggleMenu = function () {
+
+    if (!navLinks || !hamburger) return;
+
+    const isOpen =
+      hamburger.getAttribute('aria-expanded') === 'true';
+
+    setMenuState(!isOpen);
+
+  };
 
 
-/* ======================================
-   LIVRES À FEUILLETER
-   ====================================== */
+  window.closeMenu = function () {
 
-const bookDialog =
-  document.getElementById('book-dialog');
+    setMenuState(false);
 
-let activeBook = 'lanterne';
-
-let activePage = 0;
+  };
 
 
-function renderBookPage(animate = false) {
+  if (navLinks) {
 
-  const book = libraryBooks[activeBook];
+    navLinks.querySelectorAll('a')
+      .forEach(link => {
 
-  const page = book.pages[activePage];
+        link.addEventListener('click', window.closeMenu);
 
-  document.getElementById('preview-title')
-    .textContent = book.title;
+      });
 
-  const cover = document.getElementById('preview-cover');
+  }
 
-  cover.src = book.cover;
 
-  cover.alt = 'Couverture de ' + book.title;
+  document.addEventListener('keydown', event => {
 
-  document.getElementById('preview-category')
-    .textContent = book.category;
+    if (
+      event.key === 'Escape' &&
+      hamburger &&
+      hamburger.getAttribute('aria-expanded') === 'true'
+    ) {
 
-  document.getElementById('preview-chapter')
-    .textContent = page.chapter;
+      window.closeMenu();
 
-  document.getElementById('preview-heading')
-    .textContent = page.heading;
+      hamburger.focus();
 
-  document.getElementById('preview-text')
-    .textContent = page.text;
+    }
 
-  document.getElementById('preview-page-number')
-    .textContent = String(activePage + 1)
-    .padStart(2, '0');
+  });
 
-  document.getElementById('preview-pagination')
-    .textContent =
-      'Page ' + (activePage + 1) +
-      ' sur ' + book.pages.length;
 
-  document.getElementById('preview-amazon')
-    .href = book.amazon;
+  document.addEventListener('click', event => {
+
+    if (!navLinks || !hamburger) return;
+
+    if (
+      hamburger.getAttribute('aria-expanded') === 'true' &&
+      !navLinks.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+
+      window.closeMenu();
+
+    }
+
+  });
+
+
+  window.addEventListener('resize', () => {
+
+    if (window.innerWidth > 1100) {
+
+      window.closeMenu();
+
+    }
+
+  });
+
+
+  /* ======================================
+     INFORMATIONS DES LIVRES
+     ====================================== */
+
+  const libraryBooks = {
+
+    lanterne: {
+
+      title: 'La petite lanterne',
+
+      cover: 'livre-lanterne.jpg',
+
+      category: 'Littérature jeunesse',
+
+      amazon: 'https://amzn.eu/d/04uXHShr',
+
+      recommendation:
+
+        "Une histoire à partager avec un enfant " +
+        "pour découvrir la bienveillance et apprendre " +
+        "à regarder le monde autrement.",
+
+      pages: [
+
+        {
+
+          chapter: '01 — Découvrir',
+
+          heading: 'Une petite lumière.',
+
+          text:
+
+            "Le monde est rempli de petites choses " +
+            "que nous ne remarquons pas toujours. " +
+            "La petite lanterne invite les enfants " +
+            "à ouvrir leurs yeux, mais aussi leur cœur."
+
+        },
+
+        {
+
+          chapter: '02 — Ressentir',
+
+          heading: 'Apprendre la douceur.',
+
+          text:
+
+            "La bienveillance se découvre dès le plus jeune âge. " +
+            "À travers la lecture et les échanges, " +
+            "les enfants peuvent apprendre à faire attention " +
+            "aux êtres vivants qui les entourent."
+
+        },
+
+        {
+
+          chapter: '03 — Partager',
+
+          heading: 'Un moment ensemble.',
+
+          text:
+
+            "Une lecture avant de dormir, " +
+            "un moment calme en famille, " +
+            "une conversation qui commence après la dernière page. " +
+            "Les histoires peuvent devenir de précieux souvenirs."
+
+        }
+
+      ]
+
+    },
+
+
+    /* NOS ÂMES ERRANTES */
+
+    ames: {
+
+      title: 'Nos âmes errantes',
+
+      cover: 'livre-ames-errantes.jpg',
+
+      category: 'Récits et témoignages',
+
+      amazon: 'https://amzn.eu/d/0fyDrXjy',
+
+      recommendation:
+
+        "Des rencontres réelles et des récits imaginés " +
+        "pour découvrir le quotidien des animaux errants " +
+        "à travers un autre regard.",
+
+      pages: [
+
+        {
+
+          chapter: '01 — Ma rencontre',
+
+          heading: "Au détour d'un voyage.",
+
+          text:
+
+            "De la Corse au Maroc, en passant par " +
+            "la Sicile, la Turquie et d'autres destinations, " +
+            "des animaux ont croisé mon chemin. " +
+            "Certains regards ne m'ont jamais quittée."
+
+        },
+
+        {
+
+          chapter: '02 — Dans leur peau',
+
+          heading: 'Et si nous étions eux ?',
+
+          text:
+
+            "Après chaque rencontre réelle, " +
+            "le récit invite le lecteur à imaginer " +
+            "le monde du point de vue de l'animal. " +
+            "Ses émotions, ses difficultés " +
+            "et ses instants de douceur."
+
+        },
+
+        {
+
+          chapter: '03 — Ne pas oublier',
+
+          heading: 'Une place entre les pages.',
+
+          text:
+
+            "Ce livre est une manière de préserver " +
+            "le souvenir de ces petites âmes. " +
+            "Leur existence mérite d'être reconnue, " +
+            "leurs histoires méritent d'être racontées."
+
+        }
+
+      ]
+
+    },
+
+
+    /* LIVRE DE COLORIAGE */
+
+    coloriage: {
+
+      title: 'Chaque animal a une histoire',
+
+      cover: 'livre-coloriage.jpg',
+
+      category: 'Coloriage pour adultes',
+
+      amazon: 'https://amzn.eu/d/0h3yOZae',
+
+      recommendation:
+
+        "Une parenthèse créative pour découvrir " +
+        "des animaux réellement rencontrés en voyage, " +
+        "tout en laissant parler votre imagination.",
+
+      pages: [
+
+        {
+
+          chapter: '01 — Observer',
+
+          heading: 'Derrière chaque illustration.',
+
+          text:
+
+            "Les dessins s'inspirent de véritables animaux " +
+            "rencontrés au fil de mes voyages. " +
+            "Chaque rencontre possède sa propre histoire, " +
+            "son propre souvenir."
+
+        },
+
+        {
+
+          chapter: '02 — Imaginer',
+
+          heading: 'Votre monde en couleurs.',
+
+          text:
+
+            "Des illustrations réalistes, " +
+            "des photographies et des récits " +
+            "vous accompagnent dans cette parenthèse créative. " +
+            "À vous de choisir les couleurs."
+
+        },
+
+        {
+
+          chapter: '03 — Ralentir',
+
+          heading: 'Un instant pour soi.',
+
+          text:
+
+            "Installez-vous confortablement, " +
+            "préparez vos crayons et prenez votre temps. " +
+            "Il n'existe pas de mauvaise couleur " +
+            "lorsque l'on crée avec le cœur."
+
+        }
+
+      ]
+
+    }
+
+  };
+
+
+  /* ======================================
+     LIVRES À FEUILLETER
+     ====================================== */
+
+  const bookDialog =
+    document.getElementById('book-dialog');
+
+  let activeBook = 'lanterne';
+
+  let activePage = 0;
+
+
+  function renderBookPage(animate = false) {
+
+    const book = libraryBooks[activeBook];
+
+    const page = book.pages[activePage];
+
+
+    document.getElementById('preview-title')
+      .textContent = book.title;
+
+
+    const cover =
+      document.getElementById('preview-cover');
+
+    cover.src = book.cover;
+
+    cover.alt = 'Couverture de ' + book.title;
+
+
+    document.getElementById('preview-category')
+      .textContent = book.category;
+
+
+    document.getElementById('preview-chapter')
+      .textContent = page.chapter;
+
+
+    document.getElementById('preview-heading')
+      .textContent = page.heading;
+
+
+    document.getElementById('preview-text')
+      .textContent = page.text;
+
+
+    document.getElementById('preview-page-number')
+      .textContent = String(activePage + 1)
+      .padStart(2, '0');
+
+
+    document.getElementById('preview-pagination')
+      .textContent =
+        'Page ' + (activePage + 1) +
+        ' sur ' + book.pages.length;
+
+
+    document.getElementById('preview-amazon')
+      .href = book.amazon;
+
+
+    document.getElementById('preview-prev')
+      .disabled = activePage === 0;
+
+
+    document.getElementById('preview-next')
+      .disabled =
+        activePage === book.pages.length - 1;
+
+
+    const previewRight =
+      document.getElementById('preview-right');
+
+    previewRight.classList.remove('page-changing');
+
+
+    if (
+      animate &&
+      !window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches
+    ) {
+
+      void previewRight.offsetWidth;
+
+      previewRight.classList.add('page-changing');
+
+    }
+
+  }
+
+
+  function openBook(bookId) {
+
+    if (!libraryBooks[bookId] || !bookDialog) return;
+
+    activeBook = bookId;
+
+    activePage = 0;
+
+    bookDialog.dataset.book = bookId;
+
+    renderBookPage();
+
+
+    if (!bookDialog.open) {
+
+      bookDialog.showModal();
+
+    }
+
+  }
+
+
+  document.querySelectorAll('[data-open-book]')
+    .forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        openBook(button.dataset.openBook);
+
+      });
+
+    });
+
 
   document.getElementById('preview-prev')
-    .disabled = activePage === 0;
+    .addEventListener('click', () => {
+
+      if (activePage > 0) {
+
+        activePage--;
+
+        renderBookPage(true);
+
+      }
+
+    });
+
 
   document.getElementById('preview-next')
-    .disabled =
-      activePage === book.pages.length - 1;
+    .addEventListener('click', () => {
 
-  const previewRight =
-    document.getElementById('preview-right');
+      const totalPages =
+        libraryBooks[activeBook].pages.length;
 
-  previewRight.classList.remove('page-changing');
+      if (activePage < totalPages - 1) {
 
-  if (animate) {
+        activePage++;
 
-    void previewRight.offsetWidth;
+        renderBookPage(true);
 
-    previewRight.classList.add('page-changing');
-
-  }
-
-}
-
-
-function openBook(bookId) {
-
-  if (!libraryBooks[bookId]) return;
-
-  activeBook = bookId;
-
-  activePage = 0;
-
-  bookDialog.dataset.book = bookId;
-
-  renderBookPage();
-
-  if (!bookDialog.open) {
-
-    bookDialog.showModal();
-
-  }
-
-}
-
-
-document.querySelectorAll('[data-open-book]')
-  .forEach(button => {
-
-    button.addEventListener('click', () => {
-
-      openBook(button.dataset.openBook);
+      }
 
     });
 
-  });
+
+  /* NAVIGATION AU CLAVIER */
+
+  bookDialog.addEventListener('keydown', event => {
+
+    if (event.key === 'ArrowRight') {
+
+      event.preventDefault();
+
+      document.getElementById('preview-next').click();
+
+    }
 
 
-document.getElementById('preview-prev')
-  .addEventListener('click', () => {
+    if (event.key === 'ArrowLeft') {
 
-    if (activePage > 0) {
+      event.preventDefault();
 
-      activePage--;
-
-      renderBookPage(true);
+      document.getElementById('preview-prev').click();
 
     }
 
   });
 
 
-document.getElementById('preview-next')
-  .addEventListener('click', () => {
+  /* ======================================
+     QR CODES
+     ====================================== */
 
-    const totalPages =
-      libraryBooks[activeBook].pages.length;
-
-    if (activePage < totalPages - 1) {
-
-      activePage++;
-
-      renderBookPage(true);
-
-    }
-
-  });
+  const qrDialog =
+    document.getElementById('qr-dialog');
 
 
-bookDialog.addEventListener('keydown', event => {
+  document.querySelectorAll('[data-qr]')
+    .forEach(button => {
 
-  if (event.key === 'ArrowRight') {
+      button.addEventListener('click', () => {
 
-    event.preventDefault();
-
-    document.getElementById('preview-next').click();
-
-  }
-
-  if (event.key === 'ArrowLeft') {
-
-    event.preventDefault();
-
-    document.getElementById('preview-prev').click();
-
-  }
-
-});
+        document.getElementById('qr-dialog-title')
+          .textContent = button.dataset.qrTitle;
 
 
-/* ======================================
-   QR CODES
-   ====================================== */
+        const image =
+          document.getElementById('qr-dialog-image');
 
-const qrDialog =
-  document.getElementById('qr-dialog');
+        image.src = button.dataset.qr;
+
+        image.alt =
+          'QR code Amazon pour ' +
+          button.dataset.qrTitle;
 
 
-document.querySelectorAll('[data-qr]')
-  .forEach(button => {
+        if (!qrDialog.open) {
 
-    button.addEventListener('click', () => {
+          qrDialog.showModal();
 
-      document.getElementById('qr-dialog-title')
-        .textContent = button.dataset.qrTitle;
+        }
 
-      const image =
-        document.getElementById('qr-dialog-image');
-
-      image.src = button.dataset.qr;
-
-      image.alt =
-        'QR code Amazon pour ' +
-        button.dataset.qrTitle;
-
-      qrDialog.showModal();
+      });
 
     });
 
-  });
 
+  /* ======================================
+     FERMETURE DES FENÊTRES
+     ====================================== */
 
-/* ======================================
-   FERMETURE DES FENÊTRES
-   ====================================== */
+  document.querySelectorAll('[data-close-dialog]')
+    .forEach(button => {
 
-document.querySelectorAll('[data-close-dialog]')
-  .forEach(button => {
+      button.addEventListener('click', () => {
 
-    button.addEventListener('click', () => {
+        const dialog = document.getElementById(
+          button.dataset.closeDialog
+        );
 
-      const dialog = document.getElementById(
-        button.dataset.closeDialog
-      );
-
-      dialog.close();
-
-    });
-
-  });
-
-
-document.querySelectorAll('.book-dialog, .qr-dialog')
-  .forEach(dialog => {
-
-    dialog.addEventListener('click', event => {
-
-      if (event.target === dialog) {
-
-        const rect = dialog.getBoundingClientRect();
-
-        const outside =
-          event.clientX < rect.left ||
-          event.clientX > rect.right ||
-          event.clientY < rect.top ||
-          event.clientY > rect.bottom;
-
-        if (outside) {
+        if (dialog && dialog.open) {
 
           dialog.close();
 
         }
 
+      });
+
+    });
+
+
+  /* FERMETURE EN CLIQUANT À L'EXTÉRIEUR */
+
+  document.querySelectorAll('.book-dialog, .qr-dialog')
+    .forEach(dialog => {
+
+      dialog.addEventListener('click', event => {
+
+        if (event.target !== dialog) return;
+
+
+        const rect =
+          dialog.getBoundingClientRect();
+
+
+        const outside =
+
+          event.clientX < rect.left ||
+
+          event.clientX > rect.right ||
+
+          event.clientY < rect.top ||
+
+          event.clientY > rect.bottom;
+
+
+        if (outside && dialog.open) {
+
+          dialog.close();
+
+        }
+
+      });
+
+    });
+
+
+  /* ======================================
+     MINI COLORIAGE INTERACTIF
+     ====================================== */
+
+  let selectedColor = '#c99b79';
+
+  const colorHistory = [];
+
+
+  const paintAreas =
+    document.querySelectorAll('.paint-area');
+
+
+  const swatches =
+    document.querySelectorAll('.color-swatch');
+
+
+  const customColor =
+    document.getElementById('custom-color');
+
+
+  const coloringMessage =
+    document.getElementById('coloring-message');
+
+
+  const undoButton =
+    document.getElementById('undo-coloring');
+
+
+  /* PROGRESSION DU COLORIAGE */
+
+  function updateColoringStatus() {
+
+    const coloredAreas = Array.from(paintAreas)
+      .filter(area => {
+
+        return area.getAttribute('fill') !==
+          area.dataset.original;
+
+      }).length;
+
+
+    undoButton.disabled =
+      colorHistory.length === 0;
+
+
+    if (
+      paintAreas.length > 0 &&
+      coloredAreas === paintAreas.length
+    ) {
+
+      coloringMessage.textContent =
+
+        "Votre petite œuvre est terminée. " +
+        "Chaque couleur raconte quelque chose de vous. ♡";
+
+    } else if (coloredAreas > 0) {
+
+      coloringMessage.textContent =
+
+        "Petit à petit, votre dessin prend vie. ♡";
+
+    } else {
+
+      coloringMessage.textContent =
+
+        "Votre imagination n'a pas de frontières.";
+
+    }
+
+  }
+
+
+  /* SÉLECTIONNER UNE COULEUR */
+
+  function selectColor(color, activeSwatch = null) {
+
+    selectedColor = color;
+
+    customColor.value = color;
+
+
+    swatches.forEach(swatch => {
+
+      const active = swatch === activeSwatch;
+
+      swatch.classList.toggle('active', active);
+
+      swatch.setAttribute(
+        'aria-pressed',
+        String(active)
+      );
+
+    });
+
+  }
+
+
+  swatches.forEach(swatch => {
+
+    swatch.addEventListener('click', () => {
+
+      selectColor(
+        swatch.dataset.color,
+        swatch
+      );
+
+    });
+
+  });
+
+
+  /* COULEUR PERSONNALISÉE */
+
+  customColor.addEventListener('input', event => {
+
+    selectColor(event.target.value);
+
+  });
+
+
+  /* COLORIER UNE ZONE */
+
+  function paintArea(area) {
+
+    const previousColor =
+      area.getAttribute('fill');
+
+
+    if (previousColor === selectedColor) return;
+
+
+    colorHistory.push({
+
+      area: area,
+
+      color: previousColor
+
+    });
+
+
+    area.setAttribute(
+      'fill',
+      selectedColor
+    );
+
+
+    updateColoringStatus();
+
+  }
+
+
+  paintAreas.forEach(area => {
+
+    area.addEventListener('click', () => {
+
+      paintArea(area);
+
+    });
+
+
+    area.addEventListener('keydown', event => {
+
+      if (
+        event.key === 'Enter' ||
+        event.key === ' '
+      ) {
+
+        event.preventDefault();
+
+        paintArea(area);
+
       }
 
     });
@@ -2778,204 +3267,110 @@ document.querySelectorAll('.book-dialog, .qr-dialog')
   });
 
 
-/* ======================================
-   MINI COLORIAGE
-   ====================================== */
+  /* ANNULER LA DERNIÈRE ACTION */
 
-let selectedColor = '#c99b79';
+  undoButton.addEventListener('click', () => {
 
-const colorHistory = [];
-
-const paintAreas =
-  document.querySelectorAll('.paint-area');
-
-const swatches =
-  document.querySelectorAll('.color-swatch');
-
-const customColor =
-  document.getElementById('custom-color');
-
-const coloringMessage =
-  document.getElementById('coloring-message');
-
-const undoButton =
-  document.getElementById('undo-coloring');
+    const lastAction =
+      colorHistory.pop();
 
 
-function updateColoringStatus() {
-
-  const coloredAreas = Array.from(paintAreas)
-    .filter(area => {
-
-      return area.getAttribute('fill') !==
-        area.dataset.original;
-
-    }).length;
-
-  undoButton.disabled = colorHistory.length === 0;
-
-  if (coloredAreas === paintAreas.length) {
-
-    coloringMessage.textContent =
-      "Votre petite œuvre est terminée. " +
-      "Chaque couleur raconte quelque chose de vous. ♡";
-
-  } else if (coloredAreas > 0) {
-
-    coloringMessage.textContent =
-      "Petit à petit, votre dessin prend vie. ♡";
-
-  } else {
-
-    coloringMessage.textContent =
-      "Votre imagination n'a pas de frontières.";
-
-  }
-
-}
+    if (!lastAction) return;
 
 
-function selectColor(color, activeSwatch = null) {
+    lastAction.area.setAttribute(
 
-  selectedColor = color;
+      'fill',
 
-  customColor.value = color;
+      lastAction.color
 
-  swatches.forEach(swatch => {
-
-    const active = swatch === activeSwatch;
-
-    swatch.classList.toggle('active', active);
-
-    swatch.setAttribute(
-      'aria-pressed',
-      String(active)
     );
 
-  });
-
-}
-
-
-swatches.forEach(swatch => {
-
-  swatch.addEventListener('click', () => {
-
-    selectColor(swatch.dataset.color, swatch);
-
-  });
-
-});
-
-
-customColor.addEventListener('input', event => {
-
-  selectColor(event.target.value);
-
-});
-
-
-function paintArea(area) {
-
-  const previousColor =
-    area.getAttribute('fill');
-
-  if (previousColor === selectedColor) return;
-
-  colorHistory.push({
-
-    area: area,
-
-    color: previousColor
-
-  });
-
-  area.setAttribute('fill', selectedColor);
-
-  updateColoringStatus();
-
-}
-
-
-paintAreas.forEach(area => {
-
-  area.addEventListener('click', () => {
-
-    paintArea(area);
-
-  });
-
-  area.addEventListener('keydown', event => {
-
-    if (event.key === 'Enter' || event.key === ' ') {
-
-      event.preventDefault();
-
-      paintArea(area);
-
-    }
-
-  });
-
-});
-
-
-undoButton.addEventListener('click', () => {
-
-  const lastAction = colorHistory.pop();
-
-  if (!lastAction) return;
-
-  lastAction.area.setAttribute(
-    'fill',
-    lastAction.color
-  );
-
-  updateColoringStatus();
-
-});
-
-
-document.getElementById('reset-coloring')
-  .addEventListener('click', () => {
-
-    paintAreas.forEach(area => {
-
-      area.setAttribute(
-        'fill',
-        area.dataset.original
-      );
-
-    });
-
-    colorHistory.length = 0;
 
     updateColoringStatus();
 
   });
 
 
-/* ENREGISTRER LE COLORIAGE EN PNG */
+  /* RECOMMENCER LE COLORIAGE */
 
-document.getElementById('save-coloring')
-  .addEventListener('click', () => {
+  document.getElementById('reset-coloring')
+    .addEventListener('click', () => {
+
+      paintAreas.forEach(area => {
+
+        area.setAttribute(
+
+          'fill',
+
+          area.dataset.original
+
+        );
+
+      });
+
+
+      colorHistory.length = 0;
+
+
+      updateColoringStatus();
+
+    });
+
+
+  /* ======================================
+     ENREGISTRER LE COLORIAGE EN PNG
+     ====================================== */
+
+  const saveColoringButton =
+    document.getElementById('save-coloring');
+
+
+  saveColoringButton.addEventListener('click', () => {
 
     const svg =
       document.getElementById('coloring-drawing');
 
+
+    if (!svg) return;
+
+
+    saveColoringButton.disabled = true;
+
+
     const copy = svg.cloneNode(true);
+
 
     copy.setAttribute('width', '1200');
 
     copy.setAttribute('height', '1200');
 
     copy.setAttribute(
+
       'xmlns',
+
       'http://www.w3.org/2000/svg'
+
     );
+
+
+    /* RETIRER LES ATTRIBUTS INTERACTIFS DE L'IMAGE */
+
+    copy.querySelectorAll('[tabindex]')
+      .forEach(element => {
+
+        element.removeAttribute('tabindex');
+
+        element.removeAttribute('role');
+
+        element.removeAttribute('aria-label');
+
+      });
+
 
     const svgText =
       new XMLSerializer().serializeToString(copy);
+
 
     const blob = new Blob(
 
@@ -2985,232 +3380,491 @@ document.getElementById('save-coloring')
 
     );
 
-    const url = URL.createObjectURL(blob);
+
+    const url =
+      URL.createObjectURL(blob);
+
 
     const image = new Image();
 
+
+    function exportError() {
+
+      saveColoringButton.disabled = false;
+
+      coloringMessage.textContent =
+
+        "Impossible d'enregistrer le dessin. " +
+        "Vous pouvez réessayer.";
+
+    }
+
+
     image.onload = () => {
 
-      const canvas =
-        document.createElement('canvas');
+      try {
 
-      canvas.width = 1200;
+        const canvas =
+          document.createElement('canvas');
 
-      canvas.height = 1200;
 
-      const context = canvas.getContext('2d');
+        canvas.width = 1200;
 
-      context.fillStyle = '#fffdf8';
+        canvas.height = 1200;
 
-      context.fillRect(0, 0, 1200, 1200);
 
-      context.drawImage(image, 0, 0, 1200, 1200);
+        const context =
+          canvas.getContext('2d');
 
-      URL.revokeObjectURL(url);
 
-      canvas.toBlob(png => {
+        if (!context) {
 
-        if (!png) {
-
-          coloringMessage.textContent =
-            "Impossible d'enregistrer le dessin.";
-
-          return;
+          throw new Error('Canvas indisponible');
 
         }
 
-        const pngUrl = URL.createObjectURL(png);
 
-        const link = document.createElement('a');
+        context.fillStyle = '#fffdf8';
 
-        link.href = pngUrl;
+        context.fillRect(0, 0, 1200, 1200);
 
-        link.download = 'Mon-coloriage-Coeur-Errant.png';
+        context.drawImage(image, 0, 0, 1200, 1200);
 
-        document.body.appendChild(link);
 
-        link.click();
+        canvas.toBlob(png => {
 
-        link.remove();
+          if (!png) {
 
-        setTimeout(() => {
+            exportError();
 
-          URL.revokeObjectURL(pngUrl);
+            return;
 
-        }, 1000);
+          }
 
-        coloringMessage.textContent =
-          "Votre coloriage est prêt à être conservé. ♡";
 
-      }, 'image/png');
+          const pngUrl =
+            URL.createObjectURL(png);
+
+
+          const link =
+            document.createElement('a');
+
+
+          link.href = pngUrl;
+
+          link.download =
+            'Mon-coloriage-Coeur-Errant.png';
+
+
+          document.body.appendChild(link);
+
+          link.click();
+
+          link.remove();
+
+
+          setTimeout(() => {
+
+            URL.revokeObjectURL(pngUrl);
+
+          }, 10000);
+
+
+          coloringMessage.textContent =
+
+            "Votre coloriage est prêt à être conservé. ♡";
+
+
+          saveColoringButton.disabled = false;
+
+        }, 'image/png');
+
+      } catch (error) {
+
+        exportError();
+
+      } finally {
+
+        URL.revokeObjectURL(url);
+
+      }
 
     };
+
 
     image.onerror = () => {
 
       URL.revokeObjectURL(url);
 
-      coloringMessage.textContent =
-        "Impossible d'enregistrer le dessin. " +
-        "Vous pouvez réessayer.";
+      exportError();
 
     };
+
 
     image.src = url;
 
   });
 
 
-updateColoringStatus();
+  updateColoringStatus();
 
 
-/* ======================================
-   RECOMMANDATION DE LECTURE
-   ====================================== */
+  /* ======================================
+     RECOMMANDATION DE LECTURE
+     ====================================== */
 
-let recommendedBook = null;
-
-const readingChoices =
-  document.querySelectorAll('.reading-choice');
-
-const readingResult =
-  document.getElementById('reading-result');
+  let recommendedBook = null;
 
 
-readingChoices.forEach(choice => {
-
-  choice.addEventListener('click', () => {
-
-    recommendedBook = choice.dataset.recommend;
-
-    const book = libraryBooks[recommendedBook];
-
-    readingChoices.forEach(item => {
-
-      const active = item === choice;
-
-      item.classList.toggle('choice-selected', active);
-
-      item.setAttribute(
-        'aria-pressed',
-        String(active)
-      );
-
-    });
-
-    const cover =
-      document.getElementById('recommended-cover');
-
-    cover.src = book.cover;
-
-    cover.alt = 'Couverture de ' + book.title;
-
-    document.getElementById('recommended-title')
-      .textContent = book.title;
-
-    document.getElementById('recommended-description')
-      .textContent = book.recommendation;
-
-    readingResult.hidden = false;
-
-    readingResult.classList.remove('result-appear');
-
-    void readingResult.offsetWidth;
-
-    readingResult.classList.add('result-appear');
-
-  });
-
-});
+  const readingChoices =
+    document.querySelectorAll('.reading-choice');
 
 
-document.getElementById('recommended-button')
-  .addEventListener('click', () => {
-
-    if (recommendedBook) {
-
-      openBook(recommendedBook);
-
-    }
-
-  });
+  const readingResult =
+    document.getElementById('reading-result');
 
 
-/* ======================================
-   MARQUE-PAGES À RETOURNER
-   ====================================== */
+  readingChoices.forEach(choice => {
 
-document.querySelectorAll('.bookmark')
-  .forEach(bookmark => {
+    choice.addEventListener('click', () => {
 
-    bookmark.addEventListener('click', () => {
+      const bookId = choice.dataset.recommend;
 
-      const flipped =
-        bookmark.classList.toggle('bookmark-flipped');
-
-      bookmark.setAttribute(
-        'aria-pressed',
-        String(flipped)
-      );
-
-    });
-
-  });
+      const book = libraryBooks[bookId];
 
 
-/* ======================================
-   ANIMATIONS AU DÉFILEMENT
-   ====================================== */
+      if (!book) return;
 
-if (
 
-  'IntersectionObserver' in window &&
+      recommendedBook = bookId;
 
-  !window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches
 
-) {
+      readingChoices.forEach(item => {
 
-  const observer = new IntersectionObserver(
+        const active = item === choice;
 
-    entries => {
 
-      entries.forEach(entry => {
+        item.classList.toggle(
+          'choice-selected',
+          active
+        );
 
-        if (entry.isIntersecting) {
 
-          entry.target.classList.add('library-visible');
+        item.setAttribute(
 
-          observer.unobserve(entry.target);
+          'aria-pressed',
 
-        }
+          String(active)
+
+        );
 
       });
 
-    },
 
-    {
+      const cover =
+        document.getElementById('recommended-cover');
 
-      threshold: 0.08
 
-    }
+      cover.src = book.cover;
 
-  );
+      cover.alt = 'Couverture de ' + book.title;
 
-  document.body.classList.add('library-animations');
 
-  document.querySelectorAll('.library-reveal')
-    .forEach(element => {
+      document.getElementById('recommended-title')
+        .textContent = book.title;
 
-      observer.observe(element);
+
+      document.getElementById('recommended-description')
+        .textContent = book.recommendation;
+
+
+      readingResult.hidden = false;
+
+
+      readingResult.classList.remove('result-appear');
+
+
+      if (
+        !window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches
+      ) {
+
+        void readingResult.offsetWidth;
+
+        readingResult.classList.add('result-appear');
+
+      }
 
     });
 
-}
+  });
+
+
+  document.getElementById('recommended-button')
+    .addEventListener('click', () => {
+
+      if (recommendedBook) {
+
+        openBook(recommendedBook);
+
+      }
+
+    });
+
+
+  /* ======================================
+     MARQUE-PAGES À RETOURNER
+     ====================================== */
+
+  document.querySelectorAll('.bookmark')
+    .forEach(bookmark => {
+
+      bookmark.addEventListener('click', () => {
+
+        const flipped =
+          bookmark.classList.toggle('bookmark-flipped');
+
+
+        bookmark.setAttribute(
+
+          'aria-pressed',
+
+          String(flipped)
+
+        );
+
+      });
+
+    });
+
+
+  /* ======================================
+     ANIMATIONS AU DÉFILEMENT
+     ====================================== */
+
+  const revealElements =
+    document.querySelectorAll('.library-reveal');
+
+
+  const reducedMotion =
+    window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+
+
+  let libraryObserver = null;
+
+
+  function showAllLibraryElements() {
+
+    if (libraryObserver) {
+
+      libraryObserver.disconnect();
+
+      libraryObserver = null;
+
+    }
+
+
+    document.body.classList.remove(
+      'library-animations'
+    );
+
+
+    revealElements.forEach(element => {
+
+      element.classList.add('library-visible');
+
+    });
+
+  }
+
+
+  function initLibraryAnimations() {
+
+    if (
+      !('IntersectionObserver' in window) ||
+      reducedMotion.matches
+    ) {
+
+      showAllLibraryElements();
+
+      return;
+
+    }
+
+
+    if (libraryObserver) {
+
+      libraryObserver.disconnect();
+
+    }
+
+
+    libraryObserver = new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add(
+              'library-visible'
+            );
+
+            libraryObserver.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+
+      {
+
+        threshold: 0.08
+
+      }
+
+    );
+
+
+    document.body.classList.add(
+      'library-animations'
+    );
+
+
+    revealElements.forEach(element => {
+
+      if (
+        !element.classList.contains(
+          'library-visible'
+        )
+      ) {
+
+        libraryObserver.observe(element);
+
+      }
+
+    });
+
+  }
+
+
+  initLibraryAnimations();
+
+
+  /* ACCESSIBILITÉ AU CLAVIER */
+
+  document.addEventListener('focusin', event => {
+
+    const section =
+      event.target.closest('.library-reveal');
+
+
+    if (section) {
+
+      section.classList.add('library-visible');
+
+
+      if (libraryObserver) {
+
+        libraryObserver.unobserve(section);
+
+      }
+
+    }
+
+  });
+
+
+  /* RESPECT DES PRÉFÉRENCES D'ANIMATION */
+
+  function handleMotionChange(event) {
+
+    if (event.matches) {
+
+      showAllLibraryElements();
+
+    } else {
+
+      initLibraryAnimations();
+
+    }
+
+  }
+
+
+  if (
+    typeof reducedMotion.addEventListener === 'function'
+  ) {
+
+    reducedMotion.addEventListener(
+
+      'change',
+
+      handleMotionChange
+
+    );
+
+  } else if (
+    typeof reducedMotion.addListener === 'function'
+  ) {
+
+    reducedMotion.addListener(
+      handleMotionChange
+    );
+
+  }
+
+
+  /* ======================================
+     RETOUR SUR LA PAGE
+     ====================================== */
+
+  window.addEventListener('pageshow', event => {
+
+    window.closeMenu();
+
+
+    if (event.persisted) {
+
+      updateColoringStatus();
+
+      saveColoringButton.disabled = false;
+
+    }
+
+  });
+
+
+  /* ======================================
+     COMPATIBILITÉ AVEC GLOBAL.JS
+
+     Les fonctionnalités communes restent
+     exclusivement gérées par global.js :
+
+     - Médaillon du Royaume
+     - Compteur des 14 trésors
+     - Pensée du jour
+     - Message de bienvenue
+     - Bouton de retour en haut
+     - Navigation active
+
+     Aucun stockage local supplémentaire
+     n'est utilisé par la bibliothèque.
+
+     Les couleurs, recommandations et
+     marque-pages restent propres à la visite.
+     ====================================== */
+
+})();
 
 </script>
 
 </body>
-
 </html>

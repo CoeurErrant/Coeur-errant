@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,14 +15,88 @@
 
   <meta name="theme-color" content="#171b2b">
 
-  <link rel="icon" href="logo.jpeg">
+  <!-- SEO -->
+
+  <link rel="canonical"
+        href="https://coeurerrant.github.io/Coeur-errant/etoiles.html">
+
+  <link rel="alternate"
+        hreflang="fr"
+        href="https://coeurerrant.github.io/Coeur-errant/etoiles.html">
+
+  <link rel="alternate"
+        hreflang="nl"
+        href="https://coeurerrant.github.io/Coeur-errant/etoiles-nl.html">
+
+  <link rel="alternate"
+        hreflang="x-default"
+        href="https://coeurerrant.github.io/Coeur-errant/etoiles.html">
+
+
+  <!-- PARTAGE SUR LES RÉSEAUX SOCIAUX -->
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:site_name" content="Cœur Errant">
+
+  <meta property="og:title"
+        content="Nos étoiles — Cœur Errant">
+
+  <meta property="og:description"
+        content="Certaines âmes ne font que traverser notre vie, mais leur lumière ne s'éteint jamais.">
+
+  <meta property="og:url"
+        content="https://coeurerrant.github.io/Coeur-errant/etoiles.html">
+
+  <meta property="og:image"
+        content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+  <meta property="og:locale" content="fr_BE">
+
+  <meta name="twitter:card" content="summary">
+
+  <meta name="twitter:title"
+        content="Nos étoiles — Cœur Errant">
+
+  <meta name="twitter:description"
+        content="À la mémoire de nos petites âmes.">
+
+  <meta name="twitter:image"
+        content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+
+  <!-- ICÔNES -->
+
+  <link rel="icon" href="logo.jpeg" type="image/jpeg">
+
+  <link rel="apple-touch-icon" href="logo.jpeg">
+
+
+  <!-- POLICES -->
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
+
+  <!-- FEUILLES DE STYLE -->
+
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="accueil-v2.css">
+
   <link rel="stylesheet" href="etoiles.css">
+
+  <link rel="stylesheet" href="global.css">
+
+
+  <!-- FONCTIONNALITÉS COMMUNES -->
+
+  <script src="global.js" defer></script>
 
 </head>
 
@@ -33,20 +106,19 @@
      NAVIGATION
      ====================================== -->
 
-<nav>
+<nav aria-label="Navigation principale">
 
-  <a class="nav-logo" href="index.html">
+  <a class="nav-logo" href="index.html"
+     aria-label="Cœur Errant — Accueil">
+
     <img src="logo.jpeg" alt="Cœur Errant">
+
   </a>
 
   <ul class="nav-links" id="nav-links">
 
     <li>
       <a href="index.html">Accueil</a>
-    </li>
-
-    <li>
-      <a href="index.html#histoire">Mon histoire</a>
     </li>
 
     <li>
@@ -62,9 +134,21 @@
     </li>
 
     <li>
-      <a href="etoiles.html" aria-current="page">
+      <a href="etoiles.html"
+         class="active"
+         aria-current="page">
+
         Nos étoiles
+
       </a>
+    </li>
+
+    <li>
+      <a href="agir.html">Comment agir</a>
+    </li>
+
+    <li>
+      <a href="passeport.html">Le Royaume</a>
     </li>
 
     <li>
@@ -72,27 +156,42 @@
     </li>
 
     <li class="lang-mobile">
-      <a href="etoiles-nl.html">Nederlands</a>
+      <a href="etoiles-nl.html" lang="nl">
+        Nederlands
+      </a>
     </li>
 
   </ul>
 
-  <div class="lang-switcher">
+  <div class="lang-switcher"
+       aria-label="Choisir la langue">
 
-    <a href="etoiles.html" class="lang-btn active">
+    <a href="etoiles.html"
+       class="lang-btn active"
+       lang="fr"
+       aria-current="page"
+       aria-label="Français">
+
       FR
+
     </a>
 
-    <span class="lang-sep">|</span>
+    <span class="lang-sep" aria-hidden="true">|</span>
 
-    <a href="etoiles-nl.html" class="lang-btn">
+    <a href="etoiles-nl.html"
+       class="lang-btn"
+       lang="nl"
+       aria-label="Nederlands">
+
       NL
+
     </a>
 
   </div>
 
   <button class="hamburger"
           id="hamburger"
+          type="button"
           onclick="toggleMenu()"
           aria-label="Ouvrir le menu"
           aria-controls="nav-links"
@@ -109,17 +208,22 @@
 
 <main class="stars-page">
 
-  <!-- CIEL ANIMÉ -->
+  <!-- ======================================
+       CIEL ANIMÉ
+       ====================================== -->
 
   <div class="night-background" aria-hidden="true">
 
     <div class="night-nebula nebula-one"></div>
+
     <div class="night-nebula nebula-two"></div>
 
     <div id="night-stars"></div>
 
     <div class="shooting-star shooting-one"></div>
+
     <div class="shooting-star shooting-two"></div>
+
     <div class="shooting-star shooting-three"></div>
 
   </div>
@@ -228,7 +332,8 @@
       <svg class="constellation-lines"
            viewBox="0 0 1000 500"
            preserveAspectRatio="none"
-           aria-hidden="true">
+           aria-hidden="true"
+           focusable="false">
 
         <path d="M 80 320
                  L 270 175
@@ -242,7 +347,9 @@
               stroke-dasharray="4 9"/>
 
         <circle cx="80" cy="320" r="3"/>
+
         <circle cx="490" cy="90" r="3"/>
+
         <circle cx="920" cy="120" r="3"/>
 
       </svg>
@@ -254,11 +361,14 @@
               type="button"
               data-memory="nala"
               aria-label="Découvrir l'histoire de Nala"
-              aria-haspopup="dialog">
+              aria-haspopup="dialog"
+              aria-controls="memory-nala">
 
-        <span class="star-halo"></span>
+        <span class="star-halo"
+              aria-hidden="true"></span>
 
-        <span class="star-shape">✦</span>
+        <span class="star-shape"
+              aria-hidden="true">✦</span>
 
         <span class="star-name">Nala</span>
 
@@ -279,11 +389,14 @@
               type="button"
               data-memory="hiro"
               aria-label="Découvrir l'histoire de Hiro"
-              aria-haspopup="dialog">
+              aria-haspopup="dialog"
+              aria-controls="memory-hiro">
 
-        <span class="star-halo"></span>
+        <span class="star-halo"
+              aria-hidden="true"></span>
 
-        <span class="star-shape">✦</span>
+        <span class="star-shape"
+              aria-hidden="true">✦</span>
 
         <span class="star-name">Hiro</span>
 
@@ -296,6 +409,9 @@
         </span>
 
       </button>
+
+
+      <!-- PETITES ÉTOILES DÉCORATIVES -->
 
       <span class="constellation-decoration decoration-one"
             aria-hidden="true">✧</span>
@@ -334,6 +450,7 @@
     </p>
 
     <h2>
+
       Les étoiles
       <em>sans prénom.</em>
 
@@ -365,10 +482,7 @@
 
     </p>
 
-  </section>
-
-
-  <!-- ======================================
+  </section>  <!-- ======================================
        BOUGIE VIRTUELLE
        ====================================== -->
 
@@ -430,7 +544,8 @@
     <button class="stars-button candle-button"
             id="candle-button"
             type="button"
-            aria-pressed="false">
+            aria-pressed="false"
+            aria-controls="candle-message">
 
       Allumer une bougie ♡
 
@@ -440,9 +555,11 @@
     <div class="candle-message"
          id="candle-message"
          role="status"
+         aria-live="polite"
          hidden>
 
-      <span class="candle-message-star">✧</span>
+      <span class="candle-message-star"
+            aria-hidden="true">✧</span>
 
       <p>
 
@@ -599,7 +716,9 @@
        FENÊTRE SOUVENIR — NALA
        ====================================== -->
 
-  <dialog class="memory-dialog" id="memory-nala">
+  <dialog class="memory-dialog"
+          id="memory-nala"
+          aria-labelledby="memory-nala-title">
 
     <div class="memory-dialog-inner">
 
@@ -614,15 +733,18 @@
       <div class="memory-photo memory-photo-nala">
 
         <img src="nala.jpeg"
-             alt="Nala, petite chienne rencontrée à Tanger">
+             alt="Nala, petite chienne rencontrée à Tanger"
+             loading="lazy"
+             decoding="async">
 
-        <div class="memory-photo-overlay"></div>
+        <div class="memory-photo-overlay"
+             aria-hidden="true"></div>
 
         <div class="memory-photo-name">
 
-          <span>✦</span>
+          <span aria-hidden="true">✦</span>
 
-          <h2>Nala</h2>
+          <h2 id="memory-nala-title">Nala</h2>
 
           <p>Tanger · Septembre 2025</p>
 
@@ -743,7 +865,8 @@
 
         </blockquote>
 
-        <div class="memory-end-symbol">
+        <div class="memory-end-symbol"
+             aria-hidden="true">
 
           ✦
 
@@ -767,7 +890,9 @@
        FENÊTRE SOUVENIR — HIRO
        ====================================== -->
 
-  <dialog class="memory-dialog" id="memory-hiro">
+  <dialog class="memory-dialog"
+          id="memory-hiro"
+          aria-labelledby="memory-hiro-title">
 
     <div class="memory-dialog-inner">
 
@@ -782,15 +907,18 @@
       <div class="memory-photo memory-photo-hiro">
 
         <img src="Hiro.jpg"
-             alt="Hiro, petit chat noir et blanc rencontré à Tanger">
+             alt="Hiro, petit chat noir et blanc rencontré à Tanger"
+             loading="lazy"
+             decoding="async">
 
-        <div class="memory-photo-overlay"></div>
+        <div class="memory-photo-overlay"
+             aria-hidden="true"></div>
 
         <div class="memory-photo-name">
 
-          <span>✦</span>
+          <span aria-hidden="true">✦</span>
 
-          <h2>Hiro</h2>
+          <h2 id="memory-hiro-title">Hiro</h2>
 
           <p>Tanger · Maroc</p>
 
@@ -885,7 +1013,8 @@
 
         </blockquote>
 
-        <div class="memory-end-symbol">
+        <div class="memory-end-symbol"
+             aria-hidden="true">
 
           ✦
 
@@ -905,407 +1034,3 @@
   </dialog>
 
 </main>
-
-
-<!-- ======================================
-     FOOTER
-     ====================================== -->
-
-<footer>
-
-  <div class="footer-logo">
-
-    <img src="logo.jpeg" alt="Cœur Errant">
-
-  </div>
-
-  <div class="footer-divider"></div>
-
-  <div class="footer-socials">
-
-    <a href="https://www.tiktok.com/@coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/tiktok/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">TikTok</span>
-
-    </a>
-
-    <a href="https://www.instagram.com/coeur.errant/"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/instagram/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Instagram</span>
-
-    </a>
-
-    <a href="https://www.youtube.com/@CoeurErrant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/youtube/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">YouTube</span>
-
-    </a>
-
-    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/facebook/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Facebook</span>
-
-    </a>
-
-    <a href="https://www.snapchat.com/add/coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/snapchat/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Snapchat</span>
-
-    </a>
-
-    <a href="mailto:coeur.errant@outlook.be"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/gmail/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Contact</span>
-
-    </a>
-
-  </div>
-
-  <div class="footer-divider"></div>
-
-  <p class="footer-copy">
-
-    © <span id="annee"></span>
-
-    Cœur Errant — Chaque animal a une histoire.
-
-  </p>
-
-</footer>
-
-
-<!-- ======================================
-     JAVASCRIPT
-     ====================================== -->
-
-<script>
-
-/* ANNÉE AUTOMATIQUE */
-
-document.getElementById('annee').textContent =
-  new Date().getFullYear();
-
-
-/* MENU MOBILE */
-
-const navLinks = document.getElementById('nav-links');
-const hamburger = document.getElementById('hamburger');
-
-function toggleMenu() {
-
-  const isOpen = navLinks.classList.toggle('open');
-
-  hamburger.classList.toggle('open', isOpen);
-
-  hamburger.setAttribute(
-    'aria-expanded',
-    String(isOpen)
-  );
-
-  hamburger.setAttribute(
-    'aria-label',
-    isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
-  );
-
-}
-
-function closeMenu() {
-
-  navLinks.classList.remove('open');
-  hamburger.classList.remove('open');
-
-  hamburger.setAttribute('aria-expanded', 'false');
-
-  hamburger.setAttribute(
-    'aria-label',
-    'Ouvrir le menu'
-  );
-
-}
-
-document.addEventListener('keydown', event => {
-
-  if (event.key === 'Escape') {
-    closeMenu();
-  }
-
-});
-
-
-/* ======================================
-   CRÉATION DU CIEL ÉTOILÉ
-   ====================================== */
-
-const nightStars = document.getElementById('night-stars');
-
-const starFragment = document.createDocumentFragment();
-
-for (let i = 0; i < 160; i++) {
-
-  const star = document.createElement('span');
-
-  star.className = 'night-star';
-
-  star.style.left = Math.random() * 100 + '%';
-
-  star.style.top = Math.random() * 100 + '%';
-
-  const size = .8 + Math.random() * 2.8;
-
-  star.style.width = size + 'px';
-
-  star.style.height = size + 'px';
-
-  star.style.animationDelay =
-    Math.random() * 7 + 's';
-
-  star.style.animationDuration =
-    2 + Math.random() * 5 + 's';
-
-  starFragment.appendChild(star);
-
-}
-
-nightStars.appendChild(starFragment);
-
-
-/* ======================================
-   OUVERTURE DES SOUVENIRS
-   ====================================== */
-
-let activeStar = null;
-
-document.querySelectorAll('.memory-star')
-  .forEach(star => {
-
-    star.addEventListener('click', () => {
-
-      const memoryId = star.dataset.memory;
-
-      const dialog = document.getElementById(
-        'memory-' + memoryId
-      );
-
-      if (!dialog || dialog.open) return;
-
-      activeStar = star;
-
-      dialog.showModal();
-
-      dialog.scrollTop = 0;
-
-      document.body.classList.add('memory-open');
-
-    });
-
-  });
-
-
-/* FERMETURE DES SOUVENIRS */
-
-document.querySelectorAll('.memory-dialog')
-  .forEach(dialog => {
-
-    dialog.querySelectorAll(
-      '.memory-close, .memory-back'
-    ).forEach(button => {
-
-      button.addEventListener('click', () => {
-
-        dialog.close();
-
-      });
-
-    });
-
-
-    /* FERMETURE EN CLIQUANT À L'EXTÉRIEUR */
-
-    dialog.addEventListener('click', event => {
-
-      if (event.target === dialog) {
-
-        const rect = dialog.getBoundingClientRect();
-
-        const outside =
-          event.clientX < rect.left ||
-          event.clientX > rect.right ||
-          event.clientY < rect.top ||
-          event.clientY > rect.bottom;
-
-        if (outside) {
-          dialog.close();
-        }
-
-      }
-
-    });
-
-
-    /* RESTAURATION DU DÉFILEMENT ET DU FOCUS */
-
-    dialog.addEventListener('close', () => {
-
-      document.body.classList.remove('memory-open');
-
-      if (activeStar) {
-
-        activeStar.focus();
-
-        activeStar = null;
-
-      }
-
-    });
-
-  });
-
-
-/* ======================================
-   BOUGIE VIRTUELLE
-   ====================================== */
-
-const candleButton =
-  document.getElementById('candle-button');
-
-const candleScene =
-  document.getElementById('candle-scene');
-
-const candleMessage =
-  document.getElementById('candle-message');
-
-let candleLit = false;
-
-candleButton.addEventListener('click', () => {
-
-  candleLit = !candleLit;
-
-  candleScene.classList.toggle(
-    'candle-lit',
-    candleLit
-  );
-
-  candleMessage.hidden = !candleLit;
-
-  candleButton.setAttribute(
-    'aria-pressed',
-    String(candleLit)
-  );
-
-  candleButton.textContent = candleLit
-
-    ? 'Éteindre la bougie'
-
-    : 'Allumer une bougie ♡';
-
-});
-
-
-/* ======================================
-   APPARITION AU DÉFILEMENT
-   ====================================== */
-
-if (
-  'IntersectionObserver' in window &&
-  !window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches
-) {
-
-  document.body.classList.add('stars-animations');
-
-  const observer = new IntersectionObserver(
-    entries => {
-
-      entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-          entry.target.classList.add('stars-visible');
-
-          observer.unobserve(entry.target);
-
-        }
-
-      });
-
-    },
-
-    {
-      threshold: 0.1
-    }
-
-  );
-
-  document.querySelectorAll('.stars-reveal')
-    .forEach(element => {
-
-      observer.observe(element);
-
-    });
-
-}
-
-</script>
-
-</body>
-
-</html>

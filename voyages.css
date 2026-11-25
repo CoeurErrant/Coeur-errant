@@ -1,8 +1,8 @@
-
 /* =========================================
    CŒUR ERRANT — VOYAGES
    Styles communs FR et NL
    ========================================= */
+
 
 /* EN-TÊTE */
 
@@ -39,6 +39,9 @@
   color: var(--muted);
   line-height: 1.9;
 }
+
+
+/* NAVIGATION ENTRE LES ANNÉES */
 
 .voyages-navigation {
   display: flex;
@@ -145,6 +148,13 @@
   border-bottom: none;
 }
 
+.voyage-visual {
+  min-width: 0;
+}
+
+
+/* PHOTOGRAPHIES */
+
 .voyage-img {
   background: var(--warm);
   position: relative;
@@ -167,6 +177,20 @@
 .voyage-img:hover > img {
   transform: scale(1.025);
 }
+
+
+/* ILLUSTRATION DU MAROC */
+
+.morocco-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  border-radius: 12px;
+}
+
+
+/* DRAPEAUX ET PAYS */
 
 .voyage-country {
   position: absolute;
@@ -200,7 +224,11 @@
   margin-top: .8rem;
 }
 
+
+/* CONTENU DES CARTES */
+
 .voyage-content {
+  min-width: 0;
   padding: 1rem 0;
 }
 
@@ -226,6 +254,17 @@
   line-height: 1.95;
   margin-bottom: 1rem;
 }
+
+.voyage-story > p {
+  margin-bottom: 1rem;
+}
+
+.voyage-story > p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* CITATIONS */
 
 .voyage-quote {
   background: #f5eee8;
@@ -278,6 +317,7 @@
   content: '+';
   font-size: 1.4rem;
   font-weight: 300;
+  flex-shrink: 0;
 }
 
 .travel-details[open] summary::after {
@@ -286,6 +326,11 @@
 
 .travel-details summary:hover {
   background: #f1e3dc;
+}
+
+.travel-details summary:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 4px;
 }
 
 .travel-details-content {
@@ -340,6 +385,10 @@
   margin-top: 1.2rem;
 }
 
+.travel-link:hover {
+  color: var(--charcoal);
+}
+
 
 /* =========================================
    DESTINATIONS SANS PHOTOGRAPHIE
@@ -381,10 +430,7 @@
 .destination-note .paw-symbol {
   font-size: 2rem;
   margin-bottom: 1rem;
-}
-
-
-/* =========================================
+}/* =========================================
    VOYAGES GROUPÉS
    BALKANS ET MAROC
    ========================================= */
@@ -435,6 +481,7 @@
 .rescue-section {
   background: var(--warm);
   padding: 5rem 7%;
+  scroll-margin-top: 100px;
 }
 
 .rescue-inner {
@@ -466,7 +513,9 @@
 }
 
 
-/* PHOTOGRAPHIES AVANT / APRÈS */
+/* =========================================
+   PHOTOGRAPHIES AVANT / APRÈS
+   ========================================= */
 
 .rescue-photos {
   display: grid;
@@ -476,6 +525,7 @@
 }
 
 .rescue-photo {
+  min-width: 0;
   background: var(--cream);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -517,7 +567,9 @@
 }
 
 
-/* RÉCIT DE DJIBOU */
+/* =========================================
+   RÉCIT DE DJIBOU
+   ========================================= */
 
 .rescue-intro {
   max-width: 800px;
@@ -548,7 +600,9 @@
 }
 
 
-/* PROGRESSION DU SAUVETAGE */
+/* =========================================
+   PROGRESSION DU SAUVETAGE
+   ========================================= */
 
 .rescue-progress {
   max-width: 750px;
@@ -578,6 +632,9 @@
   padding-bottom: 0;
 }
 
+
+/* LIGNE ENTRE LES ÉTAPES */
+
 .rescue-step:not(:last-child)::after {
   content: '';
   position: absolute;
@@ -587,6 +644,9 @@
   width: 1px;
   background: #d9cec3;
 }
+
+
+/* ICÔNES DES ÉTAPES */
 
 .step-icon {
   width: 36px;
@@ -601,15 +661,24 @@
   color: #8c8073;
 }
 
+
+/* ÉTAPES TERMINÉES */
+
 .step-done .step-icon {
   background: #e1eadd;
   color: #52714b;
 }
 
+
+/* ÉTAPE ACTUELLE */
+
 .step-current .step-icon {
   background: #f4dce4;
   color: #a85e68;
 }
+
+
+/* DESCRIPTION DES ÉTAPES */
 
 .step-content h4 {
   font-size: .95rem;
@@ -621,16 +690,14 @@
   color: var(--muted);
   font-size: .85rem;
   line-height: 1.6;
-}
-
-
-/* =========================================
+}/* =========================================
    DESTINATION MYSTÈRE
    ========================================= */
 
 .mystery-section {
   background: var(--warm);
   padding: 5rem 5%;
+  scroll-margin-top: 100px;
 }
 
 .mystery-card {
@@ -654,7 +721,9 @@
 }
 
 
-/* ENVELOPPE ANIMÉE */
+/* =========================================
+   ENVELOPPE ANIMÉE
+   ========================================= */
 
 .mystery-envelope {
   display: block;
@@ -690,7 +759,9 @@
 }
 
 
-/* EMPREINTES ANIMÉES */
+/* =========================================
+   EMPREINTES ANIMÉES
+   ========================================= */
 
 .mystery-paw {
   animation: pawAppear 5s ease-in-out infinite;
@@ -717,7 +788,9 @@
 }
 
 
-/* TEXTE DE LA DESTINATION MYSTÈRE */
+/* =========================================
+   TEXTE DE LA DESTINATION MYSTÈRE
+   ========================================= */
 
 .mystery-card h2 {
   font-family: 'Cormorant Garamond', serif;
@@ -776,8 +849,68 @@
 
 
 /* =========================================
+   ACCESSIBILITÉ
+   ========================================= */
+
+.voyages-navigation a:focus-visible,
+.travel-link:focus-visible,
+.travel-details summary:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 4px;
+}
+
+
+/* =========================================
+   DERNIÈRES CORRECTIONS
+   ========================================= */
+
+.voyage-visual,
+.voyage-content,
+.rescue-photo,
+.step-content {
+  min-width: 0;
+}
+
+.voyage-story,
+.travel-details-content,
+.rescue-story {
+  overflow-wrap: break-word;
+}
+
+.voyage-country {
+  max-width: calc(100% - 2rem);
+}
+
+.voyage-country img {
+  flex-shrink: 0;
+}
+
+#chefchaouen,
+#akchour,
+#djibou,
+#prochain-voyage {
+  scroll-margin-top: 100px;
+}
+
+
+/* =========================================
    RESPONSIVE — TABLETTES
    ========================================= */
+
+@media (max-width: 1100px) {
+
+  .year-heading,
+  .rescue-section,
+  .mystery-section,
+  #chefchaouen,
+  #akchour,
+  #djibou,
+  #prochain-voyage {
+    scroll-margin-top: 85px;
+  }
+
+}
+
 
 @media (max-width: 900px) {
 
@@ -795,6 +928,10 @@
     height: 380px;
   }
 
+  .morocco-illustration {
+    max-height: 380px;
+  }
+
   .rescue-photo img {
     height: 300px;
   }
@@ -808,6 +945,8 @@
 
 @media (max-width: 600px) {
 
+  /* EN-TÊTE */
+
   .voyages-hero {
     padding: 125px 1.5rem 3rem;
   }
@@ -819,6 +958,9 @@
   .voyages-navigation a {
     padding: .7rem 1rem;
   }
+
+
+  /* ANNÉES ET VOYAGES */
 
   .year-heading {
     padding: 3rem 1.5rem 1rem;
@@ -836,6 +978,10 @@
     height: 340px;
   }
 
+  .morocco-illustration {
+    max-height: 340px;
+  }
+
   .destination-note {
     min-height: 260px;
   }
@@ -843,6 +989,9 @@
   .journey-intro {
     padding: 1.5rem;
   }
+
+
+  /* DJIBOU */
 
   .rescue-section {
     padding: 3rem 1.5rem;
@@ -872,12 +1021,73 @@
     padding: 1.5rem;
   }
 
+
+  /* DESTINATION MYSTÈRE */
+
   .mystery-section {
     padding: 3rem 1.2rem;
   }
 
   .mystery-card {
     padding: 2rem 1.3rem;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — TRÈS PETITS ÉCRANS
+   ========================================= */
+
+@media (max-width: 360px) {
+
+  .voyages-hero {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .travel-list {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .voyage-img > img {
+    height: 280px;
+  }
+
+  .morocco-illustration {
+    max-height: 280px;
+  }
+
+  .voyage-country {
+    font-size: .65rem;
+    padding: .5rem .8rem;
+  }
+
+  .rescue-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .rescue-photos {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .rescue-photo img {
+    height: 260px;
+  }
+
+  .rescue-photo-caption {
+    padding: 1rem;
+  }
+
+  .rescue-progress {
+    padding: 1.2rem;
+  }
+
+  .mystery-card {
+    padding: 1.8rem 1rem;
   }
 
 }
@@ -898,4 +1108,21 @@
     transition: none;
   }
 
+  .voyage-img:hover > img {
+    transform: none;
+  }
+
+  .voyages-navigation a,
+  .travel-details summary,
+  .envelope-group {
+    transition: none;
+  }
+
 }
+
+
+/* =========================================
+   FIN — LES VOYAGES DE CŒUR ERRANT
+
+   Chaque animal a une histoire.
+   ========================================= */

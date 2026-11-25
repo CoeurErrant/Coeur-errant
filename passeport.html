@@ -1,44 +1,203 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Le Royaume des cœurs errants — Cœur Errant</title>
 
-    <meta name="description" content="Découvrez le Royaume des cœurs errants, retrouvez les quatorze trésors et obtenez votre passeport personnalisé.">
+    <meta name="description"
+          content="Découvrez le Royaume des cœurs errants, retrouvez les quatorze trésors et obtenez votre passeport personnalisé.">
 
     <meta name="theme-color" content="#faf8f5">
 
-    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+          href="https://coeurerrant.github.io/Coeur-errant/passeport.html">
+
+
+    <!-- PARTAGE SUR LES RÉSEAUX SOCIAUX -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:site_name" content="Cœur Errant">
+
+    <meta property="og:locale" content="fr_BE">
+
+    <meta property="og:title"
+          content="Le Royaume des cœurs errants — Cœur Errant">
+
+    <meta property="og:description"
+          content="Découvrez le Royaume des cœurs errants, retrouvez les quatorze trésors et obtenez votre passeport personnalisé.">
+
+    <meta property="og:url"
+          content="https://coeurerrant.github.io/Coeur-errant/passeport.html">
+
+    <meta property="og:image"
+          content="https://coeurerrant.github.io/Coeur-errant/royaume-arbre.png">
+
+    <meta property="og:image:alt"
+          content="L'Arbre des âmes du Royaume des cœurs errants">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="Le Royaume des cœurs errants — Cœur Errant">
+
+    <meta name="twitter:description"
+          content="Découvrez le Royaume des cœurs errants, retrouvez les quatorze trésors et obtenez votre passeport personnalisé.">
+
+    <meta name="twitter:image"
+          content="https://coeurerrant.github.io/Coeur-errant/royaume-arbre.png">
+
+
+    <!-- ICÔNE -->
+
+    <link rel="icon"
+          type="image/jpeg"
+          href="logo.jpeg">
+
+    <link rel="apple-touch-icon"
+          href="logo.jpeg">
+
+
+    <!-- POLICES -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- FEUILLES DE STYLE -->
+
     <link rel="stylesheet" href="style.css">
+
     <link rel="stylesheet" href="passeport.css">
+
     <link rel="stylesheet" href="global.css">
 
+
+    <!-- JAVASCRIPT -->
+
     <script src="global.js" defer></script>
+
     <script src="passeport.js" defer></script>
+
 </head>
 
 <body>
 
+
+<!-- =========================================
+     NAVIGATION
+     ========================================= -->
+
 <header>
-    <nav>
-        <a href="index.html" class="nav-logo">
-            <img src="logo.jpeg" alt="Cœur Errant">
+
+    <nav aria-label="Navigation principale">
+
+        <a href="index.html"
+           class="nav-logo"
+           aria-label="Cœur Errant — Accueil">
+
+            <img src="logo.jpeg"
+                 alt="Cœur Errant">
+
         </a>
 
         <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="mission.html">La mission</a></li>
-            <li><a href="voyages.html">Voyages</a></li>
-            <li><a href="livres.html">Mes livres</a></li>
-            <li><a href="etoiles.html">Nos étoiles</a></li>
-            <li><a href="soutenir.html">Soutenir</a></li>
+
+            <li>
+                <a href="index.html">
+                    Accueil
+                </a>
+            </li>
+
+            <li>
+                <a href="mission.html">
+                    La mission
+                </a>
+            </li>
+
+            <li>
+                <a href="voyages.html">
+                    Voyages
+                </a>
+            </li>
+
+            <li>
+                <a href="livres.html">
+                    Mes livres
+                </a>
+            </li>
+
+            <li>
+                <a href="etoiles.html">
+                    Nos étoiles
+                </a>
+            </li>
+
+            <li>
+                <a href="agir.html">
+                    Comment agir
+                </a>
+            </li>
+
+            <li>
+                <a href="passeport.html"
+                   class="active"
+                   aria-current="page">
+                    Le Royaume
+                </a>
+            </li>
+
+            <li>
+                <a href="soutenir.html"
+                   class="nav-support">
+                    Soutenir
+                </a>
+            </li>
+
+            <li class="lang-mobile">
+                <a href="index-nl.html"
+                   lang="nl"
+                   hreflang="nl">
+                    Nederlands
+                </a>
+            </li>
+
         </ul>
 
-        <div class="lang-switcher">
-            <a href="passeport.html" class="lang-btn active">FR</a>
-            <a href="index-nl.html" class="lang-btn">NL</a>
+        <div class="lang-switcher"
+             aria-label="Choix de la langue">
+
+            <a href="passeport.html"
+               class="lang-btn active"
+               lang="fr"
+               hreflang="fr"
+               aria-label="Français"
+               aria-current="page">
+                FR
+            </a>
+
+            <a href="index-nl.html"
+               class="lang-btn"
+               lang="nl"
+               hreflang="nl"
+               aria-label="Nederlands">
+                NL
+            </a>
+
         </div>
 
         <button class="hamburger"
@@ -47,14 +206,26 @@
                 aria-label="Ouvrir le menu"
                 aria-expanded="false"
                 aria-controls="nav-links">
-            <span></span>
-            <span></span>
-            <span></span>
+
+            <span aria-hidden="true"></span>
+
+            <span aria-hidden="true"></span>
+
+            <span aria-hidden="true"></span>
+
         </button>
+
     </nav>
+
 </header>
 
+
+<!-- =========================================
+     LE ROYAUME DES CŒURS ERRANTS
+     ========================================= -->
+
 <main class="kingdom-page" id="kingdom">
+
 
     <!-- PARTICULES -->
 
@@ -63,12 +234,19 @@
          aria-hidden="true">
     </div>
 
+
     <!-- ARBRE DES ÂMES -->
 
-    <section class="kingdom-entrance" id="kingdom-entrance">
+    <section class="kingdom-entrance"
+             id="kingdom-entrance">
 
-        <div class="entrance-background"></div>
-        <div class="entrance-overlay"></div>
+        <div class="entrance-background"
+             aria-hidden="true">
+        </div>
+
+        <div class="entrance-overlay"
+             aria-hidden="true">
+        </div>
 
         <div class="entrance-content">
 
@@ -76,7 +254,8 @@
                 Une expérience Cœur Errant
             </span>
 
-            <div class="entrance-ornament" aria-hidden="true">
+            <div class="entrance-ornament"
+                 aria-hidden="true">
                 ───── ✧ ─────
             </div>
 
@@ -92,17 +271,28 @@
                 le chemin ?
             </p>
 
-            <div class="enchanted-tree" id="enchanted-tree">
+            <div class="enchanted-tree"
+                 id="enchanted-tree">
+
                 <img src="royaume-arbre.png"
-                     alt="L'Arbre des âmes">
-                <div class="tree-glow"></div>
+                     alt="L'Arbre des âmes"
+                     fetchpriority="high">
+
+                <div class="tree-glow"
+                     aria-hidden="true">
+                </div>
+
             </div>
 
             <button class="kingdom-button"
                     id="enter-kingdom"
-                    type="button">
+                    type="button"
+                    aria-controls="kingdom-introduction">
+
                 Entrer dans le royaume
+
                 <span aria-hidden="true">✧</span>
+
             </button>
 
             <p class="entrance-caption">
@@ -113,6 +303,7 @@
         </div>
 
     </section>
+
 
     <!-- INTRODUCTION -->
 
@@ -149,52 +340,152 @@
         <div class="kingdom-intro-grid">
 
             <article class="kingdom-intro-card">
-                <span class="intro-number">01</span>
-                <span class="intro-symbol">✧</span>
+
+                <span class="intro-number"
+                      aria-hidden="true">
+                    01
+                </span>
+
+                <span class="intro-symbol"
+                      aria-hidden="true">
+                    ✧
+                </span>
+
                 <h3>Explorer</h3>
+
                 <p>
                     Des trésors sont dissimulés dans
                     les récits de voyage.
                 </p>
+
             </article>
 
             <article class="kingdom-intro-card">
-                <span class="intro-number">02</span>
-                <span class="intro-symbol">◇</span>
+
+                <span class="intro-number"
+                      aria-hidden="true">
+                    02
+                </span>
+
+                <span class="intro-symbol"
+                      aria-hidden="true">
+                    ◇
+                </span>
+
                 <h3>Collectionner</h3>
+
                 <p>
                     Chaque découverte illumine
                     votre médaillon personnel.
                 </p>
+
             </article>
 
             <article class="kingdom-intro-card">
-                <span class="intro-number">03</span>
-                <span class="intro-symbol">♡</span>
+
+                <span class="intro-number"
+                      aria-hidden="true">
+                    03
+                </span>
+
+                <span class="intro-symbol"
+                      aria-hidden="true">
+                    ♡
+                </span>
+
                 <h3>Dévoiler</h3>
+
                 <p>
                     Des lieux secrets et une récompense
                     unique vous attendent.
                 </p>
+
             </article>
 
         </div>
 
+
+        <!-- CONSENTEMENT À LA SAUVEGARDE LOCALE -->
+
         <div class="kingdom-storage-intro">
+
             <p>
                 Pour conserver votre progression entre
                 les différentes pages, vous pouvez activer
                 la sauvegarde sur cet appareil.
             </p>
 
+            <p class="kingdom-storage-description"
+               id="kingdom-storage-description">
+
+                Cette sauvegarde facultative permet de
+                conserver vos fragments, votre prénom
+                ou pseudonyme, votre emblème, votre compagnon,
+                vos préférences et vos récompenses dans
+                le stockage local de votre navigateur.
+
+                Ces données ne sont pas envoyées à un serveur
+                par la fonctionnalité de sauvegarde.
+
+            </p>
+
             <button type="button"
                     class="kingdom-outline-button"
-                    id="enable-adventure-storage">
+                    id="enable-adventure-storage"
+                    aria-pressed="false"
+                    aria-describedby="kingdom-storage-description kingdom-consent-status"
+                    disabled>
+
                 Activer la sauvegarde
+
             </button>
+
+            <p class="kingdom-consent-status"
+               id="kingdom-consent-status"
+               role="status"
+               aria-live="polite">
+
+                La sauvegarde locale est désactivée.
+
+            </p>
+
+            <p class="kingdom-storage-information">
+
+                Vous pouvez découvrir le royaume sans
+                activer la sauvegarde. Toutefois, votre
+                progression ne sera pas conservée entre
+                les différentes pages.
+
+                Vous pouvez retirer votre consentement
+                et supprimer les données enregistrées
+                à tout moment dans les
+                <a href="#kingdom-settings">
+                    paramètres de votre aventure
+                </a>.
+
+            </p>
+
+            <p class="kingdom-storage-information">
+
+                <a href="mentions-legales.html">
+                    Confidentialité et données locales
+                </a>
+
+            </p>
+
+            <noscript>
+
+                <p>
+                    JavaScript doit être activé pour utiliser
+                    les fonctionnalités interactives du royaume.
+                </p>
+
+            </noscript>
+
         </div>
 
     </section>
+
 
     <!-- IDENTITÉ -->
 
@@ -202,9 +493,12 @@
              id="kingdom-identity">
 
         <div class="identity-visual">
+
             <img src="royaume-medallion.png"
                  alt="Médaillon de l'Arbre des âmes"
-                 loading="lazy">
+                 loading="lazy"
+                 decoding="async">
+
         </div>
 
         <div class="identity-content">
@@ -235,7 +529,9 @@
 
                     <button class="kingdom-button"
                             type="submit">
+
                         Enregistrer
+
                     </button>
 
                 </div>
@@ -243,45 +539,62 @@
             </form>
 
             <p id="kingdom-name-message"
+               role="status"
                aria-live="polite">
             </p>
 
             <div class="emblem-selection">
 
-                <h3>Choisissez votre emblème</h3>
+                <h3 id="emblem-selection-title">
+                    Choisissez votre emblème
+                </h3>
 
-                <div class="emblem-options">
+                <div class="emblem-options"
+                     role="group"
+                     aria-labelledby="emblem-selection-title">
 
                     <button type="button"
                             class="emblem-option"
                             data-emblem="rose"
                             aria-pressed="false">
-                        <span>❀</span>
+
+                        <span aria-hidden="true">❀</span>
+
                         <strong>Douceur</strong>
+
                     </button>
 
                     <button type="button"
                             class="emblem-option"
                             data-emblem="star"
                             aria-pressed="false">
-                        <span>✧</span>
+
+                        <span aria-hidden="true">✧</span>
+
                         <strong>Espoir</strong>
+
                     </button>
 
                     <button type="button"
                             class="emblem-option"
                             data-emblem="heart"
                             aria-pressed="true">
-                        <span>♡</span>
+
+                        <span aria-hidden="true">♡</span>
+
                         <strong>Bienveillance</strong>
+
                     </button>
 
                     <button type="button"
                             class="emblem-option"
                             data-emblem="moon"
                             aria-pressed="false">
-                        <span>☾</span>
+
+                        <span aria-hidden="true">☾</span>
+
                         <strong>Rêverie</strong>
+
                     </button>
 
                 </div>
@@ -291,6 +604,7 @@
         </div>
 
     </section>
+
 
     <!-- COMPAGNONS -->
 
@@ -303,7 +617,7 @@
                 Une présence à vos côtés
             </span>
 
-            <h2>
+            <h2 id="companion-selection-title">
                 Votre compagnon
                 <em>de voyage.</em>
             </h2>
@@ -315,18 +629,26 @@
 
         </div>
 
-        <div class="companion-grid">
+        <div class="companion-grid"
+             role="group"
+             aria-labelledby="companion-selection-title">
 
             <button type="button"
                     class="companion-card"
                     data-companion="cat"
-                    aria-pressed="false">
+                    aria-pressed="false"
+                    aria-controls="companion-personalization">
 
-                <div class="companion-image companion-cat"></div>
+                <div class="companion-image companion-cat"
+                     aria-hidden="true">
+                </div>
 
                 <div class="companion-description">
+
                     <h3>Le chat</h3>
+
                     <p>Curieux, discret et indépendant.</p>
+
                 </div>
 
             </button>
@@ -334,13 +656,19 @@
             <button type="button"
                     class="companion-card"
                     data-companion="dog"
-                    aria-pressed="false">
+                    aria-pressed="false"
+                    aria-controls="companion-personalization">
 
-                <div class="companion-image companion-dog"></div>
+                <div class="companion-image companion-dog"
+                     aria-hidden="true">
+                </div>
 
                 <div class="companion-description">
+
                     <h3>Le chien</h3>
+
                     <p>Fidèle, doux et courageux.</p>
+
                 </div>
 
             </button>
@@ -348,13 +676,19 @@
             <button type="button"
                     class="companion-card"
                     data-companion="rabbit"
-                    aria-pressed="false">
+                    aria-pressed="false"
+                    aria-controls="companion-personalization">
 
-                <div class="companion-image companion-rabbit"></div>
+                <div class="companion-image companion-rabbit"
+                     aria-hidden="true">
+                </div>
 
                 <div class="companion-description">
+
                     <h3>Le lapin</h3>
+
                     <p>Délicat, attentif et rêveur.</p>
+
                 </div>
 
             </button>
@@ -380,7 +714,9 @@
 
                 <button type="submit"
                         class="kingdom-button">
+
                     Confirmer
+
                 </button>
 
             </form>
@@ -388,10 +724,12 @@
         </div>
 
         <p id="companion-message"
+           role="status"
            aria-live="polite">
         </p>
 
     </section>
+
 
     <!-- MÉDAILLON -->
 
@@ -421,7 +759,9 @@
 
             <div class="medallion-scene">
 
-                <div class="medallion-halo"></div>
+                <div class="medallion-halo"
+                     aria-hidden="true">
+                </div>
 
                 <div class="royal-medallion"
                      id="royal-medallion">
@@ -429,7 +769,8 @@
                     <img class="medallion-artwork"
                          src="royaume-medallion.png"
                          alt="Votre médaillon enchanté"
-                         loading="lazy">
+                         loading="lazy"
+                         decoding="async">
 
                     <div class="medallion-gems"
                          id="medallion-gems">
@@ -453,10 +794,16 @@
                         Votre royaume
                     </span>
 
-                    <span class="medallion-counter">
+                    <span class="medallion-counter"
+                          aria-live="polite"
+                          aria-atomic="true">
+
                         <strong id="fragment-count">0</strong>
+
                         <span>/</span>
+
                         <span id="fragment-total">14</span>
+
                     </span>
 
                 </div>
@@ -492,26 +839,33 @@
                 </div>
 
                 <div class="kingdom-milestones">
+
                     <span data-milestone="3">3</span>
+
                     <span data-milestone="5">5</span>
+
                     <span data-milestone="8">8</span>
+
                     <span data-milestone="10">10</span>
+
                     <span data-milestone="14">14</span>
+
                 </div>
 
                 <a href="voyages.html"
                    class="kingdom-button">
+
                     Partir à l'aventure
+
                     <span aria-hidden="true">✧</span>
+
                 </a>
 
             </div>
 
         </div>
 
-    </section>
-
-    <!-- COFFRET DES TRÉSORS -->
+    </section>    <!-- COFFRET DES TRÉSORS -->
 
     <section class="kingdom-treasures kingdom-reveal"
              id="kingdom-treasures">
@@ -522,7 +876,7 @@
                 Des merveilles à réunir
             </span>
 
-            <h2>
+            <h2 id="treasure-section-title">
                 Le coffret
                 <em>des fragments.</em>
             </h2>
@@ -537,13 +891,15 @@
         <div class="treasure-box">
 
             <div class="treasure-box-decoration">
-                <span>✧</span>
+                <span aria-hidden="true">✧</span>
                 <span>Cœur Errant</span>
-                <span>✧</span>
+                <span aria-hidden="true">✧</span>
             </div>
 
             <div class="treasure-grid"
-                 id="treasure-grid">
+                 id="treasure-grid"
+                 role="group"
+                 aria-labelledby="treasure-section-title">
             </div>
 
             <div class="treasure-box-lock"
@@ -556,18 +912,21 @@
         <div class="treasure-legend">
 
             <span>
-                <i class="legend-discovered"></i>
+                <i class="legend-discovered"
+                   aria-hidden="true"></i>
                 Fragment retrouvé
             </span>
 
             <span>
-                <i class="legend-locked"></i>
+                <i class="legend-locked"
+                   aria-hidden="true"></i>
                 Fragment encore caché
             </span>
 
         </div>
 
     </section>
+
 
     <!-- LES LIEUX SECRETS -->
 
@@ -594,17 +953,24 @@
 
         <div class="world-landscape">
 
-            <div class="world-landscape-overlay"></div>
+            <div class="world-landscape-overlay"
+                 aria-hidden="true">
+            </div>
 
             <div class="world-landscape-content">
-                <span>✧</span>
+
+                <span aria-hidden="true">✧</span>
+
                 <h3>Le jardin des âmes</h3>
+
                 <p>Un monde où chaque animal a sa place.</p>
+
             </div>
 
         </div>
 
         <div class="kingdom-locations">
+
 
             <!-- BIBLIOTHÈQUE -->
 
@@ -613,10 +979,17 @@
                      data-required="3">
 
                 <div class="location-image location-library">
-                    <span class="location-lock">◇</span>
-                    <span class="location-requirement">
+
+                    <span class="location-lock"
+                          aria-hidden="true">
+                        ◇
+                    </span>
+
+                    <span class="location-requirement"
+                          id="library-requirement">
                         3 fragments
                     </span>
+
                 </div>
 
                 <div class="location-content">
@@ -636,13 +1009,19 @@
                     <button type="button"
                             class="location-button"
                             data-open-location="library"
+                            aria-haspopup="dialog"
+                            aria-controls="location-dialog"
+                            aria-describedby="library-requirement"
                             disabled>
+
                         Lieu verrouillé
+
                     </button>
 
                 </div>
 
             </article>
+
 
             <!-- SERRE -->
 
@@ -651,10 +1030,17 @@
                      data-required="5">
 
                 <div class="location-image location-greenhouse">
-                    <span class="location-lock">◇</span>
-                    <span class="location-requirement">
+
+                    <span class="location-lock"
+                          aria-hidden="true">
+                        ◇
+                    </span>
+
+                    <span class="location-requirement"
+                          id="greenhouse-requirement">
                         5 fragments
                     </span>
+
                 </div>
 
                 <div class="location-content">
@@ -674,13 +1060,19 @@
                     <button type="button"
                             class="location-button"
                             data-open-location="greenhouse"
+                            aria-haspopup="dialog"
+                            aria-controls="location-dialog"
+                            aria-describedby="greenhouse-requirement"
                             disabled>
+
                         Lieu verrouillé
+
                     </button>
 
                 </div>
 
             </article>
+
 
             <!-- LAC -->
 
@@ -689,10 +1081,17 @@
                      data-required="8">
 
                 <div class="location-image location-lake">
-                    <span class="location-lock">◇</span>
-                    <span class="location-requirement">
+
+                    <span class="location-lock"
+                          aria-hidden="true">
+                        ◇
+                    </span>
+
+                    <span class="location-requirement"
+                          id="lake-requirement">
                         8 fragments
                     </span>
+
                 </div>
 
                 <div class="location-content">
@@ -712,13 +1111,19 @@
                     <button type="button"
                             class="location-button"
                             data-open-location="lake"
+                            aria-haspopup="dialog"
+                            aria-controls="location-dialog"
+                            aria-describedby="lake-requirement"
                             disabled>
+
                         Lieu verrouillé
+
                     </button>
 
                 </div>
 
             </article>
+
 
             <!-- SOURCE -->
 
@@ -727,10 +1132,17 @@
                      data-required="10">
 
                 <div class="location-image location-spring">
-                    <span class="location-lock">◇</span>
-                    <span class="location-requirement">
+
+                    <span class="location-lock"
+                          aria-hidden="true">
+                        ◇
+                    </span>
+
+                    <span class="location-requirement"
+                          id="spring-requirement">
                         10 fragments
                     </span>
+
                 </div>
 
                 <div class="location-content">
@@ -750,13 +1162,19 @@
                     <button type="button"
                             class="location-button"
                             data-open-location="spring"
+                            aria-haspopup="dialog"
+                            aria-controls="location-dialog"
+                            aria-describedby="spring-requirement"
                             disabled>
+
                         Lieu verrouillé
+
                     </button>
 
                 </div>
 
             </article>
+
 
             <!-- CHÂTEAU -->
 
@@ -765,10 +1183,17 @@
                      data-required="14">
 
                 <div class="location-image location-castle">
-                    <span class="location-lock">◇</span>
-                    <span class="location-requirement">
+
+                    <span class="location-lock"
+                          aria-hidden="true">
+                        ◇
+                    </span>
+
+                    <span class="location-requirement"
+                          id="castle-requirement">
                         14 fragments
                     </span>
+
                 </div>
 
                 <div class="location-content">
@@ -788,8 +1213,13 @@
                     <button type="button"
                             class="location-button"
                             data-open-location="castle"
+                            aria-haspopup="dialog"
+                            aria-controls="location-dialog"
+                            aria-describedby="castle-requirement"
                             disabled>
+
                         Lieu verrouillé
+
                     </button>
 
                 </div>
@@ -799,6 +1229,7 @@
         </div>
 
     </section>
+
 
     <!-- AMBIANCE -->
 
@@ -811,7 +1242,7 @@
                 Un royaume qui vit avec vous
             </span>
 
-            <h2>
+            <h2 id="atmosphere-title">
                 Entre lumière
                 <em>et clair de lune.</em>
             </h2>
@@ -822,32 +1253,44 @@
 
         </div>
 
-        <div class="atmosphere-options">
+        <div class="atmosphere-options"
+             role="group"
+             aria-labelledby="atmosphere-title">
 
             <button type="button"
                     data-atmosphere="auto"
                     aria-pressed="true">
-                <span>◐</span>
+
+                <span aria-hidden="true">◐</span>
+
                 Automatique
+
             </button>
 
             <button type="button"
                     data-atmosphere="day"
                     aria-pressed="false">
-                <span>☀</span>
+
+                <span aria-hidden="true">☀</span>
+
                 Lumière du jour
+
             </button>
 
             <button type="button"
                     data-atmosphere="night"
                     aria-pressed="false">
-                <span>☾</span>
+
+                <span aria-hidden="true">☾</span>
+
                 Clair de lune
+
             </button>
 
         </div>
 
     </section>
+
 
     <!-- DESTINATION MYSTÈRE -->
 
@@ -862,11 +1305,17 @@
             <em>destination mystérieuse.</em>
         </h2>
 
-        <div class="mystery-envelope" aria-hidden="true">
+        <div class="mystery-envelope"
+             aria-hidden="true">
+
             <div class="mystery-envelope-back"></div>
+
             <div class="mystery-envelope-front"></div>
+
             <div class="mystery-envelope-flap"></div>
+
             <div class="mystery-envelope-seal">♡</div>
+
         </div>
 
         <span class="mystery-date">
@@ -884,6 +1333,7 @@
         </p>
 
     </section>
+
 
     <!-- PASSEPORT FINAL -->
 
@@ -913,7 +1363,8 @@
 
             <div class="certificate-border">
 
-                <div class="certificate-ornament">
+                <div class="certificate-ornament"
+                     aria-hidden="true">
                     ───── ✧ ─────
                 </div>
 
@@ -922,9 +1373,12 @@
                 </span>
 
                 <div class="certificate-medallion">
+
                     <img src="royaume-medallion.png"
                          alt=""
-                         loading="lazy">
+                         loading="lazy"
+                         decoding="async">
+
                 </div>
 
                 <span class="certificate-label">
@@ -958,16 +1412,19 @@
                     Cœur Errant
                 </div>
 
-                <div class="certificate-ornament">
+                <div class="certificate-ornament"
+                     aria-hidden="true">
                     ───── ♡ ─────
                 </div>
 
             </div>
 
             <div class="certificate-lock"
-                 id="certificate-lock">
+                 id="certificate-lock"
+                 role="status"
+                 aria-live="polite">
 
-                <span>◇</span>
+                <span aria-hidden="true">◇</span>
 
                 <h3>Votre passeport vous attend</h3>
 
@@ -983,11 +1440,15 @@
         <button type="button"
                 class="kingdom-button"
                 id="download-certificate"
+                aria-controls="kingdom-certificate"
                 disabled>
+
             Imprimer ou enregistrer mon passeport
+
         </button>
 
     </section>
+
 
     <!-- SECRET BONUS -->
 
@@ -996,15 +1457,20 @@
         <button type="button"
                 id="kingdom-secret"
                 class="kingdom-secret-button"
-                aria-label="Découvrir un petit secret">
+                aria-label="Découvrir un petit secret"
+                aria-controls="kingdom-secret-message">
+
             ♡
+
         </button>
 
         <p id="kingdom-secret-message"
+           role="status"
            aria-live="polite">
         </p>
 
     </section>
+
 
     <!-- SAUVEGARDE -->
 
@@ -1013,12 +1479,59 @@
 
         <h3>Votre aventure, à votre rythme.</h3>
 
-        <p id="kingdom-storage-note"></p>
+        <p id="kingdom-storage-note"
+           role="status"
+           aria-live="polite">
+        </p>
+
+
+        <!-- RETRAIT DU CONSENTEMENT -->
+
+        <div class="kingdom-storage-controls">
+
+            <p class="kingdom-storage-description"
+               id="kingdom-withdraw-description">
+
+                Vous pouvez désactiver la sauvegarde
+                locale à tout moment et supprimer les
+                données de votre aventure enregistrées
+                dans ce navigateur.
+
+            </p>
+
+            <button type="button"
+                    class="kingdom-outline-button"
+                    id="disable-adventure-storage"
+                    aria-describedby="kingdom-withdraw-description kingdom-storage-note"
+                    disabled>
+
+                Désactiver la sauvegarde et effacer mes données
+
+            </button>
+
+            <p class="kingdom-storage-information">
+
+                Vous pourrez réactiver la sauvegarde
+                à tout moment depuis
+                <a href="#kingdom-introduction">
+                    l'introduction du royaume
+                </a>.
+
+            </p>
+
+        </div>
+
+
+        <!-- RÉINITIALISATION DE L'AVENTURE -->
 
         <button type="button"
                 class="kingdom-outline-button"
-                id="reset-kingdom">
+                id="reset-kingdom"
+                aria-haspopup="dialog"
+                aria-controls="kingdom-reset-dialog">
+
             Recommencer mon aventure
+
         </button>
 
         <p>
@@ -1028,6 +1541,7 @@
         </p>
 
     </section>
+
 
     <!-- CONCLUSION -->
 
@@ -1053,29 +1567,36 @@
 
             <a href="voyages.html"
                class="kingdom-button">
+
                 Continuer les voyages
+
             </a>
 
             <a href="agir.html"
                class="kingdom-outline-button">
+
                 Agir dans la vraie vie
+
             </a>
 
         </div>
 
     </section>
 
-</main>
+</main><!-- FENÊTRE DES TRÉSORS -->
 
-<!-- FENÊTRE DES TRÉSORS -->
-
-<dialog class="kingdom-dialog" id="treasure-dialog">
+<dialog class="kingdom-dialog"
+        id="treasure-dialog"
+        aria-labelledby="treasure-title"
+        aria-describedby="treasure-meaning">
 
     <button type="button"
             class="kingdom-dialog-close"
             data-close-dialog
             aria-label="Fermer">
+
         ×
+
     </button>
 
     <div id="treasure-visual"></div>
@@ -1088,26 +1609,36 @@
 
     <p id="treasure-meaning"></p>
 
-    <p id="treasure-status"></p>
+    <p id="treasure-status"
+       role="status"
+       aria-live="polite">
+    </p>
 
     <button type="button"
             class="kingdom-button"
             data-close-dialog>
+
         Continuer mon aventure
+
     </button>
 
 </dialog>
 
+
 <!-- FENÊTRE DES LIEUX -->
 
 <dialog class="kingdom-dialog location-dialog"
-        id="location-dialog">
+        id="location-dialog"
+        aria-labelledby="location-dialog-title"
+        aria-describedby="location-dialog-description">
 
     <button type="button"
             class="kingdom-dialog-close"
             data-close-dialog
             aria-label="Fermer">
+
         ×
+
     </button>
 
     <div class="location-dialog-image"
@@ -1129,38 +1660,53 @@
         <button type="button"
                 class="kingdom-outline-button"
                 data-close-dialog>
+
             Retour au royaume
+
         </button>
 
     </div>
 
 </dialog>
 
+
 <!-- CONFIRMATION DE RÉINITIALISATION -->
 
 <dialog class="kingdom-dialog"
-        id="kingdom-reset-dialog">
+        id="kingdom-reset-dialog"
+        aria-labelledby="kingdom-reset-title"
+        aria-describedby="kingdom-reset-description">
 
-    <h2>Une nouvelle aventure ?</h2>
+    <h2 id="kingdom-reset-title">
+        Une nouvelle aventure ?
+    </h2>
 
-    <p>
+    <p id="kingdom-reset-description">
+
         Votre progression, vos fragments et votre
         personnalisation seront effacés de cet appareil.
+
     </p>
 
     <button type="button"
             class="kingdom-button"
             id="confirm-reset-kingdom">
+
         Oui, recommencer
+
     </button>
 
     <button type="button"
             class="kingdom-outline-button"
-            data-close-dialog>
+            data-close-dialog
+            autofocus>
+
         Annuler
+
     </button>
 
 </dialog>
+
 
 <!-- NOTIFICATIONS -->
 
@@ -1168,13 +1714,20 @@
      id="kingdom-toast"
      role="status"
      aria-live="polite"
+     aria-atomic="true"
      hidden>
 
-    <span class="kingdom-toast-icon">✧</span>
+    <span class="kingdom-toast-icon"
+          aria-hidden="true">
+        ✧
+    </span>
 
     <div>
+
         <strong id="kingdom-toast-title"></strong>
+
         <p id="kingdom-toast-message"></p>
+
     </div>
 
 </div>
@@ -1184,99 +1737,180 @@
      aria-hidden="true">
 </div>
 
-<!-- PIED DE PAGE -->
+
+<!-- =========================================
+     PIED DE PAGE COMMUN
+     ========================================= -->
 
 <footer class="ce-footer">
 
     <div class="ce-footer-decoration"
          aria-hidden="true">
+
         <span>♡</span>
+
         <span>✧</span>
+
         <span>❀</span>
+
         <span>♡</span>
+
         <span>✧</span>
+
     </div>
 
     <div class="ce-footer-inner">
+
+
+        <!-- IDENTITÉ CŒUR ERRANT -->
 
         <div class="ce-footer-brand">
 
             <img src="logo.jpeg"
                  alt="Cœur Errant"
-                 loading="lazy">
+                 loading="lazy"
+                 decoding="async">
 
             <h2>Cœur Errant</h2>
 
             <p class="ce-footer-tagline">
+
                 Chaque animal a une histoire.
+
             </p>
 
             <p class="ce-footer-description">
+
                 Parce que même les plus petites âmes
                 méritent une place dans ce monde.
+
             </p>
 
         </div>
 
-        <div class="ce-footer-socials">
+
+        <!-- RÉSEAUX SOCIAUX -->
+
+        <div class="ce-footer-socials"
+             role="group"
+             aria-label="Les réseaux sociaux de Cœur Errant">
 
             <a href="https://www.tiktok.com/@coeur_errant"
                target="_blank"
                rel="noopener noreferrer"
                aria-label="TikTok">
+
                 <img src="https://cdn.simpleicons.org/tiktok/A85E68"
-                     alt="">
+                     alt=""
+                     loading="lazy"
+                     decoding="async">
+
             </a>
 
             <a href="https://www.instagram.com/coeur.errant/"
                target="_blank"
                rel="noopener noreferrer"
                aria-label="Instagram">
+
                 <img src="https://cdn.simpleicons.org/instagram/A85E68"
-                     alt="">
+                     alt=""
+                     loading="lazy"
+                     decoding="async">
+
             </a>
 
             <a href="https://www.youtube.com/@CoeurErrant"
                target="_blank"
                rel="noopener noreferrer"
                aria-label="YouTube">
+
                 <img src="https://cdn.simpleicons.org/youtube/A85E68"
-                     alt="">
+                     alt=""
+                     loading="lazy"
+                     decoding="async">
+
             </a>
 
             <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
                target="_blank"
                rel="noopener noreferrer"
                aria-label="Facebook">
+
                 <img src="https://cdn.simpleicons.org/facebook/A85E68"
-                     alt="">
+                     alt=""
+                     loading="lazy"
+                     decoding="async">
+
             </a>
 
             <a href="https://www.snapchat.com/add/coeur_errant"
                target="_blank"
                rel="noopener noreferrer"
                aria-label="Snapchat">
+
                 <img src="https://cdn.simpleicons.org/snapchat/A85E68"
-                     alt="">
+                     alt=""
+                     loading="lazy"
+                     decoding="async">
+
             </a>
 
             <a href="mailto:coeur.errant@outlook.be"
                aria-label="Nous contacter">
-                <span>✉</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="24"
+                     height="24"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="#A85E68"
+                     stroke-width="1.5"
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                     aria-hidden="true"
+                     focusable="false">
+
+                    <rect x="3"
+                          y="5"
+                          width="18"
+                          height="14"
+                          rx="2">
+                    </rect>
+
+                    <path d="m3 7 9 6 9-6"></path>
+
+                </svg>
+
             </a>
 
         </div>
 
-        <div class="ce-footer-navigation">
+
+        <!-- NAVIGATION DU PIED DE PAGE -->
+
+        <div class="ce-footer-navigation"
+             role="navigation"
+             aria-label="Navigation du pied de page">
 
             <div class="ce-footer-column">
 
                 <h3>Découvrir</h3>
 
-                <a href="index.html#histoire">Mon histoire</a>
-                <a href="mission.html">La mission</a>
-                <a href="voyages.html">Voyages</a>
-                <a href="agir.html">Comment agir</a>
+                <a href="index.html#histoire">
+                    Mon histoire
+                </a>
+
+                <a href="mission.html">
+                    La mission
+                </a>
+
+                <a href="voyages.html">
+                    Voyages
+                </a>
+
+                <a href="livres.html">
+                    Mes livres
+                </a>
 
             </div>
 
@@ -1284,10 +1918,24 @@
 
                 <h3>Notre univers</h3>
 
-                <a href="livres.html">Mes livres</a>
-                <a href="etoiles.html">Nos étoiles</a>
-                <a href="passeport.html">Le Royaume</a>
-                <a href="soutenir.html">Soutenir</a>
+                <a href="etoiles.html">
+                    Nos étoiles
+                </a>
+
+                <a href="passeport.html"
+                   aria-current="page">
+
+                    Le Royaume
+
+                </a>
+
+                <a href="agir.html">
+                    Comment agir
+                </a>
+
+                <a href="soutenir.html">
+                    Soutenir
+                </a>
 
             </div>
 
@@ -1296,66 +1944,312 @@
                 <h3>Restons proches</h3>
 
                 <a href="mailto:coeur.errant@outlook.be">
+
                     Me contacter
+
                 </a>
 
-                <a href="https://www.instagram.com/coeur.errant/">
+                <a href="https://www.instagram.com/coeur.errant/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
                     Suivre l'aventure
+
+                </a>
+
+                <a href="index-nl.html"
+                   lang="nl"
+                   hreflang="nl">
+
+                    Nederlands
+
                 </a>
 
                 <a href="mentions-legales.html">
-                    Mentions légales
-                </a>
 
-                <a href="index-nl.html">
-                    Nederlands
+                    Mentions légales
+
                 </a>
 
             </div>
 
         </div>
 
+
+        <!-- SIGNATURE -->
+
         <div class="ce-footer-signature">
 
-            <span class="ce-footer-heart">♡</span>
+            <span class="ce-footer-heart"
+                  aria-hidden="true">
+
+                ♡
+
+            </span>
 
             <p>
+
                 Créé avec amour, pour ceux qui
                 n'ont pas de voix.
+
             </p>
 
         </div>
 
+
+        <!-- COPYRIGHT -->
+
         <div class="ce-footer-copyright">
-            © 2026 Cœur Errant — Tous droits réservés.
+
+            © <span id="footer-year">2026</span>
+            Cœur Errant — Tous droits réservés.
+
         </div>
 
     </div>
 
 </footer>
 
+
+<!-- =========================================
+     NAVIGATION MOBILE ET ANNÉE AUTOMATIQUE
+     ========================================= -->
+
 <script>
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
 
-    hamburger.addEventListener("click", () => {
-        const isOpen = navLinks.classList.toggle("open");
+    (() => {
 
-        hamburger.classList.toggle("open", isOpen);
+        "use strict";
 
-        hamburger.setAttribute(
-            "aria-expanded",
-            String(isOpen)
+
+        /* =========================================
+           ANNÉE DU PIED DE PAGE
+           ========================================= */
+
+        const footerYear = document.getElementById(
+            "footer-year"
         );
-    });
 
-    navLinks.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            navLinks.classList.remove("open");
-            hamburger.classList.remove("open");
-            hamburger.setAttribute("aria-expanded", "false");
+        if (footerYear) {
+
+            footerYear.textContent =
+                new Date().getFullYear();
+
+        }
+
+
+        /* =========================================
+           MENU MOBILE
+           ========================================= */
+
+        const hamburger = document.getElementById(
+            "hamburger"
+        );
+
+        const navLinks = document.getElementById(
+            "nav-links"
+        );
+
+        if (!hamburger || !navLinks) {
+
+            return;
+
+        }
+
+        const navigation = hamburger.closest("nav");
+
+        const desktopMedia = window.matchMedia(
+            "(min-width: 1101px)"
+        );
+
+
+        /* État du menu */
+
+        function setMenuState(isOpen) {
+
+            const open =
+                Boolean(isOpen) && !desktopMedia.matches;
+
+            navLinks.classList.toggle(
+                "open",
+                open
+            );
+
+            hamburger.classList.toggle(
+                "open",
+                open
+            );
+
+            hamburger.setAttribute(
+
+                "aria-expanded",
+
+                String(open)
+
+            );
+
+            hamburger.setAttribute(
+
+                "aria-label",
+
+                open
+
+                    ? "Fermer le menu"
+
+                    : "Ouvrir le menu"
+
+            );
+
+        }
+
+
+        /* Ouvrir ou fermer le menu */
+
+        function toggleMenu() {
+
+            const isOpen = navLinks.classList.contains(
+                "open"
+            );
+
+            setMenuState(!isOpen);
+
+        }
+
+
+        /* Fermer le menu */
+
+        function closeMenu() {
+
+            setMenuState(false);
+
+        }
+
+
+        /* Compatibilité avec la navigation commune */
+
+        window.toggleMenu = toggleMenu;
+
+        window.closeMenu = closeMenu;
+
+
+        /* Clic sur le bouton hamburger */
+
+        hamburger.addEventListener(
+
+            "click",
+
+            toggleMenu
+
+        );
+
+
+        /* Fermer après sélection d'un lien */
+
+        navLinks.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener(
+
+                "click",
+
+                closeMenu
+
+            );
+
         });
-    });
+
+
+        /* Fermer lors d'un clic à l'extérieur */
+
+        document.addEventListener("click", event => {
+
+            if (!navLinks.classList.contains("open")) {
+
+                return;
+
+            }
+
+            if (
+                navigation &&
+                !navigation.contains(event.target)
+            ) {
+
+                closeMenu();
+
+            }
+
+        });
+
+
+        /* Fermer avec la touche Échap */
+
+        document.addEventListener("keydown", event => {
+
+            if (
+                event.key === "Escape" &&
+                navLinks.classList.contains("open")
+            ) {
+
+                closeMenu();
+
+                hamburger.focus({
+
+                    preventScroll: true
+
+                });
+
+            }
+
+        });
+
+
+        /* Fermer lors du passage en version ordinateur */
+
+        function handleDesktopChange(event) {
+
+            if (event.matches) {
+
+                closeMenu();
+
+            }
+
+        }
+
+        if (typeof desktopMedia.addEventListener === "function") {
+
+            desktopMedia.addEventListener(
+
+                "change",
+
+                handleDesktopChange
+
+            );
+
+        } else if (typeof desktopMedia.addListener === "function") {
+
+            desktopMedia.addListener(
+
+                handleDesktopChange
+
+            );
+
+        }
+
+
+        /* Réinitialiser le menu lors d'un retour sur la page */
+
+        window.addEventListener("pageshow", () => {
+
+            closeMenu();
+
+        });
+
+
+        /* État initial */
+
+        closeMenu();
+
+    })();
+
 </script>
 
 </body>

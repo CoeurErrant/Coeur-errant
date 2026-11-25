@@ -1758,3 +1758,217 @@
   }
 
 }
+/* ==========================================
+   FINALISATION DE L'ACCUEIL
+   Compatible avec le nouvel index.html
+   ========================================== */
+
+/* NOUVELLES ILLUSTRATIONS POLAROID */
+
+.ce-polaroid .ce-polaroid-illustration {
+    display: block;
+    width: 100%;
+    height: clamp(180px, 23vw, 300px);
+    aspect-ratio: auto;
+    object-fit: contain;
+    background: #f4e8dc;
+}
+
+.ce-polaroid {
+    overflow: hidden;
+}
+
+/* LES SIX PORTES DE L'UNIVERS */
+
+.ce-door-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 1100px;
+    gap: 2rem;
+}
+
+.ce-door {
+    min-width: 0;
+    min-height: 390px;
+}
+
+/* Harmonisation des couleurs */
+
+.ce-door-travel {
+    background: #e9dfce;
+}
+
+.ce-door-mission {
+    background: #eadbd9;
+}
+
+.ce-door-books {
+    background: #f7f0e3;
+}
+
+.ce-door-help {
+    background: #e3e7dc;
+}
+
+.ce-door-kingdom {
+    background: linear-gradient(
+        145deg,
+        #f7eee1,
+        #e9d6b8
+    );
+}
+
+.ce-door-advice {
+    background: linear-gradient(
+        145deg,
+        #f8eeeb,
+        #ead6d9
+    );
+}
+
+.ce-door-kingdom .ce-door-symbol {
+    color: #a58b5d;
+}
+
+.ce-door-advice .ce-door-symbol {
+    color: #a85e68;
+}
+
+.ce-door-content {
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+/* Apparition des nouvelles portes */
+
+.ce-animations .ce-door:nth-child(5) {
+    transition-delay: .1s;
+}
+
+.ce-animations .ce-door:nth-child(6) {
+    transition-delay: .2s;
+}
+
+/* CARTE INTERACTIVE */
+
+.ce-map-popup a {
+    display: inline-block;
+    margin-top: 6px;
+}
+
+.ce-map-popup a:hover {
+    text-decoration: underline;
+}
+
+.ce-map-fallback {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 25px;
+    text-align: center;
+    color: var(--ce-muted);
+}
+
+.ce-map-fallback a {
+    color: var(--ce-rose);
+    margin-top: 1rem;
+}
+
+/* ACCESSIBILITÉ */
+
+.ce-home .ce-reveal:focus-within {
+    opacity: 1;
+    translate: none;
+}
+
+/* TABLETTES */
+
+@media (max-width: 900px) {
+
+    .ce-door-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 700px;
+        gap: 1.5rem;
+    }
+
+    .ce-door {
+        min-height: 360px;
+    }
+
+    .ce-polaroid .ce-polaroid-illustration {
+        height: 280px;
+    }
+
+}
+
+/* TÉLÉPHONES */
+
+@media (max-width: 600px) {
+
+    .ce-door-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .8rem;
+    }
+
+    .ce-door {
+        min-height: 340px;
+        padding: 1.3rem .85rem;
+    }
+
+    .ce-polaroid .ce-polaroid-illustration {
+        height: 190px;
+    }
+
+    .ce-intro-photos {
+        min-height: 340px;
+    }
+
+    .ce-opening {
+        padding-bottom: 145px;
+    }
+
+    .ce-door-content > p:not(.ce-door-tag) {
+        font-size: .78rem;
+    }
+
+    .ce-door-link {
+        line-height: 1.5;
+    }
+
+}
+
+/* TRÈS PETITS ÉCRANS */
+
+@media (max-width: 360px) {
+
+    .ce-door-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ce-door {
+        width: 100%;
+        max-width: 270px;
+        min-height: 320px;
+        margin: auto;
+    }
+
+    .ce-polaroid .ce-polaroid-illustration {
+        height: 155px;
+    }
+
+    .ce-intro-photos {
+        min-height: 280px;
+    }
+
+}
+
+/* ANIMATIONS RÉDUITES */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ce-home .ce-door {
+        transition-delay: 0s !important;
+    }
+
+}

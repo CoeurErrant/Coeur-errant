@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,9 +13,70 @@
 
   <meta name="theme-color" content="#faf8f5">
 
+  <meta name="robots" content="index, follow">
+
   <title>À votre tour d'agir — Cœur Errant</title>
 
+  <!-- SEO -->
+
+  <link rel="canonical"
+        href="https://coeurerrant.github.io/Coeur-errant/agir.html">
+
+  <link rel="alternate"
+        hreflang="fr"
+        href="https://coeurerrant.github.io/Coeur-errant/agir.html">
+
+  <link rel="alternate"
+        hreflang="nl"
+        href="https://coeurerrant.github.io/Coeur-errant/agir-nl.html">
+
+  <link rel="alternate"
+        hreflang="x-default"
+        href="https://coeurerrant.github.io/Coeur-errant/agir.html">
+
+  <!-- Réseaux sociaux -->
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:site_name" content="Cœur Errant">
+
+  <meta property="og:locale" content="fr_BE">
+
+  <meta property="og:locale:alternate" content="nl_BE">
+
+  <meta property="og:title"
+        content="À votre tour d'agir — Cœur Errant">
+
+  <meta property="og:description"
+        content="Découvrez comment aider les animaux errants pendant vos voyages grâce au guide solidaire de Cœur Errant.">
+
+  <meta property="og:url"
+        content="https://coeurerrant.github.io/Coeur-errant/agir.html">
+
+  <meta property="og:image"
+        content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+  <meta property="og:image:alt"
+        content="Logo de Cœur Errant">
+
+  <meta name="twitter:card" content="summary">
+
+  <meta name="twitter:title"
+        content="À votre tour d'agir — Cœur Errant">
+
+  <meta name="twitter:description"
+        content="Découvrez les bons réflexes pour aider les animaux errants avec bienveillance et prudence.">
+
+  <meta name="twitter:image"
+        content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+  <!-- Icônes -->
+
   <link rel="icon" type="image/jpeg" href="logo.jpeg">
+
+  <link rel="apple-touch-icon" href="logo.jpeg">
+
+  <!-- Polices -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -27,11 +87,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
+  <!-- Feuilles de style -->
+
   <link rel="stylesheet" href="style.css">
+
   <link rel="stylesheet" href="agir.css">
+
   <link rel="stylesheet" href="global.css">
 
+  <!-- JavaScript -->
+
   <script src="global.js" defer></script>
+
   <script src="agir.js" defer></script>
 
 </head>
@@ -39,39 +106,104 @@
 <body>
 
   <!-- =====================================
-       NAVIGATION
+       NAVIGATION COMMUNE
        ===================================== -->
 
   <nav>
 
-    <a href="index.html" class="nav-logo">
+    <a href="index.html"
+       class="nav-logo"
+       aria-label="Cœur Errant — Accueil">
+
       <img src="logo.jpeg" alt="Cœur Errant">
+
     </a>
 
     <ul class="nav-links" id="nav-links">
 
-      <li><a href="index.html">Accueil</a></li>
+      <li>
+        <a href="index.html">Accueil</a>
+      </li>
 
-      <li><a href="index.html#histoire">Mon histoire</a></li>
+      <li>
+        <a href="mission.html">La mission</a>
+      </li>
 
-      <li><a href="mission.html">La mission</a></li>
+      <li>
+        <a href="voyages.html">Voyages</a>
+      </li>
 
-      <li><a href="voyages.html">Voyages</a></li>
+      <li>
+        <a href="livres.html">Mes livres</a>
+      </li>
 
-      <li><a href="livres.html">Mes livres</a></li>
+      <li>
+        <a href="etoiles.html">Nos étoiles</a>
+      </li>
 
-      <li><a href="etoiles.html">Nos étoiles</a></li>
+      <li>
+        <a href="agir.html"
+           class="active"
+           aria-current="page">
 
-      <li><a href="soutenir.html">Soutenir</a></li>
+          Comment agir
+
+        </a>
+      </li>
+
+      <li>
+        <a href="passeport.html">Le Royaume</a>
+      </li>
+
+      <li>
+        <a href="soutenir.html">Soutenir</a>
+      </li>
+
+      <li class="lang-mobile">
+
+        <a href="agir-nl.html"
+           lang="nl"
+           hreflang="nl">
+
+          Nederlands
+
+        </a>
+
+      </li>
 
     </ul>
+
+    <div class="lang-switcher"
+         aria-label="Choisir la langue">
+
+      <a href="agir.html"
+         class="lang-btn active"
+         lang="fr"
+         hreflang="fr"
+         aria-current="page">
+
+        FR
+
+      </a>
+
+      <a href="agir-nl.html"
+         class="lang-btn"
+         lang="nl"
+         hreflang="nl">
+
+        NL
+
+      </a>
+
+    </div>
 
     <button class="hamburger"
             id="hamburger"
             type="button"
             aria-label="Ouvrir le menu"
             aria-controls="nav-links"
-            aria-expanded="false">
+            aria-expanded="false"
+            onclick="toggleMenu()">
 
       <span></span>
       <span></span>
@@ -379,7 +511,9 @@
 
         <button class="agir-situation-card"
                 type="button"
-                data-situation="faim">
+                data-situation="faim"
+                aria-haspopup="dialog"
+                aria-controls="advice-dialog">
 
           <span class="agir-card-number">01</span>
 
@@ -437,7 +571,9 @@
 
         <button class="agir-situation-card"
                 type="button"
-                data-situation="soif">
+                data-situation="soif"
+                aria-haspopup="dialog"
+                aria-controls="advice-dialog">
 
           <span class="agir-card-number">02</span>
 
@@ -485,7 +621,9 @@
 
         <button class="agir-situation-card"
                 type="button"
-                data-situation="peur">
+                data-situation="peur"
+                aria-haspopup="dialog"
+                aria-controls="advice-dialog">
 
           <span class="agir-card-number">03</span>
 
@@ -534,7 +672,9 @@
 
         <button class="agir-situation-card"
                 type="button"
-                data-situation="blesse">
+                data-situation="blesse"
+                aria-haspopup="dialog"
+                aria-controls="advice-dialog">
 
           <span class="agir-card-number">04</span>
 
@@ -591,7 +731,9 @@
 
         <button class="agir-situation-card"
                 type="button"
-                data-situation="bebe">
+                data-situation="bebe"
+                aria-haspopup="dialog"
+                aria-controls="advice-dialog">
 
           <span class="agir-card-number">05</span>
 
@@ -650,7 +792,9 @@
 
         <button class="agir-situation-card"
                 type="button"
-                data-situation="danger">
+                data-situation="danger"
+                aria-haspopup="dialog"
+                aria-controls="advice-dialog">
 
           <span class="agir-card-number">06</span>
 
@@ -705,9 +849,7 @@
 
       </p>
 
-    </section>
-
-    <!-- =====================================
+    </section>    <!-- =====================================
          03 — LA VALISE SOLIDAIRE
          ===================================== -->
 
@@ -945,6 +1087,56 @@
             Recommencer ma checklist
 
           </button>
+
+          <!-- Consentement à la sauvegarde locale -->
+
+          <div class="agir-packing-consent">
+
+            <p class="agir-storage-description">
+
+              Vous pouvez choisir de conserver votre
+              checklist dans ce navigateur pour la
+              retrouver lors de votre prochaine visite.
+
+              Cette sauvegarde est facultative.
+
+            </p>
+
+            <button type="button"
+                    class="agir-text-button"
+                    id="packing-consent-button"
+                    aria-pressed="false"
+                    aria-describedby="packing-storage-note"
+                    disabled>
+
+              Activer la sauvegarde locale
+
+            </button>
+
+            <p class="agir-storage-note"
+               id="packing-storage-note"
+               role="status"
+               aria-live="polite">
+
+              La sauvegarde locale est désactivée.
+
+            </p>
+
+            <p class="agir-storage-information">
+
+              Vous pouvez retirer votre consentement
+              à tout moment et supprimer votre
+              progression enregistrée.
+
+              <a href="mentions-legales.html">
+
+                En savoir plus sur la confidentialité.
+
+              </a>
+
+            </p>
+
+          </div>
 
         </div>
 
@@ -1432,9 +1624,7 @@
 
       </div>
 
-    </section>
-
-    <!-- =====================================
+    </section>    <!-- =====================================
          06 — FICHE À EMPORTER
          ===================================== -->
 
@@ -1860,7 +2050,7 @@
   </dialog>
 
   <!-- =====================================
-       FOOTER
+       FOOTER COMMUN
        ===================================== -->
 
   <footer class="ce-footer">
@@ -1883,7 +2073,9 @@
         <a href="index.html">
 
           <img src="logo.jpeg"
-               alt="Cœur Errant">
+               alt="Cœur Errant"
+               loading="lazy"
+               decoding="async">
 
         </a>
 
@@ -1904,6 +2096,8 @@
 
       </div>
 
+      <!-- Réseaux sociaux -->
+
       <div class="ce-footer-socials">
 
         <a href="https://www.tiktok.com/@coeur_errant"
@@ -1912,7 +2106,8 @@
            aria-label="TikTok">
 
           <img src="https://cdn.simpleicons.org/tiktok/A85E68"
-               alt="">
+               alt=""
+               loading="lazy">
 
         </a>
 
@@ -1922,7 +2117,8 @@
            aria-label="Instagram">
 
           <img src="https://cdn.simpleicons.org/instagram/A85E68"
-               alt="">
+               alt=""
+               loading="lazy">
 
         </a>
 
@@ -1932,7 +2128,30 @@
            aria-label="YouTube">
 
           <img src="https://cdn.simpleicons.org/youtube/A85E68"
-               alt="">
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Facebook">
+
+          <img src="https://cdn.simpleicons.org/facebook/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.snapchat.com/add/coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Snapchat">
+
+          <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+               alt=""
+               loading="lazy">
 
         </a>
 
@@ -1959,15 +2178,29 @@
 
       </div>
 
+      <!-- Navigation du footer -->
+
       <div class="ce-footer-navigation">
 
         <div class="ce-footer-column">
 
           <h3>Découvrir</h3>
 
-          <a href="index.html#histoire">Mon histoire</a>
-          <a href="mission.html">La mission</a>
-          <a href="voyages.html">Voyages</a>
+          <a href="index.html#histoire">
+            Mon histoire
+          </a>
+
+          <a href="mission.html">
+            La mission
+          </a>
+
+          <a href="voyages.html">
+            Voyages
+          </a>
+
+          <a href="livres.html">
+            Mes livres
+          </a>
 
         </div>
 
@@ -1975,9 +2208,22 @@
 
           <h3>Notre univers</h3>
 
-          <a href="livres.html">Mes livres</a>
-          <a href="etoiles.html">Nos étoiles</a>
-          <a href="soutenir.html">Soutenir</a>
+          <a href="etoiles.html">
+            Nos étoiles
+          </a>
+
+          <a href="passeport.html">
+            Le Royaume
+          </a>
+
+          <a href="agir.html"
+             aria-current="page">
+            Comment agir
+          </a>
+
+          <a href="soutenir.html">
+            Soutenir
+          </a>
 
         </div>
 
@@ -1999,9 +2245,25 @@
 
           </a>
 
+          <a href="agir-nl.html"
+             lang="nl"
+             hreflang="nl">
+
+            Nederlands
+
+          </a>
+
+          <a href="mentions-legales.html">
+
+            Mentions légales et confidentialité
+
+          </a>
+
         </div>
 
       </div>
+
+      <!-- Signature -->
 
       <div class="ce-footer-signature">
 
@@ -2017,7 +2279,8 @@
 
         <div class="ce-footer-copyright">
 
-          © 2026 Cœur Errant — Tous droits réservés.
+          © <span id="footer-year">2026</span>
+          Cœur Errant — Tous droits réservés.
 
         </div>
 
@@ -2027,45 +2290,233 @@
 
   </footer>
 
+  <!-- =====================================
+       NAVIGATION MOBILE ET ANNÉE DU FOOTER
+       ===================================== -->
+
   <script>
 
-    const hamburger = document.getElementById("hamburger");
+    (() => {
 
-    const navLinks = document.getElementById("nav-links");
+      "use strict";
 
-    hamburger.addEventListener("click", () => {
+      /* =====================================
+         ANNÉE AUTOMATIQUE
+         ===================================== */
 
-      const isOpen = navLinks.classList.toggle("open");
+      const footerYear =
+        document.getElementById("footer-year");
 
-      hamburger.classList.toggle("open", isOpen);
+      if (footerYear) {
 
-      hamburger.setAttribute("aria-expanded", isOpen);
+        footerYear.textContent =
+          new Date().getFullYear();
 
-      hamburger.setAttribute(
-        "aria-label",
-        isOpen ? "Fermer le menu" : "Ouvrir le menu"
-      );
+      }
 
-    });
 
-    navLinks.querySelectorAll("a").forEach(link => {
+      /* =====================================
+         NAVIGATION MOBILE
+         ===================================== */
 
-      link.addEventListener("click", () => {
+      const hamburger =
+        document.getElementById("hamburger");
 
-        navLinks.classList.remove("open");
+      const navLinks =
+        document.getElementById("nav-links");
 
-        hamburger.classList.remove("open");
+      const navigation =
+        hamburger?.closest("nav");
 
-        hamburger.setAttribute("aria-expanded", "false");
+      const desktopMedia =
+        window.matchMedia("(min-width: 1101px)");
+
+
+      function setMenuState(isOpen) {
+
+        if (!hamburger || !navLinks) {
+
+          return;
+
+        }
+
+        navLinks.classList.toggle(
+          "open",
+          isOpen
+        );
+
+        hamburger.classList.toggle(
+          "open",
+          isOpen
+        );
+
+        hamburger.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
 
         hamburger.setAttribute(
           "aria-label",
-          "Ouvrir le menu"
+          isOpen
+            ? "Fermer le menu"
+            : "Ouvrir le menu"
         );
 
-      });
+      }
 
-    });
+
+      /* Fonction utilisée par le bouton
+         hamburger de la partie 1. */
+
+      window.toggleMenu = function () {
+
+        if (!hamburger || !navLinks) {
+
+          return;
+
+        }
+
+        if (desktopMedia.matches) {
+
+          setMenuState(false);
+
+          return;
+
+        }
+
+        const isOpen =
+          hamburger.getAttribute(
+            "aria-expanded"
+          ) === "true";
+
+        setMenuState(!isOpen);
+
+      };
+
+
+      window.closeMenu = function () {
+
+        setMenuState(false);
+
+      };
+
+
+      /* Fermer après avoir choisi un lien */
+
+      if (navLinks) {
+
+        navLinks.querySelectorAll("a")
+          .forEach(link => {
+
+            link.addEventListener(
+              "click",
+              () => setMenuState(false)
+            );
+
+          });
+
+      }
+
+
+      /* Fermer en cliquant à l'extérieur */
+
+      document.addEventListener(
+        "click",
+        event => {
+
+          if (!navigation || !hamburger) {
+
+            return;
+
+          }
+
+          const isOpen =
+            hamburger.getAttribute(
+              "aria-expanded"
+            ) === "true";
+
+          if (
+            isOpen &&
+            !navigation.contains(event.target)
+          ) {
+
+            setMenuState(false);
+
+          }
+
+        }
+      );
+
+
+      /* Fermer avec la touche Échap */
+
+      document.addEventListener(
+        "keydown",
+        event => {
+
+          if (
+            event.key === "Escape" &&
+            hamburger?.getAttribute(
+              "aria-expanded"
+            ) === "true"
+          ) {
+
+            setMenuState(false);
+
+            hamburger.focus();
+
+          }
+
+        }
+      );
+
+
+      /* Fermer lors du retour au format PC */
+
+      function handleDesktopChange(event) {
+
+        if (event.matches) {
+
+          setMenuState(false);
+
+        }
+
+      }
+
+      if (desktopMedia.addEventListener) {
+
+        desktopMedia.addEventListener(
+          "change",
+          handleDesktopChange
+        );
+
+      } else if (desktopMedia.addListener) {
+
+        desktopMedia.addListener(
+          handleDesktopChange
+        );
+
+      }
+
+
+      /* Réinitialiser le menu lors d'un retour
+         sur la page depuis l'historique. */
+
+      window.addEventListener(
+        "pageshow",
+        () => {
+
+          setMenuState(false);
+
+        }
+      );
+
+
+      /* État initial */
+
+      setMenuState(false);
+
+    })();
 
   </script>
 

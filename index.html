@@ -1,1104 +1,2187 @@
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Cœur Errant — Sur les traces du cœur</title>
+    <meta charset="UTF-8">
 
-  <meta name="description" content="Un voyage sans frontières à la rencontre des animaux errants. Découvrez l'univers de Cœur Errant.">
-  <meta name="theme-color" content="#faf8f5">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="logo.jpeg">
+    <title>Cœur Errant — Sur les traces du cœur</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- RÉFÉRENCEMENT -->
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="accueil-v2.css">
-  <link rel="stylesheet" href="acceuil-v3.css">
+    <meta name="description"
+          content="Découvrez Cœur Errant, un univers consacré aux animaux errants, aux rencontres de voyage, aux livres et aux petits gestes solidaires qui changent leur quotidien.">
 
-  <link rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-        <link rel="stylesheet" href="global.css">
-<script src="global.js" defer></script>
+    <meta name="author" content="Cœur Errant">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="theme-color" content="#faf8f5">
+
+    <link rel="canonical"
+          href="https://coeurerrant.github.io/Coeur-errant/">
+
+    <link rel="alternate"
+          hreflang="fr"
+          href="https://coeurerrant.github.io/Coeur-errant/">
+
+    <link rel="alternate"
+          hreflang="nl"
+          href="https://coeurerrant.github.io/Coeur-errant/index-nl.html">
+
+    <link rel="alternate"
+          hreflang="x-default"
+          href="https://coeurerrant.github.io/Coeur-errant/">
+
+    <!-- PARTAGE SUR LES RÉSEAUX SOCIAUX -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:site_name" content="Cœur Errant">
+
+    <meta property="og:locale" content="fr_BE">
+
+    <meta property="og:title"
+          content="Cœur Errant — Chaque animal a une histoire">
+
+    <meta property="og:description"
+          content="Des kilomètres parcourus. Des regards croisés. Des vies qui méritent d'être regardées.">
+
+    <meta property="og:url"
+          content="https://coeurerrant.github.io/Coeur-errant/">
+
+    <meta property="og:image"
+          content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+    <meta property="og:image:alt"
+          content="Logo de Cœur Errant">
+
+    <meta name="twitter:card" content="summary">
+
+    <meta name="twitter:title"
+          content="Cœur Errant — Chaque animal a une histoire">
+
+    <meta name="twitter:description"
+          content="Un cœur sans frontières, pour les animaux des rues.">
+
+    <meta name="twitter:image"
+          content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+    <!-- FAVICON -->
+
+    <link rel="icon"
+          type="image/jpeg"
+          href="logo.jpeg">
+
+    <link rel="apple-touch-icon"
+          href="logo.jpeg">
+
+    <!-- POLICES -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <link rel="stylesheet" href="acceuil-v3.css">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="global.css">
+
+    <!-- JAVASCRIPT COMMUN -->
+
+    <script src="global.js" defer></script>
+
+    <!-- AJUSTEMENTS DE L'ACCUEIL -->
+
+    <style>
+
+        .ce-polaroid-illustration {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+        }
+
+        .ce-door-kingdom {
+            background: linear-gradient(
+                145deg,
+                #f7eee1,
+                #e9d6b8
+            );
+            color: #68543d;
+        }
+
+        .ce-door-advice {
+            background: linear-gradient(
+                145deg,
+                #f8eeeb,
+                #ead6d9
+            );
+            color: #80565f;
+        }
+
+        .ce-door-kingdom .ce-door-content,
+        .ce-door-advice .ce-door-content {
+            color: inherit;
+        }
+
+        .ce-door-kingdom .ce-door-symbol,
+        .ce-door-advice .ce-door-symbol {
+            color: inherit;
+        }
+
+        .ce-map-fallback {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .ce-map-fallback a {
+            color: #a85e68;
+        }
+
+        .ce-map-popup a {
+            display: inline-block;
+            margin-top: 6px;
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- =====================================
+     NAVIGATION
+     ===================================== -->
 
-<nav>
+<nav aria-label="Navigation principale">
 
-  <a class="nav-logo" href="index.html">
-    <img src="logo.jpeg" alt="Cœur Errant">
-  </a>
+    <a class="nav-logo"
+       href="index.html"
+       aria-label="Cœur Errant — Accueil">
 
-  <ul class="nav-links" id="nav-links">
+        <img src="logo.jpeg"
+             alt="Cœur Errant">
 
-    <li><a href="index.html" aria-current="page">Accueil</a></li>
+    </a>
 
-    <li><a href="#histoire" onclick="closeMenu()">Mon histoire</a></li>
+    <ul class="nav-links" id="nav-links">
 
-    <li><a href="mission.html">La mission</a></li>
+        <li>
+            <a href="index.html"
+               class="active"
+               aria-current="page">
+                Accueil
+            </a>
+        </li>
 
-    <li><a href="voyages.html">Voyages</a></li>
-    <li><a href="passeport.html">Mon passeport</a></li>
+        <li>
+            <a href="mission.html">
+                La mission
+            </a>
+        </li>
 
-    <li><a href="livres.html">Mes livres</a></li>
+        <li>
+            <a href="voyages.html">
+                Voyages
+            </a>
+        </li>
 
-    <li><a href="etoiles.html" onclick="closeMenu()">Nos étoiles</a></li>
+        <li>
+            <a href="livres.html">
+                Mes livres
+            </a>
+        </li>
 
-    <li><a href="soutenir.html">Soutenir</a></li>
+        <li>
+            <a href="etoiles.html">
+                Nos étoiles
+            </a>
+        </li>
 
-    <li class="lang-mobile">
-      <a href="index-nl.html">Nederlands</a>
-    </li>
+        <li>
+            <a href="agir.html">
+                Comment agir
+            </a>
+        </li>
 
-  </ul>
+        <li>
+            <a href="passeport.html">
+                Le Royaume
+            </a>
+        </li>
 
-  <div class="lang-switcher">
-    <a href="index.html" class="lang-btn active">FR</a>
-    <span class="lang-sep">|</span>
-    <a href="index-nl.html" class="lang-btn">NL</a>
-  </div>
+        <li>
+            <a href="soutenir.html">
+                Soutenir
+            </a>
+        </li>
 
-  <button class="hamburger"
-          id="hamburger"
-          onclick="toggleMenu()"
-          aria-label="Ouvrir le menu"
-          aria-controls="nav-links"
-          aria-expanded="false">
+        <li class="lang-mobile">
 
-    <span></span>
-    <span></span>
-    <span></span>
+            <a href="index-nl.html"
+               lang="nl"
+               hreflang="nl">
 
-  </button>
+                Nederlands
+
+            </a>
+
+        </li>
+
+    </ul>
+
+    <div class="lang-switcher">
+
+        <a href="index.html"
+           class="lang-btn active"
+           lang="fr"
+           hreflang="fr"
+           aria-label="Français">
+
+            FR
+
+        </a>
+
+        <span class="lang-sep"
+              aria-hidden="true">|</span>
+
+        <a href="index-nl.html"
+           class="lang-btn"
+           lang="nl"
+           hreflang="nl"
+           aria-label="Nederlands">
+
+            NL
+
+        </a>
+
+    </div>
+
+    <button class="hamburger"
+            id="hamburger"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-controls="nav-links"
+            aria-expanded="false">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
 
 </nav>
 
 <main class="ce-home">
 
-<!-- OUVERTURE IMMERSIVE -->
+    <!-- =====================================
+         OUVERTURE IMMERSIVE
+         ===================================== -->
 
-<section class="ce-opening">
+    <section class="ce-opening">
 
-  <div class="ce-opening-photo"></div>
+        <div class="ce-opening-photo"
+             aria-hidden="true"></div>
 
-  <div class="ce-opening-overlay"></div>
+        <div class="ce-opening-overlay"
+             aria-hidden="true"></div>
 
-  <div class="ce-opening-content">
+        <div class="ce-opening-content">
 
-    <p class="ce-eyebrow ce-enter">
-      Un cœur sans frontières
-    </p>
+            <p class="ce-eyebrow ce-enter">
 
-    <h1 class="ce-enter ce-delay-one">
+                Un cœur sans frontières
 
-      Le monde est grand.<br>
+            </p>
 
-      <em>Leur solitude aussi.</em>
+            <h1 class="ce-enter ce-delay-one">
 
-    </h1>
+                Le monde est grand.<br>
 
-    <p class="ce-enter ce-delay-two">
+                <em>Leur solitude aussi.</em>
 
-      Des kilomètres parcourus.<br>
-      Des regards croisés.<br>
-      Des vies qui méritent d'être regardées.
+            </h1>
 
-    </p>
+            <p class="ce-enter ce-delay-two">
 
-    <a href="#histoire"
-       class="ce-button ce-enter ce-delay-three">
+                Des kilomètres parcourus.<br>
 
-      Entrer dans mon univers
-      <span>♡</span>
+                Des regards croisés.<br>
 
-    </a>
+                Des vies qui méritent d'être regardées.
 
-  </div>
+            </p>
 
-  <div class="ce-opening-signature">
-    Chaque animal a une histoire.
-  </div>
+            <a href="#histoire"
+               class="ce-button ce-enter ce-delay-three">
 
-  <a href="#histoire"
-     class="ce-scroll"
-     aria-label="Continuer la découverte">
+                Entrer dans mon univers
 
-    <span></span>
+                <span aria-hidden="true">♡</span>
 
-  </a>
+            </a>
 
-</section>
+        </div>
 
-<!-- MON HISTOIRE -->
+        <div class="ce-opening-signature">
 
-<section class="ce-intro" id="histoire">
+            Chaque animal a une histoire.
 
-  <div class="ce-intro-photos ce-reveal">
+        </div>
 
-    <div class="ce-polaroid ce-polaroid-first">
+        <a href="#histoire"
+           class="ce-scroll"
+           aria-label="Continuer la découverte">
 
-      <img src="corsee.jpeg"
-           alt="Un chat rencontré en Corse"
-           loading="lazy">
+            <span></span>
 
-      <span>Corse · Avril 2023</span>
+        </a>
+
+    </section>
+
+    <!-- =====================================
+         MON HISTOIRE
+         ===================================== -->
+
+    <section class="ce-intro" id="histoire">
+
+        <div class="ce-intro-photos ce-reveal">
+
+            <!-- CARTE SOUVENIR DE CORSE -->
+
+            <div class="ce-polaroid ce-polaroid-first">
+
+                <svg class="ce-polaroid-illustration"
+                     viewBox="0 0 300 375"
+                     xmlns="http://www.w3.org/2000/svg"
+                     role="img"
+                     aria-label="Illustration d'un paysage méditerranéen en Corse">
+
+                    <defs>
+
+                        <linearGradient id="corsicaSky"
+                                        x1="0" y1="0"
+                                        x2="0" y2="1">
+
+                            <stop offset="0%"
+                                  stop-color="#e8d4cf"/>
+
+                            <stop offset="100%"
+                                  stop-color="#fff3dc"/>
+
+                        </linearGradient>
+
+                        <linearGradient id="corsicaSea"
+                                        x1="0" y1="0"
+                                        x2="0" y2="1">
+
+                            <stop offset="0%"
+                                  stop-color="#aebfbd"/>
+
+                            <stop offset="100%"
+                                  stop-color="#d8e0d6"/>
+
+                        </linearGradient>
+
+                    </defs>
+
+                    <rect width="300"
+                          height="375"
+                          fill="url(#corsicaSky)"/>
+
+                    <circle cx="210"
+                            cy="105"
+                            r="36"
+                            fill="#f9e8b9"/>
+
+                    <path d="M0 200
+                             L55 126
+                             L110 180
+                             L175 105
+                             L240 175
+                             L300 135
+                             V270 H0Z"
+                          fill="#a8ada0"/>
+
+                    <path d="M0 210
+                             L70 165
+                             L140 225
+                             L220 165
+                             L300 210
+                             V280 H0Z"
+                          fill="#bdc1ad"/>
+
+                    <rect y="230"
+                          width="300"
+                          height="145"
+                          fill="url(#corsicaSea)"/>
+
+                    <path d="M0 295
+                             Q80 280 160 300
+                             T300 290
+                             V375 H0Z"
+                          fill="#e5d5b8"/>
+
+                    <g fill="none"
+                       stroke="#fffaf0"
+                       stroke-width="2"
+                       opacity=".7">
+
+                        <path d="M20 250 Q70 245 120 250"/>
+
+                        <path d="M150 270 Q220 265 280 270"/>
+
+                        <path d="M40 285 Q90 280 140 285"/>
+
+                    </g>
+
+                    <!-- PETITE SILHOUETTE DE CHAT -->
+
+                    <g fill="#82776a">
+
+                        <ellipse cx="145"
+                                 cy="323"
+                                 rx="24"
+                                 ry="30"/>
+
+                        <circle cx="145"
+                                cy="291"
+                                r="17"/>
+
+                        <path d="M130 285 L128 264 L143 279Z"/>
+
+                        <path d="M147 279 L162 264 L160 286Z"/>
+
+                        <path d="M161 339
+                                 Q204 350 201 317"
+                              fill="none"
+                              stroke="#82776a"
+                              stroke-width="8"
+                              stroke-linecap="round"/>
+
+                    </g>
+
+                    <text x="150"
+                          y="45"
+                          text-anchor="middle"
+                          font-family="Georgia, serif"
+                          font-style="italic"
+                          font-size="19"
+                          fill="#75695e">
+
+                        Là où tout a commencé
+
+                    </text>
+
+                </svg>
+
+                <span>Corse · Avril 2023</span>
+
+            </div>
+
+            <!-- CARTE SOUVENIR DE TANGER -->
+
+            <div class="ce-polaroid ce-polaroid-second">
+
+                <svg class="ce-polaroid-illustration"
+                     viewBox="0 0 300 375"
+                     xmlns="http://www.w3.org/2000/svg"
+                     role="img"
+                     aria-label="Illustration d'une ruelle méditerranéenne à Tanger">
+
+                    <rect width="300"
+                          height="375"
+                          fill="#f4e5d5"/>
+
+                    <rect x="0"
+                          y="0"
+                          width="65"
+                          height="375"
+                          fill="#e3cdb6"/>
+
+                    <rect x="235"
+                          y="0"
+                          width="65"
+                          height="375"
+                          fill="#e8d6c4"/>
+
+                    <path d="M75 375
+                             L125 245
+                             H175
+                             L230 375Z"
+                          fill="#d7c1a9"/>
+
+                    <path d="M100 255
+                             V155
+                             A50 50 0 0 1 200 155
+                             V255Z"
+                          fill="#849da7"/>
+
+                    <path d="M110 255
+                             V155
+                             A40 40 0 0 1 190 155
+                             V255Z"
+                          fill="#a5bbc2"/>
+
+                    <path d="M150 115 V255"
+                          stroke="#78929d"
+                          stroke-width="2"/>
+
+                    <circle cx="158"
+                            cy="195"
+                            r="3"
+                            fill="#b79a67"/>
+
+                    <!-- BOUGAINVILLIERS -->
+
+                    <g fill="#a0aa8e">
+
+                        <ellipse cx="30" cy="65" rx="20" ry="10"/>
+
+                        <ellipse cx="65" cy="45" rx="18" ry="9"/>
+
+                        <ellipse cx="100" cy="30" rx="17" ry="9"/>
+
+                        <ellipse cx="35" cy="100" rx="17" ry="8"/>
+
+                    </g>
+
+                    <g fill="#c78c9c">
+
+                        <circle cx="15" cy="35" r="14"/>
+
+                        <circle cx="42" cy="40" r="12"/>
+
+                        <circle cx="70" cy="20" r="15"/>
+
+                        <circle cx="28" cy="78" r="14"/>
+
+                        <circle cx="53" cy="68" r="10"/>
+
+                        <circle cx="10" cy="110" r="12"/>
+
+                    </g>
+
+                    <g fill="#dfb0b9">
+
+                        <circle cx="22" cy="31" r="7"/>
+
+                        <circle cx="62" cy="26" r="8"/>
+
+                        <circle cx="35" cy="76" r="7"/>
+
+                    </g>
+
+                    <!-- GAMELLE SYMBOLIQUE -->
+
+                    <ellipse cx="150"
+                             cy="317"
+                             rx="35"
+                             ry="9"
+                             fill="#b7a087"/>
+
+                    <path d="M120 300
+                             L128 316
+                             Q150 326 172 316
+                             L180 300Z"
+                          fill="#c19a89"/>
+
+                    <ellipse cx="150"
+                             cy="300"
+                             rx="30"
+                             ry="8"
+                             fill="#8eaaa9"/>
+
+                    <text x="150"
+                          y="65"
+                          text-anchor="middle"
+                          font-family="Georgia, serif"
+                          font-style="italic"
+                          font-size="18"
+                          fill="#8c6f63">
+
+                        Un nouveau chemin
+
+                    </text>
+
+                </svg>
+
+                <span>Tanger · Juin 2024</span>
+
+            </div>
+
+            <div class="ce-photo-heart"
+                 aria-hidden="true">
+
+                ♡
+
+            </div>
+
+        </div>
+
+        <div class="ce-intro-text ce-reveal">
+
+            <p class="ce-label">
+
+                Les premières empreintes
+
+            </p>
+
+            <h2>
+
+                Et si l'on voyageait
+
+                <em>autrement ?</em>
+
+            </h2>
+
+            <p>
+
+                Tout a commencé en Corse, en avril 2023,
+                auprès de petites âmes oubliées.
+
+            </p>
+
+            <p>
+
+                Un an plus tard, à Tanger, mes voyages
+                ont pris un autre sens.
+
+                Depuis, je ne parcours plus seulement le monde
+                pour le découvrir, mais aussi pour prendre soin
+                de ceux qui y vivent sans foyer.
+
+            </p>
+
+            <p class="ce-handwritten">
+
+                Je voyage avec mon cœur,
+                et parfois avec un sac rempli de croquettes.
+
+            </p>
+
+            <a href="mission.html"
+               class="ce-text-link">
+
+                Découvrir ce qui m'anime
+
+                <span aria-hidden="true">↗</span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         CHEMIN D'EMPREINTES
+         ===================================== -->
+
+    <div class="ce-paw-trail" aria-hidden="true">
+
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
 
     </div>
 
-    <div class="ce-polaroid ce-polaroid-second">
+    <!-- =====================================
+         EXPLORER L'UNIVERS
+         ===================================== -->
 
-      <img src="Tanger.jpeg"
-           alt="Un chiot rencontré à Tanger"
-           loading="lazy">
+    <section class="ce-universe" id="univers">
 
-      <span>Tanger · Juin 2024</span>
+        <div class="ce-section-heading ce-reveal">
 
-    </div>
+            <p class="ce-label">
 
-    <div class="ce-photo-heart" aria-hidden="true">♡</div>
+                Un univers à découvrir
 
-  </div>
+            </p>
 
-  <div class="ce-intro-text ce-reveal">
+            <h2>
 
-    <p class="ce-label">Les premières empreintes</p>
+                Suivez les traces
 
-    <h2>
+                <em>de mon cœur.</em>
 
-      Et si l'on voyageait
-      <em>autrement ?</em>
+            </h2>
 
-    </h2>
+            <p>
 
-    <p>
+                Chaque chemin mène à une histoire différente.
+                À vous de choisir par où commencer.
 
-      Tout a commencé en Corse, en avril 2023,
-      auprès de petites âmes oubliées.
+            </p>
 
-    </p>
+        </div>
 
-    <p>
+        <div class="ce-door-grid">
 
-      Un an plus tard, à Tanger, mes voyages
-      ont pris un autre sens.
+            <!-- VOYAGES -->
 
-      Depuis, je ne parcours plus seulement le monde
-      pour le découvrir, mais aussi pour prendre soin
-      de ceux qui y vivent sans foyer.
+            <a href="voyages.html"
+               class="ce-door ce-door-travel ce-reveal">
 
-    </p>
+                <div class="ce-door-number">01</div>
 
-    <p class="ce-handwritten">
+                <div class="ce-door-symbol"
+                     aria-hidden="true">✧</div>
 
-      Je voyage avec mon cœur,
-      et parfois avec un sac rempli de croquettes.
+                <div class="ce-door-content">
 
-    </p>
+                    <p class="ce-door-tag">
 
-    <a href="mission.html" class="ce-text-link">
-      Découvrir ce qui m'anime <span>↗</span>
-    </a>
+                        Le carnet de route
 
-  </div>
+                    </p>
 
-</section>
+                    <h3>Partir</h3>
 
-<!-- CHEMIN D'EMPREINTES -->
+                    <p>
 
-<div class="ce-paw-trail" aria-hidden="true">
+                        Des frontières traversées,
+                        des rencontres à découvrir.
 
-  <span>🐾</span>
-  <span>🐾</span>
-  <span>🐾</span>
-  <span>🐾</span>
-  <span>🐾</span>
-  <span>🐾</span>
+                    </p>
 
-</div>
+                    <span class="ce-door-link">
 
-<!-- EXPLORER L'UNIVERS -->
+                        Ouvrir le carnet ↗
 
-<section class="ce-universe" id="univers">
+                    </span>
 
-  <div class="ce-section-heading ce-reveal">
+                </div>
 
-    <p class="ce-label">Un univers à découvrir</p>
+            </a>
 
-    <h2>
+            <!-- MISSION -->
 
-      Suivez les traces
-      <em>de mon cœur.</em>
+            <a href="mission.html"
+               class="ce-door ce-door-mission ce-reveal">
 
-    </h2>
+                <div class="ce-door-number">02</div>
 
-    <p>
+                <div class="ce-door-symbol"
+                     aria-hidden="true">♡</div>
 
-      Chaque chemin mène à une histoire différente.
-      À vous de choisir par où commencer.
+                <div class="ce-door-content">
 
-    </p>
+                    <p class="ce-door-tag">
 
-  </div>
+                        Au-delà du voyage
 
-  <div class="ce-door-grid">
+                    </p>
 
-    <!-- VOYAGES -->
+                    <h3>Comprendre</h3>
 
-    <a href="voyages.html"
-       class="ce-door ce-door-travel ce-reveal">
+                    <p>
 
-      <div class="ce-door-number">01</div>
+                        Une conviction, des gestes simples,
+                        une mission sans frontières.
 
-      <div class="ce-door-symbol">✧</div>
+                    </p>
 
-      <div class="ce-door-content">
+                    <span class="ce-door-link">
 
-        <p class="ce-door-tag">Le carnet de route</p>
+                        Découvrir la mission ↗
 
-        <h3>Partir</h3>
+                    </span>
 
-        <p>
-          Des frontières traversées,
-          des rencontres à découvrir.
+                </div>
+
+            </a>
+
+            <!-- LIVRES -->
+
+            <a href="livres.html"
+               class="ce-door ce-door-books ce-reveal">
+
+                <div class="ce-door-number">03</div>
+
+                <div class="ce-door-symbol"
+                     aria-hidden="true">❋</div>
+
+                <div class="ce-door-content">
+
+                    <p class="ce-door-tag">
+
+                        Entre les lignes
+
+                    </p>
+
+                    <h3>S'évader</h3>
+
+                    <p>
+
+                        Lorsque les rencontres deviennent
+                        des mots et des illustrations.
+
+                    </p>
+
+                    <span class="ce-door-link">
+
+                        Tourner la première page ↗
+
+                    </span>
+
+                </div>
+
+            </a>
+
+            <!-- SOUTIEN -->
+
+            <a href="soutenir.html"
+               class="ce-door ce-door-help ce-reveal">
+
+                <div class="ce-door-number">04</div>
+
+                <div class="ce-door-symbol"
+                     aria-hidden="true">✿</div>
+
+                <div class="ce-door-content">
+
+                    <p class="ce-door-tag">
+
+                        Ensemble pour eux
+
+                    </p>
+
+                    <h3>Agir</h3>
+
+                    <p>
+
+                        Parce que les petits gestes
+                        peuvent avoir une grande importance.
+
+                    </p>
+
+                    <span class="ce-door-link">
+
+                        Faire partie de l'aventure ↗
+
+                    </span>
+
+                </div>
+
+            </a>
+
+            <!-- LE ROYAUME -->
+
+            <a href="passeport.html"
+               class="ce-door ce-door-kingdom ce-reveal">
+
+                <div class="ce-door-number">05</div>
+
+                <div class="ce-door-symbol"
+                     aria-hidden="true">❖</div>
+
+                <div class="ce-door-content">
+
+                    <p class="ce-door-tag">
+
+                        Un monde enchanté
+
+                    </p>
+
+                    <h3>Explorer</h3>
+
+                    <p>
+
+                        Des trésors cachés, des lieux mystérieux
+                        et une aventure à écrire vous-même.
+
+                    </p>
+
+                    <span class="ce-door-link">
+
+                        Entrer dans le Royaume ↗
+
+                    </span>
+
+                </div>
+
+            </a>
+
+            <!-- CONSEILS PRATIQUES -->
+
+            <a href="agir.html"
+               class="ce-door ce-door-advice ce-reveal">
+
+                <div class="ce-door-number">06</div>
+
+                <div class="ce-door-symbol"
+                     aria-hidden="true">✦</div>
+
+                <div class="ce-door-content">
+
+                    <p class="ce-door-tag">
+
+                        Les bons gestes
+
+                    </p>
+
+                    <h3>Aider</h3>
+
+                    <p>
+
+                        Apprendre à réagir lorsqu'une petite âme
+                        croise votre chemin.
+
+                    </p>
+
+                    <span class="ce-door-link">
+
+                        Découvrir les conseils ↗
+
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         CARTE INTERACTIVE
+         ===================================== -->
+
+    <section class="ce-map-section" id="destinations">
+
+        <div class="ce-section-heading ce-reveal">
+
+            <p class="ce-label">
+
+                Mon carnet sans frontières
+
+            </p>
+
+            <h2>
+
+                Là où mes pas
+
+                <em>m'ont menée.</em>
+
+            </h2>
+
+            <p>
+
+                Des lieux, des souvenirs et des petites âmes
+                rencontrées au fil de mes voyages.
+
+                Explorez la carte pour découvrir mon parcours.
+
+            </p>
+
+        </div>
+
+        <div class="ce-map-frame ce-reveal">
+
+            <div class="ce-map-top">
+
+                <span>✧ Le monde de Cœur Errant</span>
+
+                <span>Depuis 2023</span>
+
+            </div>
+
+            <div id="ce-map"
+                 aria-label="Carte interactive de mes voyages">
+
+                <p class="ce-map-loading">
+
+                    Chargement du carnet de voyage…
+
+                </p>
+
+            </div>
+
+            <div class="ce-map-bottom">
+
+                <span>
+
+                    ♡ Une empreinte, une destination.
+
+                </span>
+
+                <button id="ce-map-reset"
+                        type="button">
+
+                    Recentrer la carte
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <a href="voyages.html"
+           class="ce-text-link">
+
+            Découvrir les histoires derrière ces voyages ↗
+
+        </a>
+
+    </section>
+
+    <!-- =====================================
+         UNE LETTRE À OUVRIR
+         ===================================== -->
+
+    <section class="ce-letter-section ce-reveal">
+
+        <p class="ce-label">
+
+            Quelques mots pour vous
+
         </p>
 
-        <span class="ce-door-link">
-          Ouvrir le carnet ↗
-        </span>
+        <h2>
 
-      </div>
+            Une petite lettre,
 
-    </a>
+            <em>un grand message.</em>
 
-    <!-- MISSION -->
-
-    <a href="mission.html"
-       class="ce-door ce-door-mission ce-reveal">
-
-      <div class="ce-door-number">02</div>
-
-      <div class="ce-door-symbol">♡</div>
-
-      <div class="ce-door-content">
-
-        <p class="ce-door-tag">Au-delà du voyage</p>
-
-        <h3>Comprendre</h3>
+        </h2>
 
         <p>
-          Une conviction, des gestes simples,
-          une mission sans frontières.
+
+            Cliquez sur l'enveloppe pour découvrir son secret.
+
         </p>
 
-        <span class="ce-door-link">
-          Découvrir la mission ↗
-        </span>
+        <button class="ce-envelope-button"
+                id="ce-envelope"
+                type="button"
+                aria-label="Ouvrir la lettre"
+                aria-expanded="false"
+                aria-controls="ce-letter-message">
 
-      </div>
+            <span class="ce-envelope-back"></span>
 
-    </a>
+            <span class="ce-envelope-paper">
 
-    <!-- LIVRES -->
+                Pour vous ♡
 
-    <a href="livres.html"
-       class="ce-door ce-door-books ce-reveal">
+            </span>
 
-      <div class="ce-door-number">03</div>
+            <span class="ce-envelope-front"></span>
 
-      <div class="ce-door-symbol">❋</div>
+            <span class="ce-envelope-flap"></span>
 
-      <div class="ce-door-content">
+            <span class="ce-envelope-seal">♡</span>
 
-        <p class="ce-door-tag">Entre les lignes</p>
+        </button>
 
-        <h3>S'évader</h3>
+        <div class="ce-letter-message"
+             id="ce-letter-message"
+             hidden>
+
+            <p>À vous qui êtes de passage,</p>
+
+            <p>
+
+                La prochaine fois que vous croiserez un animal
+                dans la rue, prenez quelques secondes pour le regarder.
+
+                Peut-être attend-il simplement un peu d'eau,
+                un repas ou un geste de douceur.
+
+            </p>
+
+            <p>
+
+                Nous ne pouvons pas changer le monde entier
+                en un seul jour.
+
+                Mais nous pouvons rendre une journée
+                un peu plus belle pour quelqu'un.
+
+            </p>
+
+            <p class="ce-letter-signature">
+
+                Avec tout mon cœur,<br>
+
+                Cœur Errant ♡
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         NOS ÉTOILES
+         ===================================== -->
+
+    <section class="ce-stars" id="nos-etoiles">
+
+        <div class="ce-sky"
+             aria-hidden="true"></div>
+
+        <div class="ce-stars-content ce-reveal">
+
+            <p class="ce-label">
+
+                Pour ceux qui restent en nous
+
+            </p>
+
+            <div class="ce-star-main"
+                 aria-hidden="true">
+
+                ✧
+
+            </div>
+
+            <h2>
+
+                Certaines âmes
+
+                <em>ne nous quittent jamais.</em>
+
+            </h2>
+
+            <p>
+
+                Elles ont traversé mon chemin.
+
+                Aujourd'hui, elles continuent de briller autrement.
+
+            </p>
+
+            <a href="etoiles.html"
+               class="ce-star-button">
+
+                Entrer dans leur ciel ✧
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         PROCHAINE DESTINATION
+         ===================================== -->
+
+    <section class="ce-next ce-reveal">
+
+        <div class="ce-ticket">
+
+            <div class="ce-ticket-main">
+
+                <p class="ce-label">
+
+                    Le prochain chapitre
+
+                </p>
+
+                <h2>
+
+                    Quelque part,
+
+                    <em>ailleurs.</em>
+
+                </h2>
+
+                <p>
+
+                    Une nouvelle destination.
+
+                    De nouvelles rencontres.
+
+                    Une mission qui ne change pas.
+
+                </p>
+
+                <a href="voyages.html#prochain-voyage"
+                   class="ce-text-link">
+
+                    Découvrir le prochain voyage ↗
+
+                </a>
+
+            </div>
+
+            <div class="ce-ticket-side">
+
+                <span class="ce-ticket-plane"
+                      aria-hidden="true">
+
+                    ✈
+
+                </span>
+
+                <span>DESTINATION</span>
+
+                <strong>Mystère</strong>
+
+                <span>Décembre 2026</span>
+
+                <div class="ce-barcode"
+                     aria-hidden="true"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         CONCLUSION
+         ===================================== -->
+
+    <section class="ce-ending ce-reveal">
+
+        <span class="ce-ending-heart"
+              aria-hidden="true">♡</span>
+
+        <h2>
+
+            Le monde change,
+
+            <em>un petit geste à la fois.</em>
+
+        </h2>
 
         <p>
-          Lorsque les rencontres deviennent
-          des mots et des illustrations.
+
+            Merci d'avoir pris quelques instants
+            pour entrer dans mon univers.
+
         </p>
 
-        <span class="ce-door-link">
-          Tourner la première page ↗
-        </span>
+        <a href="soutenir.html"
+           class="ce-button">
 
-      </div>
+            Écrivons la suite ensemble
 
-    </a>
+        </a>
 
-    <!-- SOUTIEN -->
-
-    <a href="soutenir.html"
-       class="ce-door ce-door-help ce-reveal">
-
-      <div class="ce-door-number">04</div>
-
-      <div class="ce-door-symbol">✿</div>
-
-      <div class="ce-door-content">
-
-        <p class="ce-door-tag">Ensemble pour eux</p>
-
-        <h3>Agir</h3>
-
-        <p>
-          Parce que les petits gestes
-          peuvent avoir une grande importance.
-        </p>
-
-        <span class="ce-door-link">
-          Faire partie de l'aventure ↗
-        </span>
-
-      </div>
-
-    </a>
-
-  </div>
-
-</section>
-
-<!-- CARTE INTERACTIVE -->
-
-<section class="ce-map-section" id="destinations">
-
-  <div class="ce-section-heading ce-reveal">
-
-    <p class="ce-label">Mon carnet sans frontières</p>
-
-    <h2>
-
-      Là où mes pas
-      <em>m'ont menée.</em>
-
-    </h2>
-
-    <p>
-
-      Des lieux, des souvenirs et des petites âmes
-      rencontrées au fil de mes voyages.
-
-      Explorez la carte pour découvrir mon parcours.
-
-    </p>
-
-  </div>
-
-  <div class="ce-map-frame ce-reveal">
-
-    <div class="ce-map-top">
-
-      <span>✧ Le monde de Cœur Errant</span>
-
-      <span>Depuis 2023</span>
-
-    </div>
-
-    <div id="ce-map"
-         aria-label="Carte interactive de mes voyages">
-
-      <p class="ce-map-loading">
-        Chargement du carnet de voyage…
-      </p>
-
-    </div>
-
-    <div class="ce-map-bottom">
-
-      <span>
-        ♡ Une empreinte, une destination.
-      </span>
-
-      <button id="ce-map-reset" type="button">
-        Recentrer la carte
-      </button>
-
-    </div>
-
-  </div>
-
-  <a href="voyages.html" class="ce-text-link">
-    Découvrir les histoires derrière ces voyages ↗
-  </a>
-
-</section>
-
-<!-- UNE LETTRE À OUVRIR -->
-
-<section class="ce-letter-section ce-reveal">
-
-  <p class="ce-label">Quelques mots pour vous</p>
-
-  <h2>
-
-    Une petite lettre,
-    <em>un grand message.</em>
-
-  </h2>
-
-  <p>
-    Cliquez sur l'enveloppe pour découvrir son secret.
-  </p>
-
-  <button class="ce-envelope-button"
-          id="ce-envelope"
-          type="button"
-          aria-label="Ouvrir la lettre"
-          aria-expanded="false"
-          aria-controls="ce-letter-message">
-
-    <span class="ce-envelope-back"></span>
-
-    <span class="ce-envelope-paper">
-      Pour vous ♡
-    </span>
-
-    <span class="ce-envelope-front"></span>
-
-    <span class="ce-envelope-flap"></span>
-
-    <span class="ce-envelope-seal">♡</span>
-
-  </button>
-
-  <div class="ce-letter-message"
-       id="ce-letter-message"
-       hidden>
-
-    <p>À vous qui êtes de passage,</p>
-
-    <p>
-
-      La prochaine fois que vous croiserez un animal
-      dans la rue, prenez quelques secondes pour le regarder.
-
-      Peut-être attend-il simplement un peu d'eau,
-      un repas ou un geste de douceur.
-
-    </p>
-
-    <p>
-
-      Nous ne pouvons pas changer le monde entier
-      en un seul jour.
-
-      Mais nous pouvons rendre une journée
-      un peu plus belle pour quelqu'un.
-
-    </p>
-
-    <p class="ce-letter-signature">
-
-      Avec tout mon cœur,<br>
-      Cœur Errant ♡
-
-    </p>
-
-  </div>
-
-</section>
-
-<!-- NOS ÉTOILES -->
-
-<section class="ce-stars" id="nos-etoiles">
-
-  <div class="ce-sky" aria-hidden="true"></div>
-
-  <div class="ce-stars-content ce-reveal">
-
-    <p class="ce-label">Pour ceux qui restent en nous</p>
-
-    <div class="ce-star-main" aria-hidden="true">✧</div>
-
-    <h2>
-
-      Certaines âmes
-      <em>ne nous quittent jamais.</em>
-
-    </h2>
-
-    <p>
-
-      Elles ont traversé mon chemin.
-      Aujourd'hui, elles continuent de briller autrement.
-
-    </p>
-
-    <a href="etoiles.html" class="ce-star-button">
-
-      Entrer dans leur ciel ✧
-
-    </a>
-
-  </div>
-
-</section>
-
-<!-- PROCHAINE DESTINATION -->
-
-<section class="ce-next ce-reveal">
-
-  <div class="ce-ticket">
-
-    <div class="ce-ticket-main">
-
-      <p class="ce-label">Le prochain chapitre</p>
-
-      <h2>
-
-        Quelque part,
-        <em>ailleurs.</em>
-
-      </h2>
-
-      <p>
-
-        Une nouvelle destination.
-        De nouvelles rencontres.
-        Une mission qui ne change pas.
-
-      </p>
-
-      <a href="voyages.html#prochain-voyage"
-         class="ce-text-link">
-
-        Découvrir le prochain voyage ↗
-
-      </a>
-
-    </div>
-
-    <div class="ce-ticket-side">
-
-      <span class="ce-ticket-plane">✈</span>
-
-      <span>DESTINATION</span>
-
-      <strong>Mystère</strong>
-
-      <span>Décembre 2026</span>
-
-      <div class="ce-barcode"></div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- CONCLUSION -->
-
-<section class="ce-ending ce-reveal">
-
-  <span class="ce-ending-heart">♡</span>
-
-  <h2>
-
-    Le monde change,
-    <em>un petit geste à la fois.</em>
-
-  </h2>
-
-  <p>
-
-    Merci d'avoir pris quelques instants
-    pour entrer dans mon univers.
-
-  </p>
-
-  <a href="soutenir.html" class="ce-button">
-
-    Écrivons la suite ensemble
-
-  </a>
-
-</section>
+    </section>
 
 </main>
 
-<!-- FOOTER -->
+<!-- =====================================
+     FOOTER COMMUN
+     ===================================== -->
 
-<footer>
+<footer class="ce-footer">
 
-  <div class="footer-logo">
-    <img src="logo.jpeg" alt="Cœur Errant">
-  </div>
+    <div class="ce-footer-decoration"
+         aria-hidden="true">
 
-  <div class="footer-divider"></div>
+        <span>♡</span>
+        <span>✧</span>
+        <span>♡</span>
+        <span>✦</span>
+        <span>♡</span>
 
-  <div class="footer-socials">
+    </div>
 
-    <a href="https://www.tiktok.com/@coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+    <div class="ce-footer-inner">
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/tiktok/white" alt="">
-      </div>
+        <div class="ce-footer-brand">
 
-      <span class="footer-social-name">TikTok</span>
+            <a href="index.html"
+               aria-label="Retour à l'accueil">
 
-    </a>
+                <img src="logo.jpeg"
+                     alt="Cœur Errant"
+                     loading="lazy">
 
-    <a href="https://www.instagram.com/coeur.errant/"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+            </a>
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/instagram/white" alt="">
-      </div>
+            <h2>Cœur Errant</h2>
 
-      <span class="footer-social-name">Instagram</span>
+            <p class="ce-footer-tagline">
 
-    </a>
+                Chaque animal a une histoire.
 
-    <a href="https://www.youtube.com/@CoeurErrant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+            </p>
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/youtube/white" alt="">
-      </div>
+            <p class="ce-footer-description">
 
-      <span class="footer-social-name">YouTube</span>
+                Parce que même les plus petites âmes
+                méritent une place dans ce monde.
 
-    </a>
+            </p>
 
-    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+        </div>
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/facebook/white" alt="">
-      </div>
+        <!-- RÉSEAUX SOCIAUX -->
 
-      <span class="footer-social-name">Facebook</span>
+        <div class="ce-footer-socials">
 
-    </a>
+            <a href="https://www.tiktok.com/@coeur_errant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="TikTok"
+               title="TikTok">
 
-    <a href="https://www.snapchat.com/add/coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+                <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+                     alt=""
+                     loading="lazy">
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/snapchat/white" alt="">
-      </div>
+            </a>
 
-      <span class="footer-social-name">Snapchat</span>
+            <a href="https://www.instagram.com/coeur.errant/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram"
+               title="Instagram">
 
-    </a>
+                <img src="https://cdn.simpleicons.org/instagram/A85E68"
+                     alt=""
+                     loading="lazy">
 
-    <a href="mailto:coeur.errant@outlook.be"
-       class="footer-social-link">
+            </a>
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/gmail/white" alt="">
-      </div>
+            <a href="https://www.youtube.com/@CoeurErrant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="YouTube"
+               title="YouTube">
 
-      <span class="footer-social-name">Contact</span>
+                <img src="https://cdn.simpleicons.org/youtube/A85E68"
+                     alt=""
+                     loading="lazy">
 
-    </a>
+            </a>
 
-  </div>
+            <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Facebook"
+               title="Facebook">
 
-  <div class="footer-divider"></div>
+                <img src="https://cdn.simpleicons.org/facebook/A85E68"
+                     alt=""
+                     loading="lazy">
 
-  <p class="footer-copy">
+            </a>
 
-    © <span id="annee"></span>
-    Cœur Errant — Chaque animal a une histoire.
+            <a href="https://www.snapchat.com/add/coeur_errant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Snapchat"
+               title="Snapchat">
 
-  </p>
+                <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+                     alt=""
+                     loading="lazy">
+
+            </a>
+
+            <a href="mailto:coeur.errant@outlook.be"
+               aria-label="Me contacter par e-mail"
+               title="Contact">
+
+                <svg viewBox="0 0 24 24"
+                     width="20"
+                     height="20"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.5"
+                     aria-hidden="true">
+
+                    <rect x="2"
+                          y="4"
+                          width="20"
+                          height="16"
+                          rx="2"/>
+
+                    <path d="M3 6L12 13L21 6"/>
+
+                </svg>
+
+            </a>
+
+        </div>
+
+        <!-- NAVIGATION DU FOOTER -->
+
+        <div class="ce-footer-navigation">
+
+            <div class="ce-footer-column">
+
+                <h3>Découvrir</h3>
+
+                <a href="index.html#histoire">
+
+                    Mon histoire
+
+                </a>
+
+                <a href="mission.html">
+
+                    La mission
+
+                </a>
+
+                <a href="voyages.html">
+
+                    Voyages
+
+                </a>
+
+                <a href="livres.html">
+
+                    Mes livres
+
+                </a>
+
+            </div>
+
+            <div class="ce-footer-column">
+
+                <h3>Notre univers</h3>
+
+                <a href="etoiles.html">
+
+                    Nos étoiles
+
+                </a>
+
+                <a href="passeport.html">
+
+                    Le Royaume
+
+                </a>
+
+                <a href="agir.html">
+
+                    Comment agir
+
+                </a>
+
+                <a href="soutenir.html">
+
+                    Soutenir
+
+                </a>
+
+            </div>
+
+            <div class="ce-footer-column">
+
+                <h3>Restons proches</h3>
+
+                <a href="mailto:coeur.errant@outlook.be">
+
+                    Me contacter
+
+                </a>
+
+                <a href="https://www.instagram.com/coeur.errant/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    Suivre l'aventure
+
+                </a>
+
+                <a href="index-nl.html"
+                   lang="nl"
+                   hreflang="nl">
+
+                    Nederlands
+
+                </a>
+
+                <a href="mentions-legales.html">
+
+                    Mentions légales et confidentialité
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="ce-footer-signature">
+
+            <span class="ce-footer-heart"
+                  aria-hidden="true">
+
+                ♡
+
+            </span>
+
+            <p>
+
+                Créé avec amour, pour ceux qui n'ont pas de voix.
+
+            </p>
+
+        </div>
+
+        <p class="ce-footer-copyright">
+
+            © <span id="annee">2026</span>
+            Cœur Errant — Tous droits réservés.
+
+        </p>
+
+    </div>
 
 </footer>
 
-<!-- BIBLIOTHÈQUE DE LA CARTE -->
+<!-- =====================================
+     BIBLIOTHÈQUE DE LA CARTE
+     ===================================== -->
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
 
-/* ANNÉE AUTOMATIQUE */
+(() => {
 
-document.getElementById('annee').textContent =
-  new Date().getFullYear();
+    "use strict";
 
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-/* MENU MOBILE */
+    /* =====================================
+       ANNÉE AUTOMATIQUE
+       ===================================== */
 
-const navLinks = document.getElementById('nav-links');
-const hamburger = document.getElementById('hamburger');
+    const year = document.getElementById("annee");
 
-function toggleMenu() {
+    if (year) {
 
-  const isOpen = navLinks.classList.toggle('open');
+        year.textContent = new Date().getFullYear();
 
-  hamburger.classList.toggle('open', isOpen);
-
-  hamburger.setAttribute('aria-expanded', String(isOpen));
-
-  hamburger.setAttribute(
-    'aria-label',
-    isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
-  );
-
-}
-
-function closeMenu() {
-
-  navLinks.classList.remove('open');
-  hamburger.classList.remove('open');
-
-  hamburger.setAttribute('aria-expanded', 'false');
-  hamburger.setAttribute('aria-label', 'Ouvrir le menu');
-
-}
-
-document.addEventListener('keydown', event => {
-
-  if (event.key === 'Escape') {
-    closeMenu();
-  }
-
-});
-
-
-/* APPARITION AU DÉFILEMENT */
-
-if ('IntersectionObserver' in window &&
-    !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-
-  document.body.classList.add('ce-animations');
-
-  const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-      if (entry.isIntersecting) {
-
-        entry.target.classList.add('ce-visible');
-
-        observer.unobserve(entry.target);
-
-      }
-
-    });
-
-  }, {
-    threshold: 0.12
-  });
-
-  document.querySelectorAll('.ce-reveal').forEach(element => {
-
-    observer.observe(element);
-
-  });
-
-}
-
-
-/* ENVELOPPE INTERACTIVE */
-
-const envelope = document.getElementById('ce-envelope');
-const letter = document.getElementById('ce-letter-message');
-
-envelope.addEventListener('click', () => {
-
-  const isOpen = envelope.classList.toggle('ce-envelope-open');
-
-  envelope.setAttribute('aria-expanded', String(isOpen));
-
-  envelope.setAttribute(
-    'aria-label',
-    isOpen ? 'Fermer la lettre' : 'Ouvrir la lettre'
-  );
-
-  letter.hidden = !isOpen;
-
-});
-
-
-/* CIEL ÉTOILÉ */
-
-const sky = document.querySelector('.ce-sky');
-
-for (let i = 0; i < 55; i++) {
-
-  const star = document.createElement('span');
-
-  star.className = 'ce-small-star';
-
-  star.style.left = Math.random() * 100 + '%';
-
-  star.style.top = Math.random() * 100 + '%';
-
-  star.style.animationDelay = Math.random() * 5 + 's';
-
-  star.style.animationDuration = 2 + Math.random() * 4 + 's';
-
-  const size = 1 + Math.random() * 3;
-
-  star.style.width = size + 'px';
-
-  star.style.height = size + 'px';
-
-  sky.appendChild(star);
-
-}
-
-
-/* DESTINATIONS */
-
-const destinations = [
-
-  {
-    name: 'Corse, France',
-    date: 'Avril 2023',
-    lat: 42.15,
-    lng: 9.10,
-    link: 'voyages.html#annee-2023'
-  },
-
-  {
-    name: 'Tanger, Maroc',
-    date: 'Juin 2024 et septembre 2025',
-    lat: 35.7595,
-    lng: -5.8340,
-    link: 'voyages.html#annee-2024'
-  },
-
-  {
-    name: 'Sciacca, Sicile',
-    date: 'Août 2024',
-    lat: 37.507,
-    lng: 13.083,
-    link: 'voyages.html#annee-2024'
-  },
-
-  {
-    name: 'Palerme, Sicile',
-    date: 'Août 2024',
-    lat: 38.1157,
-    lng: 13.3615,
-    link: 'voyages.html#annee-2024'
-  },
-
-  {
-    name: 'Agrigente, Sicile',
-    date: 'Août 2024',
-    lat: 37.3111,
-    lng: 13.5765,
-    link: 'voyages.html#annee-2024'
-  },
-
-  {
-    name: 'Casteltermini, Sicile',
-    date: 'Août 2024',
-    lat: 37.539,
-    lng: 13.646,
-    link: 'voyages.html#annee-2024'
-  },
-
-  {
-    name: 'Varsovie, Pologne',
-    date: 'Janvier 2025',
-    lat: 52.2297,
-    lng: 21.0122,
-    link: 'voyages.html#annee-2025'
-  },
-
-  {
-    name: 'Chefchaouen, Maroc',
-    date: 'Septembre 2025',
-    lat: 35.1714,
-    lng: -5.2697,
-    link: 'voyages.html#annee-2025'
-  },
-
-  {
-    name: 'Akchour, Maroc',
-    date: 'Septembre 2025',
-    lat: 35.237,
-    lng: -5.176,
-    link: 'voyages.html#annee-2025'
-  },
-
-  {
-    name: 'Istanbul, Turquie',
-    date: 'Novembre 2025',
-    lat: 41.0082,
-    lng: 28.9784,
-    link: 'voyages.html#annee-2025'
-  },
-
-  {
-    name: 'Skopje, Macédoine du Nord',
-    date: 'Janvier 2026',
-    lat: 41.9981,
-    lng: 21.4254,
-    link: 'voyages.html#annee-2026'
-  },
-
-  {
-    name: 'Pristina, Kosovo',
-    date: 'Janvier 2026',
-    lat: 42.6629,
-    lng: 21.1655,
-    link: 'voyages.html#annee-2026'
-  },
-
-  {
-    name: 'Tirana, Albanie',
-    date: 'Janvier 2026',
-    lat: 41.3275,
-    lng: 19.8187,
-    link: 'voyages.html#annee-2026'
-  },
-
-  {
-    name: 'Marrakech, Maroc',
-    date: 'Juin 2026',
-    lat: 31.6295,
-    lng: -7.9811,
-    link: 'voyages.html#djibou'
-  },
-
-  {
-    name: 'Agadir, Maroc',
-    date: 'Juin 2026',
-    lat: 30.4278,
-    lng: -9.5981,
-    link: 'voyages.html#annee-2026'
-  },
-
-  {
-    name: 'Djerba, Tunisie',
-    date: 'Août 2026',
-    lat: 33.8076,
-    lng: 10.8451,
-    link: 'voyages.html#annee-2026'
-  }
-
-];
-
-
-/* CARTE INTERACTIVE */
-
-if (typeof L !== 'undefined') {
-
-  document.getElementById('ce-map').innerHTML = '';
-
-  const map = L.map('ce-map', {
-
-    scrollWheelZoom: false,
-    minZoom: 2,
-    maxZoom: 16
-
-  });
-
-  L.tileLayer(
-
-    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-
-    {
-      maxZoom: 19,
-
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }
 
-  ).addTo(map);
+    /* =====================================
+       MENU MOBILE
+       ===================================== */
 
-  const heartIcon = L.divIcon({
+    const navLinks = document.getElementById("nav-links");
 
-    className: 'ce-map-icon',
+    const hamburger = document.getElementById("hamburger");
 
-    html: '<span>♡</span>',
+    function setMenu(open) {
 
-    iconSize: [30, 30],
+        navLinks.classList.toggle("open", open);
 
-    iconAnchor: [15, 15],
+        hamburger.classList.toggle("open", open);
 
-    popupAnchor: [0, -18]
+        hamburger.setAttribute(
+            "aria-expanded",
+            String(open)
+        );
 
-  });
+        hamburger.setAttribute(
+            "aria-label",
+            open ? "Fermer le menu" : "Ouvrir le menu"
+        );
 
-  const bounds = [];
+    }
 
-  destinations.forEach(destination => {
+    function closeMenu() {
 
-    const position = [
-      destination.lat,
-      destination.lng
-    ];
+        setMenu(false);
 
-    bounds.push(position);
+    }
 
-    L.marker(position, {
+    hamburger.addEventListener("click", () => {
 
-      icon: heartIcon,
+        const isOpen = navLinks.classList.contains("open");
 
-      title: destination.name,
+        setMenu(!isOpen);
 
-      alt: destination.name
-
-    })
-
-    .addTo(map)
-
-    .bindPopup(`
-
-      <div class="ce-map-popup">
-
-        <h3>${destination.name}</h3>
-
-        <p>${destination.date}</p>
-
-        <a href="${destination.link}">
-          Découvrir ce voyage ↗
-        </a>
-
-      </div>
-
-    `);
-
-  });
-
-  function resetMap() {
-
-    map.fitBounds(bounds, {
-      padding: [35, 35]
     });
 
-  }
+    navLinks.querySelectorAll("a").forEach(link => {
 
-  resetMap();
+        link.addEventListener("click", closeMenu);
 
-  document.getElementById('ce-map-reset')
-    .addEventListener('click', resetMap);
+    });
 
-} else {
+    document.addEventListener("keydown", event => {
 
-  document.getElementById('ce-map').innerHTML =
+        if (
+            event.key === "Escape" &&
+            navLinks.classList.contains("open")
+        ) {
 
-    '<p class="ce-map-loading">La carte est momentanément indisponible. Retrouvez mes destinations dans le carnet de voyage.</p>';
+            closeMenu();
 
-  document.getElementById('ce-map-reset').hidden = true;
+            hamburger.focus();
 
-}
+        }
+
+    });
+
+    document.addEventListener("click", event => {
+
+        if (
+            navLinks.classList.contains("open") &&
+            !navLinks.contains(event.target) &&
+            !hamburger.contains(event.target)
+        ) {
+
+            closeMenu();
+
+        }
+
+    });
+
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 1100) {
+
+            closeMenu();
+
+        }
+
+    });
+
+    /* =====================================
+       APPARITION AU DÉFILEMENT
+       ===================================== */
+
+    if (
+        "IntersectionObserver" in window &&
+        !reducedMotion
+    ) {
+
+        document.body.classList.add("ce-animations");
+
+        const observer = new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "ce-visible"
+                        );
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+        document.querySelectorAll(".ce-reveal")
+            .forEach(element => {
+
+                observer.observe(element);
+
+            });
+
+    }
+
+    /* =====================================
+       ENVELOPPE INTERACTIVE
+       ===================================== */
+
+    const envelope = document.getElementById(
+        "ce-envelope"
+    );
+
+    const letter = document.getElementById(
+        "ce-letter-message"
+    );
+
+    if (envelope && letter) {
+
+        envelope.addEventListener("click", () => {
+
+            const isOpen = envelope.classList.toggle(
+                "ce-envelope-open"
+            );
+
+            envelope.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            envelope.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Fermer la lettre"
+                    : "Ouvrir la lettre"
+            );
+
+            letter.hidden = !isOpen;
+
+        });
+
+    }
+
+    /* =====================================
+       CIEL ÉTOILÉ
+       ===================================== */
+
+    const sky = document.querySelector(".ce-sky");
+
+    if (sky) {
+
+        const numberOfStars = reducedMotion ? 30 : 55;
+
+        for (let i = 0; i < numberOfStars; i++) {
+
+            const star = document.createElement("span");
+
+            star.className = "ce-small-star";
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+            star.style.animationDelay =
+                Math.random() * 5 + "s";
+
+            star.style.animationDuration =
+                2 + Math.random() * 4 + "s";
+
+            if (reducedMotion) {
+
+                star.style.animation = "none";
+
+            }
+
+            const size = 1 + Math.random() * 3;
+
+            star.style.width = size + "px";
+
+            star.style.height = size + "px";
+
+            sky.appendChild(star);
+
+        }
+
+    }
+
+    /* =====================================
+       DESTINATIONS
+       ===================================== */
+
+    const destinations = [
+
+        {
+            name: "Corse, France",
+            date: "Avril 2023",
+            lat: 42.15,
+            lng: 9.10,
+            link: "voyages.html#annee-2023"
+        },
+
+        {
+            name: "Tanger, Maroc",
+            date: "Juin 2024 et septembre 2025",
+            lat: 35.7595,
+            lng: -5.8340,
+            link: "voyages.html#annee-2024",
+            secondLink: "voyages.html#annee-2025"
+        },
+
+        {
+            name: "Sciacca, Sicile",
+            date: "Août 2024",
+            lat: 37.507,
+            lng: 13.083,
+            link: "voyages.html#annee-2024"
+        },
+
+        {
+            name: "Palerme, Sicile",
+            date: "Août 2024",
+            lat: 38.1157,
+            lng: 13.3615,
+            link: "voyages.html#annee-2024"
+        },
+
+        {
+            name: "Agrigente, Sicile",
+            date: "Août 2024",
+            lat: 37.3111,
+            lng: 13.5765,
+            link: "voyages.html#annee-2024"
+        },
+
+        {
+            name: "Casteltermini, Sicile",
+            date: "Août 2024",
+            lat: 37.539,
+            lng: 13.646,
+            link: "voyages.html#annee-2024"
+        },
+
+        {
+            name: "Varsovie, Pologne",
+            date: "Janvier 2025",
+            lat: 52.2297,
+            lng: 21.0122,
+            link: "voyages.html#annee-2025"
+        },
+
+        {
+            name: "Chefchaouen, Maroc",
+            date: "Septembre 2025",
+            lat: 35.1714,
+            lng: -5.2697,
+            link: "voyages.html#annee-2025"
+        },
+
+        {
+            name: "Akchour, Maroc",
+            date: "Septembre 2025",
+            lat: 35.237,
+            lng: -5.176,
+            link: "voyages.html#annee-2025"
+        },
+
+        {
+            name: "Istanbul, Turquie",
+            date: "Novembre 2025",
+            lat: 41.0082,
+            lng: 28.9784,
+            link: "voyages.html#annee-2025"
+        },
+
+        {
+            name: "Skopje, Macédoine du Nord",
+            date: "Janvier 2026",
+            lat: 41.9981,
+            lng: 21.4254,
+            link: "voyages.html#annee-2026"
+        },
+
+        {
+            name: "Pristina, Kosovo",
+            date: "Janvier 2026",
+            lat: 42.6629,
+            lng: 21.1655,
+            link: "voyages.html#annee-2026"
+        },
+
+        {
+            name: "Tirana, Albanie",
+            date: "Janvier 2026",
+            lat: 41.3275,
+            lng: 19.8187,
+            link: "voyages.html#annee-2026"
+        },
+
+        {
+            name: "Marrakech, Maroc",
+            date: "Juin 2026",
+            lat: 31.6295,
+            lng: -7.9811,
+            link: "voyages.html#djibou"
+        },
+
+        {
+            name: "Agadir, Maroc",
+            date: "Juin 2026",
+            lat: 30.4278,
+            lng: -9.5981,
+            link: "voyages.html#annee-2026"
+        },
+
+        {
+            name: "Djerba, Tunisie",
+            date: "Août 2026",
+            lat: 33.8076,
+            lng: 10.8451,
+            link: "voyages.html#annee-2026"
+        }
+
+    ];
+
+    /* =====================================
+       CARTE INTERACTIVE
+       ===================================== */
+
+    const mapContainer = document.getElementById(
+        "ce-map"
+    );
+
+    const mapReset = document.getElementById(
+        "ce-map-reset"
+    );
+
+    function showMapFallback() {
+
+        mapContainer.innerHTML = `
+
+            <div class="ce-map-fallback">
+
+                <p>
+
+                    La carte est momentanément indisponible.
+
+                </p>
+
+                <a href="voyages.html">
+
+                    Retrouvez mes destinations
+                    dans le carnet de voyage ↗
+
+                </a>
+
+            </div>
+
+        `;
+
+        mapReset.hidden = true;
+
+    }
+
+    function initializeMap() {
+
+        if (typeof L === "undefined") {
+
+            showMapFallback();
+
+            return;
+
+        }
+
+        mapContainer.innerHTML = "";
+
+        const map = L.map("ce-map", {
+
+            scrollWheelZoom: false,
+
+            minZoom: 2,
+
+            maxZoom: 16,
+
+            zoomAnimation: !reducedMotion,
+
+            fadeAnimation: !reducedMotion,
+
+            markerZoomAnimation: !reducedMotion
+
+        });
+
+        L.tileLayer(
+
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+
+            {
+
+                maxZoom: 19,
+
+                attribution:
+
+                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+
+            }
+
+        ).addTo(map);
+
+        const heartIcon = L.divIcon({
+
+            className: "ce-map-icon",
+
+            html: "<span>♡</span>",
+
+            iconSize: [30, 30],
+
+            iconAnchor: [15, 15],
+
+            popupAnchor: [0, -18]
+
+        });
+
+        const bounds = [];
+
+        destinations.forEach(destination => {
+
+            const position = [
+
+                destination.lat,
+
+                destination.lng
+
+            ];
+
+            bounds.push(position);
+
+            const popup = document.createElement("div");
+
+            popup.className = "ce-map-popup";
+
+            const heading = document.createElement("h3");
+
+            heading.textContent = destination.name;
+
+            popup.appendChild(heading);
+
+            const date = document.createElement("p");
+
+            date.textContent = destination.date;
+
+            popup.appendChild(date);
+
+            const link = document.createElement("a");
+
+            link.href = destination.link;
+
+            link.textContent = destination.secondLink
+
+                ? "Le voyage de juin 2024 ↗"
+
+                : "Découvrir ce voyage ↗";
+
+            popup.appendChild(link);
+
+            if (destination.secondLink) {
+
+                popup.appendChild(
+                    document.createElement("br")
+                );
+
+                const secondLink = document.createElement("a");
+
+                secondLink.href = destination.secondLink;
+
+                secondLink.textContent =
+                    "Le voyage de septembre 2025 ↗";
+
+                popup.appendChild(secondLink);
+
+            }
+
+            L.marker(position, {
+
+                icon: heartIcon,
+
+                title: destination.name,
+
+                alt: destination.name
+
+            })
+
+            .addTo(map)
+
+            .bindPopup(popup);
+
+        });
+
+        function resetMap() {
+
+            map.fitBounds(bounds, {
+
+                padding: [35, 35],
+
+                animate: !reducedMotion
+
+            });
+
+        }
+
+        resetMap();
+
+        mapReset.addEventListener("click", resetMap);
+
+        if ("ResizeObserver" in window) {
+
+            const mapObserver = new ResizeObserver(() => {
+
+                map.invalidateSize({
+
+                    pan: false
+
+                });
+
+            });
+
+            mapObserver.observe(mapContainer);
+
+        }
+
+    }
+
+    /*
+     * La carte est initialisée lorsque le visiteur
+     * s'approche de cette section.
+     */
+
+    if (mapContainer && mapReset) {
+
+        if ("IntersectionObserver" in window) {
+
+            const mapObserver = new IntersectionObserver(
+
+                entries => {
+
+                    if (entries.some(entry => entry.isIntersecting)) {
+
+                        mapObserver.disconnect();
+
+                        initializeMap();
+
+                    }
+
+                },
+
+                {
+
+                    rootMargin: "200px"
+
+                }
+
+            );
+
+            mapObserver.observe(mapContainer);
+
+        } else {
+
+            initializeMap();
+
+        }
+
+    }
+
+})();
 
 </script>
 
 </body>
+
 </html>

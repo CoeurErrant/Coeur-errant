@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,11 +15,44 @@
 
   <meta name="theme-color" content="#faf8f5">
 
+  <link rel="canonical"
+        href="https://coeurerrant.github.io/Coeur-errant/mentions-legales.html">
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:title"
+        content="Mentions légales et confidentialité — Cœur Errant">
+
+  <meta property="og:description"
+        content="Les engagements de transparence et de confidentialité de Cœur Errant.">
+
+  <meta property="og:url"
+        content="https://coeurerrant.github.io/Coeur-errant/mentions-legales.html">
+
+  <meta property="og:image"
+        content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+  <meta property="og:locale" content="fr_BE">
+
   <link rel="icon" type="image/jpeg" href="logo.jpeg">
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 
   <link rel="stylesheet" href="mentions-legales.css">
+
+  <link rel="stylesheet" href="global.css">
+
+  <script src="global.js" defer></script>
 
 </head>
 
@@ -28,20 +60,18 @@
 
   <!-- NAVIGATION -->
 
-  <nav>
+  <nav aria-label="Navigation principale">
 
     <a class="nav-logo" href="index.html">
+
       <img src="logo.jpeg" alt="Cœur Errant">
+
     </a>
 
     <ul class="nav-links" id="nav-links">
 
       <li>
         <a href="index.html">Accueil</a>
-      </li>
-
-      <li>
-        <a href="index.html#histoire">Mon histoire</a>
       </li>
 
       <li>
@@ -61,10 +91,51 @@
       </li>
 
       <li>
-        <a href="soutenir.html">Soutenir</a>
+        <a href="agir.html">Comment agir</a>
+      </li>
+
+      <li>
+        <a href="passeport.html">Le Royaume</a>
+      </li>
+
+      <li>
+        <a href="soutenir.html"
+           class="nav-support">
+          Soutenir
+        </a>
+      </li>
+
+      <li class="lang-mobile">
+
+        <a href="index-nl.html"
+           lang="nl"
+           hreflang="nl">
+          Nederlands
+        </a>
+
       </li>
 
     </ul>
+
+    <div class="lang-switcher"
+         aria-label="Choix de la langue">
+
+      <a href="mentions-legales.html"
+         class="active"
+         lang="fr"
+         aria-current="page">
+        FR
+      </a>
+
+      <span aria-hidden="true">|</span>
+
+      <a href="index-nl.html"
+         lang="nl"
+         hreflang="nl">
+        NL
+      </a>
+
+    </div>
 
     <button class="hamburger"
             id="hamburger"
@@ -109,7 +180,8 @@
 
           <svg viewBox="0 0 100 100"
                fill="none"
-               xmlns="http://www.w3.org/2000/svg">
+               xmlns="http://www.w3.org/2000/svg"
+               focusable="false">
 
             <circle cx="50" cy="50" r="46"
                     stroke="#d9b4ba"/>
@@ -158,7 +230,10 @@
 
         <div class="legal-date">
 
-          Version 1.0 — 25 novembre 2026
+          Version 1.1 —
+          <time datetime="2026-11-26">
+            26 novembre 2026
+          </time>
 
         </div>
 
@@ -171,72 +246,75 @@
 
     <section class="legal-layout">
 
-      <aside class="legal-sidebar">
+      <aside class="legal-sidebar"
+             aria-labelledby="legal-summary-title">
 
         <div class="legal-summary">
 
           <span class="legal-summary-heart"
                 aria-hidden="true">♡</span>
 
-          <h2>Sur cette page</h2>
+          <h2 id="legal-summary-title">
+            Sur cette page
+          </h2>
 
           <a href="#identite">
-            <span>01</span>
+            <span aria-hidden="true">01</span>
             Identité du projet
           </a>
 
           <a href="#hebergement">
-            <span>02</span>
+            <span aria-hidden="true">02</span>
             Hébergement
           </a>
 
           <a href="#propriete">
-            <span>03</span>
+            <span aria-hidden="true">03</span>
             Propriété intellectuelle
           </a>
 
           <a href="#confidentialite">
-            <span>04</span>
+            <span aria-hidden="true">04</span>
             Données personnelles
           </a>
 
           <a href="#stockage">
-            <span>05</span>
+            <span aria-hidden="true">05</span>
             Stockage local
           </a>
 
           <a href="#services">
-            <span>06</span>
+            <span aria-hidden="true">06</span>
             Services externes
           </a>
 
           <a href="#dons">
-            <span>07</span>
+            <span aria-hidden="true">07</span>
             Contributions solidaires
           </a>
 
           <a href="#livres">
-            <span>08</span>
+            <span aria-hidden="true">08</span>
             Livres et publications
           </a>
 
           <a href="#responsabilite">
-            <span>09</span>
+            <span aria-hidden="true">09</span>
             Responsabilité
           </a>
 
           <a href="#droits">
-            <span>10</span>
+            <span aria-hidden="true">10</span>
             Vos droits
           </a>
 
           <a href="#modifications">
-            <span>11</span>
+            <span aria-hidden="true">11</span>
             Modifications
           </a>
 
           <a href="#contact">
-            <span>12</span>
+            <span aria-hidden="true">12</span>
             Contact
           </a>
 
@@ -270,7 +348,8 @@
 
           <div class="legal-card-heading">
 
-            <span class="legal-number">01</span>
+            <span class="legal-number"
+                  aria-hidden="true">01</span>
 
             <h2>Identité du projet</h2>
 
@@ -345,11 +424,17 @@
 
           <!--
             AVANT PUBLICATION :
+
             Vérifier les obligations relatives
             à l'identification de l'éditeur et
             du responsable du traitement.
+
             Compléter l'identité civile et les
             coordonnées obligatoires si requises.
+
+            Vérifier également les obligations
+            liées au statut de l'activité,
+            aux publications et aux contributions.
           -->
 
         </article>
@@ -361,7 +446,8 @@
 
           <div class="legal-card-heading">
 
-            <span class="legal-number">02</span>
+            <span class="legal-number"
+                  aria-hidden="true">02</span>
 
             <h2>Hébergement du site</h2>
 
@@ -445,7 +531,8 @@
 
           <div class="legal-card-heading">
 
-            <span class="legal-number">03</span>
+            <span class="legal-number"
+                  aria-hidden="true">03</span>
 
             <h2>Propriété intellectuelle</h2>
 
@@ -505,17 +592,15 @@
 
           </p>
 
-        </article>
-
-
-        <!-- DONNÉES PERSONNELLES -->
+        </article>        <!-- DONNÉES PERSONNELLES -->
 
         <article class="legal-card"
                  id="confidentialite">
 
           <div class="legal-card-heading">
 
-            <span class="legal-number">04</span>
+            <span class="legal-number"
+                  aria-hidden="true">04</span>
 
             <h2>Vos données personnelles</h2>
 
@@ -574,6 +659,17 @@
 
           </p>
 
+          <p>
+
+            Les fonctionnalités de sauvegarde
+            facultative dans votre navigateur
+            reposent sur votre consentement.
+
+            Vous pouvez choisir de les activer
+            ou de les désactiver à tout moment.
+
+          </p>
+
           <h3>Conservation</h3>
 
           <p>
@@ -623,7 +719,8 @@
 
           <div class="legal-card-heading">
 
-            <span class="legal-number">05</span>
+            <span class="legal-number"
+                  aria-hidden="true">05</span>
 
             <h2>Vos petites empreintes numériques</h2>
 
@@ -648,6 +745,18 @@
 
           </p>
 
+          <p>
+
+            La sauvegarde facultative est
+            prévue pour être désactivée par défaut.
+
+            Vous pouvez consulter le site
+            et découvrir ses activités sans
+            accepter la conservation de votre
+            progression entre plusieurs visites.
+
+          </p>
+
           <div class="legal-storage-grid">
 
             <div class="legal-storage-item">
@@ -659,8 +768,20 @@
               <p>
 
                 Votre prénom ou pseudonyme,
-                vos tampons et la progression
-                de votre passeport.
+                vos fragments de lumière,
+                votre emblème, votre compagnon,
+                son prénom, vos préférences
+                d'ambiance et la progression
+                de votre aventure.
+
+              </p>
+
+              <p>
+
+                La sauvegarde peut également
+                conserver vos récompenses,
+                vos découvertes et la date
+                d'achèvement de votre passeport.
 
               </p>
 
@@ -678,6 +799,10 @@
                 et votre progression dans
                 les activités proposées.
 
+                Le jardin solidaire utilise
+                une progression temporaire,
+                sans sauvegarde permanente prévue.
+
               </p>
 
             </div>
@@ -691,7 +816,10 @@
               <p>
 
                 Les étapes que vous avez
-                indiquées comme réalisées.
+                indiquées comme réalisées
+                dans le défi de sept jours,
+                lorsque vous activez
+                sa sauvegarde locale.
 
               </p>
 
@@ -707,7 +835,9 @@
 
                 Les éléments cochés
                 dans votre checklist
-                de préparation.
+                de préparation, lorsque
+                vous choisissez de conserver
+                votre progression.
 
               </p>
 
@@ -724,6 +854,10 @@
                 L'indication de lecture
                 de votre pensée quotidienne.
 
+                Sa conservation locale est
+                associée à l'autorisation
+                de sauvegarde du Royaume.
+
               </p>
 
             </div>
@@ -739,6 +873,10 @@
                 Une information de session
                 permettant d'éviter de répéter
                 l'animation d'accueil.
+
+                Cette information peut être
+                conservée lorsque la sauvegarde
+                du Royaume est autorisée.
 
               </p>
 
@@ -758,6 +896,84 @@
 
           </p>
 
+          <p>
+
+            Les souhaits personnels écrits
+            dans le lac des souhaits du Royaume
+            ne sont pas destinés à être sauvegardés
+            ni transmis à Cœur Errant.
+
+          </p>
+
+          <p>
+
+            Les certificats, cartes de récompense
+            et autres créations téléchargeables
+            générés par les activités interactives
+            sont créés directement dans
+            votre navigateur.
+
+          </p>
+
+          <h3>Votre consentement</h3>
+
+          <p>
+
+            Vous disposez de commandes distinctes
+            permettant de choisir les fonctionnalités
+            dont vous souhaitez conserver
+            la progression.
+
+          </p>
+
+          <ul class="legal-list">
+
+            <li>
+
+              <a href="passeport.html#kingdom-settings">
+                Le Royaume de Cœur Errant
+              </a>
+
+              — gestion de la sauvegarde
+              de votre aventure et de ses
+              fonctionnalités associées.
+
+            </li>
+
+            <li>
+
+              <a href="soutenir.html#challenge-consent-button">
+                Le défi solidaire de sept jours
+              </a>
+
+              — gestion de la sauvegarde
+              des missions réalisées.
+
+            </li>
+
+            <li>
+
+              <a href="agir.html#packing-consent-button">
+                La valise solidaire
+              </a>
+
+              — gestion de la sauvegarde
+              des éléments de votre checklist.
+
+            </li>
+
+          </ul>
+
+          <p>
+
+            Votre choix de consentement peut
+            lui-même être conservé dans votre
+            navigateur afin de respecter
+            votre décision lors de vos
+            prochaines visites.
+
+          </p>
+
           <h3>Combien de temps ?</h3>
 
           <p>
@@ -767,9 +983,46 @@
             session de navigation concernée
             se termine.
 
+          </p>
+
+          <p>
+
             Le stockage local peut persister
             entre plusieurs visites jusqu'à
             sa suppression ou sa réinitialisation.
+
+            Il ne dispose pas actuellement
+            d'une durée d'expiration automatique.
+
+          </p>
+
+          <h3>Comment retirer votre consentement ?</h3>
+
+          <p>
+
+            Vous pouvez revenir dans les
+            fonctionnalités concernées et
+            utiliser leurs commandes de
+            désactivation de la sauvegarde locale.
+
+          </p>
+
+          <p>
+
+            Le retrait du consentement vise
+            à interrompre la sauvegarde
+            facultative concernée et à effacer
+            les données de progression
+            qui lui sont associées.
+
+          </p>
+
+          <p>
+
+            Le retrait du consentement
+            n'affecte pas la licéité des
+            traitements effectués avant
+            ce retrait.
 
           </p>
 
@@ -786,30 +1039,46 @@
 
           </p>
 
+          <p>
+
+            La suppression des données du site
+            depuis les paramètres de votre
+            navigateur permet également
+            d'effacer les préférences et
+            informations de session encore
+            présentes sur celui-ci.
+
+          </p>
+
           <div class="legal-note">
 
             La suppression des données locales
             peut effacer votre progression,
-            vos tampons et vos préférences.
+            vos fragments et vos préférences.
 
-            Lorsque votre consentement est
-            requis pour un stockage facultatif,
-            celui-ci doit être obtenu avant
-            son utilisation et pouvoir
-            être retiré.
+            Vous restez libre de découvrir
+            Cœur Errant sans activer les
+            sauvegardes facultatives.
 
           </div>
 
           <!--
             AVANT PUBLICATION :
-            Mettre en place la gestion
-            du consentement dans global.js.
 
-            Bloquer les stockages facultatifs
-            avant acceptation.
+            Vérifier dans le navigateur que
+            chaque stockage facultatif est
+            effectivement bloqué avant consentement.
 
-            Prévoir leur durée de conservation
-            et une option de retrait.
+            Vérifier que le retrait du consentement
+            supprime toutes les données associées,
+            y compris les mots du cœur et
+            l'information de session de l'accueil.
+
+            Vérifier la synchronisation entre
+            les pages et les différents onglets.
+
+            Vérifier la durée de conservation
+            et les obligations applicables.
           -->
 
         </article>
@@ -821,7 +1090,8 @@
 
           <div class="legal-card-heading">
 
-            <span class="legal-number">06</span>
+            <span class="legal-number"
+                  aria-hidden="true">06</span>
 
             <h2>Services et liens externes</h2>
 
@@ -863,6 +1133,10 @@
 
             <span>Simple Icons</span>
 
+            <span>Leaflet</span>
+
+            <span>OpenStreetMap</span>
+
           </div>
 
           <p>
@@ -888,14 +1162,81 @@
 
           <p>
 
+            Ces informations peuvent notamment
+            comprendre votre adresse IP,
+            des informations relatives à
+            votre navigateur et les données
+            techniques nécessaires au
+            chargement des ressources.
+
+          </p>
+
+          <h3>La carte interactive</h3>
+
+          <p>
+
+            La carte des voyages utilise
+            la bibliothèque Leaflet et des
+            ressources cartographiques externes
+            associées à OpenStreetMap.
+
+            Le chargement de cette carte
+            peut entraîner des échanges
+            d'informations techniques avec
+            les serveurs qui fournissent
+            ces ressources.
+
+          </p>
+
+          <a class="legal-external-link"
+             href="https://www.openstreetmap.org/copyright"
+             target="_blank"
+             rel="noopener noreferrer">
+
+            Informations et attribution OpenStreetMap ↗
+
+          </a>
+
+          <h3>Les ressources graphiques</h3>
+
+          <p>
+
+            Les polices de caractères peuvent
+            être fournies par Google Fonts.
+
+            Certaines icônes peuvent être
+            chargées depuis le service
+            Simple Icons.
+
+          </p>
+
+          <a class="legal-external-link"
+             href="https://policies.google.com/privacy?hl=fr"
+             target="_blank"
+             rel="noopener noreferrer">
+
+            Politique de confidentialité de Google ↗
+
+          </a>
+
+          <h3>Les transferts internationaux</h3>
+
+          <p>
+
             Certains prestataires peuvent
             traiter des informations en
             dehors de l'Espace économique
-            européen. Les garanties applicables
-            à ces traitements sont décrites
-            dans leurs politiques respectives.
+            européen.
+
+            Les informations relatives à
+            ces traitements et aux garanties
+            éventuellement mises en place
+            sont disponibles dans leurs
+            politiques respectives.
 
           </p>
+
+          <h3>Les plateformes de paiement</h3>
 
           <p>
 
@@ -906,10 +1247,36 @@
 
           </p>
 
-        </article>
+          <p>
 
+            Les plateformes de contribution
+            peuvent toutefois communiquer
+            certaines informations relatives
+            aux transactions, selon leurs
+            conditions et les paramètres
+            applicables.
 
-        <!-- CONTRIBUTIONS -->
+          </p>
+
+          <a class="legal-external-link"
+             href="https://www.paypal.com/be/legalhub/privacy-full"
+             target="_blank"
+             rel="noopener noreferrer">
+
+            Politique de confidentialité de PayPal ↗
+
+          </a>
+
+          <a class="legal-external-link"
+             href="https://www.leetchi.com/"
+             target="_blank"
+             rel="noopener noreferrer">
+
+            Site officiel de Leetchi ↗
+
+          </a>
+
+        </article>        <!-- CONTRIBUTIONS -->
 
         <article class="legal-card" id="dons">
 
@@ -1341,7 +1708,8 @@
         <a href="index.html">
 
           <img src="logo.jpeg"
-               alt="Cœur Errant">
+               alt="Cœur Errant"
+               loading="lazy">
 
         </a>
 
@@ -1360,7 +1728,97 @@
 
         </p>
 
+        <!-- RÉSEAUX SOCIAUX -->
+
+        <div class="ce-footer-socials"
+             role="group"
+             aria-label="Réseaux sociaux de Cœur Errant">
+
+          <a href="https://www.tiktok.com/@coeur_errant"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Cœur Errant sur TikTok">
+
+            <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+                 alt=""
+                 loading="lazy">
+
+          </a>
+
+          <a href="https://www.instagram.com/coeur.errant/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Cœur Errant sur Instagram">
+
+            <img src="https://cdn.simpleicons.org/instagram/A85E68"
+                 alt=""
+                 loading="lazy">
+
+          </a>
+
+          <a href="https://www.youtube.com/@CoeurErrant"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Cœur Errant sur YouTube">
+
+            <img src="https://cdn.simpleicons.org/youtube/A85E68"
+                 alt=""
+                 loading="lazy">
+
+          </a>
+
+          <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Cœur Errant sur Facebook">
+
+            <img src="https://cdn.simpleicons.org/facebook/A85E68"
+                 alt=""
+                 loading="lazy">
+
+          </a>
+
+          <a href="https://www.snapchat.com/add/coeur_errant"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Cœur Errant sur Snapchat">
+
+            <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+                 alt=""
+                 loading="lazy">
+
+          </a>
+
+          <a href="mailto:coeur.errant@outlook.be"
+             aria-label="Contacter Cœur Errant par e-mail">
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.5"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true"
+                 focusable="false">
+
+              <rect x="3"
+                    y="5"
+                    width="18"
+                    height="14"
+                    rx="2"/>
+
+              <path d="M3 7L12 13L21 7"/>
+
+            </svg>
+
+          </a>
+
+        </div>
+
       </div>
+
+
+      <!-- LIENS DU FOOTER -->
 
       <div class="ce-footer-navigation">
 
@@ -1368,11 +1826,21 @@
 
           <h3>Découvrir</h3>
 
-          <a href="index.html">Accueil</a>
+          <a href="index.html#histoire">
+            Mon histoire
+          </a>
 
-          <a href="mission.html">La mission</a>
+          <a href="mission.html">
+            La mission
+          </a>
 
-          <a href="voyages.html">Voyages</a>
+          <a href="voyages.html">
+            Voyages
+          </a>
+
+          <a href="livres.html">
+            Mes livres
+          </a>
 
         </div>
 
@@ -1380,28 +1848,46 @@
 
           <h3>Notre univers</h3>
 
-          <a href="livres.html">Mes livres</a>
-
-          <a href="etoiles.html">Nos étoiles</a>
+          <a href="etoiles.html">
+            Nos étoiles
+          </a>
 
           <a href="passeport.html">
-            Le passeport du cœur
+            Le Royaume
           </a>
 
           <a href="agir.html">
-            À votre tour d'agir
+            Comment agir
           </a>
 
-          <a href="soutenir.html">Soutenir</a>
+          <a href="soutenir.html">
+            Soutenir
+          </a>
 
         </div>
 
         <div class="ce-footer-column">
 
-          <h3>Informations</h3>
+          <h3>Restons proches</h3>
 
           <a href="mailto:coeur.errant@outlook.be">
             Me contacter
+          </a>
+
+          <a href="https://www.instagram.com/coeur.errant/"
+             target="_blank"
+             rel="noopener noreferrer">
+
+            Instagram
+
+          </a>
+
+          <a href="index-nl.html"
+             lang="nl"
+             hreflang="nl">
+
+            Nederlands
+
           </a>
 
           <a href="mentions-legales.html"
@@ -1411,15 +1897,12 @@
 
           </a>
 
-          <a href="mentions-legales.html#confidentialite">
-
-            Confidentialité
-
-          </a>
-
         </div>
 
       </div>
+
+
+      <!-- SIGNATURE -->
 
       <div class="ce-footer-signature">
 
@@ -1435,8 +1918,8 @@
 
         <div class="ce-footer-copyright">
 
-          © 2026 Cœur Errant —
-          Tous droits réservés.
+          © <span id="footer-year">2026</span>
+          Cœur Errant — Tous droits réservés.
 
         </div>
 
@@ -1451,58 +1934,154 @@
 
   <script>
 
-    const hamburger =
-      document.getElementById("hamburger");
+    (() => {
 
-    const navLinks =
-      document.getElementById("nav-links");
+      "use strict";
 
-    hamburger.addEventListener("click", () => {
+      const hamburger =
+        document.getElementById("hamburger");
 
-      const opened =
-        navLinks.classList.toggle("open");
+      const navLinks =
+        document.getElementById("nav-links");
 
-      hamburger.classList.toggle(
-        "open",
-        opened
+      const footerYear =
+        document.getElementById("footer-year");
+
+      if (footerYear) {
+
+        footerYear.textContent =
+          new Date().getFullYear();
+
+      }
+
+      if (!hamburger || !navLinks) return;
+
+
+      function setMenu(opened) {
+
+        navLinks.classList.toggle(
+          "open",
+          opened
+        );
+
+        hamburger.classList.toggle(
+          "open",
+          opened
+        );
+
+        hamburger.setAttribute(
+          "aria-expanded",
+          String(opened)
+        );
+
+        hamburger.setAttribute(
+          "aria-label",
+          opened
+            ? "Fermer le menu"
+            : "Ouvrir le menu"
+        );
+
+      }
+
+
+      function toggleMenu() {
+
+        setMenu(
+          !navLinks.classList.contains("open")
+        );
+
+      }
+
+
+      function closeMenu() {
+
+        setMenu(false);
+
+      }
+
+
+      hamburger.addEventListener(
+        "click",
+        toggleMenu
       );
 
-      hamburger.setAttribute(
-        "aria-expanded",
-        String(opened)
-      );
 
-      hamburger.setAttribute(
-        "aria-label",
-        opened
-          ? "Fermer le menu"
-          : "Ouvrir le menu"
-      );
+      navLinks.querySelectorAll("a")
+        .forEach(link => {
 
-    });
-
-    navLinks.querySelectorAll("a")
-      .forEach(link => {
-
-        link.addEventListener("click", () => {
-
-          navLinks.classList.remove("open");
-
-          hamburger.classList.remove("open");
-
-          hamburger.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-          hamburger.setAttribute(
-            "aria-label",
-            "Ouvrir le menu"
+          link.addEventListener(
+            "click",
+            closeMenu
           );
 
         });
 
-      });
+
+      document.addEventListener(
+        "click",
+        event => {
+
+          if (!navLinks.classList.contains("open")) {
+            return;
+          }
+
+          if (
+            !navLinks.contains(event.target) &&
+            !hamburger.contains(event.target)
+          ) {
+
+            closeMenu();
+
+          }
+
+        }
+      );
+
+
+      document.addEventListener(
+        "keydown",
+        event => {
+
+          if (
+            event.key === "Escape" &&
+            navLinks.classList.contains("open")
+          ) {
+
+            closeMenu();
+
+            hamburger.focus();
+
+          }
+
+        }
+      );
+
+
+      window.addEventListener(
+        "resize",
+        () => {
+
+          if (window.innerWidth > 1100) {
+
+            closeMenu();
+
+          }
+
+        }
+      );
+
+
+      window.addEventListener(
+        "pageshow",
+        closeMenu
+      );
+
+
+      window.toggleMenu = toggleMenu;
+
+      window.closeMenu = closeMenu;
+
+    })();
 
   </script>
 

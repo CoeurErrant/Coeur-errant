@@ -1,4 +1,3 @@
-
 /* =========================================
    CŒUR ERRANT
    À VOTRE TOUR D'AGIR
@@ -20,6 +19,8 @@
   ).matches;
 
   const STORAGE_KEY = "coeur-errant-packing-v1";
+
+  const CONSENT_KEY = "coeur-errant-packing-consent-v1";
 
 
   /* =========================================
@@ -434,10 +435,150 @@
     input => input.dataset.packing
   );
 
+  const consentButton = $("packing-consent-button");
+
+  const storageNote = $("packing-storage-note");
+
   let storageAvailable = true;
 
+  let packingConsent = false;
+
+  let deletionFailed = false;
+
+
+  /* =========================================
+     VÉRIFICATION DU CONSENTEMENT
+     ========================================= */
+
+  function readPackingConsent() {
+
+    try {
+
+      storageAvailable = true;
+
+      return localStorage.getItem(
+        CONSENT_KEY
+      ) === "yes";
+
+    } catch (error) {
+
+      storageAvailable = false;
+
+      return false;
+
+    }
+
+  }
+
+
+  /* =========================================
+     SUPPRESSION DES DONNÉES LOCALES
+     ========================================= */
+
+  function removePackingStorage() {
+
+    let success = true;
+
+    try {
+
+      localStorage.removeItem(CONSENT_KEY);
+
+    } catch (error) {
+
+      success = false;
+
+    }
+
+    try {
+
+      localStorage.removeItem(STORAGE_KEY);
+
+    } catch (error) {
+
+      success = false;
+
+    }
+
+    deletionFailed = !success;
+
+    storageAvailable = success;
+
+    return success;
+
+  }
+
+
+  /* =========================================
+     AFFICHAGE DU CONSENTEMENT
+     ========================================= */
+
+  function updateConsentInterface() {
+
+    if (consentButton) {
+
+      consentButton.setAttribute(
+        "aria-pressed",
+        String(packingConsent)
+      );
+
+      consentButton.textContent =
+
+        packingConsent
+
+          ? "Désactiver la sauvegarde locale"
+
+          : "Activer la sauvegarde locale";
+
+      consentButton.disabled = false;
+
+    }
+
+    if (!storageNote) return;
+
+    if (deletionFailed) {
+
+      storageNote.textContent =
+        "La sauvegarde est désactivée sur cette page, mais la suppression des données n'a pas pu être confirmée. Vous pouvez réessayer ou effacer les données de ce site dans les paramètres de votre navigateur.";
+
+      return;
+
+    }
+
+    if (!storageAvailable) {
+
+      storageNote.textContent =
+        "La sauvegarde locale est actuellement indisponible. Vous pouvez continuer à utiliser votre checklist sans enregistrement.";
+
+      return;
+
+    }
+
+    if (packingConsent) {
+
+      storageNote.textContent =
+        "Votre progression est enregistrée uniquement dans ce navigateur. Vous pouvez retirer votre consentement et supprimer les données enregistrées à tout moment.";
+
+    } else {
+
+      storageNote.textContent =
+        "La sauvegarde locale est désactivée. Votre progression reste disponible sur cette page, mais ne sera pas conservée lors de votre prochaine visite.";
+
+    }
+
+  }
+
+
+  /* =========================================
+     CHARGEMENT DE LA CHECKLIST
+     ========================================= */
 
   function loadPacking() {
+
+    if (!packingConsent) {
+
+      return [];
+
+    }
 
     try {
 
@@ -459,14 +600,40 @@
 
       storageAvailable = false;
 
-      return [];
+      return null;
 
     }
 
   }
 
 
+  /* =========================================
+     SAUVEGARDE DE LA CHECKLIST
+     ========================================= */
+
   function savePacking() {
+
+    if (!packingConsent) {
+
+      return false;
+
+    }
+
+    /*
+       Vérifier également le consentement
+       enregistré pour éviter de sauvegarder
+       après un retrait dans un autre onglet.
+    */
+
+    if (!readPackingConsent()) {
+
+      packingConsent = false;
+
+      updateConsentInterface();
+
+      return false;
+
+    }
 
     const checked = packingInputs
 
@@ -483,14 +650,26 @@
 
       storageAvailable = true;
 
+      updateConsentInterface();
+
+      return true;
+
     } catch (error) {
 
       storageAvailable = false;
+
+      updateConsentInterface();
+
+      return false;
 
     }
 
   }
 
+
+  /* =========================================
+     PROGRESSION DE LA CHECKLIST
+     ========================================= */
 
   function updatePacking() {
 
@@ -498,8 +677,11 @@
       input => input.checked
     ).length;
 
-    const percentage =
-      count / packingTotal * 100;
+    const percentage = packingTotal
+
+      ? count / packingTotal * 100
+
+      : 0;
 
     $("packing-count").textContent =
       `${count}/${packingTotal}`;
@@ -519,7 +701,7 @@
 
     packingCard.classList.toggle(
       "is-complete",
-      count === packingTotal
+      packingTotal > 0 && count === packingTotal
     );
 
     let message = "";
@@ -560,25 +742,159 @@
 
     $("packing-message").textContent = message;
 
+    updateConsentInterface();
+
   }
 
 
+  /* =========================================
+     RESTAURATION DE LA CHECKLIST
+     ========================================= */
+
   function restorePacking() {
+
+    packingConsent = readPackingConsent();
+
+    if (!packingConsent) {
+
+      /*
+         Supprimer les anciennes données
+         enregistrées sans consentement.
+
+         Les cases actuellement cochées
+         restent disponibles en mémoire.
+      */
+
+      if (storageAvailable) {
+
+        removePackingStorage();
+
+      }
+
+      updatePacking();
+
+      return;
+
+    }
 
     const saved = loadPacking();
 
-    packingInputs.forEach(input => {
+    if (saved !== null) {
 
-      input.checked = saved.includes(
-        input.dataset.packing
-      );
+      packingInputs.forEach(input => {
 
-    });
+        input.checked = saved.includes(
+          input.dataset.packing
+        );
+
+      });
+
+    }
 
     updatePacking();
 
   }
 
+
+  /* =========================================
+     ACTIVER LA SAUVEGARDE LOCALE
+     ========================================= */
+
+  function enablePackingConsent() {
+
+    deletionFailed = false;
+
+    try {
+
+      localStorage.setItem(
+        CONSENT_KEY,
+        "yes"
+      );
+
+      packingConsent = true;
+
+      storageAvailable = true;
+
+      /*
+         Enregistrer uniquement la progression
+         actuelle après autorisation explicite.
+      */
+
+      if (!savePacking()) {
+
+        packingConsent = false;
+
+        removePackingStorage();
+
+        storageAvailable = false;
+
+      }
+
+    } catch (error) {
+
+      packingConsent = false;
+
+      storageAvailable = false;
+
+    }
+
+    updatePacking();
+
+  }
+
+
+  /* =========================================
+     RETIRER LE CONSENTEMENT
+     ========================================= */
+
+  function disablePackingConsent() {
+
+    packingConsent = false;
+
+    removePackingStorage();
+
+    /*
+       Les données enregistrées sont supprimées
+       lorsque le navigateur le permet.
+
+       Les cases actuellement cochées restent
+       disponibles jusqu'au départ de la page.
+    */
+
+    updatePacking();
+
+  }
+
+
+  /* =========================================
+     BOUTON DE CONSENTEMENT
+     ========================================= */
+
+  if (consentButton) {
+
+    consentButton.addEventListener(
+      "click",
+      () => {
+
+        if (packingConsent || deletionFailed) {
+
+          disablePackingConsent();
+
+        } else {
+
+          enablePackingConsent();
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* =========================================
+     INTERACTIONS AVEC LA CHECKLIST
+     ========================================= */
 
   packingInputs.forEach(input => {
 
@@ -588,9 +904,13 @@
 
       updatePacking();
 
-      const complete = packingInputs.every(
-        item => item.checked
-      );
+      const complete =
+
+        packingTotal > 0 &&
+
+        packingInputs.every(
+          item => item.checked
+        );
 
       if (complete) {
 
@@ -664,7 +984,57 @@
   enableBackdropClose(resetDialog);
 
 
-  /* Synchronisation entre plusieurs onglets */
+  /* =========================================
+     SYNCHRONISATION ENTRE PLUSIEURS ONGLETS
+     ========================================= */
+
+  function synchronizePacking() {
+
+    const previousConsent = packingConsent;
+
+    packingConsent = readPackingConsent();
+
+    if (!packingConsent) {
+
+      /*
+         Le consentement a été retiré.
+
+         Ne plus lire ni enregistrer
+         la progression de la checklist.
+      */
+
+      if (previousConsent && storageAvailable) {
+
+        removePackingStorage();
+
+      }
+
+      updatePacking();
+
+      return;
+
+    }
+
+    deletionFailed = false;
+
+    const saved = loadPacking();
+
+    if (saved !== null) {
+
+      packingInputs.forEach(input => {
+
+        input.checked = saved.includes(
+          input.dataset.packing
+        );
+
+      });
+
+    }
+
+    updatePacking();
+
+  }
+
 
   window.addEventListener("storage", event => {
 
@@ -672,15 +1042,48 @@
 
       event.key === STORAGE_KEY ||
 
+      event.key === CONSENT_KEY ||
+
       event.key === null
 
     ) {
 
-      restorePacking();
+      synchronizePacking();
 
     }
 
   });
+
+
+  /* Vérifier le consentement au retour
+     sur la page depuis l'historique. */
+
+  window.addEventListener("pageshow", event => {
+
+    if (event.persisted) {
+
+      synchronizePacking();
+
+    }
+
+  });
+
+
+  /* Vérifier le consentement lorsqu'un
+     onglet redevient visible. */
+
+  document.addEventListener(
+    "visibilitychange",
+    () => {
+
+      if (document.visibilityState === "visible") {
+
+        synchronizePacking();
+
+      }
+
+    }
+  );
 
 
   /* =========================================
@@ -710,10 +1113,7 @@
 
     });
 
-  });
-
-
-  /* =========================================
+  });  /* =========================================
      06 — QUESTIONS DU QUIZ
      ========================================= */
 
@@ -1287,10 +1687,7 @@
 
     }, 5000);
 
-  }
-
-
-  /* =========================================
+  }  /* =========================================
      09 — CRÉATION DE LA FICHE PNG
      ========================================= */
 

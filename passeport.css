@@ -19,7 +19,7 @@
     background: var(--k-cream);
     color: var(--k-dark);
     font-family: "Jost", sans-serif;
-    padding-top: 85px;
+    padding-top: 86px;
     transition: background .6s, color .6s;
 }
 
@@ -32,6 +32,10 @@
 .kingdom-dialog [hidden],
 .kingdom-toast[hidden] {
     display: none !important;
+}
+
+.kingdom-page section[id] {
+    scroll-margin-top: 110px;
 }
 
 .kingdom-page h1,
@@ -64,13 +68,17 @@
     cursor: pointer;
 }
 
-.kingdom-page button:disabled {
+.kingdom-page button:disabled,
+.kingdom-dialog button:disabled {
     cursor: not-allowed;
 }
 
 .kingdom-page button:focus-visible,
 .kingdom-page a:focus-visible,
-.kingdom-dialog button:focus-visible {
+.kingdom-page input:focus-visible,
+.kingdom-dialog button:focus-visible,
+.kingdom-dialog a:focus-visible,
+.kingdom-dialog textarea:focus-visible {
     outline: 3px solid #c4a477;
     outline-offset: 5px;
 }
@@ -109,6 +117,12 @@
     font-weight: 500;
     text-decoration: none;
     transition: .3s ease;
+
+    max-width: 100%;
+    min-height: 44px;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .kingdom-button {
@@ -129,15 +143,17 @@
     color: var(--k-dark, #51434f);
 }
 
-.kingdom-outline-button:hover {
+.kingdom-outline-button:hover:not(:disabled) {
     background: #c4a477;
     color: #fff;
 }
 
-.kingdom-button:disabled {
+.kingdom-button:disabled,
+.kingdom-outline-button:disabled {
     opacity: .45;
     box-shadow: none;
 }
+
 
 /* =========================================
    PARTICULES
@@ -160,6 +176,7 @@
     border-radius: 50%;
     background: #e8cc93;
     box-shadow: 0 0 10px #efd7a0;
+
     animation: kingdomSparkle
         var(--particle-duration)
         var(--particle-delay)
@@ -167,15 +184,19 @@
 }
 
 @keyframes kingdomSparkle {
+
     0%, 100% {
         opacity: .1;
         transform: translateY(0);
     }
+
     50% {
         opacity: .85;
         transform: translateY(-18px);
     }
+
 }
+
 
 /* =========================================
    ARBRE DES ÂMES
@@ -195,6 +216,7 @@
 .entrance-background {
     position: absolute;
     inset: 0;
+
     background:
         radial-gradient(
             ellipse at center,
@@ -207,6 +229,7 @@
 .entrance-overlay {
     position: absolute;
     inset: 0;
+
     background: linear-gradient(
         transparent 65%,
         var(--k-cream)
@@ -218,6 +241,7 @@
     z-index: 3;
     width: 100%;
     max-width: 950px;
+    min-width: 0;
 }
 
 .entrance-ornament {
@@ -256,7 +280,11 @@
     width: 100%;
     aspect-ratio: 1.35;
     object-fit: cover;
-    border-radius: 48% 48% 12% 12% / 28% 28% 8% 8%;
+
+    border-radius:
+        48% 48% 12% 12% /
+        28% 28% 8% 8%;
+
     border: 1px solid rgba(196, 164, 119, .6);
     box-shadow: 0 20px 70px rgba(81, 67, 79, .22);
     transition: transform 1.5s, filter 1.5s;
@@ -283,12 +311,15 @@
 }
 
 @keyframes treeGlow {
+
     0%, 100% {
         transform: scale(.9);
     }
+
     50% {
         transform: scale(1.08);
     }
+
 }
 
 .entrance-caption {
@@ -298,6 +329,7 @@
     font-size: 1.25rem;
     margin-top: 25px;
 }
+
 
 /* =========================================
    INTRODUCTION
@@ -331,6 +363,7 @@
     padding: 55px 25px 35px;
     box-shadow: var(--k-shadow);
     transition: transform .3s;
+    min-width: 0;
 }
 
 .kingdom-intro-card:hover {
@@ -369,6 +402,7 @@
     padding: 25px;
     border: 1px solid var(--k-border);
     border-radius: 20px;
+    min-width: 0;
 }
 
 .kingdom-storage-intro p {
@@ -376,6 +410,65 @@
     font-size: .88rem;
     margin-bottom: 18px;
 }
+
+
+/* =========================================
+   CONSENTEMENT À LA SAUVEGARDE LOCALE
+========================================= */
+
+.kingdom-storage-intro .kingdom-storage-description {
+    max-width: 540px;
+    margin: 15px auto 22px;
+    font-size: .82rem;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+#enable-adventure-storage {
+    max-width: 100%;
+    min-height: 44px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+#enable-adventure-storage[aria-pressed="true"] {
+    background: rgba(168, 178, 155, .18);
+    border-color: var(--k-sage);
+    color: var(--k-dark);
+}
+
+#enable-adventure-storage[aria-pressed="true"]:hover:not(:disabled) {
+    background: rgba(168, 178, 155, .3);
+}
+
+.kingdom-storage-intro .kingdom-consent-status {
+    max-width: 540px;
+    margin: 18px auto;
+    color: var(--k-dark);
+    font-size: .8rem;
+    font-weight: 500;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.kingdom-storage-intro .kingdom-storage-information {
+    max-width: 540px;
+    margin: 15px auto;
+    font-size: .78rem;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+.kingdom-storage-intro a {
+    color: var(--k-pink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.kingdom-storage-intro a:hover {
+    color: var(--k-dark);
+}
+
 
 /* =========================================
    IDENTITÉ
@@ -395,7 +488,12 @@
     position: relative;
     padding: 15px;
     border: 1px solid var(--k-gold);
-    border-radius: 48% 48% 25px 25px / 25% 25% 25px 25px;
+
+    border-radius:
+        48% 48% 25px 25px /
+        25% 25% 25% 25%;
+
+    min-width: 0;
 }
 
 .identity-visual img {
@@ -403,6 +501,10 @@
     display: block;
     border-radius: inherit;
     box-shadow: var(--k-shadow);
+}
+
+.identity-content {
+    min-width: 0;
 }
 
 .identity-content label,
@@ -421,6 +523,7 @@
 .kingdom-page input,
 .kingdom-dialog textarea {
     min-width: 0;
+    max-width: 100%;
     padding: 15px 20px;
     border: 1px solid #d8c4b8;
     border-radius: 30px;
@@ -436,6 +539,12 @@
     box-shadow: 0 0 0 3px rgba(168, 94, 120, .12);
 }
 
+.kingdom-page input:focus-visible,
+.kingdom-dialog textarea:focus-visible {
+    outline: 3px solid #c4a477;
+    outline-offset: 3px;
+}
+
 .identity-input-row input {
     flex: 1;
 }
@@ -445,6 +554,7 @@
     color: var(--k-pink);
     font-size: .95rem;
     min-height: 25px;
+    overflow-wrap: anywhere;
 }
 
 .emblem-selection {
@@ -469,6 +579,7 @@
     border: 1px solid var(--k-border);
     border-radius: 50px 50px 15px 15px;
     transition: .3s;
+    min-width: 0;
 }
 
 .emblem-option span {
@@ -481,6 +592,7 @@
 .emblem-option strong {
     font-size: .7rem;
     font-weight: 500;
+    overflow-wrap: anywhere;
 }
 
 .emblem-option[aria-pressed="true"] {
@@ -492,6 +604,7 @@
 .emblem-option[aria-pressed="true"] span {
     color: var(--k-pink);
 }
+
 
 /* =========================================
    COMPAGNONS
@@ -520,6 +633,7 @@
     color: var(--k-dark);
     box-shadow: var(--k-shadow);
     transition: .35s;
+    min-width: 0;
 }
 
 .companion-card:hover {
@@ -528,6 +642,7 @@
 
 .companion-card[aria-pressed="true"] {
     border-color: var(--k-gold);
+
     box-shadow:
         0 0 0 3px rgba(196, 164, 119, .3),
         var(--k-shadow);
@@ -571,6 +686,7 @@
 .companion-personalization {
     max-width: 550px;
     margin: 40px auto 0;
+    min-width: 0;
 }
 
 .companion-personalization input {
@@ -580,9 +696,7 @@
 
 #companion-message {
     margin-top: 20px;
-}
-
-/* =========================================
+}/* =========================================
    MÉDAILLON
 ========================================= */
 
@@ -675,11 +789,13 @@
 }
 
 @keyframes completeMedallion {
+
     50% {
         box-shadow:
             0 0 55px #e5c78b,
             0 0 110px rgba(229, 199, 139, .6);
     }
+
 }
 
 .medallion-center {
@@ -769,6 +885,7 @@
     background: var(--k-gold);
     border-color: var(--k-gold);
 }
+
 
 /* =========================================
    COFFRET DES FRAGMENTS
@@ -903,6 +1020,7 @@
 .legend-locked {
     background: #a79ba1;
 }
+
 
 /* =========================================
    LIEUX SECRETS
@@ -1094,6 +1212,7 @@
     min-height: 380px;
 }
 
+
 /* =========================================
    JOUR ET NUIT
 ========================================= */
@@ -1158,6 +1277,7 @@
 .kingdom-page.is-night .tree-glow {
     background: #e5b3c8;
 }
+
 
 /* =========================================
    DESTINATION MYSTÈRE
@@ -1232,15 +1352,86 @@
 }
 
 @keyframes envelopeFloat {
+
     0%, 100% {
         transform: translateY(0) rotate(-3deg);
     }
+
     50% {
         transform: translateY(-9px) rotate(2deg);
     }
+
 }
 
+
 /* =========================================
+   ACCESSIBILITÉ — MÉDAILLON ET LIEUX
+========================================= */
+
+.medallion-scene,
+.medallion-information,
+.location-card,
+.location-content {
+    min-width: 0;
+}
+
+.medallion-owner {
+    max-width: 100%;
+}
+
+.medallion-information,
+.location-content {
+    overflow-wrap: anywhere;
+}
+
+.treasure-item:focus-visible {
+    outline: 3px solid #f1ddad;
+    outline-offset: 3px;
+    background: rgba(255, 255, 255, .15);
+}
+
+.location-button {
+    min-height: 44px;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.location-button:focus-visible,
+.atmosphere-options button:focus-visible {
+    outline: 3px solid var(--k-pink);
+    outline-offset: 4px;
+}
+
+.atmosphere-options button {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .royal-medallion.is-complete,
+    .mystery-envelope {
+        animation: none;
+    }
+
+    .royal-medallion,
+    .medallion-gem,
+    .kingdom-progress-fill,
+    .treasure-item,
+    .location-card,
+    .location-image,
+    .location-button,
+    .atmosphere-options button {
+        transition: none;
+    }
+
+    .treasure-item:hover,
+    .location-card:not(.is-locked):hover {
+        transform: none;
+    }
+
+}/* =========================================
    PASSEPORT FINAL
 ========================================= */
 
@@ -1429,6 +1620,7 @@
     font-style: italic;
 }
 
+
 /* =========================================
    SECRET ET PARAMÈTRES
 ========================================= */
@@ -1504,6 +1696,7 @@
     margin-top: 35px;
 }
 
+
 /* =========================================
    FENÊTRES INTERACTIVES
 ========================================= */
@@ -1534,14 +1727,17 @@
 }
 
 @keyframes dialogAppear {
+
     from {
         opacity: 0;
         transform: translateY(15px) scale(.98);
     }
+
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
+
 }
 
 .kingdom-dialog h2 {
@@ -1667,14 +1863,17 @@
 }
 
 @keyframes lanternFloat {
+
     from {
         transform: translateX(-50%) scale(1);
         opacity: 1;
     }
+
     to {
         transform: translate(130px, -35px) scale(.35);
         opacity: .3;
     }
+
 }
 
 .spring-pool {
@@ -1700,16 +1899,19 @@
 }
 
 @keyframes springRipple {
+
     to {
         transform: scale(2);
         opacity: 0;
     }
+
 }
 
 #kingdom-reset-dialog .kingdom-button,
 #kingdom-reset-dialog .kingdom-outline-button {
     margin: 8px;
 }
+
 
 /* =========================================
    NOTIFICATIONS ET CÉLÉBRATIONS
@@ -1764,13 +1966,197 @@
 }
 
 @keyframes celebrationFall {
+
     to {
         transform: translateY(110vh) rotate(360deg);
         opacity: 0;
     }
+
 }
 
+
 /* =========================================
+   RETRAIT DU CONSENTEMENT
+========================================= */
+
+.kingdom-storage-controls {
+    max-width: 560px;
+    min-width: 0;
+    margin: 25px auto;
+    padding: 20px 15px;
+    border: 1px solid var(--k-border);
+    border-radius: 15px;
+    background: var(--k-paper);
+}
+
+.kingdom-storage-controls .kingdom-storage-description {
+    max-width: 480px;
+    margin: 0 auto 18px;
+    color: var(--k-muted);
+    font-size: .82rem;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+#disable-adventure-storage {
+    max-width: 100%;
+    min-height: 44px;
+    margin: 6px 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    border-color: var(--k-pink);
+    color: var(--k-pink);
+}
+
+#disable-adventure-storage:hover:not(:disabled) {
+    background: var(--k-pink);
+    color: var(--k-paper);
+}
+
+#disable-adventure-storage:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+.kingdom-storage-controls .kingdom-storage-information {
+    max-width: 480px;
+    margin: 18px auto 0;
+    font-size: .78rem;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+.kingdom-settings a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+#kingdom-storage-note {
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   ACCESSIBILITÉ ET PROTECTION
+   CONTRE LES DÉBORDEMENTS
+========================================= */
+
+.kingdom-certificate,
+.certificate-border,
+.passport-companion,
+.location-dialog-content,
+#location-interaction,
+.kingdom-storage-controls {
+    min-width: 0;
+}
+
+.certificate-border,
+.passport-companion,
+.location-dialog-content,
+.location-letter,
+.kingdom-settings,
+.kingdom-toast {
+    overflow-wrap: anywhere;
+}
+
+.passport-companion {
+    flex-wrap: wrap;
+}
+
+.passport-companion img {
+    flex-shrink: 0;
+    max-width: 100%;
+}
+
+.passport-stamp svg {
+    max-width: 100%;
+}
+
+.kingdom-secret-button {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.kingdom-dialog:not([open]) {
+    display: none;
+}
+
+.kingdom-dialog {
+    max-height: 88dvh;
+    overscroll-behavior: contain;
+}
+
+.kingdom-dialog-close {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.kingdom-dialog-close:focus-visible,
+.butterfly-button:focus-visible,
+.spring-pool:focus-visible {
+    outline: 3px solid #a85e78;
+    outline-offset: 4px;
+}
+
+#location-interaction textarea {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.spring-pool,
+#treasure-visual {
+    max-width: 100%;
+}
+
+.kingdom-toast-icon {
+    flex-shrink: 0;
+}
+
+.kingdom-toast > div {
+    min-width: 0;
+}
+
+.kingdom-toast[hidden],
+.certificate-lock[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   RÉDUCTION DES ANIMATIONS
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .kingdom-dialog[open],
+    .kingdom-toast,
+    .floating-lantern,
+    .spring-pool.is-rippling::after,
+    .celebration-particle {
+        animation: none;
+    }
+
+    .kingdom-secret-button,
+    .butterfly-button {
+        transition: none;
+    }
+
+    .kingdom-secret-button:hover,
+    .butterfly-button:hover {
+        transform: none;
+    }
+
+    .floating-lantern {
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+
+    .spring-pool.is-rippling::after,
+    .celebration-particle {
+        display: none;
+    }
+
+}/* =========================================
    APPARITION AU DÉFILEMENT
 ========================================= */
 
@@ -1785,11 +2171,13 @@
     transform: translateY(0);
 }
 
+
 /* =========================================
    TABLETTE
 ========================================= */
 
 @media (max-width: 1000px) {
+
     .kingdom-identity,
     .medallion-layout {
         gap: 40px;
@@ -1811,13 +2199,16 @@
     .companion-grid {
         gap: 15px;
     }
+
 }
+
 
 /* =========================================
    MOBILE
 ========================================= */
 
 @media (max-width: 700px) {
+
     .kingdom-page {
         padding-top: 75px;
     }
@@ -1969,13 +2360,16 @@
         left: 15px;
         width: calc(100% - 85px);
     }
+
 }
+
 
 /* =========================================
    IMPRESSION DU PASSEPORT
 ========================================= */
 
 @media print {
+
     body.print-kingdom-passport {
         background: white !important;
     }
@@ -2025,13 +2419,16 @@
     body.print-kingdom-passport .passport-stamps {
         grid-template-columns: repeat(7, 1fr);
     }
+
 }
+
 
 /* =========================================
    ACCESSIBILITÉ
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
     .kingdom-page *,
     .kingdom-dialog *,
     .kingdom-celebration *,
@@ -2050,4 +2447,150 @@
     .kingdom-particles {
         display: none;
     }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITÉ COMPLÉMENTAIRE
+========================================= */
+
+.kingdom-animations .kingdom-reveal:focus-within {
+    opacity: 1;
+    transform: none;
+}
+
+.kingdom-page button:focus-visible,
+.kingdom-page a:focus-visible,
+.kingdom-page input:focus-visible,
+.kingdom-dialog button:focus-visible,
+.kingdom-dialog a:focus-visible,
+.kingdom-dialog textarea:focus-visible {
+    outline-offset: 4px;
+}
+
+.kingdom-page img,
+.kingdom-dialog img {
+    max-width: 100%;
+}
+
+.kingdom-heading,
+.entrance-content,
+.identity-content,
+.medallion-information,
+.location-content,
+.location-dialog-content {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.kingdom-storage-intro,
+.kingdom-storage-controls {
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+#enable-adventure-storage,
+#disable-adventure-storage {
+    min-height: 44px;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   COMPATIBILITÉ AVEC LA NAVIGATION COMMUNE
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .kingdom-page {
+        padding-top: 76px;
+    }
+
+    .kingdom-page section[id] {
+        scroll-margin-top: 85px;
+    }
+
+}
+
+
+/* =========================================
+   CONSENTEMENT — VERSION MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .kingdom-storage-intro {
+        padding: 20px 15px;
+    }
+
+    .kingdom-storage-controls {
+        padding: 20px 12px;
+    }
+
+    #enable-adventure-storage,
+    #disable-adventure-storage {
+        width: 100%;
+        max-width: 100%;
+        min-height: 44px;
+        padding: 12px 15px;
+        font-size: .82rem;
+        line-height: 1.6;
+    }
+
+    .kingdom-storage-description,
+    .kingdom-storage-information,
+    #kingdom-consent-status,
+    #kingdom-storage-note {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+}
+
+
+/* =========================================
+   TRÈS PETITS ÉCRANS
+========================================= */
+
+@media (max-width: 360px) {
+
+    .kingdom-storage-intro,
+    .kingdom-storage-controls {
+        padding: 18px 10px;
+    }
+
+    #enable-adventure-storage,
+    #disable-adventure-storage {
+        padding: 10px;
+        font-size: .76rem;
+    }
+
+}
+
+
+/* =========================================
+   RÉDUCTION DES MOUVEMENTS
+   COMPLÉMENT D'ACCESSIBILITÉ
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .kingdom-page,
+    .kingdom-dialog {
+        scroll-behavior: auto !important;
+    }
+
+    .kingdom-animations .kingdom-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .kingdom-celebration {
+        display: none !important;
+    }
+
 }

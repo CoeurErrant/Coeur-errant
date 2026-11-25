@@ -154,6 +154,10 @@
        SAUVEGARDE ET CONSENTEMENT
     ========================================== */
 
+    let storageAvailable = true;
+    let deletionFailed = false;
+    let consentBlocked = false;
+
     function createState() {
         return {
             name: "",
@@ -175,9 +179,12 @@
     }
 
     function hasConsent() {
+        if (consentBlocked) return false;
+
         try {
             return localStorage.getItem(CONSENT_KEY) === "yes";
         } catch {
+            storageAvailable = false;
             return false;
         }
     }
@@ -239,6 +246,36 @@
         return base;
     }
 
+    function notifyPassportUpdate() {
+        window.dispatchEvent(
+            new CustomEvent(
+                "coeur-errant-passport-updated"
+            )
+        );
+    }
+
+    function removeStoredAdventure() {
+        let success = true;
+
+        consentBlocked = true;
+
+        try {
+            localStorage.removeItem(CONSENT_KEY);
+        } catch {
+            success = false;
+        }
+
+        try {
+            localStorage.removeItem(STORAGE_KEY);
+        } catch {
+            success = false;
+        }
+
+        deletionFailed = !success;
+
+        return success;
+    }
+
     function readState() {
         if (!hasConsent()) {
             return createState();
@@ -257,6 +294,15 @@
 
     let state = readState();
 
+    /*
+     * Une ancienne sauvegarde sans consentement
+     * ne doit jamais être restaurée.
+     */
+
+    if (!hasConsent() && storageAvailable) {
+        removeStoredAdventure();
+    }
+
     function saveState() {
         if (!hasConsent()) {
             return false;
@@ -268,11 +314,7 @@
                 JSON.stringify(state)
             );
 
-            window.dispatchEvent(
-                new CustomEvent(
-                    "coeur-errant-passport-updated"
-                )
-            );
+            notifyPassportUpdate();
 
             return true;
         } catch {
@@ -285,14 +327,131 @@
         }
     }
 
+    /* =========================================
+       ACTIVATION DE LA SAUVEGARDE
+    ========================================== */
+
+    function enableAdventureStorage() {
+        if (hasConsent()) {
+            updateStorageNote();
+            return;
+        }
+
+        /*
+         * Aucune ancienne donnée non autorisée
+         * n'est lue ou fusionnée avec l'aventure.
+         */
+
+        if (!removeStoredAdventure()) {
+            updateStorageNote();
+
+            showToast(
+                "Sauvegarde impossible",
+                "Vous pouvez explorer le royaume sans sauvegarde."
+            );
+
+            return;
+        }
+
+        try {
+            localStorage.setItem(
+                CONSENT_KEY,
+                "yes"
+            );
+
+            consentBlocked = false;
+            storageAvailable = true;
+            deletionFailed = false;
+
+            if (!saveState()) {
+                removeStoredAdventure();
+
+                updateStorageNote();
+
+                notifyPassportUpdate();
+
+                return;
+            }
+
+            renderAll();
+            updateStorageNote();
+
+            showToast(
+                "Sauvegarde activée",
+                "Votre aventure sera conservée sur cet appareil."
+            );
+        } catch {
+            removeStoredAdventure();
+
+            updateStorageNote();
+
+            notifyPassportUpdate();
+
+            showToast(
+                "Sauvegarde impossible",
+                "Vous pouvez explorer le royaume sans sauvegarde."
+            );
+        }
+    }
+
+    /* =========================================
+       RETRAIT DU CONSENTEMENT
+    ========================================== */
+
+    function disableAdventureStorage() {
+        const removed = removeStoredAdventure();
+
+        state = createState();
+
+        const secretMessage = $("kingdom-secret-message");
+        const nameMessage = $("kingdom-name-message");
+
+        if (secretMessage) {
+            secretMessage.hidden = true;
+        }
+
+        if (nameMessage) {
+            nameMessage.textContent = "";
+        }
+
+        renderAll();
+        updateStorageNote();
+
+        notifyPassportUpdate();
+
+        if (removed) {
+            showToast(
+                "Sauvegarde désactivée",
+                "Les données enregistrées ont été effacées."
+            );
+        } else {
+            showToast(
+                "Action impossible",
+                "La suppression n'a pas pu être confirmée."
+            );
+        }
+    }
+
+    /* =========================================
+       BOUTONS DE CONSENTEMENT
+    ========================================== */
+
     function setupStorageConsent() {
         const note = $("kingdom-storage-note");
 
-        if (!note) return;
+        const enableButton = $("enable-adventure-storage");
+
+        const disableButton = $("disable-adventure-storage");
 
         let button = $("kingdom-consent-button");
 
-        if (!button) {
+        /*
+         * Compatibilité avec le HTML original :
+         * création du bouton des paramètres uniquement
+         * si aucun bouton de retrait n'existe déjà.
+         */
+
+        if (!button && !disableButton && note) {
             button = document.createElement("button");
 
             button.id = "kingdom-consent-button";
@@ -301,77 +460,44 @@
             button.style.margin = "10px 0 25px";
 
             note.insertAdjacentElement("afterend", button);
+        }
 
+        if (enableButton) {
+            enableButton.addEventListener(
+                "click",
+                enableAdventureStorage
+            );
+        }
+
+        if (disableButton) {
+            disableButton.addEventListener(
+                "click",
+                disableAdventureStorage
+            );
+        }
+
+        if (button) {
             button.addEventListener("click", () => {
-                if (hasConsent()) {
-                    try {
-                        localStorage.removeItem(STORAGE_KEY);
-                        localStorage.removeItem(CONSENT_KEY);
-
-                        state = createState();
-
-                        renderAll();
-
-                        showToast(
-                            "Sauvegarde désactivée",
-                            "Les données enregistrées ont été effacées."
-                        );
-                    } catch {
-                        showToast(
-                            "Action impossible",
-                            "La suppression n'a pas pu être confirmée."
-                        );
-                    }
+                if (hasConsent() || deletionFailed) {
+                    disableAdventureStorage();
                 } else {
-                    try {
-                        const previous = normalizeState(
-                            JSON.parse(
-                                localStorage.getItem(
-                                    STORAGE_KEY
-                                ) || "null"
-                            )
-                        );
-
-                        state.stamps = [...new Set([
-                            ...previous.stamps,
-                            ...state.stamps
-                        ])];
-
-                        if (!state.name) {
-                            state.name = previous.name;
-                        }
-
-                        if (
-                            state.stamps.length ===
-                            treasures.length
-                        ) {
-                            state.completedAt =
-                                previous.completedAt ||
-                                new Date().toISOString();
-                        }
-
-                        localStorage.setItem(
-                            CONSENT_KEY,
-                            "yes"
-                        );
-
-                        saveState();
-                        renderAll();
-
-                        showToast(
-                            "Sauvegarde activée",
-                            "Votre aventure sera conservée sur cet appareil."
-                        );
-                    } catch {
-                        showToast(
-                            "Sauvegarde impossible",
-                            "Vous pouvez explorer le royaume sans sauvegarde."
-                        );
-                    }
+                    enableAdventureStorage();
                 }
-
-                updateStorageNote();
             });
+        }
+
+        if (note) {
+            note.setAttribute("role", "status");
+            note.setAttribute("aria-live", "polite");
+            note.setAttribute("aria-atomic", "true");
+        }
+
+        const consentStatus = $("kingdom-consent-status");
+
+        if (consentStatus) {
+            consentStatus.setAttribute("role", "status");
+            consentStatus.setAttribute("aria-live", "polite");
+            consentStatus.setAttribute("aria-atomic", "true");
         }
 
         updateStorageNote();
@@ -379,22 +505,97 @@
 
     function updateStorageNote() {
         const note = $("kingdom-storage-note");
+
         const button = $("kingdom-consent-button");
 
-        if (!note || !button) return;
+        const enableButton = $("enable-adventure-storage");
 
-        if (hasConsent()) {
-            note.textContent =
+        const disableButton = $("disable-adventure-storage");
+
+        const consentStatus = $("kingdom-consent-status");
+
+        const active = hasConsent();
+
+        let message;
+
+        if (deletionFailed) {
+            message =
+                "La sauvegarde est désactivée pour cette page, mais la suppression des données locales n'a pas pu être confirmée. Vous pouvez réessayer.";
+        } else if (!storageAvailable) {
+            message =
+                "La sauvegarde locale est indisponible. Vous pouvez continuer votre exploration sans sauvegarde.";
+        } else if (active) {
+            message =
                 "Votre progression est conservée localement sur cet appareil. Vous pouvez retirer votre accord à tout moment.";
-
-            button.textContent =
-                "Désactiver la sauvegarde et effacer mes données";
         } else {
-            note.textContent =
+            message =
                 "La sauvegarde est désactivée. Activez-la pour conserver vos fragments entre les différentes pages du site.";
+        }
 
-            button.textContent =
-                "Activer la sauvegarde de mon aventure";
+        if (note) {
+            note.textContent = message;
+        }
+
+        if (consentStatus) {
+            consentStatus.textContent = message;
+        }
+
+        if (button) {
+            button.textContent = deletionFailed
+                ? "Réessayer la suppression de mes données"
+                : active
+                    ? "Désactiver la sauvegarde et effacer mes données"
+                    : "Activer la sauvegarde de mon aventure";
+
+            button.setAttribute(
+                "aria-pressed",
+                String(active)
+            );
+
+            if (note) {
+                button.setAttribute(
+                    "aria-describedby",
+                    note.id
+                );
+            }
+
+            button.disabled = false;
+        }
+
+        if (enableButton) {
+            enableButton.textContent = active
+                ? "Sauvegarde de mon aventure activée"
+                : "Activer la sauvegarde de mon aventure";
+
+            enableButton.setAttribute(
+                "aria-pressed",
+                String(active)
+            );
+
+            enableButton.disabled = active || deletionFailed;
+
+            if (consentStatus) {
+                enableButton.setAttribute(
+                    "aria-describedby",
+                    consentStatus.id
+                );
+            }
+        }
+
+        if (disableButton) {
+            disableButton.textContent = deletionFailed
+                ? "Réessayer la suppression de mes données"
+                : "Désactiver la sauvegarde et effacer mes données";
+
+            disableButton.disabled =
+                !active && !deletionFailed;
+
+            if (note) {
+                disableButton.setAttribute(
+                    "aria-describedby",
+                    note.id
+                );
+            }
         }
     }
 
@@ -409,10 +610,19 @@
 
         if (!toast) return;
 
-        $("kingdom-toast-title").textContent = title;
-        $("kingdom-toast-message").textContent = message;
+        const toastTitle = $("kingdom-toast-title");
+        const toastMessage = $("kingdom-toast-message");
+
+        if (!toastTitle || !toastMessage) return;
+
+        toast.setAttribute("role", "status");
+        toast.setAttribute("aria-live", "polite");
+        toast.setAttribute("aria-atomic", "true");
 
         toast.hidden = false;
+
+        toastTitle.textContent = title;
+        toastMessage.textContent = message;
 
         clearTimeout(toastTimer);
 
@@ -428,9 +638,13 @@
     function createParticles() {
         const container = $("kingdom-particles");
 
-        if (!container || reducedMotion) return;
+        if (!container) return;
+
+        container.setAttribute("aria-hidden", "true");
 
         container.replaceChildren();
+
+        if (reducedMotion) return;
 
         const count = window.innerWidth < 600 ? 24 : 55;
 
@@ -473,16 +687,29 @@
     ========================================== */
 
     $("enter-kingdom")?.addEventListener("click", () => {
-        const door = $("enchanted-door");
+        const door =
+            $("enchanted-door") ||
+            document.querySelector(".enchanted-door");
+
         const button = $("enter-kingdom");
 
-        door.classList.add("is-open");
+        const introduction = $("kingdom-introduction");
+
+        if (!button || !introduction) return;
+
+        door?.classList.add("is-open");
 
         button.textContent = "Bienvenue dans le royaume";
         button.disabled = true;
 
         setTimeout(() => {
-            $("kingdom-introduction").scrollIntoView({
+            introduction.setAttribute("tabindex", "-1");
+
+            introduction.focus({
+                preventScroll: true
+            });
+
+            introduction.scrollIntoView({
                 behavior: reducedMotion ? "auto" : "smooth"
             });
 
@@ -499,12 +726,19 @@
         event => {
             event.preventDefault();
 
+            const input = $("kingdom-name");
+
+            if (!input) return;
+
             const name = cleanText(
-                $("kingdom-name").value,
+                input.value,
                 30
             );
 
-            if (!name) return;
+            if (!name) {
+                input.focus();
+                return;
+            }
 
             state.name = name;
 
@@ -513,9 +747,16 @@
             renderIdentity();
             renderCertificate();
 
-            $("kingdom-name-message").textContent = saved
-                ? `Bienvenue dans votre royaume, ${name}.`
-                : `Bienvenue, ${name}. Activez la sauvegarde pour conserver votre prénom.`;
+            const message = $("kingdom-name-message");
+
+            if (message) {
+                message.setAttribute("role", "status");
+                message.setAttribute("aria-live", "polite");
+
+                message.textContent = saved
+                    ? `Bienvenue dans votre royaume, ${name}.`
+                    : `Bienvenue, ${name}. Activez la sauvegarde pour conserver votre prénom.`;
+            }
 
             showToast(
                 "Votre identité",
@@ -542,13 +783,23 @@
         });
 
     function renderIdentity() {
-        $("kingdom-name").value = state.name;
+        const input = $("kingdom-name");
+        const owner = $("medallion-owner");
+        const emblem = $("medallion-emblem");
 
-        $("medallion-owner").textContent =
-            state.name || "Votre royaume";
+        if (input) {
+            input.value = state.name;
+        }
 
-        $("medallion-emblem").textContent =
-            emblemSymbols[state.emblem];
+        if (owner) {
+            owner.textContent =
+                state.name || "Votre royaume";
+        }
+
+        if (emblem) {
+            emblem.textContent =
+                emblemSymbols[state.emblem];
+        }
 
         const identitySymbol = document.querySelector(
             ".identity-medallion span"
@@ -568,9 +819,7 @@
                     )
                 );
             });
-    }
-
-    /* =========================================
+    }    /* =========================================
        COMPAGNON
     ========================================== */
 
@@ -593,7 +842,7 @@
                 saveState();
                 renderCompanion();
 
-                $("companion-name").focus();
+                $("companion-name")?.focus();
             });
         });
 
@@ -604,12 +853,19 @@
 
             if (!state.companion) return;
 
+            const input = $("companion-name");
+
+            if (!input) return;
+
             state.companionName = cleanText(
-                $("companion-name").value,
+                input.value,
                 25
             );
 
-            if (!state.companionName) return;
+            if (!state.companionName) {
+                input.focus();
+                return;
+            }
 
             saveState();
             renderCompanion();
@@ -639,7 +895,12 @@
         $("companion-name").value =
             state.companionName;
 
-        $("companion-message").textContent =
+        const message = $("companion-message");
+
+        message.setAttribute("role", "status");
+        message.setAttribute("aria-live", "polite");
+
+        message.textContent =
             state.companionName
                 ? `${state.companionName} vous attend sur les chemins du royaume.`
                 : state.companion
@@ -655,6 +916,11 @@
         const container = $("medallion-gems");
 
         container.replaceChildren();
+
+        container.setAttribute(
+            "aria-hidden",
+            "true"
+        );
 
         treasures.forEach((treasure, index) => {
             const angle =
@@ -728,9 +994,31 @@
         $("kingdom-progress-fill").style.width =
             `${percent}%`;
 
-        $("kingdom-progress-track").setAttribute(
+        const progressTrack = $("kingdom-progress-track");
+
+        progressTrack.setAttribute(
+            "role",
+            "progressbar"
+        );
+
+        progressTrack.setAttribute(
+            "aria-valuemin",
+            "0"
+        );
+
+        progressTrack.setAttribute(
+            "aria-valuemax",
+            String(treasures.length)
+        );
+
+        progressTrack.setAttribute(
             "aria-valuenow",
             String(count)
+        );
+
+        progressTrack.setAttribute(
+            "aria-valuetext",
+            `${count} fragments sur ${treasures.length}`
         );
 
         const remaining = treasures.length - count;
@@ -744,9 +1032,33 @@
 
         document.querySelectorAll("[data-milestone]")
             .forEach(item => {
+                const milestone = Number(
+                    item.dataset.milestone
+                );
+
+                const reached = count >= milestone;
+
                 item.classList.toggle(
                     "is-unlocked",
-                    count >= Number(item.dataset.milestone)
+                    reached
+                );
+
+                /*
+                 * Compatibilité avec passeport.css.
+                 */
+
+                item.classList.toggle(
+                    "is-reached",
+                    reached
+                );
+
+                item.setAttribute(
+                    "aria-label",
+                    `${milestone} fragments — ${
+                        reached
+                            ? "Palier atteint"
+                            : "Palier à atteindre"
+                    }`
                 );
             });
     }
@@ -907,7 +1219,8 @@
         if (locked) {
             return `
                 <svg viewBox="0 0 120 120"
-                     aria-hidden="true">
+                     aria-hidden="true"
+                     focusable="false">
                     <path d="M60 12L98 60
                         L60 108L22 60Z"
                         fill="#3e2b3d"
@@ -929,7 +1242,8 @@
 
         return `
             <svg viewBox="0 0 120 120"
-                 aria-hidden="true">
+                 aria-hidden="true"
+                 focusable="false">
                 <g fill="${color}"
                    stroke="#c4a477"
                    stroke-width="2.5"
@@ -964,10 +1278,22 @@
         image.src = `fragment-${treasure.id}.webp`;
         image.alt = treasure.name;
         image.loading = "lazy";
+        image.decoding = "async";
 
         image.addEventListener("error", () => {
+
+            /*
+             * Ne pas remplacer une illustration
+             * si le contenu a changé entre-temps.
+             */
+
+            if (image.parentElement !== container) {
+                return;
+            }
+
             container.innerHTML =
                 createTreasureSVG(treasure);
+
         }, { once: true });
 
         container.appendChild(image);
@@ -979,6 +1305,16 @@
 
     function renderTreasures() {
         const grid = $("treasure-grid");
+
+        /*
+         * Conserver le focus clavier si le coffret
+         * est actualisé pendant son utilisation.
+         */
+
+        const focusedTreasure =
+            grid.contains(document.activeElement)
+                ? document.activeElement.dataset.treasureId
+                : null;
 
         grid.replaceChildren();
 
@@ -992,9 +1328,16 @@
             card.type = "button";
 
             card.className =
-                `treasure-card ${discovered
+                `treasure-card treasure-item ${discovered
                     ? "is-discovered"
                     : "is-locked"}`;
+
+            card.dataset.treasureId = treasure.id;
+
+            card.style.setProperty(
+                "--treasure-color",
+                treasure.color
+            );
 
             card.setAttribute(
                 "aria-label",
@@ -1005,9 +1348,24 @@
                 }`
             );
 
+            card.setAttribute(
+                "aria-haspopup",
+                "dialog"
+            );
+
+            card.setAttribute(
+                "aria-controls",
+                "treasure-dialog"
+            );
+
             const visual = document.createElement("div");
 
             visual.className = "treasure-object";
+
+            visual.setAttribute(
+                "aria-hidden",
+                "true"
+            );
 
             renderTreasureVisual(
                 visual,
@@ -1033,6 +1391,18 @@
 
             grid.appendChild(card);
         });
+
+        if (focusedTreasure) {
+            const restoredButton = Array.from(
+                grid.querySelectorAll("[data-treasure-id]")
+            ).find(button =>
+                button.dataset.treasureId === focusedTreasure
+            );
+
+            restoredButton?.focus({
+                preventScroll: true
+            });
+        }
     }
 
     function openTreasure(treasure) {
@@ -1065,9 +1435,7 @@
                 : "Fragment non découvert";
 
         openDialog("treasure-dialog");
-    }
-
-    /* =========================================
+    }    /* =========================================
        LIEUX ENCHANTÉS
     ========================================== */
 
@@ -1133,11 +1501,23 @@
                     "[data-open-location]"
                 );
 
+                if (!button) return;
+
                 button.disabled = !unlocked;
 
                 button.textContent = unlocked
                     ? "Explorer ce lieu"
                     : `${required} fragments nécessaires`;
+
+                button.setAttribute(
+                    "aria-haspopup",
+                    "dialog"
+                );
+
+                button.setAttribute(
+                    "aria-controls",
+                    "location-dialog"
+                );
             });
     }
 
@@ -1164,8 +1544,17 @@
         $("location-dialog-description").textContent =
             location.description;
 
-        $("location-dialog-image").style.backgroundImage =
+        const image = $("location-dialog-image");
+
+        image.style.backgroundImage =
             `url("${location.image}")`;
+
+        image.setAttribute("role", "img");
+
+        image.setAttribute(
+            "aria-label",
+            location.title
+        );
 
         const interaction = $("location-interaction");
 
@@ -1205,17 +1594,39 @@
         button.className = "kingdom-button";
         button.textContent = "Décacheter la lettre";
 
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        button.setAttribute(
+            "aria-controls",
+            "library-secret-letter"
+        );
+
         const letter = document.createElement("div");
 
         letter.className = "location-letter";
+        letter.id = "library-secret-letter";
         letter.hidden = true;
+        letter.tabIndex = -1;
 
         letter.textContent =
             "Il n'est pas nécessaire de changer le monde entier pour faire une différence. Parfois, changer un seul instant dans la vie d'une petite âme suffit.";
 
         button.addEventListener("click", () => {
             letter.hidden = false;
+
+            button.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+
             button.hidden = true;
+
+            letter.focus({
+                preventScroll: true
+            });
 
             unlockReward("library-letter");
         });
@@ -1236,11 +1647,28 @@
 
         const buttons = document.createElement("div");
 
-        buttons.className = "butterfly-buttons";
+        buttons.className =
+            "butterfly-buttons butterfly-options";
+
+        buttons.setAttribute("role", "group");
+
+        buttons.setAttribute(
+            "aria-label",
+            "Les trois fleurs de la serre"
+        );
 
         const message = document.createElement("div");
 
         message.className = "location-letter";
+
+        message.id = "greenhouse-message";
+
+        message.setAttribute("role", "status");
+
+        message.setAttribute("aria-live", "polite");
+
+        message.setAttribute("aria-atomic", "true");
+
         message.textContent =
             "Choisissez l'une des trois fleurs.";
 
@@ -1248,11 +1676,17 @@
             const button = document.createElement("button");
 
             button.type = "button";
+            button.className = "butterfly-button";
             button.textContent = "❀";
 
             button.setAttribute(
                 "aria-label",
                 `Découvrir la fleur ${index + 1}`
+            );
+
+            button.setAttribute(
+                "aria-controls",
+                message.id
             );
 
             button.addEventListener("click", () => {
@@ -1278,6 +1712,11 @@
 
         scene.className = "lantern-scene";
 
+        scene.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
         const textarea = document.createElement("textarea");
 
         textarea.className = "location-wish";
@@ -1289,10 +1728,32 @@
             "Votre souhait personnel"
         );
 
+        textarea.setAttribute(
+            "aria-describedby",
+            "lake-wish-note"
+        );
+
+        textarea.setAttribute(
+            "autocomplete",
+            "off"
+        );
+
         const note = document.createElement("p");
+
+        note.id = "lake-wish-note";
 
         note.textContent =
             "Votre souhait n'est ni enregistré ni envoyé.";
+
+        const message = document.createElement("p");
+
+        message.setAttribute("role", "status");
+
+        message.setAttribute("aria-live", "polite");
+
+        message.setAttribute("aria-atomic", "true");
+
+        message.hidden = true;
 
         const button = document.createElement("button");
 
@@ -1314,7 +1775,9 @@
 
             textarea.value = "";
 
-            note.textContent =
+            message.hidden = false;
+
+            message.textContent =
                 "Votre souhait s'éloigne doucement vers l'horizon.";
 
             unlockReward("lake-lantern");
@@ -1328,7 +1791,8 @@
             scene,
             note,
             textarea,
-            button
+            button,
+            message
         );
     }
 
@@ -1339,7 +1803,7 @@
     function createSpringInteraction(container) {
         const water = document.createElement("div");
 
-        water.className = "spring-water";
+        water.className = "spring-water spring-pool";
 
         const button = document.createElement("button");
 
@@ -1351,17 +1815,51 @@
             "Toucher la surface de l'eau"
         );
 
+        button.setAttribute(
+            "aria-controls",
+            "spring-discovery-message"
+        );
+
         const message = document.createElement("p");
+
+        message.id = "spring-discovery-message";
+
+        message.setAttribute("role", "status");
+
+        message.setAttribute("aria-live", "polite");
+
+        message.setAttribute("aria-atomic", "true");
 
         message.textContent =
             "Touchez la lumière à la surface de l'eau.";
+
+        let rippleTimer;
 
         button.addEventListener("click", () => {
             const ripple = document.createElement("span");
 
             ripple.className = "water-ripple";
 
-            water.appendChild(ripple);
+            ripple.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            if (!reducedMotion) {
+                water.appendChild(ripple);
+
+                water.classList.remove("is-rippling");
+
+                void water.offsetWidth;
+
+                water.classList.add("is-rippling");
+
+                clearTimeout(rippleTimer);
+
+                rippleTimer = setTimeout(() => {
+                    water.classList.remove("is-rippling");
+                }, 2100);
+            }
 
             button.textContent = "◇";
 
@@ -1371,7 +1869,9 @@
             const fresh = unlockReward("spring-crystal");
 
             if (fresh) {
-                celebrate(25);
+                if (!reducedMotion) {
+                    celebrate(25);
+                }
 
                 showToast(
                     "Trésor secret",
@@ -1422,11 +1922,25 @@
         button.addEventListener("click", () => {
             closeDialog("location-dialog");
 
-            $("kingdom-reward").scrollIntoView({
-                behavior: reducedMotion ? "auto" : "smooth"
-            });
+            const reward = $("recompense-finale");
 
-            celebrate(45);
+            if (reward) {
+                reward.setAttribute("tabindex", "-1");
+
+                reward.focus({
+                    preventScroll: true
+                });
+
+                reward.scrollIntoView({
+                    behavior: reducedMotion
+                        ? "auto"
+                        : "smooth"
+                });
+            }
+
+            if (!reducedMotion) {
+                celebrate(45);
+            }
         });
 
         container.append(letter, button);
@@ -1476,8 +1990,18 @@
     document.querySelectorAll("[data-atmosphere]")
         .forEach(button => {
             button.addEventListener("click", () => {
-                state.atmosphere =
+                const atmosphere =
                     button.dataset.atmosphere;
+
+                if (![
+                    "auto",
+                    "day",
+                    "night"
+                ].includes(atmosphere)) {
+                    return;
+                }
+
+                state.atmosphere = atmosphere;
 
                 saveState();
                 applyAtmosphere();
@@ -1488,9 +2012,7 @@
         if (state.atmosphere === "auto") {
             applyAtmosphere();
         }
-    }, 60000);
-
-    /* =========================================
+    }, 60000);    /* =========================================
        CERTIFICAT
     ========================================== */
 
@@ -1514,21 +2036,40 @@
             saveState();
         }
 
-        $("kingdom-certificate").classList.toggle(
+        const certificate = $("kingdom-certificate");
+
+        const lock = $("certificate-lock");
+
+        const name = $("certificate-name");
+
+        const date = $("certificate-date");
+
+        const downloadButton = $("download-certificate");
+
+        certificate?.classList.toggle(
             "is-unlocked",
             complete
         );
 
-        $("certificate-name").textContent =
-            state.name || "Une âme bienveillante";
+        if (lock) {
+            lock.hidden = complete;
+        }
 
-        $("certificate-date").textContent =
-            complete
-                ? formatDate(state.completedAt)
-                : "Votre date de découverte";
+        if (name) {
+            name.textContent =
+                state.name || "Une âme bienveillante";
+        }
 
-        $("download-certificate").disabled =
-            !complete;
+        if (date) {
+            date.textContent =
+                complete
+                    ? formatDate(state.completedAt)
+                    : "Votre date de découverte";
+        }
+
+        if (downloadButton) {
+            downloadButton.disabled = !complete;
+        }
     }
 
     $("download-certificate")?.addEventListener(
@@ -1548,7 +2089,14 @@
 
         const ctx = canvas.getContext("2d");
 
-        if (!ctx) return;
+        if (!ctx) {
+            showToast(
+                "Téléchargement indisponible",
+                "Votre navigateur ne permet pas de créer le certificat."
+            );
+
+            return;
+        }
 
         const w = canvas.width;
         const h = canvas.height;
@@ -1655,7 +2203,14 @@
         ctx.fillText("Avec le cœur, Cœur Errant", 800, 970);
 
         canvas.toBlob(blob => {
-            if (!blob) return;
+            if (!blob) {
+                showToast(
+                    "Téléchargement impossible",
+                    "Le certificat n'a pas pu être créé. Veuillez réessayer."
+                );
+
+                return;
+            }
 
             const url = URL.createObjectURL(blob);
 
@@ -1679,35 +2234,72 @@
        SECRET FACULTATIF
     ========================================== */
 
-    $("kingdom-secret")?.addEventListener("click", () => {
-        const message = $("kingdom-secret-message");
+    const secretButton = $("kingdom-secret");
 
-        message.hidden = !message.hidden;
+    const secretMessage = $("kingdom-secret-message");
 
-        if (!state.secretFound) {
-            state.secretFound = true;
+    if (secretButton && secretMessage) {
+        secretButton.setAttribute(
+            "aria-controls",
+            secretMessage.id
+        );
 
-            saveState();
+        secretButton.setAttribute(
+            "aria-expanded",
+            String(!secretMessage.hidden)
+        );
 
-            showToast(
-                "Un secret découvert",
-                "Les âmes curieuses trouvent parfois les plus belles surprises."
+        secretMessage.setAttribute(
+            "aria-live",
+            "polite"
+        );
+
+        secretButton.addEventListener("click", () => {
+            secretMessage.hidden =
+                !secretMessage.hidden;
+
+            secretButton.setAttribute(
+                "aria-expanded",
+                String(!secretMessage.hidden)
             );
-        }
-    });
+
+            if (!state.secretFound) {
+                state.secretFound = true;
+
+                saveState();
+
+                showToast(
+                    "Un secret découvert",
+                    "Les âmes curieuses trouvent parfois les plus belles surprises."
+                );
+            }
+        });
+    }
 
     /* =========================================
        FENÊTRES
     ========================================== */
 
-    let previousFocus = null;
+    const dialogFocus = new WeakMap();
 
     function openDialog(id) {
         const dialog = $(id);
 
         if (!dialog || dialog.open) return;
 
-        previousFocus = document.activeElement;
+        if (typeof dialog.showModal !== "function") {
+            showToast(
+                "Fenêtre indisponible",
+                "Votre navigateur ne permet pas d'ouvrir cette fenêtre."
+            );
+
+            return;
+        }
+
+        dialogFocus.set(
+            dialog,
+            document.activeElement
+        );
 
         dialog.showModal();
     }
@@ -1723,16 +2315,60 @@
     document.querySelectorAll("[data-close-dialog]")
         .forEach(button => {
             button.addEventListener("click", () => {
-                closeDialog(
-                    button.dataset.closeDialog
-                );
+                const id = button.dataset.closeDialog;
+
+                if (id) {
+                    closeDialog(id);
+                } else {
+                    button.closest("dialog")?.close();
+                }
             });
         });
 
     document.querySelectorAll(".kingdom-dialog")
         .forEach(dialog => {
             dialog.addEventListener("close", () => {
-                previousFocus?.focus();
+                const previousFocus =
+                    dialogFocus.get(dialog);
+
+                dialogFocus.delete(dialog);
+
+                /*
+                 * Ne pas déplacer le focus si une autre
+                 * interaction l'a déjà placé ailleurs.
+                 */
+
+                const active = document.activeElement;
+
+                if (
+                    active === document.body ||
+                    active === dialog ||
+                    dialog.contains(active)
+                ) {
+                    if (
+                        previousFocus?.isConnected &&
+                        !previousFocus.disabled
+                    ) {
+                        previousFocus.focus({
+                            preventScroll: true
+                        });
+                    }
+                }
+
+                /*
+                 * Le souhait personnel du lac
+                 * ne doit pas rester dans la fenêtre.
+                 */
+
+                if (dialog.id === "location-dialog") {
+                    const wish = dialog.querySelector(
+                        ".location-wish"
+                    );
+
+                    if (wish) {
+                        wish.value = "";
+                    }
+                }
             });
 
             dialog.addEventListener("click", event => {
@@ -1761,6 +2397,11 @@
 
         if (!container || reducedMotion) return;
 
+        container.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
         const symbols = ["✧", "❀", "♡", "◇"];
 
         const colors = [
@@ -1773,35 +2414,82 @@
         for (let i = 0; i < amount; i++) {
             const piece = document.createElement("span");
 
-            piece.className = "celebration-piece";
+            piece.className =
+                "celebration-piece celebration-particle";
 
             piece.textContent =
                 symbols[i % symbols.length];
 
+            piece.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            const x = `${Math.random() * 100}%`;
+
+            const color =
+                colors[i % colors.length];
+
+            const size =
+                `${10 + Math.random() * 16}px`;
+
+            const duration =
+                `${3 + Math.random() * 3}s`;
+
+            const delay =
+                `${Math.random() * 1.5}s`;
+
             piece.style.setProperty(
                 "--piece-x",
-                `${Math.random() * 100}%`
+                x
             );
 
             piece.style.setProperty(
                 "--piece-color",
-                colors[i % colors.length]
+                color
             );
 
             piece.style.setProperty(
                 "--piece-size",
-                `${10 + Math.random() * 16}px`
+                size
             );
 
             piece.style.setProperty(
                 "--piece-duration",
-                `${3 + Math.random() * 3}s`
+                duration
             );
 
             piece.style.setProperty(
                 "--piece-delay",
-                `${Math.random() * 1.5}s`
+                delay
             );
+
+            /*
+             * Compatibilité avec les classes CSS
+             * utilisées dans les parties précédentes.
+             */
+
+            piece.style.setProperty(
+                "--celebration-x",
+                x
+            );
+
+            piece.style.setProperty(
+                "--celebration-color",
+                color
+            );
+
+            piece.style.setProperty(
+                "--celebration-size",
+                size
+            );
+
+            piece.style.setProperty(
+                "--celebration-duration",
+                duration
+            );
+
+            piece.style.animationDelay = delay;
 
             container.appendChild(piece);
 
@@ -1815,6 +2503,44 @@
        RÉINITIALISATION
     ========================================== */
 
+    function clearAdventureInterface() {
+        const message = $("kingdom-secret-message");
+
+        const button = $("kingdom-secret");
+
+        const nameMessage = $("kingdom-name-message");
+
+        const celebration = $("kingdom-celebration");
+
+        if (message) {
+            message.hidden = true;
+        }
+
+        if (button) {
+            button.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        }
+
+        if (nameMessage) {
+            nameMessage.textContent = "";
+        }
+
+        if (celebration) {
+            celebration.replaceChildren();
+        }
+
+        const interaction = $("location-interaction");
+
+        if (interaction) {
+            interaction.replaceChildren();
+        }
+
+        closeDialog("treasure-dialog");
+        closeDialog("location-dialog");
+    }
+
     $("reset-kingdom")?.addEventListener("click", () => {
         openDialog("kingdom-reset-dialog");
     });
@@ -1824,21 +2550,40 @@
         () => {
             state = createState();
 
+            let resetSaved = true;
+
             if (hasConsent()) {
-                saveState();
+                /*
+                 * Réinitialiser la progression sans
+                 * retirer le consentement existant.
+                 */
+
+                resetSaved = saveState();
+            } else if (deletionFailed) {
+                resetSaved = removeStoredAdventure();
             }
 
-            $("kingdom-secret-message").hidden = true;
-            $("kingdom-name-message").textContent = "";
+            clearAdventureInterface();
 
             renderAll();
 
+            updateStorageNote();
+
+            notifyPassportUpdate();
+
             closeDialog("kingdom-reset-dialog");
 
-            showToast(
-                "Une nouvelle aventure",
-                "Votre royaume est prêt à être redécouvert."
-            );
+            if (resetSaved) {
+                showToast(
+                    "Une nouvelle aventure",
+                    "Votre royaume est prêt à être redécouvert."
+                );
+            } else {
+                showToast(
+                    "Réinitialisation incomplète",
+                    "Votre aventure actuelle a été réinitialisée, mais la suppression de l'ancienne sauvegarde n'a pas pu être confirmée."
+                );
+            }
         }
     );
 
@@ -1873,6 +2618,56 @@
             .forEach(section => {
                 observer.observe(section);
             });
+
+        /*
+         * Rendre immédiatement visible une section
+         * atteinte au clavier.
+         */
+
+        page.addEventListener("focusin", event => {
+            const section = event.target.closest(
+                ".kingdom-reveal"
+            );
+
+            if (!section) return;
+
+            section.classList.add("is-visible");
+
+            observer.unobserve(section);
+        });
+
+        function revealHashTarget() {
+            if (!window.location.hash) return;
+
+            let id;
+
+            try {
+                id = decodeURIComponent(
+                    window.location.hash.slice(1)
+                );
+            } catch {
+                return;
+            }
+
+            const target = $(id);
+
+            const section = target?.closest(
+                ".kingdom-reveal"
+            );
+
+            if (!section) return;
+
+            section.classList.add("is-visible");
+
+            observer.unobserve(section);
+        }
+
+        revealHashTarget();
+
+        window.addEventListener(
+            "hashchange",
+            revealHashTarget
+        );
     }
 
     /* =========================================
@@ -1900,6 +2695,7 @@
 
         if (
             treasure &&
+            hasConsent() &&
             state.stamps.includes(id)
         ) {
             showToast(
@@ -1926,12 +2722,86 @@
        SYNCHRONISATION LOCALE
     ========================================== */
 
-    function refreshState() {
-        if (hasConsent()) {
-            state = readState();
+    let previousConsent = hasConsent();
 
-            renderAll();
+    function refreshState() {
+        let active;
+
+        try {
+            active =
+                localStorage.getItem(CONSENT_KEY) === "yes";
+
+            storageAvailable = true;
+        } catch {
+            storageAvailable = false;
+
+            updateStorageNote();
+
+            return;
         }
+
+        /*
+         * Si une suppression a échoué, ne pas
+         * restaurer les données potentiellement restantes.
+         */
+
+        if (deletionFailed) {
+            consentBlocked = true;
+
+            updateStorageNote();
+
+            return;
+        }
+
+        if (active) {
+            consentBlocked = false;
+
+            const nextState = readState();
+
+            const changed =
+                JSON.stringify(nextState) !==
+                JSON.stringify(state);
+
+            if (changed) {
+                const reset =
+                    nextState.stamps.length <
+                    state.stamps.length ||
+                    (
+                        state.secretFound &&
+                        !nextState.secretFound
+                    );
+
+                state = nextState;
+
+                if (reset) {
+                    clearAdventureInterface();
+                }
+
+                renderAll();
+            }
+        } else {
+            consentBlocked = true;
+
+            /*
+             * Le retrait du consentement depuis
+             * un autre onglet réinitialise le royaume.
+             *
+             * Sans consentement préalable, conserver
+             * la progression temporaire en mémoire.
+             */
+
+            if (previousConsent) {
+                state = createState();
+
+                clearAdventureInterface();
+
+                renderAll();
+            }
+        }
+
+        previousConsent = active;
+
+        updateStorageNote();
     }
 
     window.addEventListener("storage", event => {
@@ -1940,18 +2810,44 @@
             event.key === CONSENT_KEY ||
             event.key === null
         ) {
-            state = readState();
-
-            renderAll();
-            updateStorageNote();
+            refreshState();
         }
     });
+
+    /*
+     * Actualiser le statut après une modification
+     * réalisée dans cette même page.
+     */
+
+    window.addEventListener(
+        "coeur-errant-passport-updated",
+        () => {
+            previousConsent = hasConsent();
+
+            updateStorageNote();
+        }
+    );
 
     window.addEventListener("pageshow", event => {
         if (event.persisted) {
             refreshState();
         }
     });
+
+    window.addEventListener("focus", () => {
+        refreshState();
+    });
+
+    document.addEventListener(
+        "visibilitychange",
+        () => {
+            if (
+                document.visibilityState === "visible"
+            ) {
+                refreshState();
+            }
+        }
+    );
 
     /* =========================================
        INITIALISATION
@@ -1966,6 +2862,17 @@
         renderLocations();
         renderCertificate();
         applyAtmosphere();
+
+        const button = $("kingdom-secret");
+
+        const message = $("kingdom-secret-message");
+
+        if (button && message) {
+            button.setAttribute(
+                "aria-expanded",
+                String(!message.hidden)
+            );
+        }
     }
 
     setupStorageConsent();

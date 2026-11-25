@@ -1,28 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>La mission — Cœur Errant</title>
 
-  <meta name="description"
-        content="Découvrez la mission de Cœur Errant et entrez dans le quotidien des animaux errants. Ensemble, changeons leur monde, un petit geste à la fois.">
-
+  <meta name="description" content="Découvrez la mission de Cœur Errant et entrez dans le quotidien des animaux errants. Ensemble, changeons leur monde, un petit geste à la fois.">
   <meta name="theme-color" content="#faf8f5">
+  <meta name="author" content="Cœur Errant">
+  <meta name="robots" content="index, follow">
 
-  <link rel="icon" href="logo.jpeg">
+  <link rel="canonical" href="https://coeurerrant.github.io/Coeur-errant/mission.html">
+  <link rel="alternate" hreflang="fr" href="https://coeurerrant.github.io/Coeur-errant/mission.html">
+  <link rel="alternate" hreflang="nl" href="https://coeurerrant.github.io/Coeur-errant/mission-nl.html">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cœur Errant">
+  <meta property="og:locale" content="fr_BE">
+  <meta property="og:title" content="La mission — Cœur Errant">
+  <meta property="og:description" content="Et si on changeait leur monde ? Découvrez la mission de Cœur Errant.">
+  <meta property="og:image" content="https://coeurerrant.github.io/Coeur-errant/hero2.jpeg">
+  <meta property="og:url" content="https://coeurerrant.github.io/Coeur-errant/mission.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="La mission — Cœur Errant">
+  <meta name="twitter:description" content="Ensemble, changeons leur monde, un petit geste à la fois.">
+  <meta name="twitter:image" content="https://coeurerrant.github.io/Coeur-errant/hero2.jpeg">
+
+  <link rel="icon" type="image/jpeg" href="logo.jpeg">
+  <link rel="apple-touch-icon" href="logo.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="accueil-v2.css">
   <link rel="stylesheet" href="mission.css">
+  <link rel="stylesheet" href="global.css">
 
+  <script src="global.js" defer></script>
 </head>
 
 <body>
@@ -31,9 +49,9 @@
      NAVIGATION
      ====================================== -->
 
-<nav>
+<nav aria-label="Navigation principale">
 
-  <a class="nav-logo" href="index.html">
+  <a class="nav-logo" href="index.html" aria-label="Cœur Errant — Accueil">
     <img src="logo.jpeg" alt="Cœur Errant">
   </a>
 
@@ -41,41 +59,34 @@
 
     <li><a href="index.html">Accueil</a></li>
 
-    <li><a href="index.html#histoire">Mon histoire</a></li>
-
     <li>
-      <a href="mission.html" aria-current="page">
+      <a href="mission.html" class="active" aria-current="page">
         La mission
       </a>
     </li>
 
     <li><a href="voyages.html">Voyages</a></li>
-    <li><a href="passeport.html">Mon passeport</a></li>
-
     <li><a href="livres.html">Mes livres</a></li>
-
     <li><a href="etoiles.html">Nos étoiles</a></li>
-
+    <li><a href="agir.html">Comment agir</a></li>
+    <li><a href="passeport.html">Le Royaume</a></li>
     <li><a href="soutenir.html">Soutenir</a></li>
 
     <li class="lang-mobile">
-      <a href="mission-nl.html">Nederlands</a>
+      <a href="mission-nl.html" lang="nl">Nederlands</a>
     </li>
 
   </ul>
 
   <div class="lang-switcher">
-
-    <a href="mission.html" class="lang-btn active">FR</a>
-
-    <span class="lang-sep">|</span>
-
-    <a href="mission-nl.html" class="lang-btn">NL</a>
-
+    <a href="mission.html" class="lang-btn active" lang="fr">FR</a>
+    <span class="lang-sep" aria-hidden="true">|</span>
+    <a href="mission-nl.html" class="lang-btn" lang="nl">NL</a>
   </div>
 
   <button class="hamburger"
           id="hamburger"
+          type="button"
           onclick="toggleMenu()"
           aria-label="Ouvrir le menu"
           aria-controls="nav-links"
@@ -89,9 +100,7 @@
 
 </nav>
 
-
 <main class="mission-page">
-
 
   <!-- ======================================
        INTRODUCTION IMMERSIVE
@@ -100,67 +109,51 @@
   <section class="mission-opening">
 
     <div class="mission-opening-image">
-
       <img src="hero2.jpeg"
-           alt="Une rencontre au cœur de mon engagement pour les animaux">
-
+           alt="Une rencontre au cœur de mon engagement pour les animaux"
+           fetchpriority="high">
     </div>
 
     <div class="mission-opening-overlay"></div>
 
     <div class="mission-floating-paws" aria-hidden="true">
-
       <span>🐾</span>
       <span>🐾</span>
       <span>🐾</span>
       <span>🐾</span>
       <span>🐾</span>
-
     </div>
 
     <div class="mission-opening-content">
 
       <p class="mission-label mission-enter">
-
         Un engagement sans frontières
-
       </p>
 
       <h1 class="mission-enter mission-delay-one">
-
         Et si on changeait<br>
-
         <em>leur monde ?</em>
-
       </h1>
 
       <div class="mission-opening-words">
 
         <p class="mission-enter mission-delay-two">
-
           Ils n'ont pas choisi la rue.
-
         </p>
 
         <p class="mission-enter mission-delay-three">
-
           Ils n'ont pas choisi la solitude.
-
         </p>
 
         <p class="mission-enter mission-delay-four">
-
           Mais nous pouvons choisir de les regarder.
-
         </p>
 
       </div>
 
       <a href="#dans-leurs-pattes"
          class="mission-button mission-enter mission-delay-five">
-
         Voir le monde autrement ♡
-
       </a>
 
     </div>
@@ -168,38 +161,29 @@
     <a href="#dans-leurs-pattes"
        class="mission-scroll"
        aria-label="Découvrir la mission">
-
       ↓
-
     </a>
 
   </section>
-
 
   <!-- ======================================
        UNE JOURNÉE DANS LEURS PATTES
        ====================================== -->
 
-  <section class="animal-day-section"
-           id="dans-leurs-pattes">
+  <section class="animal-day-section" id="dans-leurs-pattes">
 
     <div class="mission-heading mission-reveal">
 
       <p class="mission-label">
-
         Une expérience pour comprendre
-
       </p>
 
       <h2>
-
         Une journée
         <em>dans leurs pattes.</em>
-
       </h2>
 
       <p>
-
         Pour nous, une journée commence souvent
         avec un petit-déjeuner, un toit et des projets.
 
@@ -207,15 +191,14 @@
         avec une seule question.
 
         Comment survivre aujourd'hui ?
-
       </p>
 
     </div>
 
-
     <div class="animal-experience mission-reveal">
 
-      <div class="animal-landscape" id="animal-landscape"
+      <div class="animal-landscape"
+           id="animal-landscape"
            data-period="morning">
 
         <svg class="landscape-svg"
@@ -226,8 +209,7 @@
           <defs>
 
             <linearGradient id="sky-gradient"
-                            x1="0" y1="0"
-                            x2="0" y2="1">
+                            x1="0" y1="0" x2="0" y2="1">
 
               <stop class="sky-top"
                     offset="0%"
@@ -240,8 +222,7 @@
             </linearGradient>
 
             <linearGradient id="ground-gradient"
-                            x1="0" y1="0"
-                            x2="0" y2="1">
+                            x1="0" y1="0" x2="0" y2="1">
 
               <stop offset="0%" stop-color="#c1a38b"/>
               <stop offset="100%" stop-color="#927764"/>
@@ -262,18 +243,15 @@
 
           </defs>
 
-
           <!-- CIEL -->
 
           <rect width="1000"
                 height="450"
                 fill="url(#sky-gradient)"/>
 
-
           <!-- ÉTOILES DE LA NUIT -->
 
-          <g class="landscape-stars"
-             fill="#fff5dc">
+          <g class="landscape-stars" fill="#fff5dc">
 
             <circle cx="60" cy="55" r="2"/>
             <circle cx="140" cy="100" r="1.5"/>
@@ -290,7 +268,6 @@
 
           </g>
 
-
           <!-- SOLEIL -->
 
           <g class="landscape-sun" id="landscape-sun">
@@ -303,7 +280,6 @@
 
           </g>
 
-
           <!-- LUNE -->
 
           <g class="landscape-moon">
@@ -311,11 +287,9 @@
             <path d="M790 40
                      A34 34 0 1 0 820 95
                      A29 29 0 0 1 790 40"
-
                   fill="#f8e7c5"/>
 
           </g>
-
 
           <!-- NUAGES -->
 
@@ -339,7 +313,6 @@
 
           </g>
 
-
           <!-- COLLINES -->
 
           <path d="M0 240
@@ -350,10 +323,8 @@
                    L760 155
                    L1000 245
                    V450 H0Z"
-
                 fill="#ad9388"
                 opacity=".45"/>
-
 
           <!-- MAISONS -->
 
@@ -387,21 +358,16 @@
 
               <rect x="35" y="220" width="35" height="45" rx="2"/>
               <rect x="80" y="220" width="30" height="45" rx="2"/>
-
               <rect x="155" y="255" width="30" height="40" rx="2"/>
-
               <rect x="240" y="230" width="32" height="42" rx="2"/>
               <rect x="295" y="230" width="32" height="42" rx="2"/>
-
               <rect x="680" y="240" width="35" height="45" rx="2"/>
-
               <rect x="800" y="205" width="35" height="45" rx="2"/>
               <rect x="860" y="205" width="35" height="45" rx="2"/>
 
             </g>
 
-            <g class="landscape-windows"
-               fill="#f8d28a">
+            <g class="landscape-windows" fill="#f8d28a">
 
               <rect x="35" y="220" width="35" height="45" rx="2"/>
               <rect x="295" y="230" width="32" height="42" rx="2"/>
@@ -410,33 +376,20 @@
 
             </g>
 
-            <path d="M45 360 V315
-                     Q70 280 95 315
-                     V360Z"
-
+            <path d="M45 360 V315 Q70 280 95 315 V360Z"
                   fill="#927564"/>
 
-            <path d="M255 360 V315
-                     Q280 280 305 315
-                     V360Z"
-
+            <path d="M255 360 V315 Q280 280 305 315 V360Z"
                   fill="#a78b75"/>
 
-            <path d="M810 360 V300
-                     Q845 260 880 300
-                     V360Z"
-
+            <path d="M810 360 V300 Q845 260 880 300 V360Z"
                   fill="#9d806b"/>
 
           </g>
 
-
           <!-- SOL -->
 
-          <path d="M0 350
-                   Q500 315 1000 350
-                   V450 H0Z"
-
+          <path d="M0 350 Q500 315 1000 350 V450 H0Z"
                 fill="url(#ground-gradient)"/>
 
           <g stroke="#806c60"
@@ -452,7 +405,6 @@
 
           </g>
 
-
           <!-- PETIT CHIEN -->
 
           <g class="landscape-dog"
@@ -466,9 +418,7 @@
             <!-- Queue -->
 
             <path class="dog-tail"
-                  d="M20 75
-                     Q-15 45 -28 68"
-
+                  d="M20 75 Q-15 45 -28 68"
                   stroke="#86634c"
                   stroke-width="13"
                   stroke-linecap="round"
@@ -521,7 +471,6 @@
             <path d="M94 10
                      Q60 2 80 57
                      Q91 69 105 37Z"
-
                   fill="#86634c"/>
 
             <!-- Museau -->
@@ -551,11 +500,9 @@
 
           </g>
 
-
           <!-- GAMELLE D'EAU -->
 
-          <g id="landscape-water"
-             class="landscape-gift">
+          <g id="landscape-water" class="landscape-gift">
 
             <ellipse cx="660" cy="405"
                      rx="36" ry="8"
@@ -566,7 +513,6 @@
                      L635 403
                      H685
                      L695 382Z"
-
                   fill="#8cabb4"/>
 
             <ellipse cx="660" cy="382"
@@ -579,17 +525,14 @@
 
           </g>
 
-
           <!-- GAMELLE DE NOURRITURE -->
 
-          <g id="landscape-food"
-             class="landscape-gift">
+          <g id="landscape-food" class="landscape-gift">
 
             <path d="M710 382
                      L720 403
                      H770
                      L780 382Z"
-
                   fill="#b77e75"/>
 
             <ellipse cx="745" cy="382"
@@ -608,7 +551,6 @@
 
           </g>
 
-
           <!-- PETITS CŒURS -->
 
           <g id="landscape-love"
@@ -625,20 +567,16 @@
 
           </g>
 
-
           <!-- SYMBOLE DES SOINS -->
 
-          <g id="landscape-care"
-             class="landscape-gift">
+          <g id="landscape-care" class="landscape-gift">
 
             <rect x="300" y="350"
                   width="58" height="48"
                   rx="7"
                   fill="#f5eee3"/>
 
-            <path d="M318 350 V340
-                     H340 V350"
-
+            <path d="M318 350 V340 H340 V350"
                   stroke="#f5eee3"
                   stroke-width="5"
                   fill="none"/>
@@ -655,7 +593,6 @@
 
           </g>
 
-
           <!-- FILTRE NOCTURNE -->
 
           <rect class="landscape-night-overlay"
@@ -666,17 +603,14 @@
 
         </svg>
 
-
         <div class="landscape-clock">
 
           <span id="day-clock">07:00</span>
-
           <span id="day-period">Le matin</span>
 
         </div>
 
       </div>
-
 
       <!-- TEXTE DE L'EXPÉRIENCE -->
 
@@ -687,19 +621,14 @@
              aria-live="polite">
 
           <p class="mission-label" id="day-label">
-
             01 — Le réveil
-
           </p>
 
           <h3 id="day-title">
-
             Une nouvelle journée commence.
-
           </h3>
 
           <p id="day-description">
-
             Il se réveille dans la rue.
 
             Il ne sait pas encore où trouver
@@ -707,20 +636,16 @@
 
             Alors il se remet en marche,
             à la recherche de quelque chose à manger.
-
           </p>
 
         </div>
-
 
         <!-- CURSEUR INTERACTIF -->
 
         <div class="day-slider-container">
 
           <label for="day-slider">
-
             Faites défiler sa journée
-
           </label>
 
           <input type="range"
@@ -782,15 +707,12 @@
     </div>
 
     <p class="experience-note">
-
       Cette scène illustrée est fictive.
       Elle représente quelques-unes des difficultés
       que peuvent rencontrer les animaux des rues.
-
     </p>
 
   </section>
-
 
   <!-- ======================================
        LES PETITS GESTES INTERACTIFS
@@ -801,31 +723,23 @@
     <div class="mission-heading mission-reveal">
 
       <p class="mission-label">
-
         Et si nous pouvions changer sa journée ?
-
       </p>
 
       <h2>
-
         De petits gestes.<br>
-
         <em>De grandes différences.</em>
-
       </h2>
 
       <p>
-
         Il n'est pas toujours nécessaire
         de faire de grandes choses.
 
         Parfois, ce qui nous semble insignifiant
         représente beaucoup pour un animal errant.
-
       </p>
 
     </div>
-
 
     <div class="gesture-grid mission-reveal">
 
@@ -838,14 +752,12 @@
 
         <div class="gesture-icon">
 
-          <svg viewBox="0 0 100 100"
-               aria-hidden="true">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
 
             <path d="M50 12
                      C40 30 22 48 22 65
                      A28 28 0 0 0 78 65
                      C78 48 60 30 50 12Z"
-
                   fill="#b6d1da"
                   stroke="#7da5b4"
                   stroke-width="2"/>
@@ -863,20 +775,15 @@
         <h3>De l'eau</h3>
 
         <p>
-
           Une gamelle d'eau propre,
           surtout pendant les fortes chaleurs.
-
         </p>
 
         <span class="gesture-action">
-
           Offrir de l'eau +
-
         </span>
 
       </button>
-
 
       <!-- NOURRITURE -->
 
@@ -887,14 +794,9 @@
 
         <div class="gesture-icon">
 
-          <svg viewBox="0 0 100 100"
-               aria-hidden="true">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
 
-            <path d="M12 45
-                     L24 80
-                     H76
-                     L88 45Z"
-
+            <path d="M12 45 L24 80 H76 L88 45Z"
                   fill="#d9a89b"
                   stroke="#b77e75"
                   stroke-width="2"/>
@@ -916,7 +818,6 @@
             <path d="M50 60
                      C38 48 31 65 50 75
                      C69 65 62 48 50 60Z"
-
                   fill="#fff2e5"/>
 
           </svg>
@@ -926,20 +827,15 @@
         <h3>Un repas</h3>
 
         <p>
-
           De la nourriture adaptée
           pour apaiser sa faim.
-
         </p>
 
         <span class="gesture-action">
-
           Offrir un repas +
-
         </span>
 
       </button>
-
 
       <!-- SOINS -->
 
@@ -950,8 +846,7 @@
 
         <div class="gesture-icon">
 
-          <svg viewBox="0 0 100 100"
-               aria-hidden="true">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
 
             <rect x="15" y="30"
                   width="70" height="55"
@@ -960,9 +855,7 @@
                   stroke="#bca994"
                   stroke-width="2"/>
 
-            <path d="M35 30 V18
-                     H65 V30"
-
+            <path d="M35 30 V18 H65 V30"
                   stroke="#bca994"
                   stroke-width="5"
                   stroke-linejoin="round"
@@ -985,20 +878,15 @@
         <h3>Des soins</h3>
 
         <p>
-
           Contacter un vétérinaire
           ou une association lorsqu'un animal souffre.
-
         </p>
 
         <span class="gesture-action">
-
           Offrir des soins +
-
         </span>
 
       </button>
-
 
       <!-- DOUCEUR -->
 
@@ -1009,13 +897,11 @@
 
         <div class="gesture-icon">
 
-          <svg viewBox="0 0 100 100"
-               aria-hidden="true">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
 
             <path d="M50 85
                      C-10 48 14 8 50 33
                      C86 8 110 48 50 85Z"
-
                   fill="#d8a2a7"
                   stroke="#b86e79"
                   stroke-width="2"/>
@@ -1033,35 +919,27 @@
         <h3>De la douceur</h3>
 
         <p>
-
           Respecter ses distances,
           lui laisser le choix et ne pas l'effrayer.
-
         </p>
 
         <span class="gesture-action">
-
           Offrir de la douceur +
-
         </span>
 
       </button>
 
     </div>
 
-
     <!-- PROGRESSION DES GESTES -->
 
     <div class="gesture-progress mission-reveal">
 
-      <div class="gesture-progress-hearts"
-           aria-hidden="true">
-
+      <div class="gesture-progress-hearts" aria-hidden="true">
         <span>♡</span>
         <span>♡</span>
         <span>♡</span>
         <span>♡</span>
-
       </div>
 
       <div class="gesture-progress-track"
@@ -1077,9 +955,7 @@
       </div>
 
       <p id="gesture-count" aria-live="polite">
-
         0 geste symbolique sur 4
-
       </p>
 
       <div id="gesture-success"
@@ -1089,42 +965,31 @@
         <span>♡</span>
 
         <h3>
-
           Pour toi, quelques petits gestes.
-
           <em>Pour lui, un monde de différence.</em>
-
         </h3>
 
         <p>
-
           Imagine maintenant ce que ces gestes
           pourraient représenter dans la vraie vie.
-
         </p>
 
         <a href="#dans-leurs-pattes"
            class="mission-text-link">
-
           Revoir la scène illustrée ↑
-
         </a>
 
       </div>
 
       <p class="gesture-disclaimer">
-
         Cette interaction est symbolique.
-        Elle ne constitue ni un don ni une aide réelle.
-
+        Elle ne constitue pas un don réel.
       </p>
 
     </div>
 
   </section>
-
-
-  <!-- ======================================
+    <!-- ======================================
        POURQUOI CŒUR ERRANT EXISTE
        ====================================== -->
 
@@ -1134,62 +999,224 @@
 
       <div class="mission-origin-photo mission-reveal">
 
-        <img src="Tanger.jpeg"
-             alt="Le petit chiot aux yeux bleus rencontré à Tanger"
-             loading="lazy">
+        <svg class="mission-origin-illustration"
+             viewBox="0 0 500 550"
+             xmlns="http://www.w3.org/2000/svg"
+             role="img"
+             aria-label="Illustration symbolique de la bienveillance envers les animaux">
+
+          <defs>
+
+            <linearGradient id="origin-paper"
+                            x1="0" y1="0"
+                            x2="1" y2="1">
+
+              <stop offset="0%" stop-color="#faf2e8"/>
+              <stop offset="100%" stop-color="#e8d4ce"/>
+
+            </linearGradient>
+
+            <radialGradient id="origin-light">
+
+              <stop offset="0%"
+                    stop-color="#fffaf3"
+                    stop-opacity=".9"/>
+
+              <stop offset="100%"
+                    stop-color="#fffaf3"
+                    stop-opacity="0"/>
+
+            </radialGradient>
+
+          </defs>
+
+          <rect width="500"
+                height="550"
+                fill="url(#origin-paper)"/>
+
+          <circle cx="250"
+                  cy="250"
+                  r="210"
+                  fill="url(#origin-light)"/>
+
+          <rect x="25" y="25"
+                width="450" height="500"
+                rx="220"
+                fill="none"
+                stroke="#c4a882"
+                stroke-width="1.5"/>
+
+          <rect x="36" y="36"
+                width="428" height="478"
+                rx="210"
+                fill="none"
+                stroke="#c4a882"
+                stroke-width=".7"
+                opacity=".5"/>
+
+          <!-- BRANCHES DÉCORATIVES -->
+
+          <g stroke="#9ba18b"
+             stroke-width="2"
+             fill="none"
+             stroke-linecap="round">
+
+            <path d="M100 410 Q45 310 95 190"/>
+            <path d="M400 410 Q455 310 405 190"/>
+
+          </g>
+
+          <g fill="#a8ad97" opacity=".8">
+
+            <ellipse cx="78" cy="235"
+                     rx="9" ry="24"
+                     transform="rotate(-35 78 235)"/>
+
+            <ellipse cx="98" cy="268"
+                     rx="9" ry="24"
+                     transform="rotate(35 98 268)"/>
+
+            <ellipse cx="70" cy="300"
+                     rx="9" ry="24"
+                     transform="rotate(-35 70 300)"/>
+
+            <ellipse cx="100" cy="340"
+                     rx="9" ry="24"
+                     transform="rotate(35 100 340)"/>
+
+            <ellipse cx="422" cy="235"
+                     rx="9" ry="24"
+                     transform="rotate(35 422 235)"/>
+
+            <ellipse cx="402" cy="268"
+                     rx="9" ry="24"
+                     transform="rotate(-35 402 268)"/>
+
+            <ellipse cx="430" cy="300"
+                     rx="9" ry="24"
+                     transform="rotate(35 430 300)"/>
+
+            <ellipse cx="400" cy="340"
+                     rx="9" ry="24"
+                     transform="rotate(-35 400 340)"/>
+
+          </g>
+
+          <!-- CŒUR -->
+
+          <path d="M250 355
+                   C100 250 115 135 190 155
+                   Q230 160 250 200
+                   Q270 160 310 155
+                   C385 135 400 250 250 355Z"
+                fill="#efdce0"
+                fill-opacity=".5"
+                stroke="#a85e68"
+                stroke-width="3"
+                stroke-linecap="round"/>
+
+          <!-- EMPREINTE DORÉE -->
+
+          <g fill="#c4a882" opacity=".9">
+
+            <ellipse cx="207" cy="226"
+                     rx="16" ry="22"
+                     transform="rotate(-25 207 226)"/>
+
+            <ellipse cx="238" cy="207"
+                     rx="15" ry="22"/>
+
+            <ellipse cx="271" cy="210"
+                     rx="15" ry="22"
+                     transform="rotate(12 271 210)"/>
+
+            <ellipse cx="299" cy="233"
+                     rx="15" ry="21"
+                     transform="rotate(30 299 233)"/>
+
+            <path d="M250 243
+                     C225 243 198 280 211 297
+                     Q225 312 250 299
+                     Q275 312 289 297
+                     C302 280 275 243 250 243Z"/>
+
+          </g>
+
+          <!-- PETITES LUMIÈRES -->
+
+          <g fill="#c4a882">
+
+            <path d="M250 75 L254 89 L268 93
+                     L254 97 L250 111 L246 97
+                     L232 93 L246 89Z"/>
+
+            <circle cx="155" cy="125" r="3"/>
+            <circle cx="345" cy="125" r="3"/>
+            <circle cx="130" cy="365" r="3"/>
+            <circle cx="370" cy="365" r="3"/>
+
+          </g>
+
+          <!-- SIGNATURE -->
+
+          <g fill="#a85e68"
+             font-family="Cormorant Garamond, serif"
+             text-anchor="middle">
+
+            <text x="250" y="420"
+                  font-size="30"
+                  font-style="italic">
+              Tout commence
+            </text>
+
+            <text x="250" y="458"
+                  font-size="30"
+                  font-style="italic">
+              par un regard.
+            </text>
+
+          </g>
+
+        </svg>
 
         <div class="origin-photo-caption">
-
-          Tanger · Juin 2024
-
+          Aux origines de Cœur Errant
         </div>
 
         <span class="origin-photo-heart"
               aria-hidden="true">
-
           ♡
-
         </span>
 
       </div>
 
-
       <div class="mission-origin-text mission-reveal">
 
         <p class="mission-label">
-
           Derrière Cœur Errant
-
         </p>
 
         <h2>
-
           Je ne pouvais plus
           <em>détourner le regard.</em>
-
         </h2>
 
         <p>
-
           Cœur Errant n'est pas né
           d'un grand projet préparé à l'avance.
 
           Il est né de rencontres,
           de regards et d'une envie profonde d'aider.
-
         </p>
 
         <p>
-
           En avril 2023, en Corse,
           je nourrissais chaque jour des chats errants,
           sans savoir que ces petits gestes
           allaient devenir le début d'une aventure.
-
         </p>
 
         <p>
-
           En juin 2024, à Tanger,
           j'ai compris que je voulais donner
           un autre sens à mes voyages.
@@ -1197,11 +1224,9 @@
           Je voulais continuer à découvrir le monde,
           mais aussi venir en aide
           aux animaux que j'y rencontrerais.
-
         </p>
 
         <p>
-
           Cœur Errant est aujourd'hui
           un engagement personnel.
 
@@ -1211,23 +1236,18 @@
           avec mes propres moyens,
           et de ne jamais oublier ceux
           que l'on ne regarde plus.
-
         </p>
 
         <blockquote class="mission-origin-quote">
-
           Je ne pourrai pas changer le monde entier.
 
           Mais je peux essayer de changer
           un petit morceau du leur.
-
         </blockquote>
 
         <a href="voyages.html"
            class="mission-text-link">
-
           Découvrir le chemin parcouru ↗
-
         </a>
 
       </div>
@@ -1246,30 +1266,24 @@
     <div class="mission-heading mission-reveal">
 
       <p class="mission-label">
-
         Ce qui guide chacun de mes pas
-
       </p>
 
       <h2>
-
         Six convictions.<br>
-
         <em>Un seul cœur.</em>
-
       </h2>
 
       <p>
-
         Découvrez les valeurs qui donnent
         tout son sens à Cœur Errant.
-
       </p>
 
     </div>
 
-
     <div class="mission-values-grid mission-reveal">
+
+      <!-- VALEUR 01 -->
 
       <details class="mission-value">
 
@@ -1277,18 +1291,19 @@
 
           <span class="value-number">01</span>
 
-          <span class="value-symbol">♡</span>
+          <span class="value-symbol"
+                aria-hidden="true">♡</span>
 
           <h3>La dignité</h3>
 
-          <span class="value-expand">+</span>
+          <span class="value-expand"
+                aria-hidden="true">+</span>
 
         </summary>
 
         <div class="value-content">
 
           <p>
-
             Chaque animal mérite d'être considéré
             comme un être vivant à part entière.
 
@@ -1296,13 +1311,13 @@
             sa vie possède la même valeur.
 
             La dignité n'a pas de frontières.
-
           </p>
 
         </div>
 
       </details>
 
+      <!-- VALEUR 02 -->
 
       <details class="mission-value">
 
@@ -1310,31 +1325,32 @@
 
           <span class="value-number">02</span>
 
-          <span class="value-symbol">✧</span>
+          <span class="value-symbol"
+                aria-hidden="true">✧</span>
 
           <h3>L'action</h3>
 
-          <span class="value-expand">+</span>
+          <span class="value-expand"
+                aria-hidden="true">+</span>
 
         </summary>
 
         <div class="value-content">
 
           <p>
-
             Nourrir, apporter de l'eau,
             chercher de l'aide,
             contacter un vétérinaire lorsque nécessaire.
 
             Je crois aux gestes concrets,
             même lorsqu'ils sont modestes.
-
           </p>
 
         </div>
 
       </details>
 
+      <!-- VALEUR 03 -->
 
       <details class="mission-value">
 
@@ -1342,31 +1358,32 @@
 
           <span class="value-number">03</span>
 
-          <span class="value-symbol">◎</span>
+          <span class="value-symbol"
+                aria-hidden="true">◎</span>
 
           <h3>La sensibilisation</h3>
 
-          <span class="value-expand">+</span>
+          <span class="value-expand"
+                aria-hidden="true">+</span>
 
         </summary>
 
         <div class="value-content">
 
           <p>
-
             Photographier, raconter et partager
             les histoires des animaux errants.
 
             Leur donner une visibilité,
             c'est aussi rappeler au monde
             qu'ils existent et qu'ils comptent.
-
           </p>
 
         </div>
 
       </details>
 
+      <!-- VALEUR 04 -->
 
       <details class="mission-value">
 
@@ -1374,18 +1391,19 @@
 
           <span class="value-number">04</span>
 
-          <span class="value-symbol">❋</span>
+          <span class="value-symbol"
+                aria-hidden="true">❋</span>
 
           <h3>La générosité</h3>
 
-          <span class="value-expand">+</span>
+          <span class="value-expand"
+                aria-hidden="true">+</span>
 
         </summary>
 
         <div class="value-content">
 
           <p>
-
             Pendant mes voyages,
             je consacre une partie de mon budget
             à la nourriture et aux soins des animaux.
@@ -1394,13 +1412,13 @@
 
             Un animal qui a faim
             n'a pas toujours cette possibilité.
-
           </p>
 
         </div>
 
       </details>
 
+      <!-- VALEUR 05 -->
 
       <details class="mission-value">
 
@@ -1408,30 +1426,31 @@
 
           <span class="value-number">05</span>
 
-          <span class="value-symbol">∞</span>
+          <span class="value-symbol"
+                aria-hidden="true">∞</span>
 
           <h3>La continuité</h3>
 
-          <span class="value-expand">+</span>
+          <span class="value-expand"
+                aria-hidden="true">+</span>
 
         </summary>
 
         <div class="value-content">
 
           <p>
-
             Cœur Errant n'est pas une action ponctuelle.
 
             C'est un engagement que je souhaite
             poursuivre au fil des années,
             des voyages et des rencontres.
-
           </p>
 
         </div>
 
       </details>
 
+      <!-- VALEUR 06 -->
 
       <details class="mission-value">
 
@@ -1439,18 +1458,19 @@
 
           <span class="value-number">06</span>
 
-          <span class="value-symbol">♧</span>
+          <span class="value-symbol"
+                aria-hidden="true">♧</span>
 
           <h3>La solidarité</h3>
 
-          <span class="value-expand">+</span>
+          <span class="value-expand"
+                aria-hidden="true">+</span>
 
         </summary>
 
         <div class="value-content">
 
           <p>
-
             Personne ne peut sauver tous les animaux seul.
 
             Les associations locales, les vétérinaires,
@@ -1458,7 +1478,6 @@
             ont tous un rôle à jouer.
 
             Ensemble, nous pouvons aller plus loin.
-
           </p>
 
         </div>
@@ -1479,39 +1498,33 @@
     <div class="mission-heading mission-reveal">
 
       <p class="mission-label">
-
         Voyager autrement
-
       </p>
 
       <h2>
-
         Dans ma valise,
         <em>il y a toujours une place pour eux.</em>
-
       </h2>
 
       <p>
-
         Mes voyages sont devenus
         une manière de découvrir le monde autrement.
 
         Voici à quoi peut ressembler
         une journée avec Cœur Errant.
-
       </p>
 
     </div>
 
-
     <div class="mission-travel-timeline">
+
+      <!-- MATIN -->
 
       <article class="travel-moment mission-reveal">
 
-        <div class="travel-moment-icon">
-
+        <div class="travel-moment-icon"
+             aria-hidden="true">
           ☀
-
         </div>
 
         <div class="travel-moment-content">
@@ -1521,24 +1534,22 @@
           <h3>Retrouver les petites âmes.</h3>
 
           <p>
-
             Partir avec de la nourriture,
             retrouver les animaux croisés la veille
             et découvrir de nouveaux compagnons.
-
           </p>
 
         </div>
 
       </article>
 
+      <!-- JOURNÉE -->
 
       <article class="travel-moment mission-reveal">
 
-        <div class="travel-moment-icon">
-
+        <div class="travel-moment-icon"
+             aria-hidden="true">
           ♡
-
         </div>
 
         <div class="travel-moment-content">
@@ -1548,26 +1559,24 @@
           <h3>Observer, comprendre et agir.</h3>
 
           <p>
-
             Garder les yeux ouverts pendant mes promenades.
 
             M'arrêter lorsqu'un animal a besoin d'aide
             et chercher une solution adaptée
             à sa situation.
-
           </p>
 
         </div>
 
       </article>
 
+      <!-- SOIR -->
 
       <article class="travel-moment mission-reveal">
 
-        <div class="travel-moment-icon">
-
+        <div class="travel-moment-icon"
+             aria-hidden="true">
           ◐
-
         </div>
 
         <div class="travel-moment-content">
@@ -1577,27 +1586,25 @@
           <h3>Revenir vers eux.</h3>
 
           <p>
-
             Lorsque cela est possible,
             retourner dans les mêmes rues.
 
             Offrir un repas,
             un peu de présence
             et parfois retrouver un regard familier.
-
           </p>
 
         </div>
 
       </article>
 
+      <!-- NUIT -->
 
       <article class="travel-moment mission-reveal">
 
-        <div class="travel-moment-icon">
-
+        <div class="travel-moment-icon"
+             aria-hidden="true">
           ☾
-
         </div>
 
         <div class="travel-moment-content">
@@ -1607,13 +1614,11 @@
           <h3>Ne pas laisser leurs histoires s'effacer.</h3>
 
           <p>
-
             Rassembler mes photographies,
             mes souvenirs et mes témoignages.
 
             Les partager pour que ces petites vies
             ne restent pas invisibles.
-
           </p>
 
         </div>
@@ -1634,17 +1639,12 @@
     <div class="mission-lessons-inner mission-reveal">
 
       <p class="mission-label">
-
         Bien plus que des rencontres
-
       </p>
 
       <h2>
-
         Je pensais leur apporter quelque chose.<br>
-
         <em>Ils m'ont tant appris.</em>
-
       </h2>
 
       <div class="lesson-carousel"
@@ -1653,36 +1653,27 @@
 
         <span class="lesson-quotation"
               aria-hidden="true">
-
-          “ 
-
+          “
         </span>
 
         <p id="lesson-text">
-
           La confiance ne se réclame pas.
           Elle se mérite, avec du temps,
           de la patience et de la douceur.
-
         </p>
 
         <span id="lesson-theme">
-
           La confiance
-
         </span>
 
       </div>
-
 
       <div class="lesson-controls">
 
         <button type="button"
                 id="lesson-prev"
                 aria-label="Leçon précédente">
-
           ←
-
         </button>
 
         <div class="lesson-dots">
@@ -1691,34 +1682,36 @@
                   class="lesson-dot active"
                   data-lesson="0"
                   aria-label="La confiance"
-                  aria-pressed="true"></button>
+                  aria-pressed="true">
+          </button>
 
           <button type="button"
                   class="lesson-dot"
                   data-lesson="1"
                   aria-label="La résilience"
-                  aria-pressed="false"></button>
+                  aria-pressed="false">
+          </button>
 
           <button type="button"
                   class="lesson-dot"
                   data-lesson="2"
                   aria-label="La simplicité"
-                  aria-pressed="false"></button>
+                  aria-pressed="false">
+          </button>
 
           <button type="button"
                   class="lesson-dot"
                   data-lesson="3"
                   aria-label="L'espoir"
-                  aria-pressed="false"></button>
+                  aria-pressed="false">
+          </button>
 
         </div>
 
         <button type="button"
                 id="lesson-next"
                 aria-label="Leçon suivante">
-
           →
-
         </button>
 
       </div>
@@ -1737,30 +1730,23 @@
     <div class="mission-heading mission-reveal">
 
       <p class="mission-label">
-
         À votre tour
-
       </p>
 
       <h2>
-
         Laissez une
         <em>empreinte de bienveillance.</em>
-
       </h2>
 
       <p>
-
         Vous n'avez pas besoin de voyager
         à l'autre bout du monde
         pour faire une différence.
 
         Tout peut commencer là où vous êtes.
-
       </p>
 
     </div>
-
 
     <div class="promise-card mission-reveal">
 
@@ -1834,11 +1820,8 @@
 
       </div>
 
-
       <h3 id="promise-title">
-
         Une petite promesse pour eux.
-
       </h3>
 
       <p id="promise-description"
@@ -1855,24 +1838,18 @@
            hidden>
 
         <p>
-
           Je promets de ne pas détourner
           systématiquement le regard.
-
         </p>
 
         <p>
-
           De respecter chaque animal,
           de lui venir en aide lorsque je le peux
           et de me souvenir que sa vie compte.
-
         </p>
 
         <span>
-
           Une empreinte de cœur. ♡
-
         </span>
 
       </div>
@@ -1887,10 +1864,10 @@
       </button>
 
       <p class="promise-note">
-
         Un engagement symbolique et personnel,
         sans inscription ni collecte de données personnelles.
-
+        Votre empreinte reste visible pendant cette visite,
+        sans être enregistrée dans votre navigateur.
       </p>
 
     </div>
@@ -1908,53 +1885,47 @@
 
       <div class="mission-ending-symbol"
            aria-hidden="true">
-
         ♡
-
       </div>
 
       <p class="mission-label">
-
         Ensemble, un peu plus loin
-
       </p>
 
       <h2>
-
         Le monde est immense.<br>
-
         <em>La bienveillance aussi.</em>
-
       </h2>
 
       <p>
-
         Je ne sais pas combien de petites âmes
         croiseront encore mon chemin.
 
         Mais je sais que chacune d'elles
         mérite d'être regardée.
-
       </p>
 
       <p>
-
         Et si nous étions un peu plus nombreux
         à faire attention à elles ?
-
       </p>
 
-      <a href="soutenir.html"
-         class="mission-button">
+      <div class="mission-ending-actions">
 
-        Faire une différence ♡
+        <a href="agir.html"
+           class="mission-button">
+          Apprendre à les aider ♡
+        </a>
 
-      </a>
+        <a href="soutenir.html"
+           class="mission-ending-secondary">
+          Soutenir Cœur Errant
+        </a>
+
+      </div>
 
       <span class="mission-ending-signature">
-
         Cœur Errant — Chaque animal a une histoire.
-
       </span>
 
     </div>
@@ -1965,815 +1936,1328 @@
 
 
 <!-- ======================================
-     FOOTER
+     FOOTER COMMUN
      ====================================== -->
 
-<footer>
+<footer class="ce-footer">
 
-  <div class="footer-logo">
+  <div class="ce-footer-decoration"
+       aria-hidden="true">
 
-    <img src="logo.jpeg" alt="Cœur Errant">
-
-  </div>
-
-  <div class="footer-divider"></div>
-
-  <div class="footer-socials">
-
-    <a href="https://www.tiktok.com/@coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/tiktok/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">TikTok</span>
-
-    </a>
-
-    <a href="https://www.instagram.com/coeur.errant/"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/instagram/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Instagram</span>
-
-    </a>
-
-    <a href="https://www.youtube.com/@CoeurErrant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/youtube/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">YouTube</span>
-
-    </a>
-
-    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/facebook/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Facebook</span>
-
-    </a>
-
-    <a href="https://www.snapchat.com/add/coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/snapchat/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Snapchat</span>
-
-    </a>
-
-    <a href="mailto:coeur.errant@outlook.be"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-
-        <img src="https://cdn.simpleicons.org/gmail/white"
-             alt="">
-
-      </div>
-
-      <span class="footer-social-name">Contact</span>
-
-    </a>
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
+    <span>✦</span>
+    <span>♡</span>
 
   </div>
 
-  <div class="footer-divider"></div>
+  <div class="ce-footer-inner">
 
-  <p class="footer-copy">
+    <div class="ce-footer-brand">
 
-    © <span id="annee"></span>
+      <a href="index.html"
+         aria-label="Retour à l'accueil">
 
-    Cœur Errant — Chaque animal a une histoire.
+        <img src="logo.jpeg"
+             alt="Cœur Errant"
+             loading="lazy">
 
-  </p>
+      </a>
+
+      <h2>Cœur Errant</h2>
+
+      <p class="ce-footer-tagline">
+        Chaque animal a une histoire.
+      </p>
+
+      <p class="ce-footer-description">
+        Parce que même les plus petites âmes
+        méritent une place dans ce monde.
+      </p>
+
+      <div class="ce-footer-socials">
+
+        <a href="https://www.tiktok.com/@coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant sur TikTok">
+
+          <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant sur Instagram">
+
+          <img src="https://cdn.simpleicons.org/instagram/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.youtube.com/@CoeurErrant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant sur YouTube">
+
+          <img src="https://cdn.simpleicons.org/youtube/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant sur Facebook">
+
+          <img src="https://cdn.simpleicons.org/facebook/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.snapchat.com/add/coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant sur Snapchat">
+
+          <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="mailto:coeur.errant@outlook.be"
+           aria-label="Contacter Cœur Errant">
+
+          <svg viewBox="0 0 24 24"
+               width="20"
+               height="20"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.6"
+               aria-hidden="true">
+
+            <rect x="3" y="5"
+                  width="18" height="14"
+                  rx="2"/>
+
+            <path d="M3 7 L12 13 L21 7"/>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="ce-footer-navigation">
+
+      <div class="ce-footer-column">
+
+        <h3>Découvrir</h3>
+
+        <a href="index.html#histoire">
+          Mon histoire
+        </a>
+
+        <a href="mission.html"
+           aria-current="page">
+          La mission
+        </a>
+
+        <a href="voyages.html">
+          Les voyages
+        </a>
+
+        <a href="livres.html">
+          Mes livres
+        </a>
+
+      </div>
+
+      <div class="ce-footer-column">
+
+        <h3>Notre univers</h3>
+
+        <a href="etoiles.html">
+          Nos étoiles
+        </a>
+
+        <a href="passeport.html">
+          Le Royaume
+        </a>
+
+        <a href="agir.html">
+          Comment agir
+        </a>
+
+        <a href="soutenir.html">
+          Soutenir
+        </a>
+
+      </div>
+
+      <div class="ce-footer-column">
+
+        <h3>Restons proches</h3>
+
+        <a href="mailto:coeur.errant@outlook.be">
+          Nous contacter
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Suivre l'aventure
+        </a>
+
+        <a href="mission-nl.html"
+           lang="nl">
+          Nederlands
+        </a>
+
+        <a href="mentions-legales.html">
+          Mentions légales
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="ce-footer-signature">
+
+      <span class="ce-footer-heart"
+            aria-hidden="true">
+        ♡
+      </span>
+
+      <p>
+        Créé avec amour, pour ceux qui n'ont pas de voix.
+      </p>
+
+    </div>
+
+    <div class="ce-footer-copyright">
+
+      © <span id="footer-year">2026</span>
+      Cœur Errant — Tous droits réservés.
+
+    </div>
+
+  </div>
 
 </footer>
-
-
-<!-- ======================================
-     JAVASCRIPT
-     ====================================== -->
-
 <script>
 
-/* ANNÉE AUTOMATIQUE */
+(function () {
 
-document.getElementById('annee').textContent =
-  new Date().getFullYear();
+  'use strict';
 
+  /* ======================================
+     ANNÉE AUTOMATIQUE
+     ====================================== */
 
-/* ======================================
-   MENU MOBILE
-   ====================================== */
+  const footerYear = document.getElementById('footer-year');
 
-const navLinks = document.getElementById('nav-links');
+  if (footerYear) {
 
-const hamburger = document.getElementById('hamburger');
-
-function toggleMenu() {
-
-  const isOpen = navLinks.classList.toggle('open');
-
-  hamburger.classList.toggle('open', isOpen);
-
-  hamburger.setAttribute(
-    'aria-expanded',
-    String(isOpen)
-  );
-
-  hamburger.setAttribute(
-    'aria-label',
-    isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
-  );
-
-}
-
-function closeMenu() {
-
-  navLinks.classList.remove('open');
-
-  hamburger.classList.remove('open');
-
-  hamburger.setAttribute('aria-expanded', 'false');
-
-  hamburger.setAttribute(
-    'aria-label',
-    'Ouvrir le menu'
-  );
-
-}
-
-navLinks.querySelectorAll('a').forEach(link => {
-
-  link.addEventListener('click', closeMenu);
-
-});
-
-document.addEventListener('keydown', event => {
-
-  if (event.key === 'Escape') {
-
-    closeMenu();
+    footerYear.textContent = new Date().getFullYear();
 
   }
 
-});
+
+  /* ======================================
+     MENU MOBILE
+     ====================================== */
+
+  const navLinks = document.getElementById('nav-links');
+
+  const hamburger = document.getElementById('hamburger');
 
 
-/* ======================================
-   UNE JOURNÉE DANS LEURS PATTES
-   ====================================== */
+  function setMenu(isOpen) {
 
-const dayMoments = [
+    if (!navLinks || !hamburger) return;
 
-  {
+    navLinks.classList.toggle('open', isOpen);
 
-    time: '07:00',
+    hamburger.classList.toggle('open', isOpen);
 
-    period: 'Le matin',
+    hamburger.setAttribute(
+      'aria-expanded',
+      String(isOpen)
+    );
 
-    theme: 'morning',
-
-    label: '01 — Le réveil',
-
-    title: 'Une nouvelle journée commence.',
-
-    description:
-      "Il se réveille dans la rue. " +
-      "Il ne sait pas encore où trouver son prochain repas. " +
-      "Alors il se remet en marche, à la recherche de quelque chose à manger."
-
-  },
-
-  {
-
-    time: '12:00',
-
-    period: 'Le midi',
-
-    theme: 'noon',
-
-    label: '02 — La chaleur',
-
-    title: 'Une simple goutte d’eau.',
-
-    description:
-      "Le soleil est haut dans le ciel. " +
-      "Il cherche un peu d'ombre et de l'eau pour apaiser sa soif. " +
-      "Une gamelle d'eau propre pourrait changer cet instant de sa journée."
-
-  },
-
-  {
-
-    time: '18:00',
-
-    period: 'Le soir',
-
-    theme: 'evening',
-
-    label: '03 — La recherche',
-
-    title: 'Encore quelques pas.',
-
-    description:
-      "Les rues s'animent. " +
-      "Il continue de chercher de la nourriture. " +
-      "Au milieu des passants, il doit trouver sa place sans toujours être le bienvenu."
-
-  },
-
-  {
-
-    time: '23:00',
-
-    period: 'La nuit',
-
-    theme: 'night',
-
-    label: '04 — Le silence',
-
-    title: 'Quelque part où dormir.',
-
-    description:
-      "Les lumières s'éteignent progressivement. " +
-      "Il cherche un endroit calme, à l'abri des dangers. " +
-      "Demain, une nouvelle journée commencera dans la rue."
+    hamburger.setAttribute(
+      'aria-label',
+      isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
+    );
 
   }
 
-];
 
+  window.toggleMenu = function () {
 
-const daySlider =
-  document.getElementById('day-slider');
+    if (!navLinks) return;
 
-const landscape =
-  document.getElementById('animal-landscape');
+    setMenu(!navLinks.classList.contains('open'));
 
-const momentButtons =
-  document.querySelectorAll('.day-moment');
+  };
 
 
-function updateDay(index) {
+  function closeMenu() {
 
-  const moment = dayMoments[index];
-
-  if (!moment) return;
-
-  landscape.dataset.period = moment.theme;
-
-  document.getElementById('day-clock')
-    .textContent = moment.time;
-
-  document.getElementById('day-period')
-    .textContent = moment.period;
-
-  document.getElementById('day-label')
-    .textContent = moment.label;
-
-  document.getElementById('day-title')
-    .textContent = moment.title;
-
-  document.getElementById('day-description')
-    .textContent = moment.description;
-
-  daySlider.value = index;
-
-  daySlider.setAttribute(
-    'aria-valuetext',
-    moment.period
-  );
-
-  daySlider.style.setProperty(
-    '--day-progress',
-    (index / 3 * 100) + '%'
-  );
-
-  momentButtons.forEach(button => {
-
-    const isActive =
-      Number(button.dataset.moment) === index;
-
-    button.classList.toggle(
-      'active',
-      isActive
-    );
-
-    button.setAttribute(
-      'aria-pressed',
-      String(isActive)
-    );
-
-  });
-
-}
-
-
-daySlider.addEventListener('input', event => {
-
-  updateDay(Number(event.target.value));
-
-});
-
-
-momentButtons.forEach(button => {
-
-  button.addEventListener('click', () => {
-
-    updateDay(Number(button.dataset.moment));
-
-  });
-
-});
-
-updateDay(0);
-
-
-/* ======================================
-   LES PETITS GESTES
-   ====================================== */
-
-const selectedGestures = new Set();
-
-const gestureCards =
-  document.querySelectorAll('.gesture-card');
-
-const gestureLabels = {
-
-  water: 'Offrir de l’eau',
-
-  food: 'Offrir un repas',
-
-  care: 'Offrir des soins',
-
-  love: 'Offrir de la douceur'
-
-};
-
-
-function updateGestures() {
-
-  const count = selectedGestures.size;
-
-  document.getElementById('gesture-progress-fill')
-    .style.width = (count / 4 * 100) + '%';
-
-  document.getElementById('gesture-progress-track')
-    .setAttribute('aria-valuenow', String(count));
-
-  document.getElementById('gesture-count')
-    .textContent =
-      count + ' geste' +
-      (count > 1 ? 's' : '') +
-      ' symbolique' +
-      (count > 1 ? 's' : '') +
-      ' sur 4';
-
-
-  document.querySelectorAll(
-    '.gesture-progress-hearts span'
-  ).forEach((heart, index) => {
-
-    heart.textContent = index < count ? '♥' : '♡';
-
-    heart.classList.toggle(
-      'filled',
-      index < count
-    );
-
-  });
-
-
-  document.getElementById('gesture-success')
-    .hidden = count !== 4;
-
-
-  Object.keys(gestureLabels).forEach(gesture => {
-
-    const gift = document.getElementById(
-      'landscape-' + gesture
-    );
-
-    if (gift) {
-
-      gift.classList.toggle(
-        'gift-visible',
-        selectedGestures.has(gesture)
-      );
-
-    }
-
-  });
-
-  landscape.classList.toggle(
-    'all-gifts-visible',
-    count === 4
-  );
-
-}
-
-
-gestureCards.forEach(card => {
-
-  card.addEventListener('click', () => {
-
-    const gesture = card.dataset.gesture;
-
-    if (selectedGestures.has(gesture)) {
-
-      selectedGestures.delete(gesture);
-
-    } else {
-
-      selectedGestures.add(gesture);
-
-    }
-
-    const isSelected =
-      selectedGestures.has(gesture);
-
-    card.classList.toggle(
-      'gesture-selected',
-      isSelected
-    );
-
-    card.setAttribute(
-      'aria-pressed',
-      String(isSelected)
-    );
-
-    card.querySelector('.gesture-action')
-      .textContent = isSelected
-
-        ? 'Geste sélectionné ✓'
-
-        : gestureLabels[gesture] + ' +';
-
-    updateGestures();
-
-  });
-
-});
-
-updateGestures();
-
-
-/* ======================================
-   VALEURS INTERACTIVES
-   ====================================== */
-
-const missionValues =
-  document.querySelectorAll('.mission-value');
-
-missionValues.forEach(value => {
-
-  value.addEventListener('toggle', () => {
-
-    const expand =
-      value.querySelector('.value-expand');
-
-    expand.textContent = value.open ? '−' : '+';
-
-  });
-
-});
-
-
-/* ======================================
-   CARROUSEL DES LEÇONS
-   ====================================== */
-
-const lessons = [
-
-  {
-
-    theme: 'La confiance',
-
-    text:
-      "La confiance ne se réclame pas. " +
-      "Elle se mérite, avec du temps, " +
-      "de la patience et de la douceur."
-
-  },
-
-  {
-
-    theme: 'La résilience',
-
-    text:
-      "Même lorsque la vie a été difficile, " +
-      "il peut encore exister des instants de joie. " +
-      "Les animaux me le rappellent à chacune de mes rencontres."
-
-  },
-
-  {
-
-    theme: 'La simplicité',
-
-    text:
-      "Il n'est pas toujours nécessaire de faire de grandes choses. " +
-      "Parfois, une présence, un repas ou un regard " +
-      "suffisent à rendre un instant plus doux."
-
-  },
-
-  {
-
-    theme: "L'espoir",
-
-    text:
-      "Je ne peux pas choisir le destin de chaque animal. " +
-      "Mais je peux choisir de continuer à essayer, " +
-      "voyage après voyage, rencontre après rencontre."
+    setMenu(false);
 
   }
 
-];
 
+  if (navLinks && hamburger) {
 
-let currentLesson = 0;
+    navLinks.querySelectorAll('a').forEach(link => {
 
-const lessonCarousel =
-  document.getElementById('lesson-carousel');
+      link.addEventListener('click', closeMenu);
 
-const lessonDots =
-  document.querySelectorAll('.lesson-dot');
+    });
 
 
-function showLesson(index) {
+    document.addEventListener('keydown', event => {
 
-  currentLesson =
-    (index + lessons.length) % lessons.length;
+      if (
+        event.key === 'Escape' &&
+        navLinks.classList.contains('open')
+      ) {
 
-  const lesson = lessons[currentLesson];
+        closeMenu();
 
-  document.getElementById('lesson-text')
-    .textContent = lesson.text;
+        hamburger.focus();
 
-  document.getElementById('lesson-theme')
-    .textContent = lesson.theme;
+      }
 
-  lessonCarousel.classList.remove('lesson-changing');
+    });
 
-  void lessonCarousel.offsetWidth;
 
-  lessonCarousel.classList.add('lesson-changing');
+    document.addEventListener('click', event => {
 
-  lessonDots.forEach((dot, dotIndex) => {
+      if (
+        navLinks.classList.contains('open') &&
+        !navLinks.contains(event.target) &&
+        !hamburger.contains(event.target)
+      ) {
 
-    const active = dotIndex === currentLesson;
+        closeMenu();
 
-    dot.classList.toggle('active', active);
+      }
 
-    dot.setAttribute(
-      'aria-pressed',
-      String(active)
-    );
+    });
 
-  });
 
-}
+    window.addEventListener('resize', () => {
 
+      if (window.innerWidth > 1100) {
 
-document.getElementById('lesson-prev')
-  .addEventListener('click', () => {
+        closeMenu();
 
-    showLesson(currentLesson - 1);
+      }
 
-  });
-
-
-document.getElementById('lesson-next')
-  .addEventListener('click', () => {
-
-    showLesson(currentLesson + 1);
-
-  });
-
-
-lessonDots.forEach(dot => {
-
-  dot.addEventListener('click', () => {
-
-    showLesson(Number(dot.dataset.lesson));
-
-  });
-
-});
-
-
-/* ======================================
-   EMPREINTE SYMBOLIQUE
-   ====================================== */
-
-const promisePaw =
-  document.getElementById('promise-paw');
-
-const promiseCard =
-  document.querySelector('.promise-card');
-
-const promiseLetter =
-  document.getElementById('promise-letter');
-
-const promiseReset =
-  document.getElementById('promise-reset');
-
-let promiseMade = false;
-
-
-/* MÉMORISATION LOCALE */
-
-try {
-
-  promiseMade =
-    localStorage.getItem('coeur-errant-promise') === 'true';
-
-} catch (error) {
-
-  promiseMade = false;
-
-}
-
-
-function updatePromise() {
-
-  promiseCard.classList.toggle(
-    'promise-made',
-    promiseMade
-  );
-
-  promisePaw.setAttribute(
-    'aria-pressed',
-    String(promiseMade)
-  );
-
-  promiseLetter.hidden = !promiseMade;
-
-  promiseReset.hidden = !promiseMade;
-
-
-  document.getElementById('promise-title')
-    .textContent = promiseMade
-
-      ? 'Votre empreinte est là. ♡'
-
-      : 'Une petite promesse pour eux.';
-
-
-  document.getElementById('promise-description')
-    .textContent = promiseMade
-
-      ? "Merci d'avoir choisi de regarder le monde avec un peu plus de bienveillance."
-
-      : "Cliquez sur l'empreinte pour symboliser votre engagement à regarder les animaux avec bienveillance.";
-
-
-  try {
-
-    if (promiseMade) {
-
-      localStorage.setItem(
-        'coeur-errant-promise',
-        'true'
-      );
-
-    } else {
-
-      localStorage.removeItem(
-        'coeur-errant-promise'
-      );
-
-    }
-
-  } catch (error) {
-
-    /* L'interaction fonctionne aussi sans stockage local. */
+    });
 
   }
 
-}
 
+  /* ======================================
+     UNE JOURNÉE DANS LEURS PATTES
+     ====================================== */
 
-promisePaw.addEventListener('click', () => {
+  const dayMoments = [
 
-  if (promiseMade) return;
+    {
 
-  promiseMade = true;
+      time: '07:00',
 
-  updatePromise();
+      period: 'Le matin',
 
-});
+      theme: 'morning',
 
+      label: '01 — Le réveil',
 
-promiseReset.addEventListener('click', () => {
+      title: 'Une nouvelle journée commence.',
 
-  promiseMade = false;
-
-  updatePromise();
-
-  promisePaw.focus();
-
-});
-
-
-updatePromise();
-
-
-/* ======================================
-   ANIMATIONS AU DÉFILEMENT
-   ====================================== */
-
-if (
-
-  'IntersectionObserver' in window &&
-
-  !window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches
-
-) {
-
-  document.body.classList.add(
-    'mission-animations'
-  );
-
-  const observer = new IntersectionObserver(
-
-    entries => {
-
-      entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-          entry.target.classList.add(
-            'mission-visible'
-          );
-
-          observer.unobserve(entry.target);
-
-        }
-
-      });
+      description:
+        "Il se réveille dans la rue. " +
+        "Il ne sait pas encore où trouver son prochain repas. " +
+        "Alors il se remet en marche, à la recherche de quelque chose à manger."
 
     },
 
     {
 
-      threshold: 0.1
+      time: '12:00',
+
+      period: 'Le midi',
+
+      theme: 'noon',
+
+      label: '02 — La chaleur',
+
+      title: 'Une simple goutte d’eau.',
+
+      description:
+        "Le soleil est haut dans le ciel. " +
+        "Il cherche un peu d'ombre et de l'eau pour apaiser sa soif. " +
+        "Une gamelle d'eau propre pourrait changer cet instant de sa journée."
+
+    },
+
+    {
+
+      time: '18:00',
+
+      period: 'Le soir',
+
+      theme: 'evening',
+
+      label: '03 — La recherche',
+
+      title: 'Encore quelques pas.',
+
+      description:
+        "Les rues s'animent. " +
+        "Il continue de chercher de la nourriture. " +
+        "Au milieu des passants, il doit trouver sa place sans toujours être le bienvenu."
+
+    },
+
+    {
+
+      time: '23:00',
+
+      period: 'La nuit',
+
+      theme: 'night',
+
+      label: '04 — Le silence',
+
+      title: 'Quelque part où dormir.',
+
+      description:
+        "Les lumières s'éteignent progressivement. " +
+        "Il cherche un endroit calme, à l'abri des dangers. " +
+        "Demain, une nouvelle journée commencera dans la rue."
 
     }
 
-  );
+  ];
 
-  document.querySelectorAll('.mission-reveal')
-    .forEach(element => {
 
-      observer.observe(element);
+  const daySlider =
+    document.getElementById('day-slider');
+
+  const landscape =
+    document.getElementById('animal-landscape');
+
+  const momentButtons =
+    document.querySelectorAll('.day-moment');
+
+  const dayClock =
+    document.getElementById('day-clock');
+
+  const dayPeriod =
+    document.getElementById('day-period');
+
+  const dayLabel =
+    document.getElementById('day-label');
+
+  const dayTitle =
+    document.getElementById('day-title');
+
+  const dayDescription =
+    document.getElementById('day-description');
+
+
+  function updateDay(index) {
+
+    const moment = dayMoments[index];
+
+    if (!moment || !landscape || !daySlider) return;
+
+    landscape.dataset.period = moment.theme;
+
+    if (dayClock) {
+
+      dayClock.textContent = moment.time;
+
+    }
+
+    if (dayPeriod) {
+
+      dayPeriod.textContent = moment.period;
+
+    }
+
+    if (dayLabel) {
+
+      dayLabel.textContent = moment.label;
+
+    }
+
+    if (dayTitle) {
+
+      dayTitle.textContent = moment.title;
+
+    }
+
+    if (dayDescription) {
+
+      dayDescription.textContent = moment.description;
+
+    }
+
+    daySlider.value = index;
+
+    daySlider.setAttribute(
+      'aria-valuetext',
+      moment.period
+    );
+
+    daySlider.style.setProperty(
+      '--day-progress',
+      (index / 3 * 100) + '%'
+    );
+
+
+    momentButtons.forEach(button => {
+
+      const isActive =
+        Number(button.dataset.moment) === index;
+
+      button.classList.toggle(
+        'active',
+        isActive
+      );
+
+      button.setAttribute(
+        'aria-pressed',
+        String(isActive)
+      );
 
     });
 
-}
+  }
+
+
+  if (daySlider) {
+
+    daySlider.addEventListener('input', event => {
+
+      updateDay(Number(event.target.value));
+
+    });
+
+  }
+
+
+  momentButtons.forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      updateDay(Number(button.dataset.moment));
+
+    });
+
+  });
+
+
+  updateDay(0);
+
+
+  /* ======================================
+     LES PETITS GESTES
+     ====================================== */
+
+  const selectedGestures = new Set();
+
+  const gestureCards =
+    document.querySelectorAll('.gesture-card');
+
+  const gestureProgressFill =
+    document.getElementById('gesture-progress-fill');
+
+  const gestureProgressTrack =
+    document.getElementById('gesture-progress-track');
+
+  const gestureCount =
+    document.getElementById('gesture-count');
+
+  const gestureSuccess =
+    document.getElementById('gesture-success');
+
+  const gestureHearts =
+    document.querySelectorAll(
+      '.gesture-progress-hearts span'
+    );
+
+
+  const gestureLabels = {
+
+    water: 'Offrir de l’eau',
+
+    food: 'Offrir un repas',
+
+    care: 'Offrir des soins',
+
+    love: 'Offrir de la douceur'
+
+  };
+
+
+  function updateGestures() {
+
+    const count = selectedGestures.size;
+
+    const percentage = count / 4 * 100;
+
+
+    if (gestureProgressFill) {
+
+      gestureProgressFill.style.width =
+        percentage + '%';
+
+    }
+
+
+    if (gestureProgressTrack) {
+
+      gestureProgressTrack.setAttribute(
+        'aria-valuenow',
+        String(count)
+      );
+
+    }
+
+
+    if (gestureCount) {
+
+      gestureCount.textContent =
+        count + ' geste' +
+        (count > 1 ? 's' : '') +
+        ' symbolique' +
+        (count > 1 ? 's' : '') +
+        ' sur 4';
+
+    }
+
+
+    gestureHearts.forEach((heart, index) => {
+
+      const filled = index < count;
+
+      heart.textContent = filled ? '♥' : '♡';
+
+      heart.classList.toggle(
+        'filled',
+        filled
+      );
+
+    });
+
+
+    if (gestureSuccess) {
+
+      gestureSuccess.hidden = count !== 4;
+
+    }
+
+
+    Object.keys(gestureLabels).forEach(gesture => {
+
+      const gift = document.getElementById(
+        'landscape-' + gesture
+      );
+
+      if (gift) {
+
+        gift.classList.toggle(
+          'gift-visible',
+          selectedGestures.has(gesture)
+        );
+
+      }
+
+    });
+
+
+    if (landscape) {
+
+      landscape.classList.toggle(
+        'all-gifts-visible',
+        count === 4
+      );
+
+    }
+
+
+    gestureCards.forEach(card => {
+
+      const gesture = card.dataset.gesture;
+
+      const isSelected =
+        selectedGestures.has(gesture);
+
+      card.classList.toggle(
+        'gesture-selected',
+        isSelected
+      );
+
+      card.setAttribute(
+        'aria-pressed',
+        String(isSelected)
+      );
+
+      const action =
+        card.querySelector('.gesture-action');
+
+      if (action && gestureLabels[gesture]) {
+
+        action.textContent = isSelected
+
+          ? 'Geste sélectionné ✓'
+
+          : gestureLabels[gesture] + ' +';
+
+      }
+
+    });
+
+  }
+
+
+  gestureCards.forEach(card => {
+
+    card.addEventListener('click', () => {
+
+      const gesture = card.dataset.gesture;
+
+      if (!Object.prototype.hasOwnProperty.call(
+        gestureLabels,
+        gesture
+      )) return;
+
+
+      if (selectedGestures.has(gesture)) {
+
+        selectedGestures.delete(gesture);
+
+      } else {
+
+        selectedGestures.add(gesture);
+
+      }
+
+
+      updateGestures();
+
+    });
+
+  });
+
+
+  updateGestures();
+
+
+  /* ======================================
+     VALEURS INTERACTIVES
+     ====================================== */
+
+  const missionValues =
+    document.querySelectorAll('.mission-value');
+
+
+  missionValues.forEach(value => {
+
+    const expand =
+      value.querySelector('.value-expand');
+
+
+    function updateValue() {
+
+      if (expand) {
+
+        expand.textContent =
+          value.open ? '−' : '+';
+
+      }
+
+    }
+
+
+    value.addEventListener(
+      'toggle',
+      updateValue
+    );
+
+
+    updateValue();
+
+  });
+
+
+  /* ======================================
+     CARROUSEL DES LEÇONS
+     ====================================== */
+
+  const lessons = [
+
+    {
+
+      theme: 'La confiance',
+
+      text:
+        "La confiance ne se réclame pas. " +
+        "Elle se mérite, avec du temps, " +
+        "de la patience et de la douceur."
+
+    },
+
+    {
+
+      theme: 'La résilience',
+
+      text:
+        "Même lorsque la vie a été difficile, " +
+        "il peut encore exister des instants de joie. " +
+        "Les animaux me le rappellent à chacune de mes rencontres."
+
+    },
+
+    {
+
+      theme: 'La simplicité',
+
+      text:
+        "Il n'est pas toujours nécessaire de faire de grandes choses. " +
+        "Parfois, une présence, un repas ou un regard " +
+        "suffisent à rendre un instant plus doux."
+
+    },
+
+    {
+
+      theme: "L'espoir",
+
+      text:
+        "Je ne peux pas choisir le destin de chaque animal. " +
+        "Mais je peux choisir de continuer à essayer, " +
+        "voyage après voyage, rencontre après rencontre."
+
+    }
+
+  ];
+
+
+  let currentLesson = 0;
+
+
+  const lessonCarousel =
+    document.getElementById('lesson-carousel');
+
+  const lessonText =
+    document.getElementById('lesson-text');
+
+  const lessonTheme =
+    document.getElementById('lesson-theme');
+
+  const lessonPrevious =
+    document.getElementById('lesson-prev');
+
+  const lessonNext =
+    document.getElementById('lesson-next');
+
+  const lessonDots =
+    document.querySelectorAll('.lesson-dot');
+
+
+  function showLesson(index) {
+
+    if (!Number.isInteger(index)) return;
+
+    currentLesson =
+      (index + lessons.length) % lessons.length;
+
+    const lesson = lessons[currentLesson];
+
+
+    if (lessonText) {
+
+      lessonText.textContent = lesson.text;
+
+    }
+
+
+    if (lessonTheme) {
+
+      lessonTheme.textContent = lesson.theme;
+
+    }
+
+
+    if (lessonCarousel) {
+
+      lessonCarousel.classList.remove(
+        'lesson-changing'
+      );
+
+      void lessonCarousel.offsetWidth;
+
+      lessonCarousel.classList.add(
+        'lesson-changing'
+      );
+
+    }
+
+
+    lessonDots.forEach((dot, dotIndex) => {
+
+      const active = dotIndex === currentLesson;
+
+      dot.classList.toggle(
+        'active',
+        active
+      );
+
+      dot.setAttribute(
+        'aria-pressed',
+        String(active)
+      );
+
+    });
+
+  }
+
+
+  if (lessonPrevious) {
+
+    lessonPrevious.addEventListener('click', () => {
+
+      showLesson(currentLesson - 1);
+
+    });
+
+  }
+
+
+  if (lessonNext) {
+
+    lessonNext.addEventListener('click', () => {
+
+      showLesson(currentLesson + 1);
+
+    });
+
+  }
+
+
+  lessonDots.forEach(dot => {
+
+    dot.addEventListener('click', () => {
+
+      showLesson(Number(dot.dataset.lesson));
+
+    });
+
+  });
+
+
+  /* NAVIGATION AU CLAVIER */
+
+  const lessonControls =
+    document.querySelector('.lesson-controls');
+
+
+  if (lessonControls) {
+
+    lessonControls.addEventListener(
+      'keydown',
+      event => {
+
+        if (event.key === 'ArrowLeft') {
+
+          event.preventDefault();
+
+          showLesson(currentLesson - 1);
+
+        }
+
+        if (event.key === 'ArrowRight') {
+
+          event.preventDefault();
+
+          showLesson(currentLesson + 1);
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* NAVIGATION TACTILE */
+
+  let touchStartX = 0;
+
+  let touchStartY = 0;
+
+
+  if (lessonCarousel) {
+
+    lessonCarousel.addEventListener(
+      'touchstart',
+      event => {
+
+        touchStartX =
+          event.changedTouches[0].screenX;
+
+        touchStartY =
+          event.changedTouches[0].screenY;
+
+      },
+      { passive: true }
+    );
+
+
+    lessonCarousel.addEventListener(
+      'touchend',
+      event => {
+
+        const touchEndX =
+          event.changedTouches[0].screenX;
+
+        const touchEndY =
+          event.changedTouches[0].screenY;
+
+
+        const differenceX =
+          touchStartX - touchEndX;
+
+        const differenceY =
+          touchStartY - touchEndY;
+
+
+        if (
+          Math.abs(differenceX) < 50 ||
+          Math.abs(differenceX) <= Math.abs(differenceY)
+        ) return;
+
+
+        if (differenceX > 0) {
+
+          showLesson(currentLesson + 1);
+
+        } else {
+
+          showLesson(currentLesson - 1);
+
+        }
+
+      },
+      { passive: true }
+    );
+
+  }
+
+
+  showLesson(0);
+
+
+  /* ======================================
+     EMPREINTE SYMBOLIQUE
+     ====================================== */
+
+  const promisePaw =
+    document.getElementById('promise-paw');
+
+  const promiseCard =
+    document.querySelector('.promise-card');
+
+  const promiseLetter =
+    document.getElementById('promise-letter');
+
+  const promiseReset =
+    document.getElementById('promise-reset');
+
+  const promiseTitle =
+    document.getElementById('promise-title');
+
+  const promiseDescription =
+    document.getElementById('promise-description');
+
+
+  /*
+    L'empreinte reste uniquement en mémoire
+    pendant la visite de cette page.
+
+    Aucun stockage local automatique.
+    Aucune donnée personnelle enregistrée.
+  */
+
+  let promiseMade = false;
+
+
+  function updatePromise() {
+
+    if (promiseCard) {
+
+      promiseCard.classList.toggle(
+        'promise-made',
+        promiseMade
+      );
+
+    }
+
+
+    if (promisePaw) {
+
+      promisePaw.setAttribute(
+        'aria-pressed',
+        String(promiseMade)
+      );
+
+      promisePaw.setAttribute(
+        'aria-label',
+        promiseMade
+
+          ? 'Votre empreinte symbolique est présente'
+
+          : 'Laisser une empreinte symbolique'
+      );
+
+    }
+
+
+    if (promiseLetter) {
+
+      promiseLetter.hidden = !promiseMade;
+
+    }
+
+
+    if (promiseReset) {
+
+      promiseReset.hidden = !promiseMade;
+
+    }
+
+
+    if (promiseTitle) {
+
+      promiseTitle.textContent = promiseMade
+
+        ? 'Votre empreinte est là. ♡'
+
+        : 'Une petite promesse pour eux.';
+
+    }
+
+
+    if (promiseDescription) {
+
+      promiseDescription.textContent = promiseMade
+
+        ? "Merci d'avoir choisi de regarder le monde avec un peu plus de bienveillance."
+
+        : "Cliquez sur l'empreinte pour symboliser votre engagement à regarder les animaux avec bienveillance.";
+
+    }
+
+  }
+
+
+  if (promisePaw) {
+
+    promisePaw.addEventListener('click', () => {
+
+      if (promiseMade) return;
+
+      promiseMade = true;
+
+      updatePromise();
+
+    });
+
+  }
+
+
+  if (promiseReset) {
+
+    promiseReset.addEventListener('click', () => {
+
+      promiseMade = false;
+
+      updatePromise();
+
+      if (promisePaw) {
+
+        promisePaw.focus();
+
+      }
+
+    });
+
+  }
+
+
+  updatePromise();
+
+
+  /* ======================================
+     ANIMATIONS AU DÉFILEMENT
+     ====================================== */
+
+  const revealElements =
+    document.querySelectorAll('.mission-reveal');
+
+  const reducedMotion =
+    window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+
+
+  if (
+    'IntersectionObserver' in window &&
+    !reducedMotion.matches
+  ) {
+
+    const observer = new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add(
+              'mission-visible'
+            );
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+
+      {
+
+        threshold: 0.05,
+
+        rootMargin: '0px 0px -20px 0px'
+
+      }
+
+    );
+
+
+    document.body.classList.add(
+      'mission-animations'
+    );
+
+
+    revealElements.forEach(element => {
+
+      observer.observe(element);
+
+      element.addEventListener(
+        'focusin',
+        () => {
+
+          element.classList.add(
+            'mission-visible'
+          );
+
+          observer.unobserve(element);
+
+        },
+        { once: true }
+      );
+
+    });
+
+
+    function handleMotionChange(event) {
+
+      if (event.matches) {
+
+        observer.disconnect();
+
+        document.body.classList.remove(
+          'mission-animations'
+        );
+
+        revealElements.forEach(element => {
+
+          element.classList.add(
+            'mission-visible'
+          );
+
+        });
+
+      }
+
+    }
+
+
+    if (reducedMotion.addEventListener) {
+
+      reducedMotion.addEventListener(
+        'change',
+        handleMotionChange
+      );
+
+    }
+
+  } else {
+
+    revealElements.forEach(element => {
+
+      element.classList.add(
+        'mission-visible'
+      );
+
+    });
+
+  }
+
+
+  /* ======================================
+     RETOUR SUR LA PAGE
+     ====================================== */
+
+  window.addEventListener('pageshow', event => {
+
+    if (event.persisted) {
+
+      closeMenu();
+
+      updateGestures();
+
+      updatePromise();
+
+    }
+
+  });
+
+
+})();
 
 </script>
 

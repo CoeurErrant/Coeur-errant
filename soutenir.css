@@ -1,4 +1,3 @@
-
 /* =====================================================
    CŒUR ERRANT
    LE JARDIN DE LA SOLIDARITÉ
@@ -45,6 +44,12 @@
   cursor: pointer;
 }
 
+.support-page button:disabled,
+.support-qr-dialog button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 .support-page h1,
 .support-page h2,
 .support-page h3,
@@ -76,6 +81,7 @@
 .support-page button:focus-visible,
 .support-page a:focus-visible,
 .support-page summary:focus-visible,
+.support-page input:focus-visible,
 .support-qr-dialog button:focus-visible,
 .support-qr-dialog a:focus-visible {
   outline: 2px solid #a85e68;
@@ -102,6 +108,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.7rem;
+  max-width: 100%;
   padding: 1rem 1.8rem;
   background: #a85e68;
   border: 1px solid #a85e68;
@@ -216,6 +223,7 @@
 
 .support-opening-content {
   position: relative;
+  min-width: 0;
   z-index: 2;
 }
 
@@ -439,6 +447,7 @@
 
 .interactive-tree-panel {
   position: relative;
+  min-width: 0;
   padding: 2rem 2rem 2.5rem;
   background:
     radial-gradient(
@@ -606,6 +615,7 @@
 .garden-actions {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   gap: 0.85rem;
 }
 
@@ -649,6 +659,8 @@
 .garden-action-content {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  overflow-wrap: anywhere;
   gap: 0.2rem;
 }
 
@@ -723,10 +735,7 @@
   max-width: 470px;
   margin: 0 auto 1.5rem;
   color: var(--support-muted);
-}
-
-
-/* =====================================================
+}/* =====================================================
    AIDER SANS ARGENT
    ===================================================== */
 
@@ -748,6 +757,10 @@
   grid-template-columns: 0.9fr 1.1fr;
   align-items: center;
   gap: 5rem;
+}
+
+.free-support-intro {
+  min-width: 0;
 }
 
 .free-support-intro h2 {
@@ -774,17 +787,20 @@
 .free-support-cards {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   gap: 1rem;
 }
 
 .free-support-card {
   position: relative;
+  min-width: 0;
   min-height: 175px;
   padding: 1.7rem 5rem 1.7rem 5.5rem;
   background: rgba(255, 253, 249, 0.85);
   border: 1px solid #e5d6cc;
   border-radius: 7px;
   overflow: hidden;
+  overflow-wrap: anywhere;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -858,6 +874,8 @@
 
 .share-fallback input {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   padding: 0.9rem;
   border: 1px solid var(--support-border);
   border-radius: 5px;
@@ -913,6 +931,25 @@
   object-position: center;
 }
 
+
+/* =====================================================
+   ILLUSTRATION SVG — SOLIDARITÉ
+   Remplace la photographie Tanger.jpeg
+   ===================================================== */
+
+.donation-photo > svg,
+.donation-photo .donation-illustration {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 420px;
+  margin: 0 auto;
+  object-fit: contain;
+  background: #f8eee6;
+  border-radius: 2px;
+}
+
 .donation-photo-caption {
   position: relative;
   padding: 1.3rem 1rem 1.6rem;
@@ -964,6 +1001,7 @@
 }
 
 .donation-methods {
+  min-width: 0;
   padding: 2.5rem;
   background: #f8f2ed;
   border: 1px solid var(--support-border);
@@ -982,6 +1020,7 @@
 }
 
 .donation-method {
+  min-width: 0;
   padding: 1.5rem;
   margin-bottom: 1.2rem;
   background: #fffdf9;
@@ -1000,6 +1039,11 @@
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.4rem;
+}
+
+.donation-method-top > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .donation-platform-icon {
@@ -1043,6 +1087,12 @@
   gap: 0.6rem;
 }
 
+.donation-method-actions .support-button {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 .donation-method-actions .support-text-link {
   align-self: center;
   text-align: center;
@@ -1076,12 +1126,14 @@
 }
 
 .donation-security > span {
+  flex-shrink: 0;
   color: var(--support-rose);
   font-size: 1.6rem;
   line-height: 1;
 }
 
 .donation-security p {
+  min-width: 0;
   color: var(--support-muted);
   font-size: 0.76rem;
   margin: 0;
@@ -1111,13 +1163,14 @@
 
 .impact-options {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
 
 .impact-option {
   position: relative;
+  min-width: 0;
   min-height: 120px;
   display: flex;
   flex-direction: column;
@@ -1184,6 +1237,7 @@
 
 .impact-illustration {
   position: relative;
+  min-width: 0;
   min-height: 230px;
   display: flex;
   align-items: center;
@@ -1229,6 +1283,11 @@
   bottom: 17%;
   right: 13%;
   animation-delay: 1s;
+}
+
+.impact-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .impact-content h3 {
@@ -1282,6 +1341,7 @@
 
 .support-books-visual {
   position: relative;
+  min-width: 0;
   min-height: 430px;
   display: flex;
   align-items: center;
@@ -1306,6 +1366,7 @@
 .support-book {
   position: relative;
   display: block;
+  min-width: 0;
   width: 34%;
   max-width: 200px;
   border-radius: 2px 5px 5px 2px;
@@ -1339,7 +1400,8 @@
   z-index: 2;
 }
 
-.support-book:hover {
+.support-book:hover,
+.support-book:focus-visible {
   transform: translateY(-25px) rotate(0) scale(1.1);
   z-index: 5;
   box-shadow: 10px 20px 30px rgba(70, 45, 35, 0.25);
@@ -1370,6 +1432,11 @@
   animation-delay: 2s;
 }
 
+.support-books-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .support-books-content h2 {
   font-size: clamp(2.6rem, 4vw, 4rem);
   margin-bottom: 1.5rem;
@@ -1386,10 +1453,7 @@
   font-style: italic;
   color: var(--support-rose) !important;
   margin: 1.5rem 0 2rem;
-}
-
-
-/* =====================================================
+}/* =====================================================
    DÉFI SOLIDAIRE DE SEPT JOURS
    ===================================================== */
 
@@ -1597,6 +1661,11 @@
   margin-top: 1.5rem;
 }
 
+
+/* =====================================================
+   RÉCOMPENSE — CARTE DE BIENVEILLANCE
+   ===================================================== */
+
 .challenge-reward {
   position: relative;
   padding: 3rem 2rem;
@@ -1658,6 +1727,78 @@
 
 .challenge-finished {
   border-color: #b7c3a8;
+}
+
+
+/* =====================================================
+   CONSENTEMENT À LA SAUVEGARDE LOCALE
+   ===================================================== */
+
+.challenge-consent {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  padding: 1.5rem 1rem 0;
+  border-top: 1px solid var(--support-border);
+  text-align: center;
+}
+
+.challenge-consent .support-disclaimer {
+  max-width: 470px;
+  margin: 0 auto 0.8rem;
+  color: var(--support-muted);
+  font-size: 0.76rem;
+  line-height: 1.8;
+}
+
+#challenge-consent-button {
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.65rem 1rem;
+  background: transparent;
+  border: 1px solid #d9c1c3;
+  border-radius: 5px;
+  color: var(--support-rose);
+  font-family: var(--support-sans);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+#challenge-consent-button:hover:not(:disabled) {
+  background: #f7eeeb;
+  border-color: #b9828d;
+}
+
+#challenge-consent-button[aria-pressed="true"] {
+  background: #eef3e8;
+  border-color: #b4c3a6;
+  color: var(--support-green);
+}
+
+#challenge-consent-button[aria-pressed="true"]:hover:not(:disabled) {
+  background: #e4ebdc;
+  border-color: #91a482;
+}
+
+#challenge-consent-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#challenge-storage-note {
+  max-width: 500px;
+  margin: 1rem auto 0;
+  color: var(--support-muted);
+  font-size: 0.73rem;
+  line-height: 1.8;
+  text-align: center;
 }
 
 
@@ -1913,10 +2054,7 @@
 
 .faq-answer .support-text-link {
   margin-top: 0.7rem;
-}
-
-
-/* =====================================================
+}/* =====================================================
    LETTRE SECRÈTE
    ===================================================== */
 
@@ -2368,6 +2506,7 @@ body.support-dialog-open {
   inset: 0;
   width: min(440px, calc(100% - 32px));
   max-width: none;
+  max-height: calc(100vh - 40px);
   max-height: calc(100dvh - 40px);
   margin: auto;
   padding: 0;
@@ -2377,6 +2516,10 @@ body.support-dialog-open {
   color: #493c35;
   box-shadow: 0 20px 80px rgba(45, 30, 25, 0.2);
   overflow: auto;
+}
+
+.support-qr-dialog:not([open]) {
+  display: none;
 }
 
 .support-qr-dialog[open] {
@@ -2450,6 +2593,7 @@ body.support-dialog-open {
   display: block;
   width: 100%;
   height: auto;
+}.support-qr-image-frame img {
   object-fit: contain;
 }
 
@@ -2495,7 +2639,8 @@ body.support-dialog-open {
     translate 0.8s ease;
 }
 
-.support-animations .support-reveal.support-visible {
+.support-animations .support-reveal.support-visible,
+.support-animations .support-reveal:focus-within {
   opacity: 1;
   translate: 0 0;
 }
@@ -2654,10 +2799,99 @@ body.support-dialog-open {
 
 
 /* =====================================================
+   ACCESSIBILITÉ ET PROTECTION DES CONTENUS
+   ===================================================== */
+
+.support-page [hidden],
+.support-qr-dialog [hidden] {
+  display: none !important;
+}
+
+.support-page img,
+.support-qr-dialog img {
+  max-width: 100%;
+}
+
+.support-opening-content,
+.support-opening-art,
+.support-heading,
+.garden-experience,
+.garden-actions,
+.free-support-intro,
+.free-support-cards,
+.donation-story,
+.donation-methods,
+.impact-content,
+.support-books-content,
+.challenge-container,
+.challenge-header > div,
+.challenge-day-content,
+.support-social-card,
+.support-faq-intro,
+.support-faq-list,
+.secret-letter,
+.support-ending-content,
+.support-qr-inner {
+  min-width: 0;
+}
+
+.challenge-day-content,
+.support-social-handle,
+.support-faq-item summary > span:first-child,
+.secret-letter,
+.support-ending-content,
+.support-qr-inner {
+  overflow-wrap: anywhere;
+}
+
+.support-faq-item summary:focus-visible {
+  outline-offset: -4px;
+}
+
+.support-social-card:focus-visible {
+  border-color: #a85e68;
+}
+
+.challenge-consent {
+  min-width: 0;
+  max-width: 100%;
+}
+
+#challenge-consent-button {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.donation-photo .donation-illustration {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.support-qr-dialog .support-button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.support-qr-dialog button:focus-visible,
+.support-qr-dialog a:focus-visible {
+  outline: 2px solid #a85e68;
+  outline-offset: 4px;
+}
+
+
+/* =====================================================
    TABLETTES ET PETITS ORDINATEURS
    ===================================================== */
 
 @media (max-width: 1100px) {
+
+  .support-page section {
+    scroll-margin-top: 85px;
+  }
 
   .support-opening {
     padding: 9rem 5% 6rem;
@@ -2748,6 +2982,10 @@ body.support-dialog-open {
     height: 380px;
   }
 
+  .donation-photo .donation-illustration {
+    max-height: 380px;
+  }
+
   .support-social-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2776,7 +3014,7 @@ body.support-dialog-open {
 @media (max-width: 768px) {
 
   .support-page section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 85px;
   }
 
   .support-opening {
@@ -2927,6 +3165,10 @@ body.support-dialog-open {
     height: 300px;
   }
 
+  .donation-photo .donation-illustration {
+    max-height: 340px;
+  }
+
   .donation-methods {
     padding: 1.5rem;
   }
@@ -3050,6 +3292,15 @@ body.support-dialog-open {
     padding: 2.5rem 1rem;
   }
 
+  .challenge-consent {
+    padding: 1.2rem 0.5rem 0;
+  }
+
+  #challenge-consent-button {
+    min-height: 44px;
+    padding: 0.7rem 0.9rem;
+  }
+
   .support-social-grid {
     gap: 0.9rem;
   }
@@ -3161,6 +3412,10 @@ body.support-dialog-open {
     height: 260px;
   }
 
+  .donation-photo .donation-illustration {
+    max-height: 280px;
+  }
+
   .donation-methods {
     padding: 1.1rem;
   }
@@ -3196,6 +3451,15 @@ body.support-dialog-open {
 
   .challenge-counter strong {
     font-size: 2rem;
+  }
+
+  .challenge-consent {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #challenge-consent-button {
+    width: 100%;
   }
 
   .support-social-card {
@@ -3312,6 +3576,14 @@ body.support-dialog-open {
     min-height: 220px;
   }
 
+  .donation-photo .donation-illustration {
+    max-height: 240px;
+  }
+
+  .support-qr-inner {
+    padding: 2rem 1rem;
+  }
+
 }
 
 
@@ -3324,7 +3596,10 @@ body.support-dialog-open {
   .support-page *,
   .support-page *::before,
   .support-page *::after,
-  .support-qr-dialog * {
+  .support-qr-dialog,
+  .support-qr-dialog *,
+  .support-qr-dialog *::before,
+  .support-qr-dialog *::after {
     animation-duration: 0.01ms !important;
     animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
@@ -3337,6 +3612,40 @@ body.support-dialog-open {
   .support-animations .support-reveal {
     opacity: 1 !important;
     translate: 0 0 !important;
+  }
+
+  .support-button:hover,
+  .garden-action:hover,
+  .free-support-card:hover,
+  .impact-option:hover,
+  .support-social-card:hover,
+  .secret-envelope:hover {
+    transform: none;
+  }
+
+  .support-book-one:hover,
+  .support-book-one:focus-visible {
+    transform: translate(14%, 10px) rotate(-12deg);
+  }
+
+  .support-book-two:hover,
+  .support-book-two:focus-visible {
+    transform: translateY(-25px);
+  }
+
+  .support-book-three:hover,
+  .support-book-three:focus-visible {
+    transform: translate(-14%, 10px) rotate(12deg);
+  }
+
+  .secret-envelope.envelope-open {
+    transform: translateY(15px);
+  }
+
+  .tree-growth.growth-visible,
+  .tree-final-bloom.bloom-visible {
+    opacity: 1;
+    transform: scale(1);
   }
 
 }

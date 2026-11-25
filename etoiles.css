@@ -1,4 +1,3 @@
-
 /* ==========================================
    CŒUR ERRANT — NOS ÉTOILES
    Au-delà des nuages
@@ -120,6 +119,7 @@
 }
 
 @keyframes nebulaMovement {
+
   from {
     transform: translate(0, 0) scale(1);
   }
@@ -127,6 +127,7 @@
   to {
     transform: translate(80px, 100px) scale(1.2);
   }
+
 }
 
 
@@ -148,6 +149,7 @@
 }
 
 @keyframes nightTwinkle {
+
   from {
     opacity: .12;
     transform: scale(.7);
@@ -157,6 +159,7 @@
     opacity: .95;
     transform: scale(1.3);
   }
+
 }
 
 
@@ -214,6 +217,7 @@
 }
 
 @keyframes shootingStar {
+
   0%, 75% {
     opacity: 0;
     transform: translate(0, 0) rotate(35deg);
@@ -227,6 +231,7 @@
     opacity: 0;
     transform: translate(450px, 315px) rotate(35deg);
   }
+
 }
 
 
@@ -262,6 +267,7 @@
   align-items: center;
   gap: 1rem;
 
+  max-width: 100%;
   padding: 1.1rem 2.2rem;
 
   border: 1px solid rgba(242, 216, 172, .65);
@@ -325,6 +331,7 @@
 .stars-hero-content {
   width: 100%;
   max-width: 950px;
+  min-width: 0;
 }
 
 .moon-symbol {
@@ -345,6 +352,7 @@
 }
 
 @keyframes moonGlow {
+
   0%, 100% {
     text-shadow: 0 0 25px rgba(242, 216, 172, .3);
     translate: 0 0;
@@ -354,6 +362,7 @@
     text-shadow: 0 0 60px rgba(242, 216, 172, .5);
     translate: 0 -7px;
   }
+
 }
 
 .stars-hero h1 {
@@ -402,6 +411,7 @@
 }
 
 @keyframes starsScroll {
+
   0%, 100% {
     transform: translate(-50%, 0);
     opacity: .5;
@@ -411,6 +421,7 @@
     transform: translate(-50%, 10px);
     opacity: 1;
   }
+
 }
 
 
@@ -439,6 +450,7 @@
 }
 
 @keyframes starsEnter {
+
   from {
     opacity: 0;
     transform: translateY(25px);
@@ -448,6 +460,7 @@
     opacity: 1;
     transform: translateY(0);
   }
+
 }
 
 
@@ -506,9 +519,11 @@
 }
 
 @keyframes constellationFlow {
+
   to {
     stroke-dashoffset: -100;
   }
+
 }
 
 
@@ -579,6 +594,7 @@
 }
 
 @keyframes haloBreathing {
+
   0%, 100% {
     opacity: .5;
     scale: .85;
@@ -588,6 +604,7 @@
     opacity: 1;
     scale: 1.15;
   }
+
 }
 
 .star-shape {
@@ -606,11 +623,13 @@
   transition: transform .5s ease;
 }
 
-.memory-star:hover .star-shape {
+.memory-star:hover .star-shape,
+.memory-star:focus-visible .star-shape {
   transform: scale(1.25) rotate(12deg);
 }
 
-.memory-star:hover .star-halo {
+.memory-star:hover .star-halo,
+.memory-star:focus-visible .star-halo {
   opacity: 1;
   animation-duration: 2s;
 }
@@ -719,6 +738,7 @@
 }
 
 @keyframes anonymousGlow {
+
   0%, 100% {
     opacity: .5;
     transform: scale(.95);
@@ -728,6 +748,7 @@
     opacity: 1;
     transform: scale(1.08);
   }
+
 }
 
 .anonymous-section > p:not(.stars-label) {
@@ -745,10 +766,7 @@
 
   margin-top: 2.5rem;
   line-height: 1.5;
-}
-
-
-/* ==========================================
+}/* ==========================================
    BOUGIE VIRTUELLE
    ========================================== */
 
@@ -1001,6 +1019,7 @@
 }
 
 @keyframes candleFlicker {
+
   0%, 100% {
     transform: translateX(-50%) rotate(-2deg) scale(1);
   }
@@ -1016,9 +1035,11 @@
   75% {
     transform: translateX(-50%) rotate(2deg) scale(.98, 1.06);
   }
+
 }
 
 @keyframes candleLight {
+
   0%, 100% {
     opacity: .8;
   }
@@ -1026,7 +1047,11 @@
   50% {
     opacity: 1;
   }
+
 }
+
+
+/* BOUTON DE LA BOUGIE */
 
 .candle-button {
   min-width: 230px;
@@ -1036,6 +1061,9 @@
   background: rgba(242, 216, 172, .1);
   box-shadow: 0 0 30px rgba(242, 216, 172, .1);
 }
+
+
+/* MESSAGE APRÈS L'ALLUMAGE */
 
 .candle-message {
   max-width: 550px;
@@ -1241,6 +1269,7 @@ body.memory-open {
 }
 
 @keyframes memoryOpen {
+
   from {
     opacity: 0;
     transform: translateY(20px) scale(.97);
@@ -1250,10 +1279,12 @@ body.memory-open {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+
 }
 
 .memory-dialog-inner {
   position: relative;
+  min-width: 0;
 }
 
 
@@ -1377,6 +1408,8 @@ body.memory-open {
 .memory-content {
   padding: 2.5rem 4rem 4rem;
   text-align: center;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .memory-content .stars-label {
@@ -1433,10 +1466,7 @@ body.memory-open {
 
 .memory-back {
   margin: auto;
-}
-
-
-/* ==========================================
+}/* ==========================================
    APPARITION AU DÉFILEMENT
    ========================================== */
 
@@ -1449,7 +1479,8 @@ body.memory-open {
     transform 1s ease;
 }
 
-.stars-animations .stars-reveal.stars-visible {
+.stars-animations .stars-reveal.stars-visible,
+.stars-animations .stars-reveal:focus-within {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1467,6 +1498,27 @@ body.memory-open {
 
 .memory-star:focus-visible {
   border-radius: 15px;
+}
+
+.memory-close:focus-visible {
+  outline-offset: 3px;
+}
+
+.stars-page [hidden] {
+  display: none !important;
+}
+
+
+/* ==========================================
+   RESPONSIVE — NAVIGATION
+   ========================================== */
+
+@media (max-width: 1100px) {
+
+  .stars-page section[id] {
+    scroll-margin-top: 85px;
+  }
+
 }
 
 
@@ -1534,6 +1586,9 @@ body.memory-open {
     letter-spacing: .17em;
   }
 
+
+  /* INTRODUCTION */
+
   .stars-hero {
     padding: 115px 1.5rem 85px;
   }
@@ -1575,12 +1630,18 @@ body.memory-open {
     font-size: .9rem;
   }
 
+
+  /* ESPACEMENT DES SECTIONS */
+
   .constellation-section,
   .anonymous-section,
   .candle-section,
   .stars-letter-section {
     padding: 4rem 1.2rem;
   }
+
+
+  /* CONSTELLATION */
 
   .constellation-sky {
     height: 490px;
@@ -1635,6 +1696,9 @@ body.memory-open {
     margin-top: 1.5rem;
   }
 
+
+  /* ÉTOILES SANS PRÉNOM */
+
   .anonymous-symbol {
     font-size: 4rem;
   }
@@ -1646,6 +1710,9 @@ body.memory-open {
   .anonymous-section .anonymous-quote {
     font-size: 1.7rem !important;
   }
+
+
+  /* BOUGIE VIRTUELLE */
 
   .candle-scene {
     height: 300px;
@@ -1659,6 +1726,9 @@ body.memory-open {
   .candle-message p {
     font-size: 1.4rem;
   }
+
+
+  /* LETTRE AUX ÉTOILES */
 
   .stars-letter {
     padding: 2.5rem 1.7rem;
@@ -1685,6 +1755,9 @@ body.memory-open {
     font-size: 1.5rem !important;
   }
 
+
+  /* CONCLUSION */
+
   .stars-ending {
     padding: 2rem 1.5rem 5rem;
   }
@@ -1693,6 +1766,9 @@ body.memory-open {
     flex-direction: column;
     gap: 1.5rem;
   }
+
+
+  /* FENÊTRES SOUVENIRS */
 
   .memory-dialog {
     width: 94vw;
@@ -1781,6 +1857,37 @@ body.memory-open {
     height: 280px;
   }
 
+  .candle-button {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+}
+
+
+/* ==========================================
+   DERNIÈRES CORRECTIONS
+   ========================================== */
+
+.stars-hero-content,
+.stars-heading,
+.stars-letter,
+.memory-dialog-inner,
+.memory-content {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.memory-photo img {
+  max-width: 100%;
+}
+
+.candle-light {
+  max-width: 100%;
+}
+
+.memory-dialog:not([open]) {
+  display: none;
 }
 
 
@@ -1820,4 +1927,25 @@ body.memory-open {
     transform: translateX(-50%);
   }
 
+  .stars-button:hover,
+  .memory-star:hover .star-shape,
+  .memory-star:focus-visible .star-shape,
+  .memory-star:hover .star-discover,
+  .memory-star:focus-visible .star-discover,
+  .memory-close:hover {
+    transform: none;
+  }
+
+  .candle-lit .candle-flame,
+  .candle-lit .candle-light {
+    opacity: 1;
+  }
+
 }
+
+
+/* ==========================================
+   FIN — NOS ÉTOILES
+
+   Leur lumière ne s'éteindra jamais.
+   ========================================== */

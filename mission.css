@@ -1,4 +1,3 @@
-
 /* ==========================================
    CŒUR ERRANT — LA MISSION
    ========================================== */
@@ -30,6 +29,10 @@
 
 .mission-page section {
   margin: 0;
+}
+
+.mission-page section[id] {
+  scroll-margin-top: 100px;
 }
 
 .mission-page button {
@@ -98,6 +101,7 @@
   font-weight: 400;
   letter-spacing: .06em;
   text-decoration: none;
+
   transition:
     transform .35s ease,
     background .35s ease,
@@ -175,6 +179,7 @@
   position: absolute;
   inset: 0;
   z-index: -2;
+
   background:
     linear-gradient(
       90deg,
@@ -263,7 +268,9 @@
 }
 
 
-/* EMPREINTES FLOTTANTES */
+/* ==========================================
+   EMPREINTES FLOTTANTES
+   ========================================== */
 
 .mission-floating-paws {
   position: absolute;
@@ -375,12 +382,14 @@
 .mission-animations .mission-reveal {
   opacity: 0;
   transform: translateY(28px);
+
   transition:
     opacity .85s ease,
     transform .85s cubic-bezier(.2, .65, .3, 1);
 }
 
-.mission-animations .mission-reveal.mission-visible {
+.mission-animations .mission-reveal.mission-visible,
+.mission-animations .mission-reveal:focus-within {
   opacity: 1;
   transform: translateY(0);
 }
@@ -430,7 +439,9 @@
 }
 
 
-/* PAYSAGE INTERACTIF */
+/* ==========================================
+   PAYSAGE INTERACTIF
+   ========================================== */
 
 .animal-landscape {
   position: relative;
@@ -494,10 +505,13 @@
 }
 
 
-/* DÉPLACEMENT DU SOLEIL */
+/* ==========================================
+   DÉPLACEMENT DU SOLEIL
+   ========================================== */
 
 .landscape-sun {
   transform: translate(160px, 135px);
+
   transition:
     transform 1.4s cubic-bezier(.3, .6, .3, 1),
     opacity 1s ease;
@@ -524,7 +538,9 @@
 }
 
 
-/* LUNE ET ÉTOILES */
+/* ==========================================
+   LUNE ET ÉTOILES
+   ========================================== */
 
 .landscape-moon,
 .landscape-stars,
@@ -569,7 +585,9 @@
 }
 
 
-/* NUAGES EN MOUVEMENT */
+/* ==========================================
+   NUAGES EN MOUVEMENT
+   ========================================== */
 
 .cloud-one {
   animation: landscapeCloudOne 30s ease-in-out infinite alternate;
@@ -600,7 +618,9 @@
 }
 
 
-/* AMBIANCE NOCTURNE */
+/* ==========================================
+   AMBIANCE NOCTURNE
+   ========================================== */
 
 .landscape-night-overlay {
   opacity: 0;
@@ -624,7 +644,9 @@
 }
 
 
-/* LE PETIT CHIEN */
+/* ==========================================
+   LE PETIT CHIEN
+   ========================================== */
 
 .dog-tail {
   transform-box: fill-box;
@@ -657,11 +679,14 @@
 }
 
 
-/* OBJETS OFFERTS */
+/* ==========================================
+   OBJETS OFFERTS
+   ========================================== */
 
 .landscape-gift {
   opacity: 0;
   transform: translateY(10px);
+
   transition:
     opacity .6s ease,
     transform .6s ease;
@@ -689,7 +714,9 @@
 }
 
 
-/* HORLOGE */
+/* ==========================================
+   HORLOGE
+   ========================================== */
 
 .landscape-clock {
   position: absolute;
@@ -722,7 +749,9 @@
 }
 
 
-/* CONTENU SOUS LE PAYSAGE */
+/* ==========================================
+   CONTENU SOUS LE PAYSAGE
+   ========================================== */
 
 .animal-experience-content {
   padding: 2.8rem 4rem 3rem;
@@ -752,7 +781,9 @@
 }
 
 
-/* CURSEUR */
+/* ==========================================
+   CURSEUR INTERACTIF
+   ========================================== */
 
 .day-slider-container {
   max-width: 760px;
@@ -779,6 +810,7 @@
   height: 5px;
   border: 0;
   border-radius: 10px;
+
   background:
     linear-gradient(
       to right,
@@ -787,11 +819,10 @@
       #e5d9cd var(--day-progress),
       #e5d9cd 100%
     );
+
   cursor: pointer;
   margin: 0;
-}
-
-#day-slider::-webkit-slider-thumb {
+}#day-slider::-webkit-slider-thumb {
   appearance: none;
   -webkit-appearance: none;
   width: 24px;
@@ -894,6 +925,7 @@
   align-items: center;
   text-align: center;
   width: 100%;
+  min-width: 0;
   padding: 2.5rem 1.4rem 1.8rem;
   background: #fffdf9;
   border: 1px solid var(--m-border);
@@ -901,6 +933,7 @@
   color: var(--m-dark);
   cursor: pointer;
   overflow: hidden;
+
   transition:
     transform .4s ease,
     background .4s ease,
@@ -939,6 +972,7 @@
   font-size: 2rem;
   color: var(--m-brown);
   margin: 0 0 .8rem;
+  overflow-wrap: break-word;
 }
 
 .gesture-card p {
@@ -947,6 +981,7 @@
   font-weight: 300;
   margin: 0 0 1.5rem;
   flex: 1;
+  overflow-wrap: break-word;
 }
 
 .gesture-action {
@@ -957,6 +992,8 @@
   border-radius: 30px;
   color: var(--m-rose);
   font-size: .75rem;
+  white-space: normal;
+  overflow-wrap: break-word;
   transition: all .3s ease;
 }
 
@@ -987,7 +1024,9 @@
 }
 
 
-/* PROGRESSION */
+/* ==========================================
+   PROGRESSION DES GESTES
+   ========================================== */
 
 .gesture-progress {
   max-width: 700px;
@@ -1006,6 +1045,7 @@
   color: #bca99a;
   font-size: 2.2rem;
   line-height: 1;
+
   transition:
     color .3s ease,
     transform .3s ease;
@@ -1029,11 +1069,13 @@
   width: 0;
   height: 100%;
   border-radius: inherit;
+
   background: linear-gradient(
     90deg,
     #c4a882,
     #a85e68
   );
+
   transition: width .6s ease;
 }
 
@@ -1102,6 +1144,7 @@
 
 .mission-origin-photo {
   position: relative;
+  min-width: 0;
   padding: 14px 14px 0;
   background: #fffdf9;
   border: 1px solid var(--m-border);
@@ -1110,12 +1153,26 @@
   rotate: -2deg;
 }
 
+
+/* ANCIEN FORMAT PHOTO */
+
 .mission-origin-photo img {
   display: block;
   width: 100%;
   height: 510px;
   object-fit: contain;
   background: #eee7de;
+}
+
+
+/* NOUVELLE ILLUSTRATION SYMBOLIQUE */
+
+.mission-origin-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 10 / 11;
+  border-radius: 4px;
 }
 
 .origin-photo-caption {
@@ -1184,6 +1241,7 @@
   border: 1px solid var(--m-border);
   border-radius: 14px;
   overflow: hidden;
+
   transition:
     border-color .3s ease,
     box-shadow .3s ease;
@@ -1236,6 +1294,8 @@
   font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   margin: 0;
   flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .value-expand {
@@ -1284,6 +1344,7 @@
   bottom: 35px;
   left: 35px;
   width: 1px;
+
   background: linear-gradient(
     #d7bc91,
     #c4a882,
@@ -1372,12 +1433,14 @@
 .mission-lessons {
   position: relative;
   padding: 7rem 6%;
+
   background:
     radial-gradient(
       ellipse at 50% 0%,
       #514039,
       #302925 75%
     );
+
   color: #f8eee2;
   overflow: hidden;
 }
@@ -1414,6 +1477,11 @@
   color: #d7b995;
 }
 
+
+/* ==========================================
+   CARROUSEL DES LEÇONS
+   ========================================== */
+
 .lesson-carousel {
   position: relative;
   max-width: 750px;
@@ -1426,6 +1494,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  touch-action: pan-y;
 }
 
 .lesson-quotation {
@@ -1468,6 +1537,11 @@
     transform: translateY(0);
   }
 }
+
+
+/* ==========================================
+   COMMANDES DU CARROUSEL
+   ========================================== */
 
 .lesson-controls {
   display: flex;
@@ -1534,9 +1608,10 @@
   border-radius: 10px;
 }
 
-
-/* ==========================================
-   UNE EMPREINTE DE BIENVEILLANCE
+.lesson-dot:hover::after {
+  opacity: .8;
+}/* ==========================================
+   EMPREINTE SYMBOLIQUE
    ========================================== */
 
 .mission-promise {
@@ -1560,6 +1635,7 @@
   text-align: center;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(87, 65, 47, .06);
+
   transition:
     border-color .6s ease,
     box-shadow .6s ease;
@@ -1578,11 +1654,13 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
+
   background: radial-gradient(
     circle,
     rgba(196, 168, 130, .22),
     transparent 70%
   );
+
   animation: promiseGlow 3s ease-in-out infinite;
   pointer-events: none;
 }
@@ -1609,6 +1687,7 @@
   padding: 0;
   background: transparent;
   cursor: pointer;
+
   transition:
     transform .4s ease,
     filter .4s ease;
@@ -1633,6 +1712,7 @@
 
 .promise-paw:hover {
   transform: scale(1.09) rotate(-5deg);
+
   filter: drop-shadow(
     0 8px 12px rgba(168, 94, 104, .15)
   );
@@ -1643,7 +1723,9 @@
 }
 
 
-/* PETITES ÉTINCELLES */
+/* ==========================================
+   PETITES ÉTINCELLES
+   ========================================== */
 
 .promise-sparkles {
   position: absolute;
@@ -1684,7 +1766,9 @@
 }
 
 
-/* EMPREINTE ACTIVÉE */
+/* ==========================================
+   EMPREINTE ACTIVÉE
+   ========================================== */
 
 .promise-made {
   border-color: #d5a8af;
@@ -1771,12 +1855,18 @@
   color: var(--m-muted);
 }
 
+
+/* ==========================================
+   LETTRE DE BIENVEILLANCE
+   ========================================== */
+
 .promise-letter {
   position: relative;
   margin: 2rem auto 1.5rem;
   padding: 2rem;
   border: 1px solid #dfc9b4;
   border-radius: 4px;
+
   background:
     repeating-linear-gradient(
       transparent,
@@ -1785,6 +1875,7 @@
       rgba(196, 168, 130, .1) 32px
     ),
     #f8efe3;
+
   box-shadow: 0 8px 20px rgba(87, 65, 47, .05);
   animation: promiseLetterOpen .7s ease both;
 }
@@ -1837,12 +1928,14 @@
 .mission-ending {
   position: relative;
   padding: 7rem 6%;
+
   background:
     radial-gradient(
       ellipse at center,
       #f7ece3,
       #e9d9ca
     );
+
   text-align: center;
   overflow: hidden;
 }
@@ -1885,8 +1978,41 @@
   font-weight: 300;
 }
 
+.mission-ending-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem auto 2.5rem;
+}
+
 .mission-ending .mission-button {
-  margin: 1.5rem 0 2rem;
+  margin: 0;
+}
+
+.mission-ending-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 2rem;
+  border: 1px solid var(--m-rose);
+  border-radius: 50px;
+  color: var(--m-rose);
+  background: transparent;
+  font-size: .85rem;
+  text-decoration: none;
+
+  transition:
+    background .3s ease,
+    color .3s ease,
+    transform .3s ease;
+}
+
+.mission-ending-secondary:hover {
+  background: var(--m-rose);
+  color: #fff;
+  transform: translateY(-4px);
 }
 
 .mission-ending-signature {
@@ -1917,7 +2043,12 @@
     height: 420px;
   }
 
+  .mission-page section[id] {
+    scroll-margin-top: 85px;
+  }
+
 }
+
 
 @media (max-width: 900px) {
 
@@ -1945,41 +2076,62 @@
   .mission-lessons,
   .mission-promise,
   .mission-ending {
-    padding: 5rem 6%;
+    padding: 5.5rem 6%;
+  }
+
+  .mission-heading {
+    margin-bottom: 2.8rem;
+  }
+
+  .animal-experience-content {
+    padding: 2.5rem 2.5rem 3rem;
   }
 
   .mission-origin-inner {
     grid-template-columns: 1fr;
     gap: 3.5rem;
+    max-width: 700px;
   }
 
   .mission-origin-photo {
-    width: 85%;
-    max-width: 460px;
+    width: 100%;
+    max-width: 440px;
     margin: auto;
   }
 
   .mission-origin-photo img {
-    height: 430px;
+    height: 440px;
   }
 
   .mission-origin-text {
-    max-width: 700px;
-    margin: auto;
+    text-align: center;
   }
 
-  .animal-experience-content {
-    padding: 2.5rem;
+  .mission-origin-quote {
+    text-align: left;
+  }
+
+  .mission-values-grid {
+    gap: 1rem;
   }
 
   .mission-value summary {
-    padding: 1.3rem;
     gap: .8rem;
+    padding: 1.3rem;
   }
 
   .value-symbol {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+  }
+
+  .value-content {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .lesson-carousel {
+    padding: 2rem 2.5rem;
   }
 
 }
@@ -1991,51 +2143,93 @@
 
 @media (max-width: 600px) {
 
+  .mission-page {
+    overflow-x: hidden;
+  }
+
+  .mission-page section[id] {
+    scroll-margin-top: 85px;
+  }
+
+  .mission-page h2 {
+    font-size: clamp(2.4rem, 9vw, 3.4rem);
+    line-height: 1.12;
+  }
+
+  .mission-label {
+    font-size: .64rem;
+    letter-spacing: .16em;
+    margin-bottom: 1rem;
+  }
+
+
+  /* INTRODUCTION */
+
   .mission-opening {
-    min-height: 88vh;
-    min-height: 88svh;
-    padding: 120px 6% 100px;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 120px 7% 100px;
     align-items: center;
   }
 
   .mission-opening-image img {
-    object-position: center;
+    object-position: 60% center;
   }
 
   .mission-opening-overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(34, 26, 23, .83),
-      rgba(34, 26, 23, .45)
-    );
+    background:
+      linear-gradient(
+        90deg,
+        rgba(34, 26, 23, .65),
+        rgba(34, 26, 23, .35)
+      ),
+      linear-gradient(
+        0deg,
+        rgba(34, 26, 23, .65),
+        transparent 80%
+      );
+  }
+
+  .mission-opening-content {
+    width: 100%;
   }
 
   .mission-opening h1 {
-    font-size: clamp(3rem, 11vw, 4.5rem);
-    margin-bottom: 1.5rem;
+    font-size: clamp(3.2rem, 12vw, 4.7rem);
+    margin-bottom: 1.6rem;
   }
 
   .mission-opening .mission-label {
-    font-size: .63rem;
-    letter-spacing: .15em;
-  }
-
-  .mission-opening-words p {
-    font-size: .93rem;
+    letter-spacing: .16em;
   }
 
   .mission-opening-words {
     margin-bottom: 2rem;
   }
 
+  .mission-opening-words p {
+    font-size: .95rem;
+    line-height: 1.8;
+  }
+
   .mission-button {
-    padding: 1rem 1.6rem;
-    font-size: .8rem;
+    padding: 1rem 1.5rem;
+    font-size: .78rem;
+    text-align: center;
+  }
+
+  .mission-scroll {
+    width: 36px;
+    height: 48px;
+    bottom: 20px;
   }
 
   .mission-floating-paws span {
     font-size: 1.5rem;
   }
+
+
+  /* SECTIONS */
 
   .animal-day-section,
   .mission-gestures,
@@ -2049,60 +2243,54 @@
   }
 
   .mission-heading {
-    margin-bottom: 2.5rem;
-  }
-
-  .mission-page h2 {
-    font-size: clamp(2.4rem, 9vw, 3.5rem);
+    margin-bottom: 2.3rem;
   }
 
   .mission-heading > p:not(.mission-label) {
     font-size: .9rem;
-  }
-
-  .mission-label {
-    font-size: .63rem;
-    letter-spacing: .15em;
+    line-height: 1.8;
   }
 
 
-  /* PAYSAGE */
+  /* EXPÉRIENCE INTERACTIVE */
 
   .animal-experience {
-    border-radius: 16px;
+    border-radius: 15px;
   }
 
   .animal-landscape {
-    min-height: 210px;
+    min-height: 180px;
   }
 
   .landscape-svg {
-    height: 230px;
     width: 100%;
+    min-height: 180px;
+    object-fit: cover;
   }
 
   .landscape-clock {
-    top: 12px;
-    left: 12px;
-    min-width: 70px;
-    padding: .5rem .8rem;
-    border-radius: 10px;
+    top: 10px;
+    left: 10px;
+    min-width: 65px;
+    padding: .4rem .65rem;
+    border-radius: 8px;
   }
 
   #day-clock {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
   #day-period {
-    font-size: .52rem;
+    font-size: .48rem;
+    letter-spacing: .07em;
   }
 
   .animal-experience-content {
-    padding: 1.5rem 1.2rem 1.8rem;
+    padding: 1.7rem 1.2rem 2rem;
   }
 
   .day-story {
-    min-height: 195px;
+    min-height: 190px;
   }
 
   .day-story h3 {
@@ -2110,28 +2298,42 @@
   }
 
   .day-story > p:last-child {
-    font-size: .88rem;
+    font-size: .85rem;
+    line-height: 1.8;
+  }
+
+  .day-slider-container {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .day-slider-container label {
+    font-size: .72rem;
+    margin-bottom: 1.2rem;
   }
 
   .day-moments {
     gap: .25rem;
+    margin-top: 1.3rem;
   }
 
   .day-moment {
-    font-size: .72rem;
-    padding: .8rem .2rem;
+    padding: .7rem .2rem;
+    font-size: .7rem;
+    border-radius: 8px;
   }
 
   .day-moment span {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
   }
 
   .experience-note {
-    font-size: .7rem;
+    font-size: .68rem;
+    margin-top: 1.2rem;
   }
 
 
-  /* GESTES */
+  /* PETITS GESTES */
 
   .gesture-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2139,8 +2341,9 @@
   }
 
   .gesture-card {
-    padding: 1.5rem .8rem 1rem;
-    border-radius: 14px;
+    min-width: 0;
+    padding: 1.5rem .85rem 1.2rem;
+    border-radius: 13px;
   }
 
   .gesture-icon {
@@ -2156,6 +2359,7 @@
 
   .gesture-card h3 {
     font-size: 1.65rem;
+    line-height: 1.1;
   }
 
   .gesture-card p {
@@ -2165,63 +2369,117 @@
   }
 
   .gesture-action {
+    padding: .7rem .35rem;
     font-size: .67rem;
-    padding: .7rem .2rem;
+    white-space: normal;
+    overflow-wrap: break-word;
   }
 
   .gesture-progress {
     margin-top: 2.5rem;
   }
 
+  .gesture-progress-hearts {
+    gap: .7rem;
+  }
+
+  .gesture-progress-hearts span {
+    font-size: 1.9rem;
+  }
+
+  .gesture-progress-track {
+    max-width: 80%;
+  }
+
   .gesture-success {
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .gesture-success h3 {
+    font-size: 1.9rem;
+  }
+
+  .gesture-disclaimer {
+    font-size: .68rem;
   }
 
 
-  /* ORIGINE */
+  /* ORIGINE DE CŒUR ERRANT */
+
+  .mission-origin-inner {
+    gap: 2.5rem;
+  }
 
   .mission-origin-photo {
     width: 90%;
+    max-width: 360px;
     padding: 10px 10px 0;
   }
 
   .mission-origin-photo img {
-    height: 330px;
+    height: 340px;
+  }
+
+  .mission-origin-illustration {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
   }
 
   .origin-photo-caption {
-    font-size: 1.2rem;
-    padding: 1rem;
+    font-size: 1.15rem;
+    padding: 1.2rem .6rem;
   }
 
   .origin-photo-heart {
+    right: -14px;
+    bottom: 15px;
     font-size: 3rem;
-    right: -15px;
+  }
+
+  .mission-origin-text h2 {
+    margin-bottom: 1.5rem;
   }
 
   .mission-origin-text > p:not(.mission-label) {
-    font-size: .93rem;
+    font-size: .9rem;
   }
 
   .mission-origin-quote {
-    padding: 1.2rem;
-    font-size: 1.45rem;
+    padding: 1.2rem 1.3rem;
+    font-size: 1.4rem;
+    margin: 1.7rem 0;
   }
 
 
-  /* VALEURS */
+  /* LES SIX VALEURS */
 
   .mission-values-grid {
     grid-template-columns: 1fr;
-    gap: .9rem;
+    gap: .8rem;
+  }
+
+  .mission-value {
+    border-radius: 12px;
   }
 
   .mission-value summary {
     padding: 1.2rem;
+    gap: .8rem;
+  }
+
+  .value-number {
+    font-size: .6rem;
+  }
+
+  .value-symbol {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
   }
 
   .mission-value h3 {
-    font-size: 1.8rem;
+    font-size: 1.65rem;
   }
 
   .value-content {
@@ -2229,7 +2487,7 @@
   }
 
   .value-content p {
-    font-size: .88rem;
+    font-size: .85rem;
   }
 
 
@@ -2240,52 +2498,89 @@
   }
 
   .mission-travel-timeline::before {
-    left: 23px;
+    top: 24px;
+    bottom: 24px;
+    left: 24px;
   }
 
   .travel-moment {
-    grid-template-columns: 46px minmax(0, 1fr);
+    grid-template-columns: 48px minmax(0, 1fr);
     gap: .9rem;
     padding-bottom: 1.5rem;
   }
 
   .travel-moment-icon {
-    width: 46px;
-    height: 46px;
-    font-size: 1.4rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
     border-width: 3px;
   }
 
   .travel-moment-content {
-    padding: 1.2rem;
+    padding: 1.3rem 1rem;
+    border-radius: 12px;
+  }
+
+  .travel-moment-content .mission-label {
+    font-size: .6rem;
+    letter-spacing: .1em;
   }
 
   .travel-moment-content h3 {
-    font-size: 1.7rem;
+    font-size: 1.65rem;
+    line-height: 1.2;
   }
 
   .travel-moment-content > p:last-child {
-    font-size: .85rem;
+    font-size: .82rem;
+    line-height: 1.75;
   }
 
 
-  /* LEÇONS */
+  /* CARROUSEL */
 
   .mission-lessons h2 {
     margin-bottom: 2rem;
   }
 
-  .lesson-carousel {
-    min-height: 290px;
-    padding: 1.8rem 1.3rem;
+  .mission-lessons::before {
+    font-size: 22rem;
+    right: -70px;
+    bottom: -90px;
   }
 
-  #lesson-text {
-    font-size: 1.9rem;
+  .lesson-carousel {
+    min-height: 270px;
+    padding: 1.8rem 1.3rem;
+    border-radius: 14px;
   }
 
   .lesson-quotation {
     font-size: 4rem;
+  }
+
+  #lesson-text {
+    font-size: 1.85rem;
+    line-height: 1.4;
+  }
+
+  #lesson-theme {
+    font-size: .65rem;
+  }
+
+  .lesson-controls {
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  #lesson-prev,
+  #lesson-next {
+    width: 42px;
+    height: 42px;
+  }
+
+  .lesson-dots {
+    gap: .4rem;
   }
 
 
@@ -2293,7 +2588,7 @@
 
   .promise-card {
     padding: 2rem 1.3rem;
-    border-radius: 18px;
+    border-radius: 16px;
   }
 
   .promise-paw-wrapper {
@@ -2306,20 +2601,66 @@
     height: 145px;
   }
 
+  .promise-sparkles span {
+    font-size: 1.4rem;
+  }
+
   #promise-title {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
   }
 
   #promise-description {
-    font-size: .9rem;
+    font-size: .86rem;
   }
 
   .promise-letter {
-    padding: 1.4rem;
+    padding: 1.5rem 1rem;
+    margin-top: 1.5rem;
   }
 
   .promise-letter p {
     font-size: 1.4rem;
+  }
+
+  .promise-letter span {
+    font-size: .75rem;
+  }
+
+  .promise-note {
+    font-size: .67rem;
+    margin-top: 1.5rem;
+  }
+
+
+  /* CONCLUSION */
+
+  .mission-ending-symbol {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .mission-ending h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .mission-ending-content > p:not(.mission-label) {
+    font-size: .9rem;
+  }
+
+  .mission-ending-actions {
+    flex-direction: column;
+    gap: .8rem;
+    margin: 1.8rem auto 2rem;
+  }
+
+  .mission-ending-actions a {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .mission-ending-secondary {
+    padding: 1rem 1.5rem;
+    font-size: .78rem;
   }
 
   .mission-ending-signature {
@@ -2335,42 +2676,143 @@
 
 @media (max-width: 360px) {
 
+  .mission-opening {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .mission-opening h1 {
+    font-size: 3rem;
+  }
+
+  .mission-opening-words p {
+    font-size: .85rem;
+  }
+
+  .mission-page h2 {
+    font-size: 2.35rem;
+  }
+
   .gesture-grid {
     grid-template-columns: 1fr;
+    max-width: 280px;
   }
 
   .gesture-card {
-    padding: 1.5rem;
+    padding: 1.6rem 1.2rem;
+  }
+
+  .gesture-card h3 {
+    font-size: 1.9rem;
   }
 
   .gesture-card p {
     font-size: .85rem;
   }
 
-  .mission-opening h1 {
-    font-size: 2.8rem;
+  .gesture-action {
+    font-size: .75rem;
+  }
+
+  .animal-experience-content {
+    padding: 1.5rem .85rem;
   }
 
   .day-story {
-    min-height: 230px;
+    min-height: 210px;
   }
 
   .day-moment {
-    font-size: .65rem;
+    font-size: .62rem;
+  }
+
+  .mission-origin-photo {
+    width: 95%;
   }
 
   .mission-origin-photo img {
-    height: 270px;
+    height: 280px;
   }
 
-  .value-symbol {
-    width: 35px;
-    height: 35px;
-    font-size: 1.4rem;
+  .mission-value summary {
+    gap: .6rem;
+    padding: 1rem;
   }
 
   .mission-value h3 {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
+  }
+
+  .travel-moment {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: .65rem;
+  }
+
+  .travel-moment-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .mission-travel-timeline::before {
+    left: 20px;
+  }
+
+  .travel-moment-content {
+    padding: 1rem .85rem;
+  }
+
+  .promise-paw-wrapper {
+    width: 170px;
+    height: 170px;
+  }
+
+  .promise-paw {
+    width: 125px;
+    height: 125px;
+  }
+
+  .promise-card {
+    padding: 1.6rem 1rem;
+  }
+
+  #promise-title {
+    font-size: 1.9rem;
+  }
+
+  #lesson-text {
+    font-size: 1.65rem;
+  }
+
+}
+
+
+/* ==========================================
+   ÉCRANS TACTILES
+   ========================================== */
+
+@media (hover: none) {
+
+  .gesture-card:hover {
+    transform: none;
+  }
+
+  .gesture-card:hover .gesture-icon {
+    transform: none;
+  }
+
+  .travel-moment:hover .travel-moment-icon {
+    transform: none;
+  }
+
+  .mission-button:hover,
+  .mission-ending-secondary:hover {
+    transform: none;
+  }
+
+  .promise-paw:hover {
+    transform: none;
+    filter: none;
   }
 
 }
@@ -2385,23 +2827,100 @@
   .mission-page *,
   .mission-page *::before,
   .mission-page *::after {
-    animation: none !important;
-    transition: none !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: .01ms !important;
     scroll-behavior: auto !important;
   }
 
   .mission-enter,
-  .mission-animations .mission-reveal {
-    opacity: 1;
-    transform: none;
+  .mission-animations .mission-reveal,
+  .mission-animations .mission-reveal.mission-visible {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
-  .promise-made .promise-sparkles span {
-    opacity: .6;
+  .mission-opening-image img {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .mission-scroll {
+    animation: none !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .mission-floating-paws span {
+    animation: none !important;
+    opacity: .12;
   }
 
   .landscape-stars circle {
-    opacity: 1;
+    animation: none !important;
+    opacity: .8;
+  }
+
+  .cloud-one,
+  .cloud-two,
+  .dog-tail {
+    animation: none !important;
+  }
+
+  .promise-paw-glow {
+    animation: none !important;
+    opacity: .7;
+  }
+
+  .promise-made .promise-sparkles span {
+    animation: none !important;
+    opacity: .6;
+  }
+
+  .mission-ending-symbol {
+    animation: none !important;
   }
 
 }
+
+
+/* ==========================================
+   CORRECTIONS FINALES
+   ========================================== */
+
+.mission-page [hidden] {
+  display: none !important;
+}
+
+.mission-page .mission-reveal:focus-within {
+  opacity: 1;
+  transform: none;
+}
+
+.mission-page img,
+.mission-page svg {
+  max-width: 100%;
+}
+
+.mission-origin-photo {
+  min-width: 0;
+}
+
+.gesture-card,
+.travel-moment-content,
+.mission-origin-text,
+.mission-value {
+  min-width: 0;
+}
+
+.gesture-action,
+.mission-ending-actions a {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+
+/* ==========================================
+   FIN — MISSION.CSS
+   CŒUR ERRANT
+   ========================================== */
