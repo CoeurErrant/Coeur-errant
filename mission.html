@@ -199,9 +199,7 @@
 
       <div class="animal-landscape"
            id="animal-landscape"
-           data-period="morning">
-
-        <svg class="landscape-svg"
+           data-period="morning">        <svg class="landscape-svg"
              viewBox="0 0 1000 450"
              xmlns="http://www.w3.org/2000/svg"
              aria-hidden="true">
@@ -405,98 +403,469 @@
 
           </g>
 
-          <!-- PETIT CHIEN -->
+          <!-- ======================================
+               CHIEN — ILLUSTRATION SEMI-RÉALISTE
+               ====================================== -->
 
           <g class="landscape-dog"
              transform="translate(420 265)">
 
-            <ellipse cx="75" cy="145"
-                     rx="80" ry="10"
-                     fill="#5f4c42"
-                     opacity=".18"/>
+            <defs>
 
-            <!-- Queue -->
+              <!-- Nuances du pelage -->
 
-            <path class="dog-tail"
-                  d="M20 75 Q-15 45 -28 68"
-                  stroke="#86634c"
-                  stroke-width="13"
-                  stroke-linecap="round"
-                  fill="none"/>
+              <linearGradient id="mission-dog-coat"
+                              x1="0" y1="0" x2=".3" y2="1">
 
-            <!-- Pattes arrière -->
+                <stop offset="0%" stop-color="#806047"/>
+                <stop offset="30%" stop-color="#a27c58"/>
+                <stop offset="65%" stop-color="#bd9870"/>
+                <stop offset="100%" stop-color="#d4b895"/>
 
-            <rect x="25" y="92"
-                  width="17" height="50"
-                  rx="7"
-                  fill="#86634c"/>
+              </linearGradient>
 
-            <rect x="52" y="95"
-                  width="16" height="47"
-                  rx="7"
-                  fill="#9e795b"/>
+              <linearGradient id="mission-dog-head"
+                              x1="0" y1="0" x2="1" y2="1">
+
+                <stop offset="0%" stop-color="#8c694d"/>
+                <stop offset="45%" stop-color="#bc966e"/>
+                <stop offset="100%" stop-color="#dfc4a0"/>
+
+              </linearGradient>
+
+              <linearGradient id="mission-dog-leg"
+                              x1="0" y1="0" x2=".7" y2="1">
+
+                <stop offset="0%" stop-color="#987452"/>
+                <stop offset="55%" stop-color="#b58e65"/>
+                <stop offset="100%" stop-color="#ddc3a2"/>
+
+              </linearGradient>
+
+              <linearGradient id="mission-dog-ear"
+                              x1="0" y1="0" x2="1" y2="1">
+
+                <stop offset="0%" stop-color="#997354"/>
+                <stop offset="55%" stop-color="#76543e"/>
+                <stop offset="100%" stop-color="#594034"/>
+
+              </linearGradient>
+
+              <radialGradient id="mission-dog-muzzle">
+
+                <stop offset="0%" stop-color="#e7d0b1"/>
+                <stop offset="70%" stop-color="#c9aa87"/>
+                <stop offset="100%" stop-color="#a88665"/>
+
+              </radialGradient>
+
+              <radialGradient id="mission-dog-shadow">
+
+                <stop offset="0%"
+                      stop-color="#48382f"
+                      stop-opacity=".28"/>
+
+                <stop offset="100%"
+                      stop-color="#48382f"
+                      stop-opacity="0"/>
+
+              </radialGradient>
+
+              <radialGradient id="mission-dog-eye">
+
+                <stop offset="0%" stop-color="#b18a4d"/>
+                <stop offset="65%" stop-color="#76502e"/>
+                <stop offset="100%" stop-color="#39291e"/>
+
+              </radialGradient>
+
+            </defs>
+
+            <!-- Ombre au sol -->
+
+            <ellipse cx="79" cy="145"
+                     rx="91" ry="12"
+                     fill="url(#mission-dog-shadow)"/>
+
+            <!-- Queue naturelle et animée -->
+
+            <g class="dog-tail">
+
+              <path d="M18 61
+                       C3 59 -10 67 -19 78
+                       C-29 91 -39 93 -46 85
+                       C-43 98 -32 103 -22 96
+                       C-8 87 2 76 20 76Z"
+                    fill="url(#mission-dog-coat)"
+                    stroke="#8b694e"
+                    stroke-width=".8"/>
+
+              <path d="M15 66
+                       C-3 66 -12 80 -24 89
+                       Q-35 98 -42 89"
+                    fill="none"
+                    stroke="#c3a17b"
+                    stroke-width="1.4"
+                    opacity=".7"/>
+
+              <path d="M-25 90 L-34 96
+                       M-16 82 L-24 91
+                       M-6 74 L-14 84"
+                    fill="none"
+                    stroke="#74553f"
+                    stroke-width=".8"
+                    opacity=".55"/>
+
+            </g>
+
+            <!-- Patte arrière éloignée -->
+
+            <path d="M43 81
+                     C54 91 56 105 50 116
+                     L57 133
+                     Q65 137 64 142
+                     Q57 146 46 142
+                     L40 122
+                     Q34 112 39 100Z"
+                  fill="#84634c"/>
+
+            <!-- Patte avant éloignée -->
+
+            <path d="M116 81
+                     C125 89 128 103 124 117
+                     L125 134
+                     Q135 138 134 143
+                     Q126 147 115 143
+                     L112 116
+                     L106 94Z"
+                  fill="#987656"/>
 
             <!-- Corps -->
 
-            <ellipse cx="65" cy="80"
-                     rx="58" ry="32"
-                     fill="#b28b67"/>
+            <path d="M18 59
+                     C30 48 46 50 61 54
+                     C76 57 90 55 102 49
+                     C111 44 120 37 129 40
+                     C141 44 146 61 141 76
+                     C138 89 128 99 115 102
+                     C101 105 89 97 76 96
+                     C61 95 53 100 41 96
+                     C25 95 14 84 13 73
+                     Q12 65 18 59Z"
+                  fill="url(#mission-dog-coat)"
+                  stroke="#8b6a4f"
+                  stroke-width=".8"/>
+
+            <!-- Ombre naturelle sur le dos -->
+
+            <path d="M18 59
+                     C35 50 49 53 64 57
+                     C79 60 91 56 104 50
+                     L116 47
+                     Q107 58 99 64
+                     C82 72 67 65 52 63
+                     Q33 60 18 66Z"
+                  fill="#79583f"
+                  opacity=".3"/>
+
+            <!-- Flanc -->
+
+            <path d="M39 74
+                     C56 65 78 71 96 76
+                     Q89 90 75 94
+                     Q57 92 43 94
+                     Q34 86 39 74Z"
+                  fill="#c6a37b"
+                  opacity=".55"/>
+
+            <!-- Patte arrière proche -->
+
+            <path d="M25 72
+                     C40 68 51 77 51 89
+                     C51 100 44 106 36 113
+                     L33 130
+                     Q36 136 43 137
+                     Q48 139 46 143
+                     Q36 147 24 143
+                     Q20 140 23 132
+                     L24 113
+                     Q27 105 29 100
+                     C19 93 17 81 25 72Z"
+                  fill="url(#mission-dog-leg)"
+                  stroke="#987452"
+                  stroke-width=".8"/>
 
             <!-- Poitrail -->
 
-            <ellipse cx="109" cy="82"
-                     rx="23" ry="32"
-                     fill="#d6b28d"/>
+            <path d="M119 44
+                     C132 48 141 61 139 77
+                     C138 90 130 102 120 107
+                     Q112 99 109 88
+                     Q110 72 119 44Z"
+                  fill="#d9bd99"/>
 
-            <!-- Pattes avant -->
+            <!-- Fourrure du poitrail -->
 
-            <rect x="95" y="92"
-                  width="16" height="50"
-                  rx="7"
-                  fill="#b28b67"/>
+            <path d="M121 55
+                     Q119 68 124 77
+                     L120 76
+                     L124 87
+                     L118 83
+                     L122 96
+                     L115 90
+                     Q112 76 121 55Z"
+                  fill="#eddbc1"
+                  opacity=".7"/>
 
-            <rect x="119" y="88"
-                  width="17" height="54"
-                  rx="7"
-                  fill="#c19b76"/>
+            <!-- Patte avant proche -->
+
+            <path d="M104 79
+                     C113 76 122 83 121 94
+                     L116 113
+                     L115 132
+                     Q116 136 124 138
+                     Q129 140 127 144
+                     Q116 148 105 143
+                     Q102 141 104 133
+                     L103 111
+                     Q98 94 104 79Z"
+                  fill="url(#mission-dog-leg)"
+                  stroke="#987452"
+                  stroke-width=".8"/>
+
+            <!-- Cou -->
+
+            <path d="M105 54
+                     C109 42 110 28 120 20
+                     C132 13 146 20 149 31
+                     L143 57
+                     Q139 70 128 79
+                     Q119 66 105 54Z"
+                  fill="url(#mission-dog-coat)"/>
+
+            <!-- Oreille éloignée -->
+
+            <path d="M139 13
+                     Q151 5 157 13
+                     Q163 23 151 42
+                     L142 31Z"
+                  fill="#78563e"/>
 
             <!-- Tête -->
 
-            <ellipse cx="119" cy="35"
-                     rx="35" ry="34"
-                     fill="#c19b76"/>
+            <path d="M111 20
+                     C118 8 133 5 145 11
+                     C153 15 158 24 159 32
+                     L170 38
+                     Q178 40 180 47
+                     Q180 55 169 59
+                     L151 62
+                     Q143 67 132 62
+                     C119 58 109 49 108 38
+                     Q106 27 111 20Z"
+                  fill="url(#mission-dog-head)"
+                  stroke="#987453"
+                  stroke-width=".7"/>
 
-            <!-- Oreille -->
+            <!-- Partie claire du visage -->
 
-            <path d="M94 10
-                     Q60 2 80 57
-                     Q91 69 105 37Z"
-                  fill="#86634c"/>
+            <path d="M145 15
+                     Q151 23 152 33
+                     Q158 39 170 41
+                     L169 54
+                     Q158 59 148 54
+                     Q142 47 143 37
+                     Q147 26 145 15Z"
+                  fill="#d7b994"
+                  opacity=".85"/>
+
+            <!-- Oreille proche, tombante -->
+
+            <path d="M117 13
+                     C108 8 101 15 100 25
+                     C98 36 104 48 112 53
+                     Q119 55 122 44
+                     L128 24
+                     Q127 17 117 13Z"
+                  fill="url(#mission-dog-ear)"
+                  stroke="#72513b"
+                  stroke-width=".8"/>
+
+            <path d="M114 17
+                     Q105 25 109 37
+                     Q111 44 114 47"
+                  fill="none"
+                  stroke="#bc9674"
+                  stroke-width="1.2"
+                  opacity=".55"/>
 
             <!-- Museau -->
 
-            <ellipse cx="147" cy="47"
-                     rx="25" ry="16"
-                     fill="#dfc3a2"/>
+            <path d="M151 36
+                     Q159 34 170 39
+                     Q181 41 182 48
+                     Q181 56 170 59
+                     L157 59
+                     Q146 55 146 47
+                     Q147 40 151 36Z"
+                  fill="url(#mission-dog-muzzle)"/>
 
-            <ellipse cx="168" cy="43"
-                     rx="9" ry="7"
-                     fill="#4b3d35"/>
+            <!-- Truffe -->
 
-            <!-- Œil -->
+            <path d="M174 40
+                     Q181 39 184 44
+                     Q185 48 179 51
+                     Q174 52 171 47
+                     Q169 43 174 40Z"
+                  fill="#3d332d"/>
 
-            <circle cx="132" cy="28"
-                    r="5"
-                    fill="#4b3d35"/>
+            <path d="M174 42 Q178 40 181 43"
+                  fill="none"
+                  stroke="#95857b"
+                  stroke-width="1.1"
+                  stroke-linecap="round"/>
 
-            <circle cx="133" cy="26"
-                    r="1.6"
-                    fill="#ffffff"/>
+            <ellipse cx="179" cy="46"
+                     rx="2.1" ry="1.2"
+                     fill="#211c19"/>
 
-            <path d="M148 57 Q157 60 164 54"
-                  stroke="#86634c"
-                  stroke-width="1.5"
-                  fill="none"/>
+            <!-- Bouche -->
+
+            <path d="M179 51
+                     Q173 55 167 54
+                     Q160 55 155 52"
+                  fill="none"
+                  stroke="#725744"
+                  stroke-width="1.15"
+                  stroke-linecap="round"/>
+
+            <!-- Regard -->
+
+            <path d="M138 28
+                     Q145 24 151 30
+                     Q147 36 140 33Z"
+                  fill="#624732"/>
+
+            <ellipse cx="145.5" cy="30.3"
+                     rx="4.3" ry="3.5"
+                     fill="url(#mission-dog-eye)"/>
+
+            <ellipse cx="147" cy="30.5"
+                     rx="1.9" ry="2.7"
+                     fill="#241c16"/>
+
+            <circle cx="146" cy="28.8"
+                    r="1.05"
+                    fill="#fff6e8"/>
+
+            <path d="M138 28
+                     Q144 24 151 30"
+                  fill="none"
+                  stroke="#493529"
+                  stroke-width="1.2"
+                  stroke-linecap="round"/>
+
+            <!-- Sourcil naturel -->
+
+            <path d="M135 23 Q142 19 149 23"
+                  fill="none"
+                  stroke="#8a6547"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  opacity=".7"/>
+
+            <!-- Petits détails du museau -->
+
+            <g fill="#82654e" opacity=".65">
+
+              <circle cx="157" cy="44" r=".7"/>
+              <circle cx="162" cy="43" r=".7"/>
+              <circle cx="166" cy="46" r=".65"/>
+              <circle cx="159" cy="49" r=".65"/>
+              <circle cx="164" cy="50" r=".6"/>
+
+            </g>
+
+            <!-- Moustaches discrètes -->
+
+            <g stroke="#8d745e"
+               stroke-width=".55"
+               stroke-linecap="round"
+               opacity=".65">
+
+              <path d="M159 47 Q168 47 177 50"/>
+              <path d="M158 50 Q168 52 174 56"/>
+              <path d="M157 44 Q167 42 175 43"/>
+
+            </g>
+
+            <!-- Détails du pelage -->
+
+            <g fill="none"
+               stroke="#76563f"
+               stroke-width=".8"
+               stroke-linecap="round"
+               opacity=".3">
+
+              <path d="M24 61 Q31 57 38 60"/>
+              <path d="M33 64 Q41 60 49 64"/>
+              <path d="M47 58 L56 61"/>
+              <path d="M56 65 Q65 69 73 66"/>
+              <path d="M70 60 Q78 63 86 60"/>
+              <path d="M85 65 Q94 63 101 59"/>
+              <path d="M31 77 Q37 82 37 88"/>
+              <path d="M25 83 Q29 89 29 94"/>
+              <path d="M50 80 Q57 83 65 82"/>
+              <path d="M56 87 Q65 89 73 86"/>
+              <path d="M78 80 Q85 82 91 79"/>
+              <path d="M91 72 Q99 67 105 60"/>
+              <path d="M105 86 L109 94"/>
+              <path d="M109 98 L108 108"/>
+              <path d="M117 35 Q122 40 123 46"/>
+              <path d="M130 14 L136 17"/>
+              <path d="M128 20 L134 23"/>
+              <path d="M125 49 L132 54"/>
+
+            </g>
+
+            <!-- Reflets du pelage -->
+
+            <g fill="none"
+               stroke="#ead1ae"
+               stroke-width="1"
+               stroke-linecap="round"
+               opacity=".48">
+
+              <path d="M21 69 Q30 64 38 67"/>
+              <path d="M43 70 Q52 67 62 70"/>
+              <path d="M67 73 Q76 76 85 72"/>
+              <path d="M91 69 L99 65"/>
+              <path d="M45 87 Q53 90 60 89"/>
+              <path d="M34 103 L29 115"/>
+              <path d="M29 119 L28 130"/>
+              <path d="M112 108 L111 119"/>
+              <path d="M110 122 L110 132"/>
+              <path d="M126 25 L130 29"/>
+              <path d="M132 36 L136 40"/>
+              <path d="M133 45 L140 49"/>
+
+            </g>
+
+            <!-- Détails des pattes -->
+
+            <g fill="none"
+               stroke="#8c6b50"
+               stroke-width=".9"
+               stroke-linecap="round">
+
+              <path d="M30 139 L31 143"/>
+              <path d="M36 139 L37 144"/>
+              <path d="M111 139 L112 144"/>
+              <path d="M117 139 L118 145"/>
+              <path d="M51 139 L52 142"/>
+              <path d="M122 139 L123 142"/>
+
+            </g>
 
           </g>
 
@@ -712,9 +1081,7 @@
       que peuvent rencontrer les animaux des rues.
     </p>
 
-  </section>
-
-  <!-- ======================================
+  </section>  <!-- ======================================
        LES PETITS GESTES INTERACTIFS
        ====================================== -->
 
@@ -989,7 +1356,9 @@
     </div>
 
   </section>
-    <!-- ======================================
+
+
+  <!-- ======================================
        POURQUOI CŒUR ERRANT EXISTE
        ====================================== -->
 
@@ -999,185 +1368,11 @@
 
       <div class="mission-origin-photo mission-reveal">
 
-        <svg class="mission-origin-illustration"
-             viewBox="0 0 500 550"
-             xmlns="http://www.w3.org/2000/svg"
-             role="img"
-             aria-label="Illustration symbolique de la bienveillance envers les animaux">
-
-          <defs>
-
-            <linearGradient id="origin-paper"
-                            x1="0" y1="0"
-                            x2="1" y2="1">
-
-              <stop offset="0%" stop-color="#faf2e8"/>
-              <stop offset="100%" stop-color="#e8d4ce"/>
-
-            </linearGradient>
-
-            <radialGradient id="origin-light">
-
-              <stop offset="0%"
-                    stop-color="#fffaf3"
-                    stop-opacity=".9"/>
-
-              <stop offset="100%"
-                    stop-color="#fffaf3"
-                    stop-opacity="0"/>
-
-            </radialGradient>
-
-          </defs>
-
-          <rect width="500"
-                height="550"
-                fill="url(#origin-paper)"/>
-
-          <circle cx="250"
-                  cy="250"
-                  r="210"
-                  fill="url(#origin-light)"/>
-
-          <rect x="25" y="25"
-                width="450" height="500"
-                rx="220"
-                fill="none"
-                stroke="#c4a882"
-                stroke-width="1.5"/>
-
-          <rect x="36" y="36"
-                width="428" height="478"
-                rx="210"
-                fill="none"
-                stroke="#c4a882"
-                stroke-width=".7"
-                opacity=".5"/>
-
-          <!-- BRANCHES DÉCORATIVES -->
-
-          <g stroke="#9ba18b"
-             stroke-width="2"
-             fill="none"
-             stroke-linecap="round">
-
-            <path d="M100 410 Q45 310 95 190"/>
-            <path d="M400 410 Q455 310 405 190"/>
-
-          </g>
-
-          <g fill="#a8ad97" opacity=".8">
-
-            <ellipse cx="78" cy="235"
-                     rx="9" ry="24"
-                     transform="rotate(-35 78 235)"/>
-
-            <ellipse cx="98" cy="268"
-                     rx="9" ry="24"
-                     transform="rotate(35 98 268)"/>
-
-            <ellipse cx="70" cy="300"
-                     rx="9" ry="24"
-                     transform="rotate(-35 70 300)"/>
-
-            <ellipse cx="100" cy="340"
-                     rx="9" ry="24"
-                     transform="rotate(35 100 340)"/>
-
-            <ellipse cx="422" cy="235"
-                     rx="9" ry="24"
-                     transform="rotate(35 422 235)"/>
-
-            <ellipse cx="402" cy="268"
-                     rx="9" ry="24"
-                     transform="rotate(-35 402 268)"/>
-
-            <ellipse cx="430" cy="300"
-                     rx="9" ry="24"
-                     transform="rotate(35 430 300)"/>
-
-            <ellipse cx="400" cy="340"
-                     rx="9" ry="24"
-                     transform="rotate(-35 400 340)"/>
-
-          </g>
-
-          <!-- CŒUR -->
-
-          <path d="M250 355
-                   C100 250 115 135 190 155
-                   Q230 160 250 200
-                   Q270 160 310 155
-                   C385 135 400 250 250 355Z"
-                fill="#efdce0"
-                fill-opacity=".5"
-                stroke="#a85e68"
-                stroke-width="3"
-                stroke-linecap="round"/>
-
-          <!-- EMPREINTE DORÉE -->
-
-          <g fill="#c4a882" opacity=".9">
-
-            <ellipse cx="207" cy="226"
-                     rx="16" ry="22"
-                     transform="rotate(-25 207 226)"/>
-
-            <ellipse cx="238" cy="207"
-                     rx="15" ry="22"/>
-
-            <ellipse cx="271" cy="210"
-                     rx="15" ry="22"
-                     transform="rotate(12 271 210)"/>
-
-            <ellipse cx="299" cy="233"
-                     rx="15" ry="21"
-                     transform="rotate(30 299 233)"/>
-
-            <path d="M250 243
-                     C225 243 198 280 211 297
-                     Q225 312 250 299
-                     Q275 312 289 297
-                     C302 280 275 243 250 243Z"/>
-
-          </g>
-
-          <!-- PETITES LUMIÈRES -->
-
-          <g fill="#c4a882">
-
-            <path d="M250 75 L254 89 L268 93
-                     L254 97 L250 111 L246 97
-                     L232 93 L246 89Z"/>
-
-            <circle cx="155" cy="125" r="3"/>
-            <circle cx="345" cy="125" r="3"/>
-            <circle cx="130" cy="365" r="3"/>
-            <circle cx="370" cy="365" r="3"/>
-
-          </g>
-
-          <!-- SIGNATURE -->
-
-          <g fill="#a85e68"
-             font-family="Cormorant Garamond, serif"
-             text-anchor="middle">
-
-            <text x="250" y="420"
-                  font-size="30"
-                  font-style="italic">
-              Tout commence
-            </text>
-
-            <text x="250" y="458"
-                  font-size="30"
-                  font-style="italic">
-              par un regard.
-            </text>
-
-          </g>
-
-        </svg>
+        <img src="mission-regard.png"
+             class="mission-origin-illustration"
+             alt="Un moment de tendresse et de confiance avec un chien errant"
+             loading="lazy"
+             decoding="async">
 
         <div class="origin-photo-caption">
           Aux origines de Cœur Errant
@@ -1254,10 +1449,7 @@
 
     </div>
 
-  </section>
-
-
-  <!-- ======================================
+  </section>  <!-- ======================================
        MES VALEURS
        ====================================== -->
 
@@ -1932,10 +2124,7 @@
 
   </section>
 
-</main>
-
-
-<!-- ======================================
+</main><!-- ======================================
      FOOTER COMMUN
      ====================================== -->
 

@@ -2921,6 +2921,41 @@
 
 
 /* ==========================================
-   FIN — MISSION.CSS
-   CŒUR ERRANT
+   CHIEN SEMI-RÉALISTE
    ========================================== */
+
+.landscape-dog .dog-tail {
+  transform-box: view-box;
+  transform-origin: 18px 68px;
+}
+
+
+/* ==========================================
+   PHOTO — AUX ORIGINES DE CŒUR ERRANT
+   ========================================== */
+
+.mission-origin-photo img.mission-origin-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 510px;
+  aspect-ratio: 10 / 11;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+
+/* ==========================================
+   ADAPTATION MOBILE
+   ========================================== */
+
+@media (max-width: 600px) {
+
+  .mission-origin-photo img.mission-origin-illustration {
+    height: auto;
+    max-height: 340px;
+    aspect-ratio: 10 / 11;
+  }
+
+}
