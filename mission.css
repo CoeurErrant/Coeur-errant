@@ -1,2961 +1,5944 @@
 /* ==========================================
+
    CŒUR ERRANT — LA MISSION
+
    ========================================== */
+
+
 
 .mission-page {
+
   --m-cream: #faf8f5;
+
   --m-warm: #f1ebe3;
+
   --m-rose: #a85e68;
+
   --m-rose-light: #efdce0;
+
   --m-gold: #c4a882;
+
   --m-brown: #74594c;
+
   --m-dark: #302a27;
+
   --m-muted: #746b63;
+
   --m-border: #e1d7cc;
+
   --m-serif: 'Cormorant Garamond', serif;
+
   --m-sans: 'Jost', sans-serif;
 
+
+
   background: var(--m-cream);
+
   color: var(--m-dark);
+
   font-family: var(--m-sans);
+
   overflow: hidden;
+
 }
+
+
 
 .mission-page *,
+
 .mission-page *::before,
+
 .mission-page *::after {
+
   box-sizing: border-box;
+
 }
+
+
 
 .mission-page section {
+
   margin: 0;
+
 }
+
+
 
 .mission-page section[id] {
+
   scroll-margin-top: 100px;
+
 }
+
+
 
 .mission-page button {
+
   font-family: inherit;
+
 }
+
+
 
 .mission-page [hidden] {
+
   display: none !important;
+
 }
+
+
 
 .mission-page h1,
+
 .mission-page h2,
+
 .mission-page h3 {
+
   font-family: var(--m-serif);
+
   font-weight: 400;
+
 }
+
+
 
 .mission-page h2 {
+
   font-size: clamp(2.8rem, 5vw, 4.8rem);
+
   line-height: 1.08;
+
   letter-spacing: -0.025em;
+
 }
+
+
 
 .mission-page h2 em {
+
   color: var(--m-rose);
+
   font-weight: 400;
+
 }
+
+
 
 .mission-page p {
+
   line-height: 1.9;
+
 }
+
+
 
 .mission-page button:focus-visible,
+
 .mission-page a:focus-visible,
+
 .mission-page summary:focus-visible,
+
 .mission-page input:focus-visible {
+
   outline: 3px solid var(--m-rose);
+
   outline-offset: 5px;
+
 }
+
+
 
 .mission-label {
+
   font-size: .72rem;
+
   font-weight: 500;
+
   text-transform: uppercase;
+
   letter-spacing: .22em;
+
   color: var(--m-rose);
+
   margin-bottom: 1.4rem;
+
 }
 
 
+
+
+
 /* ==========================================
+
    BOUTONS
+
    ========================================== */
+
+
 
 .mission-button {
+
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
+
   gap: .8rem;
+
   padding: 1.1rem 2.2rem;
+
   background: var(--m-rose);
+
   border: 1px solid var(--m-rose);
+
   color: #fff;
+
   border-radius: 50px;
+
   font-size: .85rem;
+
   font-weight: 400;
+
   letter-spacing: .06em;
+
   text-decoration: none;
 
+
+
   transition:
+
     transform .35s ease,
+
     background .35s ease,
+
     box-shadow .35s ease;
+
 }
+
+
 
 .mission-button:hover {
+
   transform: translateY(-4px);
+
   background: #934d59;
+
   box-shadow: 0 10px 30px rgba(168, 94, 104, .2);
+
 }
+
+
 
 .mission-text-link {
+
   display: inline-block;
+
   color: var(--m-rose);
+
   font-family: var(--m-sans);
+
   font-size: .85rem;
+
   text-decoration: none;
+
   background: transparent;
+
   border: 0;
+
   border-bottom: 1px solid currentColor;
+
   padding: .4rem 0;
+
   cursor: pointer;
+
   transition: color .3s ease;
+
 }
+
+
 
 .mission-text-link:hover {
+
   color: var(--m-dark);
+
 }
 
 
+
+
+
 /* ==========================================
+
    INTRODUCTION IMMERSIVE
+
    ========================================== */
+
+
 
 .mission-opening {
+
   position: relative;
+
   isolation: isolate;
+
   min-height: 100vh;
+
   min-height: 100svh;
+
   display: flex;
+
   align-items: center;
+
   padding: 150px 8% 100px;
+
   background: #44372f;
+
   overflow: hidden;
+
 }
+
+
 
 .mission-opening-image {
+
   position: absolute;
+
   inset: 0;
+
   z-index: -3;
+
   overflow: hidden;
+
 }
+
+
 
 .mission-opening-image img {
+
   width: 100%;
+
   height: 100%;
+
   display: block;
+
   object-fit: cover;
+
   object-position: center 45%;
+
   animation: missionImageZoom 24s ease-in-out infinite alternate;
+
 }
+
+
 
 @keyframes missionImageZoom {
+
   from {
+
     transform: scale(1);
+
   }
 
+
+
   to {
+
     transform: scale(1.08);
+
   }
+
 }
+
+
 
 .mission-opening-overlay {
+
   position: absolute;
+
   inset: 0;
+
   z-index: -2;
 
+
+
   background:
+
     linear-gradient(
+
       90deg,
+
       rgba(34, 26, 23, .87) 0%,
+
       rgba(34, 26, 23, .66) 45%,
+
       rgba(34, 26, 23, .16) 100%
+
     ),
+
     linear-gradient(
+
       0deg,
+
       rgba(34, 26, 23, .3),
+
       transparent 45%
+
     );
+
 }
+
+
 
 .mission-opening-content {
+
   position: relative;
+
   z-index: 2;
+
   max-width: 850px;
+
   color: #fffaf3;
+
 }
+
+
 
 .mission-opening .mission-label {
+
   color: #e4c9a7;
+
   letter-spacing: .25em;
+
 }
+
+
 
 .mission-opening h1 {
+
   font-size: clamp(3.8rem, 7.5vw, 7.8rem);
+
   line-height: .98;
+
   letter-spacing: -.035em;
+
   color: #fffaf3;
+
   margin: 0 0 2rem;
+
 }
+
+
 
 .mission-opening h1 em {
+
   color: #e3c5a0;
+
   font-weight: 400;
+
 }
+
+
 
 .mission-opening-words {
+
   margin-bottom: 2.5rem;
+
 }
+
+
 
 .mission-opening-words p {
+
   color: #f4e9dc;
+
   font-size: clamp(1rem, 1.5vw, 1.2rem);
+
   font-weight: 300;
+
   margin: .3rem 0;
+
 }
+
+
 
 .mission-opening .mission-button {
+
   background: #f3e7d8;
+
   color: #594339;
+
   border-color: #f3e7d8;
+
 }
+
+
 
 .mission-opening .mission-button:hover {
+
   background: #fffaf3;
+
 }
+
+
 
 .mission-scroll {
+
   position: absolute;
+
   bottom: 28px;
+
   left: 50%;
+
   width: 44px;
+
   height: 60px;
+
   display: grid;
+
   place-items: center;
+
   border: 1px solid rgba(255, 255, 255, .4);
+
   border-radius: 30px;
+
   color: #fff;
+
   text-decoration: none;
+
   font-size: 1.4rem;
+
   transform: translateX(-50%);
+
   animation: missionScroll 2.8s ease-in-out infinite;
+
 }
+
+
 
 @keyframes missionScroll {
+
   0%, 100% {
+
     transform: translate(-50%, 0);
+
   }
 
+
+
   50% {
+
     transform: translate(-50%, 8px);
+
   }
+
 }
 
 
+
+
+
 /* ==========================================
+
    EMPREINTES FLOTTANTES
+
    ========================================== */
+
+
 
 .mission-floating-paws {
+
   position: absolute;
+
   inset: 0;
+
   z-index: -1;
+
   pointer-events: none;
+
   overflow: hidden;
+
 }
+
+
 
 .mission-floating-paws span {
+
   position: absolute;
+
   color: #f2ddc4;
+
   font-size: 2rem;
+
   opacity: .12;
+
   filter: grayscale(1);
+
   animation: missionPawFloat 7s ease-in-out infinite;
+
 }
+
+
 
 .mission-floating-paws span:nth-child(1) {
+
   top: 20%;
+
   right: 15%;
+
   animation-delay: 0s;
+
 }
+
+
 
 .mission-floating-paws span:nth-child(2) {
+
   top: 40%;
+
   right: 8%;
+
   animation-delay: 1s;
+
   font-size: 3rem;
+
 }
+
+
 
 .mission-floating-paws span:nth-child(3) {
+
   top: 65%;
+
   right: 25%;
+
   animation-delay: 2s;
+
 }
+
+
 
 .mission-floating-paws span:nth-child(4) {
+
   top: 75%;
+
   right: 10%;
+
   animation-delay: 3s;
+
   font-size: 2.5rem;
+
 }
+
+
 
 .mission-floating-paws span:nth-child(5) {
+
   top: 12%;
+
   right: 40%;
+
   animation-delay: 4s;
+
 }
+
+
 
 @keyframes missionPawFloat {
+
   0%, 100% {
+
     opacity: .08;
+
     transform: translateY(0) rotate(-15deg);
+
   }
+
+
 
   50% {
+
     opacity: .24;
+
     transform: translateY(-15px) rotate(5deg);
+
   }
+
 }
 
 
+
+
+
 /* ==========================================
+
    ANIMATIONS D'ENTRÉE
+
    ========================================== */
+
+
 
 .mission-enter {
+
   animation: missionEnter 1.2s ease both;
+
 }
+
+
 
 .mission-delay-one {
+
   animation-delay: .25s;
+
 }
+
+
 
 .mission-delay-two {
+
   animation-delay: .65s;
+
 }
+
+
 
 .mission-delay-three {
+
   animation-delay: .95s;
+
 }
+
+
 
 .mission-delay-four {
+
   animation-delay: 1.25s;
+
 }
+
+
 
 .mission-delay-five {
+
   animation-delay: 1.6s;
+
 }
+
+
 
 @keyframes missionEnter {
+
   from {
+
     opacity: 0;
+
     transform: translateY(25px);
+
   }
+
+
 
   to {
+
     opacity: 1;
+
     transform: translateY(0);
+
   }
+
 }
 
 
+
+
+
 /* ==========================================
+
    APPARITION AU DÉFILEMENT
+
    ========================================== */
+
+
 
 .mission-animations .mission-reveal {
+
   opacity: 0;
+
   transform: translateY(28px);
 
+
+
   transition:
+
     opacity .85s ease,
+
     transform .85s cubic-bezier(.2, .65, .3, 1);
+
 }
+
+
 
 .mission-animations .mission-reveal.mission-visible,
+
 .mission-animations .mission-reveal:focus-within {
+
   opacity: 1;
+
   transform: translateY(0);
+
 }
 
 
+
+
+
 /* ==========================================
+
    TITRES DES SECTIONS
+
    ========================================== */
+
+
 
 .mission-heading {
+
   max-width: 850px;
+
   margin: 0 auto 3.5rem;
+
   text-align: center;
+
 }
+
+
 
 .mission-heading h2 {
+
   margin: 0 0 1.6rem;
+
 }
+
+
 
 .mission-heading > p:not(.mission-label) {
+
   max-width: 650px;
+
   margin: auto;
+
   color: var(--m-muted);
+
   font-size: 1rem;
+
   font-weight: 300;
+
 }
 
 
+
+
+
 /* ==========================================
+
    UNE JOURNÉE DANS LEURS PATTES
+
    ========================================== */
+
+
 
 .animal-day-section {
+
   padding: 7rem 6%;
+
   background: var(--m-cream);
+
   scroll-margin-top: 100px;
+
 }
 
+
+
 .animal-experience {
+
   max-width: 1100px;
+
   margin: auto;
+
   background: #fffdf9;
+
   border: 1px solid var(--m-border);
+
   border-radius: 24px;
+
   overflow: hidden;
+
   box-shadow: 0 20px 65px rgba(87, 65, 47, .08);
+
 }
+
+
+
 
 
 /* ==========================================
+
    PAYSAGE INTERACTIF
+
    ========================================== */
 
+
+
 .animal-landscape {
+
   position: relative;
+
   background: #e8cbb3;
+
   overflow: hidden;
+
 }
+
+
 
 .landscape-svg {
+
   display: block;
+
   width: 100%;
+
   height: auto;
+
 }
 
+
+
 .landscape-svg .sky-top,
+
 .landscape-svg .sky-bottom {
+
   transition: stop-color 1.2s ease;
+
 }
+
+
+
 
 
 /* MATIN */
 
+
+
 .animal-landscape[data-period="morning"] .sky-top {
+
   stop-color: #d8b5a2;
+
 }
 
+
+
 .animal-landscape[data-period="morning"] .sky-bottom {
+
   stop-color: #f4dfbd;
+
 }
+
+
+
 
 
 /* MIDI */
 
+
+
 .animal-landscape[data-period="noon"] .sky-top {
+
   stop-color: #a9c9d3;
+
 }
 
+
+
 .animal-landscape[data-period="noon"] .sky-bottom {
+
   stop-color: #f8e5b9;
+
 }
+
+
+
 
 
 /* SOIR */
 
+
+
 .animal-landscape[data-period="evening"] .sky-top {
+
   stop-color: #ba879d;
+
 }
 
+
+
 .animal-landscape[data-period="evening"] .sky-bottom {
+
   stop-color: #f1b48b;
+
 }
+
+
+
 
 
 /* NUIT */
 
+
+
 .animal-landscape[data-period="night"] .sky-top {
+
   stop-color: #252b49;
+
 }
+
+
 
 .animal-landscape[data-period="night"] .sky-bottom {
+
   stop-color: #77758d;
+
 }
 
 
+
+
+
 /* ==========================================
+
    DÉPLACEMENT DU SOLEIL
+
    ========================================== */
+
+
 
 .landscape-sun {
+
   transform: translate(160px, 135px);
 
+
+
   transition:
+
     transform 1.4s cubic-bezier(.3, .6, .3, 1),
+
     opacity 1s ease;
+
 }
+
+
 
 .animal-landscape[data-period="morning"] .landscape-sun {
+
   transform: translate(160px, 135px);
+
   opacity: 1;
+
 }
+
+
 
 .animal-landscape[data-period="noon"] .landscape-sun {
+
   transform: translate(500px, 75px);
+
   opacity: 1;
+
 }
+
+
 
 .animal-landscape[data-period="evening"] .landscape-sun {
+
   transform: translate(840px, 155px);
+
   opacity: 1;
+
 }
+
+
 
 .animal-landscape[data-period="night"] .landscape-sun {
+
   transform: translate(960px, 300px);
+
   opacity: 0;
+
 }
 
 
+
+
+
 /* ==========================================
+
    LUNE ET ÉTOILES
+
    ========================================== */
+
+
 
 .landscape-moon,
+
 .landscape-stars,
+
 .landscape-windows {
+
   opacity: 0;
+
   transition: opacity 1.2s ease;
+
 }
+
+
 
 .animal-landscape[data-period="night"] .landscape-moon,
+
 .animal-landscape[data-period="night"] .landscape-stars {
+
   opacity: 1;
+
 }
+
+
 
 .animal-landscape[data-period="night"] .landscape-windows {
+
   opacity: .95;
+
 }
+
+
 
 .animal-landscape[data-period="evening"] .landscape-windows {
+
   opacity: .4;
+
 }
+
+
 
 .landscape-stars circle {
+
   animation: landscapeTwinkle 3s ease-in-out infinite alternate;
+
 }
+
+
 
 .landscape-stars circle:nth-child(3n) {
+
   animation-delay: 1s;
+
 }
+
+
 
 .landscape-stars circle:nth-child(2n) {
+
   animation-delay: 2s;
+
 }
+
+
 
 @keyframes landscapeTwinkle {
+
   from {
+
     opacity: .35;
+
   }
 
+
+
   to {
+
     opacity: 1;
+
   }
+
 }
 
 
+
+
+
 /* ==========================================
+
    NUAGES EN MOUVEMENT
+
    ========================================== */
+
+
 
 .cloud-one {
+
   animation: landscapeCloudOne 30s ease-in-out infinite alternate;
+
 }
+
+
 
 .cloud-two {
+
   animation: landscapeCloudTwo 40s ease-in-out infinite alternate;
+
 }
+
+
 
 @keyframes landscapeCloudOne {
+
   from {
+
     transform: translateX(-20px);
+
   }
 
+
+
   to {
+
     transform: translateX(110px);
+
   }
+
 }
+
+
 
 @keyframes landscapeCloudTwo {
+
   from {
+
     transform: translateX(40px);
+
   }
 
+
+
   to {
+
     transform: translateX(-100px);
+
   }
+
 }
 
 
+
+
+
 /* ==========================================
+
    AMBIANCE NOCTURNE
+
    ========================================== */
+
+
 
 .landscape-night-overlay {
+
   opacity: 0;
+
   transition: opacity 1.2s ease;
+
 }
+
+
 
 .animal-landscape[data-period="night"] .landscape-night-overlay {
+
   opacity: .26;
+
 }
+
+
 
 .animal-landscape[data-period="evening"] .landscape-night-overlay {
+
   opacity: .08;
+
 }
+
+
 
 .landscape-buildings {
+
   transition: filter 1.2s ease;
+
 }
+
+
 
 .animal-landscape[data-period="night"] .landscape-buildings {
+
   filter: brightness(.65) saturate(.7);
+
 }
 
 
+
+
+
 /* ==========================================
+
    LE PETIT CHIEN
+
    ========================================== */
+
+
 
 .dog-tail {
+
   transform-box: fill-box;
+
   transform-origin: right bottom;
+
   animation: dogTailSlow 4s ease-in-out infinite;
+
 }
+
+
 
 @keyframes dogTailSlow {
+
   0%, 100% {
+
     transform: rotate(0);
+
   }
 
+
+
   50% {
+
     transform: rotate(7deg);
+
   }
+
 }
+
+
 
 .all-gifts-visible .dog-tail {
+
   animation: dogTailHappy .45s ease-in-out infinite alternate;
+
 }
+
+
 
 @keyframes dogTailHappy {
+
   from {
+
     transform: rotate(-15deg);
+
   }
+
+
 
   to {
+
     transform: rotate(22deg);
+
   }
+
 }
 
 
+
+
+
 /* ==========================================
+
    OBJETS OFFERTS
+
    ========================================== */
+
+
 
 .landscape-gift {
+
   opacity: 0;
+
   transform: translateY(10px);
 
+
+
   transition:
+
     opacity .6s ease,
+
     transform .6s ease;
+
 }
+
+
 
 .landscape-gift.gift-visible {
+
   opacity: 1;
+
   transform: translateY(0);
+
 }
+
+
 
 #landscape-love.gift-visible {
+
   animation: landscapeLove 2.5s ease-in-out infinite;
+
 }
+
+
 
 @keyframes landscapeLove {
+
   0%, 100% {
+
     transform: translateY(0);
+
     opacity: 1;
+
   }
+
+
 
   50% {
+
     transform: translateY(-12px);
+
     opacity: .7;
+
   }
+
 }
 
 
+
+
+
 /* ==========================================
+
    HORLOGE
+
    ========================================== */
+
+
 
 .landscape-clock {
+
   position: absolute;
+
   top: 24px;
+
   left: 24px;
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   min-width: 110px;
+
   padding: .8rem 1.3rem;
+
   border: 1px solid rgba(255, 255, 255, .6);
+
   border-radius: 14px;
+
   background: rgba(255, 249, 239, .88);
+
   backdrop-filter: blur(10px);
+
   color: var(--m-brown);
+
   box-shadow: 0 5px 20px rgba(60, 40, 25, .06);
+
 }
+
+
 
 #day-clock {
+
   font-family: var(--m-serif);
+
   font-size: 2.1rem;
+
   line-height: 1.1;
+
   font-variant-numeric: tabular-nums;
+
 }
+
+
 
 #day-period {
+
   font-size: .65rem;
+
   text-transform: uppercase;
+
   letter-spacing: .12em;
+
 }
 
 
+
+
+
 /* ==========================================
+
    CONTENU SOUS LE PAYSAGE
+
    ========================================== */
+
+
 
 .animal-experience-content {
+
   padding: 2.8rem 4rem 3rem;
+
 }
+
+
 
 .day-story {
+
   text-align: center;
+
   max-width: 680px;
+
   margin: auto;
+
   min-height: 175px;
+
 }
+
+
 
 .day-story .mission-label {
+
   margin-bottom: .7rem;
+
 }
+
+
 
 .day-story h3 {
+
   font-size: clamp(2rem, 3vw, 2.8rem);
+
   line-height: 1.2;
+
   margin: 0 0 1rem;
+
   color: var(--m-brown);
+
 }
+
+
 
 .day-story > p:last-child {
+
   color: var(--m-muted);
+
   font-size: .95rem;
+
 }
 
 
+
+
+
 /* ==========================================
+
    CURSEUR INTERACTIF
+
    ========================================== */
+
+
 
 .day-slider-container {
+
   max-width: 760px;
+
   margin: 1.5rem auto 0;
+
   padding-top: 1.5rem;
+
   border-top: 1px solid var(--m-border);
+
 }
+
+
 
 .day-slider-container label {
+
   display: block;
+
   text-align: center;
+
   font-size: .8rem;
+
   color: var(--m-muted);
+
   margin-bottom: 1.5rem;
+
 }
+
+
 
 #day-slider {
+
   --day-progress: 0%;
 
+
+
   appearance: none;
+
   -webkit-appearance: none;
+
   display: block;
+
   width: 100%;
+
   height: 5px;
+
   border: 0;
+
   border-radius: 10px;
 
+
+
   background:
+
     linear-gradient(
+
       to right,
+
       var(--m-rose) 0%,
+
       var(--m-rose) var(--day-progress),
+
       #e5d9cd var(--day-progress),
+
       #e5d9cd 100%
+
     );
 
+
+
   cursor: pointer;
+
   margin: 0;
+
 }#day-slider::-webkit-slider-thumb {
+
   appearance: none;
+
   -webkit-appearance: none;
+
   width: 24px;
+
   height: 24px;
+
   background: var(--m-rose);
+
   border: 4px solid #fffdf9;
+
   border-radius: 50%;
+
   box-shadow: 0 0 0 1px var(--m-rose);
+
   cursor: grab;
+
 }
+
+
 
 #day-slider::-moz-range-thumb {
+
   width: 17px;
+
   height: 17px;
+
   background: var(--m-rose);
+
   border: 4px solid #fffdf9;
+
   border-radius: 50%;
+
   box-shadow: 0 0 0 1px var(--m-rose);
+
   cursor: grab;
+
 }
+
+
 
 .day-moments {
+
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
+
   gap: .6rem;
+
   margin-top: 1.7rem;
+
 }
+
+
 
 .day-moment {
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   gap: .4rem;
+
   padding: .9rem .5rem;
+
   border: 1px solid transparent;
+
   border-radius: 12px;
+
   background: transparent;
+
   color: var(--m-muted);
+
   font-size: .8rem;
+
   cursor: pointer;
+
   transition: all .3s ease;
+
 }
+
+
 
 .day-moment span {
+
   font-size: 1.6rem;
+
   line-height: 1;
+
   color: var(--m-gold);
+
 }
+
+
 
 .day-moment:hover {
+
   background: var(--m-warm);
+
 }
+
+
 
 .day-moment.active {
+
   background: #f4e7e7;
+
   border-color: #e8ccd0;
+
   color: var(--m-rose);
+
 }
+
+
 
 .day-moment.active span {
+
   color: var(--m-rose);
+
 }
+
+
 
 .experience-note {
+
   max-width: 750px;
+
   margin: 1.5rem auto 0;
+
   color: var(--m-muted);
+
   text-align: center;
+
   font-size: .76rem;
+
   font-style: italic;
+
 }
 
 
+
+
+
 /* ==========================================
+
    LES PETITS GESTES
+
    ========================================== */
+
+
 
 .mission-gestures {
+
   padding: 7rem 6%;
+
   background:
+
     radial-gradient(
+
       ellipse at top,
+
       #f9f1e9,
+
       #eee5da
+
     );
+
 }
+
+
 
 .gesture-grid {
+
   display: grid;
+
   grid-template-columns: repeat(4, minmax(0, 1fr));
+
   gap: 1.5rem;
+
   max-width: 1200px;
+
   margin: auto;
+
 }
+
+
 
 .gesture-card {
+
   position: relative;
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   text-align: center;
+
   width: 100%;
+
   min-width: 0;
+
   padding: 2.5rem 1.4rem 1.8rem;
+
   background: #fffdf9;
+
   border: 1px solid var(--m-border);
+
   border-radius: 18px;
+
   color: var(--m-dark);
+
   cursor: pointer;
+
   overflow: hidden;
 
+
+
   transition:
+
     transform .4s ease,
+
     background .4s ease,
+
     border-color .4s ease,
+
     box-shadow .4s ease;
+
 }
+
+
 
 .gesture-card:hover {
+
   transform: translateY(-8px);
+
   border-color: var(--m-gold);
+
   box-shadow: 0 15px 35px rgba(87, 65, 47, .08);
+
 }
+
+
 
 .gesture-icon {
+
   width: 95px;
+
   height: 95px;
+
   display: grid;
+
   place-items: center;
+
   margin: 0 auto 1.5rem;
+
   background: #f7f0e7;
+
   border-radius: 50%;
+
   transition: transform .4s ease;
+
 }
+
+
 
 .gesture-icon svg {
+
   display: block;
+
   width: 68px;
+
   height: 68px;
+
 }
+
+
 
 .gesture-card:hover .gesture-icon {
+
   transform: scale(1.08) rotate(-5deg);
+
 }
+
+
 
 .gesture-card h3 {
+
   font-size: 2rem;
+
   color: var(--m-brown);
+
   margin: 0 0 .8rem;
+
   overflow-wrap: break-word;
+
 }
+
+
 
 .gesture-card p {
+
   color: var(--m-muted);
+
   font-size: .85rem;
+
   font-weight: 300;
+
   margin: 0 0 1.5rem;
+
   flex: 1;
+
   overflow-wrap: break-word;
+
 }
+
+
 
 .gesture-action {
+
   display: block;
+
   width: 100%;
+
   padding: .9rem .5rem;
+
   border: 1px solid var(--m-border);
+
   border-radius: 30px;
+
   color: var(--m-rose);
+
   font-size: .75rem;
+
   white-space: normal;
+
   overflow-wrap: break-word;
+
   transition: all .3s ease;
+
 }
+
+
 
 .gesture-selected {
+
   background: #f8eceb;
+
   border-color: var(--m-rose);
+
   box-shadow: 0 8px 25px rgba(168, 94, 104, .08);
+
 }
+
+
 
 .gesture-selected .gesture-action {
+
   background: var(--m-rose);
+
   color: #fff;
+
   border-color: var(--m-rose);
+
 }
+
+
 
 .gesture-selected .gesture-icon {
+
   animation: gesturePop .55s ease;
+
 }
+
+
 
 @keyframes gesturePop {
+
   0%, 100% {
+
     transform: scale(1);
+
   }
+
+
 
   45% {
+
     transform: scale(1.18);
+
   }
+
 }
 
 
+
+
+
 /* ==========================================
+
    PROGRESSION DES GESTES
+
    ========================================== */
+
+
 
 .gesture-progress {
+
   max-width: 700px;
+
   margin: 3.5rem auto 0;
+
   text-align: center;
+
 }
+
+
 
 .gesture-progress-hearts {
+
   display: flex;
+
   justify-content: center;
+
   gap: 1rem;
+
   margin-bottom: 1.2rem;
+
 }
+
+
 
 .gesture-progress-hearts span {
+
   color: #bca99a;
+
   font-size: 2.2rem;
+
   line-height: 1;
 
+
+
   transition:
+
     color .3s ease,
+
     transform .3s ease;
+
 }
+
+
 
 .gesture-progress-hearts span.filled {
+
   color: var(--m-rose);
+
   animation: gesturePop .5s ease;
+
 }
+
+
 
 .gesture-progress-track {
+
   max-width: 360px;
+
   height: 5px;
+
   margin: 0 auto 1rem;
+
   border-radius: 20px;
+
   background: #ded0c2;
+
   overflow: hidden;
+
 }
+
+
 
 #gesture-progress-fill {
+
   width: 0;
+
   height: 100%;
+
   border-radius: inherit;
 
+
+
   background: linear-gradient(
+
     90deg,
+
     #c4a882,
+
     #a85e68
+
   );
 
+
+
   transition: width .6s ease;
+
 }
+
+
 
 #gesture-count {
+
   color: var(--m-muted);
+
   font-size: .8rem;
+
 }
+
+
 
 .gesture-success {
+
   margin: 2rem auto 0;
+
   padding: 2rem;
+
   border: 1px solid #e3c9c9;
+
   background: rgba(255, 253, 249, .65);
+
   border-radius: 18px;
+
   animation: missionEnter .7s ease both;
+
 }
+
+
 
 .gesture-success > span {
+
   font-size: 2.5rem;
+
   color: var(--m-rose);
+
 }
+
+
 
 .gesture-success h3 {
+
   font-size: clamp(1.8rem, 3vw, 2.6rem);
+
   line-height: 1.25;
+
   margin: .8rem 0 1rem;
+
 }
+
+
 
 .gesture-success h3 em {
+
   display: block;
+
   color: var(--m-rose);
+
 }
+
+
 
 .gesture-success p {
+
   font-size: .9rem;
+
   color: var(--m-muted);
+
   margin-bottom: 1rem;
+
 }
 
+
+
 .gesture-disclaimer {
+
   margin: 1.6rem auto 0;
+
   max-width: 500px;
+
   color: var(--m-muted);
+
   font-size: .73rem;
+
   font-style: italic;
+
 }
+
+
+
 
 
 /* ==========================================
+
    L'ORIGINE DE CŒUR ERRANT
+
    ========================================== */
 
+
+
 .mission-origin {
+
   padding: 8rem 7%;
+
   background: var(--m-cream);
+
 }
+
+
 
 .mission-origin-inner {
+
   display: grid;
+
   grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);
+
   gap: 6rem;
+
   align-items: center;
+
   max-width: 1200px;
+
   margin: auto;
+
 }
 
+
+
 .mission-origin-photo {
+
   position: relative;
+
   min-width: 0;
+
   padding: 14px 14px 0;
+
   background: #fffdf9;
+
   border: 1px solid var(--m-border);
+
   box-shadow: 0 18px 45px rgba(87, 65, 47, .1);
+
   border-radius: 3px;
+
   rotate: -2deg;
+
 }
+
+
+
 
 
 /* ANCIEN FORMAT PHOTO */
 
+
+
 .mission-origin-photo img {
+
   display: block;
+
   width: 100%;
+
   height: 510px;
+
   object-fit: contain;
+
   background: #eee7de;
+
 }
+
+
+
 
 
 /* NOUVELLE ILLUSTRATION SYMBOLIQUE */
 
+
+
 .mission-origin-illustration {
+
   display: block;
+
   width: 100%;
+
   height: auto;
+
   aspect-ratio: 10 / 11;
+
   border-radius: 4px;
+
 }
+
+
 
 .origin-photo-caption {
+
   padding: 1.5rem 1rem;
+
   text-align: center;
+
   color: var(--m-brown);
+
   font-family: var(--m-serif);
+
   font-size: 1.35rem;
+
   font-style: italic;
+
 }
+
+
 
 .origin-photo-heart {
+
   position: absolute;
+
   right: -22px;
+
   bottom: 18px;
+
   color: var(--m-rose);
+
   font-size: 4rem;
+
   line-height: 1;
+
   rotate: 15deg;
+
 }
+
+
 
 .mission-origin-text h2 {
+
   margin: 0 0 1.8rem;
+
 }
+
+
 
 .mission-origin-text > p:not(.mission-label) {
+
   color: var(--m-muted);
+
   font-size: .98rem;
+
   font-weight: 300;
+
   margin-bottom: 1.2rem;
+
 }
+
+
 
 .mission-origin-quote {
+
   border-left: 2px solid var(--m-rose);
+
   background: #f4ede5;
+
   color: var(--m-brown);
+
   padding: 1.5rem 1.7rem;
+
   margin: 2rem 0;
+
   font-family: var(--m-serif);
+
   font-size: 1.65rem;
+
   font-style: italic;
+
   line-height: 1.5;
+
 }
 
 
+
+
+
 /* ==========================================
+
    LES SIX VALEURS
+
    ========================================== */
+
+
 
 .mission-values {
+
   padding: 7rem 6%;
+
   background: var(--m-warm);
+
 }
+
+
 
 .mission-values-grid {
+
   display: grid;
+
   grid-template-columns: repeat(2, minmax(0, 1fr));
+
   align-items: start;
+
   gap: 1.3rem;
+
   max-width: 1050px;
+
   margin: auto;
+
 }
+
+
 
 .mission-value {
+
   background: #fffdf9;
+
   border: 1px solid var(--m-border);
+
   border-radius: 14px;
+
   overflow: hidden;
 
+
+
   transition:
+
     border-color .3s ease,
+
     box-shadow .3s ease;
+
 }
+
+
 
 .mission-value:hover,
+
 .mission-value[open] {
+
   border-color: var(--m-gold);
+
   box-shadow: 0 8px 25px rgba(87, 65, 47, .05);
+
 }
+
+
 
 .mission-value summary {
+
   display: flex;
+
   align-items: center;
+
   gap: 1.2rem;
+
   padding: 1.8rem;
+
   cursor: pointer;
+
   list-style: none;
+
 }
+
+
 
 .mission-value summary::-webkit-details-marker {
+
   display: none;
+
 }
+
+
 
 .value-number {
+
   color: var(--m-muted);
+
   font-size: .68rem;
+
   letter-spacing: .1em;
+
 }
+
+
 
 .value-symbol {
+
   display: grid;
+
   place-items: center;
+
   width: 50px;
+
   height: 50px;
+
   flex-shrink: 0;
+
   background: #f3e7e4;
+
   color: var(--m-rose);
+
   font-size: 1.8rem;
+
   border-radius: 50%;
+
   transition: transform .4s ease;
+
 }
+
+
 
 .mission-value[open] .value-symbol {
+
   transform: rotate(-10deg) scale(1.08);
+
 }
+
+
 
 .mission-value h3 {
+
   color: var(--m-brown);
+
   font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+
   margin: 0;
+
   flex: 1;
+
   min-width: 0;
+
   overflow-wrap: break-word;
+
 }
+
+
 
 .value-expand {
+
   color: var(--m-rose);
+
   font-size: 1.5rem;
+
   font-weight: 300;
+
 }
+
+
 
 .value-content {
+
   padding: 0 2rem 1.8rem;
+
 }
+
+
 
 .value-content p {
+
   color: var(--m-muted);
+
   font-size: .95rem;
+
   font-weight: 300;
+
   margin: 0;
+
   padding-top: 1.3rem;
+
   border-top: 1px solid var(--m-border);
+
 }
+
+
 
 .mission-value[open] .value-content {
+
   animation: missionEnter .4s ease both;
+
 }
 
 
+
+
+
 /* ==========================================
+
    MA FAÇON DE VOYAGER
+
    ========================================== */
+
+
 
 .mission-travel-day {
+
   padding: 7rem 6%;
+
   background: var(--m-cream);
+
 }
+
+
 
 .mission-travel-timeline {
+
   position: relative;
+
   max-width: 850px;
+
   margin: 4rem auto 0;
+
 }
+
+
 
 .mission-travel-timeline::before {
+
   content: '';
+
   position: absolute;
+
   top: 35px;
+
   bottom: 35px;
+
   left: 35px;
+
   width: 1px;
 
+
+
   background: linear-gradient(
+
     #d7bc91,
+
     #c4a882,
+
     #a85e68,
+
     #706779
+
   );
+
 }
+
+
 
 .travel-moment {
+
   position: relative;
+
   display: grid;
+
   grid-template-columns: 70px minmax(0, 1fr);
+
   align-items: start;
+
   gap: 2rem;
+
   padding-bottom: 2.5rem;
+
 }
+
+
 
 .travel-moment:last-child {
+
   padding-bottom: 0;
+
 }
+
+
 
 .travel-moment-icon {
+
   position: relative;
+
   z-index: 1;
+
   display: grid;
+
   place-items: center;
+
   width: 70px;
+
   height: 70px;
+
   border-radius: 50%;
+
   border: 5px solid var(--m-cream);
+
   background: #f2e4cd;
+
   color: #a88a5c;
+
   font-size: 2rem;
+
   box-shadow: 0 0 0 1px var(--m-border);
+
   transition: transform .4s ease;
+
 }
+
+
 
 .travel-moment:hover .travel-moment-icon {
+
   transform: scale(1.1) rotate(-8deg);
+
 }
+
+
 
 .travel-moment:nth-child(2) .travel-moment-icon {
+
   background: #f1e0df;
+
   color: var(--m-rose);
+
 }
+
+
 
 .travel-moment:nth-child(3) .travel-moment-icon {
+
   background: #e9cfc3;
+
   color: #a97565;
+
 }
+
+
 
 .travel-moment:nth-child(4) .travel-moment-icon {
+
   background: #e2dfe8;
+
   color: #777083;
+
 }
+
+
 
 .travel-moment-content {
+
   padding: 1.7rem 2rem;
+
   background: #fffdf9;
+
   border: 1px solid var(--m-border);
+
   border-radius: 14px;
+
 }
+
+
 
 .travel-moment-content .mission-label {
+
   margin-bottom: .5rem;
+
 }
+
+
 
 .travel-moment-content h3 {
+
   color: var(--m-brown);
+
   font-size: clamp(1.7rem, 3vw, 2.2rem);
+
   margin: 0 0 .8rem;
+
 }
+
+
 
 .travel-moment-content > p:last-child {
+
   color: var(--m-muted);
+
   font-size: .92rem;
+
   font-weight: 300;
+
   margin: 0;
+
 }
 
 
+
+
+
 /* ==========================================
+
    CE QU'ILS M'ONT APPRIS
+
    ========================================== */
+
+
 
 .mission-lessons {
+
   position: relative;
+
   padding: 7rem 6%;
 
+
+
   background:
+
     radial-gradient(
+
       ellipse at 50% 0%,
+
       #514039,
+
       #302925 75%
+
     );
 
+
+
   color: #f8eee2;
+
   overflow: hidden;
+
 }
+
+
 
 .mission-lessons::before {
+
   content: '♡';
+
   position: absolute;
+
   right: -40px;
+
   bottom: -130px;
+
   font-family: var(--m-serif);
+
   font-size: 32rem;
+
   line-height: 1;
+
   color: rgba(255, 255, 255, .025);
+
   pointer-events: none;
+
 }
+
+
 
 .mission-lessons-inner {
+
   position: relative;
+
   max-width: 900px;
+
   margin: auto;
+
   text-align: center;
+
 }
+
+
 
 .mission-lessons .mission-label {
+
   color: #d5b995;
+
 }
+
+
 
 .mission-lessons h2 {
+
   color: #f8eee2;
+
   margin-bottom: 3rem;
+
 }
+
+
 
 .mission-lessons h2 em {
+
   color: #d7b995;
+
 }
 
 
+
+
+
 /* ==========================================
+
    CARROUSEL DES LEÇONS
+
    ========================================== */
+
+
 
 .lesson-carousel {
+
   position: relative;
+
   max-width: 750px;
+
   min-height: 270px;
+
   margin: auto;
+
   padding: 2.5rem 3rem;
+
   border: 1px solid rgba(215, 185, 149, .22);
+
   border-radius: 18px;
+
   background: rgba(255, 255, 255, .035);
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
+
   touch-action: pan-y;
+
 }
+
+
 
 .lesson-quotation {
+
   font-family: var(--m-serif);
+
   font-size: 5rem;
+
   line-height: .8;
+
   color: #d7b995;
+
   opacity: .6;
+
 }
+
+
 
 #lesson-text {
+
   font-family: var(--m-serif);
+
   font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+
   font-style: italic;
+
   line-height: 1.45;
+
   color: #f8eee2;
+
   margin: .8rem 0 1.5rem;
+
 }
+
+
 
 #lesson-theme {
+
   color: #d7b995;
+
   text-transform: uppercase;
+
   letter-spacing: .18em;
+
   font-size: .7rem;
+
 }
+
+
 
 .lesson-changing #lesson-text,
+
 .lesson-changing #lesson-theme {
+
   animation: lessonChange .6s ease both;
+
 }
+
+
 
 @keyframes lessonChange {
+
   from {
+
     opacity: 0;
+
     transform: translateY(10px);
+
   }
 
+
+
   to {
+
     opacity: 1;
+
     transform: translateY(0);
+
   }
+
 }
 
 
+
+
+
 /* ==========================================
+
    COMMANDES DU CARROUSEL
+
    ========================================== */
+
+
 
 .lesson-controls {
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   gap: 1.5rem;
+
   margin-top: 2rem;
+
 }
+
+
 
 #lesson-prev,
+
 #lesson-next {
+
   display: grid;
+
   place-items: center;
+
   width: 46px;
+
   height: 46px;
+
   border: 1px solid rgba(215, 185, 149, .45);
+
   border-radius: 50%;
+
   background: transparent;
+
   color: #e7d1b5;
+
   font-size: 1.3rem;
+
   cursor: pointer;
+
   transition: all .3s ease;
+
 }
+
+
 
 #lesson-prev:hover,
+
 #lesson-next:hover {
+
   background: #d7b995;
+
   color: #302925;
+
 }
+
+
 
 .lesson-dots {
+
   display: flex;
+
   align-items: center;
+
   gap: .6rem;
+
 }
+
+
 
 .lesson-dot {
+
   position: relative;
+
   width: 22px;
+
   height: 24px;
+
   padding: 0;
+
   border: 0;
+
   background: transparent;
+
   cursor: pointer;
+
 }
+
+
 
 .lesson-dot::after {
+
   content: '';
+
   position: absolute;
+
   top: 50%;
+
   left: 50%;
+
   width: 7px;
+
   height: 7px;
+
   transform: translate(-50%, -50%);
+
   border-radius: 50%;
+
   background: #d7b995;
+
   opacity: .3;
+
   transition: all .3s ease;
+
 }
+
+
 
 .lesson-dot.active::after {
+
   opacity: 1;
+
   width: 19px;
+
   border-radius: 10px;
+
 }
+
+
 
 .lesson-dot:hover::after {
+
   opacity: .8;
+
 }/* ==========================================
+
    EMPREINTE SYMBOLIQUE
+
    ========================================== */
+
+
 
 .mission-promise {
+
   padding: 7rem 6%;
+
   background:
+
     radial-gradient(
+
       ellipse at center,
+
       #fbf5ef,
+
       #f0e7dd
+
     );
+
 }
+
+
 
 .promise-card {
+
   position: relative;
+
   max-width: 700px;
+
   margin: auto;
+
   padding: 3rem 3.5rem;
+
   border: 1px solid #dfd0c1;
+
   border-radius: 24px;
+
   background: rgba(255, 253, 249, .85);
+
   text-align: center;
+
   overflow: hidden;
+
   box-shadow: 0 20px 50px rgba(87, 65, 47, .06);
 
+
+
   transition:
+
     border-color .6s ease,
+
     box-shadow .6s ease;
+
 }
+
+
 
 .promise-paw-wrapper {
+
   position: relative;
+
   width: 240px;
+
   height: 240px;
+
   margin: 0 auto 1rem;
+
   display: grid;
+
   place-items: center;
+
 }
+
+
 
 .promise-paw-glow {
+
   position: absolute;
+
   inset: 0;
+
   border-radius: 50%;
 
+
+
   background: radial-gradient(
+
     circle,
+
     rgba(196, 168, 130, .22),
+
     transparent 70%
+
   );
+
+
 
   animation: promiseGlow 3s ease-in-out infinite;
+
   pointer-events: none;
+
 }
+
+
 
 @keyframes promiseGlow {
+
   0%, 100% {
+
     transform: scale(.85);
+
     opacity: .5;
+
   }
 
+
+
   50% {
+
     transform: scale(1.15);
+
     opacity: 1;
+
   }
+
 }
+
+
 
 .promise-paw {
+
   position: relative;
+
   z-index: 2;
+
   display: block;
+
   width: 170px;
+
   height: 170px;
+
   border: 0;
+
   padding: 0;
+
   background: transparent;
+
   cursor: pointer;
 
+
+
   transition:
+
     transform .4s ease,
+
     filter .4s ease;
+
 }
+
+
 
 .promise-paw svg {
+
   width: 100%;
+
   height: 100%;
+
   display: block;
+
   overflow: visible;
+
 }
+
+
 
 .promise-paw-shape {
+
   fill: #c9b49b;
+
   transition: fill .6s ease;
+
 }
+
+
 
 .promise-paw-heart {
+
   fill: #fff5e9;
+
   transition: fill .6s ease;
+
 }
+
+
 
 .promise-paw:hover {
+
   transform: scale(1.09) rotate(-5deg);
 
+
+
   filter: drop-shadow(
+
     0 8px 12px rgba(168, 94, 104, .15)
+
   );
+
 }
+
+
 
 .promise-paw:active {
+
   transform: scale(.95);
+
 }
 
 
+
+
+
 /* ==========================================
+
    PETITES ÉTINCELLES
+
    ========================================== */
+
+
 
 .promise-sparkles {
+
   position: absolute;
+
   inset: 0;
+
   pointer-events: none;
+
 }
+
+
 
 .promise-sparkles span {
+
   position: absolute;
+
   color: var(--m-rose);
+
   opacity: 0;
+
   font-size: 1.8rem;
+
 }
+
+
 
 .promise-sparkles span:nth-child(1) {
+
   top: 12%;
+
   left: 12%;
+
 }
+
+
 
 .promise-sparkles span:nth-child(2) {
+
   top: 7%;
+
   right: 15%;
+
 }
+
+
 
 .promise-sparkles span:nth-child(3) {
+
   top: 50%;
+
   right: 0;
+
 }
+
+
 
 .promise-sparkles span:nth-child(4) {
+
   bottom: 8%;
+
   left: 8%;
+
 }
+
+
 
 .promise-sparkles span:nth-child(5) {
+
   bottom: 5%;
+
   right: 15%;
+
 }
 
 
+
+
+
 /* ==========================================
+
    EMPREINTE ACTIVÉE
+
    ========================================== */
+
+
 
 .promise-made {
+
   border-color: #d5a8af;
+
   box-shadow: 0 15px 60px rgba(168, 94, 104, .12);
+
 }
+
+
 
 .promise-made .promise-paw-shape {
+
   fill: var(--m-rose);
+
 }
+
+
 
 .promise-made .promise-paw-glow {
+
   background: radial-gradient(
+
     circle,
+
     rgba(168, 94, 104, .22),
+
     transparent 70%
+
   );
+
 }
+
+
 
 .promise-made .promise-paw {
+
   animation: promiseHeartbeat 1s ease;
+
 }
+
+
 
 @keyframes promiseHeartbeat {
+
   0%, 100% {
+
     transform: scale(1);
+
   }
+
+
 
   25%, 65% {
+
     transform: scale(1.13);
+
   }
+
+
 
   45% {
+
     transform: scale(1.02);
+
   }
+
 }
+
+
 
 .promise-made .promise-sparkles span {
+
   animation: promiseSparkle 3s ease-in-out infinite;
+
 }
+
+
 
 .promise-made .promise-sparkles span:nth-child(2) {
+
   animation-delay: .5s;
+
 }
+
+
 
 .promise-made .promise-sparkles span:nth-child(3) {
+
   animation-delay: 1s;
+
 }
+
+
 
 .promise-made .promise-sparkles span:nth-child(4) {
+
   animation-delay: 1.5s;
+
 }
+
+
 
 .promise-made .promise-sparkles span:nth-child(5) {
+
   animation-delay: 2s;
+
 }
+
+
 
 @keyframes promiseSparkle {
+
   0%, 100% {
+
     opacity: .15;
+
     transform: translateY(0) scale(.7);
+
   }
 
+
+
   50% {
+
     opacity: .85;
+
     transform: translateY(-12px) scale(1.1);
+
   }
+
 }
+
+
 
 #promise-title {
+
   color: var(--m-brown);
+
   font-size: clamp(2rem, 4vw, 3rem);
+
   line-height: 1.2;
+
   margin: 0 0 1.2rem;
+
 }
+
+
 
 .promise-made #promise-title {
+
   color: var(--m-rose);
+
 }
+
+
 
 #promise-description {
+
   max-width: 480px;
+
   margin: auto;
+
   font-size: .95rem;
+
   color: var(--m-muted);
+
 }
 
 
+
+
+
 /* ==========================================
+
    LETTRE DE BIENVEILLANCE
+
    ========================================== */
+
+
 
 .promise-letter {
+
   position: relative;
+
   margin: 2rem auto 1.5rem;
+
   padding: 2rem;
+
   border: 1px solid #dfc9b4;
+
   border-radius: 4px;
 
+
+
   background:
+
     repeating-linear-gradient(
+
       transparent,
+
       transparent 31px,
+
       rgba(196, 168, 130, .1) 31px,
+
       rgba(196, 168, 130, .1) 32px
+
     ),
+
     #f8efe3;
 
+
+
   box-shadow: 0 8px 20px rgba(87, 65, 47, .05);
+
   animation: promiseLetterOpen .7s ease both;
+
 }
+
+
 
 @keyframes promiseLetterOpen {
+
   from {
+
     opacity: 0;
+
     transform: translateY(15px) scale(.95);
+
   }
+
+
 
   to {
+
     opacity: 1;
+
     transform: translateY(0) scale(1);
+
   }
+
 }
+
+
 
 .promise-letter p {
+
   font-family: var(--m-serif);
+
   color: var(--m-brown);
+
   font-size: 1.6rem;
+
   font-style: italic;
+
   line-height: 1.5;
+
   margin-bottom: 1rem;
+
 }
+
+
 
 .promise-letter span {
+
   display: block;
+
   color: var(--m-rose);
+
   font-size: .85rem;
+
   margin-top: 1.5rem;
+
 }
+
+
 
 #promise-reset {
+
   margin: .5rem auto;
+
   font-size: .75rem;
+
 }
+
+
 
 .promise-note {
+
   margin: 2rem auto 0;
+
   color: var(--m-muted);
+
   font-size: .72rem;
+
   font-style: italic;
+
 }
 
 
+
+
+
 /* ==========================================
+
    CONCLUSION
+
    ========================================== */
+
+
 
 .mission-ending {
+
   position: relative;
+
   padding: 7rem 6%;
 
+
+
   background:
+
     radial-gradient(
+
       ellipse at center,
+
       #f7ece3,
+
       #e9d9ca
+
     );
 
+
+
   text-align: center;
+
   overflow: hidden;
+
 }
+
+
 
 .mission-ending-content {
+
   position: relative;
+
   max-width: 850px;
+
   margin: auto;
+
 }
+
+
 
 .mission-ending-symbol {
+
   color: var(--m-rose);
+
   font-family: var(--m-serif);
+
   font-size: 5rem;
+
   line-height: 1;
+
   margin-bottom: 1.5rem;
+
   animation: endingHeart 3s ease-in-out infinite;
+
 }
+
+
 
 @keyframes endingHeart {
+
   0%, 100% {
+
     transform: scale(1);
+
   }
+
+
 
   50% {
+
     transform: scale(1.1);
+
   }
+
 }
+
+
 
 .mission-ending h2 {
+
   color: var(--m-brown);
+
   margin: 0 0 2rem;
+
 }
+
+
 
 .mission-ending-content > p:not(.mission-label) {
+
   max-width: 600px;
+
   margin: 0 auto 1.3rem;
+
   color: var(--m-muted);
+
   font-size: 1rem;
+
   font-weight: 300;
+
 }
+
+
 
 .mission-ending-actions {
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   flex-wrap: wrap;
+
   gap: 1rem;
+
   margin: 2rem auto 2.5rem;
+
 }
+
+
 
 .mission-ending .mission-button {
+
   margin: 0;
+
 }
+
+
 
 .mission-ending-secondary {
+
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
+
   padding: 1.1rem 2rem;
+
   border: 1px solid var(--m-rose);
+
   border-radius: 50px;
+
   color: var(--m-rose);
+
   background: transparent;
+
   font-size: .85rem;
+
   text-decoration: none;
 
+
+
   transition:
+
     background .3s ease,
+
     color .3s ease,
+
     transform .3s ease;
+
 }
+
+
 
 .mission-ending-secondary:hover {
+
   background: var(--m-rose);
+
   color: #fff;
+
   transform: translateY(-4px);
+
 }
 
+
+
 .mission-ending-signature {
+
   display: block;
+
   font-family: var(--m-serif);
+
   font-size: 1.35rem;
+
   font-style: italic;
+
   color: var(--m-brown);
+
 }
+
+
+
 
 
 /* ==========================================
+
    RESPONSIVE — TABLETTES
+
    ========================================== */
+
+
 
 @media (max-width: 1100px) {
 
+
+
   .gesture-grid {
+
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
     max-width: 800px;
+
   }
+
+
 
   .mission-origin-inner {
+
     gap: 3rem;
+
   }
+
+
 
   .mission-origin-photo img {
+
     height: 420px;
+
   }
+
+
 
   .mission-page section[id] {
+
     scroll-margin-top: 85px;
+
   }
 
+
+
 }
+
+
+
 
 
 @media (max-width: 900px) {
 
+
+
   .mission-opening {
+
     padding: 130px 7% 100px;
+
   }
+
+
 
   .mission-opening h1 {
+
     font-size: clamp(3.5rem, 8vw, 6rem);
+
   }
+
+
 
   .mission-opening-overlay {
+
     background: linear-gradient(
+
       90deg,
+
       rgba(34, 26, 23, .85),
+
       rgba(34, 26, 23, .35)
+
     );
+
   }
+
+
 
   .animal-day-section,
+
   .mission-gestures,
+
   .mission-origin,
+
   .mission-values,
+
   .mission-travel-day,
+
   .mission-lessons,
+
   .mission-promise,
+
   .mission-ending {
+
     padding: 5.5rem 6%;
+
   }
+
+
 
   .mission-heading {
+
     margin-bottom: 2.8rem;
+
   }
+
+
 
   .animal-experience-content {
+
     padding: 2.5rem 2.5rem 3rem;
+
   }
+
+
 
   .mission-origin-inner {
+
     grid-template-columns: 1fr;
+
     gap: 3.5rem;
+
     max-width: 700px;
+
   }
+
+
 
   .mission-origin-photo {
+
     width: 100%;
+
     max-width: 440px;
+
     margin: auto;
+
   }
+
+
 
   .mission-origin-photo img {
+
     height: 440px;
+
   }
+
+
 
   .mission-origin-text {
+
     text-align: center;
+
   }
+
+
 
   .mission-origin-quote {
+
     text-align: left;
+
   }
+
+
 
   .mission-values-grid {
+
     gap: 1rem;
+
   }
+
+
 
   .mission-value summary {
+
     gap: .8rem;
+
     padding: 1.3rem;
+
   }
+
+
 
   .value-symbol {
+
     width: 44px;
+
     height: 44px;
+
     font-size: 1.5rem;
+
   }
+
+
 
   .value-content {
+
     padding: 0 1.5rem 1.5rem;
+
   }
 
+
+
   .lesson-carousel {
+
     padding: 2rem 2.5rem;
+
   }
+
+
 
 }
 
 
+
+
+
 /* ==========================================
+
    RESPONSIVE — TÉLÉPHONES
+
    ========================================== */
+
+
 
 @media (max-width: 600px) {
 
+
+
   .mission-page {
+
     overflow-x: hidden;
+
   }
+
+
 
   .mission-page section[id] {
+
     scroll-margin-top: 85px;
+
   }
+
+
 
   .mission-page h2 {
+
     font-size: clamp(2.4rem, 9vw, 3.4rem);
+
     line-height: 1.12;
+
   }
 
+
+
   .mission-label {
+
     font-size: .64rem;
+
     letter-spacing: .16em;
+
     margin-bottom: 1rem;
+
   }
+
+
+
 
 
   /* INTRODUCTION */
 
+
+
   .mission-opening {
+
     min-height: 100vh;
+
     min-height: 100svh;
+
     padding: 120px 7% 100px;
+
     align-items: center;
+
   }
+
+
 
   .mission-opening-image img {
+
     object-position: 60% center;
+
   }
+
+
 
   .mission-opening-overlay {
+
     background:
+
       linear-gradient(
+
         90deg,
+
         rgba(34, 26, 23, .65),
+
         rgba(34, 26, 23, .35)
+
       ),
+
       linear-gradient(
+
         0deg,
+
         rgba(34, 26, 23, .65),
+
         transparent 80%
+
       );
+
   }
+
+
 
   .mission-opening-content {
+
     width: 100%;
+
   }
+
+
 
   .mission-opening h1 {
+
     font-size: clamp(3.2rem, 12vw, 4.7rem);
+
     margin-bottom: 1.6rem;
+
   }
+
+
 
   .mission-opening .mission-label {
+
     letter-spacing: .16em;
+
   }
+
+
 
   .mission-opening-words {
+
     margin-bottom: 2rem;
+
   }
+
+
 
   .mission-opening-words p {
+
     font-size: .95rem;
+
     line-height: 1.8;
+
   }
+
+
 
   .mission-button {
+
     padding: 1rem 1.5rem;
+
     font-size: .78rem;
+
     text-align: center;
+
   }
+
+
 
   .mission-scroll {
+
     width: 36px;
+
     height: 48px;
+
     bottom: 20px;
+
   }
 
+
+
   .mission-floating-paws span {
+
     font-size: 1.5rem;
+
   }
+
+
+
 
 
   /* SECTIONS */
 
+
+
   .animal-day-section,
+
   .mission-gestures,
+
   .mission-origin,
+
   .mission-values,
+
   .mission-travel-day,
+
   .mission-lessons,
+
   .mission-promise,
+
   .mission-ending {
+
     padding: 4rem 5%;
+
   }
+
+
 
   .mission-heading {
+
     margin-bottom: 2.3rem;
+
   }
 
+
+
   .mission-heading > p:not(.mission-label) {
+
     font-size: .9rem;
+
     line-height: 1.8;
+
   }
+
+
+
 
 
   /* EXPÉRIENCE INTERACTIVE */
 
+
+
   .animal-experience {
+
     border-radius: 15px;
+
   }
+
+
 
   .animal-landscape {
+
     min-height: 180px;
+
   }
+
+
 
   .landscape-svg {
+
     width: 100%;
+
     min-height: 180px;
+
     object-fit: cover;
+
   }
+
+
 
   .landscape-clock {
+
     top: 10px;
+
     left: 10px;
+
     min-width: 65px;
+
     padding: .4rem .65rem;
+
     border-radius: 8px;
+
   }
+
+
 
   #day-clock {
+
     font-size: 1.35rem;
+
   }
+
+
 
   #day-period {
+
     font-size: .48rem;
+
     letter-spacing: .07em;
+
   }
+
+
 
   .animal-experience-content {
+
     padding: 1.7rem 1.2rem 2rem;
+
   }
+
+
 
   .day-story {
+
     min-height: 190px;
+
   }
+
+
 
   .day-story h3 {
+
     font-size: 2rem;
+
   }
+
+
 
   .day-story > p:last-child {
+
     font-size: .85rem;
+
     line-height: 1.8;
+
   }
+
+
 
   .day-slider-container {
+
     margin-top: 1rem;
+
     padding-top: 1rem;
+
   }
+
+
 
   .day-slider-container label {
+
     font-size: .72rem;
+
     margin-bottom: 1.2rem;
+
   }
+
+
 
   .day-moments {
+
     gap: .25rem;
+
     margin-top: 1.3rem;
+
   }
+
+
 
   .day-moment {
+
     padding: .7rem .2rem;
+
     font-size: .7rem;
+
     border-radius: 8px;
+
   }
+
+
 
   .day-moment span {
+
     font-size: 1.35rem;
+
   }
 
+
+
   .experience-note {
+
     font-size: .68rem;
+
     margin-top: 1.2rem;
+
   }
+
+
+
 
 
   /* PETITS GESTES */
 
+
+
   .gesture-grid {
+
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: .8rem;
+
   }
+
+
 
   .gesture-card {
+
     min-width: 0;
+
     padding: 1.5rem .85rem 1.2rem;
+
     border-radius: 13px;
+
   }
+
+
 
   .gesture-icon {
+
     width: 72px;
+
     height: 72px;
+
     margin-bottom: 1rem;
+
   }
+
+
 
   .gesture-icon svg {
+
     width: 52px;
+
     height: 52px;
+
   }
+
+
 
   .gesture-card h3 {
+
     font-size: 1.65rem;
+
     line-height: 1.1;
+
   }
+
+
 
   .gesture-card p {
+
     font-size: .76rem;
+
     line-height: 1.65;
+
     margin-bottom: 1rem;
+
   }
+
+
 
   .gesture-action {
+
     padding: .7rem .35rem;
+
     font-size: .67rem;
+
     white-space: normal;
+
     overflow-wrap: break-word;
+
   }
+
+
 
   .gesture-progress {
+
     margin-top: 2.5rem;
+
   }
+
+
 
   .gesture-progress-hearts {
+
     gap: .7rem;
+
   }
+
+
 
   .gesture-progress-hearts span {
+
     font-size: 1.9rem;
+
   }
+
+
 
   .gesture-progress-track {
+
     max-width: 80%;
+
   }
+
+
 
   .gesture-success {
+
     padding: 1.5rem 1rem;
+
   }
+
+
 
   .gesture-success h3 {
+
     font-size: 1.9rem;
+
   }
 
+
+
   .gesture-disclaimer {
+
     font-size: .68rem;
+
   }
+
+
+
 
 
   /* ORIGINE DE CŒUR ERRANT */
 
+
+
   .mission-origin-inner {
+
     gap: 2.5rem;
+
   }
+
+
 
   .mission-origin-photo {
+
     width: 90%;
+
     max-width: 360px;
+
     padding: 10px 10px 0;
+
   }
+
+
 
   .mission-origin-photo img {
+
     height: 340px;
+
   }
+
+
 
   .mission-origin-illustration {
+
     width: 100%;
+
     height: auto;
+
     max-height: 420px;
+
   }
+
+
 
   .origin-photo-caption {
+
     font-size: 1.15rem;
+
     padding: 1.2rem .6rem;
+
   }
+
+
 
   .origin-photo-heart {
+
     right: -14px;
+
     bottom: 15px;
+
     font-size: 3rem;
+
   }
+
+
 
   .mission-origin-text h2 {
+
     margin-bottom: 1.5rem;
+
   }
+
+
 
   .mission-origin-text > p:not(.mission-label) {
+
     font-size: .9rem;
+
   }
 
+
+
   .mission-origin-quote {
+
     padding: 1.2rem 1.3rem;
+
     font-size: 1.4rem;
+
     margin: 1.7rem 0;
+
   }
+
+
+
 
 
   /* LES SIX VALEURS */
 
+
+
   .mission-values-grid {
+
     grid-template-columns: 1fr;
+
     gap: .8rem;
+
   }
+
+
 
   .mission-value {
+
     border-radius: 12px;
+
   }
+
+
 
   .mission-value summary {
+
     padding: 1.2rem;
+
     gap: .8rem;
+
   }
+
+
 
   .value-number {
+
     font-size: .6rem;
+
   }
+
+
 
   .value-symbol {
+
     width: 40px;
+
     height: 40px;
+
     font-size: 1.4rem;
+
   }
+
+
 
   .mission-value h3 {
+
     font-size: 1.65rem;
+
   }
+
+
 
   .value-content {
+
     padding: 0 1.3rem 1.3rem;
+
   }
 
+
+
   .value-content p {
+
     font-size: .85rem;
+
   }
+
+
+
 
 
   /* JOURNÉE DE VOYAGE */
 
+
+
   .mission-travel-timeline {
+
     margin-top: 2.5rem;
+
   }
+
+
 
   .mission-travel-timeline::before {
+
     top: 24px;
+
     bottom: 24px;
+
     left: 24px;
+
   }
+
+
 
   .travel-moment {
+
     grid-template-columns: 48px minmax(0, 1fr);
+
     gap: .9rem;
+
     padding-bottom: 1.5rem;
+
   }
+
+
 
   .travel-moment-icon {
+
     width: 48px;
+
     height: 48px;
+
     font-size: 1.5rem;
+
     border-width: 3px;
+
   }
+
+
 
   .travel-moment-content {
+
     padding: 1.3rem 1rem;
+
     border-radius: 12px;
+
   }
+
+
 
   .travel-moment-content .mission-label {
+
     font-size: .6rem;
+
     letter-spacing: .1em;
+
   }
+
+
 
   .travel-moment-content h3 {
+
     font-size: 1.65rem;
+
     line-height: 1.2;
+
   }
 
+
+
   .travel-moment-content > p:last-child {
+
     font-size: .82rem;
+
     line-height: 1.75;
+
   }
+
+
+
 
 
   /* CARROUSEL */
 
+
+
   .mission-lessons h2 {
+
     margin-bottom: 2rem;
+
   }
+
+
 
   .mission-lessons::before {
+
     font-size: 22rem;
+
     right: -70px;
+
     bottom: -90px;
+
   }
+
+
 
   .lesson-carousel {
+
     min-height: 270px;
+
     padding: 1.8rem 1.3rem;
+
     border-radius: 14px;
+
   }
+
+
 
   .lesson-quotation {
+
     font-size: 4rem;
+
   }
+
+
 
   #lesson-text {
+
     font-size: 1.85rem;
+
     line-height: 1.4;
+
   }
+
+
 
   #lesson-theme {
+
     font-size: .65rem;
+
   }
+
+
 
   .lesson-controls {
+
     gap: 1rem;
+
     margin-top: 1.5rem;
+
   }
+
+
 
   #lesson-prev,
+
   #lesson-next {
+
     width: 42px;
+
     height: 42px;
+
   }
 
+
+
   .lesson-dots {
+
     gap: .4rem;
+
   }
+
+
+
 
 
   /* EMPREINTE */
 
+
+
   .promise-card {
+
     padding: 2rem 1.3rem;
+
     border-radius: 16px;
+
   }
+
+
 
   .promise-paw-wrapper {
+
     width: 200px;
+
     height: 200px;
+
   }
+
+
 
   .promise-paw {
+
     width: 145px;
+
     height: 145px;
+
   }
+
+
 
   .promise-sparkles span {
+
     font-size: 1.4rem;
+
   }
+
+
 
   #promise-title {
+
     font-size: 2.2rem;
+
   }
+
+
 
   #promise-description {
+
     font-size: .86rem;
+
   }
+
+
 
   .promise-letter {
+
     padding: 1.5rem 1rem;
+
     margin-top: 1.5rem;
+
   }
+
+
 
   .promise-letter p {
+
     font-size: 1.4rem;
+
   }
+
+
 
   .promise-letter span {
+
     font-size: .75rem;
+
   }
 
+
+
   .promise-note {
+
     font-size: .67rem;
+
     margin-top: 1.5rem;
+
   }
+
+
+
 
 
   /* CONCLUSION */
 
+
+
   .mission-ending-symbol {
+
     font-size: 4rem;
+
     margin-bottom: 1rem;
+
   }
+
+
 
   .mission-ending h2 {
+
     margin-bottom: 1.5rem;
+
   }
+
+
 
   .mission-ending-content > p:not(.mission-label) {
+
     font-size: .9rem;
+
   }
+
+
 
   .mission-ending-actions {
+
     flex-direction: column;
+
     gap: .8rem;
+
     margin: 1.8rem auto 2rem;
+
   }
+
+
 
   .mission-ending-actions a {
+
     width: 100%;
+
     max-width: 300px;
+
   }
+
+
 
   .mission-ending-secondary {
+
     padding: 1rem 1.5rem;
+
     font-size: .78rem;
+
   }
 
+
+
   .mission-ending-signature {
+
     font-size: 1.15rem;
+
   }
+
+
 
 }
 
 
+
+
+
 /* ==========================================
+
    TRÈS PETITS ÉCRANS
+
    ========================================== */
+
+
 
 @media (max-width: 360px) {
 
+
+
   .mission-opening {
+
     padding-left: 6%;
+
     padding-right: 6%;
+
   }
+
+
 
   .mission-opening h1 {
+
     font-size: 3rem;
+
   }
+
+
 
   .mission-opening-words p {
+
     font-size: .85rem;
+
   }
+
+
 
   .mission-page h2 {
+
     font-size: 2.35rem;
+
   }
+
+
 
   .gesture-grid {
+
     grid-template-columns: 1fr;
+
     max-width: 280px;
+
   }
+
+
 
   .gesture-card {
+
     padding: 1.6rem 1.2rem;
+
   }
+
+
 
   .gesture-card h3 {
+
     font-size: 1.9rem;
+
   }
+
+
 
   .gesture-card p {
+
     font-size: .85rem;
+
   }
+
+
 
   .gesture-action {
+
     font-size: .75rem;
+
   }
+
+
 
   .animal-experience-content {
+
     padding: 1.5rem .85rem;
+
   }
+
+
 
   .day-story {
+
     min-height: 210px;
+
   }
+
+
 
   .day-moment {
+
     font-size: .62rem;
+
   }
+
+
 
   .mission-origin-photo {
+
     width: 95%;
+
   }
+
+
 
   .mission-origin-photo img {
+
     height: 280px;
+
   }
+
+
 
   .mission-value summary {
+
     gap: .6rem;
+
     padding: 1rem;
+
   }
+
+
 
   .mission-value h3 {
+
     font-size: 1.45rem;
+
   }
+
+
 
   .travel-moment {
+
     grid-template-columns: 40px minmax(0, 1fr);
+
     gap: .65rem;
+
   }
+
+
 
   .travel-moment-icon {
+
     width: 40px;
+
     height: 40px;
+
     font-size: 1.2rem;
+
   }
+
+
 
   .mission-travel-timeline::before {
+
     left: 20px;
+
   }
+
+
 
   .travel-moment-content {
+
     padding: 1rem .85rem;
+
   }
+
+
 
   .promise-paw-wrapper {
+
     width: 170px;
+
     height: 170px;
+
   }
+
+
 
   .promise-paw {
+
     width: 125px;
+
     height: 125px;
+
   }
+
+
 
   .promise-card {
+
     padding: 1.6rem 1rem;
+
   }
+
+
 
   #promise-title {
+
     font-size: 1.9rem;
+
   }
 
+
+
   #lesson-text {
+
     font-size: 1.65rem;
+
   }
+
+
 
 }
 
 
+
+
+
 /* ==========================================
+
    ÉCRANS TACTILES
+
    ========================================== */
+
+
 
 @media (hover: none) {
 
+
+
   .gesture-card:hover {
+
     transform: none;
+
   }
+
+
 
   .gesture-card:hover .gesture-icon {
+
     transform: none;
+
   }
+
+
 
   .travel-moment:hover .travel-moment-icon {
+
     transform: none;
+
   }
+
+
 
   .mission-button:hover,
+
   .mission-ending-secondary:hover {
+
     transform: none;
+
   }
 
+
+
   .promise-paw:hover {
+
     transform: none;
+
     filter: none;
+
   }
+
+
 
 }
 
 
+
+
+
 /* ==========================================
+
    ACCESSIBILITÉ — ANIMATIONS RÉDUITES
+
    ========================================== */
+
+
 
 @media (prefers-reduced-motion: reduce) {
 
+
+
   .mission-page *,
+
   .mission-page *::before,
+
   .mission-page *::after {
+
     animation-duration: .01ms !important;
+
     animation-iteration-count: 1 !important;
+
     animation-delay: 0ms !important;
+
     transition-duration: .01ms !important;
+
     scroll-behavior: auto !important;
+
   }
+
+
 
   .mission-enter,
+
   .mission-animations .mission-reveal,
+
   .mission-animations .mission-reveal.mission-visible {
+
     opacity: 1 !important;
+
     transform: none !important;
+
   }
+
+
 
   .mission-opening-image img {
+
     animation: none !important;
+
     transform: none !important;
+
   }
+
+
 
   .mission-scroll {
+
     animation: none !important;
+
     transform: translateX(-50%) !important;
+
   }
+
+
 
   .mission-floating-paws span {
+
     animation: none !important;
+
     opacity: .12;
+
   }
+
+
 
   .landscape-stars circle {
+
     animation: none !important;
+
     opacity: .8;
+
   }
+
+
 
   .cloud-one,
+
   .cloud-two,
+
   .dog-tail {
+
     animation: none !important;
+
   }
+
+
 
   .promise-paw-glow {
+
     animation: none !important;
+
     opacity: .7;
+
   }
+
+
 
   .promise-made .promise-sparkles span {
+
     animation: none !important;
+
     opacity: .6;
+
   }
+
+
 
   .mission-ending-symbol {
+
     animation: none !important;
+
   }
 
+
+
 }
 
 
+
+
+
 /* ==========================================
+
    CORRECTIONS FINALES
+
    ========================================== */
+
+
 
 .mission-page [hidden] {
+
   display: none !important;
+
 }
+
+
 
 .mission-page .mission-reveal:focus-within {
+
   opacity: 1;
+
   transform: none;
+
 }
+
+
 
 .mission-page img,
+
 .mission-page svg {
+
   max-width: 100%;
+
 }
+
+
 
 .mission-origin-photo {
+
   min-width: 0;
+
 }
+
+
 
 .gesture-card,
+
 .travel-moment-content,
+
 .mission-origin-text,
+
 .mission-value {
+
   min-width: 0;
+
 }
+
+
 
 .gesture-action,
+
 .mission-ending-actions a {
+
   white-space: normal;
+
   overflow-wrap: break-word;
+
 }
 
 
+
+
+
 /* ==========================================
+
    CHIEN SEMI-RÉALISTE
+
    ========================================== */
+
+
 
 .landscape-dog .dog-tail {
+
   transform-box: view-box;
+
   transform-origin: 18px 68px;
+
 }
 
 
+
+
+
 /* ==========================================
+
    PHOTO — AUX ORIGINES DE CŒUR ERRANT
+
    ========================================== */
+
+
 
 .mission-origin-photo img.mission-origin-illustration {
+
   display: block;
+
   width: 100%;
+
   height: auto;
+
   max-height: 510px;
+
   aspect-ratio: 10 / 11;
+
   object-fit: cover;
+
   object-position: center;
+
   border-radius: 4px;
+
 }
 
 
+
+
+
 /* ==========================================
+
    ADAPTATION MOBILE
+
    ========================================== */
+
+
 
 @media (max-width: 600px) {
 
+
+
   .mission-origin-photo img.mission-origin-illustration {
+
     height: auto;
+
     max-height: 340px;
+
     aspect-ratio: 10 / 11;
+
   }
 
+
+
 }
+
+/* Scène photographique interactive */
+.realistic-landscape { position: relative; isolation: isolate; aspect-ratio:  2 / 1; overflow: hidden; }
+.realistic-landscape .scene-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 1s ease; }
+.realistic-landscape .scene-morning { opacity: 1; }
+.animal-landscape[data-period="noon"] .scene-noon,
+.animal-landscape[data-period="evening"] .scene-evening,
+.animal-landscape[data-period="night"] .scene-night { opacity: 1; }
+.realistic-dog-shadow { position: absolute; left: 7%; bottom: 8%; width: 34%; height: 8%; background: radial-gradient(ellipse, #23170f55, transparent 70%); }
+.realistic-dog { position: absolute; left: 5%; bottom: 6%; width: 38%; height: auto; filter: drop-shadow(0 5px 5px #24170e44); transform-origin: center bottom; animation: realisticBreath 5s ease-in-out infinite; transition: filter 1s ease; }
+@keyframes realisticBreath { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(1.015); } }
+.realistic-landscape .landscape-gift { position: absolute; pointer-events: none; height: auto; }
+.realistic-water { left: 44%; bottom: 7%; width: 13%; }
+.realistic-food { left: 58%; bottom: 7%; width: 13%; }
+.realistic-care { left: 73%; bottom: 8%; width: 15%; }
+.realistic-love { left: 23%; bottom: 48%; color: #f8b8c8; font-size: clamp(18px, 3vw, 40px); text-shadow: 0 2px 6px #57313c; }
+.realistic-love span:nth-child(2) { display: inline-block; transform: translateY(-12px); }
+.animal-landscape[data-period="night"] .realistic-dog,
+.animal-landscape[data-period="night"] .realistic-landscape img.landscape-gift { filter: brightness(.55) saturate(.75); }
+.animal-landscape[data-period="evening"] .realistic-dog { filter: brightness(.85) sepia(.12); }
+.animal-landscape .landscape-clock { z-index: 5; }
+@media (max-width: 600px) { .realistic-landscape { aspect-ratio: 4 / 3; } .realistic-dog { width: 46%; left: 2%; } }
+@media (prefers-reduced-motion: reduce) { .realistic-landscape *, .realistic-landscape #landscape-love.gift-visible { animation: none !important; transition: none !important; } }
