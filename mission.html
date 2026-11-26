@@ -166,11 +166,14 @@
 
   </section>
 
+
   <!-- ======================================
        UNE JOURNÉE DANS LEURS PATTES
+       EXPÉRIENCE CINÉMATOGRAPHIQUE
        ====================================== -->
 
-  <section class="animal-day-section" id="dans-leurs-pattes">
+  <section class="animal-day-section"
+           id="dans-leurs-pattes">
 
     <div class="mission-heading mission-reveal">
 
@@ -184,153 +187,199 @@
       </h2>
 
       <p>
-        Pour nous, une journée commence souvent
-        avec un petit-déjeuner, un toit et des projets.
+        Et si, pendant quelques instants,
+        vous découvriez le monde à travers ses yeux ?
 
-        Pour un animal errant, elle peut commencer
-        avec une seule question.
-
-        Comment survivre aujourd'hui ?
+        Du premier rayon de soleil jusqu'au silence
+        de la nuit, partagez le quotidien d'un chien
+        qui n'a jamais choisi de vivre dans la rue.
       </p>
 
     </div>
 
-    <div class="animal-experience mission-reveal">
+
+    <div class="animal-experience mission-cinema mission-reveal">
+
+      <!-- SCÈNES PHOTOGRAPHIQUES -->
 
       <div class="animal-landscape"
            id="animal-landscape"
            data-period="morning">
 
-        <!-- ======================================
-             NOUVEAU PAYSAGE RÉALISTE
-             ====================================== -->
-
         <div class="realistic-landscape">
 
-          <!-- DÉCOR DU MATIN -->
-
-          <img class="scene-background scene-morning"
+          <img class="scene-background scene-morning scene-active"
                src="mission-ruelle-matin.png"
-               alt=""
+               alt="Un chien errant au réveil dans une ruelle"
+               aria-hidden="false"
                decoding="async">
-
-          <!-- DÉCOR DE MIDI -->
 
           <img class="scene-background scene-noon"
                src="mission-ruelle-midi.png"
-               alt=""
+               alt="Un chien cherchant de l'ombre pendant les fortes chaleurs"
+               aria-hidden="true"
                decoding="async">
-
-          <!-- DÉCOR DU SOIR -->
 
           <img class="scene-background scene-evening"
                src="mission-ruelle-soir.png"
-               alt=""
+               alt="Un chien errant à la recherche de nourriture"
+               aria-hidden="true"
                decoding="async">
-
-          <!-- DÉCOR DE NUIT -->
 
           <img class="scene-background scene-night"
                src="mission-ruelle-nuit.png"
-               alt=""
+               alt="Un chien dormant dans la rue"
+               aria-hidden="true"
                decoding="async">
-
-          <!-- OMBRE NATURELLE -->
-
-          <div class="realistic-dog-shadow"
-               aria-hidden="true">
-          </div>
-
-          <!-- LE CHIEN ERRANT -->
-
-          <img class="realistic-dog"
-               src="mission-chien.png"
-               alt="Un chien errant couché dans une ruelle"
-               decoding="async">
-
-          <!-- GAMELLE D'EAU -->
-
-          <img id="landscape-water"
-               class="landscape-gift realistic-water"
-               src="mission-eau.png"
-               alt=""
-               decoding="async">
-
-          <!-- GAMELLE DE NOURRITURE -->
-
-          <img id="landscape-food"
-               class="landscape-gift realistic-food"
-               src="mission-nourriture.png"
-               alt=""
-               decoding="async">
-
-          <!-- TROUSSE DE SOINS -->
-
-          <img id="landscape-care"
-               class="landscape-gift realistic-care"
-               src="mission-soins.png"
-               alt=""
-               decoding="async">
-
-          <!-- PETITS CŒURS -->
-
-          <div id="landscape-love"
-               class="landscape-gift realistic-love"
-               aria-hidden="true">
-
-            <span>♡</span>
-            <span>♡</span>
-            <span>♡</span>
-
-          </div>
 
         </div>
+
+
+        <!-- FILTRE CINÉMATOGRAPHIQUE -->
+
+        <div class="cinema-overlay"
+             aria-hidden="true">
+        </div>
+
 
         <!-- HORLOGE -->
 
         <div class="landscape-clock">
 
-          <span id="day-clock">07:00</span>
-          <span id="day-period">Le matin</span>
+          <span id="day-clock">
+            07:00
+          </span>
+
+          <span id="day-period">
+            Le matin
+          </span>
+
+        </div>
+
+
+        <!-- INDICATEUR -->
+
+        <div class="cinema-indicator">
+
+          <span aria-hidden="true"></span>
+
+          Une journée dans sa vie
+
+        </div>
+
+
+        <!-- NARRATION -->
+
+        <div class="cinema-narration"
+             id="day-story"
+             aria-live="polite">
+
+          <p id="day-label"
+             class="mission-label">
+            01 — Le réveil
+          </p>
+
+          <h3 id="day-title">
+            Une journée de plus.
+          </h3>
+
+          <p id="day-description">
+            Le soleil se lève.
+            Je me réveille là où je me suis endormi,
+            sur les pavés encore froids.
+            Je ne sais pas ce que cette journée me réserve.
+          </p>
+
+        </div>
+
+
+        <!-- CONCLUSION DE L'EXPÉRIENCE -->
+
+        <div class="cinema-ending"
+             id="cinema-ending"
+             hidden>
+
+          <p class="mission-label">
+            00:00 — Une nouvelle journée
+          </p>
+
+          <span class="cinema-ending-heart"
+                aria-hidden="true">
+            ♡
+          </span>
+
+          <h3>
+            Pour vous, ce n'était que quelques instants.
+
+            <em>
+              Pour lui, c'est toute une vie.
+            </em>
+          </h3>
+
+          <p>
+            Et si demain, son histoire pouvait changer ?
+          </p>
+
+          <a href="agir.html"
+             class="mission-button">
+            Découvrir comment agir ♡
+          </a>
+
+          <button type="button"
+                  id="cinema-replay"
+                  class="cinema-replay">
+            ↻ Revivre sa journée
+          </button>
+
+        </div>
+
+
+        <!-- PROGRESSION DE LA LECTURE -->
+
+        <div class="cinema-progress"
+             aria-hidden="true">
+
+          <div id="cinema-progress-fill"></div>
 
         </div>
 
       </div>
 
-      <!-- TEXTE DE L'EXPÉRIENCE -->
+
+      <!-- COMMANDES DE L'EXPÉRIENCE -->
 
       <div class="animal-experience-content">
 
-        <div class="day-story"
-             id="day-story"
-             aria-live="polite">
+        <div class="cinema-controls">
 
-          <p class="mission-label" id="day-label">
-            01 — Le réveil
-          </p>
+          <button type="button"
+                  id="cinema-play"
+                  class="cinema-control-button">
+            ▶ Vivre sa journée
+          </button>
 
-          <h3 id="day-title">
-            Une nouvelle journée commence.
-          </h3>
+          <button type="button"
+                  id="cinema-sound"
+                  class="cinema-control-button"
+                  aria-pressed="false">
+            ♫ Activer le son
+          </button>
 
-          <p id="day-description">
-            Il se réveille dans la rue.
-
-            Il ne sait pas encore où trouver
-            son prochain repas.
-
-            Alors il se remet en marche,
-            à la recherche de quelque chose à manger.
-          </p>
+          <button type="button"
+                  id="cinema-restart"
+                  class="cinema-control-button">
+            ↻ Recommencer
+          </button>
 
         </div>
 
-        <!-- CURSEUR INTERACTIF -->
+
+        <!-- NAVIGATION MANUELLE -->
 
         <div class="day-slider-container">
 
           <label for="day-slider">
-            Faites défiler sa journée
+            Ou découvrez sa journée à votre rythme
           </label>
 
           <input type="range"
@@ -341,6 +390,7 @@
                  value="0"
                  aria-valuetext="Le matin">
 
+
           <div class="day-moments">
 
             <button type="button"
@@ -348,38 +398,53 @@
                     data-moment="0"
                     aria-pressed="true">
 
-              <span>☀</span>
+              <span aria-hidden="true">☀</span>
+
               Matin
 
+              <small>07:00</small>
+
             </button>
+
 
             <button type="button"
                     class="day-moment"
                     data-moment="1"
                     aria-pressed="false">
 
-              <span>☀</span>
+              <span aria-hidden="true">☀</span>
+
               Midi
 
+              <small>12:00</small>
+
             </button>
+
 
             <button type="button"
                     class="day-moment"
                     data-moment="2"
                     aria-pressed="false">
 
-              <span>◐</span>
+              <span aria-hidden="true">◐</span>
+
               Soir
 
+              <small>18:00</small>
+
             </button>
+
 
             <button type="button"
                     class="day-moment"
                     data-moment="3"
                     aria-pressed="false">
 
-              <span>☾</span>
+              <span aria-hidden="true">☾</span>
+
               Nuit
+
+              <small>23:00</small>
 
             </button>
 
@@ -387,293 +452,26 @@
 
         </div>
 
+
+        <button type="button"
+                id="cinema-finish"
+                class="mission-text-link cinema-finish">
+          Découvrir la fin de sa journée →
+        </button>
+
       </div>
 
     </div>
 
+
     <p class="experience-note">
-      Cette scène illustrée est fictive.
-      Elle représente quelques-unes des difficultés
-      que peuvent rencontrer les animaux des rues.
+      Cette histoire fictive, illustrée par des images
+      générées, représente certaines réalités vécues
+      par les animaux des rues.
     </p>
 
   </section>
 
-  <!-- ======================================
-       LES PETITS GESTES INTERACTIFS
-       ====================================== -->
-
-  <section class="mission-gestures">
-
-    <div class="mission-heading mission-reveal">
-
-      <p class="mission-label">
-        Et si nous pouvions changer sa journée ?
-      </p>
-
-      <h2>
-        De petits gestes.<br>
-        <em>De grandes différences.</em>
-      </h2>
-
-      <p>
-        Il n'est pas toujours nécessaire
-        de faire de grandes choses.
-
-        Parfois, ce qui nous semble insignifiant
-        représente beaucoup pour un animal errant.
-      </p>
-
-    </div>
-
-    <div class="gesture-grid mission-reveal">
-
-      <!-- EAU -->
-
-      <button type="button"
-              class="gesture-card"
-              data-gesture="water"
-              aria-pressed="false">
-
-        <div class="gesture-icon">
-
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-
-            <path d="M50 12
-                     C40 30 22 48 22 65
-                     A28 28 0 0 0 78 65
-                     C78 48 60 30 50 12Z"
-                  fill="#b6d1da"
-                  stroke="#7da5b4"
-                  stroke-width="2"/>
-
-            <path d="M35 62 Q32 76 45 80"
-                  stroke="#ffffff"
-                  stroke-width="5"
-                  stroke-linecap="round"
-                  fill="none"/>
-
-          </svg>
-
-        </div>
-
-        <h3>De l'eau</h3>
-
-        <p>
-          Une gamelle d'eau propre,
-          surtout pendant les fortes chaleurs.
-        </p>
-
-        <span class="gesture-action">
-          Offrir de l'eau +
-        </span>
-
-      </button>
-
-      <!-- NOURRITURE -->
-
-      <button type="button"
-              class="gesture-card"
-              data-gesture="food"
-              aria-pressed="false">
-
-        <div class="gesture-icon">
-
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-
-            <path d="M12 45 L24 80 H76 L88 45Z"
-                  fill="#d9a89b"
-                  stroke="#b77e75"
-                  stroke-width="2"/>
-
-            <ellipse cx="50" cy="45"
-                     rx="38" ry="12"
-                     fill="#efd1be"/>
-
-            <g fill="#987457">
-
-              <circle cx="25" cy="43" r="7"/>
-              <circle cx="39" cy="36" r="7"/>
-              <circle cx="52" cy="44" r="8"/>
-              <circle cx="64" cy="36" r="7"/>
-              <circle cx="75" cy="44" r="7"/>
-
-            </g>
-
-            <path d="M50 60
-                     C38 48 31 65 50 75
-                     C69 65 62 48 50 60Z"
-                  fill="#fff2e5"/>
-
-          </svg>
-
-        </div>
-
-        <h3>Un repas</h3>
-
-        <p>
-          De la nourriture adaptée
-          pour apaiser sa faim.
-        </p>
-
-        <span class="gesture-action">
-          Offrir un repas +
-        </span>
-
-      </button>
-
-      <!-- SOINS -->
-
-      <button type="button"
-              class="gesture-card"
-              data-gesture="care"
-              aria-pressed="false">
-
-        <div class="gesture-icon">
-
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-
-            <rect x="15" y="30"
-                  width="70" height="55"
-                  rx="10"
-                  fill="#e7ded0"
-                  stroke="#bca994"
-                  stroke-width="2"/>
-
-            <path d="M35 30 V18 H65 V30"
-                  stroke="#bca994"
-                  stroke-width="5"
-                  stroke-linejoin="round"
-                  fill="none"/>
-
-            <rect x="44" y="40"
-                  width="12" height="34"
-                  rx="2"
-                  fill="#b86e79"/>
-
-            <rect x="33" y="51"
-                  width="34" height="12"
-                  rx="2"
-                  fill="#b86e79"/>
-
-          </svg>
-
-        </div>
-
-        <h3>Des soins</h3>
-
-        <p>
-          Contacter un vétérinaire
-          ou une association lorsqu'un animal souffre.
-        </p>
-
-        <span class="gesture-action">
-          Offrir des soins +
-        </span>
-
-      </button>
-
-      <!-- DOUCEUR -->
-
-      <button type="button"
-              class="gesture-card"
-              data-gesture="love"
-              aria-pressed="false">
-
-        <div class="gesture-icon">
-
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-
-            <path d="M50 85
-                     C-10 48 14 8 50 33
-                     C86 8 110 48 50 85Z"
-                  fill="#d8a2a7"
-                  stroke="#b86e79"
-                  stroke-width="2"/>
-
-            <path d="M26 40 Q30 28 41 37"
-                  stroke="#f9e5e4"
-                  stroke-width="5"
-                  stroke-linecap="round"
-                  fill="none"/>
-
-          </svg>
-
-        </div>
-
-        <h3>De la douceur</h3>
-
-        <p>
-          Respecter ses distances,
-          lui laisser le choix et ne pas l'effrayer.
-        </p>
-
-        <span class="gesture-action">
-          Offrir de la douceur +
-        </span>
-
-      </button>
-
-    </div>
-
-    <!-- PROGRESSION DES GESTES -->
-
-    <div class="gesture-progress mission-reveal">
-
-      <div class="gesture-progress-hearts" aria-hidden="true">
-        <span>♡</span>
-        <span>♡</span>
-        <span>♡</span>
-        <span>♡</span>
-      </div>
-
-      <div class="gesture-progress-track"
-           role="progressbar"
-           id="gesture-progress-track"
-           aria-label="Gestes symboliques sélectionnés"
-           aria-valuemin="0"
-           aria-valuemax="4"
-           aria-valuenow="0">
-
-        <div id="gesture-progress-fill"></div>
-
-      </div>
-
-      <p id="gesture-count" aria-live="polite">
-        0 geste symbolique sur 4
-      </p>
-
-      <div id="gesture-success"
-           class="gesture-success"
-           hidden>
-
-        <span>♡</span>
-
-        <h3>
-          Pour toi, quelques petits gestes.
-          <em>Pour lui, un monde de différence.</em>
-        </h3>
-
-        <p>
-          Imagine maintenant ce que ces gestes
-          pourraient représenter dans la vraie vie.
-        </p>
-
-        <a href="#dans-leurs-pattes"
-           class="mission-text-link">
-          Revoir la scène illustrée ↑
-        </a>
-
-      </div>
-
-      <p class="gesture-disclaimer">
-        Cette interaction est symbolique.
-        Elle ne constitue pas un don réel.
-      </p>
-
-    </div>
-
-  </section>
 
   <!-- ======================================
        POURQUOI CŒUR ERRANT EXISTE
@@ -701,6 +499,7 @@
         </span>
 
       </div>
+
 
       <div class="mission-origin-text mission-reveal">
 
@@ -768,6 +567,7 @@
 
   </section>
 
+
   <!-- ======================================
        MES VALEURS
        ====================================== -->
@@ -791,6 +591,7 @@
       </p>
 
     </div>
+
 
     <div class="mission-values-grid mission-reveal">
 
@@ -828,6 +629,7 @@
 
       </details>
 
+
       <!-- VALEUR 02 -->
 
       <details class="mission-value">
@@ -861,6 +663,7 @@
 
       </details>
 
+
       <!-- VALEUR 03 -->
 
       <details class="mission-value">
@@ -893,6 +696,7 @@
         </div>
 
       </details>
+
 
       <!-- VALEUR 04 -->
 
@@ -929,6 +733,7 @@
 
       </details>
 
+
       <!-- VALEUR 05 -->
 
       <details class="mission-value">
@@ -960,6 +765,7 @@
         </div>
 
       </details>
+
 
       <!-- VALEUR 06 -->
 
@@ -997,9 +803,7 @@
 
     </div>
 
-  </section>
-
-  <!-- ======================================
+  </section>  <!-- ======================================
        MA FAÇON DE VOYAGER
        ====================================== -->
 
@@ -1137,7 +941,10 @@
 
     </div>
 
-  </section>  <!-- ======================================
+  </section>
+
+
+  <!-- ======================================
        CE QU'ILS M'ONT APPRIS
        ====================================== -->
 
@@ -1441,6 +1248,7 @@
 
 </main>
 
+
 <!-- ======================================
      FOOTER COMMUN
      ====================================== -->
@@ -1662,11 +1470,13 @@
 
 </footer>
 
+
 <script>
 
 (function () {
 
   'use strict';
+
 
   /* ======================================
      ANNÉE AUTOMATIQUE
@@ -1782,402 +1592,1000 @@
 
   /* ======================================
      UNE JOURNÉE DANS LEURS PATTES
+     EXPÉRIENCE CINÉMATOGRAPHIQUE
      ====================================== */
 
-  const dayMoments = [
+  function initializeCinema() {
 
-    {
+    const dayMoments = [
 
-      time: '07:00',
+      {
 
-      period: 'Le matin',
+        time: '07:00',
 
-      theme: 'morning',
+        period: 'Le matin',
 
-      label: '01 — Le réveil',
+        theme: 'morning',
 
-      title: 'Une nouvelle journée commence.',
+        label: '01 — Le réveil',
 
-      description:
-        "Il se réveille dans la rue. " +
-        "Il ne sait pas encore où trouver son prochain repas. " +
-        "Alors il se remet en marche, à la recherche de quelque chose à manger."
+        title: 'Une journée de plus.',
 
-    },
+        description:
+          "Le soleil se lève. " +
+          "Je me réveille là où je me suis endormi, " +
+          "sur les pavés encore froids. " +
+          "Je ne sais pas ce que cette journée me réserve."
 
-    {
+      },
 
-      time: '12:00',
+      {
 
-      period: 'Le midi',
+        time: '12:00',
 
-      theme: 'noon',
+        period: 'Le midi',
 
-      label: '02 — La chaleur',
+        theme: 'noon',
 
-      title: 'Une simple goutte d’eau.',
+        label: '02 — La soif',
 
-      description:
-        "Le soleil est haut dans le ciel. " +
-        "Il cherche un peu d'ombre et de l'eau pour apaiser sa soif. " +
-        "Une gamelle d'eau propre pourrait changer cet instant de sa journée."
+        title: 'Quelques gouttes suffiraient.',
 
-    },
+        description:
+          "Le soleil brûle les pavés. " +
+          "Je cherche un peu d'ombre pour me reposer. " +
+          "J'ai soif. Une simple gamelle d'eau " +
+          "serait déjà un immense cadeau."
 
-    {
+      },
 
-      time: '18:00',
+      {
 
-      period: 'Le soir',
+        time: '18:00',
 
-      theme: 'evening',
+        period: 'Le soir',
 
-      label: '03 — La recherche',
+        theme: 'evening',
 
-      title: 'Encore quelques pas.',
+        label: '03 — La faim',
 
-      description:
-        "Les rues s'animent. " +
-        "Il continue de chercher de la nourriture. " +
-        "Au milieu des passants, il doit trouver sa place sans toujours être le bienvenu."
+        title: 'Encore quelques pas.',
 
-    },
+        description:
+          "Les gens rentrent chez eux. " +
+          "Moi, je continue de marcher. " +
+          "Je cherche quelque chose à manger, " +
+          "sans savoir si je trouverai mon repas ce soir."
 
-    {
+      },
 
-      time: '23:00',
+      {
 
-      period: 'La nuit',
+        time: '23:00',
 
-      theme: 'night',
+        period: 'La nuit',
 
-      label: '04 — Le silence',
+        theme: 'night',
 
-      title: 'Quelque part où dormir.',
+        label: '04 — Le silence',
 
-      description:
-        "Les lumières s'éteignent progressivement. " +
-        "Il cherche un endroit calme, à l'abri des dangers. " +
-        "Demain, une nouvelle journée commencera dans la rue."
+        title: 'Un endroit où fermer les yeux.',
 
-    }
+        description:
+          "La rue devient silencieuse. " +
+          "Je me blottis contre un mur, " +
+          "en espérant pouvoir dormir sans avoir peur. " +
+          "Demain, je recommencerai."
 
-  ];
+      }
 
+    ];
 
-  const daySlider =
-    document.getElementById('day-slider');
 
-  const landscape =
-    document.getElementById('animal-landscape');
+    /* ÉLÉMENTS HTML */
 
-  const momentButtons =
-    document.querySelectorAll('.day-moment');
+    const daySlider =
+      document.getElementById('day-slider');
 
-  const dayClock =
-    document.getElementById('day-clock');
+    const landscape =
+      document.getElementById('animal-landscape');
 
-  const dayPeriod =
-    document.getElementById('day-period');
+    const momentButtons =
+      document.querySelectorAll('.day-moment');
 
-  const dayLabel =
-    document.getElementById('day-label');
+    const dayClock =
+      document.getElementById('day-clock');
 
-  const dayTitle =
-    document.getElementById('day-title');
+    const dayPeriod =
+      document.getElementById('day-period');
 
-  const dayDescription =
-    document.getElementById('day-description');
+    const dayLabel =
+      document.getElementById('day-label');
 
+    const dayTitle =
+      document.getElementById('day-title');
 
-  function updateDay(index) {
+    const dayDescription =
+      document.getElementById('day-description');
 
-    const moment = dayMoments[index];
+    const dayStory =
+      document.getElementById('day-story');
 
-    if (!moment || !landscape || !daySlider) return;
+    const cinemaPlay =
+      document.getElementById('cinema-play');
 
-    landscape.dataset.period = moment.theme;
+    const cinemaSound =
+      document.getElementById('cinema-sound');
 
-    if (dayClock) {
+    const cinemaRestart =
+      document.getElementById('cinema-restart');
 
-      dayClock.textContent = moment.time;
+    const cinemaReplay =
+      document.getElementById('cinema-replay');
 
-    }
+    const cinemaFinish =
+      document.getElementById('cinema-finish');
 
-    if (dayPeriod) {
+    const cinemaEnding =
+      document.getElementById('cinema-ending');
 
-      dayPeriod.textContent = moment.period;
+    const cinemaProgress =
+      document.getElementById('cinema-progress-fill');
 
-    }
 
-    if (dayLabel) {
+    const requiredElements = [
 
-      dayLabel.textContent = moment.label;
+      daySlider,
+      landscape,
+      dayClock,
+      dayPeriod,
+      dayLabel,
+      dayTitle,
+      dayDescription,
+      dayStory,
+      cinemaPlay,
+      cinemaSound,
+      cinemaRestart,
+      cinemaReplay,
+      cinemaFinish,
+      cinemaEnding,
+      cinemaProgress
 
-    }
+    ];
 
-    if (dayTitle) {
 
-      dayTitle.textContent = moment.title;
+    if (requiredElements.some(element => !element)) {
 
-    }
-
-    if (dayDescription) {
-
-      dayDescription.textContent = moment.description;
-
-    }
-
-    daySlider.value = index;
-
-    daySlider.setAttribute(
-      'aria-valuetext',
-      moment.period
-    );
-
-    daySlider.style.setProperty(
-      '--day-progress',
-      (index / 3 * 100) + '%'
-    );
-
-
-    momentButtons.forEach(button => {
-
-      const isActive =
-        Number(button.dataset.moment) === index;
-
-      button.classList.toggle(
-        'active',
-        isActive
+      console.warn(
+        'Cœur Errant : expérience cinématographique incomplète.'
       );
 
-      button.setAttribute(
-        'aria-pressed',
-        String(isActive)
-      );
-
-    });
-
-  }
-
-
-  if (daySlider) {
-
-    daySlider.addEventListener('input', event => {
-
-      updateDay(Number(event.target.value));
-
-    });
-
-  }
-
-
-  momentButtons.forEach(button => {
-
-    button.addEventListener('click', () => {
-
-      updateDay(Number(button.dataset.moment));
-
-    });
-
-  });
-
-
-  updateDay(0);
-
-
-  /* ======================================
-     LES PETITS GESTES
-     ====================================== */
-
-  const selectedGestures = new Set();
-
-  const gestureCards =
-    document.querySelectorAll('.gesture-card');
-
-  const gestureProgressFill =
-    document.getElementById('gesture-progress-fill');
-
-  const gestureProgressTrack =
-    document.getElementById('gesture-progress-track');
-
-  const gestureCount =
-    document.getElementById('gesture-count');
-
-  const gestureSuccess =
-    document.getElementById('gesture-success');
-
-  const gestureHearts =
-    document.querySelectorAll(
-      '.gesture-progress-hearts span'
-    );
-
-
-  const gestureLabels = {
-
-    water: 'Offrir de l’eau',
-
-    food: 'Offrir un repas',
-
-    care: 'Offrir des soins',
-
-    love: 'Offrir de la douceur'
-
-  };
-
-
-  function updateGestures() {
-
-    const count = selectedGestures.size;
-
-    const percentage = count / 4 * 100;
-
-
-    if (gestureProgressFill) {
-
-      gestureProgressFill.style.width =
-        percentage + '%';
+      return;
 
     }
 
 
-    if (gestureProgressTrack) {
+    const sceneImages =
+      landscape.querySelectorAll('.scene-background');
 
-      gestureProgressTrack.setAttribute(
-        'aria-valuenow',
-        String(count)
-      );
+
+    /* DURÉE DE L'EXPÉRIENCE */
+
+    const sceneDuration = 10000;
+
+    const totalDuration =
+      sceneDuration * dayMoments.length;
+
+
+    let currentMoment = 0;
+
+    let cinemaPlaying = false;
+
+    let cinemaFinished = false;
+
+    let cinemaElapsed = 0;
+
+    let cinemaLastFrame = null;
+
+    let cinemaFrame = null;
+
+
+    /* SON FACULTATIF */
+
+    let cinemaSoundEnabled = false;
+
+    let cinemaAudioContext = null;
+
+    let cinemaAudioSource = null;
+
+    let cinemaAudioFilter = null;
+
+    let cinemaAudioGain = null;
+
+    let audioRequest = 0;
+
+
+    /* ======================================
+       ARRÊTER L'AMBIANCE SONORE
+       ====================================== */
+
+    function stopCinemaAudio() {
+
+      audioRequest++;
+
+      if (cinemaAudioSource) {
+
+        try {
+
+          cinemaAudioSource.stop();
+
+        } catch (error) {}
+
+        cinemaAudioSource.disconnect();
+
+        cinemaAudioSource = null;
+
+      }
+
+      if (cinemaAudioFilter) {
+
+        cinemaAudioFilter.disconnect();
+
+        cinemaAudioFilter = null;
+
+      }
+
+      if (cinemaAudioGain) {
+
+        cinemaAudioGain.disconnect();
+
+        cinemaAudioGain = null;
+
+      }
 
     }
 
 
-    if (gestureCount) {
+    /* ======================================
+       CRÉER UNE AMBIANCE SONORE DISCRÈTE
+       ====================================== */
 
-      gestureCount.textContent =
-        count + ' geste' +
-        (count > 1 ? 's' : '') +
-        ' symbolique' +
-        (count > 1 ? 's' : '') +
-        ' sur 4';
+    async function playCinemaAudio() {
+
+      stopCinemaAudio();
+
+      if (
+        !cinemaSoundEnabled ||
+        !cinemaPlaying ||
+        cinemaFinished ||
+        document.hidden
+      ) return;
+
+
+      const request = audioRequest;
+
+
+      try {
+
+        const AudioContextClass =
+          window.AudioContext ||
+          window.webkitAudioContext;
+
+
+        if (!AudioContextClass) {
+
+          throw new Error('Audio indisponible');
+
+        }
+
+
+        if (!cinemaAudioContext) {
+
+          cinemaAudioContext =
+            new AudioContextClass();
+
+        }
+
+
+        await cinemaAudioContext.resume();
+
+
+        if (
+          request !== audioRequest ||
+          !cinemaSoundEnabled ||
+          !cinemaPlaying ||
+          cinemaFinished ||
+          document.hidden
+        ) return;
+
+
+        const context = cinemaAudioContext;
+
+        const length = context.sampleRate * 4;
+
+
+        const buffer = context.createBuffer(
+          1,
+          length,
+          context.sampleRate
+        );
+
+
+        const samples = buffer.getChannelData(0);
+
+        let previous = 0;
+
+
+        for (let i = 0; i < length; i++) {
+
+          previous =
+            (
+              previous +
+              0.02 * (Math.random() * 2 - 1)
+            ) / 1.02;
+
+
+          const fadeLength =
+            Math.floor(context.sampleRate * 0.05);
+
+
+          const fade = Math.min(
+            1,
+            i / fadeLength,
+            (length - 1 - i) / fadeLength
+          );
+
+
+          samples[i] = previous * 3.5 * fade;
+
+        }
+
+
+        const source = context.createBufferSource();
+
+        const filter = context.createBiquadFilter();
+
+        const gain = context.createGain();
+
+
+        source.buffer = buffer;
+
+        source.loop = true;
+
+
+        filter.type = 'lowpass';
+
+        filter.frequency.value =
+          [900, 600, 450, 180][currentMoment];
+
+
+        const volume =
+          [0.07, 0.045, 0.06, 0.025][currentMoment];
+
+
+        gain.gain.setValueAtTime(
+          0,
+          context.currentTime
+        );
+
+
+        gain.gain.linearRampToValueAtTime(
+          volume,
+          context.currentTime + 0.8
+        );
+
+
+        source.connect(filter);
+
+        filter.connect(gain);
+
+        gain.connect(context.destination);
+
+
+        source.start();
+
+
+        cinemaAudioSource = source;
+
+        cinemaAudioFilter = filter;
+
+        cinemaAudioGain = gain;
+
+      } catch (error) {
+
+        cinemaSoundEnabled = false;
+
+        cinemaSound.setAttribute(
+          'aria-pressed',
+          'false'
+        );
+
+        cinemaSound.textContent =
+          'Son indisponible';
+
+      }
 
     }
 
 
-    gestureHearts.forEach((heart, index) => {
+    /* ======================================
+       CHANGER DE SCÈNE
+       ====================================== */
 
-      const filled = index < count;
+    function updateDay(index) {
 
-      heart.textContent = filled ? '♥' : '♡';
+      const moment = dayMoments[index];
 
-      heart.classList.toggle(
-        'filled',
-        filled
+      if (!moment) return;
+
+
+      currentMoment = index;
+
+      cinemaFinished = false;
+
+
+      cinemaEnding.hidden = true;
+
+      dayStory.hidden = false;
+
+
+      landscape.classList.remove(
+        'cinema-finished'
       );
 
-    });
+
+      landscape.dataset.period =
+        moment.theme;
 
 
-    if (gestureSuccess) {
+      dayClock.textContent =
+        moment.time;
 
-      gestureSuccess.hidden = count !== 4;
+      dayPeriod.textContent =
+        moment.period;
+
+      dayLabel.textContent =
+        moment.label;
+
+      dayTitle.textContent =
+        moment.title;
+
+      dayDescription.textContent =
+        moment.description;
+
+
+      daySlider.value = index;
+
+
+      daySlider.setAttribute(
+        'aria-valuetext',
+        moment.period + ' — ' + moment.time
+      );
+
+
+      daySlider.style.setProperty(
+        '--day-progress',
+        (index / 3 * 100) + '%'
+      );
+
+
+      momentButtons.forEach(button => {
+
+        const active =
+          Number(button.dataset.moment) === index;
+
+
+        button.classList.toggle(
+          'active',
+          active
+        );
+
+
+        button.setAttribute(
+          'aria-pressed',
+          String(active)
+        );
+
+      });
+
+
+      sceneImages.forEach(image => {
+
+        const active =
+          image.classList.contains(
+            'scene-' + moment.theme
+          );
+
+
+        image.classList.toggle(
+          'scene-active',
+          active
+        );
+
+
+        image.setAttribute(
+          'aria-hidden',
+          String(!active)
+        );
+
+      });
+
+
+      dayStory.classList.remove(
+        'cinema-text-enter'
+      );
+
+
+      void dayStory.offsetWidth;
+
+
+      dayStory.classList.add(
+        'cinema-text-enter'
+      );
+
+
+      if (cinemaPlaying) {
+
+        playCinemaAudio();
+
+      }
 
     }
 
 
-    Object.keys(gestureLabels).forEach(gesture => {
+    /* ======================================
+       PROGRESSION DE LA LECTURE
+       ====================================== */
 
-      const gift = document.getElementById(
-        'landscape-' + gesture
+    function updateCinemaProgress() {
+
+      const progress = Math.max(
+
+        0,
+
+        Math.min(
+          100,
+          cinemaElapsed / totalDuration * 100
+        )
+
       );
 
-      if (gift) {
 
-        gift.classList.toggle(
-          'gift-visible',
-          selectedGestures.has(gesture)
+      cinemaProgress.style.width =
+        progress + '%';
+
+    }
+
+
+    /* ======================================
+       METTRE EN PAUSE
+       ====================================== */
+
+    function pauseCinema() {
+
+      cinemaPlaying = false;
+
+
+      if (cinemaFrame !== null) {
+
+        cancelAnimationFrame(cinemaFrame);
+
+      }
+
+
+      cinemaFrame = null;
+
+      cinemaLastFrame = null;
+
+
+      landscape.classList.remove(
+        'cinema-playing'
+      );
+
+
+      if (cinemaFinished) {
+
+        cinemaPlay.textContent =
+          '▶ Revoir sa journée';
+
+      } else if (cinemaElapsed === 0) {
+
+        cinemaPlay.textContent =
+          '▶ Vivre sa journée';
+
+      } else {
+
+        cinemaPlay.textContent =
+          '▶ Continuer';
+
+      }
+
+
+      stopCinemaAudio();
+
+    }
+
+
+    /* ======================================
+       CONCLUSION CINÉMATOGRAPHIQUE
+       ====================================== */
+
+    function finishCinema() {
+
+      cinemaFinished = true;
+
+
+      pauseCinema();
+
+
+      cinemaElapsed = totalDuration;
+
+
+      updateCinemaProgress();
+
+
+      dayClock.textContent =
+        '00:00';
+
+
+      dayPeriod.textContent =
+        'Un nouveau jour';
+
+
+      dayStory.hidden = true;
+
+      cinemaEnding.hidden = false;
+
+
+      landscape.classList.add(
+        'cinema-finished'
+      );
+
+
+      cinemaPlay.textContent =
+        '▶ Revoir sa journée';
+
+    }
+
+
+    /* ======================================
+       LECTURE AUTOMATIQUE
+       ====================================== */
+
+    function cinemaTick(timestamp) {
+
+      if (!cinemaPlaying) return;
+
+
+      if (cinemaLastFrame !== null) {
+
+        cinemaElapsed += Math.min(
+
+          timestamp - cinemaLastFrame,
+
+          100
+
         );
 
       }
 
+
+      cinemaLastFrame = timestamp;
+
+
+      const nextMoment = Math.floor(
+
+        cinemaElapsed / sceneDuration
+
+      );
+
+
+      if (nextMoment >= dayMoments.length) {
+
+        finishCinema();
+
+        return;
+
+      }
+
+
+      if (nextMoment !== currentMoment) {
+
+        updateDay(nextMoment);
+
+      }
+
+
+      updateCinemaProgress();
+
+
+      cinemaFrame =
+        requestAnimationFrame(cinemaTick);
+
+    }
+
+
+    /* ======================================
+       DÉMARRER L'EXPÉRIENCE
+       ====================================== */
+
+    function startCinema() {
+
+      if (cinemaPlaying) return;
+
+
+      if (cinemaFinished) {
+
+        cinemaElapsed = 0;
+
+        updateDay(0);
+
+        updateCinemaProgress();
+
+      }
+
+
+      cinemaPlaying = true;
+
+      cinemaLastFrame = null;
+
+
+      landscape.classList.add(
+        'cinema-playing'
+      );
+
+
+      cinemaPlay.textContent =
+        'Ⅱ Mettre en pause';
+
+
+      playCinemaAudio();
+
+
+      cinemaFrame =
+        requestAnimationFrame(cinemaTick);
+
+    }
+
+
+    /* ======================================
+       CHOISIR UNE HEURE MANUELLEMENT
+       ====================================== */
+
+    function selectCinemaMoment(index) {
+
+      if (
+        !Number.isInteger(index) ||
+        index < 0 ||
+        index >= dayMoments.length
+      ) return;
+
+
+      pauseCinema();
+
+
+      cinemaElapsed =
+        index * sceneDuration;
+
+
+      updateDay(index);
+
+      updateCinemaProgress();
+
+
+      cinemaPlay.textContent =
+        '▶ Vivre sa journée';
+
+    }
+
+
+    /* CURSEUR */
+
+    daySlider.addEventListener(
+      'input',
+      event => {
+
+        selectCinemaMoment(
+          Number(event.target.value)
+        );
+
+      }
+    );
+
+
+    /* BOUTONS DES QUATRE MOMENTS */
+
+    momentButtons.forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        selectCinemaMoment(
+          Number(button.dataset.moment)
+        );
+
+      });
+
     });
 
 
-    if (landscape) {
+    /* LECTURE ET PAUSE */
 
-      landscape.classList.toggle(
-        'all-gifts-visible',
-        count === 4
+    cinemaPlay.addEventListener('click', () => {
+
+      if (cinemaPlaying) {
+
+        pauseCinema();
+
+      } else {
+
+        startCinema();
+
+      }
+
+    });
+
+
+    /* RECOMMENCER */
+
+    cinemaRestart.addEventListener('click', () => {
+
+      selectCinemaMoment(0);
+
+    });
+
+
+    /* REVIVRE SA JOURNÉE */
+
+    cinemaReplay.addEventListener('click', () => {
+
+      selectCinemaMoment(0);
+
+      cinemaPlay.focus({
+        preventScroll: true
+      });
+
+      startCinema();
+
+    });
+
+
+    /* VOIR DIRECTEMENT LA CONCLUSION */
+
+    cinemaFinish.addEventListener('click', () => {
+
+      pauseCinema();
+
+      updateDay(3);
+
+      finishCinema();
+
+
+      cinemaEnding.scrollIntoView({
+
+        behavior: window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches ? 'instant' : 'smooth',
+
+        block: 'center'
+
+      });
+
+    });
+
+
+    /* ACTIVER OU COUPER LE SON */
+
+    cinemaSound.addEventListener('click', () => {
+
+      cinemaSoundEnabled =
+        !cinemaSoundEnabled;
+
+
+      cinemaSound.setAttribute(
+
+        'aria-pressed',
+
+        String(cinemaSoundEnabled)
+
+      );
+
+
+      cinemaSound.textContent =
+        cinemaSoundEnabled
+
+          ? '♫ Couper le son'
+
+          : '♫ Activer le son';
+
+
+      if (cinemaSoundEnabled) {
+
+        playCinemaAudio();
+
+      } else {
+
+        stopCinemaAudio();
+
+      }
+
+    });
+
+
+    /* ======================================
+       PAUSE AUTOMATIQUE
+       ====================================== */
+
+    document.addEventListener(
+      'visibilitychange',
+      () => {
+
+        if (
+          document.hidden &&
+          cinemaPlaying
+        ) {
+
+          pauseCinema();
+
+        }
+
+      }
+    );
+
+
+    if ('IntersectionObserver' in window) {
+
+      const cinemaObserver =
+        new IntersectionObserver(
+
+          entries => {
+
+            entries.forEach(entry => {
+
+              if (
+                !entry.isIntersecting &&
+                cinemaPlaying
+              ) {
+
+                pauseCinema();
+
+              }
+
+            });
+
+          },
+
+          {
+            threshold: 0
+          }
+
+        );
+
+
+      cinemaObserver.observe(
+        landscape
       );
 
     }
 
 
-    gestureCards.forEach(card => {
+    window.addEventListener(
+      'pagehide',
+      pauseCinema
+    );
 
-      const gesture = card.dataset.gesture;
 
-      const isSelected =
-        selectedGestures.has(gesture);
+    /* ======================================
+       INITIALISATION
+       ====================================== */
 
-      card.classList.toggle(
-        'gesture-selected',
-        isSelected
-      );
+    updateDay(0);
 
-      card.setAttribute(
-        'aria-pressed',
-        String(isSelected)
-      );
-
-      const action =
-        card.querySelector('.gesture-action');
-
-      if (action && gestureLabels[gesture]) {
-
-        action.textContent = isSelected
-
-          ? 'Geste sélectionné ✓'
-
-          : gestureLabels[gesture] + ' +';
-
-      }
-
-    });
+    updateCinemaProgress();
 
   }
 
 
-  gestureCards.forEach(card => {
-
-    card.addEventListener('click', () => {
-
-      const gesture = card.dataset.gesture;
-
-      if (!Object.prototype.hasOwnProperty.call(
-        gestureLabels,
-        gesture
-      )) return;
-
-
-      if (selectedGestures.has(gesture)) {
-
-        selectedGestures.delete(gesture);
-
-      } else {
-
-        selectedGestures.add(gesture);
-
-      }
-
-
-      updateGestures();
-
-    });
-
-  });
-
-
-  updateGestures();
+  initializeCinema();
 
 
   /* ======================================
@@ -2754,8 +3162,6 @@
     if (event.persisted) {
 
       closeMenu();
-
-      updateGestures();
 
       updatePromise();
 
