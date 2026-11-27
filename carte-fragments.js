@@ -1,5 +1,12 @@
+
+
+
+
 (() => {
     "use strict";
+
+    const isNL = document.documentElement.lang.toLowerCase().startsWith("nl");
+    const t = (fr, nl) => isNL ? nl : fr;
 
     const $ = id => document.getElementById(id);
 
@@ -41,188 +48,188 @@
 
         {
             id: "corse-2023",
-            name: "Corse",
-            country: "France",
-            date: "Avril 2023",
+            name: t("Corse", "Corsica"),
+            country: t("France", "Frankrijk"),
+            date: t("Avril 2023", "April 2023"),
             lat: 42.15,
             lon: 9.1,
             symbol: "🐚",
             game: "puzzle",
-            title: "Les souvenirs de Corse"
+            title: t("Les souvenirs de Corse", "De herinneringen aan Corsica")
         },
 
         {
             id: "tanger-2024",
             name: "Tanger",
-            country: "Maroc",
-            date: "Juin 2024",
+            country: t("Maroc", "Marokko"),
+            date: t("Juin 2024", "Juni 2024"),
             lat: 35.76,
             lon: -5.83,
             dx: -25,
             dy: -20,
             symbol: "🪶",
             game: "riddle",
-            title: "L'énigme du courage"
+            title: t("L'énigme du courage", "Het raadsel van moed")
         },
 
         {
             id: "sicile-2024",
-            name: "Sicile",
-            country: "Italie",
-            date: "Août 2024",
+            name: t("Sicile", "Sicilië"),
+            country: t("Italie", "Italië"),
+            date: t("Août 2024", "Augustus 2024"),
             lat: 37.6,
             lon: 14.0,
             symbol: "☀",
             game: "memory",
-            title: "Les souvenirs du soleil"
+            title: t("Les souvenirs du soleil", "De herinneringen aan de zon")
         },
 
         {
             id: "varsovie-2025",
-            name: "Varsovie",
-            country: "Pologne",
-            date: "Janvier 2025",
+            name: t("Varsovie", "Warschau"),
+            country: t("Pologne", "Polen"),
+            date: t("Janvier 2025", "Januari 2025"),
             lat: 52.23,
             lon: 21.01,
             symbol: "❄",
             game: "observation",
-            title: "Le flocon disparu"
+            title: t("Le flocon disparu", "De verdwenen sneeuwvlok")
         },
 
         {
             id: "tanger-2025",
             name: "Tanger",
-            country: "Maroc",
-            date: "Septembre 2025",
+            country: t("Maroc", "Marokko"),
+            date: t("Septembre 2025", "September 2025"),
             lat: 35.76,
             lon: -5.83,
             dx: 25,
             dy: -35,
             symbol: "♡",
             game: "quiz",
-            title: "Le cristal de l'amour"
+            title: t("Le cristal de l'amour", "Het kristal van liefde")
         },
 
         {
             id: "chefchaouen-2025",
             name: "Chefchaouen",
-            country: "Maroc",
-            date: "Septembre 2025",
+            country: t("Maroc", "Marokko"),
+            date: t("Septembre 2025", "September 2025"),
             lat: 35.17,
             lon: -5.27,
             dx: 65,
             dy: 20,
             symbol: "🦋",
             game: "match",
-            title: "Les papillons de la liberté"
+            title: t("Les papillons de la liberté", "De vlinders van vrijheid")
         },
 
         {
             id: "akchour-2025",
             name: "Akchour",
-            country: "Maroc",
-            date: "Septembre 2025",
+            country: t("Maroc", "Marokko"),
+            date: t("Septembre 2025", "September 2025"),
             lat: 35.25,
             lon: -5.18,
             dx: 105,
             dy: -20,
             symbol: "🍃",
             game: "path",
-            title: "Le chemin de la vie"
+            title: t("Le chemin de la vie", "Het levenspad")
         },
 
         {
             id: "istanbul-2025",
             name: "Istanbul",
-            country: "Turquie",
-            date: "Novembre 2025",
+            country: t("Turquie", "Turkije"),
+            date: t("Novembre 2025", "November 2025"),
             lat: 41.01,
             lon: 28.98,
             symbol: "♦",
             game: "memory",
-            title: "Les secrets d'Istanbul"
+            title: t("Les secrets d'Istanbul", "De geheimen van Istanbul")
         },
 
         {
             id: "skopje-2026",
             name: "Skopje",
-            country: "Macédoine du Nord",
-            date: "Janvier 2026",
+            country: t("Macédoine du Nord", "Noord-Macedonië"),
+            date: t("Janvier 2026", "Januari 2026"),
             lat: 42.0,
             lon: 21.43,
             dx: 45,
             dy: 20,
             symbol: "🗝",
             game: "riddle",
-            title: "La clé des possibles"
+            title: t("La clé des possibles", "De sleutel tot mogelijkheden")
         },
 
         {
             id: "pristina-2026",
             name: "Pristina",
             country: "Kosovo",
-            date: "Janvier 2026",
+            date: t("Janvier 2026", "Januari 2026"),
             lat: 42.66,
             lon: 21.16,
             dx: 25,
             dy: -45,
             symbol: "✦",
             game: "quiz",
-            title: "Une étoile dans la nuit"
+            title: t("Une étoile dans la nuit", "Een ster in de nacht")
         },
 
         {
             id: "tirana-2026",
             name: "Tirana",
-            country: "Albanie",
-            date: "Janvier 2026",
+            country: t("Albanie", "Albanië"),
+            date: t("Janvier 2026", "Januari 2026"),
             lat: 41.33,
             lon: 19.82,
             dx: -35,
             dy: 35,
             symbol: "⌛",
             game: "order",
-            title: "Le temps de la confiance"
+            title: t("Le temps de la confiance", "De tijd van vertrouwen")
         },
 
         {
             id: "marrakech-2026",
             name: "Marrakech",
-            country: "Maroc",
-            date: "Juin 2026",
+            country: t("Maroc", "Marokko"),
+            date: t("Juin 2026", "Juni 2026"),
             lat: 31.63,
             lon: -8.0,
             dx: 20,
             dy: 5,
             symbol: "✧",
             game: "order",
-            title: "Une lumière dans la rue"
+            title: t("Une lumière dans la rue", "Een lichtje op straat")
         },
 
         {
             id: "agadir-2026",
             name: "Agadir",
-            country: "Maroc",
-            date: "Juin 2026",
+            country: t("Maroc", "Marokko"),
+            date: t("Juin 2026", "Juni 2026"),
             lat: 30.42,
             lon: -9.6,
             dx: -20,
             dy: 20,
             symbol: "💧",
             game: "difference",
-            title: "Les différences de l'océan"
+            title: t("Les différences de l'océan", "De verschillen van de oceaan")
         },
 
         {
             id: "djerba-2026",
             name: "Djerba",
-            country: "Tunisie",
-            date: "Août 2026",
+            country: t("Tunisie", "Tunesië"),
+            date: t("Août 2026", "Augustus 2026"),
             lat: 33.8,
             lon: 10.85,
             symbol: "❀",
             game: "riddle",
-            title: "La fleur de la douceur"
+            title: t("La fleur de la douceur", "De bloem van zachtheid")
         }
 
     ];
@@ -625,55 +632,55 @@
         );
 
         drawLabel(
-            "ESPAGNE",
+            t("ESPAGNE", "SPANJE"),
             -4, 40.5,
             "map-country-label"
         );
 
         drawLabel(
-            "ITALIE",
+            t("ITALIE", "ITALIË"),
             11, 44.5,
             "map-country-label"
         );
 
         drawLabel(
-            "MAROC",
+            t("MAROC", "MAROKKO"),
             -6, 28,
             "map-country-label"
         );
 
         drawLabel(
-            "ALGÉRIE",
+            t("ALGÉRIE", "ALGERIJE"),
             4, 30,
             "map-country-label"
         );
 
         drawLabel(
-            "TUNISIE",
+            t("TUNISIE", "TUNESIË"),
             9.5, 35.5,
             "map-country-label"
         );
 
         drawLabel(
-            "TURQUIE",
+            t("TURQUIE", "TURKIJE"),
             34, 38.5,
             "map-country-label"
         );
 
         drawLabel(
-            "Océan Atlantique",
+            t("Océan Atlantique", "Atlantische Oceaan"),
             -11, 45,
             "map-water-label"
         );
 
         drawLabel(
-            "Mer Méditerranée",
+            t("Mer Méditerranée", "Middellandse Zee"),
             14, 34.5,
             "map-water-label"
         );
 
         drawLabel(
-            "Mer Noire",
+            t("Mer Noire", "Zwarte Zee"),
             34, 44,
             "map-water-label"
         );
@@ -892,7 +899,7 @@
             status.className =
                 "fragment-destination-status";
 
-            status.textContent = "Découvrir le défi";
+            status.textContent = t("Découvrir le défi", "Ontdek de uitdaging");
 
             button.append(
                 number,
@@ -1182,66 +1189,66 @@
         "tanger-2024": {
 
             description:
-                "Une petite énigme vous attend dans les rues de Tanger.",
+                t("Une petite énigme vous attend dans les rues de Tanger.", "Een klein raadsel wacht op je in de straten van Tanger."),
 
             question:
-                "Je ne fais aucun bruit, je ne demande aucune récompense, mais je peux changer la journée d'un animal. Qui suis-je ?",
+                t("Je ne fais aucun bruit, je ne demande aucune récompense, mais je peux changer la journée d'un animal. Qui suis-je ?", "Ik maak geen geluid, vraag geen beloning, maar kan de dag van een dier veranderen. Wie ben ik?"),
 
             answers: [
-                "Un geste de bienveillance",
-                "Un rayon de soleil",
-                "Un souvenir de voyage",
-                "Une pièce d'or"
+                t("Un geste de bienveillance", "Een vriendelijk gebaar"),
+                t("Un rayon de soleil", "Een zonnestraal"),
+                t("Un souvenir de voyage", "Een reisherinnering"),
+                t("Une pièce d'or", "Een gouden munt")
             ],
 
             correct: 0,
 
             explanation:
-                "Le courage commence parfois par un simple geste de douceur."
+                t("Le courage commence parfois par un simple geste de douceur.", "Moed begint soms met een eenvoudig gebaar van zachtheid.")
 
         },
 
         "skopje-2026": {
 
             description:
-                "Retrouvez la clé qui ouvre les portes du possible.",
+                t("Retrouvez la clé qui ouvre les portes du possible.", "Vind de sleutel die de deuren naar mogelijkheden opent."),
 
             question:
-                "Je peux ouvrir un cœur sans serrure et rapprocher deux êtres qui ne se connaissent pas. Qui suis-je ?",
+                t("Je peux ouvrir un cœur sans serrure et rapprocher deux êtres qui ne se connaissent pas. Qui suis-je ?", "Ik kan een hart openen zonder slot en twee onbekenden dichter bij elkaar brengen. Wie ben ik?"),
 
             answers: [
-                "La richesse",
-                "La confiance",
-                "La vitesse",
-                "La chance"
+                t("La richesse", "Rijkdom"),
+                t("La confiance", "Vertrouwen"),
+                t("La vitesse", "Snelheid"),
+                t("La chance", "Geluk")
             ],
 
             correct: 1,
 
             explanation:
-                "La confiance ouvre des portes que l'on croyait fermées."
+                t("La confiance ouvre des portes que l'on croyait fermées.", "Vertrouwen opent deuren die gesloten leken.")
 
         },
 
         "djerba-2026": {
 
             description:
-                "Au bord de la mer, une dernière énigme fleurit dans le sable.",
+                t("Au bord de la mer, une dernière énigme fleurit dans le sable.", "Aan zee bloeit een laatste raadsel in het zand."),
 
             question:
-                "Je ne suis ni une fleur ni un parfum. Pourtant, je peux apaiser une âme blessée et rassurer un animal inquiet. Qui suis-je ?",
+                t("Je ne suis ni une fleur ni un parfum. Pourtant, je peux apaiser une âme blessée et rassurer un animal inquiet. Qui suis-je ?", "Ik ben geen bloem of parfum. Toch kan ik een gekwetste ziel kalmeren en een angstig dier geruststellen. Wie ben ik?"),
 
             answers: [
-                "Le vent",
-                "La lumière",
-                "La douceur",
-                "Le silence"
+                t("Le vent", "De wind"),
+                t("La lumière", "Het licht"),
+                t("La douceur", "Zachtheid"),
+                t("Le silence", "De stilte")
             ],
 
             correct: 2,
 
             explanation:
-                "La douceur est une force silencieuse."
+                t("La douceur est une force silencieuse.", "Zachtheid is een stille kracht.")
 
         }
 
@@ -1257,59 +1264,59 @@
         "tanger-2025": {
 
             description:
-                "Trois petites questions pour découvrir la véritable valeur de l'amour.",
+                t("Trois petites questions pour découvrir la véritable valeur de l'amour.", "Drie kleine vragen om de ware waarde van liefde te ontdekken."),
 
             questions: [
 
                 {
                     question:
-                        "Un chien errant semble avoir peur de vous. Que faire ?",
+                        t("Un chien errant semble avoir peur de vous. Que faire ?", "Een zwerfhond lijkt bang voor je. Wat doe je?"),
 
                     answers: [
-                        "Courir vers lui",
-                        "Lui laisser de l'espace",
-                        "Le prendre immédiatement dans ses bras",
-                        "Le suivre partout"
+                        t("Courir vers lui", "Naar hem toe rennen"),
+                        t("Lui laisser de l'espace", "Hem ruimte geven"),
+                        t("Le prendre immédiatement dans ses bras", "Hem meteen in je armen nemen"),
+                        t("Le suivre partout", "Hem overal volgen")
                     ],
 
                     correct: 1,
 
                     explanation:
-                        "Respecter sa distance lui permet de se sentir plus en sécurité."
+                        t("Respecter sa distance lui permet de se sentir plus en sécurité.", "Door afstand te respecteren voelt hij zich veiliger.")
                 },
 
                 {
                     question:
-                        "Quelle aide est particulièrement utile pendant une journée très chaude ?",
+                        t("Quelle aide est particulièrement utile pendant une journée très chaude ?", "Welke hulp is bijzonder nuttig op een erg warme dag?"),
 
                     answers: [
-                        "Du chocolat",
-                        "Du lait",
-                        "De l'eau propre et fraîche",
-                        "Des aliments très salés"
+                        t("Du chocolat", "Chocolade"),
+                        t("Du lait", "Melk"),
+                        t("De l'eau propre et fraîche", "Schoon en vers water"),
+                        t("Des aliments très salés", "Erg zout voedsel")
                     ],
 
                     correct: 2,
 
                     explanation:
-                        "Une gamelle d'eau propre peut faire une vraie différence."
+                        t("Une gamelle d'eau propre peut faire une vraie différence.", "Een kommetje schoon water kan echt een verschil maken.")
                 },
 
                 {
                     question:
-                        "Aimer un animal, c'est avant tout...",
+                        t("Aimer un animal, c'est avant tout...", "Van een dier houden betekent vooral..."),
 
                     answers: [
-                        "Respecter ses besoins",
-                        "Le forcer à accepter nos caresses",
-                        "Attendre quelque chose en retour",
-                        "Le considérer comme un jouet"
+                        t("Respecter ses besoins", "Zijn behoeften respecteren"),
+                        t("Le forcer à accepter nos caresses", "Hem dwingen onze aaien te aanvaarden"),
+                        t("Attendre quelque chose en retour", "Iets terug verwachten"),
+                        t("Le considérer comme un jouet", "Hem als speelgoed beschouwen")
                     ],
 
                     correct: 0,
 
                     explanation:
-                        "L'amour véritable commence par le respect."
+                        t("L'amour véritable commence par le respect.", "Ware liefde begint met respect.")
                 }
 
             ]
@@ -1319,57 +1326,57 @@
         "pristina-2026": {
 
             description:
-                "Faites briller une étoile en répondant à trois questions sur l'espoir et la solidarité.",
+                t("Faites briller une étoile en répondant à trois questions sur l'espoir et la solidarité.", "Laat een ster stralen door drie vragen over hoop en solidariteit te beantwoorden."),
 
             questions: [
 
                 {
                     question:
-                        "Vous découvrez un animal blessé. Quelle est la meilleure réaction ?",
+                        t("Vous découvrez un animal blessé. Quelle est la meilleure réaction ?", "Je ontdekt een gewond dier. Wat is de beste reactie?"),
 
                     answers: [
-                        "Lui donner un médicament humain",
-                        "Le déplacer sans précaution",
-                        "Contacter un vétérinaire ou une association",
-                        "Le faire courir"
+                        t("Lui donner un médicament humain", "Hem medicijnen voor mensen geven"),
+                        t("Le déplacer sans précaution", "Hem zonder voorzorg verplaatsen"),
+                        t("Contacter un vétérinaire ou une association", "Een dierenarts of vereniging contacteren"),
+                        t("Le faire courir", "Hem laten rennen")
                     ],
 
                     correct: 2,
 
                     explanation:
-                        "Une aide professionnelle permet de mieux protéger l'animal."
+                        t("Une aide professionnelle permet de mieux protéger l'animal.", "Professionele hulp beschermt het dier beter.")
                 },
 
                 {
                     question:
-                        "Comment aider les animaux sans dépenser d'argent ?",
+                        t("Comment aider les animaux sans dépenser d'argent ?", "Hoe kun je dieren helpen zonder geld uit te geven?"),
 
                     answers: [
-                        "Partager les appels à l'adoption",
-                        "Ignorer les associations",
-                        "Effrayer les animaux",
-                        "Publier de fausses informations"
+                        t("Partager les appels à l'adoption", "Adoptieoproepen delen"),
+                        t("Ignorer les associations", "Verenigingen negeren"),
+                        t("Effrayer les animaux", "Dieren bang maken"),
+                        t("Publier de fausses informations", "Valse informatie publiceren")
                     ],
 
                     correct: 0,
 
                     explanation:
-                        "Partager un appel fiable peut permettre une belle rencontre."
+                        t("Partager un appel fiable peut permettre une belle rencontre.", "Een betrouwbare oproep delen kan tot een mooie ontmoeting leiden.")
                 },
 
                 {
                     question:
-                        "Faut-il pouvoir sauver tous les animaux pour faire une différence ?",
+                        t("Faut-il pouvoir sauver tous les animaux pour faire une différence ?", "Moet je alle dieren kunnen redden om een verschil te maken?"),
 
                     answers: [
-                        "Oui, absolument",
-                        "Non, chaque geste compte"
+                        t("Oui, absolument", "Ja, absoluut"),
+                        t("Non, chaque geste compte", "Nee, elk gebaar telt")
                     ],
 
                     correct: 1,
 
                     explanation:
-                        "Même une petite lumière peut éclairer une vie."
+                        t("Même une petite lumière peut éclairer une vie.", "Zelfs een klein lichtje kan een leven verlichten.")
                 }
 
             ]
@@ -1450,7 +1457,7 @@
                     button.disabled = true;
 
                     setFeedback(
-                        "Ce n'est pas encore la bonne réponse. Prenez votre temps.",
+                        t("Ce n'est pas encore la bonne réponse. Prenez votre temps.", "Dat is nog niet het juiste antwoord. Neem je tijd."),
                         "error"
                     );
 
@@ -1465,7 +1472,7 @@
         gameContent.append(question, answers);
 
         createHint(
-            "Il n'y a aucune limite de temps. Écoutez votre cœur."
+            t("Il n'y a aucune limite de temps. Écoutez votre cœur.", "Er is geen tijdslimiet. Luister naar je hart.")
         );
 
     }
@@ -1494,7 +1501,7 @@
                 data.questions[questionIndex];
 
             const counter = createCounter(
-                `Question ${questionIndex + 1} / ${data.questions.length}`
+                t(`Question ${questionIndex + 1} / ${data.questions.length}`, `Vraag ${questionIndex + 1} / ${data.questions.length}`)
             );
 
             const question = createElement(
@@ -1537,7 +1544,7 @@
                         button.disabled = true;
 
                         setFeedback(
-                            "Essayez encore, vous êtes sur le bon chemin.",
+                            t("Essayez encore, vous êtes sur le bon chemin.", "Probeer opnieuw, je bent op de goede weg."),
                             "error"
                         );
 
@@ -1566,8 +1573,8 @@
                     const nextButton = createButton(
                         "kingdom-button",
                         isLast
-                            ? "Découvrir mon trésor ✧"
-                            : "Question suivante →"
+                            ? t("Découvrir mon trésor ✧", "Ontdek mijn schat ✧")
+                            : t("Question suivante →", "Volgende vraag →")
                     );
 
                     nextButton.style.marginTop = "20px";
@@ -1627,28 +1634,28 @@
         "sicile-2024": {
 
             description:
-                "Retrouvez les quatre paires inspirées des couleurs et de la chaleur de la Sicile.",
+                t("Retrouvez les quatre paires inspirées des couleurs et de la chaleur de la Sicile.", "Vind de vier paren geïnspireerd door de kleuren en warmte van Sicilië."),
 
             symbols: [
 
                 {
                     icon: "☀",
-                    name: "Soleil"
+                    name: t("Soleil", "Zon")
                 },
 
                 {
                     icon: "🍋",
-                    name: "Citron"
+                    name: t("Citron", "Citroen")
                 },
 
                 {
                     icon: "🌿",
-                    name: "Feuille"
+                    name: t("Feuille", "Blad")
                 },
 
                 {
                     icon: "🐚",
-                    name: "Coquillage"
+                    name: t("Coquillage", "Schelp")
                 }
 
             ]
@@ -1658,18 +1665,18 @@
         "istanbul-2025": {
 
             description:
-                "Derrière ces petites cartes se cachent les secrets d'Istanbul. Retrouvez les quatre paires.",
+                t("Derrière ces petites cartes se cachent les secrets d'Istanbul. Retrouvez les quatre paires.", "Achter deze kaartjes schuilen de geheimen van Istanbul. Vind de vier paren."),
 
             symbols: [
 
                 {
                     icon: "🐈",
-                    name: "Chat"
+                    name: t("Chat", "Kat")
                 },
 
                 {
                     icon: "☾",
-                    name: "Lune"
+                    name: t("Lune", "Maan")
                 },
 
                 {
@@ -1679,7 +1686,7 @@
 
                 {
                     icon: "🐾",
-                    name: "Empreinte"
+                    name: t("Empreinte", "Pootafdruk")
                 }
 
             ]
@@ -1706,7 +1713,7 @@
         ]);
 
         const counter = createCounter(
-            `0 / ${data.symbols.length} paires`
+            t(`0 / ${data.symbols.length} paires`, `0 / ${data.symbols.length} paren`)
         );
 
         const grid = createElement(
@@ -1745,7 +1752,7 @@
 
             card.button.setAttribute(
                 "aria-label",
-                `Carte ${card.index + 1}, face cachée`
+                t(`Carte ${card.index + 1}, face cachée`, `Kaart ${card.index + 1}, omgekeerd`)
             );
 
             card.button.setAttribute(
@@ -1771,7 +1778,7 @@
 
             button.setAttribute(
                 "aria-label",
-                `Carte ${index + 1}, face cachée`
+                t(`Carte ${index + 1}, face cachée`, `Kaart ${index + 1}, omgekeerd`)
             );
 
             button.setAttribute(
@@ -1823,10 +1830,10 @@
                     matchedPairs++;
 
                     counter.textContent =
-                        `${matchedPairs} / ${data.symbols.length} paires`;
+                        t(`${matchedPairs} / ${data.symbols.length} paires`, `${matchedPairs} / ${data.symbols.length} paren`);
 
                     setFeedback(
-                        "Une belle paire retrouvée !",
+                        t("Une belle paire retrouvée !", "Een mooi paar gevonden!"),
                         "success"
                     );
 
@@ -1858,7 +1865,7 @@
                 } else {
 
                     setFeedback(
-                        "Ces deux souvenirs sont différents. Réessayez !"
+                        t("Ces deux souvenirs sont différents. Réessayez !", "Deze herinneringen verschillen. Probeer opnieuw!")
                     );
 
                     gameDelay(() => {
@@ -1886,7 +1893,7 @@
         gameContent.append(counter, grid);
 
         createHint(
-            "Retournez deux cartes à la fois pour retrouver les symboles identiques."
+            t("Retournez deux cartes à la fois pour retrouver les symboles identiques.", "Draai telkens twee kaarten om en vind de gelijke symbolen.")
         );
 
     }
@@ -1899,7 +1906,7 @@
     function renderPuzzle() {
 
         $("fragment-game-description").textContent =
-            "Reconstituez un véritable souvenir de voyage en Corse. Une petite âme vous attend derrière ces neuf morceaux.";
+            t("Reconstituez un véritable souvenir de voyage en Corse. Une petite âme vous attend derrière ces neuf morceaux.", "Reconstrueer een echte reisherinnering aan Corsica. Achter deze negen stukjes wacht een kleine ziel op je.");
 
         const imageSource = "corsee.jpeg";
 
@@ -1911,10 +1918,10 @@
         preview.src = imageSource;
 
         preview.alt =
-            "Photo du chat rencontré en Corse, modèle du puzzle";
+            t("Photo du chat rencontré en Corse, modèle du puzzle", "Foto van de kat ontmoet op Corsica, voorbeeld van de puzzel");
 
         const counter = createCounter(
-            "0 / 9 morceaux bien placés"
+            t("0 / 9 morceaux bien placés", "0 / 9 stukjes juist geplaatst")
         );
 
         const grid = createElement(
@@ -1971,7 +1978,7 @@
 
                 button.setAttribute(
                     "aria-label",
-                    `Case ${index + 1}, morceau ${piece + 1}`
+                    t(`Case ${index + 1}, morceau ${piece + 1}`, `Vakje ${index + 1}, stukje ${piece + 1}`)
                 );
 
                 button.setAttribute(
@@ -2004,7 +2011,7 @@
                         selected = index;
 
                         setFeedback(
-                            "Choisissez maintenant le morceau avec lequel l'échanger."
+                            t("Choisissez maintenant le morceau avec lequel l'échanger.", "Kies nu het stukje waarmee je wilt wisselen.")
                         );
 
                     } else if (selected === index) {
@@ -2035,7 +2042,7 @@
             });
 
             counter.textContent =
-                `${correctPieces} / 9 morceaux bien placés`;
+                t(`${correctPieces} / 9 morceaux bien placés`, `${correctPieces} / 9 stukjes juist geplaatst`);
 
             if (correctPieces === 9 && !solved) {
 
@@ -2047,7 +2054,7 @@
                     });
 
                 setFeedback(
-                    "Le souvenir de Corse est reconstitué !",
+                    t("Le souvenir de Corse est reconstitué !", "De herinnering aan Corsica is hersteld!"),
                     "success"
                 );
 
@@ -2070,7 +2077,7 @@
             preview.hidden = true;
 
             setFeedback(
-                "La photo est indisponible. Vous pouvez reconstituer le puzzle avec les numéros."
+                t("La photo est indisponible. Vous pouvez reconstituer le puzzle avec les numéros.", "De foto is niet beschikbaar. Je kunt de puzzel met de nummers oplossen.")
             );
 
             drawPuzzle();
@@ -2084,7 +2091,7 @@
         );
 
         createHint(
-            "Sélectionnez deux morceaux pour échanger leur place. La petite photo vous sert de modèle."
+            t("Sélectionnez deux morceaux pour échanger leur place. La petite photo vous sert de modèle.", "Selecteer twee stukjes om ze te verwisselen. De kleine foto dient als voorbeeld.")
         );
 
         drawPuzzle();
@@ -2096,7 +2103,7 @@
     function renderObservation() {
 
         $("fragment-game-description").textContent =
-            "L'hiver a recouvert Varsovie de petits cristaux. Retrouvez les trois flocons cachés parmi les symboles.";
+            t("L'hiver a recouvert Varsovie de petits cristaux. Retrouvez les trois flocons cachés parmi les symboles.", "De winter heeft Warschau bedekt met kleine kristallen. Vind de drie sneeuwvlokken tussen de symbolen.");
 
         const symbols = shuffle([
             "❄", "❄", "❄",
@@ -2109,17 +2116,17 @@
         ]);
 
         const names = {
-            "❄": "Flocon",
-            "✧": "Étoile creuse",
-            "✦": "Étoile pleine",
-            "❀": "Fleur",
-            "✳": "Rosace",
-            "♡": "Cœur",
-            "☾": "Lune"
+            "❄": t("Flocon", "Sneeuwvlok"),
+            "✧": t("Étoile creuse", "Open ster"),
+            "✦": t("Étoile pleine", "Gevulde ster"),
+            "❀": t("Fleur", "Bloem"),
+            "✳": t("Rosace", "Rozet"),
+            "♡": t("Cœur", "Hart"),
+            "☾": t("Lune", "Maan")
         };
 
         const counter = createCounter(
-            "0 / 3 flocons retrouvés"
+            t("0 / 3 flocons retrouvés", "0 / 3 sneeuwvlokken gevonden")
         );
 
         const grid = createElement(
@@ -2155,10 +2162,10 @@
                     button.disabled = true;
 
                     counter.textContent =
-                        `${found} / 3 flocons retrouvés`;
+                        t(`${found} / 3 flocons retrouvés`, `${found} / 3 sneeuwvlokken gevonden`);
 
                     setFeedback(
-                        "Un petit cristal de lumière retrouvé !",
+                        t("Un petit cristal de lumière retrouvé !", "Een klein lichtkristal gevonden!"),
                         "success"
                     );
 
@@ -2186,7 +2193,7 @@
                     );
 
                     setFeedback(
-                        "Ce n'est pas un flocon. Regardez attentivement."
+                        t("Ce n'est pas un flocon. Regardez attentivement.", "Dit is geen sneeuwvlok. Kijk goed.")
                     );
 
                     gameDelay(() => {
@@ -2208,7 +2215,7 @@
         gameContent.append(counter, grid);
 
         createHint(
-            "Le symbole recherché est celui-ci : ❄"
+            t("Le symbole recherché est celui-ci : ❄", "Dit is het symbool dat je zoekt: ❄")
         );
 
     }
@@ -2221,42 +2228,42 @@
     function renderMatch() {
 
         $("fragment-game-description").textContent =
-            "Dans les ruelles bleues de Chefchaouen, quatre petits symboles cherchent leur signification. Réunissez-les.";
+            t("Dans les ruelles bleues de Chefchaouen, quatre petits symboles cherchent leur signification. Réunissez-les.", "In de blauwe straatjes van Chefchaouen zoeken vier symbolen hun betekenis. Breng ze samen.");
 
         const pairs = [
 
             {
                 id: "butterfly",
                 symbol: "🦋",
-                name: "Papillon",
-                meaning: "La liberté"
+                name: t("Papillon", "Vlinder"),
+                meaning: t("La liberté", "Vrijheid")
             },
 
             {
                 id: "heart",
                 symbol: "♡",
-                name: "Cœur",
-                meaning: "L'amour"
+                name: t("Cœur", "Hart"),
+                meaning: t("L'amour", "Liefde")
             },
 
             {
                 id: "star",
                 symbol: "✦",
-                name: "Étoile",
-                meaning: "L'espoir"
+                name: t("Étoile", "Ster"),
+                meaning: t("L'espoir", "Hoop")
             },
 
             {
                 id: "leaf",
                 symbol: "🍃",
-                name: "Feuille",
-                meaning: "La vie"
+                name: t("Feuille", "Blad"),
+                meaning: t("La vie", "Het leven")
             }
 
         ];
 
         const counter = createCounter(
-            "0 / 4 associations"
+            t("0 / 4 associations", "0 / 4 combinaties")
         );
 
         const grid = createElement(
@@ -2329,7 +2336,7 @@
                 );
 
                 setFeedback(
-                    "Choisissez maintenant sa signification."
+                    t("Choisissez maintenant sa signification.", "Kies nu de betekenis ervan.")
                 );
 
             });
@@ -2352,7 +2359,7 @@
                 if (!selected) {
 
                     setFeedback(
-                        "Choisissez d'abord un symbole à gauche."
+                        t("Choisissez d'abord un symbole à gauche.", "Kies eerst een symbool links.")
                     );
 
                     return;
@@ -2386,10 +2393,10 @@
                     matched++;
 
                     counter.textContent =
-                        `${matched} / 4 associations`;
+                        t(`${matched} / 4 associations`, `${matched} / 4 combinaties`);
 
                     setFeedback(
-                        "Deux belles significations réunies.",
+                        t("Deux belles significations réunies.", "Twee mooie betekenissen samengebracht."),
                         "success"
                     );
 
@@ -2406,7 +2413,7 @@
                 } else {
 
                     setFeedback(
-                        "Ces deux éléments ne correspondent pas encore.",
+                        t("Ces deux éléments ne correspondent pas encore.", "Deze twee elementen horen niet bij elkaar."),
                         "error"
                     );
 
@@ -2423,7 +2430,7 @@
         gameContent.append(counter, grid);
 
         createHint(
-            "Sélectionnez un symbole à gauche, puis sa signification à droite."
+            t("Sélectionnez un symbole à gauche, puis sa signification à droite.", "Selecteer links een symbool en daarna rechts de betekenis.")
         );
 
     }
@@ -2436,7 +2443,7 @@
     function renderPath() {
 
         $("fragment-game-description").textContent =
-            "Traversez les petits chemins d'Akchour pour rejoindre la feuille enchantée, sans traverser les obstacles.";
+            t("Traversez les petits chemins d'Akchour pour rejoindre la feuille enchantée, sans traverser les obstacles.", "Volg de paadjes van Akchour naar het betoverde blad zonder obstakels te raken.");
 
         const size = 5;
 
@@ -2459,7 +2466,7 @@
         );
 
         const counter = createCounter(
-            "Départ du sentier"
+            t("Départ du sentier", "Begin van het pad")
         );
 
         function isAdjacent(a, b) {
@@ -2492,7 +2499,7 @@
                 const column = index % size + 1;
 
                 let label =
-                    `Ligne ${row}, colonne ${column}`;
+                    t(`Ligne ${row}, colonne ${column}`, `Rij ${row}, kolom ${column}`);
 
                 if (obstacles.has(index)) {
 
@@ -2504,7 +2511,7 @@
 
                     button.disabled = true;
 
-                    label += ", obstacle";
+                    label += t(", obstacle", ", obstakel");
 
                 } else if (index === current) {
 
@@ -2514,7 +2521,7 @@
 
                     button.textContent = "🐾";
 
-                    label += ", votre position";
+                    label += t(", votre position", ", jouw positie");
 
                 } else if (index === goal) {
 
@@ -2522,7 +2529,7 @@
 
                     button.textContent = "🍃";
 
-                    label += ", destination";
+                    label += t(", destination", ", bestemming");
 
                 } else if (visited.has(index)) {
 
@@ -2532,7 +2539,7 @@
 
                     button.textContent = "·";
 
-                    label += ", chemin visité";
+                    label += t(", chemin visité", ", bezocht pad");
 
                 } else {
 
@@ -2559,7 +2566,7 @@
                     if (!isAdjacent(current, index)) {
 
                         setFeedback(
-                            "Avancez d'une seule case, horizontalement ou verticalement."
+                            t("Avancez d'une seule case, horizontalement ou verticalement.", "Verplaats je één vakje tegelijk, horizontaal of verticaal.")
                         );
 
                         return;
@@ -2571,7 +2578,7 @@
                     visited.add(index);
 
                     counter.textContent =
-                        "Sur le chemin de la lumière";
+                        t("Sur le chemin de la lumière", "Op weg naar het licht");
 
                     setFeedback("");
 
@@ -2580,10 +2587,10 @@
                         solved = true;
 
                         counter.textContent =
-                            "Destination atteinte !";
+                            t("Destination atteinte !", "Bestemming bereikt!");
 
                         setFeedback(
-                            "Vous avez retrouvé la feuille de vie.",
+                            t("Vous avez retrouvé la feuille de vie.", "Je hebt het levensblad gevonden."),
                             "success"
                         );
 
@@ -2614,7 +2621,7 @@
         gameContent.append(counter, grid);
 
         createHint(
-            "🐾 Votre position — 🌿 Obstacles — 🍃 Destination. Vous pouvez revenir sur vos pas."
+            t("🐾 Votre position — 🌿 Obstacles — 🍃 Destination. Vous pouvez revenir sur vos pas.", "🐾 Jouw positie — 🌿 Obstakels — 🍃 Bestemming. Je kunt terugkeren op je stappen.")
         );
 
         drawPath();
@@ -2631,44 +2638,44 @@
         "tirana-2026": {
 
             description:
-                "La confiance ne se construit pas en un instant. Remettez les étapes de cette petite rencontre dans le bon ordre.",
+                t("La confiance ne se construit pas en un instant. Remettez les étapes de cette petite rencontre dans le bon ordre.", "Vertrouwen ontstaat niet meteen. Zet de stappen van deze ontmoeting in de juiste volgorde."),
 
             steps: [
 
-                "Observer l'animal à distance.",
+                t("Observer l'animal à distance.", "Observeer het dier vanop afstand."),
 
-                "Déposer une gamelle d'eau dans un endroit calme.",
+                t("Déposer une gamelle d'eau dans un endroit calme.", "Plaats een kommetje water op een rustige plek."),
 
-                "S'éloigner pour lui laisser de l'espace.",
+                t("S'éloigner pour lui laisser de l'espace.", "Ga verder weg om het dier ruimte te geven."),
 
-                "Le laisser venir boire à son rythme."
+                t("Le laisser venir boire à son rythme.", "Laat het dier op zijn eigen tempo komen drinken.")
 
             ],
 
             success:
-                "La patience permet de respecter le rythme de chaque animal."
+                t("La patience permet de respecter le rythme de chaque animal.", "Met geduld respecteer je het tempo van elk dier.")
 
         },
 
         "marrakech-2026": {
 
             description:
-                "Reconstituez une petite histoire de solidarité, inspirée de l'esprit de Cœur Errant.",
+                t("Reconstituez une petite histoire de solidarité, inspirée de l'esprit de Cœur Errant.", "Reconstrueer een klein verhaal over solidariteit, geïnspireerd door Cœur Errant."),
 
             steps: [
 
-                "Remarquer un animal qui semble avoir besoin d'aide.",
+                t("Remarquer un animal qui semble avoir besoin d'aide.", "Merk een dier op dat hulp nodig lijkt te hebben."),
 
-                "Observer son état sans l'effrayer.",
+                t("Observer son état sans l'effrayer.", "Observeer zijn toestand zonder het bang te maken."),
 
-                "Contacter une personne compétente pour l'aider.",
+                t("Contacter une personne compétente pour l'aider.", "Contacteer een deskundige die het dier kan helpen."),
 
-                "Suivre ses conseils pour apporter une aide adaptée."
+                t("Suivre ses conseils pour apporter une aide adaptée.", "Volg het advies om passende hulp te bieden.")
 
             ],
 
             success:
-                "Une simple attention peut devenir le début d'une belle chaîne de solidarité."
+                t("Une simple attention peut devenir le début d'une belle chaîne de solidarité.", "Een klein gebaar kan het begin zijn van een mooie keten van solidariteit.")
 
         }
 
@@ -2694,7 +2701,7 @@
         );
 
         const counter = createCounter(
-            `0 / ${data.steps.length} étapes`
+            t(`0 / ${data.steps.length} étapes`, `0 / ${data.steps.length} stappen`)
         );
 
         const list = createElement(
@@ -2709,7 +2716,7 @@
 
         result.setAttribute(
             "aria-label",
-            "Votre histoire reconstituée"
+            t("Votre histoire reconstituée", "Jouw gereconstrueerde verhaal")
         );
 
         let expected = 0;
@@ -2718,7 +2725,7 @@
         const resultPlaceholder = createElement(
             "p",
             "fragment-game-hint",
-            "Votre histoire apparaîtra ici."
+            t("Votre histoire apparaîtra ici.", "Jouw verhaal verschijnt hier.")
         );
 
         result.appendChild(resultPlaceholder);
@@ -2756,7 +2763,7 @@
                 if (step.index !== expected) {
 
                     setFeedback(
-                        "Cette étape viendra un peu plus tard. Quelle est la prochaine ?",
+                        t("Cette étape viendra un peu plus tard. Quelle est la prochaine ?", "Deze stap komt later. Wat is de volgende stap?"),
                         "error"
                     );
 
@@ -2793,10 +2800,10 @@
                 button.hidden = true;
 
                 counter.textContent =
-                    `${expected} / ${data.steps.length} étapes`;
+                    t(`${expected} / ${data.steps.length} étapes`, `${expected} / ${data.steps.length} stappen`);
 
                 setFeedback(
-                    "Votre histoire prend forme.",
+                    t("Votre histoire prend forme.", "Jouw verhaal krijgt vorm."),
                     "success"
                 );
 
@@ -2838,7 +2845,7 @@
         );
 
         createHint(
-            "Cliquez sur les phrases dans l'ordre où les événements devraient se dérouler."
+            t("Cliquez sur les phrases dans l'ordre où les événements devraient se dérouler.", "Klik op de zinnen in de volgorde waarin de gebeurtenissen moeten plaatsvinden.")
         );
 
     }
@@ -2851,7 +2858,7 @@
     function renderDifference() {
 
         $("fragment-game-description").textContent =
-            "Deux petits tableaux inspirés de l'océan se ressemblent presque parfaitement. Retrouvez les trois différences dans le second tableau.";
+            t("Deux petits tableaux inspirés de l'océan se ressemblent presque parfaitement. Retrouvez les trois différences dans le second tableau.", "Twee afbeeldingen geïnspireerd door de oceaan lijken bijna identiek. Vind de drie verschillen in de tweede afbeelding.");
 
         const original = [
             "☀", "☁", "🐦",
@@ -2871,17 +2878,17 @@
         );
 
         const symbolNames = {
-            "☀": "Soleil",
+            "☀": t("Soleil", "Zon"),
             "☁": "Nuage",
             "🐦": "Oiseau",
             "🌊": "Vague",
-            "🐚": "Coquillage",
-            "⭐": "Étoile",
-            "🐾": "Empreinte",
+            "🐚": t("Coquillage", "Schelp"),
+            "⭐": t("Étoile", "Ster"),
+            "🐾": t("Empreinte", "Pootafdruk"),
             "💧": "Goutte d'eau",
-            "☾": "Lune",
-            "❀": "Fleur",
-            "♡": "Cœur"
+            "☾": t("Lune", "Maan"),
+            "❀": t("Fleur", "Bloem"),
+            "♡": t("Cœur", "Hart")
         };
 
         const differences = new Set([0, 4, 7]);
@@ -2889,7 +2896,7 @@
         const found = new Set();
 
         const counter = createCounter(
-            "0 / 3 différences"
+            t("0 / 3 différences", "0 / 3 verschillen")
         );
 
         const scenes = createElement(
@@ -2910,13 +2917,13 @@
         const firstTitle = createElement(
             "p",
             "fragment-game-hint",
-            "Le souvenir original"
+            t("Le souvenir original", "De oorspronkelijke herinnering")
         );
 
         const secondTitle = createElement(
             "p",
             "fragment-game-hint",
-            "Le souvenir enchanté"
+            t("Le souvenir enchanté", "De betoverde herinnering")
         );
 
         const firstGrid = createElement(
@@ -2941,7 +2948,7 @@
 
             item.setAttribute(
                 "aria-label",
-                `Case ${index + 1}, ${symbolNames[symbol]}`
+                t(`Case ${index + 1}, ${symbolNames[symbol]}`, `Vakje ${index + 1}, ${symbolNames[symbol]}`)
             );
 
             firstGrid.appendChild(item);
@@ -2957,7 +2964,7 @@
 
             button.setAttribute(
                 "aria-label",
-                `Case ${index + 1}, ${symbolNames[symbol]}`
+                t(`Case ${index + 1}, ${symbolNames[symbol]}`, `Vakje ${index + 1}, ${symbolNames[symbol]}`)
             );
 
             button.addEventListener("click", () => {
@@ -2979,10 +2986,10 @@
                     button.disabled = true;
 
                     counter.textContent =
-                        `${found.size} / 3 différences`;
+                        t(`${found.size} / 3 différences`, `${found.size} / 3 verschillen`);
 
                     setFeedback(
-                        "Une différence retrouvée !",
+                        t("Une différence retrouvée !", "Een verschil gevonden!"),
                         "success"
                     );
 
@@ -2998,7 +3005,7 @@
                             });
 
                         setFeedback(
-                            "Aucun détail ne vous échappe !",
+                            t("Aucun détail ne vous échappe !", "Geen enkel detail ontsnapt aan je aandacht!"),
                             "success"
                         );
 
@@ -3013,7 +3020,7 @@
                 } else {
 
                     setFeedback(
-                        "Ces deux symboles sont identiques. Observez encore."
+                        t("Ces deux symboles sont identiques. Observez encore.", "Deze symbolen zijn identiek. Kijk nog eens goed.")
                     );
 
                 }
@@ -3033,7 +3040,7 @@
         gameContent.append(counter, scenes);
 
         createHint(
-            "Comparez chaque case avec celle qui se trouve à la même place dans l'autre tableau."
+            t("Comparez chaque case avec celle qui se trouve à la même place dans l'autre tableau.", "Vergelijk elk vakje met het vakje op dezelfde plaats in de andere afbeelding.")
         );
 
     }    /* =========================================
@@ -3077,127 +3084,127 @@
 
         "corse-2023": {
 
-            name: "Le coquillage des rêves",
+            name: t("Le coquillage des rêves", "De schelp van dromen"),
 
             meaning:
-                "Chaque grande aventure commence par un petit rêve."
+                t("Chaque grande aventure commence par un petit rêve.", "Elk groot avontuur begint met een kleine droom.")
 
         },
 
         "tanger-2024": {
 
-            name: "La plume du courage",
+            name: t("La plume du courage", "De veer van moed"),
 
             meaning:
-                "Le courage, c'est aussi choisir de ne pas détourner le regard."
+                t("Le courage, c'est aussi choisir de ne pas détourner le regard.", "Moed betekent ook ervoor kiezen niet weg te kijken.")
 
         },
 
         "sicile-2024": {
 
-            name: "Le fruit du soleil",
+            name: t("Le fruit du soleil", "De vrucht van de zon"),
 
             meaning:
-                "Même dans les journées difficiles, une petite lumière peut réchauffer un cœur."
+                t("Même dans les journées difficiles, une petite lumière peut réchauffer un cœur.", "Zelfs op moeilijke dagen kan een klein lichtje een hart verwarmen.")
 
         },
 
         "varsovie-2025": {
 
-            name: "Le flocon éternel",
+            name: t("Le flocon éternel", "De eeuwige sneeuwvlok"),
 
             meaning:
-                "Chaque âme est unique et mérite que l'on prenne soin d'elle."
+                t("Chaque âme est unique et mérite que l'on prenne soin d'elle.", "Elke ziel is uniek en verdient zorg.")
 
         },
 
         "tanger-2025": {
 
-            name: "Le cristal de l'amour",
+            name: t("Le cristal de l'amour", "Het kristal van liefde"),
 
             meaning:
-                "L'amour véritable ne demande rien en retour."
+                t("L'amour véritable ne demande rien en retour.", "Ware liefde vraagt niets terug.")
 
         },
 
         "chefchaouen-2025": {
 
-            name: "Le papillon de la liberté",
+            name: t("Le papillon de la liberté", "De vlinder van vrijheid"),
 
             meaning:
-                "Chaque être vivant mérite de connaître la liberté et la sécurité."
+                t("Chaque être vivant mérite de connaître la liberté et la sécurité.", "Elk levend wezen verdient vrijheid en veiligheid.")
 
         },
 
         "akchour-2025": {
 
-            name: "La feuille de vie",
+            name: t("La feuille de vie", "Het levensblad"),
 
             meaning:
-                "Toute vie est précieuse, même lorsqu'elle passe inaperçue."
+                t("Toute vie est précieuse, même lorsqu'elle passe inaperçue.", "Elk leven is kostbaar, ook als het onopgemerkt blijft.")
 
         },
 
         "istanbul-2025": {
 
-            name: "La pierre des secrets",
+            name: t("La pierre des secrets", "De steen van geheimen"),
 
             meaning:
-                "Derrière chaque regard se cache une histoire que nous ne connaissons pas encore."
+                t("Derrière chaque regard se cache une histoire que nous ne connaissons pas encore.", "Achter elke blik schuilt een verhaal dat we nog niet kennen.")
 
         },
 
         "skopje-2026": {
 
-            name: "La clé des possibles",
+            name: t("La clé des possibles", "De sleutel tot mogelijkheden"),
 
             meaning:
-                "Un petit geste peut ouvrir la porte à un avenir différent."
+                t("Un petit geste peut ouvrir la porte à un avenir différent.", "Een klein gebaar kan de deur naar een andere toekomst openen.")
 
         },
 
         "pristina-2026": {
 
-            name: "L'étoile de l'espoir",
+            name: t("L'étoile de l'espoir", "De ster van hoop"),
 
             meaning:
-                "Même dans la nuit la plus sombre, une étoile peut continuer de briller."
+                t("Même dans la nuit la plus sombre, une étoile peut continuer de briller.", "Zelfs in de donkerste nacht kan een ster blijven stralen.")
 
         },
 
         "tirana-2026": {
 
-            name: "Le sablier de la patience",
+            name: t("Le sablier de la patience", "De zandloper van geduld"),
 
             meaning:
-                "Les plus belles rencontres demandent parfois simplement du temps."
+                t("Les plus belles rencontres demandent parfois simplement du temps.", "De mooiste ontmoetingen vragen soms gewoon tijd.")
 
         },
 
         "marrakech-2026": {
 
-            name: "La lanterne de la lumière",
+            name: t("La lanterne de la lumière", "De lantaarn van licht"),
 
             meaning:
-                "Lorsque nous choisissons d'aider, nous devenons une petite lumière sur le chemin d'une autre âme."
+                t("Lorsque nous choisissons d'aider, nous devenons une petite lumière sur le chemin d'une autre âme.", "Wanneer we kiezen om te helpen, worden we een lichtje op het pad van een andere ziel.")
 
         },
 
         "agadir-2026": {
 
-            name: "La larme de l'océan",
+            name: t("La larme de l'océan", "De traan van de oceaan"),
 
             meaning:
-                "Une goutte de bienveillance peut rejoindre un océan de solidarité."
+                t("Une goutte de bienveillance peut rejoindre un océan de solidarité.", "Een druppel vriendelijkheid kan deel worden van een oceaan van solidariteit.")
 
         },
 
         "djerba-2026": {
 
-            name: "La fleur de la douceur",
+            name: t("La fleur de la douceur", "De bloem van zachtheid"),
 
             meaning:
-                "La douceur possède une force que le monde oublie parfois."
+                t("La douceur possède une force que le monde oublie parfois.", "Zachtheid bezit een kracht die de wereld soms vergeet.")
 
         }
 
@@ -3228,41 +3235,41 @@
 
         $("map-progress-track").setAttribute(
             "aria-valuetext",
-            `${count} trésors sur 14 retrouvés`
+            t(`${count} trésors sur 14 retrouvés`, `${count} van 14 schatten gevonden`)
         );
 
         let message =
-            "Votre aventure ne fait que commencer.";
+            t("Votre aventure ne fait que commencer.", "Jouw avontuur begint pas.");
 
         if (count === 1) {
 
             message =
-                "Votre première lumière vient de s'allumer.";
+                t("Votre première lumière vient de s'allumer.", "Jouw eerste lichtje is gaan stralen.");
 
         } else if (count >= 2 && count < 5) {
 
             message =
-                "Les chemins du royaume commencent à s'illuminer.";
+                t("Les chemins du royaume commencent à s'illuminer.", "De paden van het koninkrijk beginnen op te lichten.");
 
         } else if (count >= 5 && count < 8) {
 
             message =
-                "De nouvelles merveilles vous attendent.";
+                t("De nouvelles merveilles vous attendent.", "Nieuwe wonderen wachten op je.");
 
         } else if (count >= 8 && count < 11) {
 
             message =
-                "Votre médaillon devient de plus en plus lumineux.";
+                t("Votre médaillon devient de plus en plus lumineux.", "Jouw medaillon straalt steeds meer.");
 
         } else if (count >= 11 && count < 14) {
 
             message =
-                "Vous approchez du plus précieux des trésors.";
+                t("Vous approchez du plus précieux des trésors.", "Je nadert de kostbaarste schat.");
 
         } else if (count === 14) {
 
             message =
-                "Les quatorze trésors sont réunis. Bienvenue parmi les Gardiens des cœurs errants.";
+                t("Les quatorze trésors sont réunis. Bienvenue parmi les Gardiens des cœurs errants.", "De veertien schatten zijn verzameld. Welkom bij de Bewakers van de zwervende harten.");
 
         }
 
@@ -3304,8 +3311,8 @@
                 "aria-label",
                 `${destination.name}, ${destination.date}, ${
                     discovered
-                        ? "trésor retrouvé"
-                        : "défi à découvrir"
+                        ? t("trésor retrouvé", "schat gevonden")
+                        : t("défi à découvrir", "uitdaging te ontdekken")
                 }`
             );
 
@@ -3350,8 +3357,8 @@
             if (status) {
 
                 status.textContent = discovered
-                    ? "Trésor retrouvé ✓"
-                    : "Découvrir le défi";
+                    ? t("Trésor retrouvé ✓", "Schat gevonden ✓")
+                    : t("Découvrir le défi", "Ontdek de uitdaging");
 
             }
 
@@ -3409,7 +3416,7 @@
         $("fragment-collect-button").disabled = false;
 
         $("fragment-collect-button").textContent =
-            "	Ajouter ce trésor à mon médaillon";
+            t("	Ajouter ce trésor à mon médaillon", "Voeg deze schat toe aan mijn medaillon");
 
         $("fragment-game-destination").textContent =
             `${destination.name} · ${destination.date}`;
@@ -3490,7 +3497,7 @@
             default:
 
                 setFeedback(
-                    "Ce défi sera bientôt disponible."
+                    t("Ce défi sera bientôt disponible.", "Deze uitdaging is binnenkort beschikbaar.")
                 );
 
         }
@@ -3500,7 +3507,7 @@
         ) {
 
             createHint(
-                "Vous possédez déjà ce trésor. Vous pouvez rejouer librement pour le plaisir."
+                t("Vous possédez déjà ce trésor. Vous pouvez rejouer librement pour le plaisir.", "Je bezit deze schat al. Je kunt opnieuw spelen voor je plezier.")
             );
 
         }
@@ -3539,7 +3546,7 @@
         reward.hidden = false;
 
         setFeedback(
-            "Félicitations, votre défi est réussi !",
+            t("Félicitations, votre défi est réussi !", "Gefeliciteerd, je hebt de uitdaging voltooid!"),
             "success"
         );
 
@@ -3593,12 +3600,12 @@
         if (alreadyCollected) {
 
             collectButton.textContent =
-                "Fragment déjà retrouvé ✓";
+                t("Fragment déjà retrouvé ✓", "Fragment al gevonden ✓");
 
             collectButton.disabled = true;
 
             setFeedback(
-                "Vous avez de nouveau réussi ce défi. Votre trésor brille déjà dans votre médaillon.",
+                t("Vous avez de nouveau réussi ce défi. Votre trésor brille déjà dans votre médaillon.", "Je hebt deze uitdaging opnieuw voltooid. Jouw schat straalt al in je medaillon."),
                 "success"
             );
 
@@ -3607,7 +3614,7 @@
         } else {
 
             collectButton.textContent =
-                "Ajouter à mon médaillon ✧";
+                t("Ajouter à mon médaillon ✧", "Toevoegen aan mijn medaillon ✧");
 
             collectButton.disabled = false;
 
@@ -3649,7 +3656,7 @@
             ) {
 
                 setFeedback(
-                    "La liaison avec le médaillon est momentanément indisponible.",
+                    t("La liaison avec le médaillon est momentanément indisponible.", "De verbinding met het medaillon is tijdelijk niet beschikbaar."),
                     "error"
                 );
 
@@ -3667,7 +3674,7 @@
                     true;
 
                 $("fragment-collect-button").textContent =
-                    "Trésor déjà retrouvé ✓";
+                    t("Trésor déjà retrouvé ✓", "Schat al gevonden ✓");
 
                 updateMapProgress();
 
@@ -3684,12 +3691,12 @@
             } catch (error) {
 
                 console.error(
-                    "Impossible de récolter le fragment :",
+                    t("Impossible de récolter le fragment :", "Kan het fragment niet verzamelen:"),
                     error
                 );
 
                 setFeedback(
-                    "Le fragment n'a pas pu être ajouté. Veuillez réessayer.",
+                    t("Le fragment n'a pas pu être ajouté. Veuillez réessayer.", "Het fragment kon niet worden toegevoegd. Probeer opnieuw."),
                     "error"
                 );
 
@@ -3702,7 +3709,7 @@
             ) {
 
                 setFeedback(
-                    "Le fragment n'a pas pu rejoindre votre médaillon. Veuillez réessayer.",
+                    t("Le fragment n'a pas pu rejoindre votre médaillon. Veuillez réessayer.", "Het fragment kon je medaillon niet bereiken. Probeer opnieuw."),
                     "error"
                 );
 
@@ -3714,10 +3721,10 @@
                 true;
 
             $("fragment-collect-button").textContent =
-                "Fragment ajouté ✓";
+                t("Fragment ajouté ✓", "Fragment toegevoegd ✓");
 
             setFeedback(
-                "Une nouvelle lumière brille dans votre médaillon.",
+                t("Une nouvelle lumière brille dans votre médaillon.", "Een nieuw lichtje straalt in je medaillon."),
                 "success"
             );
 
@@ -3898,3 +3905,7 @@
     updateMapProgress();
 
 })();
+
+
+
+
