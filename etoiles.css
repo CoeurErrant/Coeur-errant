@@ -1948,4 +1948,33 @@ body.memory-open {
    FIN — NOS ÉTOILES
 
    Leur lumière ne s'éteindra jamais.
-   ========================================== */
+   ========================================== *//* CORRECTION — VISIBILITÉ DES ÉTOILES */
+
+.stars-page .stars-reveal {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+.stars-page .constellation-sky {
+    position: relative;
+    isolation: isolate;
+}
+
+.stars-page .memory-star {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto;
+    z-index: 5;
+}
+
+.stars-page .constellation-lines {
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stars-page .star-shape,
+.stars-page .star-name {
+    opacity: 1;
+    visibility: visible;
+}
