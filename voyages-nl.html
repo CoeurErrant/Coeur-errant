@@ -1,61 +1,130 @@
-
 <!DOCTYPE html>
-<html lang="nl-BE">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Mijn reizen — Cœur Errant</title>
 
-  <meta name="description" content="Ontdek de reizen van Cœur Errant, mijn ontmoetingen met zwerfdieren en de verhalen achter mijn engagement.">
+  <meta name="description" content="Ontdek de reizen van Cœur Errant, mijn ontmoetingen met zwerfdieren en de verhalen die aan de basis liggen van mijn engagement.">
 
   <meta name="theme-color" content="#faf8f5">
 
-  <link rel="icon" href="logo.jpeg">
+  <link rel="canonical" href="https://coeurerrant.github.io/Coeur-errant/voyages-nl.html">
+
+  <link rel="alternate" hreflang="fr" href="https://coeurerrant.github.io/Coeur-errant/voyages.html">
+  <link rel="alternate" hreflang="nl" href="https://coeurerrant.github.io/Coeur-errant/voyages-nl.html">
+  <link rel="alternate" hreflang="x-default" href="https://coeurerrant.github.io/Coeur-errant/voyages.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cœur Errant">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:title" content="Reizen en ontmoetingen — Cœur Errant">
+  <meta property="og:description" content="Een reisdagboek over zwerfdieren, bijzondere ontmoetingen en de kleine voetsporen die ik overal ter wereld achterlaat.">
+  <meta property="og:url" content="https://coeurerrant.github.io/Coeur-errant/voyages-nl.html">
+  <meta property="og:image" content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+  <meta property="og:image:alt" content="Logo van Cœur Errant">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mijn reizen — Cœur Errant">
+  <meta name="twitter:description" content="Reizen, ontmoetingen en verhalen van zwerfdieren.">
+  <meta name="twitter:image" content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+  <link rel="icon" type="image/jpeg" href="logo.jpeg">
+  <link rel="apple-touch-icon" href="logo.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="accueil-v2.css">
   <link rel="stylesheet" href="voyages.css">
-</head>
+  <link rel="stylesheet" href="global.css">
 
-<body>
+  <script src="global.js" defer></script><body>
 
 <!-- NAVIGATIE -->
 
 <nav>
+
   <a class="nav-logo" href="index-nl.html">
     <img src="logo.jpeg" alt="Cœur Errant">
   </a>
 
   <ul class="nav-links" id="nav-links">
-    <li><a href="index-nl.html" onclick="closeMenu()">Home</a></li>
-    <li><a href="index-nl.html#histoire" onclick="closeMenu()">Mijn verhaal</a></li>
-    <li><a href="mission-nl.html" onclick="closeMenu()">De missie</a></li>
-    <li><a href="voyages-nl.html" aria-current="page" onclick="closeMenu()">Reizen</a></li>
-    <li><a href="livres-nl.html" onclick="closeMenu()">Mijn boeken</a></li>
-    <li><a href="index-nl.html#nos-etoiles" onclick="closeMenu()">Onze sterretjes</a></li>
-    <li><a href="soutenir-nl.html" onclick="closeMenu()">Steunen</a></li>
-    <li class="lang-mobile"><a href="voyages.html">Français</a></li>
+
+    <li>
+      <a href="index-nl.html" onclick="closeMenu()">Home</a>
+    </li>
+
+    <li>
+      <a href="mission-nl.html" onclick="closeMenu()">De missie</a>
+    </li>
+
+    <li>
+      <a href="voyages-nl.html"
+         class="active"
+         aria-current="page"
+         onclick="closeMenu()">Reizen</a>
+    </li>
+
+    <li>
+      <a href="livres-nl.html" onclick="closeMenu()">Mijn boeken</a>
+    </li>
+
+    <li>
+      <a href="etoiles-nl.html" onclick="closeMenu()">Onze sterren</a>
+    </li>
+
+    <li>
+      <a href="agir-nl.html" onclick="closeMenu()">Hoe kan je helpen?</a>
+    </li>
+
+    <li>
+      <a href="passeport-nl.html" onclick="closeMenu()">Het Koninkrijk</a>
+    </li>
+
+    <li>
+      <a href="soutenir-nl.html" onclick="closeMenu()">Steunen</a>
+    </li>
+
+    <li class="lang-mobile">
+      <a href="voyages.html" lang="fr">Français</a>
+    </li>
+
   </ul>
 
   <div class="lang-switcher">
-    <a href="voyages.html" class="lang-btn">FR</a>
+
+    <a href="voyages.html"
+       class="lang-btn"
+       lang="fr"
+       aria-label="Français">FR</a>
+
     <span class="lang-sep">|</span>
-    <a href="voyages-nl.html" class="lang-btn active">NL</a>
+
+    <a href="voyages-nl.html"
+       class="lang-btn active"
+       lang="nl"
+       aria-label="Nederlands">NL</a>
+
   </div>
 
   <button class="hamburger"
           id="hamburger"
+          type="button"
           onclick="toggleMenu()"
           aria-label="Menu openen"
           aria-controls="nav-links"
           aria-expanded="false">
+
     <span></span>
     <span></span>
     <span></span>
+
   </button>
+
 </nav>
 
 <main>
@@ -66,31 +135,35 @@
 
   <p class="section-tag">Mijn reisdagboek</p>
 
-  <h1>Reizen vol <em>bijzondere ontmoetingen.</em></h1>
+  <h1>Reizen en <em>ontmoetingen.</em></h1>
 
   <p>
-    Elke bestemming heeft een spoor achtergelaten in mijn hart.
+    Elke bestemming heeft een spoor in mijn hart achtergelaten.
     Achter de landschappen, monumenten en reisherinneringen
-    schuilen de kleine zieltjes die mijn kijk op de wereld
-    hebben veranderd.
+    schuilen de kleine zieltjes die mijn pad hebben gekruist
+    en mijn kijk op de wereld hebben veranderd.
   </p>
 
   <p>
-    Ontdek mijn parcours, mijn acties, mijn momenten van geluk
+    Ontdek mijn parcours, mijn acties, mijn geluksmomenten
     en soms ook mijn verdriet. Een avontuur dat begon zonder
     dat ik het besefte en dat blijft groeien, reis na reis.
   </p>
 
   <div class="voyages-navigation">
+
     <a href="#annee-2023">2023</a>
     <a href="#annee-2024">2024</a>
     <a href="#annee-2025">2025</a>
     <a href="#annee-2026">2026</a>
     <a href="#djibou">Djibou ♡</a>
     <a href="#prochain-voyage">Volgende reis</a>
+    <a href="passeport-nl.html">✧ De betoverde kaart</a>
+
   </div>
 
 </section>
+
 
 <!-- ==================== 2023 ==================== -->
 
@@ -100,11 +173,11 @@
 
   <p class="section-tag">Het begin</p>
 
-  <h2>De eerste <em>pootafdrukken</em></h2>
+  <h2>De eerste <em>voetsporen</em></h2>
 
   <p>
     Nog voor Cœur Errant een naam had,
-    was er al een verhaal.
+    had het al een verhaal.
   </p>
 
   <div class="year-divider">♡</div>
@@ -115,15 +188,16 @@
 
   <!-- CORSICA -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="corse-2023">
 
     <div class="voyage-visual">
 
       <div class="voyage-img">
 
         <img src="corsee.jpeg"
-             alt="Rode kat ontmoet op Corsica in april 2023"
-             loading="lazy">
+             alt="Rosse kat die ik in april 2023 op Corsica ontmoette"
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="flag-corse.png" alt="">
@@ -134,7 +208,7 @@
 
       <p class="voyage-caption">
         Een van de katten die ik tijdens mijn verblijf
-        op Corsica heb ontmoet.
+        op Corsica ontmoette.
       </p>
 
     </div>
@@ -143,18 +217,19 @@
 
       <p class="voyage-date">April 2023</p>
 
-      <h3>Corsica, de eerste pootafdrukken van <em>Cœur Errant</em></h3>
+      <h3>Corsica, de eerste voetsporen van <em>Cœur Errant</em></h3>
 
       <p class="voyage-story">
-        In die tijd had Cœur Errant nog geen naam en bestond
-        het project nog niet. Toch was ik, zonder het te beseffen,
-        al bezig met het schrijven van de eerste hoofdstukken.
+        Op dat moment had Cœur Errant nog geen naam
+        en was er ook nog geen sprake van een project.
+        Toch was ik, zonder het te weten,
+        al de eerste regels van het verhaal aan het schrijven.
       </p>
 
       <p class="voyage-story">
-        Op een parking bij mijn camping en een supermarkt
+        Op een parking vlak bij mijn camping en een supermarkt
         ontdekte ik kleine huisjes voor zwerfkatten,
-        met enkele lege eetbakjes erbij.
+        samen met enkele lege eetbakjes.
       </p>
 
       <details class="travel-details">
@@ -164,52 +239,57 @@
         <div class="travel-details-content">
 
           <p>
-            Men vertelde mij dat sommige katten daar werden
-            achtergelaten, onder andere wanneer mensen
-            op vakantie vertrokken. Na verloop van tijd
-            waren er ongeveer dertig katten terechtgekomen.
+            Men had mij verteld dat sommige katten daar
+            werden achtergelaten, vooral wanneer mensen
+            op vakantie vertrokken.
+            Na verloop van tijd waren er een dertigtal
+            katten op die plek terechtgekomen.
           </p>
 
           <p>
-            Ik begon kattenbrokjes, natvoer en speciale
+            Ik begon brokjes, natvoer en speciale
             kittenmelk voor hen te kopen.
           </p>
 
           <p>
-            Elke ochtend en elke avond ging ik bij hen langs.
+            Elke ochtend en elke avond ging ik opnieuw
+            bij hen langs.
             Zonder dat ik het besefte, waren deze bezoekjes
             een echt ritueel geworden.
           </p>
 
           <p>
-            Ik ging bij hen zitten. Sommige katten kwamen
-            op mijn schoot liggen, terwijl andere zich
-            rondom mij nestelden. Wanneer ik opstond
-            en begon te wandelen, volgden ze mij.
+            Ik ging bij hen zitten.
+            Sommige katten kwamen op mijn schoot liggen,
+            andere nestelden zich rondom mij.
+            Wanneer ik opstond om te wandelen,
+            volgden ze mij.
           </p>
 
           <p>
             Die eenvoudige parking was een van mijn
-            favoriete plekjes tijdens de vakantie geworden.
+            favoriete plekjes tijdens mijn vakantie geworden.
           </p>
 
           <p>
-            Tussen al die katten was er eentje die een
-            bijzonder plekje in mijn hart had veroverd.
+            Tussen al die katten was er een klein kattinnetje
+            dat een nog bijzonderder plekje in mijn hart
+            had weten te veroveren.
             Ik had haar Sushi genoemd.
           </p>
 
           <p>
-            Ze was mijn bungalow binnengekomen en sliep
-            gedurende mijn verblijf bij mij.
-            Ik had zelfs overwogen om haar mee te nemen
-            naar België.
+            Ze was mijn bungalow binnengekomen
+            en had tijdens mijn verblijf de nachten
+            bij mij doorgebracht.
+            Ik had zelfs overwogen om haar mee
+            naar België te nemen.
           </p>
 
           <p>
-            Helaas maakten de terugreis met de boot
-            en de weinige dagen die mij nog restten
-            de nodige regelingen te ingewikkeld.
+            Helaas maakten de beperkingen van de terugreis
+            met de boot en de weinige tijd die mij nog restte
+            de nodige formaliteiten te ingewikkeld.
           </p>
 
           <p>
@@ -218,16 +298,17 @@
           </p>
 
           <p>
-            Op dat moment had ik nog niet bedacht dat
-            mijn toekomstige reizen in het teken van
-            zwerfdieren zouden staan.
+            Op dat moment had ik nog niet bedacht
+            dat mijn toekomstige reizen in het teken
+            van zwerfdieren zouden staan.
             Ik volgde gewoon mijn hart.
           </p>
 
           <p>
-            Op Corsica werden de eerste zaadjes van
-            Cœur Errant geplant. Een jaar later,
-            in Tanger, begonnen ze echt te groeien.
+            Op Corsica werden de eerste zaadjes
+            van Cœur Errant geplant.
+            En in Tanger, een jaar later,
+            begonnen ze pas echt te groeien.
           </p>
 
         </div>
@@ -237,7 +318,7 @@
       <div class="voyage-quote">
         <p>
           Nog voor Cœur Errant een naam had,
-          was er al een verhaal.
+          had het al een verhaal.
         </p>
       </div>
 
@@ -245,9 +326,7 @@
 
   </article>
 
-</div>
-
-<!-- ==================== 2024 ==================== -->
+</div><!-- ==================== 2024 ==================== -->
 
 <section class="year-heading" id="annee-2024">
 
@@ -269,15 +348,16 @@
 
   <!-- TANGER -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="tanger-2024">
 
     <div class="voyage-visual">
 
       <div class="voyage-img">
 
         <img src="Tanger.jpeg"
-             alt="De puppy met blauwe ogen in Tanger"
-             loading="lazy">
+             alt="De puppy met blauwe ogen die ik in Tanger ontmoette"
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/ma.png" alt="">
@@ -295,16 +375,15 @@
       <h3>Tanger, waar alles <em>begon</em></h3>
 
       <p class="voyage-story">
-        Alles begon met een uitnodiging. Iemand uit mijn
-        omgeving was alleen naar Marokko vertrokken
-        en vroeg mij om haar te vergezellen.
-        Ik dacht, waarom niet?
+        Alles begon met een uitnodiging. Iemand uit mijn omgeving
+        was alleen naar Marokko vertrokken en had mij voorgesteld
+        om ook te komen. Ik dacht bij mezelf, waarom niet?
       </p>
 
       <p class="voyage-story">
-        Ik zag mezelf al door de souks, markten en
-        kleurrijke straatjes wandelen. Maar deze reis
-        zou een heel andere betekenis krijgen.
+        Ik zag mezelf al de soeks, de markten
+        en de kleurrijke steegjes ontdekken.
+        Maar deze reis zou een heel andere betekenis krijgen.
       </p>
 
       <details class="travel-details">
@@ -314,62 +393,63 @@
         <div class="travel-details-content">
 
           <p>
-            Ik had niet verwacht zoveel zwerfdieren tegen
-            te komen. Honden met schurft, andere honden
-            vol vlooien, gewonde en zieke katten
-            en katten met een vuile vacht.
+            Ik had niet verwacht zoveel zwerfdieren tegen te komen.
+            Honden met schurft, andere die onder de vlooien zaten,
+            gewonde of zieke katten en katten met een vuile vacht.
           </p>
 
           <p>
-            Ze waren overal. Onder auto's,
-            in de steegjes en op elke straathoek.
+            Ze waren overal. Onder auto's, in de steegjes
+            en op elke straathoek.
           </p>
 
           <p>
             Zodra ik hen had opgemerkt,
-            kon ik niet meer wegkijken.
+            kon ik onmogelijk nog wegkijken.
           </p>
 
           <p>
-            Ik begon voeding te kopen. Wanneer ik merkte
-            dat er veel dieren waren, kocht ik grotere
-            zakken brokjes.
+            Ik begon toen dierenvoeding te kopen.
+            Wanneer ik merkte dat er veel dieren waren,
+            kocht ik grotere zakken brokjes.
           </p>
 
           <p>
-            Bij elke uitstap nam ik voeding mee,
-            zodat ik nooit met lege handen zou staan
-            wanneer ik een hongerig dier tegenkwam.
+            Telkens wanneer ik op pad ging, nam ik wat mee,
+            zodat ik nooit met lege handen tegenover
+            een hongerig dier zou staan.
           </p>
 
           <p>
-            In Tanger begon een idee in mij te groeien.
-            Wat als mijn reizen een andere betekenis
-            konden krijgen? Wat als elke nieuwe bestemming
-            een kans werd om deze dieren te helpen?
+            In Tanger begon er een idee in mij te groeien.
+            Wat als mijn reizen een andere betekenis konden krijgen?
+            Wat als elke nieuwe bestemming een kans werd
+            om deze dieren te helpen?
           </p>
 
           <p>Op de dag van mijn vertrek heb ik gehuild.</p>
 
           <p>
-            Niet omdat mijn vakantie voorbij was,
+            Ik huilde niet omdat mijn vakantie voorbij was,
             maar omdat ik het gevoel had dat ik dieren
-            achterliet die al helemaal alleen waren.
+            achterliet die al zo alleen waren.
           </p>
 
           <p>
-            Ik keerde terug naar mijn thuis in België.
-            Zij bleven achter in dezelfde straten.
+            Ik ging terug naar huis, naar België.
+            Zij bleven achter, in diezelfde straten.
           </p>
 
           <p>
-            Ik weet dat ik hen niet allemaal kan redden.
-            Maar dat betekent niet dat ik niets kan doen.
+            Ik weet dat ik hen niet allemaal zal kunnen redden.
+            Maar dat ik hen niet allemaal kan redden,
+            betekent niet dat ik niets kan doen.
           </p>
 
           <p>
             Toen nam ik een beslissing.
-            Voortaan zou elke reis ook voor hen zijn.
+            Vanaf dat moment zou elke reis die ik maakte
+            ook voor hen zijn.
           </p>
 
           <p>Zo ontstond het project Cœur Errant.</p>
@@ -385,17 +465,16 @@
         <h4>De puppy met hemelsblauwe ogen</h4>
 
         <p>
-          Ik zie hem nog altijd voor me.
-          Een kleine puppy met bijna onwerkelijk blauwe ogen,
-          helemaal alleen in het stof van Tanger.
-          Zijn mama was overleden.
-          Zijn broertjes en zusjes ook.
+          Hem zie ik nog steeds voor me. Een kleine puppy
+          met bijna onwezenlijk blauwe ogen,
+          die helemaal alleen in het stof van Tanger zat.
+          Zijn mama was gestorven. Zijn broertjes en zusjes ook.
           Alleen hij had het overleefd.
         </p>
 
         <p>
-          Hij keek mij aan zonder te blaffen of weg te lopen.
-          Die blik zette alles in beweging.
+          Hij keek me aan zonder te blaffen, zonder weg te lopen.
+          Die blik heeft alles in gang gezet.
         </p>
 
       </div>
@@ -411,17 +490,19 @@
 
   </article>
 
+
   <!-- SICILIË -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="sicile-2024">
 
     <div class="voyage-visual">
 
       <div class="voyage-img">
 
         <img src="sicillle.jpeg"
-             alt="Rode kat ontmoet op Sicilië"
-             loading="lazy">
+             alt="Rosse kat die ik op Sicilië ontmoette"
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="flag-sicille.png" alt="">
@@ -439,9 +520,10 @@
       <h3>Sicilië, terug naar <em>mijn roots</em></h3>
 
       <p class="voyage-story">
-        Sicilië heeft een bijzonder plekje in mijn hart.
-        Het is het eiland van mijn afkomst en mijn familie.
-        Het was lang geleden dat ik er nog was geweest
+        Sicilië heeft een bijzondere plaats in mijn hart.
+        Het is de plek waar mijn roots liggen,
+        waar mijn familie vandaan komt.
+        Het was lang geleden dat ik er nog geweest was
         en mijn familie had teruggezien.
       </p>
 
@@ -458,34 +540,34 @@
           </p>
 
           <p>
-            De mediterrane landschappen, de zonnige straatjes
-            en het weerzien met mijn familie maakten
-            deze reis bijzonder.
+            Met de mediterrane landschappen,
+            de zonnige steegjes en het weerzien met mijn familie
+            had deze reis iets bijzonders.
           </p>
 
           <p>
             Sinds mijn verblijf in Tanger was mijn manier
-            van reizen veranderd. Waar ik ook kwam,
-            mijn aandacht ging vanzelf naar de dieren
-            die ik tegenkwam.
+            van reizen veranderd.
+            Waar ik ook kwam, mijn aandacht ging vanzelf
+            naar de dieren die mijn pad kruisten.
           </p>
 
           <p>
             Op de plaatsen die ik op Sicilië bezocht,
             kwam ik relatief weinig zwerfdieren tegen.
-            Toch zag ik enkele honden voor een winkel,
-            waarvoor ik voeding kocht.
+            Ik zag wel enkele honden voor een kruidenierswinkel,
+            voor wie ik eten heb gekocht.
           </p>
 
           <p>
             Toen ik Sicilië verliet, was mijn verlangen
             om het avontuur van Cœur Errant voort te zetten
-            nog even sterk.
+            nog altijd even groot.
           </p>
 
           <p>
-            Ik wilde nieuwe bestemmingen ontdekken
-            waar ik meer tijd kon besteden aan zwerfdieren
+            Ik wilde voortaan bestemmingen ontdekken
+            waar ik meer tijd aan zwerfdieren kon besteden
             en hen kon helpen.
           </p>
 
@@ -495,20 +577,21 @@
 
       <div class="animal-testimony">
 
-        <p class="testimony-label">Een tedere ontmoeting</p>
+        <p class="testimony-label">Een ontmoeting vol tederheid</p>
 
-        <h4>Een onverwacht vriendje</h4>
+        <h4>Een onverwacht klein vriendje</h4>
 
         <p>
-          Het was warm die dag. Ik zat op een traptrede
-          toen ik plots iets tegen mijn rug voelde wrijven.
+          Het was warm die dag. Ik was op een traptrede
+          gaan zitten toen ik plots voelde dat er iets
+          tegen mijn rug aan wreef.
         </p>
 
         <p>
-          Het was een rode kat die zonder enige aarzeling
-          op mijn schoot kwam zitten.
-          Ik liet hem begaan, aaide hem en samen deelden
-          we een moment van rust en genegenheid.
+          Het was een klein ros katje dat zonder enige
+          aarzeling op mijn schoot kwam zitten.
+          Ik liet hem begaan en samen deelden we
+          een moment van tederheid.
         </p>
 
       </div>
@@ -524,9 +607,7 @@
 
   </article>
 
-</div>
-
-<!-- ==================== 2025 ==================== -->
+</div><!-- ==================== 2025 ==================== -->
 
 <section class="year-heading" id="annee-2025">
 
@@ -537,7 +618,7 @@
   <h2>Ontmoetingen die <em>bijblijven</em></h2>
 
   <p>
-    Verschillende reizen, nieuwe emoties en altijd
+    Andere reizen, nieuwe emoties en nog altijd
     hetzelfde verlangen om een verschil te maken.
   </p>
 
@@ -549,13 +630,15 @@
 
   <!-- WARSCHAU -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="varsovie-2025">
 
     <div class="voyage-visual">
 
       <div class="destination-note">
 
-        <img src="https://flagcdn.com/w80/pl.png" alt="Polen">
+        <img src="https://flagcdn.com/w80/pl.png"
+             alt="Polen"
+             loading="lazy">
 
         <p class="paw-symbol">♡</p>
 
@@ -581,8 +664,8 @@
       <p class="voyage-story">
         Deze keer vertrok ik samen met vrienden
         om Polen te ontdekken.
-        Voor ons vieren was het een onbekende bestemming
-        en een nieuw avontuur om samen te beleven.
+        Voor ons alle vier was het een onbekende bestemming,
+        een nieuw avontuur om samen te beleven.
       </p>
 
       <details class="travel-details">
@@ -593,8 +676,8 @@
 
           <p>
             Sinds het ontstaan van Cœur Errant
-            had ik de gewoonte om aandachtig rond te kijken
-            in de steden die ik bezocht.
+            had ik de gewoonte aangenomen om de straten
+            van de steden die ik bezocht aandachtig te observeren.
           </p>
 
           <p>
@@ -602,20 +685,21 @@
           </p>
 
           <p>
-            Tijdens mijn wandelingen ging ik op zoek
-            naar zwerfdieren. Ondanks mijn zoektocht
-            heb ik er bijna geen gezien.
+            Tijdens mijn wandelingen ging ik op zoek naar zwerfdieren.
+            Ondanks mijn zoektocht heb ik er echter
+            bijna geen gezien.
           </p>
 
           <p>
-            Deze reis herinnerde mij eraan dat elke
-            bestemming anders is en dat niet elke reis
-            dezelfde ontmoetingen met zich meebrengt.
+            Deze reis herinnerde mij eraan dat elke bestemming
+            anders is en dat niet elke reis dezelfde
+            ontmoetingen met zich meebrengt.
           </p>
 
           <p>
-            Hoewel ik minder hulp kon bieden dan ik had gehoopt,
-            bleef mijn engagement onveranderd.
+            Hoewel ik niet zoveel hulp kon bieden
+            als ik had gehoopt, bleef mijn engagement
+            onveranderd.
           </p>
 
         </div>
@@ -625,27 +709,21 @@
       <div class="voyage-quote">
         <p>
           Elke bestemming is een ontdekking,
-          ook wanneer de ontmoetingen waarop je hoopte uitblijven.
+          ook wanneer de ontmoetingen waarop je hoopte
+          uitblijven.
         </p>
       </div>
 
     </div>
 
-  </article>
+  </article><title id="morocco-title">
+  Herinneringen aan Marokko
+</title>
 
-  <!-- MAROKKO SEPTEMBER 2025 -->
-
-  <article class="voyage-card">
-
-    <div class="voyage-visual">
-
-      <div class="voyage-img">
-
-        <img src="nala.jpeg"
-             alt="Nala, een puppy ontmoet in Tanger"
-             loading="lazy">
-
-        <div class="voyage-country">
+<desc id="morocco-description">
+  Symbolische illustratie van de bergen,
+  de blauwe steegjes en de landschappen van Marokko.
+</desc>        <div class="voyage-country">
           <img src="https://flagcdn.com/w80/ma.png" alt="">
           Marokko
         </div>
@@ -653,8 +731,8 @@
       </div>
 
       <p class="voyage-caption">
-        Nala, een klein zieltje dat voor altijd
-        in mijn hart zal blijven.
+        Tanger, Chefchaouen en Akchour — symbolische illustratie
+        van mijn tweede reis naar Marokko.
       </p>
 
     </div>
@@ -666,13 +744,13 @@
       <h3>Marokko, tussen <em>hoop en verdriet</em></h3>
 
       <p class="voyage-story">
-        Iets meer dan een jaar na mijn eerste reis
-        naar Marokko keerde ik terug naar Tanger.
-        Deze stad had voor mij een bijzondere betekenis.
+        Iets meer dan een jaar na mijn eerste reis naar Marokko
+        was ik terug in Tanger.
+        Deze stad had een bijzondere betekenis voor mij.
       </p>
 
       <p class="voyage-story">
-        Deze keer kwam ik terug met een duidelijk doel.
+        Deze keer kwam ik terug met een heel duidelijk doel.
         Zwerfdieren blijven helpen.
       </p>
 
@@ -682,91 +760,80 @@
 
         <div class="travel-details-content">
 
-          <p>
-            Tijdens mijn verblijf kreeg ik ook de kans
-            om Chefchaouen, de prachtige blauwe stad,
-            en Akchour te ontdekken tijdens twee daguitstappen.
+          <p id="akchour-2025">
+            Tijdens mijn verblijf kreeg ik ook de kans om
+            Chefchaouen, de prachtige blauwe stad, en Akchour
+            te ontdekken tijdens twee daguitstappen.
+          </p>
+
+          <p id="chefchaouen-2025">
+            In de blauwe steegjes van Chefchaouen ontmoette ik
+            heel wat zwerfkatten en zwerfhonden.
           </p>
 
           <p>
-            In de blauwe straatjes van Chefchaouen
-            ontmoette ik heel wat zwerfkatten en honden.
-          </p>
-
-          <p>
-            Tussen de voorbijgangers zat een piepklein
-            kitten te miauwen. Het was zo jong dat zijn
-            oogjes nog gesloten waren.
-            Midden in die drukte dreigde het vertrappeld te worden.
+            Tussen de voorbijgangers zat een piepklein kitten
+            te miauwen. Het was zo jong dat zijn oogjes
+            nog gesloten waren.
+            Zo klein tussen al die mensen liep het gevaar
+            vertrappeld te worden.
           </p>
 
           <p>
             Ik nam het voorzichtig in mijn armen
-            en bracht het naar een veiligere plek.
+            om het naar een veiligere plek te brengen.
           </p>
 
           <p>
-            In Tanger bleef ik voeding uitdelen
-            aan de dieren die ik tegenkwam.
+            In Tanger bleef ik voedsel uitdelen
+            aan de dieren die mijn pad kruisten.
           </p>
 
           <p>
-            Maar tussen al die kleine zieltjes
-            was er eentje dat een bijzonder plekje
-            in mijn hart zou innemen.
+            Maar tussen al die kleine zieltjes was er eentje
+            dat een bijzondere plaats in mijn hart zou innemen.
           </p>
 
-          <p>Haar naam was Nala.</p>
+          <p>Ze heette Nala.</p>
 
           <p>
-            Deze tweede reis naar Marokko confronteerde mij
-            met de kwetsbaarheid van deze kleine levens,
-            maar verminderde nooit mijn verlangen om hen te helpen.
+            Tijdens deze tweede reis naar Marokko werd ik
+            geconfronteerd met de kwetsbaarheid van deze kleine levens.
+            Toch heeft dat mijn verlangen om hen te helpen
+            nooit verminderd.
           </p>
 
         </div>
 
       </details>
 
+      <!--
+        Het volledige verhaal en de foto van Nala
+        zijn beschikbaar op de pagina Onze sterren.
+      -->
+
       <div class="animal-testimony">
 
         <p class="testimony-label">Ter nagedachtenis aan Nala ♡</p>
 
-        <h4>Nala, een klein zieltje dat een sterretje werd</h4>
+        <h4>Nala, een klein zieltje dat een ster werd</h4>
 
         <p>
-          Een puppy die tussen het afval wanhopig
-          op zoek was naar iets om te eten.
+          Vandaag breng ik haar een eerbetoon in mijn boek
+          <em>Nos âmes errantes</em> en via Cœur Errant,
+          omdat haar bestaan nooit vergeten mag worden.
         </p>
 
-        <p>
-          Ze werd opgevangen en gevaccineerd.
-          Ze had zelfs een gezondheidsboekje op mijn naam.
-          Ze had een toekomst.
-        </p>
-
-        <p>
-          Tot die dag waarop ze levenloos
-          onder een boom werd teruggevonden.
-        </p>
-
-        <p>
-          Vandaag breng ik haar een eerbetoon
-          in mijn boek <em>Nos âmes errantes</em>
-          en via Cœur Errant.
-          Omdat haar bestaan nooit vergeten mag worden.
-        </p>
-
-        <a href="index-nl.html#nos-etoiles" class="travel-link">
-          Ontdek onze sterretjes ♡
+        <a href="etoiles-nl.html" class="travel-link">
+          Ontdek haar verhaal bij Onze sterren ♡
         </a>
 
       </div>
 
       <div class="voyage-quote">
         <p>
-          Ze had een gezondheidsboekje, een naam,
-          een toekomst. Nala leeft voort in alles wat ik doe.
+          Ze had een gezondheidsboekje, een naam, een toekomst.
+          Nala leeft voort in elk gebaar dat ik maak.
         </p>
       </div>
 
@@ -774,25 +841,32 @@
 
   </article>
 
+
   <!-- ISTANBUL -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="istanbul-2025">
 
     <div class="voyage-visual">
 
-      <div class="destination-note">
+      <div class="voyage-img">
 
-        <img src="https://flagcdn.com/w80/tr.png" alt="Turkije">
+        <img src="istanbul.jpeg"
+             alt="Kat die ik in november 2025 in Istanbul ontmoette"
+             loading="lazy"
+             decoding="async"
+             style="object-fit: cover; object-position: center 30%;">
 
-        <p class="paw-symbol">🐾</p>
-
-        <h4>Istanbul</h4>
-
-        <p>Turkije · November 2025</p>
-
-        <p>De stad van duizend katten.</p>
+        <div class="voyage-country">
+          <img src="https://flagcdn.com/w80/tr.png" alt="">
+          Istanbul, Turkije
+        </div>
 
       </div>
+
+      <p class="voyage-caption">
+        Een van de vele katten die ik in de straten
+        van Istanbul ontmoette.
+      </p>
 
     </div>
 
@@ -803,14 +877,16 @@
       <h3>Istanbul, de stad van <em>duizend katten</em></h3>
 
       <p class="voyage-story">
-        Als er één stad is die indruk op mij heeft gemaakt
-        door de aanwezigheid van katten, dan is het Istanbul.
+        Als er één stad is die een bijzondere indruk op mij
+        heeft gemaakt door de aanwezigheid van katten,
+        dan is het wel Istanbul.
       </p>
 
       <p class="voyage-story">
-        Ze waren overal. In de straatjes, op de pleinen,
+        Ze waren overal. In de steegjes, op de pleinen,
         voor de winkels en rondom de moskeeën.
-        Katten in alle kleuren, elk met hun eigen karakter.
+        Katten in alle kleuren, elk met hun eigen
+        kleine persoonlijkheid.
       </p>
 
       <details class="travel-details">
@@ -820,15 +896,16 @@
         <div class="travel-details-content">
 
           <p>
-            Tijdens mijn verblijf kwam ik weinig honden tegen,
-            maar de katten maakten echt deel uit van mijn dagelijks leven.
+            Tijdens mijn verblijf ontmoette ik weinig honden,
+            maar de katten maakten echt deel uit
+            van mijn dagelijkse leven.
           </p>
 
           <p>
-            's Avonds ging ik samen met mijn vriendin
-            wandelen door de straten van Istanbul.
-            We kwamen onder andere op het plein
-            bij de Hagia Sophia en de Blauwe Moskee.
+            's Avonds ging ik samen met mijn vriendin wandelen
+            door de straten van Istanbul.
+            We kwamen onder andere langs het plein
+            waar de Hagia Sophia en de Blauwe Moskee staan.
           </p>
 
           <p>
@@ -837,27 +914,27 @@
           </p>
 
           <p>
-            Zoals gewoonlijk vertrok ik nooit zonder
-            mijn zak kattenbrokjes.
-            Tijdens onze wandelingen deelde ik
-            de voeding uit, handvol na handvol.
+            Zoals gewoonlijk ging ik nooit op pad
+            zonder mijn zak brokjes.
+            Tijdens onze wandelingen deelde ik het eten uit,
+            handje na handje.
           </p>
 
           <p>
-            Elke kat die ik kon voederen,
+            Elke kat die ik kon voeden,
             kreeg zijn eigen kleine portie.
           </p>
 
           <p>
             Deze reis heeft mij veel geluk gebracht.
             Ze herinnerde mij eraan dat mijn engagement
-            voor dieren niet alleen bestaat uit verdriet,
-            machteloosheid en moeilijke momenten.
+            voor dieren niet alleen uit verdriet,
+            machteloosheid en pijn bestond.
           </p>
 
           <p>
-            Het bestaat ook uit mooie ontmoetingen,
-            genegenheid en kleine momenten van gedeeld geluk.
+            Het bestond ook uit mooie ontmoetingen,
+            tederheid en kleine momenten van gedeeld geluk.
           </p>
 
         </div>
@@ -866,22 +943,21 @@
 
       <div class="voyage-quote">
         <p>
-          Een handvol brokjes, enkele momenten van genegenheid
-          en zoveel mooie herinneringen om in mijn hart te bewaren.
+          Een handje brokjes, enkele momenten van tederheid
+          en zoveel kleine herinneringen om in mijn hart
+          mee naar huis te nemen.
         </p>
       </div>
 
       <a href="livres-nl.html" class="travel-link">
-        Andere ontmoetingen wachten op jou in Nos âmes errantes.
+        Nog meer ontmoetingen wachten op je in Nos âmes errantes.
       </a>
 
     </div>
 
   </article>
 
-</div>
-
-<!-- ==================== 2026 ==================== -->
+</div><!-- ==================== 2026 ==================== -->
 
 <section class="year-heading" id="annee-2026">
 
@@ -892,8 +968,9 @@
   <h2>Steeds verder, <em>altijd voor hen</em></h2>
 
   <p>
-    Nieuwe grenzen, nieuwe ontmoetingen en een klein zieltje
-    dat binnenkort deel zal uitmaken van mijn gezin.
+    Nieuwe grenzen, nieuwe ontmoetingen
+    en een klein zieltje dat binnenkort
+    deel zal uitmaken van mijn gezin.
   </p>
 
   <div class="year-divider">♡</div>
@@ -911,8 +988,8 @@
     <h3>De Balkan, drie landen en <em>één missie</em></h3>
 
     <p>
-      Om het nieuwe jaar te beginnen, vertrok ik
-      op ontdekkingstocht door de Balkan.
+      Om het nieuwe jaar te beginnen, trok ik eropuit
+      om de Balkan te ontdekken.
       Een roadtrip door drie landen, drie hoofdsteden
       en langs nieuwe horizonten.
     </p>
@@ -924,26 +1001,30 @@
     </p>
 
     <div class="journey-route">
+
       <span>🇲🇰 Skopje</span>
       <span>→</span>
       <span>🇽🇰 Pristina</span>
       <span>→</span>
       <span>🇦🇱 Tirana</span>
+
     </div>
 
   </div>
 
+
   <!-- SKOPJE -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="skopje-2026">
 
     <div class="voyage-visual">
 
       <div class="voyage-img">
 
         <img src="Macedoine.jpeg"
-             alt="Zwarte hond ontmoet in Skopje"
-             loading="lazy">
+             alt="Zwarte hond die ik in Skopje ontmoette"
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/mk.png" alt="">
@@ -956,19 +1037,19 @@
 
     <div class="voyage-content">
 
-      <p class="voyage-date">Januari 2026 · Eerste stop</p>
+      <p class="voyage-date">Januari 2026 · Eerste etappe</p>
 
       <h3>Skopje, een les in <em>vertrouwen</em></h3>
 
       <p class="voyage-story">
-        In Skopje begon ons avontuur.
+        Ons avontuur begon in Skopje.
         Tijdens mijn wandelingen ontmoette ik
         heel wat zwerfhonden.
       </p>
 
       <p class="voyage-story">
-        Een zwarte hond maakte bijzonder veel indruk
-        op mij door zijn zachtheid en vertrouwen.
+        Onder hen was er een zwarte hond die een bijzondere
+        indruk op mij maakte door zijn zachtheid en vertrouwen.
       </p>
 
       <div class="animal-testimony">
@@ -978,17 +1059,16 @@
         <h4>De zwarte hond en zijn grenzeloze vertrouwen</h4>
 
         <p>
-          Ik had hem nog nooit gezien.
-          Hij kende mij niet.
-          Toch ging hij binnen enkele seconden
+          Ik had hem nog nooit gezien. Hij kende mij niet.
+          En toch ging hij binnen enkele seconden
           op zijn rug liggen, met zijn buik naar boven,
           zijn pootjes in de lucht en zijn ogen gesloten.
         </p>
 
         <p>
-          Een volledig, spontaan en ontwapenend vertrouwen.
-          Deze zwarte hond in Skopje schonk mij
-          een moment van genegenheid dat ik nooit zal vergeten.
+          Een volledig, onmiddellijk en ontwapenend vertrouwen.
+          Deze zwarte hond in Skopje schonk mij een moment
+          van tederheid dat ik nooit zal vergeten.
         </p>
 
       </div>
@@ -1004,17 +1084,19 @@
 
   </article>
 
+
   <!-- PRISTINA -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="pristina-2026">
 
     <div class="voyage-visual">
 
       <div class="voyage-img">
 
         <img src="kossovo.jpeg"
-             alt="Zwerfhond ontmoet in Pristina"
-             loading="lazy">
+             alt="Zwerfhond die ik in Pristina ontmoette"
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/xk.png" alt="">
@@ -1027,14 +1109,14 @@
 
     <div class="voyage-content">
 
-      <p class="voyage-date">Januari 2026 · Tweede stop</p>
+      <p class="voyage-date">Januari 2026 · Tweede etappe</p>
 
       <h3>Pristina, <em>onvergetelijke blikken</em></h3>
 
       <p class="voyage-story">
-        Onze tweede stop bracht ons naar Pristina.
+        Onze tweede etappe bracht ons naar Pristina.
         Sommige beelden van dit verblijf
-        zijn in mijn geheugen gegrift.
+        staan nog steeds in mijn geheugen gegrift.
       </p>
 
       <details class="travel-details">
@@ -1052,7 +1134,8 @@
           <p>
             Terwijl ik naar hen keek, moest ik denken
             aan onze huisdieren, die een mandje,
-            een dekentje en een veilige rustplaats hebben.
+            een dekentje en een veilige plek hebben
+            om uit te rusten.
           </p>
 
           <p>
@@ -1073,18 +1156,18 @@
 
         <p class="testimony-label">Een onvergetelijke ontmoeting</p>
 
-        <h4>De staart die bleef kwispelen</h4>
+        <h4>Het staartje dat bleef kwispelen</h4>
 
         <p>
           Tussen het puin, in een straat die door de tijd
-          vergeten leek te zijn, zat een zwerfhond.
+          vergeten leek, stond een zwerfhond.
           Omringd door brokstukken, stof en stilte.
         </p>
 
         <p>
           En toch begon zijn staart te kwispelen
-          zodra hij mij zag. Eerst voorzichtig,
-          daarna steeds sneller.
+          zodra hij mij zag.
+          Eerst zachtjes, daarna steeds sneller.
           Ondanks alles was zijn vreugde nog intact.
         </p>
 
@@ -1092,8 +1175,8 @@
 
       <div class="voyage-quote">
         <p>
-          Hij had bijna niets en toch kwispelde hij
-          alsof ik alles was wat hij nodig had.
+          Omringd door niets, kwispelde hij alsof ik
+          alles was wat hij nodig had.
         </p>
       </div>
 
@@ -1101,9 +1184,10 @@
 
   </article>
 
+
   <!-- TIRANA -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="tirana-2026">
 
     <div class="voyage-visual">
 
@@ -1111,7 +1195,8 @@
 
         <img src="albanie.jpeg"
              alt="Zwerfkat voor een supermarkt in Tirana"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/al.png" alt="">
@@ -1124,19 +1209,20 @@
 
     <div class="voyage-content">
 
-      <p class="voyage-date">Januari 2026 · Laatste stop</p>
+      <p class="voyage-date">Januari 2026 · Laatste etappe</p>
 
       <h3>Tirana, een <em>onverwachte ontmoeting</em></h3>
 
       <p class="voyage-story">
-        We eindigden onze roadtrip in Tirana.
+        We sloten onze roadtrip af in Tirana.
         In tegenstelling tot de vorige bestemmingen
-        moest ik hier wat langer zoeken naar zwerfdieren.
+        moest ik hier wat langer zoeken
+        om zwerfdieren te ontmoeten.
       </p>
 
       <p class="voyage-story">
-        Vooral in een groot park, bij een meer
-        en het voetbalstadion, zag ik enkele zwerfhonden.
+        Vooral in een groot park, vlak bij een meer
+        en het voetbalstadion, zag ik verschillende honden.
       </p>
 
       <div class="animal-testimony">
@@ -1146,22 +1232,22 @@
         <h4>De kat voor de supermarkt</h4>
 
         <p>
-          Hij zat daar, voor de automatische deuren
-          van de supermarkt. Gewond en hongerig.
-          Mensen liepen voorbij zonder hem op te merken.
+          Daar zat hij, voor de automatische deuren
+          van de supermarkt, gewond en uitgehongerd.
+          De mensen liepen voorbij zonder hem te zien.
           Ik kon niet zomaar voorbijlopen.
         </p>
 
         <p>
-          Ik kocht voeding voor hem, contacteerde
-          dierenorganisaties en zocht hulp.
+          Ik kocht eten voor hem, nam contact op
+          met dierenorganisaties en zocht hulp.
           Niemand antwoordde.
         </p>
 
         <p>
-          De volgende dag ging ik terug om hem
-          naar de dierenarts te brengen.
-          Maar hij was er niet meer.
+          De volgende dag ging ik terug om hem te zoeken
+          en naar de dierenarts te brengen.
+          Hij was er niet meer.
           Verdwenen. Waarheen, dat zullen we nooit weten.
         </p>
 
@@ -1170,15 +1256,13 @@
       <div class="voyage-quote">
         <p>
           Iedereen zag hem. Niemand keek echt naar hem.
-          Ik kon niet anders dan stoppen.
+          Ik kon niet anders.
         </p>
       </div>
 
     </div>
 
-  </article>
-
-  <!-- MAROKKO JUNI 2026 -->
+  </article>  <!-- MAROKKO JUNI 2026 -->
 
   <div class="journey-intro">
 
@@ -1187,9 +1271,8 @@
     <h3>Marokko, een land dat <em>me blijft roepen</em></h3>
 
     <p>
-      Marokko is een van die landen waarnaar ik
-      steeds opnieuw zou kunnen terugkeren,
-      zonder het ooit beu te worden.
+      Marokko is een van die landen waarnaar ik keer op keer
+      zou kunnen terugkeren zonder er ooit genoeg van te krijgen.
     </p>
 
     <details class="travel-details">
@@ -1202,42 +1285,42 @@
           Deze keer wilde mijn papa Marokko ontdekken.
           We besloten daarom twee bestemmingen te combineren,
           Marrakech en Agadir, om tijdens dezelfde reis
-          twee verschillende sferen te beleven.
+          van twee verschillende sferen te genieten.
         </p>
 
         <p>
-          De levendige souks van Marrakech,
-          de kleuren, de geuren, de gastvrijheid
-          en de rust van de kust in Agadir.
-          Marokko wist mij opnieuw te betoveren.
+          De levendigheid van de soeks in Marrakech,
+          de kleuren, de geuren, de menselijke warmte
+          en de rust van de kust van Agadir.
+          Marokko wist mij opnieuw helemaal te betoveren.
         </p>
 
         <p>
           Maar terugkeren naar dit land betekende ook
-          opnieuw kennismaken met de kleine zieltjes
+          opnieuw die kleine zieltjes ontmoeten
           die twee jaar eerder aan de basis lagen
-          van Cœur Errant.
+          van het ontstaan van Cœur Errant.
         </p>
 
         <p>
-          Ondanks mijn eerdere verblijven ben ik nooit
-          gewend geraakt aan de aanwezigheid van zwerfdieren.
+          Ondanks mijn eerdere verblijven ben ik nooit gewend
+          geraakt aan de aanwezigheid van zwerfdieren.
           Elke blik blijft mij raken.
         </p>
 
         <p>
-          In Agadir herinnerde een rode kat mij
-          aan het belang van een eenvoudig gebaar,
-          zoals een dier water aanbieden.
+          In Agadir herinnerde een rosse kat mij aan het belang
+          van een gebaar dat zo eenvoudig is als
+          een dier wat water aanbieden.
         </p>
 
         <p>
           In Marrakech zou een onverwachte ontmoeting
-          mijn verblijf veranderen en een veel grotere
-          plaats in mijn leven innemen dan ik had gedacht.
+          mijn verblijf helemaal veranderen en een veel grotere
+          plaats in mijn leven innemen dan ik had kunnen denken.
         </p>
 
-        <p>Dat kleine zieltje heet Djibou.</p>
+        <p>Dit kleine zieltje heet Djibou.</p>
 
       </div>
 
@@ -1251,17 +1334,19 @@
 
   </div>
 
+
   <!-- AGADIR -->
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="agadir-2026">
 
     <div class="voyage-visual">
 
       <div class="voyage-img">
 
         <img src="agadir-chat.png"
-             alt="Rode kat bij een lege waterfles in Agadir"
-             loading="lazy">
+             alt="Rosse kat naast een lege waterfles in Agadir"
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/ma.png" alt="">
@@ -1276,18 +1361,18 @@
 
       <p class="voyage-date">Juni 2026</p>
 
-      <h3>Een lege fles, <em>een levensbehoefte</em></h3>
+      <h3>Een lege fles, <em>een levensbelangrijke behoefte</em></h3>
 
       <p class="voyage-story">
         Ik wandelde door de straten van Agadir
-        toen een rode kat mijn aandacht trok.
+        toen een rosse kat mijn aandacht trok.
         Het was warm die dag.
       </p>
 
       <p class="voyage-story">
-        Hij stond op zijn achterpoten, met zijn voorpootjes
-        op de rand van een bloempot, vlak naast
-        een lege waterfles.
+        Hij stond op zijn achterpoten, met zijn voorpoten
+        vastgeklemd aan de rand van een bloempot,
+        vlak naast een lege waterfles.
       </p>
 
       <details class="travel-details">
@@ -1299,17 +1384,17 @@
           <p>
             Zijn vacht was vuil en zijn blik leek vermoeid.
             Toen ik hem zo zag, kon ik niet anders dan denken
-            dat hij gewoon op zoek was naar water.
+            dat hij gewoon iets zocht om te drinken.
           </p>
 
           <p>
-            Een waterfles, voor ons zo'n alledaags voorwerp,
+            Een waterfles, zo'n alledaags voorwerp voor ons,
             kon voor hem iets ontzettend kostbaars betekenen.
           </p>
 
           <p>
-            Ik stopte om hem te fotograferen,
-            maar vooral om hem voeding en water te geven.
+            Ik bleef staan om hem te fotograferen,
+            maar vooral om hem eten en water te geven.
           </p>
 
           <p>Helaas heb ik hem daarna nooit meer gezien.</p>
@@ -1317,8 +1402,7 @@
           <p>
             Deze ontmoeting herinnert mij eraan hoe
             levensbelangrijk de eenvoudigste dingen
-            uit ons dagelijks leven kunnen zijn
-            voor dieren op straat.
+            uit ons dagelijks leven kunnen zijn voor zwerfdieren.
           </p>
 
           <p>
@@ -1334,7 +1418,7 @@
       <div class="voyage-quote">
         <p>
           Soms kan een eenvoudig kommetje water
-          het verschil maken.
+          het hele verschil maken.
         </p>
       </div>
 
@@ -1344,7 +1428,10 @@
 
 </div>
 
-<!-- DJIBOU -->
+
+<!-- ==========================================
+     DJIBOU: EEN VERHAAL IN WORDING
+     ========================================== -->
 
 <section class="rescue-section" id="djibou">
 
@@ -1370,7 +1457,8 @@
 
         <img src="djibou-avant.png"
              alt="Djibou tijdens onze eerste ontmoeting in Marrakech"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="rescue-photo-caption">
 
@@ -1379,8 +1467,7 @@
           <h3>Onze eerste ontmoeting</h3>
 
           <p>
-            Een piepklein, kwetsbaar kitten
-            dat hulp nodig had.
+            Een piepklein, kwetsbaar kitten dat hulp nodig had.
           </p>
 
         </div>
@@ -1391,7 +1478,8 @@
 
         <img src="djibou-apres.png"
              alt="Djibou in zijn tijdelijke thuis in Marokko"
-             loading="lazy">
+             loading="lazy"
+             decoding="async">
 
         <div class="rescue-photo-caption">
 
@@ -1400,7 +1488,7 @@
           <h3>Een nieuwe kans</h3>
 
           <p>
-            Veilig en omringd door liefdevolle zorgen,
+            Veilig en omringd door liefdevolle zorg,
             in afwachting van ons weerzien.
           </p>
 
@@ -1412,7 +1500,7 @@
 
     <p class="rescue-intro">
       Tussen deze twee foto's liggen enkele maanden.
-      Maanden van verzorging, geduld, zachtheid
+      Maanden van verzorging, geduld, liefdevolle aandacht
       en een nieuwe kans.
       Ook dat is waar Cœur Errant voor staat.
     </p>
@@ -1420,64 +1508,62 @@
     <div class="rescue-story">
 
       <p>
-        Sommige ontmoetingen lijken geen toeval te zijn.
+        Sommige ontmoetingen zijn geen toeval.
       </p>
 
       <p>
         In de riad waar ik in Marrakech verbleef,
-        hoorde ik het gemiauw van een piepklein
-        zwart-wit kitten. Het was alleen, heel mager,
-        zat vol vlooien en had niesziekte.
+        hoorde ik het gemiauw van een piepklein zwart-wit kitten.
+        Hij was alleen, erg mager, zat onder de vlooien
+        en had niesziekte.
       </p>
 
       <p>
-        Het was nog zo jong dat het moeilijk was
-        om te bepalen of het een katertje
-        of een kattinnetje was.
+        Hij was zo jong dat het nog moeilijk was om te bepalen
+        of het een katertje of een kattinnetje was.
         Toch was ik vanaf de eerste blik helemaal verkocht.
       </p>
 
       <p>
-        Ik gaf hem voeding en heel veel genegenheid.
-        Al snel begon hij tegen mijn nek aan te slapen.
+        Ik gaf hem eten en overlaadde hem met liefde.
+        Al snel begon hij dicht tegen mijn nek aan te slapen.
         Hij week niet meer van mijn deur.
       </p>
 
       <p>
-        Wanneer ik vertrok, wachtte hij voor mijn kamer.
-        Wanneer ik terugkwam, wachtte hem niet alleen
-        zijn eten, maar ook de knuffels en warmte
-        waarvan hij zo leek te genieten.
+        Wanneer ik wegging, wachtte hij voor mijn kamer.
+        Wanneer ik terugkwam, kreeg hij opnieuw zijn eten,
+        maar ook de knuffels en de warmte
+        waar hij zo van leek te genieten.
       </p>
 
       <p>
-        Hoe kon ik niet gehecht raken aan dat kleine
-        bolletje vacht dat zo'n grote plaats
-        in mijn dagelijks leven had ingenomen?
+        Hoe kon ik mij niet hechten aan dat kleine bolletje vacht
+        dat zo'n grote plaats in mijn dagelijkse leven
+        had ingenomen?
       </p>
 
       <p>
         Maar aan elke vakantie komt een einde.
-        Deze keer kon ik het niet over mijn hart krijgen
-        om hem achter te laten zonder hem
-        een toekomst te bieden.
+        En deze keer kon ik het niet over mijn hart krijgen
+        om hem achter te laten zonder hem een toekomst te bieden.
       </p>
 
       <p>
-        Vandaag verblijft Djibou in Marokko
-        bij een lieve vrouw die ook voor andere
-        zwerfkatten zorgt. Zij ontfermt zich over hem
-        totdat hij bij mij in België kan komen wonen.
+        Vandaag verblijft Djibou in Marokko bij een lieve vrouw
+        die ook voor andere zwerfkatten zorgt.
+        Zij zorgt voor hem totdat hij naar mij
+        in België kan komen.
       </p>
 
       <p>
         We moeten nog enkele maanden geduld hebben
-        voor ons weerzien, maar één ding is zeker.
-        <strong>Er wacht al een plekje op hem bij mij thuis.</strong>
+        voordat we elkaar terugzien, maar één ding is zeker.
+        <strong>Bij mij thuis wacht er al een plekje op hem.</strong>
       </p>
 
       <p>
-        Hij krijgt zijn eigen thuis, zijn gezin
+        Hij zal zijn eigen thuis hebben, zijn familie
         en alle liefde die hij verdient.
       </p>
 
@@ -1485,7 +1571,7 @@
 
         <p>
           Ik vertrok naar Marokko met een koffer.
-          Ik keerde terug met een extra zieltje in mijn hart.
+          Ik kwam terug met een klein zieltje meer in mijn hart.
           Ons verhaal is nog maar net begonnen.
         </p>
 
@@ -1493,11 +1579,12 @@
 
     </div>
 
-    <!-- REDDINGSTRAJECT -->
+
+    <!-- STAPPEN VAN DE REDDING -->
 
     <div class="rescue-progress">
 
-      <h3>Op weg naar zijn nieuwe leven</h3>
+      <h3>De weg naar zijn nieuwe leven</h3>
 
       <div class="rescue-step step-done">
 
@@ -1508,7 +1595,7 @@
           <h4>Onze eerste ontmoeting</h4>
 
           <p>
-            Juni 2026 — Een klein kitten ontmoet
+            Juni 2026 — Een klein kitten dat ik ontmoette
             in een riad in Marrakech.
           </p>
 
@@ -1522,11 +1609,11 @@
 
         <div class="step-content">
 
-          <h4>De eerste hulp</h4>
+          <h4>De eerste gebaren</h4>
 
           <p>
-            Voeding, genegenheid en een nieuw begin
-            voor Djibou.
+            Eten, liefdevolle aandacht
+            en een nieuw begin voor Djibou.
           </p>
 
         </div>
@@ -1542,8 +1629,8 @@
           <h4>Een tijdelijke thuis in Marokko</h4>
 
           <p>
-            Djibou is nu veilig bij iemand
-            die ik vertrouw.
+            Djibou is nu veilig
+            bij iemand die ik vertrouw.
           </p>
 
         </div>
@@ -1559,8 +1646,8 @@
           <h4>In afwachting van België</h4>
 
           <p>
-            Nog even geduld voordat hij
-            bij zijn nieuwe gezin kan komen wonen.
+            Nog een beetje geduld voordat hij
+            bij zijn nieuwe familie aankomt.
           </p>
 
         </div>
@@ -1573,11 +1660,9 @@
 
         <div class="step-content">
 
-          <h4>Eindelijk herenigd</h4>
+          <h4>Eindelijk samen</h4>
 
-          <p>
-            Het mooiste hoofdstuk moet nog geschreven worden.
-          </p>
+          <p>Het mooiste hoofdstuk moet nog geschreven worden.</p>
 
         </div>
 
@@ -1589,19 +1674,23 @@
 
 </section>
 
-<!-- DJERBA -->
+
+<!-- ==========================================
+     DJERBA
+     ========================================== -->
 
 <div class="travel-list">
 
-  <article class="voyage-card">
+  <article class="voyage-card" id="djerba-2026">
 
     <div class="voyage-visual">
 
       <div class="voyage-img">
 
         <img src="djerba.webp"
-             alt="Zwerfhond ontmoet op een strand in Djerba"
-             loading="lazy">
+             alt="Zwerfhond die ik op een strand in Djerba ontmoette"
+             loading="lazy"
+             decoding="async">
 
         <div class="voyage-country">
           <img src="https://flagcdn.com/w80/tn.png" alt="">
@@ -1621,8 +1710,7 @@
       <p class="voyage-story">
         Samen met mijn vriendin had ik besloten
         om Djerba te ontdekken.
-        Ik had niet verwacht dat ik mij daar
-        zo goed zou voelen.
+        Ik had niet verwacht dat ik mij er zo goed zou voelen.
       </p>
 
       <p class="voyage-story">
@@ -1636,30 +1724,28 @@
         <div class="travel-details-content">
 
           <p>
-            De prachtige landschappen, de rust,
-            de zee, de gastvrijheid en die bijzondere sfeer
-            hebben mij diep geraakt.
+            De prachtige landschappen, het rustige levensritme,
+            de zee, de menselijke warmte en die bijzondere sfeer
+            hebben mij helemaal betoverd.
           </p>
 
           <p>
-            Er zijn plaatsen waar je je thuis voelt,
-            ook al ben je ver van huis.
-            Djerba is voor mij zo'n plek.
+            Er zijn plekken waar je je thuis voelt,
+            zelfs wanneer je ver van huis bent.
+            Djerba is daar een van.
           </p>
 
           <p>
             Natuurlijk vergezelde Cœur Errant mij
             tijdens dit nieuwe avontuur.
-            Mijn aandacht ging vanzelf naar de dieren
-            die ik onderweg tegenkwam.
+            Mijn aandacht ging nog steeds vanzelf
+            naar de dieren die mijn pad kruisten.
           </p>
 
           <p>
-            Djerba zal ongetwijfeld een van mijn
-            mooiste reizen blijven.
-            Een bestemming die ik verliet met prachtige
-            herinneringen en een groot verlangen
-            om terug te keren.
+            Djerba zal ongetwijfeld een van mijn mooiste reizen blijven.
+            Een bestemming die ik verliet met prachtige herinneringen
+            en een oprecht verlangen om er terug te keren.
           </p>
 
         </div>
@@ -1668,36 +1754,35 @@
 
       <div class="animal-testimony">
 
-        <p class="testimony-label">Een moedige ontmoeting</p>
+        <p class="testimony-label">Een ontmoeting vol moed</p>
 
         <h4>De moed om te vertrouwen</h4>
 
         <p>
           Op een strand in Djerba ontmoette ik
           een bijzonder angstige hond.
-          Hij hield afstand en twijfelde
-          om dichterbij te komen.
+          Hij hield afstand en aarzelde om dichterbij te komen.
         </p>
 
         <p>
           Ik wist niets over zijn verleden
           of de redenen voor zijn wantrouwen.
-          Ik wist alleen dat ik hem mijn aanwezigheid
-          niet wilde opdringen.
+          Ik wist alleen dat ik mijn aanwezigheid
+          niet aan hem wilde opdringen.
         </p>
 
         <p>
-          Daarom gaf ik hem de tijd.
+          Dus gaf ik hem de tijd.
           Beetje bij beetje kwam hij dichterbij.
-          Ik kon hem voeding geven,
-          maar vooral zijn moed maakte indruk op mij.
+          Ik kon hem eten geven,
+          maar het was vooral zijn moed die mij raakte.
         </p>
 
         <p>
-          Deze ontmoeting herinnerde mij eraan
-          dat dierenliefde ook betekent dat we
-          hun grenzen respecteren, hen een keuze geven
-          en hun eigen tempo volgen.
+          Deze ontmoeting herinnerde mij eraan dat
+          van dieren houden ook betekent dat je hun grenzen
+          respecteert, hen de keuze laat
+          en op hun tempo verdergaat.
         </p>
 
       </div>
@@ -1705,7 +1790,7 @@
       <div class="voyage-quote">
         <p>
           Ik vertrok om een eiland te ontdekken.
-          Ik liet er een stukje van mijn hart achter.
+          Ik liet er een klein stukje van mijn hart achter.
         </p>
       </div>
 
@@ -1713,9 +1798,9 @@
 
   </article>
 
-</div>
-
-<!-- VOLGENDE REIS -->
+</div><!-- ==========================================
+     VOLGENDE REIS: MYSTERIEBESTEMMING
+     ========================================== -->
 
 <section class="mystery-section" id="prochain-voyage">
 
@@ -1819,15 +1904,15 @@
     <h2>Mysterieuze bestemming</h2>
 
     <p class="mystery-subtitle">
-      Ergens op de wereld wacht
-      een nieuw verhaal op mij...
+      Ergens op de wereld
+      wacht een nieuw verhaal op mij...
     </p>
 
     <p class="mystery-description">
-      Nieuwe horizonten, nieuwe blikken
-      en nieuwe kleine zieltjes om te ontmoeten.
-      De volgende bestemming blijft voorlopig
-      een mysterie, zelfs voor mij.
+      Nieuwe horizonten, nieuwe blikken,
+      nieuwe kleine zieltjes om te ontmoeten.
+      De volgende bestemming blijft voorlopig een mysterie,
+      zelfs voor mij.
     </p>
 
     <div class="mystery-divider"></div>
@@ -1845,28 +1930,31 @@
     </div>
 
     <p class="mystery-signature">
-      Waar de reis ook naartoe gaat,
-      het hart kent de weg al.
+      Wat de bestemming ook wordt,
+      mijn hart kent de weg al.
     </p>
 
   </div>
 
 </section>
 
-<!-- BOEKEN EN STEUN -->
+
+<!-- ==========================================
+     BOEKEN EN STEUN
+     ========================================== -->
 
 <section class="cta">
 
   <p class="section-tag">Van ontmoetingen naar woorden</p>
 
-  <h2>Hun verhalen blijven <em>voortleven.</em></h2>
+  <h2>Hun verhalen <em>leven verder.</em></h2>
 
   <p class="cta-desc">
-    Sommige ontmoetingen werden omgezet in pagina's,
+    Sommige ontmoetingen werden pagina's,
     illustraties en verhalen om te delen.
     Andere wachten nog om ontdekt te worden.
-    Ontdek mijn boeken, geïnspireerd door de kleine
-    zieltjes die ik overal ter wereld heb ontmoet.
+    Ontdek mijn boeken, geïnspireerd door de kleine zieltjes
+    die ik overal ter wereld heb ontmoet.
   </p>
 
   <div class="cta-actions">
@@ -1885,144 +1973,585 @@
 
 </main>
 
-<!-- FOOTER -->
 
-<footer>
+<!-- ==========================================
+     GEMEENSCHAPPELIJKE FOOTER — CŒUR ERRANT
+     ========================================== -->
 
-  <div class="footer-logo">
-    <img src="logo.jpeg" alt="Cœur Errant">
+<footer class="ce-footer">
+
+  <div class="ce-footer-decoration" aria-hidden="true">
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
   </div>
 
-  <div class="footer-divider"></div>
+  <div class="ce-footer-inner">
 
-  <div class="footer-socials">
+    <!-- IDENTITEIT -->
 
-    <a href="https://www.tiktok.com/@coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+    <div class="ce-footer-brand">
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/tiktok/white" alt="">
+      <a href="index-nl.html" aria-label="Startpagina van Cœur Errant">
+
+        <img src="logo.jpeg"
+             alt="Logo van Cœur Errant"
+             loading="lazy"
+             decoding="async">
+
+      </a>
+
+      <h2>Cœur Errant</h2>
+
+      <p class="ce-footer-tagline">
+        Elk dier heeft een verhaal.
+      </p>
+
+      <p class="ce-footer-description">
+        Omdat zelfs de kleinste zieltjes
+        een plaats verdienen in deze wereld.
+      </p>
+
+      <!-- SOCIALE MEDIA -->
+
+      <div class="ce-footer-socials">
+
+        <a href="https://www.tiktok.com/@coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant op TikTok"
+           title="TikTok">
+
+          <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant op Instagram"
+           title="Instagram">
+
+          <img src="https://cdn.simpleicons.org/instagram/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.youtube.com/@CoeurErrant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant op YouTube"
+           title="YouTube">
+
+          <img src="https://cdn.simpleicons.org/youtube/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant op Facebook"
+           title="Facebook">
+
+          <img src="https://cdn.simpleicons.org/facebook/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.snapchat.com/add/coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant op Snapchat"
+           title="Snapchat">
+
+          <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="mailto:coeur.errant@outlook.be"
+           aria-label="Contact opnemen met Cœur Errant via e-mail"
+           title="Contact">
+
+          <svg viewBox="0 0 24 24"
+               width="20"
+               height="20"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.5"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               aria-hidden="true">
+
+            <rect x="3"
+                  y="5"
+                  width="18"
+                  height="14"
+                  rx="2"/>
+
+            <path d="M3 7 L12 13 L21 7"/>
+
+          </svg>
+
+        </a>
+
       </div>
 
-      <span class="footer-social-name">TikTok</span>
+    </div>
 
-    </a>
 
-    <a href="https://www.instagram.com/coeur.errant/"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+    <!-- FOOTERNAVIGATIE -->
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/instagram/white" alt="">
+    <div class="ce-footer-navigation">
+
+      <!-- ONTDEKKEN -->
+
+      <div class="ce-footer-column">
+
+        <h3>Ontdekken</h3>
+
+        <a href="index-nl.html#histoire">
+          Mijn verhaal
+        </a>
+
+        <a href="mission-nl.html">
+          De missie
+        </a>
+
+        <a href="voyages-nl.html"
+           class="active"
+           aria-current="page">
+          Mijn reizen
+        </a>
+
+        <a href="livres-nl.html">
+          Mijn boeken
+        </a>
+
       </div>
 
-      <span class="footer-social-name">Instagram</span>
 
-    </a>
+      <!-- ONZE WERELD -->
 
-    <a href="https://www.youtube.com/@CoeurErrant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+      <div class="ce-footer-column">
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/youtube/white" alt="">
+        <h3>Onze wereld</h3>
+
+        <a href="etoiles-nl.html">
+          Onze sterren
+        </a>
+
+        <a href="passeport-nl.html">
+          Het Koninkrijk
+        </a>
+
+        <a href="agir-nl.html">
+          Hoe kan je helpen?
+        </a>
+
+        <a href="soutenir-nl.html">
+          Steun Cœur Errant
+        </a>
+
       </div>
 
-      <span class="footer-social-name">YouTube</span>
 
-    </a>
+      <!-- BLIJF VERBONDEN -->
 
-    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
+      <div class="ce-footer-column">
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/facebook/white" alt="">
+        <h3>Blijf verbonden</h3>
+
+        <a href="mailto:coeur.errant@outlook.be">
+          Neem contact met mij op
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Volg het avontuur
+        </a>
+
+        <a href="voyages.html"
+           lang="fr"
+           hreflang="fr">
+          Version française
+        </a>
+
+        <a href="mentions-legales-nl.html">
+          Juridische vermeldingen
+        </a>
+
       </div>
 
-      <span class="footer-social-name">Facebook</span>
-
-    </a>
-
-    <a href="https://www.snapchat.com/add/coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/snapchat/white" alt="">
-      </div>
-
-      <span class="footer-social-name">Snapchat</span>
-
-    </a>
-
-    <a href="mailto:coeur.errant@outlook.be"
-       class="footer-social-link">
-
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/gmail/white" alt="">
-      </div>
-
-      <span class="footer-social-name">Contact</span>
-
-    </a>
+    </div>
 
   </div>
 
-  <div class="footer-divider"></div>
 
-  <p class="footer-copy">
-    © <span id="annee"></span> Cœur Errant — Elk dier heeft een verhaal.
-  </p>
+  <!-- HANDTEKENING -->
+
+  <div class="ce-footer-signature">
+
+    <span class="ce-footer-heart" aria-hidden="true">
+      ♡
+    </span>
+
+    <p>
+      Met liefde gemaakt, voor zij die geen stem hebben.
+    </p>
+
+  </div>
+
+
+  <!-- COPYRIGHT -->
+
+  <div class="ce-footer-copyright">
+
+    <p>
+      © <span id="footer-year">2026</span>
+      Cœur Errant — Alle rechten voorbehouden.
+    </p>
+
+  </div>
 
 </footer>
 
+
+<!-- ==========================================
+     JAVASCRIPT — REIZEN
+     ========================================== -->
+
 <script>
 
-  document.getElementById('annee').textContent =
-    new Date().getFullYear();
+(function () {
+
+  'use strict';
+
+
+  /* ==========================================
+     AUTOMATISCH JAARTAL
+     ========================================== */
+
+  const footerYear = document.getElementById('footer-year');
+
+  if (footerYear) {
+
+    footerYear.textContent = new Date().getFullYear();
+
+  }
+
+
+  /* ==========================================
+     MOBIEL MENU
+     ========================================== */
 
   const navLinks = document.getElementById('nav-links');
+
   const hamburger = document.getElementById('hamburger');
 
-  function toggleMenu() {
 
-    const isOpen = navLinks.classList.toggle('open');
+  function setMenuState(isOpen) {
+
+    if (!navLinks || !hamburger) {
+
+      return;
+
+    }
+
+    navLinks.classList.toggle('open', isOpen);
 
     hamburger.classList.toggle('open', isOpen);
 
-    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute(
+      'aria-expanded',
+      String(isOpen)
+    );
 
     hamburger.setAttribute(
       'aria-label',
-      isOpen ? 'Menu sluiten' : 'Menu openen'
+      isOpen
+        ? 'Menu sluiten'
+        : 'Menu openen'
     );
 
   }
 
-  function closeMenu() {
 
-    navLinks.classList.remove('open');
-    hamburger.classList.remove('open');
+  /* FUNCTIES VOOR DE HTML-NAVIGATIE */
 
-    hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.setAttribute('aria-label', 'Menu openen');
+  window.toggleMenu = function () {
 
-  }
+    if (!navLinks || !hamburger) {
 
-  document.addEventListener('keydown', function(event) {
+      return;
 
-    if (event.key === 'Escape') {
-      closeMenu();
+    }
+
+    const isOpen =
+      hamburger.getAttribute('aria-expanded') === 'true';
+
+    setMenuState(!isOpen);
+
+  };
+
+
+  window.closeMenu = function () {
+
+    setMenuState(false);
+
+  };
+
+
+  /* ==========================================
+     SLUITEN MET DE ESCAPE-TOETS
+     ========================================== */
+
+  document.addEventListener('keydown', function (event) {
+
+    if (event.key !== 'Escape') {
+
+      return;
+
+    }
+
+    if (
+      hamburger &&
+      hamburger.getAttribute('aria-expanded') === 'true'
+    ) {
+
+      window.closeMenu();
+
+      hamburger.focus();
+
     }
 
   });
+
+
+  /* ==========================================
+     SLUITEN BUITEN HET MENU
+     ========================================== */
+
+  document.addEventListener('click', function (event) {
+
+    if (!navLinks || !hamburger) {
+
+      return;
+
+    }
+
+    if (
+      hamburger.getAttribute('aria-expanded') !== 'true'
+    ) {
+
+      return;
+
+    }
+
+    if (
+      !navLinks.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+
+      window.closeMenu();
+
+    }
+
+  });
+
+
+  /* ==========================================
+     AANPASSING AAN DE SCHERMGROOTTE
+     ========================================== */
+
+  const desktopMedia = window.matchMedia(
+    '(min-width: 1101px)'
+  );
+
+
+  function handleDesktopChange(event) {
+
+    if (event.matches) {
+
+      window.closeMenu();
+
+    }
+
+  }
+
+
+  if (typeof desktopMedia.addEventListener === 'function') {
+
+    desktopMedia.addEventListener(
+      'change',
+      handleDesktopChange
+    );
+
+  } else if (
+    typeof desktopMedia.addListener === 'function'
+  ) {
+
+    desktopMedia.addListener(handleDesktopChange);
+
+  }
+
+
+  /* ==========================================
+     TOEGANKELIJKHEID VAN DE UITKLAPBARE VERHALEN
+     ========================================== */
+
+  const travelDetails = document.querySelectorAll(
+    '.travel-details'
+  );
+
+
+  travelDetails.forEach(function (details) {
+
+    const summary = details.querySelector('summary');
+
+    if (!summary) {
+
+      return;
+
+    }
+
+    summary.setAttribute(
+      'aria-expanded',
+      String(details.open)
+    );
+
+
+    details.addEventListener('toggle', function () {
+
+      summary.setAttribute(
+        'aria-expanded',
+        String(details.open)
+      );
+
+    });
+
+  });
+
+
+  /* ==========================================
+     NAVIGATIE NAAR ANKERS
+     ========================================== */
+
+  function openParentDetails(target) {
+
+    let parent = target.parentElement;
+
+    while (parent) {
+
+      if (parent.tagName === 'DETAILS') {
+
+        parent.open = true;
+
+      }
+
+      parent = parent.parentElement;
+
+    }
+
+  }
+
+
+  function revealHashTarget() {
+
+    if (!window.location.hash) {
+
+      return;
+
+    }
+
+    let targetId;
+
+    try {
+
+      targetId = decodeURIComponent(
+        window.location.hash.substring(1)
+      );
+
+    } catch (error) {
+
+      return;
+
+    }
+
+    const target = document.getElementById(targetId);
+
+    if (!target) {
+
+      return;
+
+    }
+
+    openParentDetails(target);
+
+  }
+
+
+  window.addEventListener(
+    'hashchange',
+    revealHashTarget
+  );
+
+
+  if (document.readyState === 'loading') {
+
+    document.addEventListener(
+      'DOMContentLoaded',
+      revealHashTarget,
+      { once: true }
+    );
+
+  } else {
+
+    revealHashTarget();
+
+  }
+
+
+  /* ==========================================
+     TERUGKEREN NAAR DE PAGINA
+     ========================================== */
+
+  window.addEventListener('pageshow', function () {
+
+    window.closeMenu();
+
+    revealHashTarget();
+
+  });
+
+
+  /* ==========================================
+     EXTERNE BESTANDEN
+
+     global.js:
+     - Zwevende knoppen
+     - Medaillon van het Koninkrijk
+     - Gedachte van de dag
+     - Welkomstbericht
+     - Actieve navigatie
+
+     De betoverde kaart en de veertien schatten
+     worden beheerd op de Koninkrijk-pagina.
+
+     Dit script maakt geen extra opslag aan.
+     ========================================== */
+
+})();
 
 </script>
 

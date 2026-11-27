@@ -1,883 +1,1935 @@
-
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Cœur Errant — Elk dier heeft een verhaal</title>
+    <meta charset="UTF-8">
 
-  <meta name="description" content="Ontdek Cœur Errant, een project voor zwerfdieren, met reizen, ontmoetingen, boeken en solidariteitsacties.">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#faf8f5">
+    <title>Cœur Errant — In de voetsporen van mijn hart</title>
 
-  <link rel="icon" href="logo.jpeg">
+    <!-- SEO -->
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="description"
+          content="Ontdek Cœur Errant, een wereld gewijd aan zwerfdieren, bijzondere ontmoetingen tijdens mijn reizen, boeken en kleine gebaren die hun dagelijks leven veranderen.">
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="accueil-v2.css">
+    <meta name="author" content="Cœur Errant">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="theme-color" content="#faf8f5">
+
+    <link rel="canonical"
+          href="https://coeurerrant.github.io/Coeur-errant/index-nl.html">
+
+    <link rel="alternate"
+          hreflang="fr"
+          href="https://coeurerrant.github.io/Coeur-errant/">
+
+    <link rel="alternate"
+          hreflang="nl"
+          href="https://coeurerrant.github.io/Coeur-errant/index-nl.html">
+
+    <link rel="alternate"
+          hreflang="x-default"
+          href="https://coeurerrant.github.io/Coeur-errant/">
+
+    <!-- SOCIALE MEDIA -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:site_name" content="Cœur Errant">
+
+    <meta property="og:locale" content="nl_BE">
+
+    <meta property="og:title"
+          content="Cœur Errant — Elk dier heeft een verhaal">
+
+    <meta property="og:description"
+          content="Kilometers afgelegd. Blikken gekruist. Levens die het verdienen om gezien te worden.">
+
+    <meta property="og:url"
+          content="https://coeurerrant.github.io/Coeur-errant/index-nl.html">
+
+    <meta property="og:image"
+          content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+    <meta property="og:image:alt"
+          content="Logo van Cœur Errant">
+
+    <meta name="twitter:card" content="summary">
+
+    <meta name="twitter:title"
+          content="Cœur Errant — Elk dier heeft een verhaal">
+
+    <meta name="twitter:description"
+          content="Een hart zonder grenzen, voor de dieren op straat.">
+
+    <meta name="twitter:image"
+          content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+    <!-- FAVICON -->
+
+    <link rel="icon"
+          type="image/jpeg"
+          href="logo.jpeg">
+
+    <link rel="apple-touch-icon"
+          href="logo.jpeg">
+
+    <!-- LETTERTYPES -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="acceuil-v3.css">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="global.css">
+
+    <!-- GEDEELD JAVASCRIPT -->
+
+    <script src="global.js" defer></script>
+
+    <!-- AANPASSINGEN STARTPAGINA -->
+
+    <style>
+
+        .ce-door-kingdom {
+            background: linear-gradient(
+                145deg,
+                #f7eee1,
+                #e9d6b8
+            );
+            color: #68543d;
+        }
+
+        .ce-door-advice {
+            background: linear-gradient(
+                145deg,
+                #f8eeeb,
+                #ead6d9
+            );
+            color: #80565f;
+        }
+
+        .ce-door-kingdom .ce-door-content,
+        .ce-door-advice .ce-door-content {
+            color: inherit;
+        }
+
+        .ce-door-kingdom .ce-door-symbol,
+        .ce-door-advice .ce-door-symbol {
+            color: inherit;
+        }
+
+        .ce-map-fallback {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .ce-map-fallback a {
+            color: #a85e68;
+        }
+
+        .ce-map-popup a {
+            display: inline-block;
+            margin-top: 6px;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-<!-- NAVIGATIE -->
+<!-- =====================================
+     NAVIGATIE
+     ===================================== -->
 
-<nav>
-  <a class="nav-logo" href="index-nl.html">
-    <img src="logo.jpeg" alt="Cœur Errant">
-  </a>
+<nav aria-label="Hoofdnavigatie">
 
-  <ul class="nav-links" id="nav-links">
+    <a class="nav-logo"
+       href="index-nl.html"
+       aria-label="Cœur Errant — Home">
 
-    <li>
-      <a href="index-nl.html" onclick="closeMenu()">Home</a>
-    </li>
+        <img src="logo.jpeg"
+             alt="Cœur Errant">
 
-    <li>
-      <a href="#histoire" onclick="closeMenu()">Mijn verhaal</a>
-    </li>
+    </a>
 
-    <li>
-      <a href="mission-nl.html" onclick="closeMenu()">De missie</a>
-    </li>
+    <ul class="nav-links" id="nav-links">
 
-    <li>
-      <a href="voyages-nl.html" onclick="closeMenu()">Reizen</a>
-    </li>
+        <li>
+            <a href="index-nl.html"
+               class="active"
+               aria-current="page">
+                Home
+            </a>
+        </li>
 
-    <li>
-      <a href="#livres" onclick="closeMenu()">Mijn boeken</a>
-    </li>
+        <li>
+            <a href="mission-nl.html">
+                De missie
+            </a>
+        </li>
 
-    <li>
-      <a href="#nos-etoiles" onclick="closeMenu()">Onze sterretjes</a>
-    </li>
+        <li>
+            <a href="voyages-nl.html">
+                Reizen
+            </a>
+        </li>
 
-    <li>
-      <a href="soutenir-nl.html" onclick="closeMenu()">Steunen</a>
-    </li>
+        <li>
+            <a href="livres-nl.html">
+                Mijn boeken
+            </a>
+        </li>
 
-    <li class="lang-mobile">
-      <a href="index.html">Français</a>
-    </li>
+        <li>
+            <a href="etoiles-nl.html">
+                Onze sterren
+            </a>
+        </li>
 
-  </ul>
+        <li>
+            <a href="agir-nl.html">
+                Hoe kan je helpen?
+            </a>
+        </li>
 
-  <div class="lang-switcher">
-    <a href="index.html" class="lang-btn">FR</a>
-    <span class="lang-sep">|</span>
-    <a href="index-nl.html" class="lang-btn active">NL</a>
-  </div>
+        <li>
+            <a href="passeport-nl.html">
+                Het Koninkrijk
+            </a>
+        </li>
 
-  <button class="hamburger"
-          id="hamburger"
-          onclick="toggleMenu()"
-          aria-label="Menu openen"
-          aria-controls="nav-links"
-          aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+        <li>
+            <a href="soutenir-nl.html">
+                Steunen
+            </a>
+        </li>
+
+        <li class="lang-mobile">
+
+            <a href="index.html"
+               lang="fr"
+               hreflang="fr">
+
+                Français
+
+            </a>
+
+        </li>
+
+    </ul>
+
+    <div class="lang-switcher">
+
+        <a href="index.html"
+           class="lang-btn"
+           lang="fr"
+           hreflang="fr"
+           aria-label="Français">
+
+            FR
+
+        </a>
+
+        <span class="lang-sep"
+              aria-hidden="true">|</span>
+
+        <a href="index-nl.html"
+           class="lang-btn active"
+           lang="nl"
+           hreflang="nl"
+           aria-label="Nederlands">
+
+            NL
+
+        </a>
+
+    </div>
+
+    <button class="hamburger"
+            id="hamburger"
+            type="button"
+            aria-label="Menu openen"
+            aria-controls="nav-links"
+            aria-expanded="false">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
 </nav>
 
-<main>
+<main class="ce-home">
 
-<!-- HOME -->
+    <!-- =====================================
+         IMMERSIEVE OPENING
+         ===================================== -->
 
-<section class="hero">
+    <section class="ce-opening">
 
-  <div class="hero-left">
+        <div class="ce-opening-photo"
+             aria-hidden="true"></div>
 
-    <p class="hero-eyebrow">
-      Een project vanuit het hart, zonder grenzen
-    </p>
+        <div class="ce-opening-overlay"
+             aria-hidden="true"></div>
 
-    <h1>
-      Elk dier heeft <em>een verhaal.</em>
-    </h1>
+        <div class="ce-opening-content">
 
-    <p class="hero-story">
-      Ergens ter wereld wacht een dier op een beetje
-      aandacht, een maaltijd of gewoon wat liefde.
-      Cœur Errant is ontstaan voor de dieren die
-      niemand meer opmerkt.
-    </p>
+            <p class="ce-eyebrow ce-enter">
 
-    <p class="hero-story">
-      Via mijn reizen, ontmoetingen en boeken wil ik
-      deze dieren een stem geven en eraan herinneren
-      dat elk leven liefde en respect verdient.
-    </p>
+                Een hart zonder grenzen
 
-    <p class="hero-origin">
-      Sinds juni 2024 · Tanger, Marokko
-    </p>
+            </p>
 
-    <div class="hero-actions">
+            <h1 class="ce-enter ce-delay-one">
 
-      <a href="mission-nl.html" class="btn-primary">
-        Ontdek mijn missie
-      </a>
+                De wereld is groot.<br>
 
-      <a href="#livres" class="btn-outline">
-        Mijn boeken
-      </a>
+                <em>Hun eenzaamheid ook.</em>
 
-    </div>
+            </h1>
 
-  </div>
+            <p class="ce-enter ce-delay-two">
 
-  <div class="hero-right">
+                Kilometers afgelegd.<br>
 
-    <img src="hero.jpeg"
-         alt="Een dier ontmoet tijdens de reizen van Cœur Errant"
-         class="hero-img">
+                Blikken gekruist.<br>
 
-  </div>
+                Levens die het verdienen om gezien te worden.
 
-</section>
+            </p>
 
-<!-- STATISTIEKEN -->
+            <a href="#histoire"
+               class="ce-button ce-enter ce-delay-three">
 
-<section class="stats" aria-label="Cœur Errant in cijfers">
+                Stap binnen in mijn wereld
 
-  <div class="stat">
-    <span class="stat-num" id="compteur">0</span>
-    <span class="stat-label">Dagen sinds het begin</span>
-  </div>
+                <span aria-hidden="true">♡</span>
 
-  <div class="stat">
-    <span class="stat-num">3</span>
-    <span class="stat-label">Gepubliceerde boeken</span>
-  </div>
+            </a>
 
-  <div class="stat">
-    <span class="stat-num">♥</span>
-    <span class="stat-label">Liefde zonder grenzen</span>
-  </div>
+        </div>
 
-</section>
+        <div class="ce-opening-signature">
 
-<!-- MIJN VERHAAL -->
+            Elk dier heeft een verhaal.
 
-<section class="origin" id="histoire">
+        </div>
 
-  <div class="origin-text">
+        <a href="#histoire"
+           class="ce-scroll"
+           aria-label="Ontdek meer">
 
-    <p class="section-tag">Mijn verhaal</p>
+            <span></span>
 
-    <h2>
-      Tanger, de zomer die <em>alles veranderde</em>
-    </h2>
+        </a>
 
-    <p>
-      Juni 2024. Ik reis naar Tanger, Marokko,
-      voor wat een gewone vakantie had moeten zijn.
-      Maar al tijdens de eerste dagen raakt iets
-      mij diep. Overal zie ik tientallen zwerfhonden
-      en zwerfkatten, hongerig, lijdend en onzichtbaar
-      voor de meeste mensen.
-    </p>
+    </section>
 
-    <div class="origin-quote">
-      <p>
-        “Voor het eerst in mijn leven zag ik zoveel
-        dieren die vochten om te overleven.
-        Ik kon niet doen alsof ik hen niet zag.”
-      </p>
-    </div>
-
-    <p>
-      Elke ochtend en avond ging ik naar buiten
-      om hen te voederen. Elk dier dat ik op straat
-      tegenkwam, kreeg eten. Mijn vakantiebudget
-      ging in de eerste plaats naar hen, in plaats
-      van naar mijn eigen plezier.
-      Het voelde niet als een opoffering,
-      maar als iets vanzelfsprekends.
-    </p>
+    <!-- =====================================
+         MIJN VERHAAL
+         ===================================== -->
 
-    <p>
-      Deze reis veranderde alles.
-      Cœur Errant was geboren.
-    </p>
-
-    <p>
-      Sindsdien is elke nieuwe bestemming een kans
-      geworden om deze vergeten dieren te ontmoeten,
-      te voederen en hun verhalen te vertellen.
-    </p>
+    <section class="ce-intro" id="histoire">
 
-    <a href="mission-nl.html" class="btn-outline">
-      Ontdek de missie
-    </a>
+        <div class="ce-intro-photos ce-reveal">
 
-  </div>
-
-  <div class="origin-image">
-    <img src="Tanger2.jpeg"
-         alt="Een ontmoeting in Tanger"
-         class="origin-img"
-         loading="lazy">
-  </div>
+            <!-- HERINNERING AAN CORSICA -->
 
-</section>
-
-<!-- MIJN BOEKEN -->
-
-<section class="books" id="livres">
-
-  <p class="section-tag">Mijn creaties</p>
-
-<h2>
-  Boeken die zwerfdieren <em>een stem geven</em>
-</h2>
-
-<p>
-  Drie boeken, drie unieke werelden, één gedeelde overtuiging.
-  Elk dier verdient het om gezien, gehoord en geliefd te worden.
-  Ontdek mijn boeken, met liefde gemaakt en geïnspireerd
-  door mijn ontmoetingen met dieren.
-</p>
+            <div class="ce-polaroid ce-polaroid-first">
 
-<p>
-  Alle boeken zijn momenteel verkrijgbaar in het Frans via Amazon.
-</p>
+                <img src="corsee.jpeg"
+                     alt="Kat die ik op Corsica ontmoette"
+                     loading="lazy">
 
-  <div class="book-grid">
-
-    <!-- BOEK 1 -->
+                <span>Corsica · April 2023</span>
 
-    <article class="book-card">
+            </div>
 
-      <div class="book-cover">
-        <img src="livre-lanterne.jpg"
-             alt="Cover van La petite lanterne"
-             loading="lazy">
-      </div>
+            <!-- HERINNERING AAN TANGER -->
 
-      <p class="section-tag">Kinderboek · Franstalig</p>
+            <div class="ce-polaroid ce-polaroid-second">
 
-      <h3>La petite lanterne</h3>
+                <img src="Tanger.jpeg"
+                     alt="Puppy die ik in Tanger ontmoette"
+                     loading="lazy">
 
-      <p>
-        <em>Une histoire pour apprendre à regarder</em>
-      </p>
+                <span>Tanger · Juni 2024</span>
 
-      <p>
-        Een warm en hartverwarmend verhaal dat
-        kinderen leert om anders naar de wereld
-        te kijken, vergeten dieren op te merken
-        en op te groeien met liefde, respect
-        en medeleven.
-      </p>
-
-      <strong>16,95 €</strong>
-
-      <a href="https://amzn.eu/d/04uXHShr"
-         class="btn-primary"
-         target="_blank"
-         rel="noopener noreferrer">
-        Kopen op Amazon ↗
-      </a>
-
-      <details>
-        <summary>QR-code weergeven</summary>
+            </div>
 
-        <img src="qr-lanterne.png"
-             alt="Amazon QR-code La petite lanterne"
-             class="book-qr"
-             loading="lazy">
-      </details>
-
-    </article>
-
-    <!-- BOEK 2 -->
-
-    <article class="book-card">
+            <div class="ce-photo-heart"
+                 aria-hidden="true">
 
-      <div class="book-cover">
-        <img src="livre-ames-errantes.jpg"
-             alt="Cover van Nos âmes errantes"
-             loading="lazy">
-      </div>
+                ♡
 
-      <p class="section-tag">Verhalen en getuigenissen · Franstalig</p>
+            </div>
 
-      <h3>Nos âmes errantes</h3>
+        </div>
 
-      <p>
-        <em>Dans la peau des animaux des rues</em>
-      </p>
+        <div class="ce-intro-text ce-reveal">
 
-      <p>
-        Echte ontmoetingen, onvergetelijke blikken,
-        verhalen over reddingen en afscheid.
-        Een reis rond de wereld door de ogen
-        van dieren die niemand opmerkt.
-      </p>
+            <p class="ce-label">
 
-      <strong>17,98 €</strong>
+                De eerste pootafdrukken
 
-      <a href="https://amzn.eu/d/0fyDrXjy"
-         class="btn-primary"
-         target="_blank"
-         rel="noopener noreferrer">
-        Kopen op Amazon ↗
-      </a>
+            </p>
 
-      <details>
-        <summary>QR-code weergeven</summary>
+            <h2>
 
-        <img src="qr-ames-errantes.png"
-             alt="Amazon QR-code Nos âmes errantes"
-             class="book-qr"
-             loading="lazy">
-      </details>
+                Wat als we eens
 
-    </article>
+                <em>anders zouden reizen?</em>
 
-    <!-- BOEK 3 -->
+            </h2>
 
-    <article class="book-card">
+            <p>
 
-      <div class="book-cover">
-        <img src="livre-coloriage.jpg"
-             alt="Cover van het kleurboek Cœur Errant"
-             loading="lazy">
-      </div>
+                Het begon allemaal op Corsica, in april 2023,
+                bij enkele kleine, vergeten zieltjes.
 
-      <p class="section-tag">Kleurboek voor volwassenen · Franstalig</p>
+            </p>
 
-      <h3>Cœur Errant</h3>
+            <p>
 
-      <p>
-        <em>Chaque animal a une histoire</em>
-      </p>
+                Een jaar later, in Tanger, kregen mijn reizen
+                een andere betekenis.
 
-      <p>
-        Een kleurboek geïnspireerd op echte
-        ontmoetingen met zwerfdieren.
-        Een combinatie van creativiteit,
-        ontspanning en bewustwording.
-        Neem de tijd om hun verhalen te ontdekken.
-      </p>
+                Sindsdien reis ik niet alleen de wereld rond
+                om haar te ontdekken, maar ook om te zorgen
+                voor de dieren die er zonder thuis leven.
 
-      <strong>14,99 €</strong>
+            </p>
 
-      <a href="https://amzn.eu/d/0h3yOZae"
-         class="btn-primary"
-         target="_blank"
-         rel="noopener noreferrer">
-        Kopen op Amazon ↗
-      </a>
+            <p class="ce-handwritten">
 
-      <details>
-        <summary>QR-code weergeven</summary>
+                Ik reis met mijn hart,
+                en soms met een tas vol dierenbrokjes.
 
-        <img src="qr-coloriage.png"
-             alt="Amazon QR-code Cœur Errant"
-             class="book-qr"
-             loading="lazy">
-      </details>
+            </p>
 
-    </article>
+            <a href="mission-nl.html"
+               class="ce-text-link">
 
-  </div>
+                Ontdek wat mij drijft
 
-  <small>
-    De vermelde prijzen zijn indicatief en kunnen
-    wijzigen op Amazon. Bestellingen, betalingen
-    en leveringen worden rechtstreeks door
-    Amazon afgehandeld.
-  </small>
+                <span aria-hidden="true">↗</span>
 
-</section>
+            </a>
 
-<!-- DE MISSIE -->
+        </div>
 
-<section class="how" id="mission">
+    </section>
 
-  <p class="section-tag">De missie</p>
+    <!-- =====================================
+         SPOOR VAN POOTAFDRUKKEN
+         ===================================== -->
 
-  <h2>
-    Kleine gebaren, <em>een groot verschil.</em>
-  </h2>
+    <div class="ce-paw-trail" aria-hidden="true">
 
-  <div class="how-grid">
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
 
-    <div class="how-item">
+    </div>    <!-- =====================================
+         ONTDEK MIJN WERELD
+         ===================================== -->
 
-      <div class="how-num">01</div>
+    <section class="ce-universe" id="univers">
 
-      <p class="how-title">Reizen</p>
+        <div class="ce-section-heading ce-reveal">
 
-      <p class="how-desc">
-        Van land tot land ga ik op zoek naar
-        ontmoetingen met zwerfdieren en ontdek
-        ik hun dagelijkse leven.
-      </p>
+            <p class="ce-label">
 
-    </div>
+                Een wereld om te ontdekken
 
-    <div class="how-item">
+            </p>
 
-      <div class="how-num">02</div>
+            <h2>
 
-      <p class="how-title">Voederen</p>
+                Volg de voetsporen
 
-      <p class="how-desc">
-        Hen voedsel, water en liefde geven
-        en hen, waar mogelijk, helpen om de
-        nodige verzorging te krijgen.
-      </p>
+                <em>van mijn hart.</em>
 
-    </div>
+            </h2>
 
-    <div class="how-item">
+            <p>
 
-      <div class="how-num">03</div>
+                Elk pad leidt naar een ander verhaal.
+                Kies zelf waar je wilt beginnen.
 
-      <p class="how-title">Bewustmaken</p>
+            </p>
 
-      <p class="how-desc">
-        Hun verhalen delen via mijn boeken,
-        foto's en sociale media, zodat deze
-        dieren niet langer onzichtbaar blijven.
-      </p>
+        </div>
 
-    </div>
+        <div class="ce-door-grid">
 
-  </div>
+            <!-- REIZEN -->
 
-</section>
+            <a href="voyages-nl.html"
+               class="ce-door ce-door-travel ce-reveal">
 
-<!-- BESTEMMINGEN -->
+                <div class="ce-door-number">01</div>
 
-<section class="destinations" id="destinations">
+                <div class="ce-door-symbol"
+                     aria-hidden="true">✧</div>
 
-  <p class="section-tag">Over de grenzen heen</p>
+                <div class="ce-door-content">
 
-  <h2>
-    Bestemmingen van het <em>hart</em>
-  </h2>
+                    <p class="ce-door-tag">
 
-  <div class="destinations-grid">
+                        Het reisdagboek
 
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/ma.png"
-           alt="Marokko">
-      <span class="dest-name">Marokko</span>
-    </div>
+                    </p>
 
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/tn.png"
-           alt="Tunesië">
-      <span class="dest-name">Tunesië</span>
-    </div>
+                    <h3>Op reis</h3>
 
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/al.png"
-           alt="Albanië">
-      <span class="dest-name">Albanië</span>
-    </div>
+                    <p>
 
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/xk.png"
-           alt="Kosovo">
-      <span class="dest-name">Kosovo</span>
-    </div>
+                        Grenzen overgestoken,
+                        ontmoetingen om te ontdekken.
 
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/mk.png"
-           alt="Noord-Macedonië">
-      <span class="dest-name">Noord-Macedonië</span>
-    </div>
+                    </p>
 
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="flag-sicille.png"
-           alt="Sicilië">
-      <span class="dest-name">Sicilië</span>
-    </div>
+                    <span class="ce-door-link">
 
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/pl.png"
-           alt="Polen">
-      <span class="dest-name">Polen</span>
-    </div>
+                        Open het reisdagboek ↗
 
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/de.png"
-           alt="Duitsland">
-      <span class="dest-name">Duitsland</span>
-    </div>
+                    </span>
 
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/fr.png"
-           alt="Frankrijk">
-      <span class="dest-name">Frankrijk</span>
-    </div>
+                </div>
 
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="flag-corse.png"
-           alt="Corsica">
-      <span class="dest-name">Corsica</span>
-    </div>
+            </a>
 
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/tr.png"
-           alt="Turkije">
-      <span class="dest-name">Turkije</span>
-    </div>
+            <!-- MISSIE -->
 
-  </div>
+            <a href="mission-nl.html"
+               class="ce-door ce-door-mission ce-reveal">
 
-</section>
+                <div class="ce-door-number">02</div>
 
-<!-- LAATSTE REIZEN -->
+                <div class="ce-door-symbol"
+                     aria-hidden="true">♡</div>
 
-<section class="books" id="actualites">
+                <div class="ce-door-content">
 
-  <p class="section-tag">Reisdagboek</p>
+                    <p class="ce-door-tag">
 
-  <h2>
-    De laatste <em>avonturen</em>
-  </h2>
+                        Meer dan reizen
 
-  <div class="book-grid">
+                    </p>
 
-    <article class="book-card">
+                    <h3>Begrijpen</h3>
 
-      <p class="section-tag">Juni 2026</p>
+                    <p>
 
-      <h3>Marrakech &amp; Agadir</h3>
+                        Een overtuiging, kleine gebaren,
+                        een missie zonder grenzen.
 
-      <p>
-        Terug naar Marokko, waar alles begon.
-        Nieuwe ontmoetingen en nieuwe herinneringen.
-      </p>
+                    </p>
 
-    </article>
+                    <span class="ce-door-link">
 
-    <article class="book-card">
+                        Ontdek de missie ↗
 
-      <p class="section-tag">Augustus 2026</p>
+                    </span>
 
-      <h3>Djerba, Tunesië</h3>
+                </div>
 
-      <p>
-        Tussen de Tunesische straatjes en stranden
-        ontstonden nieuwe verhalen om te vertellen.
-      </p>
+            </a>
 
-    </article>
+            <!-- BOEKEN -->
 
-    <article class="book-card">
+            <a href="livres-nl.html"
+               class="ce-door ce-door-books ce-reveal">
 
-      <p class="section-tag">December 2026</p>
+                <div class="ce-door-number">03</div>
 
-      <h3>Een nieuw avontuur</h3>
+                <div class="ce-door-symbol"
+                     aria-hidden="true">❋</div>
 
-      <p>
-        Een nieuwe bestemming is in voorbereiding.
-        Nieuwe ontmoetingen en nieuwe verhalen
-        om met jullie te delen.
-      </p>
+                <div class="ce-door-content">
 
-    </article>
+                    <p class="ce-door-tag">
 
-  </div>
+                        Tussen de regels
 
-  <a href="voyages-nl.html" class="btn-outline">
-    Ontdek al mijn reizen
-  </a>
+                    </p>
 
-</section>
+                    <h3>Wegdromen</h3>
 
-<!-- ONZE STERRETJES -->
+                    <p>
 
-<section class="nala" id="nos-etoiles">
+                        Wanneer ontmoetingen veranderen
+                        in woorden en illustraties.
 
-  <div class="nala-image">
+                    </p>
 
-    <img src="nala.jpeg"
-         alt="Ter herinnering aan Nala"
-         class="nala-img"
-         loading="lazy">
+                    <span class="ce-door-link">
 
-  </div>
+                        Sla de eerste bladzijde om ↗
 
-  <div class="nala-text">
+                    </span>
 
-    <p class="section-tag">Onze sterretjes</p>
+                </div>
 
-    <h2>
-      Nala, voor <em>altijd</em>
-    </h2>
+            </a>
 
-    <p>
-      We vonden haar op straat, met haar snuit
-      tussen het afval, op zoek naar eten om
-      te overleven. Een kleine puppy, alleen
-      en uitgehongerd.
-    </p>
+            <!-- STEUNEN -->
 
-    <p>
-      We namen haar mee naar de dierenarts
-      en lieten haar vaccineren.
-      Ze had voortaan een gezondheidsboekje
-      op mijn naam. Ze had een naam, Nala.
-    </p>
+            <a href="soutenir-nl.html"
+               class="ce-door ce-door-help ce-reveal">
 
-    <div class="origin-quote">
+                <div class="ce-door-number">04</div>
 
-      <p>
-        “Ze was alleen maar op zoek naar eten.
-        We gaven haar zoveel meer.
-        We gaven haar een kans.”
-      </p>
+                <div class="ce-door-symbol"
+                     aria-hidden="true">✿</div>
 
-    </div>
+                <div class="ce-door-content">
 
-    <p>
-      We vonden iemand die voor haar kon zorgen.
-      Maar op een ochtend werd ze levenloos
-      onder een boom teruggevonden.
-      Ze liet een enorme leegte achter in ons hart.
-    </p>
+                    <p class="ce-door-tag">
 
-    <p>
-      Nala is de reden waarom Cœur Errant
-      blijft doorgaan. Voor haar en voor alle
-      dieren die een kans verdienen.
-    </p>
+                        Samen voor hen
 
-    <p>
-      Aan alle kleine zieltjes die ons
-      veel te vroeg hebben verlaten.
-      Jullie zullen nooit vergeten worden.
-    </p>
+                    </p>
 
-  </div>
+                    <h3>Bijdragen</h3>
 
-</section>
+                    <p>
 
-<!-- STEUNEN -->
+                        Omdat kleine gebaren
+                        een groot verschil kunnen maken.
 
-<section class="cta" id="soutenir">
+                    </p>
 
-  <p class="section-tag" style="justify-content:center;">
-    Samen maken we het verschil
-  </p>
+                    <span class="ce-door-link">
 
-  <h2>
-    Een klein gebaar kan <em>een leven veranderen.</em>
-  </h2>
+                        Word deel van het avontuur ↗
 
-  <p class="cta-desc">
-    Een maaltijd, een gedeeld bericht, een boek
-    of een gebaar van solidariteit.
-    Er zijn zoveel manieren om Cœur Errant
-    te steunen en ervoor te zorgen dat
-    zwerfdieren minder onzichtbaar worden.
-  </p>
+                    </span>
 
-  <div class="cta-actions">
+                </div>
 
-    <a href="soutenir-nl.html" class="btn-primary">
-      Steun Cœur Errant
-    </a>
+            </a>
 
-    <a href="#livres" class="btn-outline">
-      Ontdek mijn boeken
-    </a>
+            <!-- HET KONINKRIJK -->
 
-  </div>
+            <a href="passeport-nl.html"
+               class="ce-door ce-door-kingdom ce-reveal">
 
-</section>
+                <div class="ce-door-number">05</div>
+
+                <div class="ce-door-symbol"
+                     aria-hidden="true">❖</div>
+
+                <div class="ce-door-content">
+
+                    <p class="ce-door-tag">
+
+                        Een betoverde wereld
+
+                    </p>
+
+                    <h3>Verkennen</h3>
+
+                    <p>
+
+                        Verborgen schatten, mysterieuze plekken
+                        en een avontuur dat je zelf schrijft.
+
+                    </p>
+
+                    <span class="ce-door-link">
+
+                        Betreed het Koninkrijk ↗
+
+                    </span>
+
+                </div>
+
+            </a>
+
+            <!-- PRAKTISCHE TIPS -->
+
+            <a href="agir-nl.html"
+               class="ce-door ce-door-advice ce-reveal">
+
+                <div class="ce-door-number">06</div>
+
+                <div class="ce-door-symbol"
+                     aria-hidden="true">✦</div>
+
+                <div class="ce-door-content">
+
+                    <p class="ce-door-tag">
+
+                        De juiste gebaren
+
+                    </p>
+
+                    <h3>Helpen</h3>
+
+                    <p>
+
+                        Leer hoe je kan reageren wanneer
+                        een klein zieltje je pad kruist.
+
+                    </p>
+
+                    <span class="ce-door-link">
+
+                        Ontdek de tips ↗
+
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         INTERACTIEVE KAART
+         ===================================== -->
+
+    <section class="ce-map-section" id="destinations">
+
+        <div class="ce-section-heading ce-reveal">
+
+            <p class="ce-label">
+
+                Mijn reisdagboek zonder grenzen
+
+            </p>
+
+            <h2>
+
+                Waar mijn voetstappen
+
+                <em>me hebben gebracht.</em>
+
+            </h2>
+
+            <p>
+
+                Plekken, herinneringen en kleine zieltjes
+                die ik tijdens mijn reizen heb ontmoet.
+
+                Verken de kaart en ontdek mijn reisverhaal.
+
+            </p>
+
+        </div>
+
+        <div class="ce-map-frame ce-reveal">
+
+            <div class="ce-map-top">
+
+                <span>✧ De wereld van Cœur Errant</span>
+
+                <span>Sinds 2023</span>
+
+            </div>
+
+            <div id="ce-map"
+                 aria-label="Interactieve kaart van mijn reizen">
+
+                <p class="ce-map-loading">
+
+                    Het reisdagboek wordt geladen…
+
+                </p>
+
+            </div>
+
+            <div class="ce-map-bottom">
+
+                <span>
+
+                    ♡ Eén pootafdruk, één bestemming.
+
+                </span>
+
+                <button id="ce-map-reset"
+                        type="button">
+
+                    Kaart opnieuw centreren
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <a href="voyages-nl.html"
+           class="ce-text-link">
+
+            Ontdek de verhalen achter deze reizen ↗
+
+        </a>
+
+    </section>
+
+    <!-- =====================================
+         EEN BRIEF OM TE OPENEN
+         ===================================== -->
+
+    <section class="ce-letter-section ce-reveal">
+
+        <p class="ce-label">
+
+            Een paar woorden voor jou
+
+        </p>
+
+        <h2>
+
+            Een kleine brief,
+
+            <em>een grote boodschap.</em>
+
+        </h2>
+
+        <p>
+
+            Klik op de envelop en ontdek haar geheim.
+
+        </p>
+
+        <button class="ce-envelope-button"
+                id="ce-envelope"
+                type="button"
+                aria-label="Brief openen"
+                aria-expanded="false"
+                aria-controls="ce-letter-message">
+
+            <span class="ce-envelope-back"></span>
+
+            <span class="ce-envelope-paper">
+
+                Voor jou ♡
+
+            </span>
+
+            <span class="ce-envelope-front"></span>
+
+            <span class="ce-envelope-flap"></span>
+
+            <span class="ce-envelope-seal">♡</span>
+
+        </button>
+
+        <div class="ce-letter-message"
+             id="ce-letter-message"
+             hidden>
+
+            <p>Aan jou, die hier even langskomt,</p>
+
+            <p>
+
+                De volgende keer dat je een dier op straat
+                tegenkomt, neem dan even de tijd om het
+                echt te zien.
+
+                Misschien wacht het gewoon op wat water,
+                een maaltijd of een liefdevol gebaar.
+
+            </p>
+
+            <p>
+
+                We kunnen niet de hele wereld
+                in één dag veranderen.
+
+                Maar we kunnen wel iemands dag
+                een beetje mooier maken.
+
+            </p>
+
+            <p class="ce-letter-signature">
+
+                Met heel mijn hart,<br>
+
+                Cœur Errant ♡
+
+            </p>
+
+        </div>
+
+    </section>    <!-- =====================================
+         ONZE STERREN
+         ===================================== -->
+
+    <section class="ce-stars" id="nos-etoiles">
+
+        <div class="ce-sky"
+             aria-hidden="true"></div>
+
+        <div class="ce-stars-content ce-reveal">
+
+            <p class="ce-label">
+
+                Voor wie in ons hart blijft voortleven
+
+            </p>
+
+            <div class="ce-star-main"
+                 aria-hidden="true">
+
+                ✧
+
+            </div>
+
+            <h2>
+
+                Sommige zieltjes
+
+                <em>verlaten ons nooit.</em>
+
+            </h2>
+
+            <p>
+
+                Ze hebben mijn pad gekruist.
+
+                Vandaag schitteren ze op een andere manier verder.
+
+            </p>
+
+            <a href="etoiles-nl.html"
+               class="ce-star-button">
+
+                Betreed hun sterrenhemel ✧
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         VOLGENDE BESTEMMING
+         ===================================== -->
+
+    <section class="ce-next ce-reveal">
+
+        <div class="ce-ticket">
+
+            <div class="ce-ticket-main">
+
+                <p class="ce-label">
+
+                    Het volgende hoofdstuk
+
+                </p>
+
+                <h2>
+
+                    Ergens,
+
+                    <em>ver weg.</em>
+
+                </h2>
+
+                <p>
+
+                    Een nieuwe bestemming.
+
+                    Nieuwe ontmoetingen.
+
+                    Een missie die dezelfde blijft.
+
+                </p>
+
+                <a href="voyages-nl.html#prochain-voyage"
+                   class="ce-text-link">
+
+                    Ontdek de volgende reis ↗
+
+                </a>
+
+            </div>
+
+            <div class="ce-ticket-side">
+
+                <span class="ce-ticket-plane"
+                      aria-hidden="true">
+
+                    ✈
+
+                </span>
+
+                <span>BESTEMMING</span>
+
+                <strong>Geheim</strong>
+
+                <span>December 2026</span>
+
+                <div class="ce-barcode"
+                     aria-hidden="true"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+         AFSLUITING
+         ===================================== -->
+
+    <section class="ce-ending ce-reveal">
+
+        <span class="ce-ending-heart"
+              aria-hidden="true">♡</span>
+
+        <h2>
+
+            De wereld verandert,
+
+            <em>met elk klein gebaar.</em>
+
+        </h2>
+
+        <p>
+
+            Bedankt dat je even de tijd hebt genomen
+            om mijn wereld te ontdekken.
+
+        </p>
+
+        <a href="soutenir-nl.html"
+           class="ce-button">
+
+            Laten we samen het verhaal verder schrijven
+
+        </a>
+
+    </section>
 
 </main>
 
-<!-- FOOTER -->
+<!-- =====================================
+     GEDEELDE FOOTER
+     ===================================== -->
 
-<footer>
+<footer class="ce-footer">
 
-  <div class="footer-logo">
-    <img src="logo.jpeg" alt="Cœur Errant">
-  </div>
+    <div class="ce-footer-decoration"
+         aria-hidden="true">
 
-  <div class="footer-divider"></div>
+        <span>♡</span>
+        <span>✧</span>
+        <span>♡</span>
+        <span>✦</span>
+        <span>♡</span>
 
-  <div class="footer-socials">
+    </div>
 
-    <a class="footer-social-link"
-       href="https://www.tiktok.com/@coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer">
+    <div class="ce-footer-inner">
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/tiktok/white"
-             alt="TikTok">
-      </div>
+        <div class="ce-footer-brand">
 
-      <span class="footer-social-name">TikTok</span>
+            <a href="index-nl.html"
+               aria-label="Terug naar de startpagina">
 
-    </a>
+                <img src="logo.jpeg"
+                     alt="Cœur Errant"
+                     loading="lazy">
 
-    <a class="footer-social-link"
-       href="https://www.instagram.com/coeur.errant/"
-       target="_blank"
-       rel="noopener noreferrer">
+            </a>
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/instagram/white"
-             alt="Instagram">
-      </div>
+            <h2>Cœur Errant</h2>
 
-      <span class="footer-social-name">Instagram</span>
+            <p class="ce-footer-tagline">
 
-    </a>
+                Elk dier heeft een verhaal.
 
-    <a class="footer-social-link"
-       href="https://www.youtube.com/@CoeurErrant"
-       target="_blank"
-       rel="noopener noreferrer">
+            </p>
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/youtube/white"
-             alt="YouTube">
-      </div>
+            <p class="ce-footer-description">
 
-      <span class="footer-social-name">YouTube</span>
+                Omdat zelfs de kleinste zieltjes
+                een plekje in deze wereld verdienen.
 
-    </a>
+            </p>
 
-    <a class="footer-social-link"
-       href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
-       target="_blank"
-       rel="noopener noreferrer">
+        </div>
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/facebook/white"
-             alt="Facebook">
-      </div>
+        <!-- SOCIALE MEDIA -->
 
-      <span class="footer-social-name">Facebook</span>
+        <div class="ce-footer-socials">
 
-    </a>
+            <a href="https://www.tiktok.com/@coeur_errant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="TikTok"
+               title="TikTok">
 
-    <a class="footer-social-link"
-       href="https://www.snapchat.com/add/coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer">
+                <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+                     alt=""
+                     loading="lazy">
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/snapchat/white"
-             alt="Snapchat">
-      </div>
+            </a>
 
-      <span class="footer-social-name">Snapchat</span>
+            <a href="https://www.instagram.com/coeur.errant/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram"
+               title="Instagram">
 
-    </a>
+                <img src="https://cdn.simpleicons.org/instagram/A85E68"
+                     alt=""
+                     loading="lazy">
 
-    <a class="footer-social-link"
-       href="mailto:coeur.errant@outlook.be">
+            </a>
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/gmail/white"
-             alt="E-mail">
-      </div>
+            <a href="https://www.youtube.com/@CoeurErrant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="YouTube"
+               title="YouTube">
 
-      <span class="footer-social-name">Contact</span>
+                <img src="https://cdn.simpleicons.org/youtube/A85E68"
+                     alt=""
+                     loading="lazy">
 
-    </a>
+            </a>
 
-  </div>
+            <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Facebook"
+               title="Facebook">
 
-  <div class="footer-divider"></div>
+                <img src="https://cdn.simpleicons.org/facebook/A85E68"
+                     alt=""
+                     loading="lazy">
 
-  <p class="footer-copy">
-    © <span id="annee"></span> Cœur Errant —
-    Elk dier heeft een verhaal.
-  </p>
+            </a>
 
-</footer>
+            <a href="https://www.snapchat.com/add/coeur_errant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Snapchat"
+               title="Snapchat">
 
-<!-- JAVASCRIPT -->
+                <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+                     alt=""
+                     loading="lazy">
+
+            </a>
+
+            <a href="mailto:coeur.errant@outlook.be"
+               aria-label="Contacteer mij via e-mail"
+               title="Contact">
+
+                <svg viewBox="0 0 24 24"
+                     width="20"
+                     height="20"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.5"
+                     aria-hidden="true">
+
+                    <rect x="2"
+                          y="4"
+                          width="20"
+                          height="16"
+                          rx="2"/>
+
+                    <path d="M3 6L12 13L21 6"/>
+
+                </svg>
+
+            </a>
+
+        </div>
+
+        <!-- FOOTERNAVIGATIE -->
+
+        <div class="ce-footer-navigation">
+
+            <div class="ce-footer-column">
+
+                <h3>Ontdekken</h3>
+
+                <a href="index-nl.html#histoire">
+
+                    Mijn verhaal
+
+                </a>
+
+                <a href="mission-nl.html">
+
+                    De missie
+
+                </a>
+
+                <a href="voyages-nl.html">
+
+                    Reizen
+
+                </a>
+
+                <a href="livres-nl.html">
+
+                    Mijn boeken
+
+                </a>
+
+            </div>
+
+            <div class="ce-footer-column">
+
+                <h3>Onze wereld</h3>
+
+                <a href="etoiles-nl.html">
+
+                    Onze sterren
+
+                </a>
+
+                <a href="passeport-nl.html">
+
+                    Het Koninkrijk
+
+                </a>
+
+                <a href="agir-nl.html">
+
+                    Hoe kan je helpen?
+
+                </a>
+
+                <a href="soutenir-nl.html">
+
+                    Steunen
+
+                </a>
+
+            </div>
+
+            <div class="ce-footer-column">
+
+                <h3>Blijf in contact</h3>
+
+                <a href="mailto:coeur.errant@outlook.be">
+
+                    Contacteer mij
+
+                </a>
+
+                <a href="https://www.instagram.com/coeur.errant/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    Volg het avontuur
+
+                </a>
+
+                <a href="index.html"
+                   lang="fr"
+                   hreflang="fr">
+
+                    Français
+
+                </a>
+
+                <a href="mentions-legales-nl.html">
+
+                    Juridische informatie en privacy
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="ce-footer-signature">
+
+            <span class="ce-footer-heart"
+                  aria-hidden="true">
+
+                ♡
+
+            </span>
+
+            <p>
+
+                Met liefde gemaakt, voor wie geen stem heeft.
+
+            </p>
+
+        </div>
+
+        <p class="ce-footer-copyright">
+
+            © <span id="annee">2026</span>
+            Cœur Errant — Alle rechten voorbehouden.
+
+        </p>
+
+    </div>
+
+</footer><!-- =====================================
+     KAARTBIBLIOTHEEK
+     ===================================== -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
 
-  // Teller sinds juni 2024
+(() => {
 
-  const debut = new Date('2024-06-01T00:00:00');
-  const aujourdhui = new Date();
+    "use strict";
 
-  const jours = Math.floor(
-    (aujourdhui - debut) / (1000 * 60 * 60 * 24)
-  );
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-  document.getElementById('compteur').textContent = jours;
+    /* =====================================
+       AUTOMATISCH JAARTAL
+       ===================================== */
 
-  // Automatisch jaartal
+    const year = document.getElementById("annee");
 
-  document.getElementById('annee').textContent =
-    new Date().getFullYear();
+    if (year) {
 
-  // Mobiel menu
+        year.textContent = new Date().getFullYear();
 
-  function toggleMenu() {
-
-    const menu = document.getElementById('nav-links');
-    const bouton = document.getElementById('hamburger');
-
-    const ouvert = menu.classList.toggle('open');
-
-    bouton.classList.toggle('open', ouvert);
-    bouton.setAttribute('aria-expanded', ouvert);
-    bouton.setAttribute(
-      'aria-label',
-      ouvert ? 'Menu sluiten' : 'Menu openen'
-    );
-
-  }
-
-  function closeMenu() {
-
-    document.getElementById('nav-links')
-      .classList.remove('open');
-
-    const bouton = document.getElementById('hamburger');
-
-    bouton.classList.remove('open');
-    bouton.setAttribute('aria-expanded', 'false');
-    bouton.setAttribute('aria-label', 'Menu openen');
-
-  }
-
-  // Menu sluiten met de Escape-toets
-
-  document.addEventListener('keydown', function(event) {
-
-    if (event.key === 'Escape') {
-      closeMenu();
     }
 
-  });
+    /* =====================================
+       MOBIEL MENU
+       ===================================== */
+
+    const navLinks = document.getElementById("nav-links");
+
+    const hamburger = document.getElementById("hamburger");
+
+    function setMenu(open) {
+
+        navLinks.classList.toggle("open", open);
+
+        hamburger.classList.toggle("open", open);
+
+        hamburger.setAttribute(
+            "aria-expanded",
+            String(open)
+        );
+
+        hamburger.setAttribute(
+            "aria-label",
+            open ? "Menu sluiten" : "Menu openen"
+        );
+
+    }
+
+    function closeMenu() {
+
+        setMenu(false);
+
+    }
+
+    hamburger.addEventListener("click", () => {
+
+        const isOpen = navLinks.classList.contains("open");
+
+        setMenu(!isOpen);
+
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", closeMenu);
+
+    });
+
+    document.addEventListener("keydown", event => {
+
+        if (
+            event.key === "Escape" &&
+            navLinks.classList.contains("open")
+        ) {
+
+            closeMenu();
+
+            hamburger.focus();
+
+        }
+
+    });
+
+    document.addEventListener("click", event => {
+
+        if (
+            navLinks.classList.contains("open") &&
+            !navLinks.contains(event.target) &&
+            !hamburger.contains(event.target)
+        ) {
+
+            closeMenu();
+
+        }
+
+    });
+
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 1100) {
+
+            closeMenu();
+
+        }
+
+    });
+
+    /* =====================================
+       ANIMATIES TIJDENS HET SCROLLEN
+       ===================================== */
+
+    if (
+        "IntersectionObserver" in window &&
+        !reducedMotion
+    ) {
+
+        document.body.classList.add("ce-animations");
+
+        const observer = new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "ce-visible"
+                        );
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+        document.querySelectorAll(".ce-reveal")
+            .forEach(element => {
+
+                observer.observe(element);
+
+            });
+
+    }
+
+    /* =====================================
+       INTERACTIEVE ENVELOP
+       ===================================== */
+
+    const envelope = document.getElementById(
+        "ce-envelope"
+    );
+
+    const letter = document.getElementById(
+        "ce-letter-message"
+    );
+
+    if (envelope && letter) {
+
+        envelope.addEventListener("click", () => {
+
+            const isOpen = envelope.classList.toggle(
+                "ce-envelope-open"
+            );
+
+            envelope.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            envelope.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Brief sluiten"
+                    : "Brief openen"
+            );
+
+            letter.hidden = !isOpen;
+
+        });
+
+    }
+
+    /* =====================================
+       STERRENHEMEL
+       ===================================== */
+
+    const sky = document.querySelector(".ce-sky");
+
+    if (sky) {
+
+        const numberOfStars = reducedMotion ? 30 : 55;
+
+        for (let i = 0; i < numberOfStars; i++) {
+
+            const star = document.createElement("span");
+
+            star.className = "ce-small-star";
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+            star.style.animationDelay =
+                Math.random() * 5 + "s";
+
+            star.style.animationDuration =
+                2 + Math.random() * 4 + "s";
+
+            if (reducedMotion) {
+
+                star.style.animation = "none";
+
+            }
+
+            const size = 1 + Math.random() * 3;
+
+            star.style.width = size + "px";
+
+            star.style.height = size + "px";
+
+            sky.appendChild(star);
+
+        }
+
+    }
+
+    /* =====================================
+       BESTEMMINGEN
+       ===================================== */
+
+    const destinations = [
+
+        {
+            name: "Corsica, Frankrijk",
+            date: "April 2023",
+            lat: 42.15,
+            lng: 9.10,
+            link: "voyages-nl.html#annee-2023"
+        },
+
+        {
+            name: "Tanger, Marokko",
+            date: "Juni 2024 en september 2025",
+            lat: 35.7595,
+            lng: -5.8340,
+            link: "voyages-nl.html#annee-2024",
+            secondLink: "voyages-nl.html#annee-2025"
+        },
+
+        {
+            name: "Sciacca, Sicilië",
+            date: "Augustus 2024",
+            lat: 37.507,
+            lng: 13.083,
+            link: "voyages-nl.html#annee-2024"
+        },
+
+        {
+            name: "Palermo, Sicilië",
+            date: "Augustus 2024",
+            lat: 38.1157,
+            lng: 13.3615,
+            link: "voyages-nl.html#annee-2024"
+        },
+
+        {
+            name: "Agrigento, Sicilië",
+            date: "Augustus 2024",
+            lat: 37.3111,
+            lng: 13.5765,
+            link: "voyages-nl.html#annee-2024"
+        },
+
+        {
+            name: "Casteltermini, Sicilië",
+            date: "Augustus 2024",
+            lat: 37.539,
+            lng: 13.646,
+            link: "voyages-nl.html#annee-2024"
+        },
+
+        {
+            name: "Warschau, Polen",
+            date: "Januari 2025",
+            lat: 52.2297,
+            lng: 21.0122,
+            link: "voyages-nl.html#annee-2025"
+        },
+
+        {
+            name: "Chefchaouen, Marokko",
+            date: "September 2025",
+            lat: 35.1714,
+            lng: -5.2697,
+            link: "voyages-nl.html#annee-2025"
+        },
+
+        {
+            name: "Akchour, Marokko",
+            date: "September 2025",
+            lat: 35.237,
+            lng: -5.176,
+            link: "voyages-nl.html#annee-2025"
+        },
+
+        {
+            name: "Istanbul, Turkije",
+            date: "November 2025",
+            lat: 41.0082,
+            lng: 28.9784,
+            link: "voyages-nl.html#annee-2025"
+        },
+
+        {
+            name: "Skopje, Noord-Macedonië",
+            date: "Januari 2026",
+            lat: 41.9981,
+            lng: 21.4254,
+            link: "voyages-nl.html#annee-2026"
+        },
+
+        {
+            name: "Pristina, Kosovo",
+            date: "Januari 2026",
+            lat: 42.6629,
+            lng: 21.1655,
+            link: "voyages-nl.html#annee-2026"
+        },
+
+        {
+            name: "Tirana, Albanië",
+            date: "Januari 2026",
+            lat: 41.3275,
+            lng: 19.8187,
+            link: "voyages-nl.html#annee-2026"
+        },
+
+        {
+            name: "Marrakech, Marokko",
+            date: "Juni 2026",
+            lat: 31.6295,
+            lng: -7.9811,
+            link: "voyages-nl.html#djibou"
+        },
+
+        {
+            name: "Agadir, Marokko",
+            date: "Juni 2026",
+            lat: 30.4278,
+            lng: -9.5981,
+            link: "voyages-nl.html#annee-2026"
+        },
+
+        {
+            name: "Djerba, Tunesië",
+            date: "Augustus 2026",
+            lat: 33.8076,
+            lng: 10.8451,
+            link: "voyages-nl.html#annee-2026"
+        }
+
+    ];
+
+    /* =====================================
+       INTERACTIEVE KAART
+       ===================================== */
+
+    const mapContainer = document.getElementById(
+        "ce-map"
+    );
+
+    const mapReset = document.getElementById(
+        "ce-map-reset"
+    );
+
+    function showMapFallback() {
+
+        mapContainer.innerHTML = `
+
+            <div class="ce-map-fallback">
+
+                <p>
+
+                    De kaart is tijdelijk niet beschikbaar.
+
+                </p>
+
+                <a href="voyages-nl.html">
+
+                    Ontdek mijn bestemmingen
+                    in het reisdagboek ↗
+
+                </a>
+
+            </div>
+
+        `;
+
+        mapReset.hidden = true;
+
+    }
+
+    function initializeMap() {
+
+        if (typeof L === "undefined") {
+
+            showMapFallback();
+
+            return;
+
+        }
+
+        mapContainer.innerHTML = "";
+
+        const map = L.map("ce-map", {
+
+            scrollWheelZoom: false,
+
+            minZoom: 2,
+
+            maxZoom: 16,
+
+            zoomAnimation: !reducedMotion,
+
+            fadeAnimation: !reducedMotion,
+
+            markerZoomAnimation: !reducedMotion
+
+        });
+
+        L.tileLayer(
+
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+
+            {
+
+                maxZoom: 19,
+
+                attribution:
+
+                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+
+            }
+
+        ).addTo(map);
+
+        const heartIcon = L.divIcon({
+
+            className: "ce-map-icon",
+
+            html: "<span>♡</span>",
+
+            iconSize: [30, 30],
+
+            iconAnchor: [15, 15],
+
+            popupAnchor: [0, -18]
+
+        });
+
+        const bounds = [];
+
+        destinations.forEach(destination => {
+
+            const position = [
+
+                destination.lat,
+
+                destination.lng
+
+            ];
+
+            bounds.push(position);
+
+            const popup = document.createElement("div");
+
+            popup.className = "ce-map-popup";
+
+            const heading = document.createElement("h3");
+
+            heading.textContent = destination.name;
+
+            popup.appendChild(heading);
+
+            const date = document.createElement("p");
+
+            date.textContent = destination.date;
+
+            popup.appendChild(date);
+
+            const link = document.createElement("a");
+
+            link.href = destination.link;
+
+            link.textContent = destination.secondLink
+
+                ? "De reis van juni 2024 ↗"
+
+                : "Ontdek deze reis ↗";
+
+            popup.appendChild(link);
+
+            if (destination.secondLink) {
+
+                popup.appendChild(
+                    document.createElement("br")
+                );
+
+                const secondLink = document.createElement("a");
+
+                secondLink.href = destination.secondLink;
+
+                secondLink.textContent =
+                    "De reis van september 2025 ↗";
+
+                popup.appendChild(secondLink);
+
+            }
+
+            L.marker(position, {
+
+                icon: heartIcon,
+
+                title: destination.name,
+
+                alt: destination.name
+
+            })
+
+            .addTo(map)
+
+            .bindPopup(popup);
+
+        });
+
+        function resetMap() {
+
+            map.fitBounds(bounds, {
+
+                padding: [35, 35],
+
+                animate: !reducedMotion
+
+            });
+
+        }
+
+        resetMap();
+
+        mapReset.addEventListener("click", resetMap);
+
+        if ("ResizeObserver" in window) {
+
+            const mapObserver = new ResizeObserver(() => {
+
+                map.invalidateSize({
+
+                    pan: false
+
+                });
+
+            });
+
+            mapObserver.observe(mapContainer);
+
+        }
+
+    }
+
+    /*
+     * De kaart wordt geladen wanneer de bezoeker
+     * deze sectie nadert.
+     */
+
+    if (mapContainer && mapReset) {
+
+        if ("IntersectionObserver" in window) {
+
+            const mapObserver = new IntersectionObserver(
+
+                entries => {
+
+                    if (entries.some(entry => entry.isIntersecting)) {
+
+                        mapObserver.disconnect();
+
+                        initializeMap();
+
+                    }
+
+                },
+
+                {
+
+                    rootMargin: "200px"
+
+                }
+
+            );
+
+            mapObserver.observe(mapContainer);
+
+        } else {
+
+            initializeMap();
+
+        }
+
+    }
+
+})();
 
 </script>
 
 </body>
+
 </html>

@@ -1,349 +1,3167 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>De Missie — Cœur Errant</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-  .mission-hero {
-    padding: 10rem 5rem 5rem;
-    background: var(--charcoal);
-    color: var(--cream);
-  }
-  .mission-hero .section-tag { color: var(--accent); }
-  .mission-hero .section-tag::before { background: var(--accent); }
-  .mission-hero h1 { color: var(--cream); font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
-  .mission-hero h1 em { color: var(--accent); }
-  .mission-hero p { font-size: 1rem; font-weight: 300; color: rgba(250,248,245,0.6); max-width: 50ch; line-height: 1.8; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  .mission-intro {
-    padding: 7rem 5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
+  <title>De missie — Cœur Errant</title>
 
-  .mission-intro-text p {
-    font-size: 1rem; font-weight: 300; line-height: 1.95;
-    color: var(--muted); margin-bottom: 1.5rem;
-  }
+  <meta name="description" content="Ontdek de missie van Cœur Errant en beleef het dagelijkse leven van zwerfdieren. Samen veranderen we hun wereld, met elk klein gebaar.">
+  <meta name="theme-color" content="#faf8f5">
+  <meta name="author" content="Cœur Errant">
+  <meta name="robots" content="index, follow">
 
-  .mission-intro-image {
-    aspect-ratio: 4/5;
-    background: var(--warm);
-    border: 0.5px solid var(--border);
-    overflow: hidden;
-  }
+  <link rel="canonical" href="https://coeurerrant.github.io/Coeur-errant/mission-nl.html">
+  <link rel="alternate" hreflang="fr" href="https://coeurerrant.github.io/Coeur-errant/mission.html">
+  <link rel="alternate" hreflang="nl" href="https://coeurerrant.github.io/Coeur-errant/mission-nl.html">
 
-  .mission-intro-image img {
-    width: 100%; height: 100%;
-    object-fit: contain;
-    display: block;
-    background: var(--warm);
-  }
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cœur Errant">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:title" content="De missie — Cœur Errant">
+  <meta property="og:description" content="Wat als we hun wereld konden veranderen? Ontdek de missie van Cœur Errant.">
+  <meta property="og:image" content="https://coeurerrant.github.io/Coeur-errant/hero2.jpeg">
+  <meta property="og:url" content="https://coeurerrant.github.io/Coeur-errant/mission-nl.html">
 
-  .valeurs { background: var(--warm); padding: 7rem 5rem; }
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="De missie — Cœur Errant">
+  <meta name="twitter:description" content="Samen veranderen we hun wereld, met elk klein gebaar.">
+  <meta name="twitter:image" content="https://coeurerrant.github.io/Coeur-errant/hero2.jpeg">
 
-  .valeurs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 4rem;
-  }
+  <link rel="icon" type="image/jpeg" href="logo.jpeg">
+  <link rel="apple-touch-icon" href="logo.jpeg">
 
-  .valeur-item {
-    background: var(--cream);
-    border: 0.5px solid var(--border);
-    padding: 2.5rem;
-    transition: transform 0.2s;
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  .valeur-item:hover { transform: translateY(-4px); }
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  .valeur-icon { font-size: 2rem; margin-bottom: 1.5rem; display: block; }
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mission.css">
+  <link rel="stylesheet" href="global.css">
 
-  .valeur-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; font-weight: 300;
-    margin-bottom: 1rem; line-height: 1.2;
-  }
-
-  .valeur-title em { font-style: italic; color: var(--accent); }
-
-  .valeur-desc { font-size: 0.9rem; font-weight: 300; line-height: 1.85; color: var(--muted); }
-
-  .journee { padding: 7rem 5rem; }
-
-  .journee-steps { margin-top: 4rem; position: relative; }
-
-  .journee-steps::before {
-    content: '';
-    position: absolute;
-    left: 8.5rem;
-    top: 0; bottom: 0;
-    width: 0.5px;
-    background: var(--border);
-  }
-
-  .journee-step {
-    display: grid;
-    grid-template-columns: 6rem 2rem 1fr;
-    gap: 1.5rem;
-    margin-bottom: 3.5rem;
-    position: relative;
-    align-items: start;
-  }
-
-  .step-time {
-    font-size: 0.68rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    padding-top: 0.2rem;
-    text-align: right;
-  }
-
-  .step-dot {
-    width: 1rem; height: 1rem;
-    border-radius: 50%;
-    background: var(--cream);
-    border: 2px solid var(--pink);
-    flex-shrink: 0;
-    margin-top: 0.15rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step-content h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-weight: 300;
-    margin-bottom: 0.75rem;
-  }
-
-  .step-content h4 em { font-style: italic; color: var(--accent); }
-
-  .step-content p {
-    font-size: 0.9rem; font-weight: 300; line-height: 1.85;
-    color: var(--muted); max-width: 60ch;
-  }
-
-  .histoire-profonde {
-    background: var(--charcoal);
-    padding: 7rem 5rem;
-    color: var(--cream);
-  }
-
-  .histoire-profonde .section-tag { color: var(--accent); }
-  .histoire-profonde .section-tag::before { background: var(--accent); }
-  .histoire-profonde h2 { color: var(--cream); }
-  .histoire-profonde h2 em { color: var(--accent); }
-
-  .histoire-profonde-text p {
-    font-size: 1rem; font-weight: 300; line-height: 1.95;
-    color: rgba(250,248,245,0.65); margin-bottom: 1.5rem;
-    max-width: 65ch;
-  }
-
-  .histoire-profonde .origin-quote {
-    border-left: 2px solid var(--accent);
-    background: rgba(196,168,130,0.08);
-    max-width: 55ch;
-    margin: 2.5rem 0;
-  }
-
-  .histoire-profonde .origin-quote p {
-    color: var(--cream) !important;
-    margin-bottom: 0 !important;
-  }
-
-  @media (max-width: 768px) {
-    .mission-hero { padding: 7rem 2rem 3rem; }
-    .mission-intro { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
-    .mission-intro-image { display: none; }
-    .valeurs { padding: 4rem 2rem; }
-    .valeurs-grid { grid-template-columns: 1fr; }
-    .journee { padding: 4rem 2rem; }
-    .journee-steps::before { left: 5.5rem; }
-    .histoire-profonde { padding: 4rem 2rem; }
-  }
-</style>
+  <script src="global.js" defer></script>
 </head>
+
 <body>
 
-<nav>
-  <a class="nav-logo" href="index-nl.html">
-    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
-    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; letter-spacing:0.15em;">CŒUR ERRANT</span>
+<!-- ======================================
+     NAVIGATIE
+     ====================================== -->
+
+<nav aria-label="Hoofdnavigatie">
+
+  <a class="nav-logo" href="index-nl.html" aria-label="Cœur Errant — Home">
+    <img src="logo.jpeg" alt="Cœur Errant">
   </a>
+
   <ul class="nav-links" id="nav-links">
-    <li><a href="index-nl.html#verhaal" onclick="closeMenu()">Mijn verhaal</a></li>
-    <li><a href="mission-nl.html" onclick="closeMenu()">De missie</a></li>
-    <li><a href="voyages-nl.html" onclick="closeMenu()">Reizen</a></li>
-    <li><a href="soutenir-nl.html" onclick="closeMenu()">Steunen</a></li>
-    <li class="lang-mobile"><a href="mission.html" onclick="closeMenu()">🇫🇷 Français</a></li>
+
+    <li><a href="index-nl.html">Home</a></li>
+
+    <li>
+      <a href="mission-nl.html" class="active" aria-current="page">
+        De missie
+      </a>
+    </li>
+
+    <li><a href="voyages-nl.html">Reizen</a></li>
+    <li><a href="livres-nl.html">Mijn boeken</a></li>
+    <li><a href="etoiles-nl.html">Onze sterren</a></li>
+    <li><a href="agir-nl.html">Hoe kan je helpen?</a></li>
+    <li><a href="passeport-nl.html">Het Koninkrijk</a></li>
+    <li><a href="soutenir-nl.html">Steunen</a></li>
+
+    <li class="lang-mobile">
+      <a href="mission.html" lang="fr">Français</a>
+    </li>
+
   </ul>
+
   <div class="lang-switcher">
-    <a href="mission.html" class="lang-btn">FR</a>
-    <span class="lang-sep">|</span>
-    <a href="mission-nl.html" class="lang-btn active">NL</a>
+    <a href="mission.html" class="lang-btn" lang="fr">FR</a>
+    <span class="lang-sep" aria-hidden="true">|</span>
+    <a href="mission-nl.html" class="lang-btn active" lang="nl">NL</a>
   </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
+
+  <button class="hamburger"
+          id="hamburger"
+          type="button"
+          onclick="toggleMenu()"
+          aria-label="Menu openen"
+          aria-controls="nav-links"
+          aria-expanded="false">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
   </button>
+
 </nav>
 
-<div class="mission-hero">
-  <p class="section-tag">De missie</p>
-  <h1>Waarom ik <em>dit doe</em></h1>
-  <p>Dit is geen ngo, dit is geen organisatie. Het is één persoon, één hart en één overtuiging: geen enkel dier zou van honger mogen sterven in algemene onverschilligheid.</p>
-</div>
+<main class="mission-page">
 
-<section class="mission-intro">
-  <div class="mission-intro-text">
-    <p class="section-tag">Mijn verhaal</p>
-    <h2>Van een <em>evidentie</em> naar een missie</h2>
-    <p>Alles begon in Tanger, in juni 2024. Wat een vakantie had moeten zijn, werd het startpunt van een menselijk en dierlijk avontuur dat ik niet had verwacht. Tegenover tientallen zwervende, uitgehongerde, lijdende dieren kon ik mijn blik niet afwenden.</p>
-    <p>Sindsdien reis ik anders. Ik zoek niet langer monumenten of stranden. Ik zoek de steegjes, de markten, de hotelparking, de wegkanten. Daar waar zwervende dieren leven, onzichtbaar voor de wereld.</p>
-    <p>Mijn reisbudget gaat in de eerste plaats naar hen. Niet naar restaurants, niet naar souvenirs. Naar voedsel, dierenartsconsultaties en reddingen. Het is geen offer, het is gewoon wie ik ben geworden.</p>
-  </div>
-  <div class="mission-intro-image">
-    <img src="hero2.jpeg" alt="Cœur Errant" onerror="this.style.display='none'">
-  </div>
-</section>
+  <!-- ======================================
+       IMMERSIEVE INTRODUCTIE
+       ====================================== -->
 
-<section class="valeurs">
-  <p class="section-tag">Mijn waarden</p>
-  <h2>Waar ik <em>in geloof</em></h2>
-  <div class="valeurs-grid">
-    <div class="valeur-item">
-      <span class="valeur-icon">🤍</span>
-      <h3 class="valeur-title"><em>Waardigheid</em> voor iedereen</h3>
-      <p class="valeur-desc">Elk zwervend dier verdient het om gezien, gevoed en met respect behandeld te worden. Ongeacht het land, ongeacht de straat. Waardigheid kent geen grenzen.</p>
-    </div>
-    <div class="valeur-item">
-      <span class="valeur-icon">🌍</span>
-      <h3 class="valeur-title"><em>Concrete</em> actie</h3>
-      <p class="valeur-desc">Geen grote speeches. Daden. 's Ochtends en 's avonds voederen, naar de dierenarts brengen, verenigingen contacteren, aanwezig blijven. Actie, altijd actie.</p>
-    </div>
-    <div class="valeur-item">
-      <span class="valeur-icon">👁️</span>
-      <h3 class="valeur-title">De <em>onzichtbaren</em> zichtbaar maken</h3>
-      <p class="valeur-desc">Op TikTok, op deze site, in mijn gesprekken. Deze dieren bestaan. Ze lijden. Ze tonen is al helpen. Bewustmaking is een vorm van actie.</p>
-    </div>
-    <div class="valeur-item">
-      <span class="valeur-icon">💸</span>
-      <h3 class="valeur-title">Zij <em>eerst</em></h3>
-      <p class="valeur-desc">Mijn reisbudget gaat in de eerste plaats naar hen. Restaurants, activiteiten, souvenirs kunnen wachten. Een uitgehongerd dier kan dat niet.</p>
-    </div>
-    <div class="valeur-item">
-      <span class="valeur-icon">🐾</span>
-      <h3 class="valeur-title"><em>Continuïteit</em></h3>
-      <p class="valeur-desc">Cœur Errant is geen eenmalig project. Het is een langetermijnverbintenis, reis na reis, land na land, dier na dier.</p>
-    </div>
-    <div class="valeur-item">
-      <span class="valeur-icon">🤝</span>
-      <h3 class="valeur-title"><em>Solidariteit</em></h3>
-      <p class="valeur-desc">Lokale verenigingen contacteren, pleeggezinnen vinden, voorbijgangers sensibiliseren. Elke redding is een collectieve inspanning.</p>
-    </div>
-  </div>
-</section>
+  <section class="mission-opening">
 
-<section class="journee">
-  <p class="section-tag">Een typische dag</p>
-  <h2>Hoe een <em>reis verloopt</em></h2>
-  <div class="journee-steps">
-    <div class="journee-step">
-      <span class="step-time">Ochtend</span>
-      <div class="step-dot"></div>
-      <div class="step-content">
-        <h4>De <em>ochtendronde</em></h4>
-        <p>Nog voor het ontbijt ga ik naar buiten met voedsel. Ik vind de dieren die ik de dag ervoor tegenkwam, en ontdek nieuwe. Elke ochtend is een nieuwe ontmoeting.</p>
+    <div class="mission-opening-image">
+      <img src="hero2.jpeg"
+           alt="Een ontmoeting die centraal staat in mijn inzet voor dieren"
+           fetchpriority="high">
+    </div>
+
+    <div class="mission-opening-overlay"></div>
+
+    <div class="mission-floating-paws" aria-hidden="true">
+      <span>🐾</span>
+      <span>🐾</span>
+      <span>🐾</span>
+      <span>🐾</span>
+      <span>🐾</span>
+    </div>
+
+    <div class="mission-opening-content">
+
+      <p class="mission-label mission-enter">
+        Een engagement zonder grenzen
+      </p>
+
+      <h1 class="mission-enter mission-delay-one">
+        Wat als we<br>
+        <em>hun wereld konden veranderen?</em>
+      </h1>
+
+      <div class="mission-opening-words">
+
+        <p class="mission-enter mission-delay-two">
+          Ze hebben niet voor de straat gekozen.
+        </p>
+
+        <p class="mission-enter mission-delay-three">
+          Ze hebben niet voor de eenzaamheid gekozen.
+        </p>
+
+        <p class="mission-enter mission-delay-four">
+          Maar wij kunnen ervoor kiezen om hen echt te zien.
+        </p>
+
       </div>
-    </div>
-    <div class="journee-step">
-      <span class="step-time">Dag</span>
-      <div class="step-dot"></div>
-      <div class="step-content">
-        <h4>Observeren, <em>zoeken, handelen</em></h4>
-        <p>Terwijl ik de stad verken, houd ik altijd een oog open. Een gewond dier, een eenzame pup, een uitgehongerde kat voor een winkel. Ik stop, beoordeel, handel. Dierenarts indien nodig, verenigingen gecontacteerd, voedsel gekocht.</p>
-      </div>
-    </div>
-    <div class="journee-step">
-      <span class="step-time">Avond</span>
-      <div class="step-dot"></div>
-      <div class="step-content">
-        <h4>De <em>avendronde</em></h4>
-        <p>Terug naar dezelfde plekken, dezelfde behaarde gezichtjes. Soms wachten ze al op me. Zoals 's avonds op Corsica, waar alle katten van de hotelparking al wisten dat ik zou komen.</p>
-      </div>
-    </div>
-    <div class="journee-step">
-      <span class="step-time">Nacht</span>
-      <div class="step-dot"></div>
-      <div class="step-content">
-        <h4>Getuigen, <em>delen</em></h4>
-        <p>'s Avonds film ik, fotografeer ik, vertel ik op TikTok. Omdat deze verhalen gehoord moeten worden. Omdat elk gedeeld bericht iemand kan sensibiliseren, misschien zelfs een roeping kan aanwakkeren.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="histoire-profonde">
-  <p class="section-tag">In de kern</p>
-  <h2>Wat deze missie me <em>heeft geleerd</em></h2>
-  <div class="histoire-profonde-text">
-    <p>We denken vaak dat wij de dieren helpen. Maar in werkelijkheid leren zij ons iets. De hond uit Kosovo die met zijn staart kwispelde te midden van puin leerde me veerkracht. De zwarte hond uit Skopje die op zijn rug ging liggen leerde me vertrouwen. De roodharige kat uit Sicilië die naast me liep leerde me dat gezelschap soms genoeg is.</p>
-    <div class="origin-quote">
-      <p>"Ik wist niet dat dieren voederen op straat mij zou voeden, dieper dan welke reis ook."</p>
+      <a href="#dans-leurs-pattes"
+         class="mission-button mission-enter mission-delay-five">
+        Bekijk de wereld met andere ogen ♡
+      </a>
+
     </div>
-    <p>Nala leerde me de pijn van het verliezen van iemand die je probeerde te redden. En dat die pijn, in plaats van te stoppen, moet aanzetten tot doorgaan. Voor haar. Voor hen. Voor al diegenen die nog in een straat wachten tot iemand hen ziet.</p>
-    <p>Cœur Errant, dat is het. Een hart dat zwerft, zoekt, voedt, getuigt. En dat niet zal stoppen.</p>
-  </div>
-</section>
 
-<footer>
-  <div class="footer-logo">
-    <img src="logo.jpeg" alt="Cœur Errant" onerror="this.style.display='none'; this.nextSibling.style.display='block'">
-    <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1rem; letter-spacing:0.15em; color:var(--cream);">CŒUR ERRANT</span>
-  </div>
-  <div class="footer-divider"></div>
-  <div class="footer-socials">
-    <a href="https://www.tiktok.com/@coeur_errant" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon"><img src="https://cdn.simpleicons.org/tiktok/white" alt="TikTok"></div>
-      <span class="footer-social-name">TikTok</span>
+    <a href="#dans-leurs-pattes"
+       class="mission-scroll"
+       aria-label="Ontdek de missie">
+      ↓
     </a>
-    <a href="https://www.youtube.com/@CoeurErrant" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon"><img src="https://cdn.simpleicons.org/youtube/white" alt="YouTube"></div>
-      <span class="footer-social-name">YouTube</span>
-    </a>
-    <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon"><img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook"></div>
-      <span class="footer-social-name">Facebook</span>
-    </a>
-    <a href="https://www.snapchat.com/add/coeur_errant" target="_blank" class="footer-social-link">
-      <div class="footer-social-icon"><img src="https://cdn.simpleicons.org/snapchat/white" alt="Snapchat"></div>
-      <span class="footer-social-name">Snapchat</span>
-    </a>
-    <a href="mailto:coeur.errant@outlook.be" class="footer-social-link">
-      <div class="footer-social-icon"><img src="https://cdn.simpleicons.org/gmail/white" alt="Mail"></div>
-      <span class="footer-social-name">Mail</span>
-    </a>
-  </div>
-  <div class="footer-divider"></div>
-  <p class="footer-copy">© 2025 Cœur Errant — De zwervende harten voeden</p>
-</footer>
 
-<script>
-  function toggleMenu() {
-    document.getElementById('nav-links').classList.toggle('open');
-    document.getElementById('hamburger').classList.toggle('open');
+  </section>
+
+
+  <!-- ======================================
+       EEN DAG OP HUN POTEN
+       CINEMATOGRAFISCHE ERVARING
+       ====================================== -->
+
+  <section class="animal-day-section"
+           id="dans-leurs-pattes">
+
+    <div class="mission-heading mission-reveal">
+
+      <p class="mission-label">
+        Een ervaring om hen beter te begrijpen
+      </p>
+
+      <h2>
+        Een dag
+        <em>door hun ogen.</em>
+      </h2>
+
+      <p>
+        Wat als je de wereld enkele ogenblikken
+        door zijn ogen zou kunnen zien?
+
+        Beleef, van de eerste zonnestraal tot de stilte
+        van de nacht, het dagelijkse leven van een hond
+        die er nooit voor gekozen heeft om op straat te leven.
+      </p>
+
+    </div>
+
+
+    <div class="animal-experience mission-cinema mission-reveal">
+
+      <!-- FOTOGRAFISCHE SCÈNES -->
+
+      <div class="animal-landscape"
+           id="animal-landscape"
+           data-period="morning">
+
+        <div class="realistic-landscape">
+
+          <img class="scene-background scene-morning scene-active"
+               src="mission-ruelle-matin.png"
+               alt="Een zwerfhond die wakker wordt in een steegje"
+               aria-hidden="false"
+               decoding="async">
+
+          <img class="scene-background scene-noon"
+               src="mission-ruelle-midi.png"
+               alt="Een hond die tijdens de hitte schaduw zoekt"
+               aria-hidden="true"
+               decoding="async">
+
+          <img class="scene-background scene-evening"
+               src="mission-ruelle-soir.png"
+               alt="Een zwerfhond op zoek naar eten"
+               aria-hidden="true"
+               decoding="async">
+
+          <img class="scene-background scene-night"
+               src="mission-ruelle-nuit.png"
+               alt="Een hond die op straat slaapt"
+               aria-hidden="true"
+               decoding="async">
+
+        </div>
+
+
+        <!-- CINEMATOGRAFISCH FILTER -->
+
+        <div class="cinema-overlay"
+             aria-hidden="true">
+        </div>
+
+
+        <!-- KLOK -->
+
+        <div class="landscape-clock">
+
+          <span id="day-clock">
+            07:00
+          </span>
+
+          <span id="day-period">
+            De ochtend
+          </span>
+
+        </div>
+
+
+        <!-- INDICATOR -->
+
+        <div class="cinema-indicator">
+
+          <span aria-hidden="true"></span>
+
+          Een dag uit zijn leven
+
+        </div>
+
+
+        <!-- VERHAAL -->
+
+        <div class="cinema-narration"
+             id="day-story"
+             aria-live="polite">
+
+          <p id="day-label"
+             class="mission-label">
+            01 — Het ontwaken
+          </p>
+
+          <h3 id="day-title">
+            Weer een nieuwe dag.
+          </h3>
+
+          <p id="day-description">
+            De zon komt op.
+            Ik word wakker waar ik in slaap ben gevallen,
+            op de nog koude straatstenen.
+            Ik weet niet wat deze dag me zal brengen.
+          </p>
+
+        </div>
+
+
+        <!-- AFSLUITING VAN DE ERVARING -->
+
+        <div class="cinema-ending"
+             id="cinema-ending"
+             hidden>
+
+          <p class="mission-label">
+            00:00 — Een nieuwe dag
+          </p>
+
+          <span class="cinema-ending-heart"
+                aria-hidden="true">
+            ♡
+          </span>
+
+          <h3>
+            Voor jou waren het maar enkele ogenblikken.
+
+            <em>
+              Voor hem is het een heel leven.
+            </em>
+          </h3>
+
+          <p>
+            Wat als zijn verhaal morgen zou kunnen veranderen?
+          </p>
+
+          <a href="agir-nl.html"
+             class="mission-button">
+            Ontdek hoe je kan helpen ♡
+          </a>
+
+          <button type="button"
+                  id="cinema-replay"
+                  class="cinema-replay">
+            ↻ Beleef zijn dag opnieuw
+          </button>
+
+        </div>
+
+
+        <!-- AFSPEELVOORTGANG -->
+
+        <div class="cinema-progress"
+             aria-hidden="true">
+
+          <div id="cinema-progress-fill"></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- BEDIENING VAN DE ERVARING -->
+
+      <div class="animal-experience-content">
+
+        <div class="cinema-controls">
+
+          <button type="button"
+                  id="cinema-play"
+                  class="cinema-control-button">
+            ▶ Beleef zijn dag
+          </button>
+
+          <button type="button"
+                  id="cinema-sound"
+                  class="cinema-control-button"
+                  aria-pressed="false">
+            ♫ Geluid inschakelen
+          </button>
+
+          <button type="button"
+                  id="cinema-restart"
+                  class="cinema-control-button">
+            ↻ Opnieuw beginnen
+          </button>
+
+        </div>
+
+
+        <!-- HANDMATIGE NAVIGATIE -->
+
+        <div class="day-slider-container">
+
+          <label for="day-slider">
+            Of ontdek zijn dag op je eigen tempo
+          </label>
+
+          <input type="range"
+                 id="day-slider"
+                 min="0"
+                 max="3"
+                 step="1"
+                 value="0"
+                 aria-valuetext="De ochtend">
+
+
+          <div class="day-moments">
+
+            <button type="button"
+                    class="day-moment active"
+                    data-moment="0"
+                    aria-pressed="true">
+
+              <span aria-hidden="true">☀</span>
+
+              Ochtend
+
+              <small>07:00</small>
+
+            </button>
+
+
+            <button type="button"
+                    class="day-moment"
+                    data-moment="1"
+                    aria-pressed="false">
+
+              <span aria-hidden="true">☀</span>
+
+              Middag
+
+              <small>12:00</small>
+
+            </button>
+
+
+            <button type="button"
+                    class="day-moment"
+                    data-moment="2"
+                    aria-pressed="false">
+
+              <span aria-hidden="true">◐</span>
+
+              Avond
+
+              <small>18:00</small>
+
+            </button>
+
+
+            <button type="button"
+                    class="day-moment"
+                    data-moment="3"
+                    aria-pressed="false">
+
+              <span aria-hidden="true">☾</span>
+
+              Nacht
+
+              <small>23:00</small>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <button type="button"
+                id="cinema-finish"
+                class="mission-text-link cinema-finish">
+          Ontdek het einde van zijn dag →
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <p class="experience-note">
+      Dit fictieve verhaal, geïllustreerd met gegenereerde
+      beelden, weerspiegelt enkele realiteiten waarmee
+      dieren op straat dagelijks worden geconfronteerd.
+    </p>
+
+  </section>  <!-- ======================================
+       WAAROM CŒUR ERRANT BESTAAT
+       ====================================== -->
+
+  <section class="mission-origin">
+
+    <div class="mission-origin-inner">
+
+      <div class="mission-origin-photo mission-reveal">
+
+        <img src="mission-regard.png"
+             class="mission-origin-illustration"
+             alt="Een moment van tederheid en vertrouwen met een zwerfhond"
+             loading="lazy"
+             decoding="async">
+
+        <div class="origin-photo-caption">
+          Het ontstaan van Cœur Errant
+        </div>
+
+        <span class="origin-photo-heart"
+              aria-hidden="true">
+          ♡
+        </span>
+
+      </div>
+
+
+      <div class="mission-origin-text mission-reveal">
+
+        <p class="mission-label">
+          Het verhaal achter Cœur Errant
+        </p>
+
+        <h2>
+          Ik kon niet langer
+          <em>wegkijken.</em>
+        </h2>
+
+        <p>
+          Cœur Errant is niet ontstaan
+          uit een groot, vooraf uitgestippeld project.
+
+          Het is ontstaan uit ontmoetingen,
+          blikken en een diep verlangen om te helpen.
+        </p>
+
+        <p>
+          In april 2023, op Corsica,
+          gaf ik elke dag zwerfkatten te eten,
+          zonder te beseffen dat deze kleine gebaren
+          het begin van een avontuur zouden worden.
+        </p>
+
+        <p>
+          In juni 2024, in Tanger,
+          besefte ik dat ik mijn reizen
+          een andere betekenis wilde geven.
+
+          Ik wilde de wereld blijven ontdekken,
+          maar ook de dieren helpen
+          die ik onderweg zou ontmoeten.
+        </p>
+
+        <p>
+          Vandaag is Cœur Errant
+          een persoonlijk engagement.
+
+          Het is geen ngo en ook geen vereniging.
+
+          Het is mijn wil om te doen wat ik kan,
+          met mijn eigen middelen,
+          en nooit degenen te vergeten
+          naar wie niemand meer omkijkt.
+        </p>
+
+        <blockquote class="mission-origin-quote">
+          Ik zal niet de hele wereld kunnen veranderen.
+
+          Maar ik kan wel proberen
+          een klein stukje van hun wereld te veranderen.
+        </blockquote>
+
+        <a href="voyages-nl.html"
+           class="mission-text-link">
+          Ontdek de weg die ik heb afgelegd ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       MIJN WAARDEN
+       ====================================== -->
+
+  <section class="mission-values">
+
+    <div class="mission-heading mission-reveal">
+
+      <p class="mission-label">
+        Wat mij bij elke stap leidt
+      </p>
+
+      <h2>
+        Zes overtuigingen.<br>
+        <em>Eén hart.</em>
+      </h2>
+
+      <p>
+        Ontdek de waarden die Cœur Errant
+        zijn betekenis geven.
+      </p>
+
+    </div>
+
+
+    <div class="mission-values-grid mission-reveal">
+
+      <!-- WAARDE 01 -->
+
+      <details class="mission-value">
+
+        <summary>
+
+          <span class="value-number">01</span>
+
+          <span class="value-symbol"
+                aria-hidden="true">♡</span>
+
+          <h3>Waardigheid</h3>
+
+          <span class="value-expand"
+                aria-hidden="true">+</span>
+
+        </summary>
+
+        <div class="value-content">
+
+          <p>
+            Elk dier verdient het om als een
+            volwaardig levend wezen te worden beschouwd.
+
+            Of het nu een thuis heeft of niet,
+            zijn leven is even waardevol.
+
+            Waardigheid kent geen grenzen.
+          </p>
+
+        </div>
+
+      </details>
+
+
+      <!-- WAARDE 02 -->
+
+      <details class="mission-value">
+
+        <summary>
+
+          <span class="value-number">02</span>
+
+          <span class="value-symbol"
+                aria-hidden="true">✧</span>
+
+          <h3>Daadkracht</h3>
+
+          <span class="value-expand"
+                aria-hidden="true">+</span>
+
+        </summary>
+
+        <div class="value-content">
+
+          <p>
+            Eten en water geven,
+            hulp zoeken,
+            indien nodig een dierenarts contacteren.
+
+            Ik geloof in concrete gebaren,
+            hoe klein ze ook zijn.
+          </p>
+
+        </div>
+
+      </details>
+
+
+      <!-- WAARDE 03 -->
+
+      <details class="mission-value">
+
+        <summary>
+
+          <span class="value-number">03</span>
+
+          <span class="value-symbol"
+                aria-hidden="true">◎</span>
+
+          <h3>Bewustmaking</h3>
+
+          <span class="value-expand"
+                aria-hidden="true">+</span>
+
+        </summary>
+
+        <div class="value-content">
+
+          <p>
+            Zwerfdieren fotograferen,
+            hun verhalen vertellen en delen.
+
+            Door hen zichtbaar te maken,
+            herinneren we de wereld eraan
+            dat ze bestaan en dat ze ertoe doen.
+          </p>
+
+        </div>
+
+      </details>
+
+
+      <!-- WAARDE 04 -->
+
+      <details class="mission-value">
+
+        <summary>
+
+          <span class="value-number">04</span>
+
+          <span class="value-symbol"
+                aria-hidden="true">❋</span>
+
+          <h3>Vrijgevigheid</h3>
+
+          <span class="value-expand"
+                aria-hidden="true">+</span>
+
+        </summary>
+
+        <div class="value-content">
+
+          <p>
+            Tijdens mijn reizen besteed ik
+            een deel van mijn budget
+            aan voeding en verzorging voor de dieren.
+
+            Een souvenir kan wachten.
+
+            Een dier dat honger heeft,
+            kan dat niet altijd.
+          </p>
+
+        </div>
+
+      </details>
+
+
+      <!-- WAARDE 05 -->
+
+      <details class="mission-value">
+
+        <summary>
+
+          <span class="value-number">05</span>
+
+          <span class="value-symbol"
+                aria-hidden="true">∞</span>
+
+          <h3>Volharding</h3>
+
+          <span class="value-expand"
+                aria-hidden="true">+</span>
+
+        </summary>
+
+        <div class="value-content">
+
+          <p>
+            Cœur Errant is geen eenmalige actie.
+
+            Het is een engagement dat ik
+            door de jaren heen wil voortzetten,
+            tijdens mijn reizen en ontmoetingen.
+          </p>
+
+        </div>
+
+      </details>
+
+
+      <!-- WAARDE 06 -->
+
+      <details class="mission-value">
+
+        <summary>
+
+          <span class="value-number">06</span>
+
+          <span class="value-symbol"
+                aria-hidden="true">♧</span>
+
+          <h3>Solidariteit</h3>
+
+          <span class="value-expand"
+                aria-hidden="true">+</span>
+
+        </summary>
+
+        <div class="value-content">
+
+          <p>
+            Niemand kan in zijn eentje alle dieren redden.
+
+            Lokale verenigingen, dierenartsen,
+            vrijwilligers en mensen met een warm hart
+            hebben allemaal een rol te spelen.
+
+            Samen kunnen we verder komen.
+          </p>
+
+        </div>
+
+      </details>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       MIJN MANIER VAN REIZEN
+       ====================================== -->
+
+  <section class="mission-travel-day">
+
+    <div class="mission-heading mission-reveal">
+
+      <p class="mission-label">
+        Anders reizen
+      </p>
+
+      <h2>
+        In mijn koffer
+        <em>is er altijd een plekje voor hen.</em>
+      </h2>
+
+      <p>
+        Mijn reizen zijn een manier geworden
+        om de wereld met andere ogen te ontdekken.
+
+        Zo kan een dag met Cœur Errant
+        eruitzien.
+      </p>
+
+    </div>
+
+    <div class="mission-travel-timeline">
+
+      <!-- OCHTEND -->
+
+      <article class="travel-moment mission-reveal">
+
+        <div class="travel-moment-icon"
+             aria-hidden="true">
+          ☀
+        </div>
+
+        <div class="travel-moment-content">
+
+          <p class="mission-label">De ochtend</p>
+
+          <h3>De kleine zieltjes terugzien.</h3>
+
+          <p>
+            Op pad gaan met dierenvoeding,
+            de dieren van de vorige dag terugvinden
+            en nieuwe vriendjes ontmoeten.
+          </p>
+
+        </div>
+
+      </article>
+
+      <!-- OVERDAG -->
+
+      <article class="travel-moment mission-reveal">
+
+        <div class="travel-moment-icon"
+             aria-hidden="true">
+          ♡
+        </div>
+
+        <div class="travel-moment-content">
+
+          <p class="mission-label">Overdag</p>
+
+          <h3>Observeren, begrijpen en handelen.</h3>
+
+          <p>
+            Mijn ogen openhouden tijdens mijn wandelingen.
+
+            Stilstaan wanneer een dier hulp nodig heeft
+            en op zoek gaan naar een oplossing
+            die past bij zijn situatie.
+          </p>
+
+        </div>
+
+      </article>
+
+      <!-- AVOND -->
+
+      <article class="travel-moment mission-reveal">
+
+        <div class="travel-moment-icon"
+             aria-hidden="true">
+          ◐
+        </div>
+
+        <div class="travel-moment-content">
+
+          <p class="mission-label">De avond</p>
+
+          <h3>Naar hen terugkeren.</h3>
+
+          <p>
+            Wanneer het mogelijk is,
+            terugkeren naar dezelfde straten.
+
+            Een maaltijd aanbieden,
+            even bij hen blijven
+            en soms een vertrouwde blik terugvinden.
+          </p>
+
+        </div>
+
+      </article>
+
+      <!-- NACHT -->
+
+      <article class="travel-moment mission-reveal">
+
+        <div class="travel-moment-icon"
+             aria-hidden="true">
+          ☾
+        </div>
+
+        <div class="travel-moment-content">
+
+          <p class="mission-label">De nacht</p>
+
+          <h3>Hun verhalen niet laten verdwijnen.</h3>
+
+          <p>
+            Mijn foto's, herinneringen
+            en getuigenissen verzamelen.
+
+            Ze delen, zodat deze kleine levens
+            niet onzichtbaar blijven.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>  <!-- ======================================
+       WAT ZE MIJ HEBBEN GELEERD
+       ====================================== -->
+
+  <section class="mission-lessons">
+
+    <div class="mission-lessons-inner mission-reveal">
+
+      <p class="mission-label">
+        Veel meer dan ontmoetingen
+      </p>
+
+      <h2>
+        Ik dacht dat ik hun iets kon geven.<br>
+        <em>Ze hebben mij zoveel geleerd.</em>
+      </h2>
+
+      <div class="lesson-carousel"
+           id="lesson-carousel"
+           aria-live="polite">
+
+        <span class="lesson-quotation"
+              aria-hidden="true">
+          “
+        </span>
+
+        <p id="lesson-text">
+          Vertrouwen kan je niet opeisen.
+          Je moet het verdienen, met tijd,
+          geduld en zachtheid.
+        </p>
+
+        <span id="lesson-theme">
+          Vertrouwen
+        </span>
+
+      </div>
+
+      <div class="lesson-controls">
+
+        <button type="button"
+                id="lesson-prev"
+                aria-label="Vorige levensles">
+          ←
+        </button>
+
+        <div class="lesson-dots">
+
+          <button type="button"
+                  class="lesson-dot active"
+                  data-lesson="0"
+                  aria-label="Vertrouwen"
+                  aria-pressed="true">
+          </button>
+
+          <button type="button"
+                  class="lesson-dot"
+                  data-lesson="1"
+                  aria-label="Veerkracht"
+                  aria-pressed="false">
+          </button>
+
+          <button type="button"
+                  class="lesson-dot"
+                  data-lesson="2"
+                  aria-label="Eenvoud"
+                  aria-pressed="false">
+          </button>
+
+          <button type="button"
+                  class="lesson-dot"
+                  data-lesson="3"
+                  aria-label="Hoop"
+                  aria-pressed="false">
+          </button>
+
+        </div>
+
+        <button type="button"
+                id="lesson-next"
+                aria-label="Volgende levensles">
+          →
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       EEN POOTAFDRUK ACHTERLATEN
+       ====================================== -->
+
+  <section class="mission-promise">
+
+    <div class="mission-heading mission-reveal">
+
+      <p class="mission-label">
+        Nu is het jouw beurt
+      </p>
+
+      <h2>
+        Laat een
+        <em>spoor van vriendelijkheid achter.</em>
+      </h2>
+
+      <p>
+        Je hoeft niet naar de andere kant
+        van de wereld te reizen
+        om een verschil te maken.
+
+        Alles kan beginnen waar je nu bent.
+      </p>
+
+    </div>
+
+    <div class="promise-card mission-reveal">
+
+      <div class="promise-paw-wrapper">
+
+        <div class="promise-paw-glow"></div>
+
+        <button class="promise-paw"
+                id="promise-paw"
+                type="button"
+                aria-label="Een symbolische pootafdruk achterlaten"
+                aria-pressed="false">
+
+          <svg viewBox="0 0 200 200"
+               aria-hidden="true">
+
+            <g class="promise-paw-shape">
+
+              <ellipse cx="48"
+                       cy="65"
+                       rx="20"
+                       ry="29"
+                       transform="rotate(-25 48 65)"/>
+
+              <ellipse cx="83"
+                       cy="39"
+                       rx="20"
+                       ry="29"
+                       transform="rotate(-10 83 39)"/>
+
+              <ellipse cx="125"
+                       cy="39"
+                       rx="20"
+                       ry="29"
+                       transform="rotate(10 125 39)"/>
+
+              <ellipse cx="160"
+                       cy="65"
+                       rx="20"
+                       ry="29"
+                       transform="rotate(25 160 65)"/>
+
+              <path d="M100 90
+                       C75 90 65 115 48 137
+                       C27 167 60 190 85 175
+                       Q100 165 115 175
+                       C140 190 173 167 152 137
+                       C135 115 125 90 100 90Z"/>
+
+            </g>
+
+            <path class="promise-paw-heart"
+                  d="M100 130
+                     C80 108 60 140 100 160
+                     C140 140 120 108 100 130Z"/>
+
+          </svg>
+
+        </button>
+
+        <div class="promise-sparkles"
+             aria-hidden="true">
+
+          <span>✧</span>
+          <span>♡</span>
+          <span>✦</span>
+          <span>♡</span>
+          <span>✧</span>
+
+        </div>
+
+      </div>
+
+      <h3 id="promise-title">
+        Een kleine belofte voor hen.
+      </h3>
+
+      <p id="promise-description"
+         aria-live="polite">
+
+        Klik op de pootafdruk
+        als symbool van jouw engagement
+        om met vriendelijkheid naar dieren te kijken.
+
+      </p>
+
+      <div class="promise-letter"
+           id="promise-letter"
+           hidden>
+
+        <p>
+          Ik beloof niet zomaar
+          weg te kijken.
+        </p>
+
+        <p>
+          Elk dier te respecteren,
+          het te helpen wanneer ik dat kan
+          en te onthouden dat zijn leven ertoe doet.
+        </p>
+
+        <span>
+          Een pootafdruk vanuit het hart. ♡
+        </span>
+
+      </div>
+
+      <button type="button"
+              id="promise-reset"
+              class="mission-text-link"
+              hidden>
+
+        Mijn pootafdruk verwijderen
+
+      </button>
+
+      <p class="promise-note">
+        Een symbolisch en persoonlijk engagement,
+        zonder registratie of verzameling van persoonsgegevens.
+        Je pootafdruk blijft zichtbaar tijdens dit bezoek,
+        zonder te worden opgeslagen in je browser.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       AFSLUITING
+       ====================================== -->
+
+  <section class="mission-ending">
+
+    <div class="mission-ending-content mission-reveal">
+
+      <div class="mission-ending-symbol"
+           aria-hidden="true">
+        ♡
+      </div>
+
+      <p class="mission-label">
+        Samen een beetje verder
+      </p>
+
+      <h2>
+        De wereld is immens.<br>
+        <em>Onze goedheid ook.</em>
+      </h2>
+
+      <p>
+        Ik weet niet hoeveel kleine zieltjes
+        mijn pad nog zullen kruisen.
+
+        Maar ik weet dat elk van hen
+        het verdient om gezien te worden.
+      </p>
+
+      <p>
+        Wat als wat meer mensen
+        aandacht voor hen zouden hebben?
+      </p>
+
+      <div class="mission-ending-actions">
+
+        <a href="agir-nl.html"
+           class="mission-button">
+          Leer hoe je hen kan helpen ♡
+        </a>
+
+        <a href="soutenir-nl.html"
+           class="mission-ending-secondary">
+          Steun Cœur Errant
+        </a>
+
+      </div>
+
+      <span class="mission-ending-signature">
+        Cœur Errant — Elk dier heeft een verhaal.
+      </span>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- ======================================
+     GEDEELDE FOOTER
+     ====================================== -->
+
+<footer class="ce-footer">
+
+  <div class="ce-footer-decoration"
+       aria-hidden="true">
+
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
+    <span>✦</span>
+    <span>♡</span>
+
+  </div>
+
+  <div class="ce-footer-inner">
+
+    <div class="ce-footer-brand">
+
+      <a href="index-nl.html"
+         aria-label="Terug naar de startpagina">
+
+        <img src="logo.jpeg"
+             alt="Cœur Errant"
+             loading="lazy">
+
+      </a>
+
+      <h2>Cœur Errant</h2>
+
+      <p class="ce-footer-tagline">
+        Elk dier heeft een verhaal.
+      </p>
+
+      <p class="ce-footer-description">
+        Omdat zelfs de kleinste zieltjes
+        een plekje in deze wereld verdienen.
+      </p>
+
+      <div class="ce-footer-socials">
+
+        <a href="https://www.tiktok.com/@coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant op TikTok">
+
+          <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant op Instagram">
+
+          <img src="https://cdn.simpleicons.org/instagram/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.youtube.com/@CoeurErrant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant op YouTube">
+
+          <img src="https://cdn.simpleicons.org/youtube/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant op Facebook">
+
+          <img src="https://cdn.simpleicons.org/facebook/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.snapchat.com/add/coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Cœur Errant op Snapchat">
+
+          <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="mailto:coeur.errant@outlook.be"
+           aria-label="Contact opnemen met Cœur Errant">
+
+          <svg viewBox="0 0 24 24"
+               width="20"
+               height="20"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.6"
+               aria-hidden="true">
+
+            <rect x="3" y="5"
+                  width="18" height="14"
+                  rx="2"/>
+
+            <path d="M3 7 L12 13 L21 7"/>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="ce-footer-navigation">
+
+      <div class="ce-footer-column">
+
+        <h3>Ontdekken</h3>
+
+        <a href="index-nl.html#histoire">
+          Mijn verhaal
+        </a>
+
+        <a href="mission-nl.html"
+           aria-current="page">
+          De missie
+        </a>
+
+        <a href="voyages-nl.html">
+          Reizen
+        </a>
+
+        <a href="livres-nl.html">
+          Mijn boeken
+        </a>
+
+      </div>
+
+      <div class="ce-footer-column">
+
+        <h3>Onze wereld</h3>
+
+        <a href="etoiles-nl.html">
+          Onze sterren
+        </a>
+
+        <a href="passeport-nl.html">
+          Het Koninkrijk
+        </a>
+
+        <a href="agir-nl.html">
+          Hoe kan je helpen?
+        </a>
+
+        <a href="soutenir-nl.html">
+          Steunen
+        </a>
+
+      </div>
+
+      <div class="ce-footer-column">
+
+        <h3>Blijf in contact</h3>
+
+        <a href="mailto:coeur.errant@outlook.be">
+          Contacteer ons
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Volg het avontuur
+        </a>
+
+        <a href="mission.html"
+           lang="fr">
+          Français
+        </a>
+
+        <a href="mentions-legales-nl.html">
+          Juridische informatie
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="ce-footer-signature">
+
+      <span class="ce-footer-heart"
+            aria-hidden="true">
+        ♡
+      </span>
+
+      <p>
+        Met liefde gemaakt, voor wie geen stem heeft.
+      </p>
+
+    </div>
+
+    <div class="ce-footer-copyright">
+
+      © <span id="footer-year">2026</span>
+      Cœur Errant — Alle rechten voorbehouden.
+
+    </div>
+
+  </div>
+
+</footer><script>
+
+(function () {
+
+  'use strict';
+
+  /* ======================================
+     AUTOMATISCH JAARTAL
+     ====================================== */
+
+  const footerYear = document.getElementById('footer-year');
+
+  if (footerYear) {
+    footerYear.textContent = new Date().getFullYear();
   }
+
+
+  /* ======================================
+     MOBIEL MENU
+     ====================================== */
+
+  const navLinks = document.getElementById('nav-links');
+
+  const hamburger = document.getElementById('hamburger');
+
+
+  function setMenu(isOpen) {
+
+    if (!navLinks || !hamburger) return;
+
+    navLinks.classList.toggle('open', isOpen);
+
+    hamburger.classList.toggle('open', isOpen);
+
+    hamburger.setAttribute(
+      'aria-expanded',
+      String(isOpen)
+    );
+
+    hamburger.setAttribute(
+      'aria-label',
+      isOpen ? 'Menu sluiten' : 'Menu openen'
+    );
+
+  }
+
+
+  window.toggleMenu = function () {
+
+    if (!navLinks) return;
+
+    setMenu(!navLinks.classList.contains('open'));
+
+  };
+
+
   function closeMenu() {
-    document.getElementById('nav-links').classList.remove('open');
-    document.getElementById('hamburger').classList.remove('open');
+
+    setMenu(false);
+
   }
+
+
+  if (navLinks && hamburger) {
+
+    navLinks.querySelectorAll('a').forEach(link => {
+
+      link.addEventListener('click', closeMenu);
+
+    });
+
+
+    document.addEventListener('keydown', event => {
+
+      if (
+        event.key === 'Escape' &&
+        navLinks.classList.contains('open')
+      ) {
+
+        closeMenu();
+
+        hamburger.focus();
+
+      }
+
+    });
+
+
+    document.addEventListener('click', event => {
+
+      if (
+        navLinks.classList.contains('open') &&
+        !navLinks.contains(event.target) &&
+        !hamburger.contains(event.target)
+      ) {
+
+        closeMenu();
+
+      }
+
+    });
+
+
+    window.addEventListener('resize', () => {
+
+      if (window.innerWidth > 1100) {
+
+        closeMenu();
+
+      }
+
+    });
+
+  }
+
+
+  /* ======================================
+     EEN DAG DOOR HUN OGEN
+     CINEMATOGRAFISCHE ERVARING
+     ====================================== */
+
+  function initializeCinema() {
+
+    const dayMoments = [
+
+      {
+
+        time: '07:00',
+
+        period: 'De ochtend',
+
+        theme: 'morning',
+
+        label: '01 — Het ontwaken',
+
+        title: 'Weer een nieuwe dag.',
+
+        description:
+          "De zon komt op. " +
+          "Ik word wakker waar ik in slaap ben gevallen, " +
+          "op de nog koude straatstenen. " +
+          "Ik weet niet wat deze dag me zal brengen."
+
+      },
+
+      {
+
+        time: '12:00',
+
+        period: 'De middag',
+
+        theme: 'noon',
+
+        label: '02 — De dorst',
+
+        title: 'Een paar druppels zouden al genoeg zijn.',
+
+        description:
+          "De zon maakt de straatstenen gloeiend heet. " +
+          "Ik zoek wat schaduw om uit te rusten. " +
+          "Ik heb dorst. Een eenvoudig kommetje water " +
+          "zou al een enorm geschenk zijn."
+
+      },
+
+      {
+
+        time: '18:00',
+
+        period: 'De avond',
+
+        theme: 'evening',
+
+        label: '03 — De honger',
+
+        title: 'Nog een paar stappen.',
+
+        description:
+          "De mensen gaan naar huis. " +
+          "Ik blijf verder wandelen. " +
+          "Ik zoek iets om te eten, " +
+          "zonder te weten of ik vanavond iets zal vinden."
+
+      },
+
+      {
+
+        time: '23:00',
+
+        period: 'De nacht',
+
+        theme: 'night',
+
+        label: '04 — De stilte',
+
+        title: 'Een plekje om mijn ogen te sluiten.',
+
+        description:
+          "Het wordt stil op straat. " +
+          "Ik kruip dicht tegen een muur, " +
+          "in de hoop dat ik zonder angst kan slapen. " +
+          "Morgen begint alles opnieuw."
+
+      }
+
+    ];
+
+
+    /* HTML-ELEMENTEN */
+
+    const daySlider =
+      document.getElementById('day-slider');
+
+    const landscape =
+      document.getElementById('animal-landscape');
+
+    const momentButtons =
+      document.querySelectorAll('.day-moment');
+
+    const dayClock =
+      document.getElementById('day-clock');
+
+    const dayPeriod =
+      document.getElementById('day-period');
+
+    const dayLabel =
+      document.getElementById('day-label');
+
+    const dayTitle =
+      document.getElementById('day-title');
+
+    const dayDescription =
+      document.getElementById('day-description');
+
+    const dayStory =
+      document.getElementById('day-story');
+
+    const cinemaPlay =
+      document.getElementById('cinema-play');
+
+    const cinemaSound =
+      document.getElementById('cinema-sound');
+
+    const cinemaRestart =
+      document.getElementById('cinema-restart');
+
+    const cinemaReplay =
+      document.getElementById('cinema-replay');
+
+    const cinemaFinish =
+      document.getElementById('cinema-finish');
+
+    const cinemaEnding =
+      document.getElementById('cinema-ending');
+
+    const cinemaProgress =
+      document.getElementById('cinema-progress-fill');
+
+
+    const requiredElements = [
+
+      daySlider,
+      landscape,
+      dayClock,
+      dayPeriod,
+      dayLabel,
+      dayTitle,
+      dayDescription,
+      dayStory,
+      cinemaPlay,
+      cinemaSound,
+      cinemaRestart,
+      cinemaReplay,
+      cinemaFinish,
+      cinemaEnding,
+      cinemaProgress
+
+    ];
+
+
+    if (requiredElements.some(element => !element)) {
+
+      console.warn(
+        'Cœur Errant: onvolledige cinematografische ervaring.'
+      );
+
+      return;
+
+    }
+
+
+    const sceneImages =
+      landscape.querySelectorAll('.scene-background');
+
+
+    /* DUUR VAN DE ERVARING */
+
+    const sceneDuration = 5000;
+
+    const totalDuration =
+      sceneDuration * dayMoments.length;
+
+
+    let currentMoment = 0;
+
+    let cinemaPlaying = false;
+
+    let cinemaFinished = false;
+
+    let cinemaElapsed = 0;
+
+    let cinemaLastFrame = null;
+
+    let cinemaFrame = null;
+
+
+    /* OPTIONEEL GELUID */
+
+    let cinemaSoundEnabled = false;
+
+    let cinemaAudioContext = null;
+
+    let cinemaAudioSource = null;
+
+    let cinemaAudioFilter = null;
+
+    let cinemaAudioGain = null;
+
+    let audioRequest = 0;
+
+
+    /* ======================================
+       ACHTERGRONDGELUID STOPPEN
+       ====================================== */
+
+    function stopCinemaAudio() {
+
+      audioRequest++;
+
+      if (cinemaAudioSource) {
+
+        try {
+
+          cinemaAudioSource.stop();
+
+        } catch (error) {}
+
+        cinemaAudioSource.disconnect();
+
+        cinemaAudioSource = null;
+
+      }
+
+      if (cinemaAudioFilter) {
+
+        cinemaAudioFilter.disconnect();
+
+        cinemaAudioFilter = null;
+
+      }
+
+      if (cinemaAudioGain) {
+
+        cinemaAudioGain.disconnect();
+
+        cinemaAudioGain = null;
+
+      }
+
+    }
+
+
+    /* ======================================
+       SUBTIEL ACHTERGRONDGELUID CREËREN
+       ====================================== */
+
+    async function playCinemaAudio() {
+
+      stopCinemaAudio();
+
+      if (
+        !cinemaSoundEnabled ||
+        !cinemaPlaying ||
+        cinemaFinished ||
+        document.hidden
+      ) return;
+
+
+      const request = audioRequest;
+
+
+      try {
+
+        const AudioContextClass =
+          window.AudioContext ||
+          window.webkitAudioContext;
+
+
+        if (!AudioContextClass) {
+
+          throw new Error('Audio niet beschikbaar');
+
+        }
+
+
+        if (!cinemaAudioContext) {
+
+          cinemaAudioContext =
+            new AudioContextClass();
+
+        }
+
+
+        await cinemaAudioContext.resume();
+
+
+        if (
+          request !== audioRequest ||
+          !cinemaSoundEnabled ||
+          !cinemaPlaying ||
+          cinemaFinished ||
+          document.hidden
+        ) return;
+
+
+        const context = cinemaAudioContext;
+
+        const length = context.sampleRate * 4;
+
+
+        const buffer = context.createBuffer(
+          1,
+          length,
+          context.sampleRate
+        );
+
+
+        const samples = buffer.getChannelData(0);
+
+        let previous = 0;
+
+
+        for (let i = 0; i < length; i++) {
+
+          previous =
+            (
+              previous +
+              0.02 * (Math.random() * 2 - 1)
+            ) / 1.02;
+
+
+          const fadeLength =
+            Math.floor(context.sampleRate * 0.05);
+
+
+          const fade = Math.min(
+            1,
+            i / fadeLength,
+            (length - 1 - i) / fadeLength
+          );
+
+
+          samples[i] = previous * 3.5 * fade;
+
+        }
+
+
+        const source = context.createBufferSource();
+
+        const filter = context.createBiquadFilter();
+
+        const gain = context.createGain();
+
+
+        source.buffer = buffer;
+
+        source.loop = true;
+
+
+        filter.type = 'lowpass';
+
+        filter.frequency.value =
+          [900, 600, 450, 180][currentMoment];
+
+
+        const volume =
+          [0.07, 0.045, 0.06, 0.025][currentMoment];
+
+
+        gain.gain.setValueAtTime(
+          0,
+          context.currentTime
+        );
+
+
+        gain.gain.linearRampToValueAtTime(
+          volume,
+          context.currentTime + 0.8
+        );
+
+
+        source.connect(filter);
+
+        filter.connect(gain);
+
+        gain.connect(context.destination);
+
+
+        source.start();
+
+
+        cinemaAudioSource = source;
+
+        cinemaAudioFilter = filter;
+
+        cinemaAudioGain = gain;
+
+      } catch (error) {
+
+        cinemaSoundEnabled = false;
+
+        cinemaSound.setAttribute(
+          'aria-pressed',
+          'false'
+        );
+
+        cinemaSound.textContent =
+          'Geluid niet beschikbaar';
+
+      }
+
+    }
+
+
+    /* ======================================
+       VAN SCÈNE VERANDEREN
+       ====================================== */
+
+    function updateDay(index) {
+
+      const moment = dayMoments[index];
+
+      if (!moment) return;
+
+
+      currentMoment = index;
+
+      cinemaFinished = false;
+
+
+      cinemaEnding.hidden = true;
+
+      dayStory.hidden = false;
+
+
+      landscape.classList.remove(
+        'cinema-finished'
+      );
+
+
+      landscape.dataset.period =
+        moment.theme;
+
+
+      dayClock.textContent =
+        moment.time;
+
+      dayPeriod.textContent =
+        moment.period;
+
+      dayLabel.textContent =
+        moment.label;
+
+      dayTitle.textContent =
+        moment.title;
+
+      dayDescription.textContent =
+        moment.description;
+
+
+      daySlider.value = index;
+
+
+      daySlider.setAttribute(
+        'aria-valuetext',
+        moment.period + ' — ' + moment.time
+      );
+
+
+      daySlider.style.setProperty(
+        '--day-progress',
+        (index / 3 * 100) + '%'
+      );
+
+
+      momentButtons.forEach(button => {
+
+        const active =
+          Number(button.dataset.moment) === index;
+
+
+        button.classList.toggle(
+          'active',
+          active
+        );
+
+
+        button.setAttribute(
+          'aria-pressed',
+          String(active)
+        );
+
+      });
+
+
+      sceneImages.forEach(image => {
+
+        const active =
+          image.classList.contains(
+            'scene-' + moment.theme
+          );
+
+
+        image.classList.toggle(
+          'scene-active',
+          active
+        );
+
+
+        image.setAttribute(
+          'aria-hidden',
+          String(!active)
+        );
+
+      });
+
+
+      dayStory.classList.remove(
+        'cinema-text-enter'
+      );
+
+
+      void dayStory.offsetWidth;
+
+
+      dayStory.classList.add(
+        'cinema-text-enter'
+      );
+
+
+      if (cinemaPlaying) {
+
+        playCinemaAudio();
+
+      }
+
+    }
+
+
+    /* ======================================
+       AFSPEELVOORTGANG
+       ====================================== */
+
+    function updateCinemaProgress() {
+
+      const progress = Math.max(
+
+        0,
+
+        Math.min(
+          100,
+          cinemaElapsed / totalDuration * 100
+        )
+
+      );
+
+
+      cinemaProgress.style.width =
+        progress + '%';
+
+    }
+
+
+    /* ======================================
+       PAUZEREN
+       ====================================== */
+
+    function pauseCinema() {
+
+      cinemaPlaying = false;
+
+
+      if (cinemaFrame !== null) {
+
+        cancelAnimationFrame(cinemaFrame);
+
+      }
+
+
+      cinemaFrame = null;
+
+      cinemaLastFrame = null;
+
+
+      landscape.classList.remove(
+        'cinema-playing'
+      );
+
+
+      if (cinemaFinished) {
+
+        cinemaPlay.textContent =
+          '▶ Beleef zijn dag opnieuw';
+
+      } else if (cinemaElapsed === 0) {
+
+        cinemaPlay.textContent =
+          '▶ Beleef zijn dag';
+
+      } else {
+
+        cinemaPlay.textContent =
+          '▶ Verdergaan';
+
+      }
+
+
+      stopCinemaAudio();
+
+    }
+
+
+    /* ======================================
+       CINEMATOGRAFISCHE AFSLUITING
+       ====================================== */
+
+    function finishCinema() {
+
+      cinemaFinished = true;
+
+
+      pauseCinema();
+
+
+      cinemaElapsed = totalDuration;
+
+
+      updateCinemaProgress();
+
+
+      dayClock.textContent =
+        '00:00';
+
+
+      dayPeriod.textContent =
+        'Een nieuwe dag';
+
+
+      dayStory.hidden = true;
+
+      cinemaEnding.hidden = false;
+
+
+      landscape.classList.add(
+        'cinema-finished'
+      );
+
+
+      cinemaPlay.textContent =
+        '▶ Beleef zijn dag opnieuw';
+
+    }
+
+
+    /* ======================================
+       AUTOMATISCH AFSPELEN
+       ====================================== */
+
+    function cinemaTick(timestamp) {
+
+      if (!cinemaPlaying) return;
+
+
+      if (cinemaLastFrame !== null) {
+
+        cinemaElapsed += Math.min(
+
+          timestamp - cinemaLastFrame,
+
+          100
+
+        );
+
+      }
+
+
+      cinemaLastFrame = timestamp;
+
+
+      const nextMoment = Math.floor(
+
+        cinemaElapsed / sceneDuration
+
+      );
+
+
+      if (nextMoment >= dayMoments.length) {
+
+        finishCinema();
+
+        return;
+
+      }
+
+
+      if (nextMoment !== currentMoment) {
+
+        updateDay(nextMoment);
+
+      }
+
+
+      updateCinemaProgress();
+
+
+      cinemaFrame =
+        requestAnimationFrame(cinemaTick);
+
+    }
+
+
+    /* ======================================
+       DE ERVARING STARTEN
+       ====================================== */
+
+    function startCinema() {
+
+      if (cinemaPlaying) return;
+
+
+      if (cinemaFinished) {
+
+        cinemaElapsed = 0;
+
+        updateDay(0);
+
+        updateCinemaProgress();
+
+      }
+
+
+      cinemaPlaying = true;
+
+      cinemaLastFrame = null;
+
+
+      landscape.classList.add(
+        'cinema-playing'
+      );
+
+
+      cinemaPlay.textContent =
+        'Ⅱ Pauzeren';
+
+
+      playCinemaAudio();
+
+
+      cinemaFrame =
+        requestAnimationFrame(cinemaTick);
+
+    }
+
+
+    /* ======================================
+       HANDMATIG EEN MOMENT KIEZEN
+       ====================================== */
+
+    function selectCinemaMoment(index) {
+
+      if (
+        !Number.isInteger(index) ||
+        index < 0 ||
+        index >= dayMoments.length
+      ) return;
+
+
+      pauseCinema();
+
+
+      cinemaElapsed =
+        index * sceneDuration;
+
+
+      updateDay(index);
+
+      updateCinemaProgress();
+
+
+      cinemaPlay.textContent =
+        '▶ Beleef zijn dag';
+
+    }
+
+
+    /* SCHUIFREGELAAR */
+
+    daySlider.addEventListener(
+      'input',
+      event => {
+
+        selectCinemaMoment(
+          Number(event.target.value)
+        );
+
+      }
+    );
+
+
+    /* KNOPPEN VAN DE VIER MOMENTEN */
+
+    momentButtons.forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        selectCinemaMoment(
+          Number(button.dataset.moment)
+        );
+
+      });
+
+    });
+
+
+    /* AFSPELEN EN PAUZEREN */
+
+    cinemaPlay.addEventListener('click', () => {
+
+      if (cinemaPlaying) {
+
+        pauseCinema();
+
+      } else {
+
+        startCinema();
+
+      }
+
+    });
+
+
+    /* OPNIEUW BEGINNEN */
+
+    cinemaRestart.addEventListener('click', () => {
+
+      selectCinemaMoment(0);
+
+    });
+
+
+    /* ZIJN DAG OPNIEUW BELEVEN */
+
+    cinemaReplay.addEventListener('click', () => {
+
+      selectCinemaMoment(0);
+
+      cinemaPlay.focus({
+        preventScroll: true
+      });
+
+      startCinema();
+
+    });
+
+
+    /* RECHTSTREEKS NAAR DE AFSLUITING */
+
+    cinemaFinish.addEventListener('click', () => {
+
+      pauseCinema();
+
+      updateDay(3);
+
+      finishCinema();
+
+
+      cinemaEnding.scrollIntoView({
+
+        behavior: window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches ? 'instant' : 'smooth',
+
+        block: 'center'
+
+      });
+
+    });
+
+
+    /* GELUID IN- OF UITSCHAKELEN */
+
+    cinemaSound.addEventListener('click', () => {
+
+      cinemaSoundEnabled =
+        !cinemaSoundEnabled;
+
+
+      cinemaSound.setAttribute(
+
+        'aria-pressed',
+
+        String(cinemaSoundEnabled)
+
+      );
+
+
+      cinemaSound.textContent =
+        cinemaSoundEnabled
+
+          ? '♫ Geluid uitschakelen'
+
+          : '♫ Geluid inschakelen';
+
+
+      if (cinemaSoundEnabled) {
+
+        playCinemaAudio();
+
+      } else {
+
+        stopCinemaAudio();
+
+      }
+
+    });
+
+
+    /* ======================================
+       AUTOMATISCH PAUZEREN
+       ====================================== */
+
+    document.addEventListener(
+      'visibilitychange',
+      () => {
+
+        if (
+          document.hidden &&
+          cinemaPlaying
+        ) {
+
+          pauseCinema();
+
+        }
+
+      }
+    );
+
+
+    if ('IntersectionObserver' in window) {
+
+      const cinemaObserver =
+        new IntersectionObserver(
+
+          entries => {
+
+            entries.forEach(entry => {
+
+              if (
+                !entry.isIntersecting &&
+                cinemaPlaying
+              ) {
+
+                pauseCinema();
+
+              }
+
+            });
+
+          },
+
+          {
+            threshold: 0
+          }
+
+        );
+
+
+      cinemaObserver.observe(
+        landscape
+      );
+
+    }
+
+
+    window.addEventListener(
+      'pagehide',
+      pauseCinema
+    );
+
+
+    /* ======================================
+       INITIALISATIE
+       ====================================== */
+
+    updateDay(0);
+
+    updateCinemaProgress();
+
+  }
+
+
+  initializeCinema();  /* ======================================
+     INTERACTIEVE WAARDEN
+     ====================================== */
+
+  const missionValues =
+    document.querySelectorAll('.mission-value');
+
+
+  missionValues.forEach(value => {
+
+    const expand =
+      value.querySelector('.value-expand');
+
+
+    function updateValue() {
+
+      if (expand) {
+
+        expand.textContent =
+          value.open ? '−' : '+';
+
+      }
+
+    }
+
+
+    value.addEventListener(
+      'toggle',
+      updateValue
+    );
+
+
+    updateValue();
+
+  });
+
+
+  /* ======================================
+     CARROUSEL MET LEVENSLESSEN
+     ====================================== */
+
+  const lessons = [
+
+    {
+
+      theme: 'Vertrouwen',
+
+      text:
+        "Vertrouwen kan je niet opeisen. " +
+        "Je moet het verdienen, met tijd, " +
+        "geduld en zachtheid."
+
+    },
+
+    {
+
+      theme: 'Veerkracht',
+
+      text:
+        "Zelfs wanneer het leven moeilijk is geweest, " +
+        "kunnen er nog momenten van vreugde zijn. " +
+        "De dieren herinneren mij daar bij elke ontmoeting aan."
+
+    },
+
+    {
+
+      theme: 'Eenvoud',
+
+      text:
+        "Het is niet altijd nodig om grote dingen te doen. " +
+        "Soms zijn wat gezelschap, een maaltijd of een blik " +
+        "voldoende om een moment wat zachter te maken."
+
+    },
+
+    {
+
+      theme: 'Hoop',
+
+      text:
+        "Ik kan het lot van elk dier niet bepalen. " +
+        "Maar ik kan er wel voor kiezen om te blijven proberen, " +
+        "reis na reis, ontmoeting na ontmoeting."
+
+    }
+
+  ];
+
+
+  let currentLesson = 0;
+
+
+  const lessonCarousel =
+    document.getElementById('lesson-carousel');
+
+  const lessonText =
+    document.getElementById('lesson-text');
+
+  const lessonTheme =
+    document.getElementById('lesson-theme');
+
+  const lessonPrevious =
+    document.getElementById('lesson-prev');
+
+  const lessonNext =
+    document.getElementById('lesson-next');
+
+  const lessonDots =
+    document.querySelectorAll('.lesson-dot');
+
+
+  function showLesson(index) {
+
+    if (!Number.isInteger(index)) return;
+
+    currentLesson =
+      (index + lessons.length) % lessons.length;
+
+    const lesson = lessons[currentLesson];
+
+
+    if (lessonText) {
+
+      lessonText.textContent = lesson.text;
+
+    }
+
+
+    if (lessonTheme) {
+
+      lessonTheme.textContent = lesson.theme;
+
+    }
+
+
+    if (lessonCarousel) {
+
+      lessonCarousel.classList.remove(
+        'lesson-changing'
+      );
+
+      void lessonCarousel.offsetWidth;
+
+      lessonCarousel.classList.add(
+        'lesson-changing'
+      );
+
+    }
+
+
+    lessonDots.forEach((dot, dotIndex) => {
+
+      const active = dotIndex === currentLesson;
+
+      dot.classList.toggle(
+        'active',
+        active
+      );
+
+      dot.setAttribute(
+        'aria-pressed',
+        String(active)
+      );
+
+    });
+
+  }
+
+
+  if (lessonPrevious) {
+
+    lessonPrevious.addEventListener('click', () => {
+
+      showLesson(currentLesson - 1);
+
+    });
+
+  }
+
+
+  if (lessonNext) {
+
+    lessonNext.addEventListener('click', () => {
+
+      showLesson(currentLesson + 1);
+
+    });
+
+  }
+
+
+  lessonDots.forEach(dot => {
+
+    dot.addEventListener('click', () => {
+
+      showLesson(Number(dot.dataset.lesson));
+
+    });
+
+  });
+
+
+  /* NAVIGATIE MET HET TOETSENBORD */
+
+  const lessonControls =
+    document.querySelector('.lesson-controls');
+
+
+  if (lessonControls) {
+
+    lessonControls.addEventListener(
+      'keydown',
+      event => {
+
+        if (event.key === 'ArrowLeft') {
+
+          event.preventDefault();
+
+          showLesson(currentLesson - 1);
+
+        }
+
+        if (event.key === 'ArrowRight') {
+
+          event.preventDefault();
+
+          showLesson(currentLesson + 1);
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* NAVIGATIE VIA AANRAKING */
+
+  let touchStartX = 0;
+
+  let touchStartY = 0;
+
+
+  if (lessonCarousel) {
+
+    lessonCarousel.addEventListener(
+      'touchstart',
+      event => {
+
+        touchStartX =
+          event.changedTouches[0].screenX;
+
+        touchStartY =
+          event.changedTouches[0].screenY;
+
+      },
+      { passive: true }
+    );
+
+
+    lessonCarousel.addEventListener(
+      'touchend',
+      event => {
+
+        const touchEndX =
+          event.changedTouches[0].screenX;
+
+        const touchEndY =
+          event.changedTouches[0].screenY;
+
+
+        const differenceX =
+          touchStartX - touchEndX;
+
+        const differenceY =
+          touchStartY - touchEndY;
+
+
+        if (
+          Math.abs(differenceX) < 50 ||
+          Math.abs(differenceX) <= Math.abs(differenceY)
+        ) return;
+
+
+        if (differenceX > 0) {
+
+          showLesson(currentLesson + 1);
+
+        } else {
+
+          showLesson(currentLesson - 1);
+
+        }
+
+      },
+      { passive: true }
+    );
+
+  }
+
+
+  showLesson(0);
+
+
+  /* ======================================
+     SYMBOLISCHE POOTAFDRUK
+     ====================================== */
+
+  const promisePaw =
+    document.getElementById('promise-paw');
+
+  const promiseCard =
+    document.querySelector('.promise-card');
+
+  const promiseLetter =
+    document.getElementById('promise-letter');
+
+  const promiseReset =
+    document.getElementById('promise-reset');
+
+  const promiseTitle =
+    document.getElementById('promise-title');
+
+  const promiseDescription =
+    document.getElementById('promise-description');
+
+
+  /*
+    De pootafdruk blijft alleen in het geheugen
+    tijdens het bezoek aan deze pagina.
+
+    Geen automatische lokale opslag.
+    Er worden geen persoonsgegevens opgeslagen.
+  */
+
+  let promiseMade = false;
+
+
+  function updatePromise() {
+
+    if (promiseCard) {
+
+      promiseCard.classList.toggle(
+        'promise-made',
+        promiseMade
+      );
+
+    }
+
+
+    if (promisePaw) {
+
+      promisePaw.setAttribute(
+        'aria-pressed',
+        String(promiseMade)
+      );
+
+      promisePaw.setAttribute(
+        'aria-label',
+        promiseMade
+
+          ? 'Je symbolische pootafdruk is aanwezig'
+
+          : 'Een symbolische pootafdruk achterlaten'
+      );
+
+    }
+
+
+    if (promiseLetter) {
+
+      promiseLetter.hidden = !promiseMade;
+
+    }
+
+
+    if (promiseReset) {
+
+      promiseReset.hidden = !promiseMade;
+
+    }
+
+
+    if (promiseTitle) {
+
+      promiseTitle.textContent = promiseMade
+
+        ? 'Je hebt je pootafdruk achtergelaten. ♡'
+
+        : 'Een kleine belofte voor hen.';
+
+    }
+
+
+    if (promiseDescription) {
+
+      promiseDescription.textContent = promiseMade
+
+        ? "Bedankt dat je ervoor kiest om met wat meer vriendelijkheid naar de wereld te kijken."
+
+        : "Klik op de pootafdruk als symbool van jouw engagement om met vriendelijkheid naar dieren te kijken.";
+
+    }
+
+  }
+
+
+  if (promisePaw) {
+
+    promisePaw.addEventListener('click', () => {
+
+      if (promiseMade) return;
+
+      promiseMade = true;
+
+      updatePromise();
+
+    });
+
+  }
+
+
+  if (promiseReset) {
+
+    promiseReset.addEventListener('click', () => {
+
+      promiseMade = false;
+
+      updatePromise();
+
+      if (promisePaw) {
+
+        promisePaw.focus();
+
+      }
+
+    });
+
+  }
+
+
+  updatePromise();
+
+
+  /* ======================================
+     ANIMATIES TIJDENS HET SCROLLEN
+     ====================================== */
+
+  const revealElements =
+    document.querySelectorAll('.mission-reveal');
+
+  const reducedMotion =
+    window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+
+
+  if (
+    'IntersectionObserver' in window &&
+    !reducedMotion.matches
+  ) {
+
+    const observer = new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add(
+              'mission-visible'
+            );
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+
+      {
+
+        threshold: 0.05,
+
+        rootMargin: '0px 0px -20px 0px'
+
+      }
+
+    );
+
+
+    document.body.classList.add(
+      'mission-animations'
+    );
+
+
+    revealElements.forEach(element => {
+
+      observer.observe(element);
+
+      element.addEventListener(
+        'focusin',
+        () => {
+
+          element.classList.add(
+            'mission-visible'
+          );
+
+          observer.unobserve(element);
+
+        },
+        { once: true }
+      );
+
+    });
+
+
+    function handleMotionChange(event) {
+
+      if (event.matches) {
+
+        observer.disconnect();
+
+        document.body.classList.remove(
+          'mission-animations'
+        );
+
+        revealElements.forEach(element => {
+
+          element.classList.add(
+            'mission-visible'
+          );
+
+        });
+
+      }
+
+    }
+
+
+    if (reducedMotion.addEventListener) {
+
+      reducedMotion.addEventListener(
+        'change',
+        handleMotionChange
+      );
+
+    }
+
+  } else {
+
+    revealElements.forEach(element => {
+
+      element.classList.add(
+        'mission-visible'
+      );
+
+    });
+
+  }
+
+
+  /* ======================================
+     TERUGKEREN NAAR DE PAGINA
+     ====================================== */
+
+  window.addEventListener('pageshow', event => {
+
+    if (event.persisted) {
+
+      closeMenu();
+
+      updatePromise();
+
+    }
+
+  });
+
+
+})();
+
 </script>
+
 </body>
+
 </html>
