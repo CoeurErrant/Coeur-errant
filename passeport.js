@@ -14,8 +14,9 @@
         "(prefers-reduced-motion: reduce)"
     ).matches;
 
+
     /* =========================================
-       LES 14 FRAGMENTS
+       LES 14 TRÉSORS
     ========================================== */
 
     const treasures = [
@@ -149,6 +150,7 @@
         dog: "Votre chien",
         rabbit: "Votre lapin"
     };
+
 
     /* =========================================
        SAUVEGARDE ET CONSENTEMENT
@@ -327,6 +329,7 @@
         }
     }
 
+
     /* =========================================
        ACTIVATION DE LA SAUVEGARDE
     ========================================== */
@@ -394,6 +397,7 @@
         }
     }
 
+
     /* =========================================
        RETRAIT DU CONSENTEMENT
     ========================================== */
@@ -432,6 +436,7 @@
         }
     }
 
+
     /* =========================================
        BOUTONS DE CONSENTEMENT
     ========================================== */
@@ -444,12 +449,6 @@
         const disableButton = $("disable-adventure-storage");
 
         let button = $("kingdom-consent-button");
-
-        /*
-         * Compatibilité avec le HTML original :
-         * création du bouton des paramètres uniquement
-         * si aucun bouton de retrait n'existe déjà.
-         */
 
         if (!button && !disableButton && note) {
             button = document.createElement("button");
@@ -526,10 +525,10 @@
                 "La sauvegarde locale est indisponible. Vous pouvez continuer votre exploration sans sauvegarde.";
         } else if (active) {
             message =
-                "Votre progression est conservée localement sur cet appareil. Vous pouvez retirer votre accord à tout moment.";
+                "Vos trésors et votre progression sont conservés localement sur cet appareil. Vous pouvez retirer votre accord à tout moment.";
         } else {
             message =
-                "La sauvegarde est désactivée. Activez-la pour conserver vos fragments entre les différentes pages du site.";
+                "La sauvegarde est désactivée. Activez-la pour retrouver vos trésors et votre progression lors de vos prochaines visites.";
         }
 
         if (note) {
@@ -599,6 +598,7 @@
         }
     }
 
+
     /* =========================================
        NOTIFICATIONS
     ========================================== */
@@ -630,6 +630,7 @@
             toast.hidden = true;
         }, 5000);
     }
+
 
     /* =========================================
        PARTICULES LUMINEUSES
@@ -682,6 +683,7 @@
         }
     }
 
+
     /* =========================================
        OUVERTURE DE LA PORTE
     ========================================== */
@@ -716,6 +718,7 @@
             button.disabled = false;
         }, reducedMotion ? 0 : 1600);
     });
+
 
     /* =========================================
        IDENTITÉ
@@ -889,24 +892,31 @@
                 );
             });
 
-        $("companion-personalization").hidden =
-            !state.companion;
-
-        $("companion-name").value =
-            state.companionName;
-
+        const personalization = $("companion-personalization");
+        const input = $("companion-name");
         const message = $("companion-message");
 
-        message.setAttribute("role", "status");
-        message.setAttribute("aria-live", "polite");
+        if (personalization) {
+            personalization.hidden = !state.companion;
+        }
 
-        message.textContent =
-            state.companionName
-                ? `${state.companionName} vous attend sur les chemins du royaume.`
-                : state.companion
-                    ? "Choisissez maintenant son prénom."
-                    : "";
+        if (input) {
+            input.value = state.companionName;
+        }
+
+        if (message) {
+            message.setAttribute("role", "status");
+            message.setAttribute("aria-live", "polite");
+
+            message.textContent =
+                state.companionName
+                    ? `${state.companionName} vous attend sur les chemins du royaume.`
+                    : state.companion
+                        ? "Choisissez maintenant son prénom."
+                        : "";
+        }
     }
+
 
     /* =========================================
        MÉDAILLON
@@ -914,6 +924,8 @@
 
     function renderMedallion() {
         const container = $("medallion-gems");
+
+        if (!container) return;
 
         container.replaceChildren();
 
@@ -952,7 +964,7 @@
 
             gem.title = discovered
                 ? treasure.name
-                : "Fragment encore caché";
+                : "Trésor encore à découvrir";
 
             gem.setAttribute("aria-hidden", "true");
 
@@ -961,14 +973,24 @@
 
         const count = state.stamps.length;
 
-        $("fragment-count").textContent = count;
-        $("fragment-total").textContent = treasures.length;
+        const counter = $("fragment-count");
+        const total = $("fragment-total");
+        const medallion = $("royal-medallion");
 
-        $("royal-medallion").classList.toggle(
+        if (counter) {
+            counter.textContent = count;
+        }
+
+        if (total) {
+            total.textContent = treasures.length;
+        }
+
+        medallion?.classList.toggle(
             "is-complete",
             count === treasures.length
         );
     }
+
 
     /* =========================================
        PROGRESSION
@@ -989,46 +1011,68 @@
         const count = state.stamps.length;
         const percent = count / treasures.length * 100;
 
-        $("kingdom-rank").textContent = getRank(count);
-
-        $("kingdom-progress-fill").style.width =
-            `${percent}%`;
-
+        const rank = $("kingdom-rank");
+        const progressFill = $("kingdom-progress-fill");
         const progressTrack = $("kingdom-progress-track");
+        const progressMessage = $("kingdom-progress-message");
 
-        progressTrack.setAttribute(
-            "role",
-            "progressbar"
-        );
+        if (rank) {
+            rank.textContent = getRank(count);
+        }
 
-        progressTrack.setAttribute(
-            "aria-valuemin",
-            "0"
-        );
+        if (progressFill) {
+            progressFill.style.width = `${percent}%`;
+        }
 
-        progressTrack.setAttribute(
-            "aria-valuemax",
-            String(treasures.length)
-        );
+        if (progressTrack) {
+            progressTrack.setAttribute(
+                "role",
+                "progressbar"
+            );
 
-        progressTrack.setAttribute(
-            "aria-valuenow",
-            String(count)
-        );
+            progressTrack.setAttribute(
+                "aria-valuemin",
+                "0"
+            );
 
-        progressTrack.setAttribute(
-            "aria-valuetext",
-            `${count} fragments sur ${treasures.length}`
-        );
+            progressTrack.setAttribute(
+                "aria-valuemax",
+                String(treasures.length)
+            );
+
+            progressTrack.setAttribute(
+                "aria-valuenow",
+                String(count)
+            );
+
+            progressTrack.setAttribute(
+                "aria-valuetext",
+                `${count} trésors retrouvés sur ${treasures.length}`
+            );
+        }
 
         const remaining = treasures.length - count;
 
-        $("kingdom-progress-message").textContent =
-            count === 14
-                ? "Toutes les lumières sont réunies. Le château vous attend."
-                : count === 0
-                    ? "Votre aventure ne fait que commencer."
-                    : `Il vous reste ${remaining} fragment${remaining > 1 ? "s" : ""} à découvrir.`;
+        if (progressMessage) {
+
+            if (count === treasures.length) {
+
+                progressMessage.textContent =
+                    "Félicitations ! Vous avez retrouvé les 14 trésors. Le château et votre passeport vous attendent.";
+
+            } else if (count === 0) {
+
+                progressMessage.textContent =
+                    "Explorez la carte aux trésors et réussissez votre premier mini-jeu pour commencer votre collection.";
+
+            } else {
+
+                progressMessage.textContent =
+                    `Vous avez retrouvé ${count} trésor${count > 1 ? "s" : ""} sur 14. Il vous en reste ${remaining} à découvrir.`;
+
+            }
+
+        }
 
         document.querySelectorAll("[data-milestone]")
             .forEach(item => {
@@ -1043,10 +1087,6 @@
                     reached
                 );
 
-                /*
-                 * Compatibilité avec passeport.css.
-                 */
-
                 item.classList.toggle(
                     "is-reached",
                     reached
@@ -1054,7 +1094,7 @@
 
                 item.setAttribute(
                     "aria-label",
-                    `${milestone} fragments — ${
+                    `${milestone} trésors — ${
                         reached
                             ? "Palier atteint"
                             : "Palier à atteindre"
@@ -1062,6 +1102,7 @@
                 );
             });
     }
+
 
     /* =========================================
        ILLUSTRATIONS DE SECOURS
@@ -1072,6 +1113,7 @@
         const color = treasure.color;
 
         const shapes = {
+
             shell: `
                 <path d="M60 95
                     C10 78 8 20 60 18
@@ -1082,6 +1124,7 @@
                     M60 95L92 35"
                     fill="none"/>
             `,
+
             feather: `
                 <path d="M25 105Q95 55 95 15
                     Q35 15 30 75Z"/>
@@ -1090,6 +1133,7 @@
                     M58 62L82 61"
                     fill="none"/>
             `,
+
             sun: `
                 <circle cx="60" cy="60" r="30"/>
                 <path d="M60 5V20
@@ -1102,6 +1146,7 @@
                     M88 32L100 20"
                     fill="none"/>
             `,
+
             snow: `
                 <path d="M60 8V112
                     M15 34L105 86
@@ -1114,6 +1159,7 @@
                     M92 28L82 47L102 48"
                     fill="none" stroke-width="4"/>
             `,
+
             heart: `
                 <path d="M60 100
                     C35 80 8 58 18 34
@@ -1121,6 +1167,7 @@
                     C71 15 93 12 102 34
                     C112 58 85 80 60 100Z"/>
             `,
+
             butterfly: `
                 <path d="M60 65
                     C8 65 5 12 30 15
@@ -1136,6 +1183,7 @@
                     M60 40L71 25"
                     fill="none"/>
             `,
+
             leaf: `
                 <path d="M25 100
                     Q10 25 100 15
@@ -1145,6 +1193,7 @@
                     M65 53L90 58"
                     fill="none"/>
             `,
+
             gem: `
                 <path d="M60 8L100 40
                     L85 92L60 112
@@ -1154,6 +1203,7 @@
                     M20 40H100"
                     fill="none"/>
             `,
+
             key: `
                 <circle cx="60" cy="28" r="20"
                     fill="none" stroke-width="8"/>
@@ -1162,6 +1212,7 @@
                     M60 100H75"
                     fill="none" stroke-width="8"/>
             `,
+
             star: `
                 <path d="M60 7L75 42
                     L113 45L84 70
@@ -1169,6 +1220,7 @@
                     L27 108L36 70
                     L7 45L45 42Z"/>
             `,
+
             hourglass: `
                 <path d="M30 15H90
                     M30 105H90"
@@ -1180,6 +1232,7 @@
                     Q38 75 60 60
                     Q82 45 82 18Z"/>
             `,
+
             lantern: `
                 <path d="M30 35L60 15L90 35Z"/>
                 <rect x="35" y="35"
@@ -1194,6 +1247,7 @@
                     Q75 70 60 85Z"
                     fill="#fff2c2"/>
             `,
+
             drop: `
                 <path d="M60 8
                     C50 35 20 60 25 82
@@ -1202,6 +1256,7 @@
                 <path d="M42 68Q32 90 50 95"
                     fill="none" stroke="#fff8"/>
             `,
+
             flower: `
                 <ellipse cx="60" cy="32"
                     rx="17" ry="26"/>
@@ -1221,21 +1276,25 @@
                 <svg viewBox="0 0 120 120"
                      aria-hidden="true"
                      focusable="false">
+
                     <path d="M60 12L98 60
                         L60 108L22 60Z"
                         fill="#3e2b3d"
                         stroke="#c4a477"
                         stroke-width="2"/>
+
                     <rect x="45" y="55"
                         width="30" height="25" rx="4"
                         fill="none"
                         stroke="#c4a477"
                         stroke-width="3"/>
+
                     <path d="M50 55V45
                         A10 10 0 0 1 70 45V55"
                         fill="none"
                         stroke="#c4a477"
                         stroke-width="3"/>
+
                 </svg>
             `;
         }
@@ -1244,17 +1303,22 @@
             <svg viewBox="0 0 120 120"
                  aria-hidden="true"
                  focusable="false">
+
                 <g fill="${color}"
                    stroke="#c4a477"
                    stroke-width="2.5"
                    stroke-linecap="round"
                    stroke-linejoin="round">
+
                     ${shapes[treasure.symbol] || shapes.gem}
+
                 </g>
+
                 <path d="M105 10V26
                     M97 18H113"
                     stroke="#e8c987"
                     stroke-width="2"/>
+
             </svg>
         `;
     }
@@ -1299,12 +1363,15 @@
         container.appendChild(image);
     }
 
+
     /* =========================================
-       COFFRET
+       COFFRET DES TRÉSORS
     ========================================== */
 
     function renderTreasures() {
         const grid = $("treasure-grid");
+
+        if (!grid) return;
 
         /*
          * Conserver le focus clavier si le coffret
@@ -1344,7 +1411,7 @@
                 `${treasure.destination} — ${
                     discovered
                         ? treasure.name
-                        : "Fragment encore caché"
+                        : "Trésor encore à découvrir"
                 }`
             );
 
@@ -1380,8 +1447,8 @@
             const status = document.createElement("small");
 
             status.textContent = discovered
-                ? "Retrouvé"
-                : "À découvrir";
+                ? "Trésor retrouvé"
+                : "Trésor à découvrir";
 
             card.append(visual, title, status);
 
@@ -1422,17 +1489,17 @@
         $("treasure-title").textContent =
             discovered
                 ? treasure.name
-                : "Un fragment mystérieux";
+                : "Un trésor mystérieux";
 
         $("treasure-meaning").textContent =
             discovered
                 ? treasure.meaning
-                : "Ce trésor attend encore d'être retrouvé au cours de votre exploration.";
+                : `Pour retrouver ce trésor, rendez-vous sur la carte aux trésors et réussissez le mini-jeu de ${treasure.destination}.`;
 
         $("treasure-status").textContent =
             discovered
-                ? "Une lumière de plus dans votre royaume."
-                : "Fragment non découvert";
+                ? "Ce trésor fait désormais partie de votre médaillon."
+                : "Trésor pas encore retrouvé";
 
         openDialog("treasure-dialog");
     }    /* =========================================
@@ -1442,50 +1509,130 @@
     const locations = {
         library: {
             title: "La bibliothèque des âmes",
-            image: "royaume-bibliotheque.webp",
+            image: "royaume-bibliotheque.png",
             required: 3,
             description:
                 "Dans le silence des livres anciens, une lettre semble vous attendre."
         },
         greenhouse: {
-            title: "La serre des merveilles",
-            image: "royaume-serre.webp",
+            title: "La serre des lumières",
+            image: "royaume-serre.png",
             required: 5,
             description:
                 "Parmi les roses, trois petits secrets se cachent dans la lumière."
         },
         lake: {
             title: "Le lac des souhaits",
-            image: "royaume-lac.webp",
+            image: "royaume-lac.png",
             required: 8,
             description:
                 "Confiez un souhait à l'eau et regardez votre lanterne s'éloigner."
         },
         spring: {
             title: "La source des merveilles",
-            image: "royaume-source.webp",
+            image: "royaume-source.png",
             required: 10,
             description:
                 "Une étrange lumière scintille sous la surface de l'eau."
         },
         castle: {
-            title: "Le château oublié",
-            image: "royaume-chateau.webp",
+            title: "Le château des cœurs errants",
+            image: "royaume-chateau.png",
             required: 14,
             description:
                 "Les portes du château s'ouvrent enfin. Toutes les lumières du royaume sont réunies."
         }
     };
 
-    function renderLocations() {
-        document.querySelectorAll("[data-location]")
-            .forEach(card => {
-                const required = Number(
-                    card.dataset.required
+
+    /* =========================================
+       SECRETS DÉCOUVERTS
+    ========================================== */
+
+    function isLocationExplored(id) {
+
+        switch (id) {
+
+            case "library":
+
+                return state.rewards.includes(
+                    "library-letter"
                 );
 
-                const unlocked =
-                    state.stamps.length >= required;
+            case "greenhouse":
+
+                return [0, 1, 2].every(index =>
+                    state.rewards.includes(
+                        `greenhouse-flower-${index}`
+                    )
+                );
+
+            case "lake":
+
+                return state.rewards.includes(
+                    "lake-lantern"
+                );
+
+            case "spring":
+
+                return state.rewards.includes(
+                    "spring-crystal"
+                );
+
+            case "castle":
+
+                return state.rewards.includes(
+                    "castle-letter"
+                );
+
+            default:
+
+                return false;
+
+        }
+
+    }
+
+
+    /* =========================================
+       PROGRESSION DES LIEUX SECRETS
+    ========================================== */
+
+    function renderLocations() {
+
+        const count = state.stamps.length;
+
+        document.querySelectorAll("[data-location]")
+            .forEach(card => {
+
+                const id = card.dataset.location;
+
+                const location = locations[id];
+
+                if (!location) return;
+
+                const required = location.required;
+
+                const unlocked = count >= required;
+
+                const explored =
+                    unlocked && isLocationExplored(id);
+
+                const remaining = Math.max(
+                    0,
+                    required - count
+                );
+
+                const current = Math.min(
+                    count,
+                    required
+                );
+
+                const percent =
+                    current / required * 100;
+
+
+                /* État du lieu */
 
                 card.classList.toggle(
                     "is-locked",
@@ -1497,6 +1644,96 @@
                     unlocked
                 );
 
+                card.classList.toggle(
+                    "is-explored",
+                    explored
+                );
+
+
+                /* Badge du lieu */
+
+                const requirement = card.querySelector(
+                    ".location-requirement"
+                );
+
+                if (requirement) {
+
+                    requirement.textContent = explored
+
+                        ? "Secret découvert ✓"
+
+                        : unlocked
+
+                            ? "Lieu débloqué ✧"
+
+                            : `À débloquer avec ${required} trésors`;
+
+                }
+
+
+                /* Compteur individuel */
+
+                const progressLabel = card.querySelector(
+                    ".location-progress-label"
+                );
+
+                if (progressLabel) {
+
+                    progressLabel.textContent =
+                        `${current} / ${required} trésors retrouvés`;
+
+                }
+
+
+                /* Barre de progression */
+
+                const progressTrack = card.querySelector(
+                    ".location-progress-track"
+                );
+
+                const progressFill = card.querySelector(
+                    ".location-progress-fill"
+                );
+
+                if (progressFill) {
+
+                    progressFill.style.width =
+                        `${percent}%`;
+
+                }
+
+                if (progressTrack) {
+
+                    progressTrack.setAttribute(
+                        "role",
+                        "progressbar"
+                    );
+
+                    progressTrack.setAttribute(
+                        "aria-valuemin",
+                        "0"
+                    );
+
+                    progressTrack.setAttribute(
+                        "aria-valuemax",
+                        String(required)
+                    );
+
+                    progressTrack.setAttribute(
+                        "aria-valuenow",
+                        String(current)
+                    );
+
+                    progressTrack.setAttribute(
+                        "aria-valuetext",
+                        `${current} trésors retrouvés sur ${required}`
+                    );
+
+                }
+
+
+                /* Bouton d'exploration */
+
                 const button = card.querySelector(
                     "[data-open-location]"
                 );
@@ -1505,9 +1742,22 @@
 
                 button.disabled = !unlocked;
 
-                button.textContent = unlocked
-                    ? "Explorer ce lieu"
-                    : `${required} fragments nécessaires`;
+                if (explored) {
+
+                    button.textContent =
+                        "Revisiter ce lieu";
+
+                } else if (unlocked) {
+
+                    button.textContent =
+                        "Explorer ce lieu";
+
+                } else {
+
+                    button.textContent =
+                        `Encore ${remaining} trésor${remaining > 1 ? "s" : ""} à retrouver`;
+
+                }
 
                 button.setAttribute(
                     "aria-haspopup",
@@ -1518,19 +1768,31 @@
                     "aria-controls",
                     "location-dialog"
                 );
+
             });
+
     }
+
+
+    /* =========================================
+       OUVERTURE DES LIEUX SECRETS
+    ========================================== */
 
     document.querySelectorAll("[data-open-location]")
         .forEach(button => {
+
             button.addEventListener("click", () => {
+
                 openLocation(
                     button.dataset.openLocation
                 );
+
             });
+
         });
 
     function openLocation(id) {
+
         const location = locations[id];
 
         if (
@@ -1538,60 +1800,87 @@
             state.stamps.length < location.required
         ) return;
 
-        $("location-dialog-title").textContent =
-            location.title;
+        const title = $("location-dialog-title");
 
-        $("location-dialog-description").textContent =
-            location.description;
+        const description = $("location-dialog-description");
 
         const image = $("location-dialog-image");
+
+        const interaction = $("location-interaction");
+
+        if (
+            !title ||
+            !description ||
+            !image ||
+            !interaction
+        ) return;
+
+        title.textContent = location.title;
+
+        description.textContent = location.description;
 
         image.style.backgroundImage =
             `url("${location.image}")`;
 
-        image.setAttribute("role", "img");
+        image.setAttribute(
+            "role",
+            "img"
+        );
 
         image.setAttribute(
             "aria-label",
             location.title
         );
 
-        const interaction = $("location-interaction");
-
         interaction.replaceChildren();
 
         if (id === "library") {
+
             createLibraryInteraction(interaction);
+
         }
 
         if (id === "greenhouse") {
+
             createGreenhouseInteraction(interaction);
+
         }
 
         if (id === "lake") {
+
             createLakeInteraction(interaction);
+
         }
 
         if (id === "spring") {
+
             createSpringInteraction(interaction);
+
         }
 
         if (id === "castle") {
+
             createCastleInteraction(interaction);
+
         }
 
         openDialog("location-dialog");
+
     }
+
 
     /* =========================================
        BIBLIOTHÈQUE — LETTRE SECRÈTE
     ========================================== */
 
     function createLibraryInteraction(container) {
+
         const button = document.createElement("button");
 
         button.type = "button";
+
         button.className = "kingdom-button";
+
         button.textContent = "Décacheter la lettre";
 
         button.setAttribute(
@@ -1607,14 +1896,18 @@
         const letter = document.createElement("div");
 
         letter.className = "location-letter";
+
         letter.id = "library-secret-letter";
+
         letter.hidden = true;
+
         letter.tabIndex = -1;
 
         letter.textContent =
             "Il n'est pas nécessaire de changer le monde entier pour faire une différence. Parfois, changer un seul instant dans la vie d'une petite âme suffit.";
 
         button.addEventListener("click", () => {
+
             letter.hidden = false;
 
             button.setAttribute(
@@ -1629,20 +1922,28 @@
             });
 
             unlockReward("library-letter");
+
         });
 
         container.append(button, letter);
+
     }
+
 
     /* =========================================
        SERRE — MESSAGES CACHÉS
     ========================================== */
 
     function createGreenhouseInteraction(container) {
+
         const messages = [
+
             "La douceur n'est jamais une faiblesse.",
+
             "Chaque vie mérite d'être regardée.",
+
             "La liberté est un trésor que nul ne devrait perdre."
+
         ];
 
         const buttons = document.createElement("div");
@@ -1650,7 +1951,10 @@
         buttons.className =
             "butterfly-buttons butterfly-options";
 
-        buttons.setAttribute("role", "group");
+        buttons.setAttribute(
+            "role",
+            "group"
+        );
 
         buttons.setAttribute(
             "aria-label",
@@ -1663,21 +1967,59 @@
 
         message.id = "greenhouse-message";
 
-        message.setAttribute("role", "status");
+        message.setAttribute(
+            "role",
+            "status"
+        );
 
-        message.setAttribute("aria-live", "polite");
+        message.setAttribute(
+            "aria-live",
+            "polite"
+        );
 
-        message.setAttribute("aria-atomic", "true");
+        message.setAttribute(
+            "aria-atomic",
+            "true"
+        );
 
         message.textContent =
-            "Choisissez l'une des trois fleurs.";
+            "Découvrez les trois fleurs pour révéler tous les messages secrets de la serre.";
+
+        const progress = document.createElement("p");
+
+        progress.className =
+            "greenhouse-progress";
+
+        function updateFlowerProgress() {
+
+            const discovered = [0, 1, 2].filter(index =>
+                state.rewards.includes(
+                    `greenhouse-flower-${index}`
+                )
+            ).length;
+
+            progress.textContent =
+                `${discovered} / 3 messages découverts`;
+
+        }
 
         messages.forEach((text, index) => {
+
             const button = document.createElement("button");
 
             button.type = "button";
+
             button.className = "butterfly-button";
+
             button.textContent = "❀";
+
+            const rewardId =
+                `greenhouse-flower-${index}`;
+
+            button.classList.toggle(
+                "is-discovered",
+                state.rewards.includes(rewardId)
+            );
 
             button.setAttribute(
                 "aria-label",
@@ -1690,24 +2032,40 @@
             );
 
             button.addEventListener("click", () => {
+
                 message.textContent = text;
 
-                unlockReward(
-                    `greenhouse-flower-${index}`
+                unlockReward(rewardId);
+
+                button.classList.add(
+                    "is-discovered"
                 );
+
+                updateFlowerProgress();
+
             });
 
             buttons.appendChild(button);
+
         });
 
-        container.append(buttons, message);
+        updateFlowerProgress();
+
+        container.append(
+            buttons,
+            message,
+            progress
+        );
+
     }
+
 
     /* =========================================
        LAC — LANTERNE DES SOUHAITS
     ========================================== */
 
     function createLakeInteraction(container) {
+
         const scene = document.createElement("div");
 
         scene.className = "lantern-scene";
@@ -1720,7 +2078,9 @@
         const textarea = document.createElement("textarea");
 
         textarea.className = "location-wish";
+
         textarea.placeholder = "Votre souhait...";
+
         textarea.maxLength = 300;
 
         textarea.setAttribute(
@@ -1747,24 +2107,39 @@
 
         const message = document.createElement("p");
 
-        message.setAttribute("role", "status");
+        message.setAttribute(
+            "role",
+            "status"
+        );
 
-        message.setAttribute("aria-live", "polite");
+        message.setAttribute(
+            "aria-live",
+            "polite"
+        );
 
-        message.setAttribute("aria-atomic", "true");
+        message.setAttribute(
+            "aria-atomic",
+            "true"
+        );
 
         message.hidden = true;
 
         const button = document.createElement("button");
 
         button.type = "button";
+
         button.className = "kingdom-button";
+
         button.textContent = "Libérer ma lanterne";
 
         button.addEventListener("click", () => {
+
             if (!textarea.value.trim()) {
+
                 textarea.focus();
+
                 return;
+
             }
 
             const lantern = document.createElement("span");
@@ -1783,8 +2158,11 @@
             unlockReward("lake-lantern");
 
             setTimeout(() => {
+
                 lantern.remove();
+
             }, 4200);
+
         });
 
         container.append(
@@ -1794,20 +2172,25 @@
             button,
             message
         );
+
     }
 
+
     /* =========================================
-       SOURCE — TRÉSOR SOUS L'EAU
+       SOURCE — SECRET SOUS L'EAU
     ========================================== */
 
     function createSpringInteraction(container) {
+
         const water = document.createElement("div");
 
-        water.className = "spring-water spring-pool";
+        water.className =
+            "spring-water spring-pool";
 
         const button = document.createElement("button");
 
         button.type = "button";
+
         button.textContent = "✧";
 
         button.setAttribute(
@@ -1824,11 +2207,20 @@
 
         message.id = "spring-discovery-message";
 
-        message.setAttribute("role", "status");
+        message.setAttribute(
+            "role",
+            "status"
+        );
 
-        message.setAttribute("aria-live", "polite");
+        message.setAttribute(
+            "aria-live",
+            "polite"
+        );
 
-        message.setAttribute("aria-atomic", "true");
+        message.setAttribute(
+            "aria-atomic",
+            "true"
+        );
 
         message.textContent =
             "Touchez la lumière à la surface de l'eau.";
@@ -1836,6 +2228,7 @@
         let rippleTimer;
 
         button.addEventListener("click", () => {
+
             const ripple = document.createElement("span");
 
             ripple.className = "water-ripple";
@@ -1846,137 +2239,222 @@
             );
 
             if (!reducedMotion) {
+
                 water.appendChild(ripple);
 
-                water.classList.remove("is-rippling");
+                water.classList.remove(
+                    "is-rippling"
+                );
 
                 void water.offsetWidth;
 
-                water.classList.add("is-rippling");
+                water.classList.add(
+                    "is-rippling"
+                );
 
                 clearTimeout(rippleTimer);
 
                 rippleTimer = setTimeout(() => {
-                    water.classList.remove("is-rippling");
+
+                    water.classList.remove(
+                        "is-rippling"
+                    );
+
                 }, 2100);
+
             }
 
             button.textContent = "◇";
 
             message.textContent =
-                "Vous avez découvert la pierre de sérénité, un trésor secret du royaume.";
+                "Vous avez découvert la pierre de sérénité, un secret précieux du royaume.";
 
-            const fresh = unlockReward("spring-crystal");
+            const fresh = unlockReward(
+                "spring-crystal"
+            );
 
             if (fresh) {
+
                 if (!reducedMotion) {
+
                     celebrate(25);
+
                 }
 
                 showToast(
-                    "Trésor secret",
-                    "La pierre de sérénité est découverte."
+                    "Secret découvert",
+                    "La pierre de sérénité vous a révélé son secret."
                 );
+
             }
 
-            setTimeout(() => ripple.remove(), 2100);
+            setTimeout(() => {
+
+                ripple.remove();
+
+            }, 2100);
+
         });
 
         water.appendChild(button);
 
-        container.append(water, message);
+        container.append(
+            water,
+            message
+        );
+
     }
+
 
     /* =========================================
        CHÂTEAU — DERNIÈRE LETTRE
     ========================================== */
 
     function createCastleInteraction(container) {
+
         const letter = document.createElement("div");
 
         letter.className = "location-letter";
 
         const paragraphs = [
+
             "Il était une fois un cœur qui décida de ne plus détourner le regard.",
+
             "Ce cœur n'avait ni couronne, ni baguette magique, ni pouvoirs extraordinaires.",
+
             "Il possédait simplement quelque chose de précieux : la bienveillance.",
+
             state.name
+
                 ? `Et ce cœur, ${state.name}, c'était le vôtre.`
-                : "Et ce cœur, c'était le vôtre."
+
+                : "Et ce cœur, c'était le vôtre.",
+
+            "Vous avez parcouru des chemins, découvert des histoires et retrouvé quatorze trésors de lumière.",
+
+            "Mais le plus précieux des trésors n'était caché dans aucun de ces lieux.",
+
+            "Il était en vous depuis le début.",
+
+            "Bienvenue parmi les Gardiens des cœurs errants."
+
         ];
 
         paragraphs.forEach(text => {
+
             const paragraph = document.createElement("p");
 
             paragraph.textContent = text;
 
             letter.appendChild(paragraph);
+
         });
 
         const button = document.createElement("button");
 
         button.type = "button";
+
         button.className = "kingdom-button";
-        button.textContent = "Découvrir mon certificat";
+
+        button.textContent =
+            "Découvrir mon passeport";
 
         button.addEventListener("click", () => {
+
             closeDialog("location-dialog");
 
             const reward = $("recompense-finale");
 
             if (reward) {
-                reward.setAttribute("tabindex", "-1");
+
+                reward.setAttribute(
+                    "tabindex",
+                    "-1"
+                );
 
                 reward.focus({
                     preventScroll: true
                 });
 
                 reward.scrollIntoView({
+
                     behavior: reducedMotion
+
                         ? "auto"
+
                         : "smooth"
+
                 });
+
             }
 
             if (!reducedMotion) {
+
                 celebrate(45);
+
             }
+
         });
 
-        container.append(letter, button);
+        container.append(
+            letter,
+            button
+        );
 
         unlockReward("castle-letter");
+
     }
 
+
+    /* =========================================
+       ENREGISTREMENT DES SECRETS
+    ========================================== */
+
     function unlockReward(id) {
+
         if (state.rewards.includes(id)) {
+
             return false;
+
         }
 
         state.rewards.push(id);
 
         saveState();
 
+        renderLocations();
+
         return true;
+
     }
+
 
     /* =========================================
        AMBIANCE JOUR ET NUIT
     ========================================== */
 
     function applyAtmosphere() {
+
         const hour = new Date().getHours();
 
         const night = state.atmosphere === "night" ||
+
             (
+
                 state.atmosphere === "auto" &&
+
                 (hour >= 19 || hour < 7)
+
             );
 
-        page.classList.toggle("is-night", night);
+        page.classList.toggle(
+            "is-night",
+            night
+        );
 
         document.querySelectorAll("[data-atmosphere]")
             .forEach(button => {
+
                 button.setAttribute(
                     "aria-pressed",
                     String(
@@ -1984,34 +2462,51 @@
                         state.atmosphere
                     )
                 );
+
             });
+
     }
 
     document.querySelectorAll("[data-atmosphere]")
         .forEach(button => {
+
             button.addEventListener("click", () => {
+
                 const atmosphere =
                     button.dataset.atmosphere;
 
                 if (![
+
                     "auto",
+
                     "day",
+
                     "night"
+
                 ].includes(atmosphere)) {
+
                     return;
+
                 }
 
                 state.atmosphere = atmosphere;
 
                 saveState();
+
                 applyAtmosphere();
+
             });
+
         });
 
     setInterval(() => {
+
         if (state.atmosphere === "auto") {
+
             applyAtmosphere();
+
         }
+
     }, 60000);    /* =========================================
        CERTIFICAT
     ========================================== */
@@ -2092,7 +2587,7 @@
         if (!ctx) {
             showToast(
                 "Téléchargement indisponible",
-                "Votre navigateur ne permet pas de créer le certificat."
+                "Votre navigateur ne permet pas de créer le passeport."
             );
 
             return;
@@ -2155,7 +2650,12 @@
 
         ctx.fillStyle = "#82747b";
         ctx.font = "27px Georgia";
-        ctx.fillText("Certificat symbolique décerné à", 800, 510);
+
+        ctx.fillText(
+            "Passeport symbolique décerné à",
+            800,
+            510
+        );
 
         const name = state.name || "Une âme bienveillante";
 
@@ -2178,7 +2678,7 @@
         ctx.font = "27px Georgia";
 
         [
-            "Pour avoir retrouvé les quatorze fragments du royaume",
+            "Pour avoir retrouvé les quatorze trésors du royaume",
             "et célébré les valeurs de bienveillance,",
             "de douceur et de respect."
         ].forEach((line, index) => {
@@ -2200,13 +2700,18 @@
 
         ctx.fillStyle = "#a85e78";
         ctx.font = "italic 42px Georgia";
-        ctx.fillText("Avec le cœur, Cœur Errant", 800, 970);
+
+        ctx.fillText(
+            "Avec le cœur, Cœur Errant",
+            800,
+            970
+        );
 
         canvas.toBlob(blob => {
             if (!blob) {
                 showToast(
                     "Téléchargement impossible",
-                    "Le certificat n'a pas pu être créé. Veuillez réessayer."
+                    "Le passeport n'a pas pu être créé. Veuillez réessayer."
                 );
 
                 return;
@@ -2217,6 +2722,7 @@
             const link = document.createElement("a");
 
             link.href = url;
+
             link.download =
                 "certificat-gardien-coeur-errant.png";
 
@@ -2227,8 +2733,10 @@
             setTimeout(() => {
                 URL.revokeObjectURL(url);
             }, 3000);
+
         }, "image/png");
     }
+
 
     /* =========================================
        SECRET FACULTATIF
@@ -2239,6 +2747,16 @@
     const secretMessage = $("kingdom-secret-message");
 
     if (secretButton && secretMessage) {
+
+        if (!secretMessage.textContent.trim()) {
+
+            secretMessage.textContent =
+                "La plus belle magie du royaume se trouve dans les petits gestes de bienveillance que vous offrez chaque jour.";
+
+        }
+
+        secretMessage.hidden = true;
+
         secretButton.setAttribute(
             "aria-controls",
             secretMessage.id
@@ -2255,6 +2773,7 @@
         );
 
         secretButton.addEventListener("click", () => {
+
             secretMessage.hidden =
                 !secretMessage.hidden;
 
@@ -2264,6 +2783,7 @@
             );
 
             if (!state.secretFound) {
+
                 state.secretFound = true;
 
                 saveState();
@@ -2272,9 +2792,13 @@
                     "Un secret découvert",
                     "Les âmes curieuses trouvent parfois les plus belles surprises."
                 );
+
             }
+
         });
+
     }
+
 
     /* =========================================
        FENÊTRES
@@ -2283,17 +2807,20 @@
     const dialogFocus = new WeakMap();
 
     function openDialog(id) {
+
         const dialog = $(id);
 
         if (!dialog || dialog.open) return;
 
         if (typeof dialog.showModal !== "function") {
+
             showToast(
                 "Fenêtre indisponible",
                 "Votre navigateur ne permet pas d'ouvrir cette fenêtre."
             );
 
             return;
+
         }
 
         dialogFocus.set(
@@ -2302,32 +2829,47 @@
         );
 
         dialog.showModal();
+
     }
 
     function closeDialog(id) {
+
         const dialog = $(id);
 
         if (dialog?.open) {
+
             dialog.close();
+
         }
+
     }
 
     document.querySelectorAll("[data-close-dialog]")
         .forEach(button => {
+
             button.addEventListener("click", () => {
+
                 const id = button.dataset.closeDialog;
 
                 if (id) {
+
                     closeDialog(id);
+
                 } else {
+
                     button.closest("dialog")?.close();
+
                 }
+
             });
+
         });
 
     document.querySelectorAll(".kingdom-dialog")
         .forEach(dialog => {
+
             dialog.addEventListener("close", () => {
+
                 const previousFocus =
                     dialogFocus.get(dialog);
 
@@ -2345,14 +2887,18 @@
                     active === dialog ||
                     dialog.contains(active)
                 ) {
+
                     if (
                         previousFocus?.isConnected &&
                         !previousFocus.disabled
                     ) {
+
                         previousFocus.focus({
                             preventScroll: true
                         });
+
                     }
+
                 }
 
                 /*
@@ -2361,20 +2907,27 @@
                  */
 
                 if (dialog.id === "location-dialog") {
+
                     const wish = dialog.querySelector(
                         ".location-wish"
                     );
 
                     if (wish) {
+
                         wish.value = "";
+
                     }
+
                 }
+
             });
 
             dialog.addEventListener("click", event => {
+
                 if (event.target !== dialog) return;
 
-                const rect = dialog.getBoundingClientRect();
+                const rect =
+                    dialog.getBoundingClientRect();
 
                 const outside =
                     event.clientX < rect.left ||
@@ -2383,16 +2936,22 @@
                     event.clientY > rect.bottom;
 
                 if (outside) {
+
                     dialog.close();
+
                 }
+
             });
+
         });
+
 
     /* =========================================
        CÉLÉBRATION
     ========================================== */
 
     function celebrate(amount = 40) {
+
         const container = $("kingdom-celebration");
 
         if (!container || reducedMotion) return;
@@ -2402,7 +2961,12 @@
             "true"
         );
 
-        const symbols = ["✧", "❀", "♡", "◇"];
+        const symbols = [
+            "✧",
+            "❀",
+            "♡",
+            "◇"
+        ];
 
         const colors = [
             "#d9a6bc",
@@ -2412,6 +2976,7 @@
         ];
 
         for (let i = 0; i < amount; i++) {
+
             const piece = document.createElement("span");
 
             piece.className =
@@ -2425,7 +2990,8 @@
                 "true"
             );
 
-            const x = `${Math.random() * 100}%`;
+            const x =
+                `${Math.random() * 100}%`;
 
             const color =
                 colors[i % colors.length];
@@ -2494,16 +3060,22 @@
             container.appendChild(piece);
 
             setTimeout(() => {
+
                 piece.remove();
+
             }, 8000);
+
         }
+
     }
+
 
     /* =========================================
        RÉINITIALISATION
     ========================================== */
 
     function clearAdventureInterface() {
+
         const message = $("kingdom-secret-message");
 
         const button = $("kingdom-secret");
@@ -2513,54 +3085,73 @@
         const celebration = $("kingdom-celebration");
 
         if (message) {
+
             message.hidden = true;
+
         }
 
         if (button) {
+
             button.setAttribute(
                 "aria-expanded",
                 "false"
             );
+
         }
 
         if (nameMessage) {
+
             nameMessage.textContent = "";
+
         }
 
         if (celebration) {
+
             celebration.replaceChildren();
+
         }
 
         const interaction = $("location-interaction");
 
         if (interaction) {
+
             interaction.replaceChildren();
+
         }
 
         closeDialog("treasure-dialog");
         closeDialog("location-dialog");
+        closeDialog("fragment-game-dialog");
+
     }
 
     $("reset-kingdom")?.addEventListener("click", () => {
+
         openDialog("kingdom-reset-dialog");
+
     });
 
     $("confirm-reset-kingdom")?.addEventListener(
         "click",
         () => {
+
             state = createState();
 
             let resetSaved = true;
 
             if (hasConsent()) {
+
                 /*
                  * Réinitialiser la progression sans
                  * retirer le consentement existant.
                  */
 
                 resetSaved = saveState();
+
             } else if (deletionFailed) {
+
                 resetSaved = removeStoredAdventure();
+
             }
 
             clearAdventureInterface();
@@ -2574,24 +3165,31 @@
             closeDialog("kingdom-reset-dialog");
 
             if (resetSaved) {
+
                 showToast(
                     "Une nouvelle aventure",
                     "Votre royaume est prêt à être redécouvert."
                 );
+
             } else {
+
                 showToast(
                     "Réinitialisation incomplète",
                     "Votre aventure actuelle a été réinitialisée, mais la suppression de l'ancienne sauvegarde n'a pas pu être confirmée."
                 );
+
             }
+
         }
     );
+
 
     /* =========================================
        ANIMATIONS AU DÉFILEMENT
     ========================================== */
 
     function setupReveal() {
+
         if (
             reducedMotion ||
             !("IntersectionObserver" in window)
@@ -2601,7 +3199,9 @@
 
         const observer = new IntersectionObserver(
             entries => {
+
                 entries.forEach(entry => {
+
                     if (!entry.isIntersecting) return;
 
                     entry.target.classList.add(
@@ -2609,14 +3209,18 @@
                     );
 
                     observer.unobserve(entry.target);
+
                 });
+
             },
             { threshold: .08 }
         );
 
         document.querySelectorAll(".kingdom-reveal")
             .forEach(section => {
+
                 observer.observe(section);
+
             });
 
         /*
@@ -2625,6 +3229,7 @@
          */
 
         page.addEventListener("focusin", event => {
+
             const section = event.target.closest(
                 ".kingdom-reveal"
             );
@@ -2634,19 +3239,25 @@
             section.classList.add("is-visible");
 
             observer.unobserve(section);
+
         });
 
         function revealHashTarget() {
+
             if (!window.location.hash) return;
 
             let id;
 
             try {
+
                 id = decodeURIComponent(
                     window.location.hash.slice(1)
                 );
+
             } catch {
+
                 return;
+
             }
 
             const target = $(id);
@@ -2660,6 +3271,7 @@
             section.classList.add("is-visible");
 
             observer.unobserve(section);
+
         }
 
         revealHashTarget();
@@ -2668,13 +3280,16 @@
             "hashchange",
             revealHashTarget
         );
+
     }
+
 
     /* =========================================
        RETOUR DEPUIS LES VOYAGES
     ========================================== */
 
     function handleTravelReturn() {
+
         const url = new URL(window.location.href);
 
         const id =
@@ -2689,8 +3304,8 @@
 
         /*
          * Le paramètre URL ne débloque rien.
-         * Le fragment doit avoir été réellement enregistré
-         * par la page Voyages.
+         * Le trésor doit déjà faire partie
+         * de la collection enregistrée.
          */
 
         if (
@@ -2698,17 +3313,20 @@
             hasConsent() &&
             state.stamps.includes(id)
         ) {
+
             showToast(
-                "Un fragment retrouvé",
+                "Un trésor retrouvé",
                 `${treasure.name} a rejoint votre médaillon.`
             );
 
             celebrate(
                 state.stamps.length === 14 ? 65 : 20
             );
+
         }
 
         url.searchParams.delete("fragment");
+
         url.searchParams.delete("tampon");
 
         history.replaceState(
@@ -2716,7 +3334,9 @@
             "",
             url.pathname + url.search + url.hash
         );
+
     }
+
 
     /* =========================================
        SYNCHRONISATION LOCALE
@@ -2725,19 +3345,24 @@
     let previousConsent = hasConsent();
 
     function refreshState() {
+
         let active;
 
         try {
+
             active =
                 localStorage.getItem(CONSENT_KEY) === "yes";
 
             storageAvailable = true;
+
         } catch {
+
             storageAvailable = false;
 
             updateStorageNote();
 
             return;
+
         }
 
         /*
@@ -2746,14 +3371,17 @@
          */
 
         if (deletionFailed) {
+
             consentBlocked = true;
 
             updateStorageNote();
 
             return;
+
         }
 
         if (active) {
+
             consentBlocked = false;
 
             const nextState = readState();
@@ -2763,9 +3391,11 @@
                 JSON.stringify(state);
 
             if (changed) {
+
                 const reset =
                     nextState.stamps.length <
                     state.stamps.length ||
+
                     (
                         state.secretFound &&
                         !nextState.secretFound
@@ -2774,12 +3404,17 @@
                 state = nextState;
 
                 if (reset) {
+
                     clearAdventureInterface();
+
                 }
 
                 renderAll();
+
             }
+
         } else {
+
             consentBlocked = true;
 
             /*
@@ -2791,27 +3426,35 @@
              */
 
             if (previousConsent) {
+
                 state = createState();
 
                 clearAdventureInterface();
 
                 renderAll();
+
             }
+
         }
 
         previousConsent = active;
 
         updateStorageNote();
+
     }
 
     window.addEventListener("storage", event => {
+
         if (
             event.key === STORAGE_KEY ||
             event.key === CONSENT_KEY ||
             event.key === null
         ) {
+
             refreshState();
+
         }
+
     });
 
     /*
@@ -2822,46 +3465,66 @@
     window.addEventListener(
         "coeur-errant-passport-updated",
         () => {
+
             previousConsent = hasConsent();
 
             updateStorageNote();
+
         }
     );
 
     window.addEventListener("pageshow", event => {
+
         if (event.persisted) {
+
             refreshState();
+
         }
+
     });
 
     window.addEventListener("focus", () => {
+
         refreshState();
+
     });
 
     document.addEventListener(
         "visibilitychange",
         () => {
+
             if (
                 document.visibilityState === "visible"
             ) {
+
                 refreshState();
+
             }
+
         }
     );
 
+
     /* =========================================
-       INITIALISATION
+       ACTUALISATION DU ROYAUME
     ========================================== */
 
     function renderAll() {
 
         renderIdentity();
+
         renderCompanion();
+
         renderMedallion();
+
         renderProgress();
+
         renderTreasures();
+
         renderLocations();
+
         renderCertificate();
+
         applyAtmosphere();
 
         const button = $("kingdom-secret");
@@ -2885,8 +3548,13 @@
 
     }
 
-     /* =========================================
-       LIAISON AVEC LA CARTE ENCHANTÉE
+
+    /* =========================================
+       LIAISON AVEC LA CARTE AUX TRÉSORS
+
+       Les noms techniques restent inchangés
+       pour assurer la compatibilité avec
+       carte-fragments.js.
     ========================================== */
 
     window.CoeurErrantPassport = Object.freeze({
@@ -2945,10 +3613,10 @@
 
                 adventureCompleted
                     ? "Votre aventure est accomplie"
-                    : "Un fragment retrouvé",
+                    : "Un trésor retrouvé",
 
                 adventureCompleted
-                    ? "Bienvenue parmi les Gardiens des cœurs errants."
+                    ? "Bienvenue parmi les Gardiens des cœurs errants. Vous avez retrouvé les 14 trésors du royaume."
                     : `${treasure.name} a rejoint votre médaillon.`
 
             );
@@ -2969,10 +3637,13 @@
     ========================================== */
 
     setupStorageConsent();
+
     createParticles();
+
     renderAll();
+
     setupReveal();
+
     handleTravelReturn();
 
 })();
-

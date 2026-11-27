@@ -1566,7 +1566,7 @@
                     const nextButton = createButton(
                         "kingdom-button",
                         isLast
-                            ? "Découvrir mon fragment ✧"
+                            ? "Découvrir mon trésor ✧"
                             : "Question suivante →"
                     );
 
@@ -3228,7 +3228,7 @@
 
         $("map-progress-track").setAttribute(
             "aria-valuetext",
-            `${count} fragments sur 14 retrouvés`
+            `${count} trésors sur 14 retrouvés`
         );
 
         let message =
@@ -3262,7 +3262,7 @@
         } else if (count === 14) {
 
             message =
-                "Les quatorze fragments sont réunis. Bienvenue parmi les Gardiens des cœurs errants.";
+                "Les quatorze trésors sont réunis. Bienvenue parmi les Gardiens des cœurs errants.";
 
         }
 
@@ -3304,7 +3304,7 @@
                 "aria-label",
                 `${destination.name}, ${destination.date}, ${
                     discovered
-                        ? "fragment retrouvé"
+                        ? "trésor retrouvé"
                         : "défi à découvrir"
                 }`
             );
@@ -3350,7 +3350,7 @@
             if (status) {
 
                 status.textContent = discovered
-                    ? "Fragment retrouvé ✓"
+                    ? "Trésor retrouvé ✓"
                     : "Découvrir le défi";
 
             }
@@ -3409,7 +3409,7 @@
         $("fragment-collect-button").disabled = false;
 
         $("fragment-collect-button").textContent =
-            "Ajouter à mon médaillon ✧";
+            "	Ajouter ce trésor à mon médaillon";
 
         $("fragment-game-destination").textContent =
             `${destination.name} · ${destination.date}`;
@@ -3500,7 +3500,7 @@
         ) {
 
             createHint(
-                "Vous possédez déjà ce fragment. Vous pouvez rejouer librement pour le plaisir."
+                "Vous possédez déjà ce trésor. Vous pouvez rejouer librement pour le plaisir."
             );
 
         }
@@ -3598,7 +3598,7 @@
             collectButton.disabled = true;
 
             setFeedback(
-                "Vous avez de nouveau réussi ce défi. Votre fragment brille déjà dans votre médaillon.",
+                "Vous avez de nouveau réussi ce défi. Votre trésor brille déjà dans votre médaillon.",
                 "success"
             );
 
@@ -3667,7 +3667,7 @@
                     true;
 
                 $("fragment-collect-button").textContent =
-                    "Fragment déjà retrouvé ✓";
+                    "Trésor déjà retrouvé ✓";
 
                 updateMapProgress();
 

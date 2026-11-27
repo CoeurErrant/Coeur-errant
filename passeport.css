@@ -2594,3 +2594,263 @@
     }
 
 }
+/* =========================================
+   PROGRESSION DES LIEUX SECRETS
+========================================= */
+
+.location-progress {
+    margin: 22px 0;
+    padding: 15px 18px;
+    background: rgba(196, 164, 119, .08);
+    border: 1px solid var(--k-border);
+    border-radius: 14px;
+}
+
+.location-content .location-progress-label {
+    margin: 0 0 10px;
+    font-size: .78rem;
+    font-weight: 500;
+    color: var(--k-muted);
+    text-align: center;
+}
+
+.location-progress-track {
+    width: 100%;
+    height: 7px;
+    background: rgba(196, 164, 119, .2);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.location-progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(
+        90deg,
+        #d8a5b3,
+        #d9bd87
+    );
+    transition: width .6s ease;
+}
+
+
+/* =========================================
+   BADGES DES LIEUX
+========================================= */
+
+.location-requirement {
+    max-width: calc(100% - 36px);
+    text-align: center;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.location-card.is-unlocked .location-requirement {
+    background: #fff3d8;
+    color: #80643c;
+    border: 1px solid #d9bd87;
+}
+
+.location-card.is-explored .location-requirement {
+    background: #e8eee1;
+    color: #53694a;
+    border: 1px solid #a8b29b;
+}
+
+.location-card.is-explored .location-progress-fill {
+    background: linear-gradient(
+        90deg,
+        #a8b29b,
+        #c5d0b8
+    );
+}
+
+.location-card.is-explored {
+    border-color: var(--k-sage);
+}
+
+.location-card.is-unlocked .location-button {
+    background: #a85e78;
+    color: #fff;
+    border-color: #a85e78;
+}
+
+.location-card.is-unlocked .location-button:hover {
+    background: #914a63;
+    border-color: #914a63;
+}
+
+.location-card.is-explored .location-button {
+    background: transparent;
+    color: var(--k-dark);
+    border-color: var(--k-sage);
+}
+
+.location-card.is-explored .location-button:hover {
+    background: #a8b29b;
+    color: #fff;
+}
+
+
+/* =========================================
+   LIEN VERS LA CARTE AUX TRÉSORS
+========================================= */
+
+.kingdom-world .kingdom-heading
+.kingdom-outline-button,
+
+.kingdom-medallion-section
+.kingdom-outline-button {
+    margin-top: 22px;
+}
+
+
+/* =========================================
+   SERRE — FLEURS DÉCOUVERTES
+========================================= */
+
+.butterfly-button.is-discovered {
+    background: #f5e6c6;
+    border-color: #c4a477;
+    color: #a58565;
+    box-shadow: 0 0 18px rgba(196, 164, 119, .3);
+}
+
+.kingdom-dialog .greenhouse-progress {
+    color: #a58565;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .04em;
+}
+
+
+/* =========================================
+   SOURCE — BOUTON INTERACTIF
+========================================= */
+
+.spring-pool {
+    display: grid;
+    place-items: center;
+}
+
+.spring-pool button {
+    position: relative;
+    z-index: 2;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 2.5rem;
+    text-shadow: 0 0 15px #fff;
+}
+
+.spring-pool::after,
+.water-ripple {
+    pointer-events: none;
+}
+
+
+/* =========================================
+   ILLUSTRATIONS DES TRÉSORS
+========================================= */
+
+.treasure-object {
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.treasure-object img {
+    display: block;
+    width: 65px;
+    max-width: 100%;
+    height: 65px;
+    object-fit: contain;
+}
+
+.treasure-item strong {
+    font-size: .75rem;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+#treasure-visual img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+
+/* =========================================
+   MODE NUIT
+========================================= */
+
+.kingdom-page.is-night .location-progress {
+    background: rgba(196, 164, 119, .07);
+}
+
+.kingdom-page.is-night .location-progress-track {
+    background: rgba(255, 255, 255, .09);
+}
+
+
+/* =========================================
+   VERSION MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .location-progress {
+        padding: 12px;
+        margin: 18px 0;
+    }
+
+    .location-content .location-progress-label {
+        font-size: .75rem;
+    }
+
+    .location-requirement {
+        top: 12px;
+        right: 12px;
+        max-width: calc(100% - 24px);
+        font-size: .7rem;
+        padding: 7px 12px;
+    }
+
+    .location-button {
+        width: 100%;
+    }
+
+    .treasure-object img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .treasure-item strong {
+        font-size: .68rem;
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITÉ
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .location-progress-fill,
+    .butterfly-button {
+        transition: none;
+    }
+
+    .floating-lantern,
+    .spring-pool.is-rippling::after {
+        animation: none;
+    }
+
+}
