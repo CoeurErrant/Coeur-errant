@@ -2106,9 +2106,10 @@ function updateQuizScore() {
 
     button.disabled = true;
 
-    message.textContent =
-      "Votre petite fiche se prépare...";
-
+message.textContent = t(
+  "Votre petite fiche se prépare...",
+  "Je gids wordt voorbereid..."
+);
     try {
 
       if (document.fonts && document.fonts.ready) {
@@ -3352,12 +3353,13 @@ const immersiveEncounters = [
 
         button.classList.add("is-correct");
 
-        button.setAttribute(
-          "aria-label",
-    t(
-  `${encounter.answers[index].text} — Bonne réponse`,
-  `${encounter.answers[index].text} — Juist antwoord`
-)
+    button.setAttribute(
+  "aria-label",
+  t(
+    `${encounter.answers[index].text} — Bonne réponse`,
+    `${encounter.answers[index].text} — Juist antwoord`
+  )
+);
       }
 
       if (index === selected) {
@@ -3418,19 +3420,19 @@ const immersiveEncounters = [
     let explanation =
       encounter.answers[selected].explanation;
 
-    if (!correct) {
+ if (!correct) {
 
- explanation +=
+  explanation +=
+    t(
+      " Le geste recommandé : ",
+      " De aanbevolen handeling: "
+    ) +
+    encounter.answers[encounter.correct].text;
 
-  t(
-    " Le geste recommandé : ",
-    " De aanbevolen handeling: "
-  ) +
+}
 
-  encounter.answers[encounter.correct].text;
-
-    $("immersive-explanation").textContent =
-      explanation;
+$("immersive-explanation").textContent =
+  explanation;
 
     feedback.hidden = false;
 
