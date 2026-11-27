@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -83,9 +82,7 @@
         var(--cream);
 
       color: var(--dark);
-
       font-family: var(--sans);
-
       overflow-x: hidden;
 
     }
@@ -117,9 +114,7 @@
 
       display: inline-flex;
       align-items: center;
-
       gap: 14px;
-
       text-decoration: none;
 
     }
@@ -130,9 +125,7 @@
       height: 58px;
 
       border-radius: 50%;
-
       object-fit: cover;
-
       border: 1px solid #e4d2cc;
 
     }
@@ -147,9 +140,7 @@
     .lost-header-link {
 
       font-size: .8rem;
-
       color: var(--rose);
-
       text-decoration: none;
 
     }
@@ -167,7 +158,6 @@
     .lost-main {
 
       position: relative;
-
       flex: 1;
 
       display: flex;
@@ -197,13 +187,9 @@
     .lost-label {
 
       font-size: .7rem;
-
       letter-spacing: .3em;
-
       text-transform: uppercase;
-
       color: var(--rose);
-
       margin-bottom: 12px;
 
     }
@@ -215,9 +201,7 @@
     .lost-illustration {
 
       position: relative;
-
       width: min(340px, 85vw);
-
       margin: 0 auto;
 
     }
@@ -225,10 +209,8 @@
     .lost-illustration svg {
 
       display: block;
-
       width: 100%;
       height: auto;
-
       overflow: visible;
 
     }
@@ -286,7 +268,6 @@
       font-weight: 400;
 
       line-height: .85;
-
       letter-spacing: -.04em;
 
       color: var(--pink);
@@ -310,9 +291,7 @@
     .lost-content h1 em {
 
       display: block;
-
       font-weight: 400;
-
       color: var(--rose);
 
     }
@@ -320,7 +299,6 @@
     .lost-description {
 
       max-width: 480px;
-
       margin: 0 auto;
 
       color: var(--muted);
@@ -392,7 +370,6 @@
     .lost-button span {
 
       font-size: 1.3rem;
-
       line-height: 1;
 
     }
@@ -400,11 +377,9 @@
     .lost-secondary {
 
       color: var(--rose);
-
       font-size: .82rem;
 
       text-decoration: underline;
-
       text-underline-offset: 5px;
 
     }
@@ -418,7 +393,6 @@
     a:focus-visible {
 
       outline: 2px solid var(--rose);
-
       outline-offset: 6px;
 
     }
@@ -430,13 +404,10 @@
     .lost-trail {
 
       position: absolute;
-
       inset: 0;
-
       z-index: -1;
 
       overflow: hidden;
-
       pointer-events: none;
 
     }
@@ -573,7 +544,6 @@
       margin-top: 14px;
 
       font-size: .65rem;
-
       letter-spacing: .08em;
 
       color: var(--muted);
@@ -1188,6 +1158,150 @@
         paw.innerHTML = pawIcon;
 
       });
+
+  </script>
+
+  <!-- =====================================
+       LANGUE AUTOMATIQUE — FR / NL
+       ===================================== -->
+
+  <script>
+
+    (() => {
+
+      const base = "/Coeur-errant/";
+
+      const path = window.location.pathname;
+
+      const browserLanguage =
+        (navigator.language || "fr").toLowerCase();
+
+      const requestedDutch =
+        /-nl(?:\.html)?\/?$/i.test(path);
+
+      let previousLanguage = null;
+
+      try {
+
+        const previousPage = new URL(document.referrer);
+
+        if (previousPage.origin === window.location.origin) {
+
+          previousLanguage =
+            /-nl(?:\.html)?\/?$/i.test(previousPage.pathname)
+              ? "nl"
+              : "fr";
+
+        }
+
+      } catch {
+
+        previousLanguage = null;
+
+      }
+
+      const isDutch =
+        requestedDutch ||
+        previousLanguage === "nl" ||
+        (
+          previousLanguage === null &&
+          browserLanguage.startsWith("nl")
+        );
+
+      if (!isDutch) return;
+
+      document.documentElement.lang = "nl";
+
+      document.title =
+        "Een klein pootje is verdwaald — Cœur Errant";
+
+      const translations = {
+
+        ".lost-header-link":
+          "Terug naar de startpagina ♡",
+
+        ".lost-label":
+          "Een kleine onverwachte omweg",
+
+        ".lost-content h1":
+          "Oeps… <em>Een klein pootje is verdwaald.</em>",
+
+        ".lost-description":
+          `Zelfs de mooiste avonturen kennen soms
+          een kleine omweg.
+
+          De pagina die je zoekt, lijkt een andere
+          weg te zijn ingeslagen.
+
+          Maar maak je geen zorgen,
+          er zijn nog zoveel mooie verhalen
+          te ontdekken.`,
+
+        ".lost-button":
+          'Mijn weg terugvinden <span aria-hidden="true">♡</span>',
+
+        ".lost-secondary":
+          "Zet het avontuur voort",
+
+        ".lost-footer p":
+          "Geen enkele ziel zou verdwaald mogen blijven.",
+
+        ".lost-copyright":
+          "© 2026 Cœur Errant — Elk dier heeft een verhaal."
+
+      };
+
+      Object.entries(translations).forEach(([selector, value]) => {
+
+        const element = document.querySelector(selector);
+
+        if (element) {
+
+          element.innerHTML = value;
+
+        }
+
+      });
+
+      const illustration =
+        document.querySelector(".lost-illustration svg");
+
+      if (illustration) {
+
+        illustration.setAttribute(
+          "aria-label",
+          "Een klein verdwaald beige katje met een vraagteken"
+        );
+
+      }
+
+      const number =
+        document.querySelector(".lost-number");
+
+      if (number) {
+
+        number.setAttribute("aria-label", "Fout 404");
+
+      }
+
+      document.querySelectorAll(
+        ".lost-logo, .lost-header-link, .lost-button"
+      ).forEach(link => {
+
+        link.href = base + "index-nl.html";
+
+      });
+
+      const adventureLink =
+        document.querySelector(".lost-secondary");
+
+      if (adventureLink) {
+
+        adventureLink.href = base + "voyages-nl.html";
+
+      }
+
+    })();
 
   </script>
 
