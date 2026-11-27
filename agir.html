@@ -1624,7 +1624,243 @@
 
       </div>
 
-    </section>    <!-- =====================================
+    </section>    
+    <!-- =====================================
+     EXPÉRIENCE IMMERSIVE
+     ===================================== -->
+
+<section class="agir-immersive-section"
+         id="experience-solidaire">
+
+  <div class="agir-section-heading">
+
+    <span class="agir-eyebrow">
+      Dans la peau d'un voyageur
+    </span>
+
+    <h2>
+      Que feriez-vous
+      <em>à ma place ?</em>
+    </h2>
+
+    <p>
+      Imaginez-vous au détour d'une ruelle,
+      face à un animal qui a besoin d'aide.
+      Chaque décision compte.
+    </p>
+
+  </div>
+
+  <div class="agir-immersive-card">
+
+    <!-- Écran d'accueil -->
+
+    <div id="immersive-start">
+
+      <div class="agir-immersive-cover">
+
+        <img src="agir-rencontre-01.png"
+             alt="Un petit chien errant dans une ruelle marocaine"
+             loading="lazy">
+
+        <span class="agir-immersive-cover-label">
+          Une rencontre peut tout changer.
+        </span>
+
+      </div>
+
+      <div class="agir-immersive-intro">
+
+        <span class="agir-eyebrow">
+          Une aventure humaine
+        </span>
+
+        <h3>
+          Cinq rencontres.
+          <em>Cinq décisions.</em>
+        </h3>
+
+        <p>
+          Des situations inspirées de la vie
+          des animaux des rues pour apprendre
+          à les aider avec douceur et prudence.
+        </p>
+
+        <p>
+          Ici, aucun chronomètre.
+          Prenez simplement le temps de réfléchir.
+        </p>
+
+        <button type="button"
+                class="agir-button"
+                id="immersive-start-button">
+
+          Commencer mon aventure ♡
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Écran des rencontres -->
+
+    <div id="immersive-game" hidden>
+
+      <div class="agir-immersive-top">
+
+        <span id="immersive-position">
+          Rencontre 1/5
+        </span>
+
+        <span id="immersive-country"></span>
+
+      </div>
+
+      <div class="agir-progress-track"
+           id="immersive-progress"
+           role="progressbar"
+           aria-label="Progression des rencontres"
+           aria-valuemin="0"
+           aria-valuemax="5"
+           aria-valuenow="0">
+
+        <div id="immersive-fill"></div>
+
+      </div>
+
+      <div class="agir-immersive-scene">
+
+        <img id="immersive-image"
+             alt=""
+             hidden>
+
+        <div class="agir-immersive-story">
+
+          <span class="agir-eyebrow">
+            Imaginez un instant...
+          </span>
+
+          <h3 id="immersive-title"
+              tabindex="-1"></h3>
+
+          <p id="immersive-description"></p>
+
+        </div>
+
+      </div>
+
+      <div class="agir-immersive-question">
+
+        <h4>Que choisissez-vous de faire ?</h4>
+
+        <div id="immersive-answers"
+             class="agir-immersive-answers">
+        </div>
+
+      </div>
+
+      <!-- Explication après chaque choix -->
+
+      <div id="immersive-feedback"
+           class="agir-immersive-feedback"
+           aria-live="polite"
+           hidden>
+
+        <span id="immersive-feedback-symbol"
+              aria-hidden="true"></span>
+
+        <div>
+
+          <h4 id="immersive-feedback-title"></h4>
+
+          <p id="immersive-explanation"></p>
+
+        </div>
+
+      </div>
+
+      <button type="button"
+              class="agir-button"
+              id="immersive-next"
+              hidden>
+
+        Rencontre suivante →
+
+      </button>
+
+    </div>
+
+    <!-- Fin de l'expérience -->
+
+    <div id="immersive-result" hidden>
+
+      <div class="agir-immersive-result-heart"
+           aria-hidden="true">
+
+        ♡
+
+      </div>
+
+      <span class="agir-eyebrow">
+        Chaque geste compte
+      </span>
+
+      <h3 id="immersive-result-title"
+          tabindex="-1">
+
+        Le cœur d'un voyageur solidaire.
+
+      </h3>
+
+      <div id="immersive-final-score"
+           class="agir-immersive-score">
+      </div>
+
+      <p id="immersive-result-message"></p>
+
+      <blockquote>
+
+        Vous n'avez pas besoin d'être un héros
+        pour faire la différence.
+
+        Il suffit parfois de ne pas détourner
+        le regard et de savoir comment agir.
+
+      </blockquote>
+
+      <div class="agir-immersive-result-actions">
+
+        <button type="button"
+                class="agir-button"
+                id="immersive-restart">
+
+          Revivre les rencontres
+
+        </button>
+
+        <a href="#adoption-etranger"
+           class="agir-secondary-button">
+
+          Aller encore plus loin ♡
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="agir-immersive-note">
+
+    ✧ Ces situations sont fictives et conçues
+    à des fins pédagogiques.
+
+  </p>
+
+</section>
+    <!-- =====================================
          06 — FICHE À EMPORTER
          ===================================== -->
 
@@ -1866,6 +2102,415 @@
       </p>
 
     </section>
+    <!-- =====================================
+     ADOPTION À L'ÉTRANGER
+     ===================================== -->
+
+<section class="agir-adoption-section"
+         id="adoption-etranger">
+
+  <div class="agir-section-heading">
+
+    <span class="agir-eyebrow">
+      Une rencontre pour la vie
+    </span>
+
+    <h2>
+      Et si je voulais
+      <em>le ramener chez moi ?</em>
+    </h2>
+
+    <p>
+      Parfois, une rencontre en voyage
+      devient bien plus qu'un souvenir.
+      Mais adopter un animal à l'étranger
+      demande du temps, de la préparation
+      et beaucoup de responsabilité.
+    </p>
+
+  </div>
+
+  <div class="agir-adoption-intro">
+
+    <span aria-hidden="true">♡</span>
+
+    <h3>
+      Un voyage vers une nouvelle vie.
+    </h3>
+
+    <p>
+      Vous avez rencontré un animal auquel
+      vous vous êtes particulièrement attaché ?
+      Vous aimeriez lui offrir un foyer en Belgique ?
+      Voici les principales étapes à envisager.
+    </p>
+
+  </div>
+
+  <div class="agir-adoption-steps">
+
+    <article class="agir-adoption-step">
+
+      <span class="agir-adoption-number">01</span>
+
+      <div>
+
+        <h3>S'assurer qu'il est réellement sans foyer</h3>
+
+        <p>
+          Demandez aux habitants, contactez une
+          association locale et faites vérifier
+          la présence éventuelle d'une puce
+          électronique par un vétérinaire.
+        </p>
+
+      </div>
+
+    </article>
+
+    <article class="agir-adoption-step">
+
+      <span class="agir-adoption-number">02</span>
+
+      <div>
+
+        <h3>Rencontrer un vétérinaire</h3>
+
+        <p>
+          Faites examiner l'animal pour connaître
+          son état de santé, son âge approximatif
+          et les soins dont il a besoin.
+        </p>
+
+      </div>
+
+    </article>
+
+    <article class="agir-adoption-step">
+
+      <span class="agir-adoption-number">03</span>
+
+      <div>
+
+        <h3>Préparer son identification</h3>
+
+        <p>
+          Faites régulariser son identification
+          et son adoption conformément aux règles
+          du pays dans lequel il se trouve.
+        </p>
+
+      </div>
+
+    </article>
+
+    <article class="agir-adoption-step">
+
+      <span class="agir-adoption-number">04</span>
+
+      <div>
+
+        <h3>Respecter les exigences sanitaires</h3>
+
+        <p>
+          Une vaccination antirabique valide
+          est indispensable. Selon le pays
+          de départ, une analyse sanguine
+          et un délai d'attente supplémentaire
+          peuvent être obligatoires.
+        </p>
+
+      </div>
+
+    </article>
+
+    <article class="agir-adoption-step">
+
+      <span class="agir-adoption-number">05</span>
+
+      <div>
+
+        <h3>Préparer les documents officiels</h3>
+
+        <p>
+          Passeport européen, certificat sanitaire,
+          justificatifs de vaccination ou documents
+          d'importation peuvent être nécessaires,
+          selon la provenance de l'animal et
+          les conditions de son adoption.
+        </p>
+
+      </div>
+
+    </article>
+
+    <article class="agir-adoption-step">
+
+      <span class="agir-adoption-number">06</span>
+
+      <div>
+
+        <h3>Organiser son voyage</h3>
+
+        <p>
+          Vérifiez les conditions de transport,
+          les contrôles frontaliers et les exigences
+          applicables auprès des autorités compétentes
+          avant de réserver son trajet.
+        </p>
+
+      </div>
+
+    </article>
+
+    <article class="agir-adoption-step">
+
+      <span class="agir-adoption-number">07</span>
+
+      <div>
+
+        <h3>L'accueillir en Belgique</h3>
+
+        <p>
+          Prenez rendez-vous chez un vétérinaire,
+          vérifiez les obligations d'enregistrement
+          et préparez un environnement calme
+          pour lui permettre de s'adapter à sa
+          nouvelle vie.
+        </p>
+
+      </div>
+
+    </article>
+
+  </div>
+
+  <!-- Différences selon le pays -->
+
+  <div class="agir-adoption-countries">
+
+    <div class="agir-section-heading">
+
+      <span class="agir-eyebrow">
+        Bon à savoir
+      </span>
+
+      <h2>
+        Tous les chemins
+        <em>ne se ressemblent pas.</em>
+      </h2>
+
+    </div>
+
+    <div class="agir-adoption-grid">
+
+      <article class="agir-adoption-card">
+
+        <span class="agir-adoption-icon"
+              aria-hidden="true">✧</span>
+
+        <h3>Depuis l'Union européenne</h3>
+
+        <p class="agir-adoption-examples">
+          Italie, France, Espagne, Pologne...
+        </p>
+
+        <ul>
+
+          <li>Identification électronique conforme.</li>
+
+          <li>Vaccination antirabique valide.</li>
+
+          <li>
+            Au moins 21 jours après la
+            primo-vaccination antirabique.
+          </li>
+
+          <li>Passeport européen valide.</li>
+
+          <li>
+            Vérification des conditions légales
+            de l'adoption et du transport.
+          </li>
+
+        </ul>
+
+      </article>
+
+      <article class="agir-adoption-card">
+
+        <span class="agir-adoption-icon"
+              aria-hidden="true">♡</span>
+
+        <h3>Depuis un pays hors Union européenne</h3>
+
+        <p class="agir-adoption-examples">
+          Maroc, Tunisie, Turquie...
+        </p>
+
+        <ul>
+
+          <li>Identification électronique conforme.</li>
+
+          <li>Vaccination antirabique valide.</li>
+
+          <li>
+            Titrage des anticorps antirabiques
+            lorsque celui-ci est obligatoire.
+          </li>
+
+          <li>
+            Respect des délais sanitaires requis.
+          </li>
+
+          <li>
+            Certificat sanitaire officiel
+            et contrôles à l'entrée.
+          </li>
+
+          <li>
+            Vérification des règles spécifiques
+            à l'importation et à l'adoption.
+          </li>
+
+        </ul>
+
+      </article>
+
+    </div>
+
+  </div>
+
+  <!-- Conseil important -->
+
+  <div class="agir-adoption-warning">
+
+    <span aria-hidden="true">!</span>
+
+    <div>
+
+      <h3>Ne précipitez jamais son départ.</h3>
+
+      <p>
+        Un animal ne peut pas toujours vous
+        accompagner à la fin de vos vacances.
+        Les démarches peuvent prendre plusieurs mois.
+      </p>
+
+      <p>
+        Une association ou une famille d'accueil
+        locale peut éventuellement l'héberger
+        pendant cette période.
+      </p>
+
+      <p>
+        Une adoption avec transfert de propriété
+        ou un transport organisé par une association
+        peut être soumis à des règles différentes
+        de celles d'un simple voyage avec son
+        animal de compagnie.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- Questions avant l'adoption -->
+
+  <div class="agir-adoption-reflection">
+
+    <span class="agir-eyebrow">
+      Un engagement pour la vie
+    </span>
+
+    <h3>
+      Avant d'ouvrir votre porte,
+      <em>posez-vous quelques questions.</em>
+    </h3>
+
+    <ul>
+
+      <li>
+        Ai-je suffisamment de temps pour lui ?
+      </li>
+
+      <li>
+        Puis-je assumer les frais de transport,
+        de nourriture et de soins vétérinaires ?
+      </li>
+
+      <li>
+        Mon logement est-il adapté à ses besoins ?
+      </li>
+
+      <li>
+        Suis-je prêt à respecter son rythme
+        et ses éventuelles peurs ?
+      </li>
+
+      <li>
+        Puis-je m'engager pour toute sa vie ?
+      </li>
+
+    </ul>
+
+    <p class="agir-adoption-quote">
+
+      Adopter, ce n'est pas seulement
+      offrir un toit.
+
+      C'est promettre de ne plus abandonner.
+
+    </p>
+
+  </div>
+
+  <!-- Sources officielles -->
+
+  <div class="agir-adoption-resources">
+
+    <h3>Préparer son arrivée en toute légalité</h3>
+
+    <p>
+      Consultez les autorités compétentes avant
+      d'entreprendre toute démarche.
+    </p>
+
+    <div class="agir-adoption-links">
+
+      <a href="https://favv-afsca.be/fr"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="agir-secondary-button">
+
+        AFSCA — Belgique ↗
+
+      </a>
+
+      <a href="https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets_en?prefLang=fr"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="agir-secondary-button">
+
+        Commission européenne ↗
+
+      </a>
+
+    </div>
+
+    <p class="agir-adoption-legal-note">
+
+      Ce guide est informatif et non exhaustif.
+      Les conditions varient selon le pays,
+      le trajet et le type de transfert.
+      Vérifiez toujours les exigences officielles
+      en vigueur avant le départ.
+
+    </p>
+
+  </div>
+
+</section>
 
     <!-- =====================================
          08 — CONCLUSION

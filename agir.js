@@ -2425,7 +2425,767 @@
     );
 
   }
+  /* =========================================
+     EXPÉRIENCE IMMERSIVE — LES RENCONTRES
+     ========================================= */
 
+  const immersiveEncounters = [
+
+    /* RENCONTRE 01 — MAROC */
+
+    {
+
+      country: "🇲🇦 Maroc — Tanger",
+
+      image: "agir-rencontre-01.png",
+
+      alt: "Un chien craintif dans une ruelle marocaine",
+
+      title: "Un regard au détour d'une ruelle.",
+
+      description:
+        "Vous vous promenez dans les petites ruelles de Tanger lorsqu'un chien attire votre attention. Il semble avoir faim, mais dès que vous avancez, il recule et baisse les oreilles. Vous avez quelques croquettes dans votre sac.",
+
+      answers: [
+
+        {
+          text: "M'approcher doucement pour essayer de le caresser.",
+
+          explanation:
+            "Même avec de bonnes intentions, une approche directe peut effrayer un animal craintif. Il pourrait se sentir menacé et réagir pour se protéger."
+        },
+
+        {
+          text: "Déposer quelques croquettes dans un endroit sûr, puis reculer.",
+
+          explanation:
+            "En respectant sa distance, vous lui permettez de manger sans se sentir menacé. Respectez également les règles locales de nourrissage et évitez tout contact direct."
+        },
+
+        {
+          text: "Le suivre jusqu'à ce qu'il accepte ma présence.",
+
+          explanation:
+            "Suivre un animal qui cherche à s'éloigner peut augmenter son stress. Il est important de toujours lui laisser une possibilité de partir."
+        }
+
+      ],
+
+      correct: 1
+
+    },
+
+
+    /* RENCONTRE 02 — TUNISIE */
+
+    {
+
+      country: "🇹🇳 Tunisie — Djerba",
+
+      image: "agir-rencontre-02.png",
+
+      alt: "Un chat errant cherchant de l'ombre pendant une journée chaude",
+
+      title: "Sous le soleil de Djerba.",
+
+      description:
+        "Il fait très chaud aujourd'hui. Près d'une terrasse, vous apercevez un petit chat à la recherche d'un peu d'ombre. Vous avez une bouteille d'eau et un récipient propre dans votre sac.",
+
+      answers: [
+
+        {
+          text: "Lui acheter du lait pour lui faire plaisir.",
+
+          explanation:
+            "Le lait de vache peut provoquer des troubles digestifs chez les chats. L'eau potable reste la meilleure boisson pour les hydrater."
+        },
+
+        {
+          text: "Verser directement un peu d'eau dans sa bouche.",
+
+          explanation:
+            "Il ne faut jamais forcer un animal à boire. Cela peut provoquer une fausse route et augmenter son stress."
+        },
+
+        {
+          text: "Déposer une gamelle d'eau propre à l'ombre et le laisser boire.",
+
+          explanation:
+            "Une gamelle d'eau potable, placée dans un endroit calme et ombragé, est un geste simple et utile. Si l'animal semble très faible ou respire difficilement, demandez une aide vétérinaire urgente."
+        }
+
+      ],
+
+      correct: 2
+
+    },
+
+
+    /* RENCONTRE 03 — SICILE */
+
+    {
+
+      country: "🇮🇹 Italie — Sicile",
+
+      image: "agir-rencontre-03.png",
+
+      alt: "Un petit chaton seul près d'un mur en pierre",
+
+      title: "Une toute petite âme.",
+
+      description:
+        "Au détour d'une rue sicilienne, vous entendez un petit miaulement. Un chaton est installé près d'un mur, dans un endroit abrité. Il semble seul, mais vous ne savez pas où se trouve sa mère.",
+
+      answers: [
+
+        {
+          text: "Observer à distance et demander conseil à une association locale.",
+
+          explanation:
+            "Un chaton seul n'est pas forcément abandonné. Sa mère peut être partie chercher de la nourriture. Une association ou un vétérinaire pourra vous conseiller. Si le petit est faible, froid, blessé ou en danger, demandez une aide urgente."
+        },
+
+        {
+          text: "Le prendre immédiatement pour le ramener à mon hôtel.",
+
+          explanation:
+            "Séparer trop rapidement un chaton de sa mère peut compromettre ses chances de survie. Il est préférable d'évaluer la situation avec un professionnel."
+        },
+
+        {
+          text: "Lui donner du lait de vache pour le nourrir.",
+
+          explanation:
+            "Les chatons non sevrés ont besoin d'un lait maternisé spécifique. Le lait de vache ne répond pas à leurs besoins et peut provoquer des troubles digestifs."
+        }
+
+      ],
+
+      correct: 0
+
+    },
+
+
+    /* RENCONTRE 04 — TURQUIE */
+
+    {
+
+      country: "🇹🇷 Turquie — Istanbul",
+
+      image: "agir-rencontre-04.png",
+
+      alt: "Un chat errant blessé à une patte, installé dans un endroit calme",
+
+      title: "Quand un regard demande de l'aide.",
+
+      description:
+        "Dans une rue d'Istanbul, vous remarquez un chat qui boite. Il reste dans un coin tranquille et semble souffrir. Vous aimeriez le soulager, mais vous ne connaissez pas la gravité de sa blessure.",
+
+      answers: [
+
+        {
+          text: "Lui donner un antidouleur que j'ai dans mon sac.",
+
+          explanation:
+            "Les médicaments destinés aux humains peuvent être extrêmement dangereux pour les animaux. Le paracétamol, notamment, est particulièrement toxique pour les chats."
+        },
+
+        {
+          text: "Noter sa localisation et contacter un vétérinaire ou une association.",
+
+          explanation:
+            "C'est le réflexe le plus prudent. Une localisation précise et une photographie prise à distance peuvent faciliter l'intervention. Suivez les conseils des professionnels avant toute manipulation."
+        },
+
+        {
+          text: "Essayer de nettoyer sa blessure et de le porter moi-même.",
+
+          explanation:
+            "Un animal blessé peut mordre ou griffer par douleur. Une manipulation inadaptée peut également aggraver sa blessure. Demandez d'abord un avis professionnel."
+        }
+
+      ],
+
+      correct: 1
+
+    },
+
+
+    /* RENCONTRE 05 — ALBANIE */
+
+    {
+
+      country: "🇦🇱 Albanie — Tirana",
+
+      image: "agir-rencontre-05.png",
+
+      alt: "Un chien errant à proximité d'une route fréquentée",
+
+      title: "Quelques secondes pour réfléchir.",
+
+      description:
+        "Vous apercevez un chien désorienté à proximité d'une route fréquentée. Les voitures passent régulièrement et vous craignez qu'il traverse. Vous voulez l'aider avant qu'un accident ne se produise.",
+
+      answers: [
+
+        {
+          text: "Courir vers lui pour l'attraper avant qu'il traverse.",
+
+          explanation:
+            "Courir vers un chien peut l'effrayer et le pousser vers la circulation. Vous risquez également de provoquer un accident ou de vous blesser."
+        },
+
+        {
+          text: "Me placer au milieu de la route pour arrêter les voitures.",
+
+          explanation:
+            "Une intervention au milieu de la circulation peut mettre plusieurs vies en danger. Votre sécurité doit également être préservée."
+        },
+
+        {
+          text: "Rester dans un endroit sûr et contacter les services compétents.",
+
+          explanation:
+            "Vous pouvez aider sans vous exposer au danger. Communiquez une localisation précise, décrivez la situation et suivez les instructions des intervenants."
+        }
+
+      ],
+
+      correct: 2
+
+    }
+
+  ];  /* =========================================
+     EXPÉRIENCE IMMERSIVE — FONCTIONNEMENT
+     ========================================= */
+
+  let immersiveIndex = 0;
+
+  let immersiveScore = 0;
+
+  let immersiveAnswered = false;
+
+  const immersiveTotal = immersiveEncounters.length;
+
+
+  /* CHANGEMENT D'ÉCRAN */
+
+  function showImmersiveScreen(screen) {
+
+    const screens = [
+
+      "immersive-start",
+
+      "immersive-game",
+
+      "immersive-result"
+
+    ];
+
+    screens.forEach(id => {
+
+      $(id).hidden = id !== screen;
+
+    });
+
+  }
+
+
+  /* BARRE DE PROGRESSION */
+
+  function updateImmersiveProgress(completed) {
+
+    const percentage =
+      completed / immersiveTotal * 100;
+
+    $("immersive-fill").style.width =
+      `${percentage}%`;
+
+    $("immersive-progress").setAttribute(
+      "aria-valuemax",
+      immersiveTotal
+    );
+
+    $("immersive-progress").setAttribute(
+      "aria-valuenow",
+      completed
+    );
+
+  }
+
+
+  /* AFFICHER UNE RENCONTRE */
+
+  function renderImmersiveEncounter() {
+
+    immersiveAnswered = false;
+
+    const encounter =
+      immersiveEncounters[immersiveIndex];
+
+    $("immersive-position").textContent =
+      `Rencontre ${immersiveIndex + 1}/${immersiveTotal}`;
+
+    $("immersive-country").textContent =
+      encounter.country;
+
+    $("immersive-title").textContent =
+      encounter.title;
+
+    $("immersive-description").textContent =
+      encounter.description;
+
+
+    /* Illustration */
+
+    const image = $("immersive-image");
+
+    image.hidden = true;
+
+    image.alt = encounter.alt;
+
+    image.onload = () => {
+
+      image.hidden = false;
+
+    };
+
+    image.onerror = () => {
+
+      image.hidden = true;
+
+    };
+
+    image.src = encounter.image;
+
+    if (image.complete && image.naturalWidth > 0) {
+
+      image.hidden = false;
+
+    }
+
+
+    /* Réinitialisation des explications */
+
+    const feedback = $("immersive-feedback");
+
+    feedback.hidden = true;
+
+    feedback.classList.remove(
+
+      "is-correct",
+
+      "is-incorrect"
+
+    );
+
+    $("immersive-next").hidden = true;
+
+
+    /* Création des réponses */
+
+    const answers = $("immersive-answers");
+
+    answers.replaceChildren();
+
+    const letters = ["A", "B", "C"];
+
+    encounter.answers.forEach((answer, index) => {
+
+      const button = document.createElement(
+        "button"
+      );
+
+      button.type = "button";
+
+      button.className =
+        "agir-immersive-answer";
+
+      button.dataset.index = String(index);
+
+
+      const letter = document.createElement(
+        "span"
+      );
+
+      letter.className =
+        "agir-immersive-answer-letter";
+
+      letter.textContent = letters[index];
+
+      letter.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+
+      const text = document.createElement(
+        "span"
+      );
+
+      text.textContent = answer.text;
+
+      button.appendChild(letter);
+
+      button.appendChild(text);
+
+      button.addEventListener("click", () => {
+
+        answerImmersiveEncounter(index);
+
+      });
+
+      answers.appendChild(button);
+
+    });
+
+    updateImmersiveProgress(immersiveIndex);
+
+    $("immersive-title").focus({
+      preventScroll: true
+    });
+
+  }
+
+
+  /* COMMENCER L'AVENTURE */
+
+  function startImmersiveAdventure() {
+
+    immersiveIndex = 0;
+
+    immersiveScore = 0;
+
+    immersiveAnswered = false;
+
+    showImmersiveScreen("immersive-game");
+
+    renderImmersiveEncounter();
+
+    scrollToImmersive();
+
+  }
+
+
+  /* DÉFILEMENT VERS L'EXPÉRIENCE */
+
+  function scrollToImmersive() {
+
+    const card = document.querySelector(
+      ".agir-immersive-card"
+    );
+
+    if (!card) return;
+
+    card.scrollIntoView({
+
+      behavior: reducedMotion
+        ? "auto"
+        : "smooth",
+
+      block: "start"
+
+    });
+
+  }
+
+
+  /* VALIDATION D'UNE RÉPONSE */
+
+  function answerImmersiveEncounter(selected) {
+
+    if (immersiveAnswered) return;
+
+    immersiveAnswered = true;
+
+    const encounter =
+      immersiveEncounters[immersiveIndex];
+
+    const correct =
+      selected === encounter.correct;
+
+    if (correct) {
+
+      immersiveScore++;
+
+    }
+
+
+    /* Couleurs des réponses */
+
+    const buttons = document.querySelectorAll(
+      ".agir-immersive-answer"
+    );
+
+    buttons.forEach((button, index) => {
+
+      button.disabled = true;
+
+      if (index === encounter.correct) {
+
+        button.classList.add("is-correct");
+
+        button.setAttribute(
+          "aria-label",
+          `${encounter.answers[index].text} — Bonne réponse`
+        );
+
+      }
+
+      if (index === selected) {
+
+        button.classList.add("is-selected");
+
+        if (!correct) {
+
+          button.classList.add("is-incorrect");
+
+          button.setAttribute(
+            "aria-label",
+            `${encounter.answers[index].text} — Réponse incorrecte`
+          );
+
+        }
+
+      }
+
+    });
+
+
+    /* Explication pédagogique */
+
+    const feedback = $("immersive-feedback");
+
+    feedback.classList.add(
+
+      correct
+
+        ? "is-correct"
+
+        : "is-incorrect"
+
+    );
+
+    $("immersive-feedback-symbol").textContent =
+
+      correct ? "♡" : "✧";
+
+    $("immersive-feedback-title").textContent =
+
+      correct
+
+        ? "Un très beau réflexe !"
+
+        : "Une nouvelle chose à apprendre.";
+
+    let explanation =
+      encounter.answers[selected].explanation;
+
+    if (!correct) {
+
+      explanation +=
+
+        " Le geste recommandé : " +
+
+        encounter.answers[encounter.correct].text;
+
+    }
+
+    $("immersive-explanation").textContent =
+      explanation;
+
+    feedback.hidden = false;
+
+
+    /* Progression */
+
+    updateImmersiveProgress(
+      immersiveIndex + 1
+    );
+
+
+    /* Bouton suivant */
+
+    const nextButton = $("immersive-next");
+
+    nextButton.textContent =
+
+      immersiveIndex === immersiveTotal - 1
+
+        ? "Découvrir mon résultat ♡"
+
+        : "Rencontre suivante →";
+
+    nextButton.hidden = false;
+
+    nextButton.focus({
+      preventScroll: true
+    });
+
+    feedback.scrollIntoView({
+
+      behavior: reducedMotion
+        ? "auto"
+        : "smooth",
+
+      block: "nearest"
+
+    });
+
+  }
+
+
+  /* RENCONTRE SUIVANTE */
+
+  function nextImmersiveEncounter() {
+
+    if (!immersiveAnswered) return;
+
+    if (immersiveIndex < immersiveTotal - 1) {
+
+      immersiveIndex++;
+
+      renderImmersiveEncounter();
+
+      scrollToImmersive();
+
+    } else {
+
+      showImmersiveResult();
+
+    }
+
+  }
+
+
+  /* RÉSULTAT FINAL */
+
+  function showImmersiveResult() {
+
+    showImmersiveScreen("immersive-result");
+
+    $("immersive-final-score").textContent =
+      `${immersiveScore}/${immersiveTotal}`;
+
+    let title = "";
+
+    let message = "";
+
+
+    if (immersiveScore === immersiveTotal) {
+
+      title =
+        "Le cœur d'un voyageur solidaire.";
+
+      message =
+        "Vous avez choisi les cinq gestes recommandés. Votre bienveillance, votre prudence et votre respect des animaux peuvent faire une véritable différence lors de vos prochaines rencontres.";
+
+      createConfetti(50);
+
+    } else if (immersiveScore >= 3) {
+
+      title =
+        "Un cœur rempli de bienveillance.";
+
+      message =
+        "Vous connaissez déjà de nombreux gestes utiles. Les rencontres d'aujourd'hui vous ont également permis d'apprendre de nouveaux réflexes pour aider les animaux en toute sécurité.";
+
+      createConfetti(25);
+
+    } else {
+
+      title =
+        "Chaque petit pas compte.";
+
+      message =
+        "Aider un animal ne s'improvise pas toujours. L'essentiel est de vouloir apprendre, de respecter ses besoins et de savoir demander de l'aide. Chaque nouvelle connaissance peut changer une rencontre.";
+
+    }
+
+    $("immersive-result-title").textContent =
+      title;
+
+    $("immersive-result-message").textContent =
+      message;
+
+    $("immersive-result-title").focus({
+      preventScroll: true
+    });
+
+    scrollToImmersive();
+
+  }
+
+
+  /* =========================================
+     INITIALISATION DE L'EXPÉRIENCE
+     ========================================= */
+
+  function initializeImmersiveAdventure() {
+
+    const requiredIds = [
+
+      "immersive-start",
+      "immersive-game",
+      "immersive-result",
+      "immersive-start-button",
+      "immersive-position",
+      "immersive-country",
+      "immersive-progress",
+      "immersive-fill",
+      "immersive-image",
+      "immersive-title",
+      "immersive-description",
+      "immersive-answers",
+      "immersive-feedback",
+      "immersive-feedback-symbol",
+      "immersive-feedback-title",
+      "immersive-explanation",
+      "immersive-next",
+      "immersive-final-score",
+      "immersive-result-title",
+      "immersive-result-message",
+      "immersive-restart"
+
+    ];
+
+    if (!requiredIds.every(id => $(id))) {
+
+      return;
+
+    }
+
+    $("immersive-start-button").addEventListener(
+
+      "click",
+
+      startImmersiveAdventure
+
+    );
+
+    $("immersive-next").addEventListener(
+
+      "click",
+
+      nextImmersiveEncounter
+
+    );
+
+    $("immersive-restart").addEventListener(
+
+      "click",
+
+      startImmersiveAdventure
+
+    );
+
+    showImmersiveScreen("immersive-start");
+
+    updateImmersiveProgress(0);
+
+  }
+
+  initializeImmersiveAdventure();
 
   /* =========================================
      11 — INITIALISATION
