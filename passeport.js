@@ -2854,6 +2854,7 @@
     ========================================== */
 
     function renderAll() {
+
         renderIdentity();
         renderCompanion();
         renderMedallion();
@@ -2868,12 +2869,104 @@
         const message = $("kingdom-secret-message");
 
         if (button && message) {
+
             button.setAttribute(
                 "aria-expanded",
                 String(!message.hidden)
             );
+
         }
+
+        window.dispatchEvent(
+            new CustomEvent(
+                "coeur-errant-map-updated"
+            )
+        );
+
     }
+
+     /* =========================================
+       LIAISON AVEC LA CARTE ENCHANTÉE
+    ========================================== */
+
+    window.CoeurErrantPassport = Object.freeze({
+
+        getCollectedFragments() {
+
+            return [...state.stamps];
+
+        },
+
+        completeFragment(id) {
+
+            if (!validIds.has(id)) {
+
+                return false;
+
+            }
+
+            if (state.stamps.includes(id)) {
+
+                return true;
+
+            }
+
+            const treasure = treasures.find(
+                item => item.id === id
+            );
+
+            if (!treasure) return false;
+
+            state.stamps.push(id);
+
+            const adventureCompleted =
+                state.stamps.length === treasures.length;
+
+            if (adventureCompleted) {
+
+                state.completedAt =
+                    new Date().toISOString();
+
+            }
+
+            const saved = saveState();
+
+            renderAll();
+
+            updateStorageNote();
+
+            if (!saved) {
+
+                notifyPassportUpdate();
+
+            }
+
+            showToast(
+
+                adventureCompleted
+                    ? "Votre aventure est accomplie"
+                    : "Un fragment retrouvé",
+
+                adventureCompleted
+                    ? "Bienvenue parmi les Gardiens des cœurs errants."
+                    : `${treasure.name} a rejoint votre médaillon.`
+
+            );
+
+            celebrate(
+                adventureCompleted ? 65 : 20
+            );
+
+            return true;
+
+        }
+
+    });
+
+
+    /* =========================================
+       DÉMARRAGE DU ROYAUME
+    ========================================== */
 
     setupStorageConsent();
     createParticles();
@@ -2882,3 +2975,4 @@
     handleTravelReturn();
 
 })();
+

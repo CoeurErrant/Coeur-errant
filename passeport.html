@@ -83,6 +83,7 @@
     <link rel="stylesheet" href="style.css">
 
     <link rel="stylesheet" href="passeport.css">
+    <link rel="stylesheet" href="carte-fragments.css">
 
     <link rel="stylesheet" href="global.css">
 
@@ -92,6 +93,7 @@
     <script src="global.js" defer></script>
 
     <script src="passeport.js" defer></script>
+    <script src="carte-fragments.js" defer></script>
 
 </head>
 
@@ -326,11 +328,12 @@
             sa place.
         </p>
 
-        <p>
-            Quatorze fragments précieux sont dispersés
-            à travers les voyages de Cœur Errant.
-            Chacun renferme une petite part de lumière.
-        </p>
+   <p>
+    Quatorze fragments précieux vous attendent
+    sur une carte enchantée, inspirée des véritables
+    voyages de Cœur Errant.
+    Chacun renferme une petite part de lumière.
+</p>
 
         <p>
             Retrouvez-les, illuminez votre médaillon
@@ -352,11 +355,11 @@
                 </span>
 
                 <h3>Explorer</h3>
-
-                <p>
-                    Des trésors sont dissimulés dans
-                    les récits de voyage.
-                </p>
+<p>
+    Explorez la carte enchantée et relevez
+    les défis de chaque destination pour
+    découvrir leurs trésors.
+</p>
 
             </article>
 
@@ -852,18 +855,308 @@
 
                 </div>
 
-                <a href="voyages.html"
-                   class="kingdom-button">
+            <a href="#carte-enchantee"
+   class="kingdom-button">
 
-                    Partir à l'aventure
+    Explorer la carte enchantée
 
-                    <span aria-hidden="true">✧</span>
+    <span aria-hidden="true">✧</span>
 
-                </a>
+</a>
 
             </div>
 
         </div>
+        <!-- =========================================
+     LA CARTE DES FRAGMENTS DE LUMIÈRE
+========================================== -->
+
+<section class="kingdom-map-section"
+         id="carte-enchantee">
+
+    <div class="kingdom-heading">
+
+        <span class="kingdom-eyebrow">
+            Le carnet des merveilles
+        </span>
+
+        <h2>
+            La carte des
+            <em>fragments de lumière</em>
+        </h2>
+
+        <p>
+            Quatorze destinations, quatorze aventures
+            et autant de trésors à découvrir.
+            Chaque chemin vous rapproche un peu plus
+            du cœur du royaume.
+        </p>
+
+    </div>
+
+    <div class="fragment-map-card">
+
+        <div class="fragment-map-header">
+
+            <div class="fragment-map-title">
+
+                <span aria-hidden="true">✧</span>
+
+                <h3>Les chemins de lumière</h3>
+
+                <p>Choisissez votre prochaine destination.</p>
+
+            </div>
+
+            <div class="fragment-map-counter"
+                 role="status"
+                 aria-live="polite">
+
+                <span aria-hidden="true">✦</span>
+
+                <strong id="map-fragment-count">0</strong>
+
+                <span>/ 14 fragments</span>
+
+            </div>
+
+        </div>
+
+        <!-- CARTE INTERACTIVE -->
+
+        <div class="fragment-map-viewport"
+             id="fragment-map-viewport">
+
+            <div class="fragment-map-world"
+                 id="fragment-map-world">
+
+                <svg id="fragment-map-artwork"
+                     viewBox="0 0 1000 800"
+                     aria-hidden="true">
+                </svg>
+
+                <div class="fragment-map-markers"
+                     id="fragment-map-markers">
+                </div>
+
+            </div>
+
+            <div class="fragment-map-compass"
+                 aria-hidden="true">
+
+                <span>N</span>
+                <span>✧</span>
+
+            </div>
+
+            <div class="fragment-map-controls">
+
+                <button type="button"
+                        id="map-zoom-in"
+                        aria-label="Agrandir la carte">
+                    +
+                </button>
+
+                <button type="button"
+                        id="map-zoom-out"
+                        aria-label="Réduire la carte">
+                    −
+                </button>
+
+                <button type="button"
+                        id="map-zoom-reset"
+                        aria-label="Recentrer la carte">
+                    ⌂
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- LÉGENDE -->
+
+        <div class="fragment-map-legend">
+
+            <span>
+                <i class="map-legend-dot map-undiscovered"></i>
+                À découvrir
+            </span>
+
+            <span>
+                <i class="map-legend-dot map-discovered"></i>
+                Fragment retrouvé
+            </span>
+
+            <span>
+                <i class="map-legend-route"></i>
+                Chemin parcouru
+            </span>
+
+        </div>
+
+        <div class="fragment-map-progress">
+
+            <div class="fragment-map-progress-track"
+                 id="map-progress-track"
+                 role="progressbar"
+                 aria-label="Fragments retrouvés"
+                 aria-valuemin="0"
+                 aria-valuemax="14"
+                 aria-valuenow="0">
+
+                <div id="map-progress-fill"></div>
+
+            </div>
+
+            <p id="map-progress-message"
+               aria-live="polite">
+
+                Votre aventure ne fait que commencer.
+
+            </p>
+
+        </div>
+
+        <!-- LISTE DES DESTINATIONS -->
+
+        <div class="fragment-destinations">
+
+            <h3>Votre carnet de destinations</h3>
+
+            <p>
+                Explorez les destinations dans l'ordre
+                de votre choix.
+            </p>
+
+            <div class="fragment-destination-grid"
+                 id="fragment-destination-grid">
+            </div>
+
+        </div>
+
+    </div>
+
+    <p class="fragment-map-quote">
+        « Les plus beaux trésors ne sont pas ceux
+        que l'on possède, mais ceux qui nous apprennent
+        à regarder le monde autrement. »
+    </p>
+
+</section>
+
+
+<!-- =========================================
+     FENÊTRE DES MINI-JEUX
+========================================== -->
+
+<dialog class="fragment-game-dialog"
+        id="fragment-game-dialog"
+        aria-labelledby="fragment-game-title">
+
+    <div class="fragment-game-window">
+
+        <button type="button"
+                class="fragment-game-close"
+                id="fragment-game-close"
+                aria-label="Fermer le jeu">
+
+            ×
+
+        </button>
+
+        <div class="fragment-game-header">
+
+            <span class="fragment-game-ornament"
+                  aria-hidden="true">
+                ✧
+            </span>
+
+            <span class="fragment-game-destination"
+                  id="fragment-game-destination">
+            </span>
+
+            <h2 id="fragment-game-title"></h2>
+
+            <p id="fragment-game-description"></p>
+
+        </div>
+
+        <!-- CONTENU DU JEU -->
+
+        <div class="fragment-game-content"
+             id="fragment-game-content">
+        </div>
+
+        <p class="fragment-game-feedback"
+           id="fragment-game-feedback"
+           role="status"
+           aria-live="polite">
+        </p>
+
+        <!-- RÉCOMPENSE -->
+
+        <div class="fragment-game-reward"
+             id="fragment-game-reward"
+             hidden>
+
+            <div class="fragment-reward-sparkles"
+                 aria-hidden="true">
+
+                <span>✧</span>
+                <span>✦</span>
+                <span>✧</span>
+                <span>✦</span>
+                <span>✧</span>
+
+            </div>
+
+            <span class="kingdom-eyebrow">
+                Un nouveau fragment de lumière
+            </span>
+
+            <div class="fragment-reward-visual"
+                 id="fragment-reward-visual">
+            </div>
+
+            <h3 id="fragment-reward-title"></h3>
+
+            <p id="fragment-reward-meaning"></p>
+
+            <button type="button"
+                    class="kingdom-button"
+                    id="fragment-collect-button">
+
+                Ajouter à mon médaillon
+
+                <span aria-hidden="true">✧</span>
+
+            </button>
+
+        </div>
+
+        <div class="fragment-game-footer">
+
+            <button type="button"
+                    class="kingdom-outline-button"
+                    id="fragment-game-restart">
+
+                Recommencer
+
+            </button>
+
+            <button type="button"
+                    class="kingdom-outline-button"
+                    id="fragment-game-return">
+
+                Retour à la carte
+
+            </button>
+
+        </div>
+
+    </div>
+
+</dialog>
 
     </section>    <!-- COFFRET DES TRÉSORS -->
 

@@ -1,0 +1,1764 @@
+/* =========================================
+   CŒUR ERRANT
+   LA CARTE DES FRAGMENTS DE LUMIÈRE
+========================================= */
+
+.kingdom-map-section {
+    --map-cream: #fffaf3;
+    --map-paper: #fffdf9;
+    --map-rose: #e8c9ce;
+    --map-rose-light: #f5e5e8;
+    --map-pink: #a85e78;
+    --map-gold: #c4a477;
+    --map-dark: #51434f;
+    --map-muted: #82747b;
+
+    position: relative;
+    padding: 110px 30px;
+    background: linear-gradient(
+        180deg,
+        var(--k-cream, #faf7f1),
+        #f4e5e8,
+        var(--k-cream, #faf7f1)
+    );
+}
+
+.kingdom-map-section *,
+.fragment-game-dialog * {
+    box-sizing: border-box;
+}
+
+.kingdom-map-section [hidden],
+.fragment-game-dialog [hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   CARTE PRINCIPALE
+========================================= */
+
+.fragment-map-card {
+    position: relative;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #d6bd98;
+    border-radius: 30px;
+    background: var(--map-paper);
+    box-shadow:
+        0 20px 70px rgba(81, 67, 79, .10),
+        inset 0 0 30px rgba(196, 164, 119, .04);
+}
+
+.fragment-map-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 5px 10px 30px;
+}
+
+.fragment-map-title > span {
+    display: block;
+    color: var(--map-gold);
+    font-size: 1.8rem;
+}
+
+.fragment-map-title h3 {
+    margin: 5px 0;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--map-dark);
+}
+
+.fragment-map-title p {
+    margin: 8px 0 0;
+    color: var(--map-muted);
+    font-size: .88rem;
+}
+
+.fragment-map-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 22px;
+    border: 1px solid #dfc7a6;
+    border-radius: 50px;
+    background: #fff8ee;
+    color: var(--map-dark);
+    white-space: nowrap;
+    font-size: .85rem;
+}
+
+.fragment-map-counter > span:first-child {
+    color: var(--map-gold);
+    font-size: 1.4rem;
+}
+
+.fragment-map-counter strong {
+    color: var(--map-pink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+
+/* =========================================
+   ESPACE GÉOGRAPHIQUE
+========================================= */
+
+.fragment-map-viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1000 / 800;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid #d8c09f;
+    border-radius: 20px;
+    background: #faf3e6;
+    box-shadow:
+        inset 0 0 45px rgba(196, 164, 119, .12);
+}
+
+.fragment-map-world {
+    position: absolute;
+    inset: 0;
+    transform-origin: center;
+    transition: transform .35s ease;
+}
+
+#fragment-map-artwork {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.fragment-map-markers {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CONTINENTS ROSE POUDRÉ
+========================================= */
+
+.map-land {
+    fill: #e9c6cf;
+    stroke: #b98c9a;
+    stroke-width: 1.4;
+    stroke-linejoin: round;
+}
+
+.map-island {
+    fill: #e9c6cf;
+    stroke: #b98c9a;
+    stroke-width: 1.2;
+}
+
+.map-country-border {
+    fill: none;
+    stroke: #c99ca8;
+    stroke-width: .8;
+    opacity: .65;
+}
+
+.map-grid-line {
+    fill: none;
+    stroke: #d7c6ae;
+    stroke-width: .6;
+    opacity: .35;
+}
+
+.map-water-label {
+    fill: #a99783;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+    letter-spacing: 3px;
+    opacity: .8;
+}
+
+.map-country-label {
+    fill: #986f7d;
+    font-family: "Jost", sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: .7;
+}
+
+.map-decoration {
+    fill: #c4a477;
+    opacity: .45;
+}
+
+
+/* =========================================
+   CHEMINS DORÉS
+========================================= */
+
+.map-route {
+    fill: none;
+    stroke: #bda58b;
+    stroke-width: 1.8;
+    stroke-dasharray: 5 8;
+    stroke-linecap: round;
+    opacity: .6;
+    transition: stroke .5s, opacity .5s;
+}
+
+.map-route.is-discovered {
+    stroke: #bd914a;
+    stroke-width: 2.8;
+    opacity: 1;
+    filter: drop-shadow(0 0 3px #f0d9a1);
+}
+
+
+/* =========================================
+   DESTINATIONS CLIQUABLES
+========================================= */
+
+.fragment-map-marker {
+    position: absolute;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    transform: translate(-50%, -50%);
+    border: 2px solid #fff9ee;
+    border-radius: 50%;
+    background: #a85e78;
+    color: #fffaf3;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow:
+        0 0 0 3px rgba(168, 94, 120, .16),
+        0 4px 12px rgba(81, 67, 79, .22);
+    transition:
+        background .3s,
+        box-shadow .3s,
+        transform .3s;
+}
+
+.fragment-map-marker:hover,
+.fragment-map-marker:focus-visible {
+    z-index: 10;
+    transform: translate(-50%, -50%) scale(1.15);
+    background: #914a63;
+}
+
+.fragment-map-marker:focus-visible {
+    outline: 3px solid #c4a477;
+    outline-offset: 4px;
+}
+
+.fragment-map-marker::before {
+    content: "";
+    position: absolute;
+    inset: -7px;
+    border: 1px solid rgba(168, 94, 120, .4);
+    border-radius: 50%;
+    animation: mapMarkerPulse 3s infinite;
+    pointer-events: none;
+}
+
+.fragment-map-marker.is-discovered {
+    background: #c4a477;
+    color: #fffdf7;
+    border-color: #fff0c8;
+    box-shadow:
+        0 0 0 4px rgba(196, 164, 119, .25),
+        0 0 18px rgba(229, 197, 140, .75);
+}
+
+.fragment-map-marker.is-discovered::before {
+    border-color: #c4a477;
+    animation: none;
+}
+
+.fragment-map-marker-label {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 9px;
+    border: 1px solid rgba(196, 164, 119, .4);
+    border-radius: 20px;
+    background: rgba(255, 250, 243, .95);
+    color: #795361;
+    font-family: "Jost", sans-serif;
+    font-size: .68rem;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.fragment-map-marker.is-discovered
+.fragment-map-marker-label {
+    color: #886b40;
+    border-color: #c4a477;
+}
+
+@keyframes mapMarkerPulse {
+    0% {
+        transform: scale(.85);
+        opacity: .8;
+    }
+
+    70%, 100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   ROSE DES VENTS
+========================================= */
+
+.fragment-map-compass {
+    position: absolute;
+    z-index: 5;
+    top: 25px;
+    right: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(196, 164, 119, .65);
+    border-radius: 50%;
+    background: rgba(255, 250, 243, .85);
+    color: #a58565;
+    pointer-events: none;
+}
+
+.fragment-map-compass span:first-child {
+    font-size: .7rem;
+    letter-spacing: 2px;
+}
+
+.fragment-map-compass span:last-child {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+
+/* =========================================
+   CONTRÔLES DE LA CARTE
+========================================= */
+
+.fragment-map-controls {
+    position: absolute;
+    z-index: 20;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fragment-map-controls button {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #d6bd98;
+    border-radius: 12px;
+    background: rgba(255, 253, 249, .96);
+    color: #795361;
+    font-size: 1.5rem;
+    line-height: 1;
+    box-shadow: 0 4px 12px rgba(81, 67, 79, .08);
+    transition: .25s ease;
+}
+
+.fragment-map-controls button:hover:not(:disabled) {
+    background: #e8c9ce;
+    border-color: #a85e78;
+}
+
+.fragment-map-controls button:disabled {
+    opacity: .4;
+}
+
+
+/* =========================================
+   LÉGENDE
+========================================= */
+
+.fragment-map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 30px;
+    padding: 25px 10px;
+}
+
+.fragment-map-legend > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--map-muted);
+    font-size: .78rem;
+}
+
+.map-legend-dot {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.map-undiscovered {
+    background: #a85e78;
+    box-shadow: 0 0 0 3px #f2dce2;
+}
+
+.map-discovered {
+    background: #c4a477;
+    box-shadow: 0 0 0 3px #f3e7d0;
+}
+
+.map-legend-route {
+    display: inline-block;
+    width: 30px;
+    border-top: 2px dashed #c4a477;
+}
+
+
+/* =========================================
+   PROGRESSION DE LA CARTE
+========================================= */
+
+.fragment-map-progress {
+    max-width: 700px;
+    margin: 5px auto 35px;
+    text-align: center;
+}
+
+.fragment-map-progress-track {
+    height: 8px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #f0e5df;
+}
+
+#map-progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(
+        90deg,
+        #d8a5b3,
+        #d9bd87
+    );
+    transition: width .8s ease;
+}
+
+#map-progress-message {
+    margin: 15px 0 0;
+    color: var(--map-muted);
+    font-size: .85rem;
+}
+
+
+/* =========================================
+   CARNET DES DESTINATIONS
+========================================= */
+
+.fragment-destinations {
+    padding: 35px 5px 10px;
+    border-top: 1px solid #eaded3;
+    text-align: center;
+}
+
+.fragment-destinations > h3 {
+    margin: 0 0 10px;
+    font-size: 2.3rem;
+    color: var(--map-dark);
+}
+
+.fragment-destinations > p {
+    margin: 0 0 30px;
+    color: var(--map-muted);
+    font-size: .88rem;
+}
+
+.fragment-destination-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.fragment-destination-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 175px;
+    padding: 22px 12px;
+    overflow: hidden;
+    border: 1px solid #e6d3d5;
+    border-radius: 65px 65px 16px 16px;
+    background: linear-gradient(
+        145deg,
+        #fffaf7,
+        #f5e5e8
+    );
+    color: var(--map-dark);
+    text-align: center;
+    transition: .3s ease;
+}
+
+.fragment-destination-card:hover {
+    transform: translateY(-5px);
+    border-color: #c4a477;
+    box-shadow: 0 8px 25px rgba(81, 67, 79, .09);
+}
+
+.fragment-destination-card.is-discovered {
+    border-color: #c4a477;
+    background: linear-gradient(
+        145deg,
+        #fffdf5,
+        #f2e7d2
+    );
+}
+
+.fragment-destination-number {
+    color: #a58565;
+    font-size: .65rem;
+    letter-spacing: .15em;
+}
+
+.fragment-destination-symbol {
+    display: block;
+    margin: 10px 0;
+    color: #a85e78;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.fragment-destination-card.is-discovered
+.fragment-destination-symbol {
+    color: #b99a65;
+    filter: drop-shadow(0 0 5px #ead6a5);
+}
+
+.fragment-destination-name {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.fragment-destination-date {
+    margin-top: 6px;
+    color: var(--map-muted);
+    font-size: .7rem;
+}
+
+.fragment-destination-status {
+    display: block;
+    margin-top: 13px;
+    color: #a85e78;
+    font-size: .7rem;
+}
+
+.fragment-destination-card.is-discovered
+.fragment-destination-status {
+    color: #886b40;
+}
+
+
+/* =========================================
+   CITATION
+========================================= */
+
+.fragment-map-quote {
+    max-width: 650px;
+    margin: 45px auto 0;
+    padding: 0 15px;
+    color: #986f7d;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+}/* =========================================
+   FENÊTRE DES MINI-JEUX
+========================================= */
+
+.fragment-game-dialog {
+    --map-cream: #fffaf3;
+    --map-paper: #fffdf9;
+    --map-rose: #e8c9ce;
+    --map-pink: #a85e78;
+    --map-gold: #c4a477;
+    --map-dark: #51434f;
+    --map-muted: #82747b;
+
+    width: min(720px, calc(100% - 30px));
+    max-height: 90dvh;
+    margin: auto;
+    padding: 0;
+    overflow-y: auto;
+    border: 1px solid #c4a477;
+    border-radius: 30px;
+    background: #fffaf5;
+    color: var(--map-dark);
+    font-family: "Jost", sans-serif;
+    box-shadow: 0 25px 100px rgba(81, 67, 79, .25);
+}
+
+.fragment-game-dialog:not([open]) {
+    display: none;
+}
+
+.fragment-game-dialog::backdrop {
+    background: rgba(57, 39, 51, .65);
+    backdrop-filter: blur(6px);
+}
+
+.fragment-game-dialog[open] {
+    animation: fragmentDialogEnter .4s ease both;
+}
+
+@keyframes fragmentDialogEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.fragment-game-window {
+    position: relative;
+    padding: 40px;
+    text-align: center;
+    background: radial-gradient(
+        ellipse at top,
+        #f4e1e6,
+        #fffaf5 65%
+    );
+}
+
+.fragment-game-dialog button {
+    font-family: "Jost", sans-serif;
+    cursor: pointer;
+}
+
+.fragment-game-dialog button:focus-visible {
+    outline: 3px solid #c4a477;
+    outline-offset: 4px;
+}
+
+.fragment-game-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #e3cbd1;
+    border-radius: 50%;
+    background: #fffaf5;
+    color: #a85e78;
+    font-size: 1.8rem;
+    line-height: 1;
+    transition: .25s ease;
+}
+
+.fragment-game-close:hover {
+    background: #e8c9ce;
+    transform: rotate(10deg);
+}
+
+
+/* =========================================
+   EN-TÊTE DES JEUX
+========================================= */
+
+.fragment-game-header {
+    max-width: 550px;
+    margin: 0 auto 30px;
+}
+
+.fragment-game-ornament {
+    display: block;
+    margin-bottom: 12px;
+    color: #c4a477;
+    font-size: 2.5rem;
+}
+
+.fragment-game-destination {
+    display: block;
+    color: #a58565;
+    font-size: .72rem;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+.fragment-game-header h2 {
+    margin: 15px 0;
+    color: #51434f;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.fragment-game-header p {
+    margin: 0;
+    color: #82747b;
+    font-size: .95rem;
+    line-height: 1.8;
+}
+
+.fragment-game-content {
+    position: relative;
+    min-width: 0;
+    padding: 15px 0;
+}
+
+
+/* =========================================
+   ÉNIGMES ET QUIZ
+========================================= */
+
+.fragment-question {
+    margin: 0 auto 25px;
+    padding: 22px;
+    border: 1px solid #e5d1d6;
+    border-radius: 20px;
+    background: #fffdf9;
+    color: #51434f;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.fragment-answer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.fragment-answer {
+    min-height: 65px;
+    padding: 15px;
+    border: 1px solid #e0c8ce;
+    border-radius: 15px;
+    background: #fffdf9;
+    color: #51434f;
+    font-size: .9rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    transition: .25s ease;
+}
+
+.fragment-answer:hover:not(:disabled) {
+    background: #f1dce2;
+    border-color: #a85e78;
+    transform: translateY(-2px);
+}
+
+.fragment-answer.is-correct {
+    background: #e4ecdf;
+    border-color: #a8b29b;
+    color: #53634d;
+}
+
+.fragment-answer.is-incorrect {
+    background: #f5e1e3;
+    border-color: #c58c98;
+    color: #98586a;
+}
+
+.fragment-answer:disabled {
+    cursor: default;
+}
+
+
+/* =========================================
+   MEMORY ENCHANTÉ
+========================================= */
+
+.fragment-memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 470px;
+    margin: auto;
+}
+
+.fragment-memory-card {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #c4a477;
+    border-radius: 16px;
+    background: linear-gradient(
+        145deg,
+        #e9c5d0,
+        #b77c91
+    );
+    color: #fffaf0;
+    font-size: clamp(1.7rem, 5vw, 2.8rem);
+    box-shadow: 0 5px 15px rgba(81, 67, 79, .1);
+    transition: .3s ease;
+}
+
+.fragment-memory-card::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px solid rgba(255, 249, 230, .65);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.fragment-memory-card:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(81, 67, 79, .15);
+}
+
+.fragment-memory-card.is-flipped {
+    background: #fffdf6;
+    color: #a85e78;
+    border-color: #d6bd98;
+    animation: fragmentCardReveal .3s ease;
+}
+
+.fragment-memory-card.is-matched {
+    background: #f4ead5;
+    color: #a58565;
+    border-color: #c4a477;
+    box-shadow: 0 0 15px rgba(196, 164, 119, .35);
+    cursor: default;
+}
+
+@keyframes fragmentCardReveal {
+    from {
+        transform: scaleX(.3);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+
+/* =========================================
+   PUZZLES
+========================================= */
+
+.fragment-puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+    width: min(100%, 360px);
+    margin: 0 auto;
+    padding: 8px;
+    border: 1px solid #c4a477;
+    border-radius: 15px;
+    background: #f1e4dc;
+}
+
+.fragment-puzzle-piece {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-color: #e8c9ce;
+    background-repeat: no-repeat;
+    background-size: 300% 300%;
+    transition: border-color .2s, filter .2s;
+}
+
+.fragment-puzzle-piece:hover {
+    filter: brightness(1.08);
+}
+
+.fragment-puzzle-piece.is-selected {
+    z-index: 2;
+    border-color: #a85e78;
+    box-shadow: 0 0 0 2px #a85e78;
+}
+
+.fragment-puzzle-piece.is-correct {
+    border-color: #a8b29b;
+}
+
+.fragment-puzzle-preview {
+    display: block;
+    width: 110px;
+    aspect-ratio: 1;
+    margin: 0 auto 20px;
+    object-fit: cover;
+    border: 3px solid #fffdf9;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(81, 67, 79, .15);
+}
+
+
+/* =========================================
+   OBJETS CACHÉS ET OBSERVATION
+========================================= */
+
+.fragment-observation-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+    max-width: 460px;
+    margin: auto;
+    padding: 15px;
+    border: 1px solid #e2cbd0;
+    border-radius: 20px;
+    background: #f4e4e8;
+}
+
+.fragment-observation-item {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0;
+    border: 1px solid #e4d2cc;
+    border-radius: 12px;
+    background: #fffdf9;
+    color: #a85e78;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    transition: .25s ease;
+}
+
+.fragment-observation-item:hover:not(:disabled) {
+    transform: scale(1.06);
+    border-color: #c4a477;
+}
+
+.fragment-observation-item.is-found {
+    background: #f2e7d0;
+    border-color: #c4a477;
+    box-shadow: 0 0 12px rgba(196, 164, 119, .4);
+}
+
+.fragment-observation-item.is-incorrect {
+    background: #ead4db;
+}
+
+
+/* =========================================
+   CHEMIN ENCHANTÉ
+========================================= */
+
+.fragment-path-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 6px;
+    width: min(100%, 390px);
+    margin: auto;
+    padding: 12px;
+    border: 1px solid #d6bd98;
+    border-radius: 20px;
+    background: #eee3d7;
+}
+
+.fragment-path-cell {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0;
+    border: 1px solid #e2d3c7;
+    border-radius: 9px;
+    background: #fffaf3;
+    color: #a58565;
+    font-size: 1.6rem;
+    transition: .25s ease;
+}
+
+.fragment-path-cell.is-obstacle {
+    background: #dce5d5;
+    border-color: #a8b29b;
+    color: #718367;
+    cursor: default;
+}
+
+.fragment-path-cell.is-visited {
+    background: #eed5dd;
+    border-color: #c98fa4;
+}
+
+.fragment-path-cell.is-current {
+    background: #a85e78;
+    color: white;
+    box-shadow: 0 0 12px rgba(168, 94, 120, .4);
+}
+
+.fragment-path-cell.is-goal {
+    background: #f2e3bf;
+    border-color: #c4a477;
+    color: #a58565;
+}
+
+
+/* =========================================
+   ASSOCIATION DES SYMBOLES
+========================================= */
+
+.fragment-match-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.fragment-match-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fragment-match-item {
+    display: grid;
+    place-items: center;
+    min-height: 65px;
+    padding: 12px;
+    border: 1px solid #e1cbd1;
+    border-radius: 15px;
+    background: #fffdf9;
+    color: #51434f;
+    font-size: .9rem;
+    line-height: 1.5;
+    transition: .25s ease;
+}
+
+.fragment-match-item.is-selected {
+    background: #e8c9ce;
+    border-color: #a85e78;
+}
+
+.fragment-match-item.is-matched {
+    background: #e4ecdf;
+    border-color: #a8b29b;
+    color: #53634d;
+    cursor: default;
+}
+
+
+/* =========================================
+   HISTOIRES À RECONSTRUIRE
+========================================= */
+
+.fragment-order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.fragment-order-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 60px;
+    padding: 14px 18px;
+    border: 1px solid #e1cbd1;
+    border-radius: 14px;
+    background: #fffdf9;
+    color: #51434f;
+    font-size: .9rem;
+    line-height: 1.5;
+    text-align: left;
+    transition: .25s ease;
+}
+
+.fragment-order-item:hover:not(:disabled) {
+    background: #f2dce3;
+    border-color: #a85e78;
+}
+
+.fragment-order-item.is-selected {
+    background: #e8c9ce;
+    border-color: #a85e78;
+}
+
+.fragment-order-number {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #f0e2d2;
+    color: #a58565;
+    font-size: .8rem;
+}
+
+.fragment-order-result {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 70px;
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px dashed #c4a477;
+    border-radius: 15px;
+    background: rgba(196, 164, 119, .08);
+}
+
+
+/* =========================================
+   DIFFÉRENCES
+========================================= */
+
+.fragment-difference-scenes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.fragment-difference-scene {
+    position: relative;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #d6bd98;
+    border-radius: 16px;
+    background: #f5e6e9;
+}
+
+.fragment-difference-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+}
+
+.fragment-difference-item {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0;
+    border: 1px solid #e1cbd1;
+    border-radius: 8px;
+    background: #fffdf9;
+    color: #a85e78;
+    font-size: clamp(1rem, 4vw, 2rem);
+}
+
+.fragment-difference-item.is-found {
+    border-color: #c4a477;
+    background: #f0e3c7;
+    box-shadow: inset 0 0 0 2px #c4a477;
+}
+
+
+/* =========================================
+   COMPTEURS ET INDICATIONS
+========================================= */
+
+.fragment-game-counter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto 20px;
+    padding: 8px 18px;
+    border: 1px solid #e2cdb1;
+    border-radius: 30px;
+    background: #fff8eb;
+    color: #a58565;
+    font-size: .8rem;
+}
+
+.fragment-game-hint {
+    margin: 20px 0 5px;
+    color: #82747b;
+    font-size: .8rem;
+    line-height: 1.6;
+}
+
+.fragment-game-feedback {
+    min-height: 28px;
+    margin: 18px 0;
+    color: #a85e78;
+    font-size: .9rem;
+    line-height: 1.6;
+}
+
+.fragment-game-feedback.is-success {
+    color: #62735a;
+}
+
+.fragment-game-feedback.is-error {
+    color: #a85e78;
+}
+
+
+/* =========================================
+   RÉCOMPENSES
+========================================= */
+
+.fragment-game-reward {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin: 25px 0;
+    padding: 35px 20px;
+    border: 1px solid #d6bd98;
+    border-radius: 25px;
+    background: radial-gradient(
+        ellipse at center,
+        #fffdf5,
+        #f4e4cf
+    );
+    animation: fragmentRewardEnter .7s ease both;
+}
+
+@keyframes fragmentRewardEnter {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fragment-reward-visual {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 150px;
+    height: 150px;
+    margin: 25px auto;
+    border: 1px solid #d6bd98;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        #fffdf5,
+        #eed9ac
+    );
+    box-shadow:
+        0 0 30px rgba(229, 197, 140, .5),
+        inset 0 0 20px rgba(255, 255, 255, .6);
+    animation: fragmentRewardGlow 3s infinite ease-in-out;
+}
+
+.fragment-reward-visual img,
+.fragment-reward-visual svg {
+    display: block;
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 8px rgba(81, 67, 79, .15));
+}
+
+.fragment-reward-visual > span {
+    font-size: 4rem;
+    color: #a85e78;
+}
+
+.fragment-game-reward h3 {
+    margin: 15px 0;
+    color: #795361;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+.fragment-game-reward p {
+    max-width: 420px;
+    margin: 0 auto 25px;
+    color: #82747b;
+    font-size: .9rem;
+    line-height: 1.8;
+}
+
+@keyframes fragmentRewardGlow {
+    0%, 100% {
+        box-shadow: 0 0 25px rgba(229, 197, 140, .4);
+    }
+
+    50% {
+        box-shadow: 0 0 45px rgba(229, 197, 140, .8);
+    }
+}
+
+
+/* =========================================
+   ÉTOILES DE RÉCOMPENSE
+========================================= */
+
+.fragment-reward-sparkles {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+}
+
+.fragment-reward-sparkles span {
+    position: absolute;
+    color: #c4a477;
+    font-size: 1.8rem;
+    animation: fragmentSparkle 3s infinite ease-in-out;
+}
+
+.fragment-reward-sparkles span:nth-child(1) {
+    top: 18%;
+    left: 15%;
+}
+
+.fragment-reward-sparkles span:nth-child(2) {
+    top: 25%;
+    right: 12%;
+    animation-delay: .6s;
+}
+
+.fragment-reward-sparkles span:nth-child(3) {
+    top: 60%;
+    left: 10%;
+    animation-delay: 1.2s;
+}
+
+.fragment-reward-sparkles span:nth-child(4) {
+    top: 55%;
+    right: 15%;
+    animation-delay: 1.8s;
+}
+
+.fragment-reward-sparkles span:nth-child(5) {
+    top: 10%;
+    left: 48%;
+    animation-delay: 2.4s;
+}
+
+@keyframes fragmentSparkle {
+    0%, 100% {
+        opacity: .2;
+        transform: scale(.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+
+/* =========================================
+   BOUTONS DE FIN DE JEU
+========================================= */
+
+.fragment-game-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #eadbd2;
+}
+
+.fragment-game-footer button {
+    min-height: 44px;
+}
+
+#fragment-collect-button {
+    margin: 5px auto;
+}
+
+#fragment-collect-button:disabled {
+    opacity: .65;
+    cursor: default;
+}
+
+
+/* =========================================
+   MODE NUIT
+========================================= */
+
+.kingdom-page.is-night .kingdom-map-section {
+    background: linear-gradient(
+        180deg,
+        #302631,
+        #483341,
+        #302631
+    );
+}
+
+.kingdom-page.is-night .fragment-map-card {
+    background: #493743;
+    border-color: #a58565;
+}
+
+.kingdom-page.is-night .fragment-map-title h3,
+.kingdom-page.is-night .fragment-destinations > h3 {
+    color: #f1dce2;
+}
+
+.kingdom-page.is-night .fragment-map-title p,
+.kingdom-page.is-night .fragment-destinations > p,
+.kingdom-page.is-night .fragment-map-legend > span,
+.kingdom-page.is-night #map-progress-message {
+    color: #d8c3ce;
+}
+
+.kingdom-page.is-night .fragment-map-viewport {
+    background: #51434f;
+}
+
+.kingdom-page.is-night .map-land,
+.kingdom-page.is-night .map-island {
+    fill: #986f83;
+    stroke: #c4a477;
+}
+
+.kingdom-page.is-night .map-country-border {
+    stroke: #d5aebb;
+}
+
+.kingdom-page.is-night .map-country-label,
+.kingdom-page.is-night .map-water-label {
+    fill: #e0cbd2;
+}
+
+.kingdom-page.is-night .fragment-map-quote {
+    color: #e8c9ce;
+}
+
+
+/* =========================================
+   TABLETTES
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .kingdom-map-section {
+        padding: 85px 25px;
+    }
+
+    .fragment-map-card {
+        padding: 22px;
+    }
+
+    .fragment-destination-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .fragment-map-marker {
+        width: 30px;
+        height: 30px;
+    }
+
+    .fragment-map-marker-label {
+        font-size: .6rem;
+        padding: 3px 6px;
+    }
+
+    .fragment-map-compass {
+        width: 65px;
+        height: 65px;
+        top: 15px;
+        right: 15px;
+    }
+
+}
+
+
+/* =========================================
+   TÉLÉPHONES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .kingdom-map-section {
+        padding: 65px 12px;
+    }
+
+    .fragment-map-card {
+        padding: 12px;
+        border-radius: 20px;
+    }
+
+    .fragment-map-header {
+        flex-direction: column;
+        gap: 18px;
+        padding: 15px 5px 22px;
+        text-align: center;
+    }
+
+    .fragment-map-counter {
+        padding: 10px 18px;
+    }
+
+    .fragment-map-viewport {
+        aspect-ratio: 4 / 5;
+        border-radius: 14px;
+    }
+
+    .fragment-map-world {
+        inset: 0;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1000 / 800;
+        margin: auto 0;
+    }
+
+    .fragment-map-marker {
+        width: 25px;
+        height: 25px;
+        font-size: .75rem;
+    }
+
+    .fragment-map-marker-label {
+        display: none;
+    }
+
+    .fragment-map-marker:hover
+    .fragment-map-marker-label,
+
+    .fragment-map-marker:focus-visible
+    .fragment-map-marker-label {
+        display: block;
+    }
+
+    .fragment-map-compass {
+        width: 48px;
+        height: 48px;
+        top: 12px;
+        right: 12px;
+    }
+
+    .fragment-map-compass span:last-child {
+        font-size: 1.8rem;
+    }
+
+    .fragment-map-controls {
+        right: 10px;
+        bottom: 10px;
+        gap: 5px;
+    }
+
+    .fragment-map-controls button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .fragment-map-legend {
+        gap: 12px;
+        padding: 20px 0;
+    }
+
+    .fragment-map-legend > span {
+        font-size: .65rem;
+    }
+
+    .fragment-destination-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .fragment-destination-card {
+        min-height: 150px;
+        padding: 18px 8px;
+        border-radius: 45px 45px 12px 12px;
+    }
+
+    .fragment-destination-name {
+        font-size: 1.3rem;
+    }
+
+    .fragment-destination-date,
+    .fragment-destination-status {
+        font-size: .65rem;
+    }
+
+    .fragment-map-quote {
+        margin-top: 30px;
+        font-size: 1.25rem;
+    }
+
+    .fragment-game-dialog {
+        width: calc(100% - 20px);
+        border-radius: 20px;
+    }
+
+    .fragment-game-window {
+        padding: 40px 18px 25px;
+    }
+
+    .fragment-game-header {
+        margin-bottom: 20px;
+    }
+
+    .fragment-game-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .fragment-game-header p {
+        font-size: .85rem;
+    }
+
+    .fragment-question {
+        padding: 18px;
+        font-size: 1.3rem;
+    }
+
+    .fragment-answer-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .fragment-answer {
+        min-height: 50px;
+        padding: 12px;
+    }
+
+    .fragment-memory-grid {
+        gap: 8px;
+    }
+
+    .fragment-memory-card {
+        border-radius: 12px;
+    }
+
+    .fragment-memory-card::before {
+        inset: 5px;
+        border-radius: 7px;
+    }
+
+    .fragment-observation-grid {
+        padding: 8px;
+        gap: 5px;
+    }
+
+    .fragment-match-grid {
+        gap: 8px;
+    }
+
+    .fragment-match-item {
+        min-height: 60px;
+        padding: 8px;
+        font-size: .8rem;
+    }
+
+    .fragment-difference-scenes {
+        gap: 6px;
+    }
+
+    .fragment-difference-scene {
+        padding: 6px;
+    }
+
+    .fragment-game-footer {
+        flex-direction: column;
+    }
+
+    .fragment-game-footer button {
+        width: 100%;
+    }
+
+    .fragment-reward-visual {
+        width: 125px;
+        height: 125px;
+    }
+
+    .fragment-game-reward h3 {
+        font-size: 1.9rem;
+    }
+
+}
+
+
+/* =========================================
+   PETITS TÉLÉPHONES
+========================================= */
+
+@media (max-width: 360px) {
+
+    .fragment-map-card {
+        padding: 8px;
+    }
+
+    .fragment-destination-grid {
+        gap: 7px;
+    }
+
+    .fragment-destination-name {
+        font-size: 1.15rem;
+    }
+
+    .fragment-game-window {
+        padding: 40px 12px 20px;
+    }
+
+    .fragment-memory-grid {
+        gap: 5px;
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITÉ
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .kingdom-map-section *,
+    .kingdom-map-section *::before,
+    .kingdom-map-section *::after,
+    .fragment-game-dialog *,
+    .fragment-game-dialog *::before,
+    .fragment-game-dialog *::after,
+    .fragment-game-dialog {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .fragment-destination-card:hover,
+    .fragment-answer:hover,
+    .fragment-memory-card:hover,
+    .fragment-observation-item:hover {
+        transform: none;
+    }
+
+}
