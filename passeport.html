@@ -10,7 +10,7 @@
     <title>Le Royaume des cœurs errants — Cœur Errant</title>
 
     <meta name="description"
-          content="Découvrez le Royaume des cœurs errants, retrouvez les quatorze trésors et obtenez votre passeport personnalisé.">
+          content="Explorez la carte aux trésors du Royaume des cœurs errants, réussissez les mini-jeux, collectionnez les 14 trésors et découvrez les lieux secrets.">
 
     <meta name="theme-color" content="#faf8f5">
 
@@ -32,7 +32,7 @@
           content="Le Royaume des cœurs errants — Cœur Errant">
 
     <meta property="og:description"
-          content="Découvrez le Royaume des cœurs errants, retrouvez les quatorze trésors et obtenez votre passeport personnalisé.">
+          content="Explorez la carte aux trésors, relevez les défis et découvrez les secrets du Royaume des cœurs errants.">
 
     <meta property="og:url"
           content="https://coeurerrant.github.io/Coeur-errant/passeport.html">
@@ -49,7 +49,7 @@
           content="Le Royaume des cœurs errants — Cœur Errant">
 
     <meta name="twitter:description"
-          content="Découvrez le Royaume des cœurs errants, retrouvez les quatorze trésors et obtenez votre passeport personnalisé.">
+          content="Explorez la carte aux trésors, relevez les défis et découvrez les secrets du Royaume des cœurs errants.">
 
     <meta name="twitter:image"
           content="https://coeurerrant.github.io/Coeur-errant/royaume-arbre.png">
@@ -83,6 +83,7 @@
     <link rel="stylesheet" href="style.css">
 
     <link rel="stylesheet" href="passeport.css">
+
     <link rel="stylesheet" href="carte-fragments.css">
 
     <link rel="stylesheet" href="global.css">
@@ -93,6 +94,7 @@
     <script src="global.js" defer></script>
 
     <script src="passeport.js" defer></script>
+
     <script src="carte-fragments.js" defer></script>
 
 </head>
@@ -328,16 +330,20 @@
             sa place.
         </p>
 
-   <p>
-    Quatorze fragments précieux vous attendent
-    sur une carte enchantée, inspirée des véritables
-    voyages de Cœur Errant.
-    Chacun renferme une petite part de lumière.
-</p>
+        <p>
+            Quatorze trésors magiques vous attendent
+            sur une carte enchantée, inspirée des véritables
+            voyages de Cœur Errant.
+            Chaque trésor possède sa propre histoire
+            et symbolise une valeur précieuse.
+        </p>
 
         <p>
-            Retrouvez-les, illuminez votre médaillon
-            et découvrez les secrets du royaume.
+            Choisissez une destination, réussissez son
+            mini-jeu et remportez son trésor.
+            Au fil de vos découvertes, votre médaillon
+            s'illuminera et les portes des lieux secrets
+            du royaume s'ouvriront.
         </p>
 
         <div class="kingdom-intro-grid">
@@ -355,11 +361,13 @@
                 </span>
 
                 <h3>Explorer</h3>
-<p>
-    Explorez la carte enchantée et relevez
-    les défis de chaque destination pour
-    découvrir leurs trésors.
-</p>
+
+                <p>
+                    Choisissez l'une des 14 destinations
+                    de la carte aux trésors et relevez
+                    son défi : puzzle, énigme,
+                    jeu de mémoire ou autre surprise.
+                </p>
 
             </article>
 
@@ -378,8 +386,10 @@
                 <h3>Collectionner</h3>
 
                 <p>
-                    Chaque découverte illumine
-                    votre médaillon personnel.
+                    Chaque mini-jeu réussi vous permet
+                    de gagner un trésor unique.
+                    Ajoutez-le à votre médaillon
+                    pour compléter votre collection.
                 </p>
 
             </article>
@@ -399,8 +409,11 @@
                 <h3>Dévoiler</h3>
 
                 <p>
-                    Des lieux secrets et une récompense
-                    unique vous attendent.
+                    Débloquez les lieux secrets en
+                    collectionnant 3, 5, 8, 10 puis
+                    14 trésors. Une fois votre collection
+                    complète, obtenez votre certificat
+                    de Gardien des cœurs errants.
                 </p>
 
             </article>
@@ -408,21 +421,39 @@
         </div>
 
 
+        <p>
+            Explorez à votre rythme, dans l'ordre
+            de votre choix. Il n'y a ni chronomètre,
+            ni nombre limité de tentatives.
+            Chaque découverte compte.
+        </p>
+
+        <a href="#carte-enchantee"
+           class="kingdom-button">
+
+            Découvrir la carte aux trésors
+
+            <span aria-hidden="true">✧</span>
+
+        </a>
+
+
         <!-- CONSENTEMENT À LA SAUVEGARDE LOCALE -->
 
         <div class="kingdom-storage-intro">
 
             <p>
-                Pour conserver votre progression entre
-                les différentes pages, vous pouvez activer
-                la sauvegarde sur cet appareil.
+                Vous souhaitez reprendre votre aventure
+                lors d'une prochaine visite ?
+                Activez la sauvegarde sur cet appareil
+                pour conserver vos trésors et votre progression.
             </p>
 
             <p class="kingdom-storage-description"
                id="kingdom-storage-description">
 
                 Cette sauvegarde facultative permet de
-                conserver vos fragments, votre prénom
+                conserver vos trésors, votre prénom
                 ou pseudonyme, votre emblème, votre compagnon,
                 vos préférences et vos récompenses dans
                 le stockage local de votre navigateur.
@@ -456,8 +487,8 @@
 
                 Vous pouvez découvrir le royaume sans
                 activer la sauvegarde. Toutefois, votre
-                progression ne sera pas conservée entre
-                les différentes pages.
+                progression ne sera pas conservée lorsque
+                vous quitterez ou actualiserez cette page.
 
                 Vous pouvez retirer votre consentement
                 et supprimer les données enregistrées
@@ -487,10 +518,7 @@
 
         </div>
 
-    </section>
-
-
-    <!-- IDENTITÉ -->
+    </section>    <!-- IDENTITÉ -->
 
     <section class="kingdom-identity kingdom-reveal"
              id="kingdom-identity">
@@ -751,9 +779,16 @@
             </h2>
 
             <p>
-                Quatorze fragments.
+                Quatorze trésors.
                 Quatorze lumières.
                 Un seul cœur.
+            </p>
+
+            <p>
+                Chaque mini-jeu réussi sur la carte
+                aux trésors vous permet de gagner
+                un trésor magique et d'illuminer
+                une nouvelle partie de votre médaillon.
             </p>
 
         </div>
@@ -825,12 +860,14 @@
 
                 <p id="kingdom-progress-message">
                     Votre aventure ne fait que commencer.
+                    Retrouvez votre premier trésor
+                    sur la carte enchantée.
                 </p>
 
                 <div class="kingdom-progress-track"
                      id="kingdom-progress-track"
                      role="progressbar"
-                     aria-label="Fragments retrouvés"
+                     aria-label="Trésors retrouvés"
                      aria-valuemin="0"
                      aria-valuemax="14"
                      aria-valuenow="0">
@@ -855,308 +892,334 @@
 
                 </div>
 
-            <a href="#carte-enchantee"
-   class="kingdom-button">
+                <p>
+                    Chaque étape correspond à un nouveau
+                    lieu secret à débloquer.
+                    Votre premier lieu, la bibliothèque
+                    des âmes, s'ouvrira dès que vous aurez
+                    collectionné 3 trésors.
+                </p>
 
-    Explorer la carte enchantée
+                <a href="#carte-enchantee"
+                   class="kingdom-button">
 
-    <span aria-hidden="true">✧</span>
+                    Explorer la carte aux trésors
 
-</a>
+                    <span aria-hidden="true">✧</span>
 
-            </div>
-
-        </div>
-        <!-- =========================================
-     LA CARTE DES FRAGMENTS DE LUMIÈRE
-========================================== -->
-
-<section class="kingdom-map-section"
-         id="carte-enchantee">
-
-    <div class="kingdom-heading">
-
-        <span class="kingdom-eyebrow">
-            Le carnet des merveilles
-        </span>
-
-        <h2>
-            La carte des
-            <em>fragments de lumière</em>
-        </h2>
-
-        <p>
-            Quatorze destinations, quatorze aventures
-            et autant de trésors à découvrir.
-            Chaque chemin vous rapproche un peu plus
-            du cœur du royaume.
-        </p>
-
-    </div>
-
-    <div class="fragment-map-card">
-
-        <div class="fragment-map-header">
-
-            <div class="fragment-map-title">
-
-                <span aria-hidden="true">✧</span>
-
-                <h3>Les chemins de lumière</h3>
-
-                <p>Choisissez votre prochaine destination.</p>
-
-            </div>
-
-            <div class="fragment-map-counter"
-                 role="status"
-                 aria-live="polite">
-
-                <span aria-hidden="true">✦</span>
-
-                <strong id="map-fragment-count">0</strong>
-
-                <span>/ 14 fragments</span>
+                </a>
 
             </div>
 
         </div>
 
-        <!-- CARTE INTERACTIVE -->
+    </section>    <!-- LA CARTE AUX TRÉSORS -->
 
-        <div class="fragment-map-viewport"
-             id="fragment-map-viewport">
+    <section class="kingdom-map-section"
+             id="carte-enchantee">
 
-            <div class="fragment-map-world"
-                 id="fragment-map-world">
+        <div class="kingdom-heading">
 
-                <svg id="fragment-map-artwork"
-                     viewBox="0 0 1000 800"
-                     aria-hidden="true">
-                </svg>
+            <span class="kingdom-eyebrow">
+                Le carnet des merveilles
+            </span>
 
-                <div class="fragment-map-markers"
-                     id="fragment-map-markers">
+            <h2>
+                La carte
+                <em>aux trésors.</em>
+            </h2>
+
+            <p>
+                Quatorze destinations, quatorze aventures
+                et quatorze trésors magiques à collectionner.
+                Choisissez une destination et réussissez
+                son mini-jeu pour remporter son trésor.
+            </p>
+
+            <p>
+                Chaque trésor gagné vous rapproche
+                de nouveaux lieux secrets à explorer.
+            </p>
+
+        </div>
+
+        <div class="fragment-map-card">
+
+            <div class="fragment-map-header">
+
+                <div class="fragment-map-title">
+
+                    <span aria-hidden="true">✧</span>
+
+                    <h3>Les chemins de lumière</h3>
+
+                    <p>
+                        Cliquez sur une destination
+                        pour commencer un mini-jeu.
+                    </p>
+
+                </div>
+
+                <div class="fragment-map-counter"
+                     role="status"
+                     aria-live="polite">
+
+                    <span aria-hidden="true">✦</span>
+
+                    <strong id="map-fragment-count">0</strong>
+
+                    <span>/ 14 trésors</span>
+
                 </div>
 
             </div>
 
-            <div class="fragment-map-compass"
-                 aria-hidden="true">
 
-                <span>N</span>
-                <span>✧</span>
+            <!-- CARTE INTERACTIVE -->
 
-            </div>
+            <div class="fragment-map-viewport"
+                 id="fragment-map-viewport">
 
-            <div class="fragment-map-controls">
+                <div class="fragment-map-world"
+                     id="fragment-map-world">
 
-                <button type="button"
-                        id="map-zoom-in"
-                        aria-label="Agrandir la carte">
-                    +
-                </button>
+                    <svg id="fragment-map-artwork"
+                         viewBox="0 0 1000 800"
+                         aria-hidden="true">
+                    </svg>
 
-                <button type="button"
-                        id="map-zoom-out"
-                        aria-label="Réduire la carte">
-                    −
-                </button>
+                    <div class="fragment-map-markers"
+                         id="fragment-map-markers">
+                    </div>
 
-                <button type="button"
-                        id="map-zoom-reset"
-                        aria-label="Recentrer la carte">
-                    ⌂
-                </button>
+                </div>
 
-            </div>
+                <div class="fragment-map-compass"
+                     aria-hidden="true">
 
-        </div>
+                    <span>N</span>
+                    <span>✧</span>
 
-        <!-- LÉGENDE -->
+                </div>
 
-        <div class="fragment-map-legend">
+                <div class="fragment-map-controls">
 
-            <span>
-                <i class="map-legend-dot map-undiscovered"></i>
-                À découvrir
-            </span>
+                    <button type="button"
+                            id="map-zoom-in"
+                            aria-label="Agrandir la carte">
+                        +
+                    </button>
 
-            <span>
-                <i class="map-legend-dot map-discovered"></i>
-                Fragment retrouvé
-            </span>
+                    <button type="button"
+                            id="map-zoom-out"
+                            aria-label="Réduire la carte">
+                        −
+                    </button>
 
-            <span>
-                <i class="map-legend-route"></i>
-                Chemin parcouru
-            </span>
+                    <button type="button"
+                            id="map-zoom-reset"
+                            aria-label="Recentrer la carte">
+                        ⌂
+                    </button>
 
-        </div>
-
-        <div class="fragment-map-progress">
-
-            <div class="fragment-map-progress-track"
-                 id="map-progress-track"
-                 role="progressbar"
-                 aria-label="Fragments retrouvés"
-                 aria-valuemin="0"
-                 aria-valuemax="14"
-                 aria-valuenow="0">
-
-                <div id="map-progress-fill"></div>
+                </div>
 
             </div>
 
-            <p id="map-progress-message"
-               aria-live="polite">
 
-                Votre aventure ne fait que commencer.
+            <!-- LÉGENDE -->
 
-            </p>
+            <div class="fragment-map-legend">
 
-        </div>
+                <span>
+                    <i class="map-legend-dot map-undiscovered"></i>
+                    Trésor à découvrir
+                </span>
 
-        <!-- LISTE DES DESTINATIONS -->
+                <span>
+                    <i class="map-legend-dot map-discovered"></i>
+                    Trésor retrouvé
+                </span>
 
-        <div class="fragment-destinations">
+                <span>
+                    <i class="map-legend-route"></i>
+                    Chemin parcouru
+                </span>
 
-            <h3>Votre carnet de destinations</h3>
+            </div>
 
-            <p>
-                Explorez les destinations dans l'ordre
-                de votre choix.
-            </p>
 
-            <div class="fragment-destination-grid"
-                 id="fragment-destination-grid">
+            <!-- PROGRESSION -->
+
+            <div class="fragment-map-progress">
+
+                <div class="fragment-map-progress-track"
+                     id="map-progress-track"
+                     role="progressbar"
+                     aria-label="Trésors retrouvés"
+                     aria-valuemin="0"
+                     aria-valuemax="14"
+                     aria-valuenow="0">
+
+                    <div id="map-progress-fill"></div>
+
+                </div>
+
+                <p id="map-progress-message"
+                   aria-live="polite">
+
+                    Réussissez votre premier mini-jeu
+                    pour gagner votre premier trésor.
+
+                </p>
+
+            </div>
+
+
+            <!-- LISTE DES DESTINATIONS -->
+
+            <div class="fragment-destinations">
+
+                <h3>Votre carnet de destinations</h3>
+
+                <p>
+                    Chaque destination possède son propre
+                    mini-jeu et son propre trésor.
+                    Explorez-les dans l'ordre de votre choix.
+                </p>
+
+                <div class="fragment-destination-grid"
+                     id="fragment-destination-grid">
+                </div>
+
             </div>
 
         </div>
 
-    </div>
-
-    <p class="fragment-map-quote">
-        « Les plus beaux trésors ne sont pas ceux
-        que l'on possède, mais ceux qui nous apprennent
-        à regarder le monde autrement. »
-    </p>
-
-</section>
-
-
-<!-- =========================================
-     FENÊTRE DES MINI-JEUX
-========================================== -->
-
-<dialog class="fragment-game-dialog"
-        id="fragment-game-dialog"
-        aria-labelledby="fragment-game-title">
-
-    <div class="fragment-game-window">
-
-        <button type="button"
-                class="fragment-game-close"
-                id="fragment-game-close"
-                aria-label="Fermer le jeu">
-
-            ×
-
-        </button>
-
-        <div class="fragment-game-header">
-
-            <span class="fragment-game-ornament"
-                  aria-hidden="true">
-                ✧
-            </span>
-
-            <span class="fragment-game-destination"
-                  id="fragment-game-destination">
-            </span>
-
-            <h2 id="fragment-game-title"></h2>
-
-            <p id="fragment-game-description"></p>
-
-        </div>
-
-        <!-- CONTENU DU JEU -->
-
-        <div class="fragment-game-content"
-             id="fragment-game-content">
-        </div>
-
-        <p class="fragment-game-feedback"
-           id="fragment-game-feedback"
-           role="status"
-           aria-live="polite">
+        <p class="fragment-map-quote">
+            « Les plus beaux trésors ne sont pas ceux
+            que l'on possède, mais ceux qui nous apprennent
+            à regarder le monde autrement. »
         </p>
 
-        <!-- RÉCOMPENSE -->
+    </section>
 
-        <div class="fragment-game-reward"
-             id="fragment-game-reward"
-             hidden>
 
-            <div class="fragment-reward-sparkles"
-                 aria-hidden="true">
+    <!-- =========================================
+         FENÊTRE DES MINI-JEUX
+         ========================================= -->
 
-                <span>✧</span>
-                <span>✦</span>
-                <span>✧</span>
-                <span>✦</span>
-                <span>✧</span>
+    <dialog class="fragment-game-dialog"
+            id="fragment-game-dialog"
+            aria-labelledby="fragment-game-title">
+
+        <div class="fragment-game-window">
+
+            <button type="button"
+                    class="fragment-game-close"
+                    id="fragment-game-close"
+                    aria-label="Fermer le jeu">
+
+                ×
+
+            </button>
+
+            <div class="fragment-game-header">
+
+                <span class="fragment-game-ornament"
+                      aria-hidden="true">
+                    ✧
+                </span>
+
+                <span class="fragment-game-destination"
+                      id="fragment-game-destination">
+                </span>
+
+                <h2 id="fragment-game-title"></h2>
+
+                <p id="fragment-game-description"></p>
 
             </div>
 
-            <span class="kingdom-eyebrow">
-                Un nouveau fragment de lumière
-            </span>
 
-            <div class="fragment-reward-visual"
-                 id="fragment-reward-visual">
+            <!-- CONTENU DU JEU -->
+
+            <div class="fragment-game-content"
+                 id="fragment-game-content">
             </div>
 
-            <h3 id="fragment-reward-title"></h3>
+            <p class="fragment-game-feedback"
+               id="fragment-game-feedback"
+               role="status"
+               aria-live="polite">
+            </p>
 
-            <p id="fragment-reward-meaning"></p>
 
-            <button type="button"
-                    class="kingdom-button"
-                    id="fragment-collect-button">
+            <!-- RÉCOMPENSE -->
 
-                Ajouter à mon médaillon
+            <div class="fragment-game-reward"
+                 id="fragment-game-reward"
+                 hidden>
 
-                <span aria-hidden="true">✧</span>
+                <div class="fragment-reward-sparkles"
+                     aria-hidden="true">
 
-            </button>
+                    <span>✧</span>
+                    <span>✦</span>
+                    <span>✧</span>
+                    <span>✦</span>
+                    <span>✧</span>
+
+                </div>
+
+                <span class="kingdom-eyebrow">
+                    Un nouveau trésor magique
+                </span>
+
+                <div class="fragment-reward-visual"
+                     id="fragment-reward-visual">
+                </div>
+
+                <h3 id="fragment-reward-title"></h3>
+
+                <p id="fragment-reward-meaning"></p>
+
+                <button type="button"
+                        class="kingdom-button"
+                        id="fragment-collect-button">
+
+                    Ajouter ce trésor à mon médaillon
+
+                    <span aria-hidden="true">✧</span>
+
+                </button>
+
+            </div>
+
+            <div class="fragment-game-footer">
+
+                <button type="button"
+                        class="kingdom-outline-button"
+                        id="fragment-game-restart">
+
+                    Recommencer
+
+                </button>
+
+                <button type="button"
+                        class="kingdom-outline-button"
+                        id="fragment-game-return">
+
+                    Retour à la carte
+
+                </button>
+
+            </div>
 
         </div>
 
-        <div class="fragment-game-footer">
+    </dialog>
 
-            <button type="button"
-                    class="kingdom-outline-button"
-                    id="fragment-game-restart">
-
-                Recommencer
-
-            </button>
-
-            <button type="button"
-                    class="kingdom-outline-button"
-                    id="fragment-game-return">
-
-                Retour à la carte
-
-            </button>
-
-        </div>
-
-    </div>
-
-</dialog>
 
     <!-- COFFRET DES TRÉSORS -->
 
@@ -1171,12 +1234,19 @@
 
             <h2 id="treasure-section-title">
                 Le coffret
-                <em>des fragments.</em>
+                <em>des trésors.</em>
             </h2>
 
             <p>
-                Chaque trésor retrouvé prend place
-                dans votre collection.
+                Retrouvez ici les trésors remportés
+                en réussissant les mini-jeux
+                de la carte enchantée.
+            </p>
+
+            <p>
+                Cliquez sur un trésor retrouvé
+                pour découvrir son histoire
+                et sa signification.
             </p>
 
         </div>
@@ -1184,9 +1254,11 @@
         <div class="treasure-box">
 
             <div class="treasure-box-decoration">
+
                 <span aria-hidden="true">✧</span>
                 <span>Cœur Errant</span>
                 <span aria-hidden="true">✧</span>
+
             </div>
 
             <div class="treasure-grid"
@@ -1207,13 +1279,13 @@
             <span>
                 <i class="legend-discovered"
                    aria-hidden="true"></i>
-                Fragment retrouvé
+                Trésor retrouvé
             </span>
 
             <span>
                 <i class="legend-locked"
                    aria-hidden="true"></i>
-                Fragment encore caché
+                Trésor encore à découvrir
             </span>
 
         </div>
@@ -1238,9 +1310,29 @@
             </h2>
 
             <p>
-                À mesure que votre médaillon retrouve
-                sa lumière, de nouveaux lieux se dévoilent.
+                Plus vous collectionnez de trésors,
+                plus le royaume vous dévoile ses secrets.
             </p>
+
+            <p>
+                Retrouvez 3, 5, 8, 10 puis 14 trésors
+                sur la carte enchantée pour débloquer
+                progressivement les cinq lieux secrets.
+            </p>
+
+            <p>
+                Chaque lieu vous réserve une expérience
+                magique supplémentaire.
+                Vos trésors restent dans votre collection
+                lorsque vous ouvrez un nouveau lieu.
+            </p>
+
+            <a href="#carte-enchantee"
+               class="kingdom-outline-button">
+
+                Retrouver des trésors ✧
+
+            </a>
 
         </div>
 
@@ -1280,7 +1372,7 @@
 
                     <span class="location-requirement"
                           id="library-requirement">
-                        3 fragments
+                        À débloquer avec 3 trésors
                     </span>
 
                 </div>
@@ -1299,6 +1391,25 @@
                         pensées précieuses.
                     </p>
 
+                    <div class="location-progress">
+
+                        <p class="location-progress-label">
+                            0 / 3 trésors retrouvés
+                        </p>
+
+                        <div class="location-progress-track"
+                             role="progressbar"
+                             aria-label="Déblocage de la bibliothèque"
+                             aria-valuemin="0"
+                             aria-valuemax="3"
+                             aria-valuenow="0">
+
+                            <div class="location-progress-fill"></div>
+
+                        </div>
+
+                    </div>
+
                     <button type="button"
                             class="location-button"
                             data-open-location="library"
@@ -1307,7 +1418,7 @@
                             aria-describedby="library-requirement"
                             disabled>
 
-                        Lieu verrouillé
+                        Encore 3 trésors à retrouver
 
                     </button>
 
@@ -1331,7 +1442,7 @@
 
                     <span class="location-requirement"
                           id="greenhouse-requirement">
-                        5 fragments
+                        À débloquer avec 5 trésors
                     </span>
 
                 </div>
@@ -1350,6 +1461,25 @@
                         portent des messages de douceur.
                     </p>
 
+                    <div class="location-progress">
+
+                        <p class="location-progress-label">
+                            0 / 5 trésors retrouvés
+                        </p>
+
+                        <div class="location-progress-track"
+                             role="progressbar"
+                             aria-label="Déblocage de la serre"
+                             aria-valuemin="0"
+                             aria-valuemax="5"
+                             aria-valuenow="0">
+
+                            <div class="location-progress-fill"></div>
+
+                        </div>
+
+                    </div>
+
                     <button type="button"
                             class="location-button"
                             data-open-location="greenhouse"
@@ -1358,16 +1488,13 @@
                             aria-describedby="greenhouse-requirement"
                             disabled>
 
-                        Lieu verrouillé
+                        Encore 5 trésors à retrouver
 
                     </button>
 
                 </div>
 
-            </article>
-
-
-            <!-- LAC -->
+            </article>            <!-- LAC -->
 
             <article class="location-card is-locked"
                      data-location="lake"
@@ -1382,7 +1509,7 @@
 
                     <span class="location-requirement"
                           id="lake-requirement">
-                        8 fragments
+                        À débloquer avec 8 trésors
                     </span>
 
                 </div>
@@ -1393,13 +1520,32 @@
                         Troisième secret
                     </span>
 
-                    <h3>Le lac des vœux</h3>
+                    <h3>Le lac des souhaits</h3>
 
                     <p>
-                        Confiez un souhait à la nuit
-                        et laissez une petite lumière
-                        flotter sur l'eau.
+                        Au bord de l'eau, des lanternes
+                        emportent les souhaits les plus
+                        précieux vers les étoiles.
                     </p>
+
+                    <div class="location-progress">
+
+                        <p class="location-progress-label">
+                            0 / 8 trésors retrouvés
+                        </p>
+
+                        <div class="location-progress-track"
+                             role="progressbar"
+                             aria-label="Déblocage du lac"
+                             aria-valuemin="0"
+                             aria-valuemax="8"
+                             aria-valuenow="0">
+
+                            <div class="location-progress-fill"></div>
+
+                        </div>
+
+                    </div>
 
                     <button type="button"
                             class="location-button"
@@ -1409,7 +1555,7 @@
                             aria-describedby="lake-requirement"
                             disabled>
 
-                        Lieu verrouillé
+                        Encore 8 trésors à retrouver
 
                     </button>
 
@@ -1433,7 +1579,7 @@
 
                     <span class="location-requirement"
                           id="spring-requirement">
-                        10 fragments
+                        À débloquer avec 10 trésors
                     </span>
 
                 </div>
@@ -1444,13 +1590,32 @@
                         Quatrième secret
                     </span>
 
-                    <h3>La source de la vie</h3>
+                    <h3>La source des merveilles</h3>
 
                     <p>
                         Sous les racines de l'arbre,
                         une source paisible abrite
-                        un trésor mystérieux.
+                        une mystérieuse surprise.
                     </p>
+
+                    <div class="location-progress">
+
+                        <p class="location-progress-label">
+                            0 / 10 trésors retrouvés
+                        </p>
+
+                        <div class="location-progress-track"
+                             role="progressbar"
+                             aria-label="Déblocage de la source"
+                             aria-valuemin="0"
+                             aria-valuemax="10"
+                             aria-valuenow="0">
+
+                            <div class="location-progress-fill"></div>
+
+                        </div>
+
+                    </div>
 
                     <button type="button"
                             class="location-button"
@@ -1460,7 +1625,7 @@
                             aria-describedby="spring-requirement"
                             disabled>
 
-                        Lieu verrouillé
+                        Encore 10 trésors à retrouver
 
                     </button>
 
@@ -1484,7 +1649,7 @@
 
                     <span class="location-requirement"
                           id="castle-requirement">
-                        14 fragments
+                        À débloquer avec 14 trésors
                     </span>
 
                 </div>
@@ -1503,6 +1668,25 @@
                         passeport personnalisé vous attendent.
                     </p>
 
+                    <div class="location-progress">
+
+                        <p class="location-progress-label">
+                            0 / 14 trésors retrouvés
+                        </p>
+
+                        <div class="location-progress-track"
+                             role="progressbar"
+                             aria-label="Déblocage du château"
+                             aria-valuemin="0"
+                             aria-valuemax="14"
+                             aria-valuenow="0">
+
+                            <div class="location-progress-fill"></div>
+
+                        </div>
+
+                    </div>
+
                     <button type="button"
                             class="location-button"
                             data-open-location="castle"
@@ -1511,7 +1695,7 @@
                             aria-describedby="castle-requirement"
                             disabled>
 
-                        Lieu verrouillé
+                        Encore 14 trésors à retrouver
 
                     </button>
 
@@ -1649,6 +1833,12 @@
                 à conserver, à imprimer ou à partager.
             </p>
 
+            <p>
+                Collectionnez les 14 trésors de la carte
+                enchantée pour obtenir votre passeport
+                de Gardien des cœurs errants.
+            </p>
+
         </div>
 
         <div class="kingdom-certificate"
@@ -1690,7 +1880,7 @@
 
                 <p>
                     Pour avoir retrouvé les quatorze
-                    fragments de lumière et parcouru
+                    trésors magiques et parcouru
                     les chemins du royaume.
                 </p>
 
@@ -1722,7 +1912,9 @@
                 <h3>Votre passeport vous attend</h3>
 
                 <p>
-                    Retrouvez les 14 fragments
+                    Retrouvez les 14 trésors
+                    en réussissant les mini-jeux
+                    de la carte enchantée
                     pour recevoir votre récompense.
                 </p>
 
@@ -1976,7 +2168,7 @@
 
     <p id="kingdom-reset-description">
 
-        Votre progression, vos fragments et votre
+        Votre progression, vos trésors et votre
         personnalisation seront effacés de cet appareil.
 
     </p>
