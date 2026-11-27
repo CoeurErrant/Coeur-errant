@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -3350,3 +3355,1754 @@
 <!-- ======================================
      JAVASCRIPT — PAGINA STEUNEN
      ====================================== -->
+<script>
+
+
+(function () {
+
+  "use strict";
+
+
+  /* ======================================
+     OUTILS COMMUNS
+     ====================================== */
+
+  const supportPage =
+    document.querySelector(".support-page");
+
+  if (!supportPage) return;
+
+  const byId = id => document.getElementById(id);
+
+  const motionPreference = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  let reducedMotion = motionPreference.matches;
+
+  const footerYear = byId("footer-year");
+
+  if (footerYear) {
+
+    footerYear.textContent =
+      new Date().getFullYear();
+
+  }
+
+
+  /* ======================================
+     NAVIGATION
+     ====================================== */
+
+  const menu = byId("nav-links");
+
+  const hamburger = byId("hamburger");
+
+  window.toggleMenu = function () {
+
+    if (!menu || !hamburger) return;
+
+    const isOpen = menu.classList.toggle("open");
+
+    hamburger.classList.toggle("open", isOpen);
+
+    hamburger.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    hamburger.setAttribute(
+      "aria-label",
+      isOpen ? "Menu sluiten" : "Menu openen"
+    );
+
+  };
+
+  window.closeMenu = function () {
+
+    if (!menu || !hamburger) return;
+
+    menu.classList.remove("open");
+
+    hamburger.classList.remove("open");
+
+    hamburger.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    hamburger.setAttribute(
+      "aria-label",
+      "Menu openen"
+    );
+
+  };
+
+  document.querySelectorAll("#nav-links a")
+    .forEach(link => {
+
+      link.addEventListener("click", window.closeMenu);
+
+    });
+
+  document.addEventListener("keydown", event => {
+
+    if (
+      event.key === "Escape" &&
+      menu &&
+      menu.classList.contains("open")
+    ) {
+
+      window.closeMenu();
+
+      if (hamburger) hamburger.focus();
+
+    }
+
+  });
+
+  document.addEventListener("click", event => {
+
+    if (
+      menu &&
+      hamburger &&
+      menu.classList.contains("open") &&
+      !menu.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+
+      window.closeMenu();
+
+    }
+
+  });
+
+  window.addEventListener("resize", () => {
+
+    if (window.innerWidth > 1100) {
+
+      window.closeMenu();
+
+    }
+
+  });
+
+
+  /* ======================================
+     ANIMATIONS AU DÉFILEMENT
+     ====================================== */
+
+  let supportObserver = null;
+
+  const revealElements =
+    document.querySelectorAll(".support-reveal");
+
+  function initializeRevealAnimations() {
+
+    if (supportObserver) {
+
+      supportObserver.disconnect();
+
+      supportObserver = null;
+
+    }
+
+    supportPage.classList.remove(
+      "support-animations"
+    );
+
+    if (
+      reducedMotion ||
+      !("IntersectionObserver" in window)
+    ) {
+
+      revealElements.forEach(element => {
+
+        element.classList.add("support-visible");
+
+      });
+
+      return;
+
+    }
+
+    supportObserver = new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add(
+              "support-visible"
+            );
+
+            supportObserver.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.08
+      }
+    );
+
+    revealElements.forEach(element => {
+
+      if (!element.classList.contains("support-visible")) {
+
+        supportObserver.observe(element);
+
+      }
+
+    });
+
+    supportPage.classList.add("support-animations");
+
+  }
+
+  supportPage.addEventListener("focusin", event => {
+
+    const element = event.target.closest(
+      ".support-reveal"
+    );
+
+    if (element) {
+
+      element.classList.add("support-visible");
+
+      if (supportObserver) {
+
+        supportObserver.unobserve(element);
+
+      }
+
+    }
+
+  });
+
+  initializeRevealAnimations();
+
+
+  /* ======================================
+     JARDIN DE LA SOLIDARITÉ
+     ====================================== */
+
+  const gardenButtons = document.querySelectorAll(
+    "[data-garden-action]"
+  );
+
+  const selectedGestures = new Set();
+
+  const gardenMessages = [
+
+    "Een klein zaadje wacht om te groeien...",
+
+    "Alles begint met een eerste gebaar.",
+
+    "Twee kleine gebaren, en al wat meer zachtheid.",
+
+    "Kijk, de eerste bloemen verschijnen.",
+
+    "De vriendelijkheid blijft groeien.",
+
+    "Nog een klein zaadje voor onze tuin.",
+
+    "Jouw tuin staat in bloei. Nu is het aan ons om deze gebaren tot leven te brengen!"
+
+  ];
+
+  function updateGarden() {
+
+    const count = selectedGestures.size;
+
+    gardenButtons.forEach(button => {
+
+      const gesture = button.dataset.gardenAction;
+
+      const selected = selectedGestures.has(gesture);
+
+      button.classList.toggle(
+        "garden-action-selected",
+        selected
+      );
+
+      button.setAttribute(
+        "aria-pressed",
+        String(selected)
+      );
+
+      button.querySelector(
+        ".garden-action-check"
+      ).textContent = selected ? "✓" : "+";
+
+    });
+
+    document.querySelectorAll("[data-growth]")
+      .forEach(growth => {
+
+        growth.classList.toggle(
+          "growth-visible",
+          selectedGestures.has(growth.dataset.growth)
+        );
+
+      });
+
+    byId("garden-count").textContent =
+      count + " van de 6 gebaren";
+
+    byId("garden-progress-fill").style.width =
+      (count / 6 * 100) + "%";
+
+    byId("garden-progress-track").setAttribute(
+      "aria-valuenow",
+      String(count)
+    );
+
+    byId("garden-message").textContent =
+      gardenMessages[count];
+
+    byId("garden-completion").hidden =
+      count !== 6;
+
+    byId("tree-final-bloom").classList.toggle(
+      "bloom-visible",
+      count === 6
+    );
+
+    byId("interactive-tree").classList.toggle(
+      "tree-complete",
+      count === 6
+    );
+
+  }
+
+  gardenButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const gesture = button.dataset.gardenAction;
+
+      if (selectedGestures.has(gesture)) {
+
+        selectedGestures.delete(gesture);
+
+      } else {
+
+        selectedGestures.add(gesture);
+
+      }
+
+      updateGarden();
+
+    });
+
+  });
+
+  byId("garden-reset").addEventListener("click", () => {
+
+    selectedGestures.clear();
+
+    updateGarden();
+
+    if (gardenButtons[0]) {
+
+      gardenButtons[0].focus();
+
+    }
+
+  });
+
+  updateGarden();
+
+
+  /* ======================================
+     PARTAGER LE PROJET
+     ====================================== */
+
+  const projectUrl =
+    "https://coeurerrant.github.io/Coeur-errant/index-nl.html";
+
+  const shareStatus = byId("share-status");
+
+  byId("share-project").addEventListener(
+    "click",
+    async () => {
+
+      shareStatus.textContent = "";
+
+      byId("share-fallback").hidden = true;
+
+      if (navigator.share) {
+
+        try {
+
+          await navigator.share({
+
+            title: "Cœur Errant",
+
+            text: "Ontdek Cœur Errant, een project voor straatdieren. Elk dier heeft een verhaal.",
+
+            url: projectUrl
+
+          });
+
+          shareStatus.textContent =
+            "Bedankt om vriendelijkheid te verspreiden ♡";
+
+          return;
+
+        } catch (error) {
+
+          if (error.name === "AbortError") {
+
+            return;
+
+          }
+
+        }
+
+      }
+
+      if (
+        navigator.clipboard &&
+        window.isSecureContext
+      ) {
+
+        try {
+
+          await navigator.clipboard.writeText(
+            projectUrl
+          );
+
+          shareStatus.textContent =
+            "De link is gekopieerd. Bedankt voor je steun ♡";
+
+          return;
+
+        } catch (error) {
+
+          // Affichage du lien si la copie échoue.
+
+        }
+
+      }
+
+      byId("share-fallback").hidden = false;
+
+      const shareInput = byId("share-url");
+      shareInput.value = projectUrl;
+
+      shareInput.focus();
+
+      shareInput.select();
+
+      shareStatus.textContent =
+        "Je kunt de link kopiëren en delen met anderen.";
+
+    }
+  );
+
+
+  /* ======================================
+     IMPACT INTERACTIF
+     ====================================== */
+
+  const impactData = {
+
+    "5": {
+
+      symbol: "🐾",
+
+      title: "Een iets minder lege maag.",
+
+      description: "Een bijdrage aan droogvoer of natvoer voor de dieren die ik tijdens mijn reizen ontmoet.",
+
+      quote: "Omdat geen enkel dier de hele dag naar eten zou moeten zoeken."
+
+    },
+
+    "20": {
+
+      symbol: "🩹",
+
+      title: "Een beetje troost.",
+
+      description: "Een bijdrage aan dierenartskosten, medicijnen of passende zorg voor een dier in nood.",
+
+      quote: "Omdat ook hun pijn aandacht verdient."
+
+    },
+
+    "50": {
+
+      symbol: "♡",
+
+      title: "Steun om verder te gaan.",
+
+      description: "Een grotere bijdrage aan voeding, verzorging of vervoer voor de opvang van dieren.",
+
+      quote: "Omdat elk leven een extra kans verdient."
+
+    }
+
+  };
+
+  const impactButtons =
+    document.querySelectorAll("[data-impact]");
+
+  const impactDisplay = byId("impact-display");
+
+  let impactAnimationTimer;
+
+  impactButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const amount = button.dataset.impact;
+
+      const data = impactData[amount];
+
+      if (!data) return;
+
+      impactButtons.forEach(item => {
+
+        const active = item === button;
+
+        item.classList.toggle(
+          "impact-active",
+          active
+        );
+
+        item.setAttribute(
+          "aria-pressed",
+          String(active)
+        );
+
+      });
+
+      byId("impact-symbol").textContent =
+        data.symbol;
+
+      byId("impact-label").textContent =
+        "Met " + amount + " €";
+
+      byId("impact-title").textContent =
+        data.title;
+
+      byId("impact-description").textContent =
+        data.description;
+
+      byId("impact-quote").textContent =
+        data.quote;
+
+      clearTimeout(impactAnimationTimer);
+
+      impactDisplay.classList.remove(
+        "impact-changing"
+      );
+
+      if (!reducedMotion) {
+
+        void impactDisplay.offsetWidth;
+
+        impactDisplay.classList.add(
+          "impact-changing"
+        );
+
+        impactAnimationTimer = setTimeout(() => {
+
+          impactDisplay.classList.remove(
+            "impact-changing"
+          );
+
+        }, 500);
+
+      }
+
+    });
+
+  });
+
+
+  /* ======================================
+     QR CODES PAYPAL ET LEETCHI
+     ====================================== */
+
+  const donationPlatforms = {
+
+    paypal: {
+
+      name: "Steunen via PayPal",
+
+      image: "logo paypall.jpeg",
+
+      url: "https://www.paypal.com/paypalme/CoeurErrant"
+
+    },
+
+    leetchi: {
+
+      name: "Steunen via Leetchi",
+
+      image: "logo leetchi.jpeg",
+
+      url: "https://www.leetchi.com/fr/c/coeurs-errant-1977225?utm_source=copylink&utm_medium=social_sharing"
+
+    }
+
+  };
+
+  const qrDialog = byId("support-qr-dialog");
+
+  const qrImage = byId("support-qr-image");
+
+  const qrError = byId("support-qr-error");
+
+  let previousQrFocus = null;
+
+  qrImage.addEventListener("error", () => {
+
+    qrImage.hidden = true;
+
+    qrError.hidden = false;
+
+  });
+
+  qrImage.addEventListener("load", () => {
+
+    qrImage.hidden = false;
+
+    qrError.hidden = true;
+
+  });
+
+  document.querySelectorAll("[data-donation-qr]")
+    .forEach(button => {
+
+      button.setAttribute(
+        "aria-haspopup",
+        "dialog"
+      );
+
+      button.setAttribute(
+        "aria-controls",
+        "support-qr-dialog"
+      );
+
+      button.addEventListener("click", () => {
+
+        const platform =
+          donationPlatforms[button.dataset.donationQr];
+
+        if (!platform) return;
+
+        previousQrFocus = button;
+
+        byId("support-qr-title").textContent =
+          platform.name;
+
+        qrError.hidden = true;
+
+        qrImage.hidden = false;
+
+        qrImage.alt = "QR code — " + platform.name;
+
+        qrImage.src = platform.image;
+
+        byId("support-qr-link").href =
+          platform.url;
+
+        if (typeof qrDialog.showModal === "function") {
+
+          if (!qrDialog.open) {
+
+            qrDialog.showModal();
+
+          }
+
+          qrDialog.scrollTop = 0;
+
+          document.body.classList.add(
+            "support-dialog-open"
+          );
+
+          byId("close-support-qr").focus();
+
+        } else {
+
+          window.open(
+            platform.url,
+            "_blank",
+            "noopener,noreferrer"
+          );
+
+        }
+
+      });
+
+    });
+
+  byId("close-support-qr")
+    .addEventListener("click", () => {
+
+      if (qrDialog.open) {
+
+        qrDialog.close();
+
+      }
+
+    });
+
+  qrDialog.addEventListener("click", event => {
+
+    if (event.target === qrDialog) {
+
+      qrDialog.close();
+
+    }
+
+  });
+
+  qrDialog.addEventListener("close", () => {
+
+    document.body.classList.remove(
+      "support-dialog-open"
+    );
+
+    if (previousQrFocus) {
+
+      previousQrFocus.focus();
+
+      previousQrFocus = null;
+
+    }
+
+  });
+
+
+  /* ======================================
+     DÉFI SOLIDAIRE
+     ====================================== */
+
+  const challengeStorageKey =
+    "coeur-errant-kindness-challenge-v1";
+
+  const challengeConsentKey =
+    "coeur-errant-kindness-consent-v1";
+
+  const challengeButtons =
+    document.querySelectorAll("[data-day]");
+
+  const completedDays = new Set();
+
+  const storageNote = byId(
+    "challenge-storage-note"
+  );
+
+  const challengeMessages = [
+
+    "Jouw eerste kleine missie wacht op je.",
+
+    "Een eerste gebaar. Een eerste kleine overwinning.",
+
+    "Twee zaadjes van vriendelijkheid zijn geplant.",
+
+    "Drie gebaren die deze week betekenis geven.",
+
+    "Je bent al meer dan halverwege.",
+
+    "Vijf kleine gebaren. Ga verder op jouw tempo.",
+
+    "Nog één kleine missie om je boekje te voltooien.",
+
+    "Zeven gebaren voltooid. Bedankt om vriendelijkheid te laten groeien ♡"
+
+  ];
+
+
+  /* ======================================
+     CONSENTEMENT À LA SAUVEGARDE LOCALE
+     ====================================== */
+
+  let challengeConsent = false;
+
+  let storageAvailable = true;
+
+  const consentContainer =
+    document.createElement("div");
+
+  consentContainer.className =
+    "challenge-consent";
+
+  const consentButton =
+    document.createElement("button");
+
+  consentButton.type = "button";
+
+  consentButton.id = "challenge-consent-button";
+
+  consentButton.className = "support-text-link";
+
+  consentButton.setAttribute(
+    "aria-pressed",
+    "false"
+  );
+
+  const consentInformation =
+    document.createElement("p");
+
+  consentInformation.className =
+    "support-disclaimer";
+
+  consentInformation.textContent =
+    "Opslag is optioneel. Je kunt deelnemen zonder je voortgang op te slaan.";
+
+  consentContainer.append(
+    consentInformation,
+    consentButton
+  );
+
+  storageNote.before(consentContainer);
+
+  storageNote.setAttribute(
+    "aria-live",
+    "polite"
+  );
+
+  function showStorageWarning() {
+
+    storageAvailable = false;
+
+    challengeConsent = false;
+
+    storageNote.textContent =
+      "Lokale opslag is niet beschikbaar. Je voortgang blijft alleen tijdens dit bezoek bewaard.";
+
+    consentButton.disabled = true;
+
+    consentButton.setAttribute(
+      "aria-pressed",
+      "false"
+    );
+
+  }
+
+  function hasChallengeConsent() {
+
+    try {
+
+      return localStorage.getItem(
+        challengeConsentKey
+      ) === "yes";
+
+    } catch (error) {
+
+      showStorageWarning();
+
+      return false;
+
+    }
+
+  }
+
+  function updateConsentInterface() {
+
+    if (!storageAvailable) return;
+
+    consentButton.setAttribute(
+      "aria-pressed",
+      String(challengeConsent)
+    );
+
+    consentButton.textContent = challengeConsent
+
+      ? "Opslag uitschakelen en mijn gegevens wissen"
+
+      : "Opslag van mijn uitdaging inschakelen ♡";
+
+    if (challengeConsent) {
+
+      storageNote.textContent =
+        "Je voortgang wordt alleen in deze browser opgeslagen. Je kunt je toestemming op elk moment intrekken.";
+
+    } else {
+
+      storageNote.textContent =
+        "Je voortgang blijft alleen tijdens dit bezoek bewaard. Zonder toestemming wordt niets opgeslagen.";
+
+    }
+
+  }
+
+  function readSavedChallenge() {
+
+    if (!challengeConsent) return;
+
+    try {
+
+      const savedDays = JSON.parse(
+
+        localStorage.getItem(
+          challengeStorageKey
+        ) || "[]"
+
+      );
+
+      completedDays.clear();
+
+      if (Array.isArray(savedDays)) {
+
+        savedDays.forEach(day => {
+
+          const number = Number(day);
+
+          if (
+            Number.isInteger(number) &&
+            number >= 1 &&
+            number <= 7
+          ) {
+
+            completedDays.add(number);
+
+          }
+
+        });
+
+      }
+
+    } catch (error) {
+
+      showStorageWarning();
+
+    }
+
+  }
+
+  function saveChallenge() {
+
+    if (!challengeConsent) return;
+
+    if (!hasChallengeConsent()) {
+
+      challengeConsent = false;
+
+      updateConsentInterface();
+
+      return;
+
+    }
+
+    try {
+
+      localStorage.setItem(
+
+        challengeStorageKey,
+
+        JSON.stringify([...completedDays])
+
+      );
+
+    } catch (error) {
+
+      showStorageWarning();
+
+    }
+
+  }
+
+  function enableChallengeStorage() {
+
+    try {
+
+      localStorage.setItem(
+        challengeConsentKey,
+        "yes"
+      );
+
+      challengeConsent = true;
+
+      saveChallenge();
+
+      updateConsentInterface();
+
+    } catch (error) {
+
+      showStorageWarning();
+
+    }
+
+  }
+
+  function disableChallengeStorage() {
+
+    try {
+
+      localStorage.removeItem(
+        challengeStorageKey
+      );
+
+      localStorage.removeItem(
+        challengeConsentKey
+      );
+
+      challengeConsent = false;
+
+      updateConsentInterface();
+
+    } catch (error) {
+
+      showStorageWarning();
+
+      storageNote.textContent =
+        "Het wissen van de gegevens kon niet worden bevestigd. Je kunt de sitegegevens wissen via je browserinstellingen.";
+
+    }
+
+  }
+
+  consentButton.addEventListener("click", () => {
+
+    if (challengeConsent) {
+
+      disableChallengeStorage();
+
+    } else {
+
+      enableChallengeStorage();
+
+    }
+
+  });
+
+
+  /* ======================================
+     INITIALISATION DU DÉFI
+     ====================================== */
+
+  challengeConsent = hasChallengeConsent();
+
+  if (challengeConsent) {
+
+    readSavedChallenge();
+
+  } else if (storageAvailable) {
+
+    try {
+
+      // Supprime une ancienne sauvegarde
+      // créée avant la gestion du consentement.
+
+      localStorage.removeItem(
+        challengeStorageKey
+      );
+
+    } catch (error) {
+
+      showStorageWarning();
+
+    }
+
+  }
+
+  updateConsentInterface();
+
+
+  /* ======================================
+     PROGRESSION DU DÉFI
+     ====================================== */
+
+  function updateChallenge() {
+
+    const count = completedDays.size;
+
+    challengeButtons.forEach(button => {
+
+      const day = Number(button.dataset.day);
+
+      const completed = completedDays.has(day);
+
+      button.classList.toggle(
+        "challenge-completed",
+        completed
+      );
+
+      button.setAttribute(
+        "aria-pressed",
+        String(completed)
+      );
+
+    });
+
+    byId("challenge-count").textContent =
+      count + "/7";
+
+    byId("challenge-progress-fill").style.width =
+      (count / 7 * 100) + "%";
+
+    byId("challenge-progress-track").setAttribute(
+      "aria-valuenow",
+      String(count)
+    );
+
+    byId("challenge-message").textContent =
+      challengeMessages[count];
+
+    byId("challenge-reward").hidden =
+      count !== 7;
+
+    document.querySelector(
+      ".challenge-container"
+    ).classList.toggle(
+      "challenge-finished",
+      count === 7
+    );
+
+  }
+
+  challengeButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const day = Number(button.dataset.day);
+
+      if (
+        !Number.isInteger(day) ||
+        day < 1 ||
+        day > 7
+      ) return;
+
+      if (completedDays.has(day)) {
+
+        completedDays.delete(day);
+
+      } else {
+
+        completedDays.add(day);
+
+      }
+
+      saveChallenge();
+
+      updateChallenge();
+
+    });
+
+  });
+
+  byId("challenge-reset")
+    .addEventListener("click", () => {
+
+      if (completedDays.size === 0) return;
+
+      const confirmed = window.confirm(
+        "Wil je jouw solidariteitsuitdaging opnieuw beginnen?"
+      );
+
+      if (!confirmed) return;
+
+      completedDays.clear();
+
+      saveChallenge();
+
+      updateChallenge();
+
+      if (challengeButtons[0]) {
+
+        challengeButtons[0].focus();
+
+      }
+
+    });
+
+  function synchronizeChallenge() {
+
+    const previousConsent = challengeConsent;
+
+    challengeConsent = hasChallengeConsent();
+
+    if (challengeConsent) {
+
+      readSavedChallenge();
+
+    } else if (previousConsent) {
+
+      completedDays.clear();
+
+    }
+
+    updateConsentInterface();
+
+    updateChallenge();
+
+  }
+
+  window.addEventListener("storage", event => {
+
+    if (
+      event.key === challengeStorageKey ||
+      event.key === challengeConsentKey ||
+      event.key === null
+    ) {
+
+      synchronizeChallenge();
+
+    }
+
+  });
+
+  updateChallenge();
+
+
+  /* ======================================
+     CARTE SOUVENIR TÉLÉCHARGEABLE
+     ====================================== */
+
+  const downloadCardButton =
+    byId("download-challenge-card");
+
+  const cardStatus = document.createElement("p");
+
+  cardStatus.className = "support-disclaimer";
+
+  cardStatus.setAttribute(
+    "aria-live",
+    "polite"
+  );
+
+  downloadCardButton.after(cardStatus);
+
+  downloadCardButton.addEventListener("click", () => {
+
+    if (completedDays.size !== 7) return;
+
+    downloadCardButton.disabled = true;
+
+    cardStatus.textContent = "";
+
+    try {
+
+      const canvas = document.createElement("canvas");
+
+      canvas.width = 1200;
+
+      canvas.height = 1500;
+
+      const context = canvas.getContext("2d");
+
+      if (!context) {
+
+        throw new Error("Canvas niet beschikbaar");
+
+      }
+
+
+      /* ARRIÈRE-PLAN */
+
+      const background = context.createLinearGradient(
+        0, 0, 1200, 1500
+      );
+
+      background.addColorStop(0, "#faf4ed");
+
+      background.addColorStop(1, "#efdce1");
+
+      context.fillStyle = background;
+
+      context.fillRect(0, 0, 1200, 1500);
+
+
+      /* CADRE */
+
+      context.strokeStyle = "#c69b9e";
+
+      context.lineWidth = 3;
+
+      context.strokeRect(55, 55, 1090, 1390);
+
+      context.strokeStyle = "#dbc1ba";
+
+      context.lineWidth = 1;
+
+      context.strokeRect(75, 75, 1050, 1350);
+
+
+      /* TEXTE PRINCIPAL */
+
+      context.textAlign = "center";
+
+      context.fillStyle = "#a85e68";
+
+      context.font = "30px Georgia";
+
+      context.fillText(
+        "C Œ U R   E R R A N T",
+        600,
+        190
+      );
+
+      context.font = "110px Georgia";
+
+      context.fillText("♡", 600, 360);
+
+      context.fillStyle = "#685048";
+
+      context.font = "italic 70px Georgia";
+
+      context.fillText(
+        "Een hart dat",
+        600,
+        510
+      );
+
+      context.fillText(
+        "het verschil maakt.",
+        600,
+        600
+      );
+
+      context.fillStyle = "#a85e68";
+
+      context.font = "32px Georgia";
+
+      context.fillText(
+        "Zeven dagen vol vriendelijkheid",
+        600,
+        715
+      );
+
+
+      /* SEPT FLEURS SYMBOLIQUES */
+
+      for (let index = 0; index < 7; index++) {
+
+        const x = 270 + index * 110;
+
+        const y = 850;
+
+        context.strokeStyle = "#93a489";
+
+        context.lineWidth = 5;
+
+        context.beginPath();
+
+        context.moveTo(x, y + 75);
+
+        context.lineTo(x, y);
+
+        context.stroke();
+
+        for (let petal = 0; petal < 5; petal++) {
+
+          const angle =
+            petal * Math.PI * 2 / 5;
+
+          context.fillStyle = "#d9a5b1";
+
+          context.beginPath();
+
+          context.arc(
+
+            x + Math.cos(angle) * 19,
+
+            y + Math.sin(angle) * 19,
+
+            15,
+
+            0,
+
+            Math.PI * 2
+
+          );
+
+          context.fill();
+
+        }
+
+        context.fillStyle = "#e7cf9f";
+
+        context.beginPath();
+
+        context.arc(
+          x,
+          y,
+          10,
+          0,
+          Math.PI * 2
+        );
+
+        context.fill();
+
+      }
+
+
+      /* MESSAGE FINAL */
+
+      context.fillStyle = "#78695e";
+
+      context.font = "30px Georgia";
+
+      context.fillText(
+        "Zeven gebaren, zeven kleine zaadjes.",
+        600,
+        1030
+      );
+
+      context.fillText(
+        "Een beetje meer zachtheid in de wereld.",
+        600,
+        1080
+      );
+
+      context.fillStyle = "#a85e68";
+
+      context.font = "italic 34px Georgia";
+
+      context.fillText(
+        "Elk dier heeft een verhaal.",
+        600,
+        1230
+      );
+
+      context.font = "20px Arial";
+
+      context.fillText(
+        "Persoonlijke herinnering aan de solidariteitsuitdaging",
+        600,
+        1320
+      );
+
+
+      /* EXPORTATION PNG */
+
+      canvas.toBlob(blob => {
+
+        if (!blob) {
+
+          cardStatus.textContent =
+            "De kaart kon niet worden gemaakt. Probeer opnieuw.";
+
+          downloadCardButton.disabled = false;
+
+          return;
+
+        }
+
+        let url;
+
+        try {
+
+          url = URL.createObjectURL(blob);
+
+          const link = document.createElement("a");
+
+          link.href = url;
+
+          link.download =
+            "coeur-errant-carte-bienveillance.png";
+
+          document.body.appendChild(link);
+
+          link.click();
+
+          link.remove();
+
+          cardStatus.textContent =
+            "Jouw herinneringskaart is klaar ♡";
+
+        } catch (error) {
+
+          cardStatus.textContent =
+            "Het downloaden is niet gelukt. Probeer opnieuw.";
+
+        } finally {
+
+          downloadCardButton.disabled = false;
+
+          if (url) {
+
+            setTimeout(() => {
+
+              URL.revokeObjectURL(url);
+
+            }, 1000);
+
+          }
+
+        }
+
+      }, "image/png");
+
+    } catch (error) {
+
+      cardStatus.textContent =
+        "Je browser kon de herinneringskaart niet maken.";
+
+      downloadCardButton.disabled = false;
+
+    }
+
+  });
+
+
+  /* ======================================
+     QUESTIONS FRÉQUENTES
+     ====================================== */
+
+  const faqItems =
+    document.querySelectorAll(".support-faq-item");
+
+  faqItems.forEach(item => {
+
+    const symbol = item.querySelector(".faq-expand");
+
+    if (symbol) {
+
+      symbol.textContent =
+        item.open ? "−" : "+";
+
+      symbol.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+    }
+
+    item.addEventListener("toggle", () => {
+
+      if (symbol) {
+
+        symbol.textContent =
+          item.open ? "−" : "+";
+
+      }
+
+      if (item.open) {
+
+        faqItems.forEach(otherItem => {
+
+          if (otherItem !== item) {
+
+            otherItem.open = false;
+
+          }
+
+        });
+
+      }
+
+    });
+
+  });
+
+
+  /* ======================================
+     LETTRE SECRÈTE
+     ====================================== */
+
+  const envelope = byId("secret-envelope");
+
+  const secretLetter = byId("secret-letter");
+
+  const envelopeInstruction = byId(
+    "envelope-instruction"
+  );
+
+  let letterTimer;
+
+  let letterOpen = false;
+
+  function revealLetter() {
+
+    if (!letterOpen) return;
+
+    secretLetter.hidden = false;
+
+    secretLetter.classList.add(
+      "letter-visible"
+    );
+
+  }
+
+  function openLetter() {
+
+    if (letterOpen) return;
+
+    letterOpen = true;
+
+    clearTimeout(letterTimer);
+
+    envelope.classList.add("envelope-open");
+
+    envelope.setAttribute(
+      "aria-expanded",
+      "true"
+    );
+
+    envelope.setAttribute(
+      "aria-label",
+      "De bedankbrief sluiten"
+    );
+
+    envelopeInstruction.textContent =
+      "Een paar woorden, speciaal voor jou ♡";
+
+    if (reducedMotion) {
+
+      revealLetter();
+
+    } else {
+
+      letterTimer = setTimeout(
+        revealLetter,
+        650
+      );
+
+    }
+
+  }
+
+  function closeLetter() {
+
+    letterOpen = false;
+
+    clearTimeout(letterTimer);
+
+    envelope.classList.remove(
+      "envelope-open"
+    );
+
+    envelope.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    envelope.setAttribute(
+      "aria-label",
+      "De bedankbrief openen"
+    );
+
+    secretLetter.hidden = true;
+
+    secretLetter.classList.remove(
+      "letter-visible"
+    );
+
+    envelopeInstruction.textContent =
+      "Klik op het kleine hartje om de brief te openen.";
+
+  }
+
+  envelope.addEventListener("click", () => {
+
+    if (letterOpen) {
+
+      closeLetter();
+
+    } else {
+
+      openLetter();
+
+    }
+
+  });
+
+  byId("close-secret-letter")
+    .addEventListener("click", () => {
+
+      closeLetter();
+
+      envelope.focus();
+
+    });
+
+
+  /* ======================================
+     PRÉFÉRENCES D'ANIMATION
+     ====================================== */
+
+  function handleMotionChange(event) {
+
+    reducedMotion = event.matches;
+
+    initializeRevealAnimations();
+
+    if (reducedMotion) {
+
+      clearTimeout(impactAnimationTimer);
+
+      impactDisplay.classList.remove(
+        "impact-changing"
+      );
+
+      if (letterOpen) {
+
+        clearTimeout(letterTimer);
+
+        revealLetter();
+
+      }
+
+    }
+
+  }
+
+  if (
+    typeof motionPreference.addEventListener ===
+    "function"
+  ) {
+
+    motionPreference.addEventListener(
+      "change",
+      handleMotionChange
+    );
+
+  } else if (
+    typeof motionPreference.addListener ===
+    "function"
+  ) {
+
+    motionPreference.addListener(
+      handleMotionChange
+    );
+
+  }
+
+
+  /* ======================================
+     RETOUR SUR LA PAGE
+     ====================================== */
+
+  window.addEventListener("pageshow", event => {
+
+    if (!event.persisted) return;
+
+    window.closeMenu();
+
+    updateGarden();
+
+    synchronizeChallenge();
+
+    initializeRevealAnimations();
+
+    document.body.classList.toggle(
+      "support-dialog-open",
+      qrDialog.open
+    );
+
+  });
+
+})();
+
+
+</script>
+</body>
+</html>
+
+
+
+
