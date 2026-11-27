@@ -1,3 +1,8 @@
+
+
+
+
+
 (() => {
     "use strict";
 
@@ -6,6 +11,8 @@
     if (!page) return;
 
     const $ = id => document.getElementById(id);
+    const isNL = document.documentElement.lang.toLowerCase().startsWith("nl");
+    const t = (fr, nl) => isNL ? nl : fr;
 
     const STORAGE_KEY = "coeur-errant-passport-v1";
     const CONSENT_KEY = "coeur-errant-kingdom-consent-v1";
@@ -22,113 +29,113 @@
     const treasures = [
         {
             id: "corse-2023",
-            destination: "Corse",
-            name: "Le coquillage des rêves",
-            meaning: "Il représente les rêves que l'on garde précieusement au fond de soi.",
+            destination: t("Corse", "Corsica"),
+            name: t("Le coquillage des rêves", "De schelp der dromen"),
+            meaning: t("Il représente les rêves que l'on garde précieusement au fond de soi.", "Deze schelp staat voor de dromen die we diep in ons hart koesteren."),
             color: "#e5b9bc",
             symbol: "shell"
         },
         {
             id: "tanger-2024",
             destination: "Tanger",
-            name: "La plume du courage",
-            meaning: "Le courage commence parfois par un simple geste de douceur.",
+            name: t("La plume du courage", "De veer van moed"),
+            meaning: t("Le courage commence parfois par un simple geste de douceur.", "Moed begint soms met een eenvoudig gebaar van zachtheid."),
             color: "#d8bd83",
             symbol: "feather"
         },
         {
             id: "sicile-2024",
-            destination: "Sicile",
-            name: "Le fruit du soleil",
-            meaning: "Une lumière chaleureuse, même lorsque le monde semble gris.",
+            destination: t("Sicile", "Sicilië"),
+            name: t("Le fruit du soleil", "De vrucht van de zon"),
+            meaning: t("Une lumière chaleureuse, même lorsque le monde semble gris.", "Een warm licht, zelfs wanneer de wereld grijs lijkt."),
             color: "#e5ca75",
             symbol: "sun"
         },
         {
             id: "varsovie-2025",
-            destination: "Varsovie",
-            name: "Le flocon éternel",
-            meaning: "Chaque âme est unique, comme les cristaux d'un flocon.",
+            destination: t("Varsovie", "Warschau"),
+            name: t("Le flocon éternel", "De eeuwige sneeuwvlok"),
+            meaning: t("Chaque âme est unique, comme les cristaux d'un flocon.", "Elke ziel is uniek, net als de kristallen van een sneeuwvlok."),
             color: "#b6d4e5",
             symbol: "snow"
         },
         {
             id: "tanger-2025",
             destination: "Tanger",
-            name: "Le cristal de l'amour",
-            meaning: "L'amour véritable ne demande rien en retour.",
+            name: t("Le cristal de l'amour", "Het kristal van liefde"),
+            meaning: t("L'amour véritable ne demande rien en retour.", "Ware liefde vraagt niets terug."),
             color: "#e8a5b9",
             symbol: "heart"
         },
         {
             id: "chefchaouen-2025",
             destination: "Chefchaouen",
-            name: "Le papillon de la liberté",
-            meaning: "Chaque être vivant mérite de pouvoir vivre librement et dignement.",
+            name: t("Le papillon de la liberté", "De vlinder van vrijheid"),
+            meaning: t("Chaque être vivant mérite de pouvoir vivre librement et dignement.", "Elk levend wezen verdient een vrij en waardig leven."),
             color: "#94bad8",
             symbol: "butterfly"
         },
         {
             id: "akchour-2025",
             destination: "Akchour",
-            name: "La feuille de vie",
-            meaning: "La nature nous rappelle la fragilité et la beauté de la vie.",
+            name: t("La feuille de vie", "Het blad van het leven"),
+            meaning: t("La nature nous rappelle la fragilité et la beauté de la vie.", "De natuur herinnert ons aan de kwetsbaarheid en schoonheid van het leven."),
             color: "#a6c5a0",
             symbol: "leaf"
         },
         {
             id: "istanbul-2025",
             destination: "Istanbul",
-            name: "La pierre des secrets",
-            meaning: "Les plus beaux trésors sont parfois les plus discrets.",
+            name: t("La pierre des secrets", "De steen der geheimen"),
+            meaning: t("Les plus beaux trésors sont parfois les plus discrets.", "De mooiste schatten zijn soms de meest onopvallende."),
             color: "#b6a6d4",
             symbol: "gem"
         },
         {
             id: "skopje-2026",
             destination: "Skopje",
-            name: "La clé des possibles",
-            meaning: "Un petit geste peut ouvrir des portes que l'on croyait fermées.",
+            name: t("La clé des possibles", "De sleutel tot mogelijkheden"),
+            meaning: t("Un petit geste peut ouvrir des portes que l'on croyait fermées.", "Een klein gebaar kan deuren openen waarvan we dachten dat ze gesloten waren."),
             color: "#d8b77b",
             symbol: "key"
         },
         {
             id: "pristina-2026",
             destination: "Pristina",
-            name: "L'étoile de l'espoir",
-            meaning: "Même dans l'obscurité, une petite lumière peut subsister.",
+            name: t("L'étoile de l'espoir", "De ster van hoop"),
+            meaning: t("Même dans l'obscurité, une petite lumière peut subsister.", "Zelfs in de duisternis kan een klein lichtje blijven schijnen."),
             color: "#e8d19a",
             symbol: "star"
         },
         {
             id: "tirana-2026",
             destination: "Tirana",
-            name: "Le sablier de la patience",
-            meaning: "Certaines rencontres demandent simplement du temps et de la patience.",
+            name: t("Le sablier de la patience", "De zandloper van geduld"),
+            meaning: t("Certaines rencontres demandent simplement du temps et de la patience.", "Sommige ontmoetingen vragen gewoon tijd en geduld."),
             color: "#d8ad94",
             symbol: "hourglass"
         },
         {
             id: "marrakech-2026",
             destination: "Marrakech",
-            name: "La lanterne de la lumière",
-            meaning: "La bienveillance éclaire les chemins les plus inattendus.",
+            name: t("La lanterne de la lumière", "De lantaarn van het licht"),
+            meaning: t("La bienveillance éclaire les chemins les plus inattendus.", "Goedhartigheid verlicht de meest onverwachte paden."),
             color: "#dfa88e",
             symbol: "lantern"
         },
         {
             id: "agadir-2026",
             destination: "Agadir",
-            name: "La larme de l'océan",
-            meaning: "Une seule goutte peut rejoindre un océan de solidarité.",
+            name: t("La larme de l'océan", "De traan van de oceaan"),
+            meaning: t("Une seule goutte peut rejoindre un océan de solidarité.", "Eén druppel kan deel worden van een oceaan van solidariteit."),
             color: "#93c9cf",
             symbol: "drop"
         },
         {
             id: "djerba-2026",
             destination: "Djerba",
-            name: "La fleur de la douceur",
-            meaning: "La douceur est une force silencieuse.",
+            name: t("La fleur de la douceur", "De bloem van zachtheid"),
+            meaning: t("La douceur est une force silencieuse.", "Zachtheid is een stille kracht."),
             color: "#f0e1c8",
             symbol: "flower"
         }
@@ -146,9 +153,9 @@
     };
 
     const companionLabels = {
-        cat: "Votre chat",
-        dog: "Votre chien",
-        rabbit: "Votre lapin"
+        cat: t("Votre chat", "Jouw kat"),
+        dog: t("Votre chien", "Jouw hond"),
+        rabbit: t("Votre lapin", "Jouw konijn")
     };
 
 
@@ -321,8 +328,8 @@
             return true;
         } catch {
             showToast(
-                "Sauvegarde indisponible",
-                "Votre navigateur ne permet pas la sauvegarde."
+                t("Sauvegarde indisponible", "Opslag niet beschikbaar"),
+                t("Votre navigateur ne permet pas la sauvegarde.", "Je browser staat het opslaan niet toe.")
             );
 
             return false;
@@ -349,8 +356,8 @@
             updateStorageNote();
 
             showToast(
-                "Sauvegarde impossible",
-                "Vous pouvez explorer le royaume sans sauvegarde."
+                t("Sauvegarde impossible", "Opslaan niet mogelijk"),
+                t("Vous pouvez explorer le royaume sans sauvegarde.", "Je kunt het Koninkrijk zonder opslag verkennen.")
             );
 
             return;
@@ -380,8 +387,8 @@
             updateStorageNote();
 
             showToast(
-                "Sauvegarde activée",
-                "Votre aventure sera conservée sur cet appareil."
+                t("Sauvegarde activée", "Opslag ingeschakeld"),
+                t("Votre aventure sera conservée sur cet appareil.", "Jouw avontuur wordt op dit apparaat bewaard.")
             );
         } catch {
             removeStoredAdventure();
@@ -391,8 +398,8 @@
             notifyPassportUpdate();
 
             showToast(
-                "Sauvegarde impossible",
-                "Vous pouvez explorer le royaume sans sauvegarde."
+                t("Sauvegarde impossible", "Opslaan niet mogelijk"),
+                t("Vous pouvez explorer le royaume sans sauvegarde.", "Je kunt het Koninkrijk zonder opslag verkennen.")
             );
         }
     }
@@ -425,13 +432,13 @@
 
         if (removed) {
             showToast(
-                "Sauvegarde désactivée",
-                "Les données enregistrées ont été effacées."
+                t("Sauvegarde désactivée", "Opslag uitgeschakeld"),
+                t("Les données enregistrées ont été effacées.", "De opgeslagen gegevens zijn gewist.")
             );
         } else {
             showToast(
-                "Action impossible",
-                "La suppression n'a pas pu être confirmée."
+                t("Action impossible", "Actie niet mogelijk"),
+                t("La suppression n'a pas pu être confirmée.", "Het wissen kon niet worden bevestigd.")
             );
         }
     }
@@ -519,16 +526,16 @@
 
         if (deletionFailed) {
             message =
-                "La sauvegarde est désactivée pour cette page, mais la suppression des données locales n'a pas pu être confirmée. Vous pouvez réessayer.";
+                t("La sauvegarde est désactivée pour cette page, mais la suppression des données locales n'a pas pu être confirmée. Vous pouvez réessayer.", "De opslag is uitgeschakeld voor deze pagina, maar het wissen van lokale gegevens kon niet worden bevestigd. Je kunt het opnieuw proberen.");
         } else if (!storageAvailable) {
             message =
-                "La sauvegarde locale est indisponible. Vous pouvez continuer votre exploration sans sauvegarde.";
+                t("La sauvegarde locale est indisponible. Vous pouvez continuer votre exploration sans sauvegarde.", "Lokale opslag is niet beschikbaar. Je kunt verdergaan zonder opslag.");
         } else if (active) {
             message =
-                "Vos trésors et votre progression sont conservés localement sur cet appareil. Vous pouvez retirer votre accord à tout moment.";
+                t("Vos trésors et votre progression sont conservés localement sur cet appareil. Vous pouvez retirer votre accord à tout moment.", "Jouw schatten en voortgang worden lokaal op dit apparaat bewaard. Je kunt jouw toestemming altijd intrekken.");
         } else {
             message =
-                "La sauvegarde est désactivée. Activez-la pour retrouver vos trésors et votre progression lors de vos prochaines visites.";
+                t("La sauvegarde est désactivée. Activez-la pour retrouver vos trésors et votre progression lors de vos prochaines visites.", "De opslag is uitgeschakeld. Schakel deze in om jouw schatten en voortgang bij een volgend bezoek terug te vinden.");
         }
 
         if (note) {
@@ -541,10 +548,10 @@
 
         if (button) {
             button.textContent = deletionFailed
-                ? "Réessayer la suppression de mes données"
+                ? t("Réessayer la suppression de mes données", "Opnieuw proberen mijn gegevens te wissen")
                 : active
-                    ? "Désactiver la sauvegarde et effacer mes données"
-                    : "Activer la sauvegarde de mon aventure";
+                    ? t("Désactiver la sauvegarde et effacer mes données", "Opslag uitschakelen en mijn gegevens wissen")
+                    : t("Activer la sauvegarde de mon aventure", "Opslag van mijn avontuur inschakelen");
 
             button.setAttribute(
                 "aria-pressed",
@@ -563,8 +570,8 @@
 
         if (enableButton) {
             enableButton.textContent = active
-                ? "Sauvegarde de mon aventure activée"
-                : "Activer la sauvegarde de mon aventure";
+                ? t("Sauvegarde de mon aventure activée", "Opslag van mijn avontuur ingeschakeld")
+                : t("Activer la sauvegarde de mon aventure", "Opslag van mijn avontuur inschakelen");
 
             enableButton.setAttribute(
                 "aria-pressed",
@@ -583,8 +590,8 @@
 
         if (disableButton) {
             disableButton.textContent = deletionFailed
-                ? "Réessayer la suppression de mes données"
-                : "Désactiver la sauvegarde et effacer mes données";
+                ? t("Réessayer la suppression de mes données", "Opnieuw proberen mijn gegevens te wissen")
+                : t("Désactiver la sauvegarde et effacer mes données", "Opslag uitschakelen en mijn gegevens wissen");
 
             disableButton.disabled =
                 !active && !deletionFailed;
@@ -701,7 +708,7 @@
 
         door?.classList.add("is-open");
 
-        button.textContent = "Bienvenue dans le royaume";
+        button.textContent = t("Bienvenue dans le royaume", "Welkom in het Koninkrijk");
         button.disabled = true;
 
         setTimeout(() => {
@@ -757,13 +764,13 @@
                 message.setAttribute("aria-live", "polite");
 
                 message.textContent = saved
-                    ? `Bienvenue dans votre royaume, ${name}.`
-                    : `Bienvenue, ${name}. Activez la sauvegarde pour conserver votre prénom.`;
+                    ? t(`Bienvenue dans votre royaume, ${name}.`, `Welkom in jouw Koninkrijk, ${name}.`)
+                    : t(`Bienvenue, ${name}. Activez la sauvegarde pour conserver votre prénom.`, `Welkom, ${name}. Schakel opslag in om jouw voornaam te bewaren.`);
             }
 
             showToast(
-                "Votre identité",
-                `Bienvenue, ${name}.`
+                t("Votre identité", "Jouw identiteit"),
+                t(`Bienvenue, ${name}.`, `Welkom, ${name}.`)
             );
         }
     );
@@ -796,7 +803,7 @@
 
         if (owner) {
             owner.textContent =
-                state.name || "Votre royaume";
+                state.name || t("Votre royaume", "Jouw Koninkrijk");
         }
 
         if (emblem) {
@@ -874,8 +881,8 @@
             renderCompanion();
 
             showToast(
-                "Un nouveau compagnon",
-                `${state.companionName} vous accompagne désormais.`
+                t("Un nouveau compagnon", "Een nieuwe reisgenoot"),
+                t(`${state.companionName} vous accompagne désormais.`, `${state.companionName} vergezelt je vanaf nu.`)
             );
         }
     );
@@ -910,9 +917,9 @@
 
             message.textContent =
                 state.companionName
-                    ? `${state.companionName} vous attend sur les chemins du royaume.`
+                    ? t(`${state.companionName} vous attend sur les chemins du royaume.`, `${state.companionName} wacht op je langs de paden van het Koninkrijk.`)
                     : state.companion
-                        ? "Choisissez maintenant son prénom."
+                        ? t("Choisissez maintenant son prénom.", "Kies nu een naam voor jouw reisgenoot.")
                         : "";
         }
     }
@@ -964,7 +971,7 @@
 
             gem.title = discovered
                 ? treasure.name
-                : "Trésor encore à découvrir";
+                : t("Trésor encore à découvrir", "Nog te ontdekken schat");
 
             gem.setAttribute("aria-hidden", "true");
 
@@ -997,14 +1004,14 @@
     ========================================== */
 
     function getRank(count) {
-        if (count >= 14) return "Gardien des cœurs errants";
-        if (count >= 10) return "Gardien des merveilles";
-        if (count >= 8) return "Explorateur des secrets";
-        if (count >= 5) return "Collectionneur de lumière";
-        if (count >= 3) return "Chercheur de trésors";
-        if (count >= 1) return "Cueilleur de lumière";
+        if (count >= 14) return t("Gardien des cœurs errants", "Beschermer van de zwervende harten");
+        if (count >= 10) return t("Gardien des merveilles", "Beschermer der wonderen");
+        if (count >= 8) return t("Explorateur des secrets", "Ontdekker der geheimen");
+        if (count >= 5) return t("Collectionneur de lumière", "Verzamelaar van licht");
+        if (count >= 3) return t("Chercheur de trésors", "Schatzoeker");
+        if (count >= 1) return t("Cueilleur de lumière", "Lichtverzamelaar");
 
-        return "Âme voyageuse";
+        return t("Âme voyageuse", "Reizende ziel");
     }
 
     function renderProgress() {
@@ -1047,7 +1054,7 @@
 
             progressTrack.setAttribute(
                 "aria-valuetext",
-                `${count} trésors retrouvés sur ${treasures.length}`
+                t(`${count} trésors retrouvés sur ${treasures.length}`, `${count} van de ${treasures.length} schatten gevonden`)
             );
         }
 
@@ -1058,17 +1065,17 @@
             if (count === treasures.length) {
 
                 progressMessage.textContent =
-                    "Félicitations ! Vous avez retrouvé les 14 trésors. Le château et votre passeport vous attendent.";
+                    t("Félicitations ! Vous avez retrouvé les 14 trésors. Le château et votre passeport vous attendent.", "Gefeliciteerd! Je hebt alle 14 schatten gevonden. Het kasteel en jouw paspoort wachten op je.");
 
             } else if (count === 0) {
 
                 progressMessage.textContent =
-                    "Explorez la carte aux trésors et réussissez votre premier mini-jeu pour commencer votre collection.";
+                    t("Explorez la carte aux trésors et réussissez votre premier mini-jeu pour commencer votre collection.", "Verken de schatkaart en voltooi je eerste minigame om jouw verzameling te beginnen.");
 
             } else {
 
                 progressMessage.textContent =
-                    `Vous avez retrouvé ${count} trésor${count > 1 ? "s" : ""} sur 14. Il vous en reste ${remaining} à découvrir.`;
+                    t(`Vous avez retrouvé ${count} trésor${count > 1 ? "s" : ""} sur 14. Il vous en reste ${remaining} à découvrir.`, `Je hebt ${count} van de 14 schatten gevonden. Nog ${remaining} te ontdekken.`);
 
             }
 
@@ -1094,10 +1101,10 @@
 
                 item.setAttribute(
                     "aria-label",
-                    `${milestone} trésors — ${
+                    `${milestone} ${t("trésors", "schatten")} — ${
                         reached
-                            ? "Palier atteint"
-                            : "Palier à atteindre"
+                            ? t("Palier atteint", "Mijlpaal bereikt")
+                            : t("Palier à atteindre", "Nog te bereiken mijlpaal")
                     }`
                 );
             });
@@ -1411,7 +1418,7 @@
                 `${treasure.destination} — ${
                     discovered
                         ? treasure.name
-                        : "Trésor encore à découvrir"
+                        : t("Trésor encore à découvrir", "Nog te ontdekken schat")
                 }`
             );
 
@@ -1447,8 +1454,8 @@
             const status = document.createElement("small");
 
             status.textContent = discovered
-                ? "Trésor retrouvé"
-                : "Trésor à découvrir";
+                ? t("Trésor retrouvé", "Schat gevonden")
+                : t("Trésor à découvrir", "Nog te ontdekken schat");
 
             card.append(visual, title, status);
 
@@ -1489,17 +1496,17 @@
         $("treasure-title").textContent =
             discovered
                 ? treasure.name
-                : "Un trésor mystérieux";
+                : t("Un trésor mystérieux", "Een mysterieuze schat");
 
         $("treasure-meaning").textContent =
             discovered
                 ? treasure.meaning
-                : `Pour retrouver ce trésor, rendez-vous sur la carte aux trésors et réussissez le mini-jeu de ${treasure.destination}.`;
+                : t(`Pour retrouver ce trésor, rendez-vous sur la carte aux trésors et réussissez le mini-jeu de ${treasure.destination}.`, `Ga naar de schatkaart en voltooi de minigame van ${treasure.destination} om deze schat te vinden.`);
 
         $("treasure-status").textContent =
             discovered
-                ? "Ce trésor fait désormais partie de votre médaillon."
-                : "Trésor pas encore retrouvé";
+                ? t("Ce trésor fait désormais partie de votre médaillon.", "Deze schat maakt nu deel uit van jouw medaillon.")
+                : t("Trésor pas encore retrouvé", "Schat nog niet gevonden");
 
         openDialog("treasure-dialog");
     }    /* =========================================
@@ -1508,39 +1515,39 @@
 
     const locations = {
         library: {
-            title: "La bibliothèque des âmes",
+            title: t("La bibliothèque des âmes", "De bibliotheek der zielen"),
             image: "royaume-bibliotheque.png",
             required: 3,
             description:
-                "Dans le silence des livres anciens, une lettre semble vous attendre."
+                t("Dans le silence des livres anciens, une lettre semble vous attendre.", "In de stilte tussen oude boeken lijkt een brief op je te wachten.")
         },
         greenhouse: {
-            title: "La serre des lumières",
+            title: t("La serre des lumières", "De serre der lichtjes"),
             image: "royaume-serre.png",
             required: 5,
             description:
-                "Parmi les roses, trois petits secrets se cachent dans la lumière."
+                t("Parmi les roses, trois petits secrets se cachent dans la lumière.", "Tussen de rozen verbergen zich drie kleine geheimen in het licht.")
         },
         lake: {
-            title: "Le lac des souhaits",
+            title: t("Le lac des souhaits", "Het meer der wensen"),
             image: "royaume-lac.png",
             required: 8,
             description:
-                "Confiez un souhait à l'eau et regardez votre lanterne s'éloigner."
+                t("Confiez un souhait à l'eau et regardez votre lanterne s'éloigner.", "Vertrouw een wens toe aan het water en kijk hoe jouw lantaarn wegdrijft.")
         },
         spring: {
-            title: "La source des merveilles",
+            title: t("La source des merveilles", "De bron der wonderen"),
             image: "royaume-source.png",
             required: 10,
             description:
-                "Une étrange lumière scintille sous la surface de l'eau."
+                t("Une étrange lumière scintille sous la surface de l'eau.", "Een mysterieus licht schittert onder het wateroppervlak.")
         },
         castle: {
-            title: "Le château des cœurs errants",
+            title: t("Le château des cœurs errants", "Het kasteel der zwervende harten"),
             image: "royaume-chateau.png",
             required: 14,
             description:
-                "Les portes du château s'ouvrent enfin. Toutes les lumières du royaume sont réunies."
+                t("Les portes du château s'ouvrent enfin. Toutes les lumières du royaume sont réunies.", "De deuren van het kasteel gaan eindelijk open. Alle lichtjes van het Koninkrijk zijn verenigd.")
         }
     };
 
@@ -1660,13 +1667,13 @@
 
                     requirement.textContent = explored
 
-                        ? "Secret découvert ✓"
+                        ? t("Secret découvert ✓", "Geheim ontdekt ✓")
 
                         : unlocked
 
-                            ? "Lieu débloqué ✧"
+                            ? t("Lieu débloqué ✧", "Plek ontgrendeld ✧")
 
-                            : `À débloquer avec ${required} trésors`;
+                            : t(`À débloquer avec ${required} trésors`, `Te ontgrendelen met ${required} schatten`);
 
                 }
 
@@ -1680,7 +1687,7 @@
                 if (progressLabel) {
 
                     progressLabel.textContent =
-                        `${current} / ${required} trésors retrouvés`;
+                        t(`${current} / ${required} trésors retrouvés`, `${current} / ${required} schatten gevonden`);
 
                 }
 
@@ -1726,7 +1733,7 @@
 
                     progressTrack.setAttribute(
                         "aria-valuetext",
-                        `${current} trésors retrouvés sur ${required}`
+                        t(`${current} trésors retrouvés sur ${required}`, `${current} van de ${required} schatten gevonden`)
                     );
 
                 }
@@ -1745,17 +1752,17 @@
                 if (explored) {
 
                     button.textContent =
-                        "Revisiter ce lieu";
+                        t("Revisiter ce lieu", "Deze plek opnieuw bezoeken");
 
                 } else if (unlocked) {
 
                     button.textContent =
-                        "Explorer ce lieu";
+                        t("Explorer ce lieu", "Deze plek verkennen");
 
                 } else {
 
                     button.textContent =
-                        `Encore ${remaining} trésor${remaining > 1 ? "s" : ""} à retrouver`;
+                        t(`Encore ${remaining} trésor${remaining > 1 ? "s" : ""} à retrouver`, `Nog ${remaining} ${remaining === 1 ? "schat" : "schatten"} te vinden`);
 
                 }
 
@@ -1881,7 +1888,7 @@
 
         button.className = "kingdom-button";
 
-        button.textContent = "Décacheter la lettre";
+        button.textContent = t("Décacheter la lettre", "De brief openen");
 
         button.setAttribute(
             "aria-expanded",
@@ -1904,7 +1911,7 @@
         letter.tabIndex = -1;
 
         letter.textContent =
-            "Il n'est pas nécessaire de changer le monde entier pour faire une différence. Parfois, changer un seul instant dans la vie d'une petite âme suffit.";
+            t("Il n'est pas nécessaire de changer le monde entier pour faire une différence. Parfois, changer un seul instant dans la vie d'une petite âme suffit.", "Je hoeft niet de hele wereld te veranderen om een verschil te maken. Soms volstaat één moment in het leven van een kleine ziel.");
 
         button.addEventListener("click", () => {
 
@@ -1938,11 +1945,11 @@
 
         const messages = [
 
-            "La douceur n'est jamais une faiblesse.",
+            t("La douceur n'est jamais une faiblesse.", "Zachtheid is nooit een zwakte."),
 
-            "Chaque vie mérite d'être regardée.",
+            t("Chaque vie mérite d'être regardée.", "Elk leven verdient het om gezien te worden."),
 
-            "La liberté est un trésor que nul ne devrait perdre."
+            t("La liberté est un trésor que nul ne devrait perdre.", "Vrijheid is een schat die niemand zou mogen verliezen.")
 
         ];
 
@@ -1958,7 +1965,7 @@
 
         buttons.setAttribute(
             "aria-label",
-            "Les trois fleurs de la serre"
+            t("Les trois fleurs de la serre", "De drie bloemen van de serre")
         );
 
         const message = document.createElement("div");
@@ -1983,7 +1990,7 @@
         );
 
         message.textContent =
-            "Découvrez les trois fleurs pour révéler tous les messages secrets de la serre.";
+            t("Découvrez les trois fleurs pour révéler tous les messages secrets de la serre.", "Ontdek de drie bloemen om alle geheime boodschappen van de serre te onthullen.");
 
         const progress = document.createElement("p");
 
@@ -1999,7 +2006,7 @@
             ).length;
 
             progress.textContent =
-                `${discovered} / 3 messages découverts`;
+                t(`${discovered} / 3 messages découverts`, `${discovered} / 3 boodschappen ontdekt`);
 
         }
 
@@ -2023,7 +2030,7 @@
 
             button.setAttribute(
                 "aria-label",
-                `Découvrir la fleur ${index + 1}`
+                t(`Découvrir la fleur ${index + 1}`, `Bloem ${index + 1} ontdekken`)
             );
 
             button.setAttribute(
@@ -2079,13 +2086,13 @@
 
         textarea.className = "location-wish";
 
-        textarea.placeholder = "Votre souhait...";
+        textarea.placeholder = t("Votre souhait...", "Jouw wens...");
 
         textarea.maxLength = 300;
 
         textarea.setAttribute(
             "aria-label",
-            "Votre souhait personnel"
+            t("Votre souhait personnel", "Jouw persoonlijke wens")
         );
 
         textarea.setAttribute(
@@ -2103,7 +2110,7 @@
         note.id = "lake-wish-note";
 
         note.textContent =
-            "Votre souhait n'est ni enregistré ni envoyé.";
+            t("Votre souhait n'est ni enregistré ni envoyé.", "Jouw wens wordt niet opgeslagen of verzonden.");
 
         const message = document.createElement("p");
 
@@ -2130,7 +2137,7 @@
 
         button.className = "kingdom-button";
 
-        button.textContent = "Libérer ma lanterne";
+        button.textContent = t("Libérer ma lanterne", "Mijn lantaarn loslaten");
 
         button.addEventListener("click", () => {
 
@@ -2153,7 +2160,7 @@
             message.hidden = false;
 
             message.textContent =
-                "Votre souhait s'éloigne doucement vers l'horizon.";
+                t("Votre souhait s'éloigne doucement vers l'horizon.", "Jouw wens drijft zachtjes naar de horizon.");
 
             unlockReward("lake-lantern");
 
@@ -2195,7 +2202,7 @@
 
         button.setAttribute(
             "aria-label",
-            "Toucher la surface de l'eau"
+            t("Toucher la surface de l'eau", "Het wateroppervlak aanraken")
         );
 
         button.setAttribute(
@@ -2223,7 +2230,7 @@
         );
 
         message.textContent =
-            "Touchez la lumière à la surface de l'eau.";
+            t("Touchez la lumière à la surface de l'eau.", "Raak het licht op het wateroppervlak aan.");
 
         let rippleTimer;
 
@@ -2267,7 +2274,7 @@
             button.textContent = "◇";
 
             message.textContent =
-                "Vous avez découvert la pierre de sérénité, un secret précieux du royaume.";
+                t("Vous avez découvert la pierre de sérénité, un secret précieux du royaume.", "Je hebt de steen van sereniteit ontdekt, een kostbaar geheim van het Koninkrijk.");
 
             const fresh = unlockReward(
                 "spring-crystal"
@@ -2282,8 +2289,8 @@
                 }
 
                 showToast(
-                    "Secret découvert",
-                    "La pierre de sérénité vous a révélé son secret."
+                    t("Secret découvert", "Geheim ontdekt"),
+                    t("La pierre de sérénité vous a révélé son secret.", "De steen van sereniteit heeft zijn geheim aan je onthuld.")
                 );
 
             }
@@ -2318,25 +2325,25 @@
 
         const paragraphs = [
 
-            "Il était une fois un cœur qui décida de ne plus détourner le regard.",
+            t("Il était une fois un cœur qui décida de ne plus détourner le regard.", "Er was eens een hart dat besloot niet langer weg te kijken."),
 
-            "Ce cœur n'avait ni couronne, ni baguette magique, ni pouvoirs extraordinaires.",
+            t("Ce cœur n'avait ni couronne, ni baguette magique, ni pouvoirs extraordinaires.", "Dit hart had geen kroon, geen toverstaf en geen buitengewone krachten."),
 
-            "Il possédait simplement quelque chose de précieux : la bienveillance.",
+            t("Il possédait simplement quelque chose de précieux : la bienveillance.", "Het bezat gewoon iets kostbaars: goedhartigheid."),
 
             state.name
 
-                ? `Et ce cœur, ${state.name}, c'était le vôtre.`
+                ? t(`Et ce cœur, ${state.name}, c'était le vôtre.`, `En dat hart, ${state.name}, was jouw hart.`)
 
-                : "Et ce cœur, c'était le vôtre.",
+                : t("Et ce cœur, c'était le vôtre.", "En dat hart was jouw hart."),
 
-            "Vous avez parcouru des chemins, découvert des histoires et retrouvé quatorze trésors de lumière.",
+            t("Vous avez parcouru des chemins, découvert des histoires et retrouvé quatorze trésors de lumière.", "Je hebt paden bewandeld, verhalen ontdekt en veertien lichtschatten gevonden."),
 
-            "Mais le plus précieux des trésors n'était caché dans aucun de ces lieux.",
+            t("Mais le plus précieux des trésors n'était caché dans aucun de ces lieux.", "Maar de kostbaarste schat was op geen van deze plekken verborgen."),
 
-            "Il était en vous depuis le début.",
+            t("Il était en vous depuis le début.", "Die schat zat vanaf het begin in jou."),
 
-            "Bienvenue parmi les Gardiens des cœurs errants."
+            t("Bienvenue parmi les Gardiens des cœurs errants.", "Welkom bij de Beschermers van de zwervende harten.")
 
         ];
 
@@ -2357,7 +2364,7 @@
         button.className = "kingdom-button";
 
         button.textContent =
-            "Découvrir mon passeport";
+            t("Découvrir mon passeport", "Mijn paspoort ontdekken");
 
         button.addEventListener("click", () => {
 
@@ -2514,7 +2521,7 @@
     function formatDate(value) {
         if (!value) return "";
 
-        return new Intl.DateTimeFormat("fr-BE", {
+        return new Intl.DateTimeFormat(t("fr-BE", "nl-BE"), {
             day: "numeric",
             month: "long",
             year: "numeric"
@@ -2552,14 +2559,14 @@
 
         if (name) {
             name.textContent =
-                state.name || "Une âme bienveillante";
+                state.name || t("Une âme bienveillante", "Een goedhartige ziel");
         }
 
         if (date) {
             date.textContent =
                 complete
                     ? formatDate(state.completedAt)
-                    : "Votre date de découverte";
+                    : t("Votre date de découverte", "Jouw ontdekkingsdatum");
         }
 
         if (downloadButton) {
@@ -2586,8 +2593,8 @@
 
         if (!ctx) {
             showToast(
-                "Téléchargement indisponible",
-                "Votre navigateur ne permet pas de créer le passeport."
+                t("Téléchargement indisponible", "Download niet beschikbaar"),
+                t("Votre navigateur ne permet pas de créer le passeport.", "Je browser kan het paspoort niet aanmaken.")
             );
 
             return;
@@ -2643,7 +2650,7 @@
         ctx.font = "58px Georgia";
 
         ctx.fillText(
-            "Gardien des cœurs errants",
+            t("Gardien des cœurs errants", "Beschermer van de zwervende harten"),
             800,
             440
         );
@@ -2652,12 +2659,12 @@
         ctx.font = "27px Georgia";
 
         ctx.fillText(
-            "Passeport symbolique décerné à",
+            t("Passeport symbolique décerné à", "Symbolisch paspoort uitgereikt aan"),
             800,
             510
         );
 
-        const name = state.name || "Une âme bienveillante";
+        const name = state.name || t("Une âme bienveillante", "Een goedhartige ziel");
 
         let fontSize = 65;
 
@@ -2678,9 +2685,9 @@
         ctx.font = "27px Georgia";
 
         [
-            "Pour avoir retrouvé les quatorze trésors du royaume",
-            "et célébré les valeurs de bienveillance,",
-            "de douceur et de respect."
+            t("Pour avoir retrouvé les quatorze trésors du royaume", "Voor het vinden van de veertien schatten van het Koninkrijk"),
+            t("et célébré les valeurs de bienveillance,", "en het vieren van de waarden van goedhartigheid,"),
+            t("de douceur et de respect.", "zachtheid en respect.")
         ].forEach((line, index) => {
             ctx.fillText(
                 line,
@@ -2702,7 +2709,7 @@
         ctx.font = "italic 42px Georgia";
 
         ctx.fillText(
-            "Avec le cœur, Cœur Errant",
+            t("Avec le cœur, Cœur Errant", "Met het hart, Cœur Errant"),
             800,
             970
         );
@@ -2710,8 +2717,8 @@
         canvas.toBlob(blob => {
             if (!blob) {
                 showToast(
-                    "Téléchargement impossible",
-                    "Le passeport n'a pas pu être créé. Veuillez réessayer."
+                    t("Téléchargement impossible", "Download niet mogelijk"),
+                    t("Le passeport n'a pas pu être créé. Veuillez réessayer.", "Het paspoort kon niet worden aangemaakt. Probeer opnieuw.")
                 );
 
                 return;
@@ -2751,7 +2758,7 @@
         if (!secretMessage.textContent.trim()) {
 
             secretMessage.textContent =
-                "La plus belle magie du royaume se trouve dans les petits gestes de bienveillance que vous offrez chaque jour.";
+                t("La plus belle magie du royaume se trouve dans les petits gestes de bienveillance que vous offrez chaque jour.", "De mooiste magie van het Koninkrijk zit in de kleine gebaren van goedhartigheid die je elke dag schenkt.");
 
         }
 
@@ -2789,8 +2796,8 @@
                 saveState();
 
                 showToast(
-                    "Un secret découvert",
-                    "Les âmes curieuses trouvent parfois les plus belles surprises."
+                    t("Un secret découvert", "Een geheim ontdekt"),
+                    t("Les âmes curieuses trouvent parfois les plus belles surprises.", "Nieuwsgierige zielen vinden soms de mooiste verrassingen.")
                 );
 
             }
@@ -2815,8 +2822,8 @@
         if (typeof dialog.showModal !== "function") {
 
             showToast(
-                "Fenêtre indisponible",
-                "Votre navigateur ne permet pas d'ouvrir cette fenêtre."
+                t("Fenêtre indisponible", "Venster niet beschikbaar"),
+                t("Votre navigateur ne permet pas d'ouvrir cette fenêtre.", "Je browser kan dit venster niet openen.")
             );
 
             return;
@@ -3167,15 +3174,15 @@
             if (resetSaved) {
 
                 showToast(
-                    "Une nouvelle aventure",
-                    "Votre royaume est prêt à être redécouvert."
+                    t("Une nouvelle aventure", "Een nieuw avontuur"),
+                    t("Votre royaume est prêt à être redécouvert.", "Jouw Koninkrijk is klaar om opnieuw ontdekt te worden.")
                 );
 
             } else {
 
                 showToast(
-                    "Réinitialisation incomplète",
-                    "Votre aventure actuelle a été réinitialisée, mais la suppression de l'ancienne sauvegarde n'a pas pu être confirmée."
+                    t("Réinitialisation incomplète", "Onvolledige reset"),
+                    t("Votre aventure actuelle a été réinitialisée, mais la suppression de l'ancienne sauvegarde n'a pas pu être confirmée.", "Jouw huidige avontuur is opnieuw ingesteld, maar het wissen van de oude opslag kon niet worden bevestigd.")
                 );
 
             }
@@ -3315,8 +3322,8 @@
         ) {
 
             showToast(
-                "Un trésor retrouvé",
-                `${treasure.name} a rejoint votre médaillon.`
+                t("Un trésor retrouvé", "Een schat gevonden"),
+                t(`${treasure.name} a rejoint votre médaillon.`, `${treasure.name} maakt nu deel uit van jouw medaillon.`)
             );
 
             celebrate(
@@ -3612,12 +3619,12 @@
             showToast(
 
                 adventureCompleted
-                    ? "Votre aventure est accomplie"
-                    : "Un trésor retrouvé",
+                    ? t("Votre aventure est accomplie", "Jouw avontuur is voltooid")
+                    : t("Un trésor retrouvé", "Een schat gevonden"),
 
                 adventureCompleted
-                    ? "Bienvenue parmi les Gardiens des cœurs errants. Vous avez retrouvé les 14 trésors du royaume."
-                    : `${treasure.name} a rejoint votre médaillon.`
+                    ? t("Bienvenue parmi les Gardiens des cœurs errants. Vous avez retrouvé les 14 trésors du royaume.", "Welkom bij de Beschermers van de zwervende harten. Je hebt alle 14 schatten van het Koninkrijk gevonden.")
+                    : t(`${treasure.name} a rejoint votre médaillon.`, `${treasure.name} maakt nu deel uit van jouw medaillon.`)
 
             );
 
@@ -3647,3 +3654,7 @@
     handleTravelReturn();
 
 })();
+
+
+
+
