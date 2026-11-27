@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Onze sterren — Cœur Errant</title>
+
+  <meta name="description"
+        content="Ter nagedachtenis aan de kleine zieltjes die mijn pad hebben gekruist. Hun licht zal nooit doven.">
+
+  <meta name="theme-color" content="#171b2b">
+
+  <!-- SEO -->
+
+  <link rel="canonical"
+        href="https://coeurerrant.github.io/Coeur-errant/etoiles-nl.html">
+
+  <link rel="alternate"
+        hreflang="fr"
+        href="https://coeurerrant.github.io/Coeur-errant/etoiles.html">
+
+  <link rel="alternate"
+        hreflang="nl"
+        href="https://coeurerrant.github.io/Coeur-errant/etoiles-nl.html">
+
+  <link rel="alternate"
+        hreflang="x-default"
+        href="https://coeurerrant.github.io/Coeur-errant/etoiles.html">
+
+
+  <!-- DELEN OP SOCIALE MEDIA -->
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:site_name" content="Cœur Errant">
+
+  <meta property="og:title"
+        content="Onze sterren — Cœur Errant">
+
+  <meta property="og:description"
+        content="Sommige zieltjes kruisen slechts even ons levenspad, maar hun licht zal nooit doven.">
+
+  <meta property="og:url"
+        content="https://coeurerrant.github.io/Coeur-errant/etoiles-nl.html">
+
+  <meta property="og:image"
+        content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+  <meta property="og:locale" content="nl_BE">
+
+  <meta name="twitter:card" content="summary">
+
+  <meta name="twitter:title"
+        content="Onze sterren — Cœur Errant">
+
+  <meta name="twitter:description"
+        content="Ter nagedachtenis aan onze kleine zieltjes.">
+
+  <meta name="twitter:image"
+        content="https://coeurerrant.github.io/Coeur-errant/logo.jpeg">
+
+
+  <!-- ICONEN -->
+
+  <link rel="icon" href="logo.jpeg" type="image/jpeg">
+
+  <link rel="apple-touch-icon" href="logo.jpeg">
+
+
+  <!-- LETTERTYPES -->
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+
+  <!-- STIJLBLADEN -->
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="etoiles.css">
+
+  <link rel="stylesheet" href="global.css">
+
+
+  <!-- GEMEENSCHAPPELIJKE FUNCTIES -->
+
+  <script src="global.js" defer></script>
+
+</head>
+
+<body>
+
+<!-- ======================================
+     NAVIGATIE
+     ====================================== -->
+
+<nav aria-label="Hoofdnavigatie">
+
+  <a class="nav-logo" href="index-nl.html"
+     aria-label="Cœur Errant — Home">
+
+    <img src="logo.jpeg" alt="Cœur Errant">
+
+  </a>
+
+  <ul class="nav-links" id="nav-links">
+
+    <li>
+      <a href="index-nl.html">Home</a>
+    </li>
+
+    <li>
+      <a href="mission-nl.html">De missie</a>
+    </li>
+
+    <li>
+      <a href="voyages-nl.html">Reizen</a>
+    </li>
+
+    <li>
+      <a href="livres-nl.html">Mijn boeken</a>
+    </li>
+
+    <li>
+      <a href="etoiles-nl.html"
+         class="active"
+         aria-current="page">
+
+        Onze sterren
+
+      </a>
+    </li>
+
+    <li>
+      <a href="agir-nl.html">Hoe kan je helpen?</a>
+    </li>
+
+    <li>
+      <a href="passeport-nl.html">Het Koninkrijk</a>
+    </li>
+
+    <li>
+      <a href="soutenir-nl.html">Steunen</a>
+    </li>
+
+    <li class="lang-mobile">
+      <a href="etoiles.html" lang="fr">
+        Français
+      </a>
+    </li>
+
+  </ul>
+
+  <div class="lang-switcher"
+       aria-label="Kies je taal">
+
+    <a href="etoiles.html"
+       class="lang-btn"
+       lang="fr"
+       aria-label="Français">
+
+      FR
+
+    </a>
+
+    <span class="lang-sep" aria-hidden="true">|</span>
+
+    <a href="etoiles-nl.html"
+       class="lang-btn active"
+       lang="nl"
+       aria-current="page"
+       aria-label="Nederlands">
+
+      NL
+
+    </a>
+
+  </div>
+
+  <button class="hamburger"
+          id="hamburger"
+          type="button"
+          onclick="toggleMenu()"
+          aria-label="Menu openen"
+          aria-controls="nav-links"
+          aria-expanded="false">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+</nav>
+
+
+<main class="stars-page">
+
+  <!-- ======================================
+       GEANIMEERDE STERRENHEMEL
+       ====================================== -->
+
+  <div class="night-background" aria-hidden="true">
+
+    <div class="night-nebula nebula-one"></div>
+
+    <div class="night-nebula nebula-two"></div>
+
+    <div id="night-stars"></div>
+
+    <div class="shooting-star shooting-one"></div>
+
+    <div class="shooting-star shooting-two"></div>
+
+    <div class="shooting-star shooting-three"></div>
+
+  </div>
+
+
+  <!-- ======================================
+       INTRODUCTIE
+       ====================================== -->
+
+  <section class="stars-hero">
+
+    <div class="stars-hero-content">
+
+      <p class="stars-label stars-enter">
+        Ter nagedachtenis aan onze kleine zieltjes
+      </p>
+
+      <div class="moon-symbol stars-enter"
+           aria-hidden="true">
+
+        ☾
+
+      </div>
+
+      <h1 class="stars-enter stars-delay-one">
+
+        Voorbij
+        <em>de wolken.</em>
+
+      </h1>
+
+      <p class="stars-hero-quote stars-enter stars-delay-two">
+
+        Sommige zieltjes kruisen slechts even ons levenspad,
+        maar hun licht zal nooit doven.
+
+      </p>
+
+      <p class="stars-hero-description stars-enter stars-delay-two">
+
+        Er zijn ontmoetingen die de tijd niet kan uitwissen.
+        Blikken die voor altijd in ons geheugen gegrift blijven.
+        Kleine levens die we zo graag hadden willen redden.
+
+        Deze sterrenhemel behoort hen toe.
+
+      </p>
+
+      <a href="#constellation"
+         class="stars-button stars-enter stars-delay-three">
+
+        Ontdek hun licht ✧
+
+      </a>
+
+    </div>
+
+    <a href="#constellation"
+       class="stars-scroll"
+       aria-label="Ontdek het sterrenbeeld">
+
+      ↓
+
+    </a>
+
+  </section>  <!-- ======================================
+       INTERACTIEF STERRENBEELD
+       ====================================== -->
+
+  <section class="constellation-section"
+           id="constellation">
+
+    <div class="stars-heading stars-reveal">
+
+      <p class="stars-label">
+        Lichtjes die blijven stralen
+      </p>
+
+      <h2>
+
+        Het sterrenbeeld
+        <em>van het hart.</em>
+
+      </h2>
+
+      <p>
+
+        Achter elke ster schuilt een naam,
+        een ontmoeting en een verhaal.
+
+        Kies een lichtje om het kleine zieltje
+        te ontdekken dat het vertegenwoordigt.
+
+      </p>
+
+    </div>
+
+
+    <div class="constellation-sky stars-reveal">
+
+      <!-- LIJNEN VAN HET STERRENBEELD -->
+
+      <svg class="constellation-lines"
+           viewBox="0 0 1000 500"
+           preserveAspectRatio="none"
+           aria-hidden="true"
+           focusable="false">
+
+        <path d="M 80 320
+                 L 270 175
+                 L 490 90
+                 L 730 315
+                 L 920 120"
+
+              fill="none"
+              stroke="#d6b98c"
+              stroke-width="1"
+              stroke-dasharray="4 9"/>
+
+        <circle cx="80" cy="320" r="3"/>
+
+        <circle cx="490" cy="90" r="3"/>
+
+        <circle cx="920" cy="120" r="3"/>
+
+      </svg>
+
+
+      <!-- DE STER VAN NALA -->
+
+      <button class="memory-star star-nala"
+              type="button"
+              data-memory="nala"
+              aria-label="Ontdek het verhaal van Nala"
+              aria-haspopup="dialog"
+              aria-controls="memory-nala">
+
+        <span class="star-halo"
+              aria-hidden="true"></span>
+
+        <span class="star-shape"
+              aria-hidden="true">✦</span>
+
+        <span class="star-name">Nala</span>
+
+        <span class="star-location">
+          Tanger · 2025
+        </span>
+
+        <span class="star-discover">
+          Ontdek haar verhaal
+        </span>
+
+      </button>
+
+
+      <!-- DE STER VAN HIRO -->
+
+      <button class="memory-star star-hiro"
+              type="button"
+              data-memory="hiro"
+              aria-label="Ontdek het verhaal van Hiro"
+              aria-haspopup="dialog"
+              aria-controls="memory-hiro">
+
+        <span class="star-halo"
+              aria-hidden="true"></span>
+
+        <span class="star-shape"
+              aria-hidden="true">✦</span>
+
+        <span class="star-name">Hiro</span>
+
+        <span class="star-location">
+          Tanger · Marokko
+        </span>
+
+        <span class="star-discover">
+          Ontdek zijn verhaal
+        </span>
+
+      </button>
+
+
+      <!-- KLEINE DECORATIEVE STERREN -->
+
+      <span class="constellation-decoration decoration-one"
+            aria-hidden="true">✧</span>
+
+      <span class="constellation-decoration decoration-two"
+            aria-hidden="true">✧</span>
+
+      <span class="constellation-decoration decoration-three"
+            aria-hidden="true">✧</span>
+
+    </div>
+
+    <p class="constellation-caption">
+
+      Twee kleine zieltjes, twee eeuwige lichtjes.
+
+    </p>
+
+  </section>
+
+
+  <!-- ======================================
+       DE STERREN ZONDER NAAM
+       ====================================== -->
+
+  <section class="anonymous-section stars-reveal">
+
+    <div class="anonymous-symbol" aria-hidden="true">
+
+      ✧
+
+    </div>
+
+    <p class="stars-label">
+      Voor alle anderen
+    </p>
+
+    <h2>
+
+      De sterren
+      <em>zonder naam.</em>
+
+    </h2>
+
+    <p>
+
+      Deze sterrenhemel behoort niet alleen
+      toe aan Nala en Hiro.
+
+      Hij behoort ook toe aan alle dieren
+      die deze wereld hebben verlaten
+      zonder ooit de warmte van een thuis
+      te hebben gekend.
+
+    </p>
+
+    <p>
+
+      Aan hen van wie niemand de naam kent.
+      Aan hen van wie niemand het verhaal heeft verteld.
+      Aan hen die in onverschilligheid zijn heengegaan.
+
+    </p>
+
+    <p class="anonymous-quote">
+
+      Ook jullie hebben bestaan.<br>
+
+      Ook jullie verdienen een lichtje.
+
+    </p>
+
+  </section>
+
+
+  <!-- ======================================
+       VIRTUELE KAARS
+       ====================================== -->
+
+  <section class="candle-section stars-reveal">
+
+    <div class="stars-heading">
+
+      <p class="stars-label">
+        Een moment om te herinneren
+      </p>
+
+      <h2>
+
+        Een vlammetje
+        <em>voor hen.</em>
+
+      </h2>
+
+      <p>
+
+        Neem enkele seconden de tijd
+        om een kaarsje aan te steken
+        ter nagedachtenis aan een overleden dier.
+
+        Of het nu deel uitmaakte van jouw leven
+        of gewoon even jouw pad heeft gekruist.
+
+      </p>
+
+    </div>
+
+
+    <div class="candle-scene"
+         id="candle-scene"
+         aria-hidden="true">
+
+      <div class="candle-light"></div>
+
+      <div class="candle-flame">
+
+        <div class="flame-inner"></div>
+
+      </div>
+
+      <div class="candle-wick"></div>
+
+      <div class="candle-body">
+
+        <div class="candle-wax"></div>
+
+        <span>♡</span>
+
+      </div>
+
+      <div class="candle-shadow"></div>
+
+    </div>
+
+
+    <button class="stars-button candle-button"
+            id="candle-button"
+            type="button"
+            aria-pressed="false"
+            aria-controls="candle-message">
+
+      Steek een kaarsje aan ♡
+
+    </button>
+
+
+    <div class="candle-message"
+         id="candle-message"
+         role="status"
+         aria-live="polite"
+         hidden>
+
+      <span class="candle-message-star"
+            aria-hidden="true">✧</span>
+
+      <p>
+
+        Vanaf nu brandt er een klein lichtje
+        ter nagedachtenis aan hen.
+
+      </p>
+
+      <p>
+
+        Bedankt dat je hen niet vergeet.
+
+      </p>
+
+    </div>
+
+    <p class="candle-note">
+
+      Een symbolisch gebaar, een moment van zachtheid.
+
+    </p>
+
+  </section>
+
+
+  <!-- ======================================
+       BRIEF AAN DE STERREN
+       ====================================== -->
+
+  <section class="stars-letter-section stars-reveal">
+
+    <div class="stars-letter">
+
+      <div class="letter-decoration"
+           aria-hidden="true">
+
+        ☾ ✧
+
+      </div>
+
+      <p class="stars-label">
+        Een paar woorden voor hen
+      </p>
+
+      <h2>
+
+        Aan jullie,
+        <em>mijn kleine sterretjes.</em>
+
+      </h2>
+
+      <p>
+
+        Ik had zo graag jullie lot willen bepalen.
+
+        Ik had jullie jaren van geluk willen schenken,
+        rustige nachten, een warme thuis
+        en armen waarin jullie konden schuilen.
+
+      </p>
+
+      <p>
+
+        Ik had zo graag gewild dat onze ontmoetingen
+        het begin van een nieuw leven waren,
+        en niet de laatste pagina's van jullie verhaal.
+
+      </p>
+
+      <p>
+
+        Maar hoe graag ik het ook zou willen,
+        sommige dingen kan ik niet veranderen.
+
+      </p>
+
+      <p>
+
+        Daarom zal ik blijven reizen,
+        dieren voeden, verzorgen wanneer dat mogelijk is,
+        een helpende hand bieden
+        en jullie verhalen blijven vertellen.
+
+      </p>
+
+      <p>
+
+        Omdat jullie ertoe deden.
+
+        Omdat jullie aanwezigheid in deze wereld
+        het verdient om herinnerd te worden.
+
+      </p>
+
+      <p class="stars-letter-signature">
+
+        Met heel mijn hart,<br>
+
+        Cœur Errant ♡
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       AFSLUITING
+       ====================================== -->
+
+  <section class="stars-ending stars-reveal">
+
+    <div class="ending-star" aria-hidden="true">
+
+      ✦
+
+    </div>
+
+    <h2>
+
+      Hun verhaal is ten einde.<br>
+
+      <em>Hun licht blijft stralen.</em>
+
+    </h2>
+
+    <p>
+
+      Elk gebaar van vriendelijkheid tegenover een dier
+      is een mooie manier om hun nagedachtenis te eren.
+
+    </p>
+
+    <div class="stars-ending-actions">
+
+      <a href="mission-nl.html" class="stars-button">
+
+        Ontdek mijn missie
+
+      </a>
+
+      <a href="index-nl.html" class="stars-text-link">
+
+        Terug naar de startpagina ↗
+
+      </a>
+
+    </div>
+
+  </section>  <!-- ======================================
+       HERINNERINGSVENSTER — NALA
+       ====================================== -->
+
+  <dialog class="memory-dialog"
+          id="memory-nala"
+          aria-labelledby="memory-nala-title">
+
+    <div class="memory-dialog-inner">
+
+      <button class="memory-close"
+              type="button"
+              aria-label="Herinnering sluiten">
+
+        ×
+
+      </button>
+
+      <div class="memory-photo memory-photo-nala">
+
+        <img src="nala.jpeg"
+             alt="Nala, een klein hondje dat ik in Tanger ontmoette"
+             loading="lazy"
+             decoding="async">
+
+        <div class="memory-photo-overlay"
+             aria-hidden="true"></div>
+
+        <div class="memory-photo-name">
+
+          <span aria-hidden="true">✦</span>
+
+          <h2 id="memory-nala-title">Nala</h2>
+
+          <p>Tanger · September 2025</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="memory-content">
+
+        <p class="stars-label">
+          Een ster voor de eeuwigheid
+        </p>
+
+        <h3>
+
+          Het leven waarvan ik
+          <em>voor jou droomde.</em>
+
+        </h3>
+
+        <p>
+
+          Tijdens een nachtelijke wandeling,
+          terwijl we de zwerfdieren van Tanger
+          aan het voeden waren, ontmoette ik Nala.
+
+        </p>
+
+        <p>
+
+          Ze zat tussen het afval,
+          piepklein, met haar vacht bedekt met olie.
+
+          Geen mama, geen broertjes of zusjes.
+
+          Ze was helemaal alleen in een wereld
+          die veel te groot voor haar was.
+
+        </p>
+
+        <p>
+
+          Iets in mij zei dat het onmogelijk was
+          om verder te gaan en haar daar
+          achter te laten.
+
+          We gaven haar een naam, Nala.
+
+        </p>
+
+        <p>
+
+          Ze werd gewassen om de olie
+          van haar kleine lichaampje te verwijderen.
+
+          Daarna brachten we haar naar de dierenarts.
+
+          Ik liet haar vaccineren en vanaf dat moment
+          stond mijn naam in haar gezondheidsboekje.
+
+        </p>
+
+        <p>
+
+          Ik begon me al voor te stellen
+          hoe haar leven eruit zou kunnen zien.
+
+          Haar zien opgroeien, spelen, openbloeien
+          en ontdekken wat het betekent om te leven
+          zonder elke dag te moeten vechten.
+
+        </p>
+
+        <p>
+
+          Toen het tijd was om naar huis terug te keren,
+          werd Nala aan een boer toevertrouwd.
+
+          Ik dacht dat ze eindelijk gered was.
+
+        </p>
+
+        <p>
+
+          Helaas is ze ontsnapt.
+
+          Ze werd levenloos onder een boom teruggevonden.
+
+        </p>
+
+        <p>
+
+          Haar overlijden heeft me diep geraakt.
+
+          Het is moeilijk te aanvaarden dat,
+          ondanks alle liefde, goede wil
+          en inspanningen die we een dier kunnen bieden,
+          zijn lot niet altijd in onze handen ligt.
+
+        </p>
+
+        <p>
+
+          Ik had zo graag gewild
+          dat haar lot anders was geweest.
+
+        </p>
+
+
+        <blockquote class="memory-quote">
+
+          Ik had een heel leven voor jou
+          in gedachten, Nala.
+
+          Vandaag zal je in mijn hart
+          blijven opgroeien.
+
+        </blockquote>
+
+        <div class="memory-end-symbol"
+             aria-hidden="true">
+
+          ✦
+
+        </div>
+
+        <button class="stars-button memory-back"
+                type="button">
+
+          Terug naar de sterrenhemel
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </dialog>
+
+
+  <!-- ======================================
+       HERINNERINGSVENSTER — HIRO
+       ====================================== -->
+
+  <dialog class="memory-dialog"
+          id="memory-hiro"
+          aria-labelledby="memory-hiro-title">
+
+    <div class="memory-dialog-inner">
+
+      <button class="memory-close"
+              type="button"
+              aria-label="Herinnering sluiten">
+
+        ×
+
+      </button>
+
+      <div class="memory-photo memory-photo-hiro">
+
+        <img src="Hiro.jpg"
+             alt="Hiro, een klein zwart-wit katje dat ik in Tanger ontmoette"
+             loading="lazy"
+             decoding="async">
+
+        <div class="memory-photo-overlay"
+             aria-hidden="true"></div>
+
+        <div class="memory-photo-name">
+
+          <span aria-hidden="true">✦</span>
+
+          <h2 id="memory-hiro-title">Hiro</h2>
+
+          <p>Tanger · Marokko</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="memory-content">
+
+        <p class="stars-label">
+          Een ster voor de eeuwigheid
+        </p>
+
+        <h3>
+
+          Een hoop die
+          <em>te vroeg vervloog.</em>
+
+        </h3>
+
+        <p>
+
+          Ik ontmoette Hiro toen hij
+          midden op straat lag te sterven.
+
+          Zijn kleine lichaampje was bedekt met etter
+          en hij had dringend verzorging nodig.
+
+        </p>
+
+        <p>
+
+          Ik kon hem daar niet achterlaten.
+
+          Ik bracht hem naar de dierenarts,
+          waar hij verzorgd werd
+          en een infuus kreeg.
+
+        </p>
+
+        <p>
+
+          Ik hoopte met heel mijn hart
+          dat hij het zou halen.
+
+          Dat er ergens een nieuw leven
+          op hem wachtte.
+
+          Een leven waarin hij niet langer
+          zou hoeven te lijden.
+
+        </p>
+
+        <p>
+
+          Helaas was het al te laat.
+
+          Hiro is heengegaan en nam alle hoop
+          die ik voor zijn toekomst had met zich mee.
+
+        </p>
+
+        <p>
+
+          Hij is een van die ontmoetingen
+          die me eraan herinneren hoe kwetsbaar
+          het leven van zwerfdieren kan zijn.
+
+          Een van die kleine zieltjes
+          die we zo graag willen beschermen,
+          maar die we soms te laat ontmoeten.
+
+        </p>
+
+        <p>
+
+          Toch verdient zijn verhaal
+          het om verteld te worden.
+
+          Omdat zijn leven waardevol was.
+          Omdat ook hij liefde verdiende.
+
+        </p>
+
+
+        <blockquote class="memory-quote">
+
+          Ik heb je geen nieuw leven kunnen schenken,
+          maar ik heb geprobeerd jouw lot te veranderen.
+
+          Vanaf nu maakt jouw licht
+          deel uit van mijn levenspad.
+
+        </blockquote>
+
+        <div class="memory-end-symbol"
+             aria-hidden="true">
+
+          ✦
+
+        </div>
+
+        <button class="stars-button memory-back"
+                type="button">
+
+          Terug naar de sterrenhemel
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </dialog>
+
+</main><!-- ======================================
+     INTERACTIES — ONZE STERREN
+======================================= -->
+
+<script>
+(() => {
+
+    "use strict";
+
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+
+    /* ======================================
+       STERRENHEMEL
+    ======================================= */
+
+    const sky = document.getElementById("night-stars");
+
+    if (sky) {
+
+        const count = window.innerWidth < 600 ? 90 : 180;
+
+        for (let i = 0; i < count; i++) {
+
+            const star = document.createElement("span");
+
+            star.className = "night-star";
+
+            const size = 1 + Math.random() * 2.5;
+
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+
+            star.style.animationDelay =
+                `${Math.random() * -8}s`;
+
+            star.style.animationDuration =
+                `${3 + Math.random() * 5}s`;
+
+            sky.appendChild(star);
+
+        }
+
+    }
+
+
+    /* ======================================
+       VERHALEN VAN NALA EN HIRO
+    ======================================= */
+
+    const memoryButtons = document.querySelectorAll(
+        "[data-memory]"
+    );
+
+    const dialogs = document.querySelectorAll(
+        ".memory-dialog"
+    );
+
+    const previousFocus = new WeakMap();
+
+    memoryButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const id = button.dataset.memory;
+
+            const dialog = document.getElementById(
+                `memory-${id}`
+            );
+
+            if (!dialog || dialog.open) return;
+
+            previousFocus.set(dialog, button);
+
+            dialog.showModal();
+
+            document.body.classList.add("memory-open");
+
+            dialog.scrollTop = 0;
+
+        });
+
+    });
+
+
+    /* VERHALEN SLUITEN */
+
+    dialogs.forEach(dialog => {
+
+        dialog.querySelectorAll(
+            ".memory-close, .memory-back"
+        ).forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                dialog.close();
+
+            });
+
+        });
+
+        dialog.addEventListener("close", () => {
+
+            document.body.classList.remove("memory-open");
+
+            const button = previousFocus.get(dialog);
+
+            if (button) {
+
+                button.focus({
+                    preventScroll: true
+                });
+
+            }
+
+        });
+
+        dialog.addEventListener("click", event => {
+
+            if (event.target !== dialog) return;
+
+            const rect = dialog.getBoundingClientRect();
+
+            const outside =
+                event.clientX < rect.left ||
+                event.clientX > rect.right ||
+                event.clientY < rect.top ||
+                event.clientY > rect.bottom;
+
+            if (outside) {
+
+                dialog.close();
+
+            }
+
+        });
+
+    });
+
+
+    /* ======================================
+       VIRTUELE KAARS
+    ======================================= */
+
+    const candleScene = document.getElementById(
+        "candle-scene"
+    );
+
+    const candleButton = document.getElementById(
+        "candle-button"
+    );
+
+    const candleMessage = document.getElementById(
+        "candle-message"
+    );
+
+    if (candleScene && candleButton && candleMessage) {
+
+        candleButton.addEventListener("click", () => {
+
+            const lit = candleScene.classList.toggle(
+                "candle-lit"
+            );
+
+            candleButton.setAttribute(
+                "aria-pressed",
+                String(lit)
+            );
+
+            candleMessage.hidden = !lit;
+
+            candleButton.textContent = lit
+                ? "Doof het kaarsje ♡"
+                : "Steek een kaarsje aan ♡";
+
+        });
+
+    }
+
+
+    /* ======================================
+       ANIMATIES TIJDENS HET SCROLLEN
+    ======================================= */
+
+    const page = document.querySelector(".stars-page");
+
+    if (
+        page &&
+        !reducedMotion &&
+        "IntersectionObserver" in window
+    ) {
+
+        page.classList.add("stars-animations");
+
+        const observer = new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting) return;
+
+                    entry.target.classList.add("is-visible");
+
+                    observer.unobserve(entry.target);
+
+                });
+
+            },
+            {
+                threshold: 0.05
+            }
+        );
+
+        page.querySelectorAll(".stars-reveal")
+            .forEach(element => {
+
+                observer.observe(element);
+
+            });
+
+        page.addEventListener("focusin", event => {
+
+            const element = event.target.closest(
+                ".stars-reveal"
+            );
+
+            if (element) {
+
+                element.classList.add("is-visible");
+
+                observer.unobserve(element);
+
+            }
+
+        });
+
+    }
+
+})();
+
+</script>
+
+
+<!-- ======================================
+     FOOTER
+======================================= -->
+
+<footer class="ce-footer">
+
+    <div class="ce-footer-inner">
+
+        <div class="ce-footer-brand">
+
+            <a href="index-nl.html">
+                <img src="logo.jpeg" alt="Cœur Errant">
+            </a>
+
+            <h3>Cœur Errant</h3>
+
+            <p>Elk dier heeft een verhaal.</p>
+
+            <p>
+                Omdat zelfs de kleinste zieltjes
+                een plaats verdienen in deze wereld.
+            </p>
+
+        </div>
+
+        <div class="ce-footer-links">
+
+            <div class="ce-footer-column">
+
+                <h4>Ontdekken</h4>
+
+                <a href="index-nl.html#histoire">Mijn verhaal</a>
+                <a href="mission-nl.html">De missie</a>
+                <a href="voyages-nl.html">Reizen</a>
+                <a href="livres-nl.html">Mijn boeken</a>
+
+            </div>
+
+            <div class="ce-footer-column">
+
+                <h4>Onze wereld</h4>
+
+                <a href="etoiles-nl.html">Onze sterren</a>
+                <a href="passeport-nl.html">Het Koninkrijk</a>
+                <a href="agir-nl.html">Hoe kan je helpen?</a>
+                <a href="soutenir-nl.html">Steunen</a>
+
+            </div>
+
+            <div class="ce-footer-column">
+
+                <h4>Blijf verbonden</h4>
+
+                <a href="mailto:coeur.errant@outlook.be">
+                    Neem contact met mij op
+                </a>
+
+                <a href="https://www.instagram.com/coeur.errant/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Instagram
+                </a>
+
+                <a href="etoiles.html" lang="fr">
+                    Français
+                </a>
+
+                <a href="mentions-legales-nl.html">
+                    Juridische vermeldingen
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="ce-footer-socials">
+
+            <a href="https://www.instagram.com/coeur.errant/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram">
+
+                <img src="https://cdn.simpleicons.org/instagram/A85E68"
+                     alt="">
+
+            </a>
+
+            <a href="https://www.tiktok.com/@coeur_errant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="TikTok">
+
+                <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+                     alt="">
+
+            </a>
+
+            <a href="https://www.youtube.com/@CoeurErrant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="YouTube">
+
+                <img src="https://cdn.simpleicons.org/youtube/A85E68"
+                     alt="">
+
+            </a>
+
+            <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Facebook">
+
+                <img src="https://cdn.simpleicons.org/facebook/A85E68"
+                     alt="">
+
+            </a>
+
+            <a href="https://www.snapchat.com/add/coeur_errant"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Snapchat">
+
+                <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+                     alt="">
+
+            </a>
+
+        </div>
+
+        <div class="ce-footer-bottom">
+
+            <p class="ce-footer-signature">
+                Met liefde gemaakt, voor wie geen stem heeft. ♡
+            </p>
+
+            <p>
+                © 2026 Cœur Errant — Alle rechten voorbehouden.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ======================================
+     MOBIEL MENU
+======================================= -->
+
+<script>
+
+function toggleMenu() {
+
+    const menu = document.getElementById("nav-links");
+
+    const button = document.getElementById("hamburger");
+
+    if (!menu || !button) return;
+
+    const opened = menu.classList.toggle("open");
+
+    button.classList.toggle("active", opened);
+
+    button.setAttribute(
+        "aria-expanded",
+        String(opened)
+    );
+
+    button.setAttribute(
+        "aria-label",
+        opened ? "Menu sluiten" : "Menu openen"
+    );
+
+}
+
+document.querySelectorAll("#nav-links a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            const button = document.getElementById("hamburger");
+
+            if (
+                button &&
+                button.getAttribute("aria-expanded") === "true"
+            ) {
+
+                toggleMenu();
+
+            }
+
+        });
+
+    });
+
+document.addEventListener("keydown", event => {
+
+    const button = document.getElementById("hamburger");
+
+    if (
+        event.key === "Escape" &&
+        button &&
+        button.getAttribute("aria-expanded") === "true"
+    ) {
+
+        toggleMenu();
+
+        button.focus();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,844 +1,3858 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cœur Errant — Elk dier heeft een verhaal</title>
-  <meta name="description" content="Ontdek Cœur Errant, een project voor zwerfdieren, met reizen, bijzondere ontmoetingen, boeken en solidariteitsacties.">
+
+  <title>Mijn boeken — Cœur Errant</title>
+
+  <meta name="description"
+        content="Ontdek de boeken van Cœur Errant, met verhalen, illustraties en ontmoetingen geïnspireerd door zwerfdieren.">
+
   <meta name="theme-color" content="#faf8f5">
 
-  <link rel="icon" href="logo.jpeg">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="canonical"
+        href="https://coeurerrant.github.io/Coeur-errant/livres-nl.html">
+
+  <link rel="alternate"
+        hreflang="fr"
+        href="https://coeurerrant.github.io/Coeur-errant/livres.html">
+
+  <link rel="alternate"
+        hreflang="nl"
+        href="https://coeurerrant.github.io/Coeur-errant/livres-nl.html">
+
+  <link rel="alternate"
+        hreflang="x-default"
+        href="https://coeurerrant.github.io/Coeur-errant/livres.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cœur Errant">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:title" content="De bibliotheek van Cœur Errant">
+
+  <meta property="og:description"
+        content="Drie boeken. Drie werelden. Eén reden om te schrijven. Ontdek verhalen geïnspireerd door zwerfdieren.">
+
+  <meta property="og:url"
+        content="https://coeurerrant.github.io/Coeur-errant/livres-nl.html">
+
+  <meta property="og:image"
+        content="https://coeurerrant.github.io/Coeur-errant/livre-ames-errantes.jpg">
+
+  <meta property="og:image:alt"
+        content="Cover van het boek Nos âmes errantes">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mijn boeken — Cœur Errant">
+
+  <meta name="twitter:description"
+        content="Verhalen die sporen achterlaten. Ontdek de drie boeken van Cœur Errant.">
+
+  <meta name="twitter:image"
+        content="https://coeurerrant.github.io/Coeur-errant/livre-ames-errantes.jpg">
+
+  <link rel="icon" type="image/jpeg" href="logo.jpeg">
+  <link rel="apple-touch-icon" href="logo.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="accueil-v2.css">
+  <link rel="stylesheet" href="livres.css">
+  <link rel="stylesheet" href="global.css">
+
+  <script src="global.js" defer></script>
+
 </head>
 
 <body>
 
-<!-- NAVIGATIE -->
+<!-- ======================================
+     NAVIGATIE
+     ====================================== -->
 
 <nav>
+
   <a class="nav-logo" href="index-nl.html">
     <img src="logo.jpeg" alt="Cœur Errant">
   </a>
 
   <ul class="nav-links" id="nav-links">
-    <li><a href="index-nl.html" onclick="closeMenu()">Home</a></li>
-    <li><a href="#histoire" onclick="closeMenu()">Mijn verhaal</a></li>
-    <li><a href="mission-nl.html" onclick="closeMenu()">De missie</a></li>
-    <li><a href="voyages-nl.html" onclick="closeMenu()">Reizen</a></li>
-    <li><a href="livres-nl.html" onclick="closeMenu()">Mijn boeken</a></li>
-    <li><a href="#nos-etoiles" onclick="closeMenu()">Onze sterretjes</a></li>
-    <li><a href="soutenir-nl.html" onclick="closeMenu()">Steunen</a></li>
+
+    <li>
+      <a href="index-nl.html">Home</a>
+    </li>
+
+    <li>
+      <a href="mission-nl.html">De missie</a>
+    </li>
+
+    <li>
+      <a href="voyages-nl.html">Reizen</a>
+    </li>
+
+    <li>
+      <a href="livres-nl.html"
+         class="active"
+         aria-current="page">
+        Mijn boeken
+      </a>
+    </li>
+
+    <li>
+      <a href="etoiles-nl.html">Onze sterren</a>
+    </li>
+
+    <li>
+      <a href="agir-nl.html">Hoe kan je helpen?</a>
+    </li>
+
+    <li>
+      <a href="passeport-nl.html">Het Koninkrijk</a>
+    </li>
+
+    <li>
+      <a href="soutenir-nl.html">Steunen</a>
+    </li>
 
     <li class="lang-mobile">
-      <a href="index.html">Français</a>
+      <a href="livres.html" lang="fr">Français</a>
     </li>
+
   </ul>
 
   <div class="lang-switcher">
-    <a href="index.html" class="lang-btn">FR</a>
+
+    <a href="livres.html"
+       class="lang-btn"
+       lang="fr"
+       aria-label="Français">FR</a>
+
     <span class="lang-sep">|</span>
-    <a href="index-nl.html" class="lang-btn active">NL</a>
+
+    <a href="livres-nl.html"
+       class="lang-btn active"
+       lang="nl"
+       aria-label="Nederlands">NL</a>
+
   </div>
 
   <button class="hamburger"
           id="hamburger"
+          type="button"
           onclick="toggleMenu()"
           aria-label="Menu openen"
           aria-controls="nav-links"
           aria-expanded="false">
+
     <span></span>
     <span></span>
     <span></span>
+
   </button>
+
 </nav>
 
-<main>
 
-<!-- HOME -->
+<main class="library-page">
 
-<section class="hero">
+  <!-- ======================================
+       POËTISCHE INTRODUCTIE
+       ====================================== -->
 
-  <div class="hero-left">
+  <section class="library-opening">
 
-    <p class="hero-eyebrow">
-      Een project vanuit het hart, zonder grenzen
-    </p>
+    <div class="library-opening-decoration"
+         aria-hidden="true">
 
-    <h1>
-      Elk dier heeft <em>een verhaal.</em>
-    </h1>
-
-    <p class="hero-story">
-      Ergens ter wereld wacht een dier op een beetje aandacht,
-      een maaltijd of gewoon wat liefde.
-      Cœur Errant is ontstaan voor de dieren die we
-      vaak niet meer opmerken.
-    </p>
-
-    <p class="hero-story">
-      Met mijn reizen, ontmoetingen en boeken wil ik
-      deze dieren een stem geven en eraan herinneren
-      dat elk leven liefde en respect verdient.
-    </p>
-
-    <p class="hero-origin">
-      Sinds juni 2024 · Tanger, Marokko
-    </p>
-
-    <div class="hero-actions">
-
-      <a href="mission-nl.html" class="btn-primary">
-        Ontdek mijn missie
-      </a>
-
-      <a href="livres-nl.html" class="btn-outline">
-        Mijn boeken
-      </a>
+      <span>✧</span>
+      <span>♡</span>
+      <span>✦</span>
+      <span>✧</span>
+      <span>♡</span>
+      <span>✦</span>
 
     </div>
 
-  </div>
+    <div class="library-opening-inner">
 
-  <div class="hero-right">
-    <img src="hero.jpeg"
-         alt="Een dier ontmoet tijdens een reis van Cœur Errant"
-         class="hero-img">
-  </div>
+      <div class="library-opening-text">
 
-</section>
+        <p class="library-label library-enter">
 
-<!-- STATISTIEKEN -->
+          De bibliotheek van Cœur Errant
 
-<section class="stats" aria-label="Cœur Errant in cijfers">
+        </p>
 
-  <div class="stat">
-    <span class="stat-num" id="compteur">0</span>
-    <span class="stat-label">Dagen sinds het begin</span>
-  </div>
+        <h1 class="library-enter delay-one">
 
-  <div class="stat">
-    <span class="stat-num">3</span>
-    <span class="stat-label">Gepubliceerde boeken</span>
-  </div>
+          Verhalen<br>
+          die sporen<br>
 
-  <div class="stat">
-    <span class="stat-num">♥</span>
-    <span class="stat-label">Liefde zonder grenzen</span>
-  </div>
+          <em>achterlaten.</em>
 
-</section>
+        </h1>
 
-<!-- MIJN VERHAAL -->
+        <p class="library-intro library-enter delay-two">
 
-<section class="origin" id="histoire">
+          Sommige ontmoetingen eindigen niet
+          wanneer de reis voorbij is.
 
-  <div class="origin-text">
+          Ze worden herinneringen,
+          woorden, illustraties
+          en soms zelfs boeken.
 
-    <p class="section-tag">Mijn verhaal</p>
+        </p>
 
-    <h2>
-      Tanger, de zomer die <em>alles veranderde</em>
-    </h2>
+        <p class="library-opening-quote library-enter delay-three">
 
-    <p>
-      Juni 2024. Ik kom aan in Tanger, Marokko,
-      voor wat een gewone vakantie had moeten zijn.
-      Maar al tijdens de eerste dagen word ik geraakt
-      door wat ik om me heen zie. Overal lopen
-      tientallen zwerfhonden en zwerfkatten rond,
-      hongerig, kwetsbaar en onzichtbaar voor
-      de meeste mensen.
-    </p>
+          Drie boeken. Drie werelden.
+          Eén reden om te schrijven.
 
-    <div class="origin-quote">
-      <p>
-        « Voor het eerst in mijn leven zag ik zoveel
-        dieren die vochten om te overleven.
-        Ik kon niet doen alsof ik hen niet zag. »
-      </p>
-    </div>
+        </p>
 
-    <p>
-      Elke ochtend en avond ging ik op pad om hen
-      te voeden. Elk dier dat ik op straat tegenkwam,
-      kreeg iets te eten. Mijn vakantiebudget ging
-      in de eerste plaats naar hen, in plaats van
-      naar mijn eigen plezier.
-      Het voelde niet als een opoffering,
-      maar als iets vanzelfsprekends.
-    </p>
+        <a href="#bibliotheque"
+           class="library-button library-enter delay-four">
 
-    <p>
-      Die reis veranderde alles. Cœur Errant was geboren.
-    </p>
+          Stap binnen in mijn bibliotheek ♡
 
-    <p>
-      Sindsdien is elke nieuwe bestemming een kans
-      geworden om zwerfdieren te ontmoeten, te voeden
-      en hun verhalen te vertellen.
-    </p>
+        </a>
 
-    <a href="mission-nl.html" class="btn-outline">
-      Ontdek de missie
-    </a>
-
-  </div>
-
-  <div class="origin-image">
-    <img src="Tanger2.jpeg"
-         alt="Een bijzondere ontmoeting in Tanger"
-         class="origin-img"
-         loading="lazy">
-  </div>
-
-</section>
-
-<!-- MIJN BOEKEN -->
-
-<section class="books" id="livres">
-
-  <p class="section-tag">Mijn creaties</p>
-
-  <h2>
-    Boeken die zwerfdieren <em>een stem geven</em>
-  </h2>
-
-  <p>
-    Drie boeken, drie unieke werelden, één gedeelde overtuiging.
-    Elk dier verdient het om gezien, gehoord en geliefd te worden.
-    Ontdek mijn boeken, met liefde gemaakt en geïnspireerd
-    door mijn ontmoetingen met dieren.
-  </p>
-
-  <p>
-    Alle boeken zijn momenteel verkrijgbaar in het Frans via Amazon.
-  </p>
-
-  <div class="book-grid">
-
-    <!-- BOEK 1 -->
-
-    <article class="book-card">
-
-      <div class="book-cover">
-        <img src="livre-lanterne.jpg"
-             alt="Cover van La petite lanterne"
-             loading="lazy">
       </div>
 
-      <p class="section-tag">Kinderboek · Franstalig</p>
 
-      <h3>La petite lanterne</h3>
+      <!-- GEANIMEERD BOEK -->
 
-      <p>
-        <em>Une histoire pour apprendre à regarder</em>
-      </p>
+      <div class="opening-book-scene library-enter delay-two"
+           aria-hidden="true">
 
-      <p>
-        Een warm en liefdevol verhaal dat kinderen
-        leert om anders naar de wereld te kijken,
-        oog te hebben voor vergeten dieren en
-        op te groeien met respect en medeleven.
-      </p>
+        <div class="opening-book-halo"></div>
 
-      <strong>16,95 €</strong>
+        <div class="opening-book">
 
-      <a href="https://amzn.eu/d/04uXHShr"
-         class="btn-primary"
-         target="_blank"
-         rel="noopener noreferrer">
-        Kopen op Amazon ↗
-      </a>
+          <div class="opening-book-cover"></div>
 
-      <details>
-        <summary>QR-code weergeven</summary>
+          <div class="opening-book-left">
 
-        <img src="qr-lanterne.png"
-             alt="Amazon QR-code La petite lanterne"
-             class="book-qr"
-             loading="lazy">
-      </details>
+            <span class="opening-page-number">01</span>
 
-    </article>
+            <div class="opening-page-ornament">✧</div>
 
-    <!-- BOEK 2 -->
+            <p>
 
-    <article class="book-card">
+              Er was eens...
 
-      <div class="book-cover">
-        <img src="livre-ames-errantes.jpg"
-             alt="Cover van Nos âmes errantes"
-             loading="lazy">
+            </p>
+
+            <div class="opening-page-lines">
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+            <div class="opening-page-paw">♡</div>
+
+          </div>
+
+          <div class="opening-book-right">
+
+            <span class="opening-page-number">02</span>
+
+            <svg class="opening-book-drawing"
+                 viewBox="0 0 180 180"
+                 xmlns="http://www.w3.org/2000/svg">
+
+              <g fill="#b58e78">
+
+                <ellipse cx="45" cy="58"
+                         rx="17" ry="25"
+                         transform="rotate(-25 45 58)"/>
+
+                <ellipse cx="78" cy="35"
+                         rx="17" ry="25"/>
+
+                <ellipse cx="113" cy="35"
+                         rx="17" ry="25"/>
+
+                <ellipse cx="145" cy="58"
+                         rx="17" ry="25"
+                         transform="rotate(25 145 58)"/>
+
+                <path d="M95 79
+                         C72 79 60 105 42 125
+                         C20 155 58 170 80 153
+                         Q95 145 110 153
+                         C132 170 170 155 148 125
+                         C130 105 118 79 95 79Z"/>
+
+              </g>
+
+              <path d="M95 116
+                       C75 94 56 126 95 145
+                       C134 126 115 94 95 116Z"
+                    fill="#f8eee1"/>
+
+            </svg>
+
+            <p>
+
+              Elk dier<br>
+              heeft een verhaal.
+
+            </p>
+
+          </div>
+
+          <div class="opening-turning-page page-turn-one">
+
+            <span>Ontmoetingen...</span>
+
+          </div>
+
+          <div class="opening-turning-page page-turn-two">
+
+            <span>Emoties...</span>
+
+          </div>
+
+          <div class="opening-turning-page page-turn-three">
+
+            <span>Sporen...</span>
+
+          </div>
+
+          <div class="opening-book-ribbon"></div>
+
+        </div>
+
+        <div class="opening-book-shadow"></div>
+
+        <span class="book-floating-star star-one">✧</span>
+        <span class="book-floating-star star-two">✦</span>
+        <span class="book-floating-star star-three">♡</span>
+        <span class="book-floating-star star-four">✧</span>
+
+        <p class="opening-book-caption">
+
+          Woorden voor wie geen stem heeft.
+
+        </p>
+
       </div>
 
-      <p class="section-tag">Waargebeurde verhalen · Franstalig</p>
+    </div>
 
-      <h3>Nos âmes errantes</h3>
+    <a href="#bibliotheque"
+       class="library-scroll"
+       aria-label="Ontdek de boeken">
 
-      <p>
-        <em>Dans la peau des animaux des rues</em>
+      ↓
+
+    </a>
+
+  </section>  <!-- ======================================
+       INTERACTIEVE BIBLIOTHEEK
+       ====================================== -->
+
+  <section class="library-shelf-section"
+           id="bibliotheque">
+
+    <div class="library-heading library-reveal">
+
+      <p class="library-label">
+
+        Voor iedereen een verhaal
+
       </p>
 
+      <h2>
+
+        Welk boek spreekt<br>
+
+        <em>jou vandaag aan?</em>
+
+      </h2>
+
       <p>
-        Echte ontmoetingen, onvergetelijke blikken,
-        verhalen over reddingen en afscheid.
-        Een reis rond de wereld, bekeken door de ogen
-        van dieren die vaak onopgemerkt blijven.
+
+        Een verhaal om met een kind te delen,
+        een reis door de wereld van zwerfdieren
+        of een creatief moment.
+
+        Kies het boek dat bij jou past.
+
       </p>
 
-      <strong>17,98 €</strong>
+    </div>
 
-      <a href="https://amzn.eu/d/0fyDrXjy"
-         class="btn-primary"
-         target="_blank"
-         rel="noopener noreferrer">
-        Kopen op Amazon ↗
-      </a>
 
-      <details>
-        <summary>QR-code weergeven</summary>
+    <div class="library-shelf library-reveal">
 
-        <img src="qr-ames-errantes.png"
-             alt="Amazon QR-code Nos âmes errantes"
-             class="book-qr"
-             loading="lazy">
-      </details>
+      <!-- LA PETITE LANTERNE -->
 
-    </article>
+      <div class="shelf-item shelf-lantern">
 
-    <!-- BOEK 3 -->
+        <div class="shelf-book-glow"></div>
 
-    <article class="book-card">
+        <button class="shelf-book"
+                type="button"
+                data-open-book="lanterne"
+                aria-label="Ontdek La petite lanterne">
 
-      <div class="book-cover">
-        <img src="livre-coloriage.jpg"
-             alt="Cover van het kleurboek Cœur Errant"
-             loading="lazy">
+          <img src="livre-lanterne.jpg"
+               alt="Cover van La petite lanterne"
+               loading="lazy"
+               decoding="async">
+
+          <span class="shelf-book-spine"></span>
+
+          <span class="shelf-book-pages"></span>
+
+        </button>
+
+        <span class="shelf-category">
+
+          Kinderliteratuur
+
+        </span>
+
+        <h3>La petite lanterne</h3>
+
+        <p>Om echt te leren kijken.</p>
+
+        <button type="button"
+                class="shelf-discover"
+                data-open-book="lanterne">
+
+          Open het boek ↗
+
+        </button>
+
       </div>
 
-      <p class="section-tag">Kleurboek voor volwassenen · Franstalig</p>
 
-      <h3>Cœur Errant</h3>
+      <!-- NOS ÂMES ERRANTES -->
+
+      <div class="shelf-item shelf-souls">
+
+        <div class="shelf-book-glow"></div>
+
+        <button class="shelf-book"
+                type="button"
+                data-open-book="ames"
+                aria-label="Ontdek Nos âmes errantes">
+
+          <img src="livre-ames-errantes.jpg"
+               alt="Cover van Nos âmes errantes"
+               loading="lazy"
+               decoding="async">
+
+          <span class="shelf-book-spine"></span>
+
+          <span class="shelf-book-pages"></span>
+
+        </button>
+
+        <span class="shelf-category">
+
+          Verhalen en getuigenissen
+
+        </span>
+
+        <h3>Nos âmes errantes</h3>
+
+        <p>Om anders te leren voelen.</p>
+
+        <button type="button"
+                class="shelf-discover"
+                data-open-book="ames">
+
+          Open het boek ↗
+
+        </button>
+
+      </div>
+
+
+      <!-- KLEURBOEK -->
+
+      <div class="shelf-item shelf-coloring">
+
+        <div class="shelf-book-glow"></div>
+
+        <button class="shelf-book"
+                type="button"
+                data-open-book="coloriage"
+                aria-label="Ontdek het kleurboek van Cœur Errant">
+
+          <img src="livre-coloriage.jpg"
+               alt="Cover van het kleurboek van Cœur Errant"
+               loading="lazy"
+               decoding="async">
+
+          <span class="shelf-book-spine"></span>
+
+          <span class="shelf-book-pages"></span>
+
+        </button>
+
+        <span class="shelf-category">
+
+          Kleurboek voor volwassenen
+
+        </span>
+
+        <h3>Chaque animal a une histoire</h3>
+
+        <p>Om te creëren met je hart.</p>
+
+        <button type="button"
+                class="shelf-discover"
+                data-open-book="coloriage">
+
+          Open het boek ↗
+
+        </button>
+
+      </div>
+
+      <div class="shelf-wood"
+           aria-hidden="true"></div>
+
+    </div>
+
+    <p class="shelf-instruction">
+
+      ✧ Klik op een cover om de wereld van het boek te ontdekken.
+
+    </p>
+
+  </section>
+
+
+  <!-- ======================================
+       WERELD 01 — LA PETITE LANTERNE
+       ====================================== -->
+
+  <section class="book-universe universe-lantern"
+           id="la-petite-lanterne">
+
+    <div class="universe-decoration"
+         aria-hidden="true">
+
+      <span>✧</span>
+      <span>✦</span>
+      <span>✧</span>
+      <span>✦</span>
+
+    </div>
+
+    <div class="universe-inner">
+
+      <div class="universe-visual library-reveal">
+
+        <div class="universe-number">01</div>
+
+        <div class="lantern-halo"></div>
+
+        <button type="button"
+                class="universe-book"
+                data-open-book="lanterne"
+                aria-label="Open La petite lanterne">
+
+          <img src="livre-lanterne.jpg"
+               alt="La petite lanterne"
+               loading="lazy"
+               decoding="async">
+
+        </button>
+
+        <div class="universe-visual-caption">
+
+          Een klein lichtje in een grote wereld.
+
+        </div>
+
+      </div>
+
+      <div class="universe-content library-reveal">
+
+        <p class="library-label">
+
+          Opgroeien met zachtheid
+
+        </p>
+
+        <h2>
+
+          La petite<br>
+
+          <em>lanterne.</em>
+
+        </h2>
+
+        <p class="universe-subtitle">
+
+          Een verhaal om echt te leren kijken
+
+        </p>
+
+        <div class="book-tags">
+
+          <span>Kinderen</span>
+          <span>Empathie</span>
+          <span>Emoties</span>
+
+        </div>
+
+        <p>
+
+          Wat als aandachtig naar de wereld leren kijken
+          een van de mooiste dingen is
+          die we kinderen kunnen meegeven?
+
+        </p>
+
+        <p>
+
+          La petite lanterne nodigt jonge lezers uit
+          om zachtheid, empathie en het belang van
+          aandacht voor de levende wezens om hen heen
+          te ontdekken.
+
+        </p>
+
+        <p>
+
+          Een boek om samen te delen,
+          om de tijd te nemen om samen te lezen,
+          met elkaar te praten en op te groeien
+          met een warmere blik op de wereld.
+
+        </p>
+
+        <blockquote class="universe-quote">
+
+          De mooiste lichtjes zijn soms
+          diegene die we in ons hart dragen.
+
+        </blockquote>
+
+        <div class="universe-purchase">
+
+          <div class="universe-price">
+
+            <span>Richtprijs</span>
+
+            <strong>16,95 €</strong>
+
+          </div>
+
+          <a href="https://amzn.eu/d/04uXHShr"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="library-button">
+
+            Ontdek op Amazon ↗
+
+          </a>
+
+        </div>
+
+        <div class="universe-secondary-actions">
+
+          <button type="button"
+                  class="library-text-button"
+                  data-open-book="lanterne">
+
+            Blader door zijn wereld
+
+          </button>
+
+          <button type="button"
+                  class="library-text-button"
+                  data-qr="qr-lanterne.png"
+                  data-qr-title="La petite lanterne">
+
+            Toon de QR-code
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       WERELD 02 — NOS ÂMES ERRANTES
+       ====================================== -->
+
+  <section class="book-universe universe-souls"
+           id="nos-ames-errantes">
+
+    <div class="universe-inner">
+
+      <div class="universe-visual library-reveal">
+
+        <div class="universe-number">02</div>
+
+        <div class="souls-halo"></div>
+
+        <button type="button"
+                class="universe-book"
+                data-open-book="ames"
+                aria-label="Open Nos âmes errantes">
+
+          <img src="livre-ames-errantes.jpg"
+               alt="Nos âmes errantes"
+               loading="lazy"
+               decoding="async">
+
+        </button>
+
+        <div class="universe-visual-caption">
+
+          Levens die het verdienen om verteld te worden.
+
+        </div>
+
+      </div>
+
+      <div class="universe-content library-reveal">
+
+        <p class="library-label">
+
+          Voelen voorbij de buitenkant
+
+        </p>
+
+        <h2>
+
+          Nos âmes<br>
+
+          <em>errantes.</em>
+
+        </h2>
+
+        <p class="universe-subtitle">
+
+          In de huid van zwerfdieren
+
+        </p>
+
+        <div class="book-tags">
+
+          <span>Verhalen</span>
+          <span>Waargebeurde ontmoetingen</span>
+          <span>Emoties</span>
+
+        </div>
+
+        <p>
+
+          Achter elke blik die we op straat kruisen,
+          schuilt een verhaal dat we niet kennen.
+
+          Een leven, een verleden, angsten,
+          maar ook een ongelooflijk vermogen om lief te hebben.
+
+        </p>
+
+        <p>
+
+          Tijdens mijn reizen ontmoette ik dieren
+          die een diepe indruk op mijn leven hebben gemaakt.
+
+          Ik heb ervoor gekozen deze pagina's aan hen
+          te wijden, zodat hun verhalen niet verdwijnen.
+
+        </p>
+
+        <p>
+
+          Elk verhaal combineert een echte ontmoeting
+          met een ingebeelde beleving vanuit het perspectief
+          van het dier.
+
+          Een uitnodiging om de wereld anders te ervaren,
+          gedurende enkele pagina's.
+
+        </p>
+
+        <blockquote class="universe-quote">
+
+          Ze hebben niet altijd het geluk gehad
+          om geliefd te zijn.
+
+          Maar ze verdienen het allemaal
+          dat hun verhaal verteld wordt.
+
+        </blockquote>
+
+        <div class="universe-purchase">
+
+          <div class="universe-price">
+
+            <span>Richtprijs</span>
+
+            <strong>17,98 €</strong>
+
+          </div>
+
+          <a href="https://amzn.eu/d/0fyDrXjy"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="library-button">
+
+            Ontdek op Amazon ↗
+
+          </a>
+
+        </div>
+
+        <div class="universe-secondary-actions">
+
+          <button type="button"
+                  class="library-text-button"
+                  data-open-book="ames">
+
+            Blader door zijn wereld
+
+          </button>
+
+          <button type="button"
+                  class="library-text-button"
+                  data-qr="qr-ames-errantes.png"
+                  data-qr-title="Nos âmes errantes">
+
+            Toon de QR-code
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       WERELD 03 — HET KLEURBOEK
+       ====================================== -->
+
+  <section class="book-universe universe-coloring"
+           id="livre-coloriage">
+
+    <div class="universe-inner">
+
+      <div class="universe-visual library-reveal">
+
+        <div class="universe-number">03</div>
+
+        <div class="coloring-halo"></div>
+
+        <button type="button"
+                class="universe-book"
+                data-open-book="coloriage"
+                aria-label="Open het kleurboek">
+
+          <img src="livre-coloriage.jpg"
+               alt="Cœur Errant, Chaque animal a une histoire"
+               loading="lazy"
+               decoding="async">
+
+        </button>
+
+        <div class="universe-visual-caption">
+
+          Eén ontmoeting, duizend mogelijke kleuren.
+
+        </div>
+
+      </div>
+
+      <div class="universe-content library-reveal">
+
+        <p class="library-label">
+
+          Creëren met je hart
+
+        </p>
+
+        <h2>
+
+          Chaque animal<br>
+
+          <em>a une histoire.</em>
+
+        </h2>
+
+        <p class="universe-subtitle">
+
+          Het kleurboek van Cœur Errant
+
+        </p>
+
+        <div class="book-tags">
+
+          <span>Kleuren voor volwassenen</span>
+          <span>Foto's</span>
+          <span>Creativiteit</span>
+
+        </div>
+
+        <p>
+
+          Wat als je even de tijd nam om te vertragen,
+          je fantasie de vrije loop te laten
+          en de wereld te ontdekken via mijn ontmoetingen?
+
+        </p>
+
+        <p>
+
+          Dit boek bevat kleurillustraties
+          die geïnspireerd zijn op echte dieren
+          die ik tijdens mijn reizen heb ontmoet,
+          aangevuld met foto's en verhalen.
+
+        </p>
+
+        <p>
+
+          Het is veel meer dan een moment van ontspanning.
+          Het is een uitnodiging om deze kleine zieltjes
+          te ontdekken en hen, tijdens het kleuren,
+          een plaats te geven in jouw dagelijks leven.
+
+        </p>
+
+        <blockquote class="universe-quote">
+
+          Elke kleur is een manier
+          om een herinnering opnieuw tot leven te brengen.
+
+        </blockquote>
+
+        <div class="universe-purchase">
+
+          <div class="universe-price">
+
+            <span>Richtprijs</span>
+
+            <strong>14,99 €</strong>
+
+          </div>
+
+          <a href="https://amzn.eu/d/0h3yOZae"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="library-button">
+
+            Ontdek op Amazon ↗
+
+          </a>
+
+        </div>
+
+        <div class="universe-secondary-actions">
+
+          <button type="button"
+                  class="library-text-button"
+                  data-open-book="coloriage">
+
+            Blader door zijn wereld
+
+          </button>
+
+          <button type="button"
+                  class="library-text-button"
+                  data-qr="qr-coloriage.png"
+                  data-qr-title="Chaque animal a une histoire">
+
+            Toon de QR-code
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>  <!-- ======================================
+       INTERACTIEVE MINI-KLEURPLAAT
+       ====================================== -->
+
+  <section class="coloring-experience">
+
+    <div class="library-heading library-reveal">
+
+      <p class="library-label">
+        Een klein creatief moment
+      </p>
+
+      <h2>
+        Wat dacht je van<br>
+        <em>een beetje kleur?</em>
+      </h2>
 
       <p>
-        <em>Chaque animal a une histoire</em>
+        Kies een kleur en klik vervolgens
+        op een deel van de tekening.
+
+        Neem even de tijd, helemaal voor jezelf.
+      </p>
+
+    </div>
+
+    <div class="coloring-workspace library-reveal">
+
+      <div class="coloring-paper">
+
+        <div class="coloring-paper-heading">
+
+          <span>Cœur Errant</span>
+
+          <span>✧</span>
+
+        </div>
+
+        <svg id="coloring-drawing"
+             viewBox="0 0 400 400"
+             xmlns="http://www.w3.org/2000/svg"
+             aria-label="Interactieve kleurplaat">
+
+          <!-- ACHTERGROND -->
+
+          <rect width="400"
+                height="400"
+                fill="#fffdf8"/>
+
+          <!-- ZON -->
+
+          <circle class="paint-area"
+                  data-original="#fffdf8"
+                  cx="200"
+                  cy="75"
+                  r="32"
+                  fill="#fffdf8"
+                  stroke="#68584e"
+                  stroke-width="2"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Kleur de zon"/>
+
+          <!-- HEUVELS -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M20 300
+                   Q100 170 200 285
+                   Q300 175 380 300
+                   V360 H20Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2"
+                tabindex="0"
+                role="button"
+                aria-label="Kleur de heuvels"/>
+
+          <!-- STAART VAN DE KAT -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M267 300
+                   C340 320 365 255 333 240
+                   C310 228 303 252 321 264
+                   C330 278 300 292 267 278Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2.5"
+                tabindex="0"
+                role="button"
+                aria-label="Kleur de staart van de kat"/>
+
+          <!-- LICHAAM VAN DE KAT -->
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="267"
+                   cy="268"
+                   rx="49"
+                   ry="65"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2.5"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Kleur het lichaam van de kat"/>
+
+          <!-- KOP VAN DE KAT -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M220 188
+                   L218 140
+                   L250 162
+                   Q267 154 284 162
+                   L316 140
+                   L314 188
+                   Q326 237 267 240
+                   Q208 237 220 188Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2.5"
+                tabindex="0"
+                role="button"
+                aria-label="Kleur de kop van de kat"/>
+
+          <!-- GEZICHT VAN DE KAT -->
+
+          <g fill="none"
+             stroke="#68584e"
+             stroke-width="2.5"
+             stroke-linecap="round"
+             pointer-events="none">
+
+            <path d="M238 195 Q246 185 254 195"/>
+            <path d="M280 195 Q288 185 296 195"/>
+            <path d="M267 207 V215"/>
+            <path d="M267 215 Q257 225 252 217"/>
+            <path d="M267 215 Q277 225 282 217"/>
+
+            <path d="M235 207 L207 202"/>
+            <path d="M235 215 L207 219"/>
+            <path d="M299 207 L327 202"/>
+            <path d="M299 215 L327 219"/>
+
+          </g>
+
+          <path d="M260 204 H274 L267 211Z"
+                fill="#68584e"
+                pointer-events="none"/>
+
+          <!-- STAART VAN DE HOND -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M100 275
+                   Q42 235 47 270
+                   Q50 305 105 300Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2.5"
+                tabindex="0"
+                role="button"
+                aria-label="Kleur de staart van de hond"/>
+
+          <!-- LICHAAM VAN DE HOND -->
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="145"
+                   cy="265"
+                   rx="58"
+                   ry="72"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2.5"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Kleur het lichaam van de hond"/>
+
+          <!-- KOP VAN DE HOND -->
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="145"
+                   cy="175"
+                   rx="57"
+                   ry="54"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2.5"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Kleur de kop van de hond"/>
+
+          <!-- OREN -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M103 133
+                   Q55 112 66 190
+                   Q77 224 99 185Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2.5"
+                tabindex="0"
+                role="button"
+                aria-label="Kleur het linkeroor"/>
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M187 133
+                   Q235 112 224 190
+                   Q213 224 191 185Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2.5"
+                tabindex="0"
+                role="button"
+                aria-label="Kleur het rechteroor"/>
+
+          <!-- SNUIT -->
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="145"
+                   cy="199"
+                   rx="31"
+                   ry="25"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Kleur de snuit"/>
+
+          <g fill="#68584e"
+             pointer-events="none">
+
+            <circle cx="124" cy="166" r="5"/>
+            <circle cx="166" cy="166" r="5"/>
+            <ellipse cx="145" cy="190" rx="12" ry="8"/>
+
+          </g>
+
+          <g fill="none"
+             stroke="#68584e"
+             stroke-width="2.5"
+             stroke-linecap="round"
+             pointer-events="none">
+
+            <path d="M145 198 V207"/>
+            <path d="M145 207 Q133 219 126 209"/>
+            <path d="M145 207 Q157 219 164 209"/>
+
+          </g>
+
+          <!-- POOTJES -->
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="118"
+                   cy="324"
+                   rx="24"
+                   ry="15"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Kleur het linkerpootje"/>
+
+          <ellipse class="paint-area"
+                   data-original="#fffdf8"
+                   cx="173"
+                   cy="324"
+                   rx="24"
+                   ry="15"
+                   fill="#fffdf8"
+                   stroke="#68584e"
+                   stroke-width="2"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Kleur het rechterpootje"/>
+
+          <!-- HART -->
+
+          <path class="paint-area"
+                data-original="#fffdf8"
+                d="M200 112
+                   C173 82 150 117 200 148
+                   C250 117 227 82 200 112Z"
+                fill="#fffdf8"
+                stroke="#68584e"
+                stroke-width="2"
+                tabindex="0"
+                role="button"
+                aria-label="Kleur het hartje"/>
+
+          <!-- BLOEMEN -->
+
+          <g stroke="#68584e"
+             stroke-width="2"
+             stroke-linecap="round">
+
+            <path d="M42 350 V320"
+                  fill="none"/>
+
+            <path d="M42 338 Q25 323 25 337Z"
+                  fill="#fffdf8"/>
+
+            <path d="M42 340 Q59 325 59 339Z"
+                  fill="#fffdf8"/>
+
+            <circle class="paint-area"
+                    data-original="#fffdf8"
+                    cx="42"
+                    cy="313"
+                    r="12"
+                    fill="#fffdf8"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Kleur de linkerbloem"/>
+
+            <path d="M355 350 V320"
+                  fill="none"/>
+
+            <path d="M355 338 Q338 323 338 337Z"
+                  fill="#fffdf8"/>
+
+            <path d="M355 340 Q372 325 372 339Z"
+                  fill="#fffdf8"/>
+
+            <circle class="paint-area"
+                    data-original="#fffdf8"
+                    cx="355"
+                    cy="313"
+                    r="12"
+                    fill="#fffdf8"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Kleur de rechterbloem"/>
+
+          </g>
+
+          <text x="200"
+                y="385"
+                text-anchor="middle"
+                font-family="Cormorant Garamond, serif"
+                font-size="17"
+                font-style="italic"
+                fill="#68584e">
+
+            Elk dier heeft een verhaal.
+
+          </text>
+
+        </svg>
+
+        <p class="coloring-paper-caption">
+
+          Een kleine tekening, speciaal voor jou gemaakt.
+
+        </p>
+
+      </div>
+
+
+      <!-- ======================================
+           KLEURENPALET
+           ====================================== -->
+
+      <div class="coloring-tools">
+
+        <p class="library-label">
+
+          Jouw kleurenpalet
+
+        </p>
+
+        <h3>
+
+          De kleuren<br>
+
+          <em>van het hart.</em>
+
+        </h3>
+
+        <div class="color-palette">
+
+          <button type="button"
+                  class="color-swatch active"
+                  data-color="#c99b79"
+                  style="--swatch:#c99b79"
+                  aria-label="Karamel"
+                  aria-pressed="true"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#e4c5a5"
+                  style="--swatch:#e4c5a5"
+                  aria-label="Beige"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#d49ba7"
+                  style="--swatch:#d49ba7"
+                  aria-label="Poederroze"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#b6c6a8"
+                  style="--swatch:#b6c6a8"
+                  aria-label="Saliegroen"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#a9c4d5"
+                  style="--swatch:#a9c4d5"
+                  aria-label="Pastelblauw"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#e9cf83"
+                  style="--swatch:#e9cf83"
+                  aria-label="Goudgeel"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#c3b1d4"
+                  style="--swatch:#c3b1d4"
+                  aria-label="Lavendel"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#a49b93"
+                  style="--swatch:#a49b93"
+                  aria-label="Grijs"
+                  aria-pressed="false"></button>
+
+          <button type="button"
+                  class="color-swatch"
+                  data-color="#fffdf8"
+                  style="--swatch:#fffdf8"
+                  aria-label="Gom"
+                  aria-pressed="false">
+
+            ×
+
+          </button>
+
+        </div>
+
+        <label class="custom-color-label"
+               for="custom-color">
+
+          Jouw eigen kleur
+
+        </label>
+
+        <input type="color"
+               id="custom-color"
+               value="#c99b79">
+
+        <p id="coloring-message"
+           aria-live="polite">
+
+          Jouw fantasie kent geen grenzen.
+
+        </p>
+
+        <div class="coloring-actions">
+
+          <button type="button"
+                  class="library-text-button"
+                  id="undo-coloring">
+
+            ↶ Ongedaan maken
+
+          </button>
+
+          <button type="button"
+                  class="library-text-button"
+                  id="reset-coloring">
+
+            Opnieuw beginnen
+
+          </button>
+
+        </div>
+
+        <button type="button"
+                class="library-button"
+                id="save-coloring">
+
+          Mijn kleurplaat bewaren ↓
+
+        </button>
+
+        <p class="coloring-note">
+
+          Deze interactieve tekening is speciaal
+          voor de website gemaakt en is geen pagina uit het boek.
+
+          Je mag ze gratis bewaren.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>  <!-- ======================================
+       WAAROM IK SCHRIJF
+       ====================================== -->
+
+  <section class="author-section">
+
+    <div class="author-letter library-reveal">
+
+      <div class="author-letter-top">
+
+        <span>Een brief van de auteur</span>
+
+        <span>♡</span>
+
+      </div>
+
+      <p class="library-label">
+
+        Achter de pagina's
+
+      </p>
+
+      <h2>
+
+        Waarom<br>
+
+        <em>ik schrijf.</em>
+
+      </h2>
+
+      <div class="author-letter-content">
+
+        <p>
+
+          Wanneer ik terugkom van een reis,
+          breng ik veel meer mee dan alleen foto's.
+
+        </p>
+
+        <p>
+
+          Ik breng blikken mee,
+          herinneringen, momenten van tederheid,
+          soms verdriet
+          en verhalen die ik niet wil vergeten.
+
+        </p>
+
+        <p>
+
+          Schrijven is voor mij een andere manier geworden
+          om deze ontmoetingen te laten voortleven.
+
+          Een manier om een plaats te geven
+          aan de dieren die ons pad kruisen,
+          maar waarvoor we niet altijd
+          de tijd nemen om echt naar hen te kijken.
+
+        </p>
+
+        <p>
+
+          Met mijn boeken wil ik
+          iets heel eenvoudigs meegeven.
+
+          Het leven van elk dier telt.
+
+        </p>
+
+        <p>
+
+          Of je nu een kind bent dat de wereld ontdekt,
+          een volwassene die anders wil leren voelen
+          of iemand die gewoon graag creatief bezig is,
+          ik hoop dat je tussen deze pagina's
+          een klein stukje van Cœur Errant terugvindt.
+
+        </p>
+
+        <p>
+
+          Bedankt dat je de tijd neemt
+          om hun verhalen te ontdekken.
+
+        </p>
+
+      </div>
+
+      <div class="author-signature">
+
+        Met heel mijn hart,
+
+        <strong>Laurena Vaccaro</strong>
+
+        <span>Oprichtster van Cœur Errant</span>
+
+      </div>
+
+      <div class="author-letter-seal"
+           aria-hidden="true">
+
+        ♡
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       KIES JOUW BOEK
+       ====================================== -->
+
+  <section class="reading-choice-section">
+
+    <div class="library-heading library-reveal">
+
+      <p class="library-label">
+
+        Jouw volgende boek
+
+      </p>
+
+      <h2>
+
+        Waar verlangt<br>
+
+        <em>jouw hart naar?</em>
+
+      </h2>
+
+      <p>
+
+        Elk boek spreekt een andere emotie aan.
+
+        Laat je leiden door waar je op dit moment zin in hebt.
+
+      </p>
+
+    </div>
+
+    <div class="reading-choices library-reveal">
+
+      <button type="button"
+              class="reading-choice"
+              data-recommend="lanterne"
+              aria-pressed="false">
+
+        <span class="reading-choice-icon">✧</span>
+
+        <h3>Meegeven</h3>
+
+        <p>
+
+          Een warm moment delen
+          met een kind.
+
+        </p>
+
+      </button>
+
+      <button type="button"
+              class="reading-choice"
+              data-recommend="ames"
+              aria-pressed="false">
+
+        <span class="reading-choice-icon">♡</span>
+
+        <h3>Voelen</h3>
+
+        <p>
+
+          Verhalen ontdekken
+          die je diep raken.
+
+        </p>
+
+      </button>
+
+      <button type="button"
+              class="reading-choice"
+              data-recommend="coloriage"
+              aria-pressed="false">
+
+        <span class="reading-choice-icon">❋</span>
+
+        <h3>Creëren</h3>
+
+        <p>
+
+          Vertragen, je fantasie gebruiken
+          en tijd nemen voor jezelf.
+
+        </p>
+
+      </button>
+
+    </div>
+
+    <div class="reading-result"
+         id="reading-result"
+         aria-live="polite"
+         hidden>
+
+      <img id="recommended-cover"
+           src="livre-lanterne.jpg"
+           alt="">
+
+      <div class="reading-result-content">
+
+        <p class="library-label">
+
+          Het boek dat bij jou past
+
+        </p>
+
+        <h3 id="recommended-title"></h3>
+
+        <p id="recommended-description"></p>
+
+        <button type="button"
+                class="library-button"
+                id="recommended-button">
+
+          Ontdek mijn boek ♡
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================
+       VERRASSING — BOEKENLEGGERS
+       ====================================== -->
+
+  <section class="bookmark-section">
+
+    <div class="library-heading library-reveal">
+
+      <p class="library-label">
+
+        Een klein cadeautje voor jou
+
+      </p>
+
+      <h2>
+
+        Een gedachte om te bewaren<br>
+
+        <em>tussen twee pagina's.</em>
+
+      </h2>
+
+      <p>
+
+        Kies een boekenlegger.
+
+        Achter elke boekenlegger schuilt een kleine gedachte,
+        geïnspireerd door de wereld van Cœur Errant.
+
+      </p>
+
+    </div>
+
+    <div class="bookmark-grid library-reveal">
+
+      <!-- BOEKENLEGGER 1 -->
+
+      <button type="button"
+              class="bookmark bookmark-rose"
+              aria-pressed="false"
+              aria-label="Draai de boekenlegger van vriendelijkheid om">
+
+        <span class="bookmark-inner">
+
+          <span class="bookmark-front">
+
+            <span class="bookmark-hole"></span>
+
+            <span class="bookmark-ribbon"></span>
+
+            <span class="bookmark-symbol">♡</span>
+
+            <span class="bookmark-name">
+
+              Vriendelijkheid
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+            <span class="bookmark-hint">
+
+              Draai me om ↻
+
+            </span>
+
+          </span>
+
+          <span class="bookmark-back">
+
+            <span class="bookmark-symbol">♡</span>
+
+            <span class="bookmark-quote">
+
+              We kunnen niet altijd
+              het lot van een dier veranderen.
+
+              Maar we kunnen er wel voor kiezen
+              om het niet te negeren.
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+          </span>
+
+        </span>
+
+      </button>
+
+
+      <!-- BOEKENLEGGER 2 -->
+
+      <button type="button"
+              class="bookmark bookmark-sage"
+              aria-pressed="false"
+              aria-label="Draai de boekenlegger van hoop om">
+
+        <span class="bookmark-inner">
+
+          <span class="bookmark-front">
+
+            <span class="bookmark-hole"></span>
+
+            <span class="bookmark-ribbon"></span>
+
+            <span class="bookmark-symbol">✧</span>
+
+            <span class="bookmark-name">
+
+              Hoop
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+            <span class="bookmark-hint">
+
+              Draai me om ↻
+
+            </span>
+
+          </span>
+
+          <span class="bookmark-back">
+
+            <span class="bookmark-symbol">✧</span>
+
+            <span class="bookmark-quote">
+
+              Zelfs in de meest
+              vergeten straten
+
+              kan er nog altijd
+              een klein lichtje gaan branden.
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+          </span>
+
+        </span>
+
+      </button>
+
+
+      <!-- BOEKENLEGGER 3 -->
+
+      <button type="button"
+              class="bookmark bookmark-gold"
+              aria-pressed="false"
+              aria-label="Draai de boekenlegger van zachtheid om">
+
+        <span class="bookmark-inner">
+
+          <span class="bookmark-front">
+
+            <span class="bookmark-hole"></span>
+
+            <span class="bookmark-ribbon"></span>
+
+            <span class="bookmark-symbol">❋</span>
+
+            <span class="bookmark-name">
+
+              Zachtheid
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+            <span class="bookmark-hint">
+
+              Draai me om ↻
+
+            </span>
+
+          </span>
+
+          <span class="bookmark-back">
+
+            <span class="bookmark-symbol">❋</span>
+
+            <span class="bookmark-quote">
+
+              Soms zijn enkele
+              momenten van zachtheid
+
+              voldoende om de wereld
+              een beetje mooier te maken.
+
+            </span>
+
+            <span class="bookmark-brand">
+
+              Cœur Errant
+
+            </span>
+
+          </span>
+
+        </span>
+
+      </button>
+
+    </div>
+
+    <p class="bookmark-ending">
+
+      Drie kleine gedachten om met je mee te nemen.
+
+    </p>
+
+  </section>
+
+
+  <!-- ======================================
+       AFSLUITING
+       ====================================== -->
+
+  <section class="library-ending">
+
+    <div class="library-ending-content library-reveal">
+
+      <div class="library-ending-heart"
+           aria-hidden="true">
+
+        ♡
+
+      </div>
+
+      <p class="library-label">
+
+        Veel meer dan boeken
+
+      </p>
+
+      <h2>
+
+        De boeken gaan dicht.<br>
+
+        <em>De verhalen blijven.</em>
+
+      </h2>
+
+      <p>
+
+        Bedankt dat je deze dieren
+        een klein plekje geeft in jouw bibliotheek,
+        in jouw dagelijkse leven
+        en misschien ook in jouw hart.
+
       </p>
 
       <p>
-        Een kleurboek geïnspireerd door echte
-        ontmoetingen met zwerfdieren.
-        Een moment van creativiteit en ontspanning
-        waarin je de verhalen achter deze dieren
-        leert kennen.
+
+        Door deze verhalen te lezen, te delen
+        en bekend te maken, help je ook
+        om zwerfdieren minder onzichtbaar te maken.
+
       </p>
 
-      <strong>14,99 €</strong>
+      <a href="soutenir-nl.html"
+         class="library-button">
 
-      <a href="https://amzn.eu/d/0h3yOZae"
-         class="btn-primary"
-         target="_blank"
-         rel="noopener noreferrer">
-        Kopen op Amazon ↗
+        Ga een stap verder met Cœur Errant ♡
+
       </a>
 
-      <details>
-        <summary>QR-code weergeven</summary>
+      <p class="library-ending-note">
 
-        <img src="qr-coloriage.png"
-             alt="Amazon QR-code Cœur Errant"
-             class="book-qr"
-             loading="lazy">
-      </details>
+        De boeken zijn verkrijgbaar op Amazon.
 
-    </article>
+        De prijzen op deze pagina zijn indicatief
+        en kunnen veranderen.
 
-  </div>
-
-  <div style="text-align:center; margin-top:2.5rem;">
-    <a href="livres-nl.html" class="btn-primary">
-      Ontdek al mijn boeken →
-    </a>
-  </div>
-
-  <small>
-    De vermelde prijzen zijn indicatief en kunnen wijzigen.
-    Bestellingen, betalingen en leveringen worden
-    rechtstreeks door Amazon afgehandeld.
-  </small>
-
-</section>
-
-<!-- DE MISSIE -->
-
-<section class="how" id="mission">
-
-  <p class="section-tag">De missie</p>
-
-  <h2>
-    Kleine gebaren, <em>een groot verschil.</em>
-  </h2>
-
-  <div class="how-grid">
-
-    <div class="how-item">
-
-      <div class="how-num">01</div>
-
-      <p class="how-title">Reizen</p>
-
-      <p class="how-desc">
-        Van land tot land ga ik op zoek naar zwerfdieren
-        en ontdek ik hoe hun dagelijks leven eruitziet.
       </p>
 
     </div>
 
-    <div class="how-item">
-
-      <div class="how-num">02</div>
-
-      <p class="how-title">Voeden</p>
-
-      <p class="how-desc">
-        Hen voedsel, water en liefde geven en,
-        wanneer dat mogelijk is, ervoor zorgen
-        dat ze de nodige verzorging krijgen.
-      </p>
-
-    </div>
-
-    <div class="how-item">
-
-      <div class="how-num">03</div>
-
-      <p class="how-title">Bewustmaken</p>
-
-      <p class="how-desc">
-        Hun verhalen delen via mijn boeken,
-        foto's en sociale media, zodat ze
-        niet langer onzichtbaar blijven.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- BESTEMMINGEN -->
-
-<section class="destinations" id="destinations">
-
-  <p class="section-tag">Over de grenzen heen</p>
-
-  <h2>
-    Bestemmingen die mijn <em>hart raken</em>
-  </h2>
-
-  <div class="destinations-grid">
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/ma.png"
-           alt="Marokko">
-      <span class="dest-name">Marokko</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/tn.png"
-           alt="Tunesië">
-      <span class="dest-name">Tunesië</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/al.png"
-           alt="Albanië">
-      <span class="dest-name">Albanië</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/xk.png"
-           alt="Kosovo">
-      <span class="dest-name">Kosovo</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/mk.png"
-           alt="Noord-Macedonië">
-      <span class="dest-name">Noord-Macedonië</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="flag-sicille.png"
-           alt="Sicilië">
-      <span class="dest-name">Sicilië</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/pl.png"
-           alt="Polen">
-      <span class="dest-name">Polen</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/de.png"
-           alt="Duitsland">
-      <span class="dest-name">Duitsland</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/fr.png"
-           alt="Frankrijk">
-      <span class="dest-name">Frankrijk</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="flag-corse.png"
-           alt="Corsica">
-      <span class="dest-name">Corsica</span>
-    </div>
-
-    <div class="dest-item">
-      <img class="dest-flag-img"
-           src="https://flagcdn.com/w80/tr.png"
-           alt="Turkije">
-      <span class="dest-name">Turkije</span>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- LAATSTE REIZEN -->
-
-<section class="books" id="actualites">
-
-  <p class="section-tag">Reisdagboek</p>
-
-  <h2>
-    De laatste <em>avonturen</em>
-  </h2>
-
-  <div class="book-grid">
-
-    <article class="book-card">
-
-      <p class="section-tag">Juni 2026</p>
-
-      <h3>Marrakech &amp; Agadir</h3>
-
-      <p>
-        Terug naar Marokko, waar alles begon.
-        Nieuwe ontmoetingen en nieuwe herinneringen.
-      </p>
-
-    </article>
-
-    <article class="book-card">
-
-      <p class="section-tag">Augustus 2026</p>
-
-      <h3>Djerba, Tunesië</h3>
-
-      <p>
-        Tussen de Tunesische straatjes en stranden
-        ontstaan nieuwe verhalen om te vertellen.
-      </p>
-
-    </article>
-
-    <article class="book-card">
-
-      <p class="section-tag">December 2026</p>
-
-      <h3>Een nieuw avontuur</h3>
-
-      <p>
-        Een nieuwe bestemming staat op de planning.
-        Nieuwe ontmoetingen, bijzondere momenten
-        en nieuwe verhalen om te delen.
-      </p>
-
-    </article>
-
-  </div>
-
-  <a href="voyages-nl.html" class="btn-outline">
-    Ontdek al mijn reizen
-  </a>
-
-</section>
-
-<!-- ONZE STERRETJES -->
-
-<section class="nala" id="nos-etoiles">
-
-  <div class="nala-image">
-    <img src="nala.jpeg"
-         alt="Ter herinnering aan Nala"
-         class="nala-img"
-         loading="lazy">
-  </div>
-
-  <div class="nala-text">
-
-    <p class="section-tag">Onze sterretjes</p>
-
-    <h2>
-      Nala, voor <em>altijd</em>
-    </h2>
-
-    <p>
-      We vonden haar op straat, zoekend tussen
-      het afval om te kunnen overleven.
-      Een kleine puppy, alleen en uitgehongerd.
-    </p>
-
-    <p>
-      We namen haar mee, brachten haar naar de dierenarts
-      en lieten haar vaccineren. Ze had voortaan
-      een vaccinatieboekje op mijn naam.
-      Ze had een naam, Nala.
-    </p>
-
-    <div class="origin-quote">
-      <p>
-        « Ze was alleen maar op zoek naar eten.
-        We gaven haar zoveel meer dan dat.
-        We gaven haar een kans. »
-      </p>
-    </div>
-
-    <p>
-      We vonden iemand die voor haar kon zorgen.
-      Maar op een ochtend vonden we haar levenloos
-      onder een boom. Ze liet een enorme leegte
-      achter in ons hart.
-    </p>
-
-    <p>
-      Nala is de reden waarom Cœur Errant doorgaat.
-      Voor haar en voor alle dieren die een kans verdienen.
-    </p>
-
-    <p>
-      Voor alle kleine zieltjes die veel te vroeg
-      zijn heengegaan, jullie zullen nooit vergeten worden.
-    </p>
-
-  </div>
-
-</section>
-
-<!-- STEUNEN -->
-
-<section class="cta" id="soutenir">
-
-  <p class="section-tag" style="justify-content:center;">
-    Samen maken we het verschil
-  </p>
-
-  <h2>
-    Een klein gebaar kan <em>een leven veranderen.</em>
-  </h2>
-
-  <p class="cta-desc">
-    Een maaltijd, een gedeeld bericht, een boek
-    of een gebaar van solidariteit.
-    Er zijn zoveel manieren om Cœur Errant te steunen
-    en zwerfdieren een beetje zichtbaarder te maken.
-  </p>
-
-  <div class="cta-actions">
-
-    <a href="soutenir-nl.html" class="btn-primary">
-      Steun Cœur Errant
-    </a>
-
-    <a href="livres-nl.html" class="btn-outline">
-      Ontdek mijn boeken
-    </a>
-
-  </div>
-
-</section>
+  </section>
 
 </main>
+<!-- ======================================
+     VENSTER — INTERACTIEF BOEK
+     ====================================== -->
 
-<!-- FOOTER -->
+<dialog class="book-dialog"
+        id="book-dialog"
+        aria-labelledby="preview-title">
 
-<footer>
+  <div class="book-dialog-inner">
 
-  <div class="footer-logo">
-    <img src="logo.jpeg" alt="Cœur Errant">
+    <button type="button"
+            class="dialog-close"
+            data-close-dialog="book-dialog"
+            aria-label="Sluit het boek">
+
+      ×
+
+    </button>
+
+    <p class="library-label">
+
+      Stap binnen in de wereld van dit boek
+
+    </p>
+
+    <h2 id="preview-title"></h2>
+
+    <div class="preview-book">
+
+      <div class="preview-left">
+
+        <img id="preview-cover"
+             src="livre-lanterne.jpg"
+             alt="">
+
+        <span id="preview-category"></span>
+
+      </div>
+
+      <div class="preview-right"
+           id="preview-right">
+
+        <span class="preview-ornament">✧</span>
+
+        <p class="preview-chapter"
+           id="preview-chapter"></p>
+
+        <h3 id="preview-heading"></h3>
+
+        <p id="preview-text"></p>
+
+        <span class="preview-page-number"
+              id="preview-page-number"></span>
+
+      </div>
+
+    </div>
+
+    <div class="preview-controls">
+
+      <button type="button"
+              id="preview-prev"
+              aria-label="Vorige pagina">
+
+        ←
+
+      </button>
+
+      <span id="preview-pagination"
+            aria-live="polite"></span>
+
+      <button type="button"
+              id="preview-next"
+              aria-label="Volgende pagina">
+
+        →
+
+      </button>
+
+    </div>
+
+    <a id="preview-amazon"
+       href="https://amzn.eu/d/04uXHShr"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="library-button">
+
+      Bekijk dit boek op Amazon ↗
+
+    </a>
+
+    <p class="preview-note">
+
+      Deze pagina's laten je kennismaken met de wereld
+      van het boek. Ze bevatten niet de volledige inhoud.
+
+    </p>
+
   </div>
 
-  <div class="footer-divider"></div>
+</dialog>
 
-  <div class="footer-socials">
 
-    <a class="footer-social-link"
-       href="https://www.tiktok.com/@coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer">
+<!-- ======================================
+     VENSTER — QR-CODE
+     ====================================== -->
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/tiktok/white"
-             alt="TikTok">
-      </div>
+<dialog class="qr-dialog"
+        id="qr-dialog"
+        aria-labelledby="qr-dialog-title">
 
-      <span class="footer-social-name">TikTok</span>
+  <div class="qr-dialog-inner">
 
-    </a>
+    <button type="button"
+            class="dialog-close"
+            data-close-dialog="qr-dialog"
+            aria-label="Sluit de QR-code">
 
-    <a class="footer-social-link"
-       href="https://www.instagram.com/coeur.errant/"
-       target="_blank"
-       rel="noopener noreferrer">
+      ×
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/instagram/white"
-             alt="Instagram">
-      </div>
+    </button>
 
-      <span class="footer-social-name">Instagram</span>
+    <p class="library-label">
 
-    </a>
+      Vind jouw boek
 
-    <a class="footer-social-link"
-       href="https://www.youtube.com/@CoeurErrant"
-       target="_blank"
-       rel="noopener noreferrer">
+    </p>
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/youtube/white"
-             alt="YouTube">
-      </div>
+    <h2 id="qr-dialog-title"></h2>
 
-      <span class="footer-social-name">YouTube</span>
+    <div class="qr-image-frame">
 
-    </a>
+      <img id="qr-dialog-image"
+           src="qr-lanterne.png"
+           alt="QR-code naar Amazon">
 
-    <a class="footer-social-link"
-       href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
-       target="_blank"
-       rel="noopener noreferrer">
+    </div>
 
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/facebook/white"
-             alt="Facebook">
-      </div>
+    <p>
 
-      <span class="footer-social-name">Facebook</span>
+      Scan deze QR-code
+      met de camera van je telefoon
+      om het boek op Amazon te vinden.
 
-    </a>
+    </p>
 
-    <a class="footer-social-link"
-       href="https://www.snapchat.com/add/coeur_errant"
-       target="_blank"
-       rel="noopener noreferrer">
-
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/snapchat/white"
-             alt="Snapchat">
-      </div>
-
-      <span class="footer-social-name">Snapchat</span>
-
-    </a>
-
-    <a class="footer-social-link"
-       href="mailto:coeur.errant@outlook.be">
-
-      <div class="footer-social-icon">
-        <img src="https://cdn.simpleicons.org/gmail/white"
-             alt="E-mail">
-      </div>
-
-      <span class="footer-social-name">Contact</span>
-
-    </a>
+    <span class="qr-dialog-heart">♡</span>
 
   </div>
 
-  <div class="footer-divider"></div>
+</dialog>
 
-  <p class="footer-copy">
-    © <span id="annee"></span> Cœur Errant —
-    Elk dier heeft een verhaal.
-  </p>
 
-</footer>
+<!-- ======================================
+     GEMEENSCHAPPELIJKE FOOTER
+     ====================================== -->
 
-<!-- JAVASCRIPT -->
+<footer class="ce-footer">
+
+  <div class="ce-footer-decoration" aria-hidden="true">
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
+  </div>
+
+  <div class="ce-footer-inner">
+
+    <div class="ce-footer-brand">
+
+      <a href="index-nl.html"
+         aria-label="Startpagina van Cœur Errant">
+
+        <img src="logo.jpeg"
+             alt="Logo van Cœur Errant"
+             loading="lazy"
+             decoding="async">
+
+      </a>
+
+      <h2>Cœur Errant</h2>
+
+      <p class="ce-footer-tagline">
+        Elk dier heeft een verhaal.
+      </p>
+
+      <p class="ce-footer-description">
+        Omdat zelfs de kleinste zieltjes
+        een plaats verdienen in deze wereld.
+      </p>
+
+      <div class="ce-footer-socials">
+
+        <a href="https://www.tiktok.com/@coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="TikTok"
+           title="TikTok">
+
+          <img src="https://cdn.simpleicons.org/tiktok/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Instagram"
+           title="Instagram">
+
+          <img src="https://cdn.simpleicons.org/instagram/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.youtube.com/@CoeurErrant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="YouTube"
+           title="YouTube">
+
+          <img src="https://cdn.simpleicons.org/youtube/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.facebook.com/share/1CYz3Lmwhd/?mibextid=wwXIfr"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Facebook"
+           title="Facebook">
+
+          <img src="https://cdn.simpleicons.org/facebook/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="https://www.snapchat.com/add/coeur_errant"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Snapchat"
+           title="Snapchat">
+
+          <img src="https://cdn.simpleicons.org/snapchat/A85E68"
+               alt=""
+               loading="lazy">
+
+        </a>
+
+        <a href="mailto:coeur.errant@outlook.be"
+           aria-label="Contact opnemen met Cœur Errant"
+           title="Contact">
+
+          <svg viewBox="0 0 24 24"
+               width="20"
+               height="20"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.5"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               aria-hidden="true">
+
+            <rect x="3"
+                  y="5"
+                  width="18"
+                  height="14"
+                  rx="2"/>
+
+            <path d="M3 7 L12 13 L21 7"/>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOTERNAVIGATIE -->
+
+    <div class="ce-footer-navigation">
+
+      <div class="ce-footer-column">
+
+        <h3>Ontdekken</h3>
+
+        <a href="index-nl.html#histoire">
+          Mijn verhaal
+        </a>
+
+        <a href="mission-nl.html">
+          De missie
+        </a>
+
+        <a href="voyages-nl.html">
+          Mijn reizen
+        </a>
+
+        <a href="livres-nl.html"
+           class="active"
+           aria-current="page">
+          Mijn boeken
+        </a>
+
+      </div>
+
+      <div class="ce-footer-column">
+
+        <h3>Onze wereld</h3>
+
+        <a href="etoiles-nl.html">
+          Onze sterren
+        </a>
+
+        <a href="passeport-nl.html">
+          Het Koninkrijk
+        </a>
+
+        <a href="agir-nl.html">
+          Hoe kan je helpen?
+        </a>
+
+        <a href="soutenir-nl.html">
+          Steun Cœur Errant
+        </a>
+
+      </div>
+
+      <div class="ce-footer-column">
+
+        <h3>Blijf verbonden</h3>
+
+        <a href="mailto:coeur.errant@outlook.be">
+          Neem contact met mij op
+        </a>
+
+        <a href="https://www.instagram.com/coeur.errant/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Volg het avontuur
+        </a>
+
+        <a href="livres.html"
+           lang="fr"
+           hreflang="fr">
+          Version française
+        </a>
+
+        <a href="mentions-legales-nl.html">
+          Juridische vermeldingen
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- HANDTEKENING -->
+
+  <div class="ce-footer-signature">
+
+    <span class="ce-footer-heart"
+          aria-hidden="true">
+      ♡
+    </span>
+
+    <p>
+      Met liefde gemaakt, voor wie geen stem heeft.
+    </p>
+
+  </div>
+
+
+  <!-- COPYRIGHT -->
+
+  <div class="ce-footer-copyright">
+
+    <p>
+      © <span id="footer-year">2026</span>
+      Cœur Errant — Alle rechten voorbehouden.
+    </p>
+
+  </div>
+
+</footer><!-- ======================================
+     JAVASCRIPT — BIBLIOTHEEK
+     ====================================== -->
 
 <script>
 
-  // Teller sinds juni 2024
+(function () {
 
-  const debut = new Date('2024-06-01T00:00:00');
-  const aujourdhui = new Date();
+  'use strict';
 
-  const jours = Math.floor(
-    (aujourdhui - debut) / (1000 * 60 * 60 * 24)
-  );
 
-  document.getElementById('compteur').textContent = jours;
+  /* ======================================
+     AUTOMATISCH JAARTAL
+     ====================================== */
 
-  // Automatisch jaartal
+  const footerYear =
+    document.getElementById('footer-year');
 
-  document.getElementById('annee').textContent =
-    new Date().getFullYear();
+  if (footerYear) {
 
-  // Mobiel menu
+    footerYear.textContent =
+      new Date().getFullYear();
 
-  function toggleMenu() {
+  }
 
-    const menu = document.getElementById('nav-links');
-    const bouton = document.getElementById('hamburger');
 
-    const ouvert = menu.classList.toggle('open');
+  /* ======================================
+     MOBIEL MENU
+     ====================================== */
 
-    bouton.classList.toggle('open', ouvert);
-    bouton.setAttribute('aria-expanded', ouvert);
-    bouton.setAttribute(
+  const navLinks =
+    document.getElementById('nav-links');
+
+  const hamburger =
+    document.getElementById('hamburger');
+
+
+  function setMenuState(isOpen) {
+
+    if (!navLinks || !hamburger) return;
+
+    navLinks.classList.toggle('open', isOpen);
+
+    hamburger.classList.toggle('open', isOpen);
+
+    hamburger.setAttribute(
+      'aria-expanded',
+      String(isOpen)
+    );
+
+    hamburger.setAttribute(
       'aria-label',
-      ouvert ? 'Menu sluiten' : 'Menu openen'
+      isOpen
+        ? 'Menu sluiten'
+        : 'Menu openen'
     );
 
   }
 
-  function closeMenu() {
 
-    document.getElementById('nav-links')
-      .classList.remove('open');
+  window.toggleMenu = function () {
 
-    const bouton = document.getElementById('hamburger');
+    if (!navLinks || !hamburger) return;
 
-    bouton.classList.remove('open');
-    bouton.setAttribute('aria-expanded', 'false');
-    bouton.setAttribute('aria-label', 'Menu openen');
+    const isOpen =
+      hamburger.getAttribute('aria-expanded') === 'true';
+
+    setMenuState(!isOpen);
+
+  };
+
+
+  window.closeMenu = function () {
+
+    setMenuState(false);
+
+  };
+
+
+  if (navLinks) {
+
+    navLinks.querySelectorAll('a')
+      .forEach(link => {
+
+        link.addEventListener('click', window.closeMenu);
+
+      });
 
   }
 
-  document.addEventListener('keydown', function(event) {
 
-    if (event.key === 'Escape') {
-      closeMenu();
+  document.addEventListener('keydown', event => {
+
+    if (
+      event.key === 'Escape' &&
+      hamburger &&
+      hamburger.getAttribute('aria-expanded') === 'true'
+    ) {
+
+      window.closeMenu();
+
+      hamburger.focus();
+
     }
 
   });
+
+
+  document.addEventListener('click', event => {
+
+    if (!navLinks || !hamburger) return;
+
+    if (
+      hamburger.getAttribute('aria-expanded') === 'true' &&
+      !navLinks.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+
+      window.closeMenu();
+
+    }
+
+  });
+
+
+  window.addEventListener('resize', () => {
+
+    if (window.innerWidth > 1100) {
+
+      window.closeMenu();
+
+    }
+
+  });
+
+
+  /* ======================================
+     INFORMATIE OVER DE BOEKEN
+     ====================================== */
+
+  const libraryBooks = {
+
+    lanterne: {
+
+      title: 'La petite lanterne',
+
+      cover: 'livre-lanterne.jpg',
+
+      category: 'Kinderliteratuur',
+
+      amazon: 'https://amzn.eu/d/04uXHShr',
+
+      recommendation:
+
+        "Een verhaal om met een kind te delen, " +
+        "om vriendelijkheid te ontdekken en " +
+        "anders naar de wereld te leren kijken.",
+
+      pages: [
+
+        {
+
+          chapter: '01 — Ontdekken',
+
+          heading: 'Een klein lichtje.',
+
+          text:
+
+            "De wereld zit vol kleine dingen " +
+            "die we niet altijd opmerken. " +
+            "La petite lanterne nodigt kinderen uit " +
+            "om niet alleen hun ogen, maar ook hun hart te openen."
+
+        },
+
+        {
+
+          chapter: '02 — Voelen',
+
+          heading: 'Zachtheid ontdekken.',
+
+          text:
+
+            "Vriendelijkheid ontdek je al op jonge leeftijd. " +
+            "Door samen te lezen en te praten, " +
+            "kunnen kinderen leren aandacht te hebben " +
+            "voor de levende wezens om hen heen."
+
+        },
+
+        {
+
+          chapter: '03 — Delen',
+
+          heading: 'Een moment samen.',
+
+          text:
+
+            "Een verhaaltje voor het slapengaan, " +
+            "een rustig moment met het gezin, " +
+            "een gesprek dat begint na de laatste pagina. " +
+            "Verhalen kunnen kostbare herinneringen worden."
+
+        }
+
+      ]
+
+    },
+
+
+    /* NOS ÂMES ERRANTES */
+
+    ames: {
+
+      title: 'Nos âmes errantes',
+
+      cover: 'livre-ames-errantes.jpg',
+
+      category: 'Verhalen en getuigenissen',
+
+      amazon: 'https://amzn.eu/d/0fyDrXjy',
+
+      recommendation:
+
+        "Echte ontmoetingen en ingebeelde verhalen " +
+        "om het dagelijkse leven van zwerfdieren " +
+        "vanuit een ander perspectief te ontdekken.",
+
+      pages: [
+
+        {
+
+          chapter: '01 — Mijn ontmoeting',
+
+          heading: 'Tijdens een reis.',
+
+          text:
+
+            "Van Corsica tot Marokko, via Sicilië, " +
+            "Turkije en andere bestemmingen, " +
+            "hebben dieren mijn pad gekruist. " +
+            "Sommige blikken zijn me altijd bijgebleven."
+
+        },
+
+        {
+
+          chapter: '02 — In hun huid',
+
+          heading: 'Wat als wij hen waren?',
+
+          text:
+
+            "Na elke echte ontmoeting nodigt het verhaal " +
+            "de lezer uit om zich de wereld voor te stellen " +
+            "vanuit het perspectief van het dier. " +
+            "Zijn emoties, zijn moeilijkheden " +
+            "en zijn momenten van zachtheid."
+
+        },
+
+        {
+
+          chapter: '03 — Niet vergeten',
+
+          heading: 'Een plaats tussen de pagina’s.',
+
+          text:
+
+            "Dit boek is een manier om de herinnering " +
+            "aan deze kleine zieltjes levend te houden. " +
+            "Hun bestaan verdient erkenning, " +
+            "hun verhalen verdienen het om verteld te worden."
+
+        }
+
+      ]
+
+    },
+
+
+    /* KLEURBOEK */
+
+    coloriage: {
+
+      title: 'Chaque animal a une histoire',
+
+      cover: 'livre-coloriage.jpg',
+
+      category: 'Kleurboek voor volwassenen',
+
+      amazon: 'https://amzn.eu/d/0h3yOZae',
+
+      recommendation:
+
+        "Een creatief moment om dieren te ontdekken " +
+        "die ik echt tijdens mijn reizen heb ontmoet, " +
+        "terwijl je jouw fantasie de vrije loop laat.",
+
+      pages: [
+
+        {
+
+          chapter: '01 — Observeren',
+
+          heading: 'Achter elke illustratie.',
+
+          text:
+
+            "De tekeningen zijn geïnspireerd op echte dieren " +
+            "die ik tijdens mijn reizen heb ontmoet. " +
+            "Elke ontmoeting heeft haar eigen verhaal " +
+            "en haar eigen herinnering."
+
+        },
+
+        {
+
+          chapter: '02 — Verbeelden',
+
+          heading: 'Jouw wereld in kleuren.',
+
+          text:
+
+            "Realistische illustraties, " +
+            "foto's en verhalen begeleiden je " +
+            "tijdens dit creatieve moment. " +
+            "Jij kiest de kleuren."
+
+        },
+
+        {
+
+          chapter: '03 — Vertragen',
+
+          heading: 'Een moment voor jezelf.',
+
+          text:
+
+            "Maak het jezelf comfortabel, " +
+            "leg je kleurpotloden klaar en neem je tijd. " +
+            "Er bestaan geen verkeerde kleuren " +
+            "wanneer je met je hart creëert."
+
+        }
+
+      ]
+
+    }
+
+  };
+
+
+  /* ======================================
+     INTERACTIEVE BOEKEN
+     ====================================== */
+
+  const bookDialog =
+    document.getElementById('book-dialog');
+
+  let activeBook = 'lanterne';
+
+  let activePage = 0;
+
+
+  function renderBookPage(animate = false) {
+
+    const book = libraryBooks[activeBook];
+
+    const page = book.pages[activePage];
+
+
+    document.getElementById('preview-title')
+      .textContent = book.title;
+
+
+    const cover =
+      document.getElementById('preview-cover');
+
+    cover.src = book.cover;
+
+    cover.alt = 'Cover van ' + book.title;
+
+
+    document.getElementById('preview-category')
+      .textContent = book.category;
+
+
+    document.getElementById('preview-chapter')
+      .textContent = page.chapter;
+
+
+    document.getElementById('preview-heading')
+      .textContent = page.heading;
+
+
+    document.getElementById('preview-text')
+      .textContent = page.text;
+
+
+    document.getElementById('preview-page-number')
+      .textContent = String(activePage + 1)
+      .padStart(2, '0');
+
+
+    document.getElementById('preview-pagination')
+      .textContent =
+        'Pagina ' + (activePage + 1) +
+        ' van ' + book.pages.length;
+
+
+    document.getElementById('preview-amazon')
+      .href = book.amazon;
+
+
+    document.getElementById('preview-prev')
+      .disabled = activePage === 0;
+
+
+    document.getElementById('preview-next')
+      .disabled =
+        activePage === book.pages.length - 1;
+
+
+    const previewRight =
+      document.getElementById('preview-right');
+
+    previewRight.classList.remove('page-changing');
+
+
+    if (
+      animate &&
+      !window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches
+    ) {
+
+      void previewRight.offsetWidth;
+
+      previewRight.classList.add('page-changing');
+
+    }
+
+  }
+
+
+  function openBook(bookId) {
+
+    if (!libraryBooks[bookId] || !bookDialog) return;
+
+    activeBook = bookId;
+
+    activePage = 0;
+
+    bookDialog.dataset.book = bookId;
+
+    renderBookPage();
+
+
+    if (!bookDialog.open) {
+
+      bookDialog.showModal();
+
+    }
+
+  }
+
+
+  document.querySelectorAll('[data-open-book]')
+    .forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        openBook(button.dataset.openBook);
+
+      });
+
+    });
+
+
+  document.getElementById('preview-prev')
+    .addEventListener('click', () => {
+
+      if (activePage > 0) {
+
+        activePage--;
+
+        renderBookPage(true);
+
+      }
+
+    });
+
+
+  document.getElementById('preview-next')
+    .addEventListener('click', () => {
+
+      const totalPages =
+        libraryBooks[activeBook].pages.length;
+
+      if (activePage < totalPages - 1) {
+
+        activePage++;
+
+        renderBookPage(true);
+
+      }
+
+    });
+
+
+  /* NAVIGATIE MET HET TOETSENBORD */
+
+  bookDialog.addEventListener('keydown', event => {
+
+    if (event.key === 'ArrowRight') {
+
+      event.preventDefault();
+
+      document.getElementById('preview-next').click();
+
+    }
+
+
+    if (event.key === 'ArrowLeft') {
+
+      event.preventDefault();
+
+      document.getElementById('preview-prev').click();
+
+    }
+
+  });
+
+
+  /* ======================================
+     QR-CODES
+     ====================================== */
+
+  const qrDialog =
+    document.getElementById('qr-dialog');
+
+
+  document.querySelectorAll('[data-qr]')
+    .forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        document.getElementById('qr-dialog-title')
+          .textContent = button.dataset.qrTitle;
+
+
+        const image =
+          document.getElementById('qr-dialog-image');
+
+        image.src = button.dataset.qr;
+
+        image.alt =
+          'Amazon QR-code voor ' +
+          button.dataset.qrTitle;
+
+
+        if (!qrDialog.open) {
+
+          qrDialog.showModal();
+
+        }
+
+      });
+
+    });
+
+
+  /* ======================================
+     VENSTERS SLUITEN
+     ====================================== */
+
+  document.querySelectorAll('[data-close-dialog]')
+    .forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        const dialog = document.getElementById(
+          button.dataset.closeDialog
+        );
+
+        if (dialog && dialog.open) {
+
+          dialog.close();
+
+        }
+
+      });
+
+    });
+
+
+  /* SLUITEN DOOR BUITEN HET VENSTER TE KLIKKEN */
+
+  document.querySelectorAll('.book-dialog, .qr-dialog')
+    .forEach(dialog => {
+
+      dialog.addEventListener('click', event => {
+
+        if (event.target !== dialog) return;
+
+
+        const rect =
+          dialog.getBoundingClientRect();
+
+
+        const outside =
+
+          event.clientX < rect.left ||
+
+          event.clientX > rect.right ||
+
+          event.clientY < rect.top ||
+
+          event.clientY > rect.bottom;
+
+
+        if (outside && dialog.open) {
+
+          dialog.close();
+
+        }
+
+      });
+
+    });  /* ======================================
+     INTERACTIEVE MINI-KLEURPLAAT
+     ====================================== */
+
+  let selectedColor = '#c99b79';
+
+  const colorHistory = [];
+
+
+  const paintAreas =
+    document.querySelectorAll('.paint-area');
+
+
+  const swatches =
+    document.querySelectorAll('.color-swatch');
+
+
+  const customColor =
+    document.getElementById('custom-color');
+
+
+  const coloringMessage =
+    document.getElementById('coloring-message');
+
+
+  const undoButton =
+    document.getElementById('undo-coloring');
+
+
+  /* VOORTGANG VAN DE KLEURPLAAT */
+
+  function updateColoringStatus() {
+
+    const coloredAreas = Array.from(paintAreas)
+      .filter(area => {
+
+        return area.getAttribute('fill') !==
+          area.dataset.original;
+
+      }).length;
+
+
+    undoButton.disabled =
+      colorHistory.length === 0;
+
+
+    if (
+      paintAreas.length > 0 &&
+      coloredAreas === paintAreas.length
+    ) {
+
+      coloringMessage.textContent =
+
+        "Jouw kleine kunstwerk is klaar. " +
+        "Elke kleur vertelt iets over jou. ♡";
+
+    } else if (coloredAreas > 0) {
+
+      coloringMessage.textContent =
+
+        "Beetje bij beetje komt jouw tekening tot leven. ♡";
+
+    } else {
+
+      coloringMessage.textContent =
+
+        "Jouw fantasie kent geen grenzen.";
+
+    }
+
+  }
+
+
+  /* EEN KLEUR SELECTEREN */
+
+  function selectColor(color, activeSwatch = null) {
+
+    selectedColor = color;
+
+    customColor.value = color;
+
+
+    swatches.forEach(swatch => {
+
+      const active = swatch === activeSwatch;
+
+      swatch.classList.toggle('active', active);
+
+      swatch.setAttribute(
+        'aria-pressed',
+        String(active)
+      );
+
+    });
+
+  }
+
+
+  swatches.forEach(swatch => {
+
+    swatch.addEventListener('click', () => {
+
+      selectColor(
+        swatch.dataset.color,
+        swatch
+      );
+
+    });
+
+  });
+
+
+  /* EIGEN KLEUR */
+
+  customColor.addEventListener('input', event => {
+
+    selectColor(event.target.value);
+
+  });
+
+
+  /* EEN DEEL VAN DE TEKENING KLEUREN */
+
+  function paintArea(area) {
+
+    const previousColor =
+      area.getAttribute('fill');
+
+
+    if (previousColor === selectedColor) return;
+
+
+    colorHistory.push({
+
+      area: area,
+
+      color: previousColor
+
+    });
+
+
+    area.setAttribute(
+      'fill',
+      selectedColor
+    );
+
+
+    updateColoringStatus();
+
+  }
+
+
+  paintAreas.forEach(area => {
+
+    area.addEventListener('click', () => {
+
+      paintArea(area);
+
+    });
+
+
+    area.addEventListener('keydown', event => {
+
+      if (
+        event.key === 'Enter' ||
+        event.key === ' '
+      ) {
+
+        event.preventDefault();
+
+        paintArea(area);
+
+      }
+
+    });
+
+  });
+
+
+  /* LAATSTE ACTIE ONGEDAAN MAKEN */
+
+  undoButton.addEventListener('click', () => {
+
+    const lastAction =
+      colorHistory.pop();
+
+
+    if (!lastAction) return;
+
+
+    lastAction.area.setAttribute(
+
+      'fill',
+
+      lastAction.color
+
+    );
+
+
+    updateColoringStatus();
+
+  });
+
+
+  /* OPNIEUW BEGINNEN */
+
+  document.getElementById('reset-coloring')
+    .addEventListener('click', () => {
+
+      paintAreas.forEach(area => {
+
+        area.setAttribute(
+
+          'fill',
+
+          area.dataset.original
+
+        );
+
+      });
+
+
+      colorHistory.length = 0;
+
+
+      updateColoringStatus();
+
+    });
+
+
+  /* ======================================
+     KLEURPLAAT OPSLAAN ALS PNG
+     ====================================== */
+
+  const saveColoringButton =
+    document.getElementById('save-coloring');
+
+
+  saveColoringButton.addEventListener('click', () => {
+
+    const svg =
+      document.getElementById('coloring-drawing');
+
+
+    if (!svg) return;
+
+
+    saveColoringButton.disabled = true;
+
+
+    const copy = svg.cloneNode(true);
+
+
+    copy.setAttribute('width', '1200');
+
+    copy.setAttribute('height', '1200');
+
+    copy.setAttribute(
+
+      'xmlns',
+
+      'http://www.w3.org/2000/svg'
+
+    );
+
+
+    /* INTERACTIEVE ATTRIBUTEN VERWIJDEREN */
+
+    copy.querySelectorAll('[tabindex]')
+      .forEach(element => {
+
+        element.removeAttribute('tabindex');
+
+        element.removeAttribute('role');
+
+        element.removeAttribute('aria-label');
+
+      });
+
+
+    const svgText =
+      new XMLSerializer().serializeToString(copy);
+
+
+    const blob = new Blob(
+
+      [svgText],
+
+      { type: 'image/svg+xml;charset=utf-8' }
+
+    );
+
+
+    const url =
+      URL.createObjectURL(blob);
+
+
+    const image = new Image();
+
+
+    function exportError() {
+
+      saveColoringButton.disabled = false;
+
+      coloringMessage.textContent =
+
+        "De tekening kon niet worden opgeslagen. " +
+        "Je kan het opnieuw proberen.";
+
+    }
+
+
+    image.onload = () => {
+
+      try {
+
+        const canvas =
+          document.createElement('canvas');
+
+
+        canvas.width = 1200;
+
+        canvas.height = 1200;
+
+
+        const context =
+          canvas.getContext('2d');
+
+
+        if (!context) {
+
+          throw new Error('Canvas niet beschikbaar');
+
+        }
+
+
+        context.fillStyle = '#fffdf8';
+
+        context.fillRect(0, 0, 1200, 1200);
+
+        context.drawImage(image, 0, 0, 1200, 1200);
+
+
+        canvas.toBlob(png => {
+
+          if (!png) {
+
+            exportError();
+
+            return;
+
+          }
+
+
+          const pngUrl =
+            URL.createObjectURL(png);
+
+
+          const link =
+            document.createElement('a');
+
+
+          link.href = pngUrl;
+
+          link.download =
+            'Mijn-kleurplaat-Coeur-Errant.png';
+
+
+          document.body.appendChild(link);
+
+          link.click();
+
+          link.remove();
+
+
+          setTimeout(() => {
+
+            URL.revokeObjectURL(pngUrl);
+
+          }, 10000);
+
+
+          coloringMessage.textContent =
+
+            "Jouw kleurplaat is klaar om te bewaren. ♡";
+
+
+          saveColoringButton.disabled = false;
+
+        }, 'image/png');
+
+      } catch (error) {
+
+        exportError();
+
+      } finally {
+
+        URL.revokeObjectURL(url);
+
+      }
+
+    };
+
+
+    image.onerror = () => {
+
+      URL.revokeObjectURL(url);
+
+      exportError();
+
+    };
+
+
+    image.src = url;
+
+  });
+
+
+  updateColoringStatus();
+
+
+  /* ======================================
+     LEESAANBEVELING
+     ====================================== */
+
+  let recommendedBook = null;
+
+
+  const readingChoices =
+    document.querySelectorAll('.reading-choice');
+
+
+  const readingResult =
+    document.getElementById('reading-result');
+
+
+  readingChoices.forEach(choice => {
+
+    choice.addEventListener('click', () => {
+
+      const bookId = choice.dataset.recommend;
+
+      const book = libraryBooks[bookId];
+
+
+      if (!book) return;
+
+
+      recommendedBook = bookId;
+
+
+      readingChoices.forEach(item => {
+
+        const active = item === choice;
+
+
+        item.classList.toggle(
+          'choice-selected',
+          active
+        );
+
+
+        item.setAttribute(
+
+          'aria-pressed',
+
+          String(active)
+
+        );
+
+      });
+
+
+      const cover =
+        document.getElementById('recommended-cover');
+
+
+      cover.src = book.cover;
+
+      cover.alt = 'Cover van ' + book.title;
+
+
+      document.getElementById('recommended-title')
+        .textContent = book.title;
+
+
+      document.getElementById('recommended-description')
+        .textContent = book.recommendation;
+
+
+      readingResult.hidden = false;
+
+
+      readingResult.classList.remove('result-appear');
+
+
+      if (
+        !window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches
+      ) {
+
+        void readingResult.offsetWidth;
+
+        readingResult.classList.add('result-appear');
+
+      }
+
+    });
+
+  });
+
+
+  document.getElementById('recommended-button')
+    .addEventListener('click', () => {
+
+      if (recommendedBook) {
+
+        openBook(recommendedBook);
+
+      }
+
+    });
+
+
+  /* ======================================
+     BOEKENLEGGERS OMDRAAIEN
+     ====================================== */
+
+  document.querySelectorAll('.bookmark')
+    .forEach(bookmark => {
+
+      bookmark.addEventListener('click', () => {
+
+        const flipped =
+          bookmark.classList.toggle('bookmark-flipped');
+
+
+        bookmark.setAttribute(
+
+          'aria-pressed',
+
+          String(flipped)
+
+        );
+
+      });
+
+    });
+
+
+  /* ======================================
+     ANIMATIES TIJDENS HET SCROLLEN
+     ====================================== */
+
+  const revealElements =
+    document.querySelectorAll('.library-reveal');
+
+
+  const reducedMotion =
+    window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+
+
+  let libraryObserver = null;
+
+
+  function showAllLibraryElements() {
+
+    if (libraryObserver) {
+
+      libraryObserver.disconnect();
+
+      libraryObserver = null;
+
+    }
+
+
+    document.body.classList.remove(
+      'library-animations'
+    );
+
+
+    revealElements.forEach(element => {
+
+      element.classList.add('library-visible');
+
+    });
+
+  }
+
+
+  function initLibraryAnimations() {
+
+    if (
+      !('IntersectionObserver' in window) ||
+      reducedMotion.matches
+    ) {
+
+      showAllLibraryElements();
+
+      return;
+
+    }
+
+
+    if (libraryObserver) {
+
+      libraryObserver.disconnect();
+
+    }
+
+
+    libraryObserver = new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add(
+              'library-visible'
+            );
+
+            libraryObserver.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+
+      {
+
+        threshold: 0.08
+
+      }
+
+    );
+
+
+    document.body.classList.add(
+      'library-animations'
+    );
+
+
+    revealElements.forEach(element => {
+
+      if (
+        !element.classList.contains(
+          'library-visible'
+        )
+      ) {
+
+        libraryObserver.observe(element);
+
+      }
+
+    });
+
+  }
+
+
+  initLibraryAnimations();
+
+
+  /* TOEGANKELIJKHEID VIA HET TOETSENBORD */
+
+  document.addEventListener('focusin', event => {
+
+    const section =
+      event.target.closest('.library-reveal');
+
+
+    if (section) {
+
+      section.classList.add('library-visible');
+
+
+      if (libraryObserver) {
+
+        libraryObserver.unobserve(section);
+
+      }
+
+    }
+
+  });
+
+
+  /* ANIMATIEVOORKEUREN RESPECTEREN */
+
+  function handleMotionChange(event) {
+
+    if (event.matches) {
+
+      showAllLibraryElements();
+
+    } else {
+
+      initLibraryAnimations();
+
+    }
+
+  }
+
+
+  if (
+    typeof reducedMotion.addEventListener === 'function'
+  ) {
+
+    reducedMotion.addEventListener(
+
+      'change',
+
+      handleMotionChange
+
+    );
+
+  } else if (
+    typeof reducedMotion.addListener === 'function'
+  ) {
+
+    reducedMotion.addListener(
+      handleMotionChange
+    );
+
+  }
+
+
+  /* ======================================
+     TERUGKEREN NAAR DE PAGINA
+     ====================================== */
+
+  window.addEventListener('pageshow', event => {
+
+    window.closeMenu();
+
+
+    if (event.persisted) {
+
+      updateColoringStatus();
+
+      saveColoringButton.disabled = false;
+
+    }
+
+  });
+
+
+  /* ======================================
+     COMPATIBILITEIT MET GLOBAL.JS
+
+     De gemeenschappelijke functies worden
+     uitsluitend beheerd door global.js:
+
+     - Medaillon van het Koninkrijk
+     - Teller van de 14 schatten
+     - Gedachte van de dag
+     - Welkomstbericht
+     - Knop om naar boven te gaan
+     - Actieve navigatie
+
+     De bibliotheek gebruikt geen
+     bijkomende lokale opslag.
+
+     Kleuren, aanbevelingen en boekenleggers
+     blijven beperkt tot het huidige bezoek.
+     ====================================== */
+
+})();
 
 </script>
 
